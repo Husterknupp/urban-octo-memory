@@ -1,0 +1,59 @@
+/*
+  Theme Name:   Customizr Theme Child
+  Description:  adjustments for lkg homepage
+  Author:       benjamin
+  Template:     customizr
+  Version:      1.0
+  Text Domain:  customizr-child
+*/
+
+@media all and (max-width: 767px) {
+    .fp-button, [class^="fp-text-"] {
+        display: none;
+    }
+}
+
+.branding .header-tagline {
+    font-size: 2.1em;
+    font-weight: bold;
+    font-style: normal;
+    line-height: normal;
+    padding: 0;
+    margin: 2px .1em 0 0;
+    width: 100%
+}
+
+.map-wrapper {
+    width: 100%;
+    text-align: center;
+}
+
+body {
+    font-family: 'Cabin', sans-serif;
+    font-weight: normal;
+}
+
+/*body {*/
+/*    font-family: 'Pacifico', cursive;*/
+/*}*/
+
+/* activate to have same font everywhere */
+
+/* clear, machine written */
+/*.navbar-brand, .header-tagline, h1, h2, h3, .tc-dropcap {*/
+/*    font-family: 'Cabin', sans-serif;*/
+/*}*/
+
+/* curly, hand-written like */
+/*.navbar-brand, .header-tagline, h1, h2, h3, .tc-dropcap {*/
+/*    font-family: 'Pacifico', Cabin;*/
+/*}*/
+
+/* thin hand-written like, clear*/
+.navbar-brand, .header-tagline, h1, h2, h3, .tc-dropcap {
+    font-family: 'Amatic SC', sans-serif;
+}
+
+.can-shrink-brand.sticky-brand-shrink-on .desktop-sticky .header-tagline {
+    font-size: 2.1em;
+}

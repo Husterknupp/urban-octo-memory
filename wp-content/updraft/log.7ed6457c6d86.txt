@@ -1,0 +1,57 @@
+0000.003 () Opened log file at time: Mon, 03 Jun 2019 16:53:09 +0000 on http://s522716835.online.de
+0000.003 () UpdraftPlus WordPress backup plugin (https://updraftplus.com): 1.16.14 WP: 5.2.1 PHP: 7.0.32 (cgi-fcgi, Linux info 3.0 #1337 SMP Tue Jan 01 00:00:00 CEST 2000 all GNU/Linux) MySQL: 5.5.60-0+deb7u1-log WPLANG: de_DE Server: Apache safe_mode: 0 max_execution_time: 900 memory_limit: 268435456 (used: 35M | 38M) multisite: N openssl: OpenSSL 1.0.1t  3 May 2016 mcrypt: Y LANG:  ZipArchive::addFile: Y
+0000.003 () Free space on disk containing Updraft's temporary directory: 581890.3 MB
+0000.002 () Opened log file at time: Mon, 03 Jun 2019 16:53:09 +0000 on http://s522716835.online.de
+0000.002 () UpdraftPlus WordPress backup plugin (https://updraftplus.com): 1.16.14 WP: 5.2.1 PHP: 7.0.32 (cgi-fcgi, Linux info 3.0 #1337 SMP Tue Jan 01 00:00:00 CEST 2000 all GNU/Linux) MySQL: 5.5.60-0+deb7u1-log WPLANG: de_DE Server: Apache safe_mode: 0 max_execution_time: 900 memory_limit: 268435456 (used: 31.2M | 34M) multisite: N openssl: OpenSSL 1.0.1t  3 May 2016 mcrypt: Y LANG:  ZipArchive::addFile: Y
+0000.002 () Free space on disk containing Updraft's temporary directory: 581889.9 MB
+0000.004 () Ensuring WP_Filesystem is setup for a restore
+0000.004 () WP_Filesystem is setup and ready for a restore
+0000.007 () Restore job started. Entities to restore: plugins, themes, uploads, others. Restore options: {"updraft_encryptionphrase":"","updraft_restorer_wpcore_includewpconfig":false,"updraft_incremental_restore_point":-1}
+0000.008 () Entity: plugins
+0000.008 () restore_backup(backup_file=backup_2019-06-03-1836_LKG_Halle_513f0f87e57b-plugins.zip, type=plugins, info=a:2:{s:4:"path";s:72:"/homepages/6/d71795937/htdocs/clickandbuilds/LKGHalle/wp-content/plugins";s:11:"description";s:7:"Plugins";}, last_one=)
+0000.009 () Entpacke Sicherung... (backup_2019-06-03-1836_LKG_Halle_513f0f87e57b-plugins.zip, 7.7 MB)
+0000.010 () Unzipping backup_2019-06-03-1836_LKG_Halle_513f0f87e57b-plugins.zip to /homepages/6/d71795937/htdocs/clickandbuilds/LKGHalle/wp-content/upgrade/1040afe0/ using UpdraftPlus_ZipArchive, starting index 0
+0000.790 () Unzip progress: 1002 out of 1806 files (23.7 MB, plugins/updraftplus/vendor/rackspace/php-opencloud/lib/OpenCloud/Common/Exceptions/VolumeTypeError.php)
+0001.147 () Unzip progress: 1806 out of 1806 files (26.3 MB, plugins/hello.php)
+0001.162 () Moving old data: filesystem method / updraft_dir is potentially possible
+0001.162 () Moving old data: can potentially use wp_filesystem method / -old
+0001.162 () Entferne alte Daten ...
+0002.733 () Top-level entities being moved: index.php, akismet, php.ini, 1and1-wordpress-assistant, updraftplus
+0002.734 () Verschiebe entpackte Sicherung an Stelle ...
+0004.324 () Top-level entities being moved: akismet, customizer-export-import, formidable, gitium, updraftplus, index.php, hello.php
+0004.326 () Räume auf ...
+0004.328 () Entity: themes
+0004.328 () restore_backup(backup_file=backup_2019-06-03-1836_LKG_Halle_513f0f87e57b-themes.zip, type=themes, info=a:2:{s:4:"path";s:71:"/homepages/6/d71795937/htdocs/clickandbuilds/LKGHalle/wp-content/themes";s:11:"description";s:6:"Themes";}, last_one=)
+0004.328 () Entpacke Sicherung... (backup_2019-06-03-1836_LKG_Halle_513f0f87e57b-themes.zip, 44.4 MB)
+0004.328 () Unzipping backup_2019-06-03-1836_LKG_Halle_513f0f87e57b-themes.zip to /homepages/6/d71795937/htdocs/clickandbuilds/LKGHalle/wp-content/upgrade/1caaf0f9/ using UpdraftPlus_ZipArchive, starting index 0
+0005.142 () Unzip progress: 1002 out of 4944 files (2.2 MB, themes/spacious/inc/demo-config.php)
+0005.878 () Unzip progress: 2003 out of 4944 files (22 MB, themes/customizr/inc/lang/zh_TW.po)
+0006.861 () Unzip progress: 3004 out of 4944 files (45 MB, themes/flash/inc/kirki/includes/controls/class-kirki-controls-number-control.php)
+0007.721 () Unzip progress: 4005 out of 4944 files (60.9 MB, themes/zerif-lite/CHANGELOG.md)
+0008.530 () Unzip progress: 4944 out of 4944 files (82.4 MB, themes/seriously-child/assets/js/custom.js)
+0008.533 () Moving old data: filesystem method / updraft_dir is potentially possible
+0008.533 () Moving old data: can potentially use wp_filesystem method / -old
+0008.533 () Entferne alte Daten ...
+0008.757 () Top-level entities being moved: twentynineteen, twentysixteen, twentyseventeen, index.php, php.ini
+0008.757 () Verschiebe entpackte Sicherung an Stelle ...
+0013.452 () Top-level entities being moved: busiprof, certify, customizr, customizr-child, flash, hestia, mesmerize, one-page-express, onepress, orfeo, seriously, seriously-child, spacious, spicepress, twentyfifteen, twentyseventeen, twentysixteen, vdperanto, zerif-lite, index.php
+0013.458 () Räume auf ...
+0013.460 () Entity: uploads
+0013.460 () restore_backup(backup_file=backup_2019-06-03-1836_LKG_Halle_513f0f87e57b-uploads.zip, type=uploads, info=a:2:{s:4:"path";s:72:"/homepages/6/d71795937/htdocs/clickandbuilds/LKGHalle/wp-content/uploads";s:11:"description";s:7:"Uploads";}, last_one=)
+0013.460 () Entpacke Sicherung... (backup_2019-06-03-1836_LKG_Halle_513f0f87e57b-uploads.zip, 19.4 MB)
+0013.460 () Unzipping backup_2019-06-03-1836_LKG_Halle_513f0f87e57b-uploads.zip to /homepages/6/d71795937/htdocs/clickandbuilds/LKGHalle/wp-content/upgrade/fb35e0c5/ using UpdraftPlus_ZipArchive, starting index 0
+0013.654 () Unzip progress: 214 out of 214 files (19.4 MB, uploads/2018/05/ben-white-138103-unsplash-528x297.jpg)
+0013.655 () Moving old data: filesystem method / updraft_dir is potentially possible
+0013.656 () Moving old data: can potentially use wp_filesystem method / -old
+0013.656 () Entferne alte Daten ...
+0013.658 () Verschiebe entpackte Sicherung an Stelle ...
+0013.852 () Räume auf ...
+0013.854 () Entity: others
+0013.854 () restore_backup(backup_file=backup_2019-06-03-1836_LKG_Halle_513f0f87e57b-others.zip, type=others, info=a:2:{s:4:"path";s:64:"/homepages/6/d71795937/htdocs/clickandbuilds/LKGHalle/wp-content";s:11:"description";s:6:"Andere";}, last_one=1)
+0013.854 () Entpacke Sicherung... (backup_2019-06-03-1836_LKG_Halle_513f0f87e57b-others.zip, 2 MB)
+0013.854 () Unzipping backup_2019-06-03-1836_LKG_Halle_513f0f87e57b-others.zip to /homepages/6/d71795937/htdocs/clickandbuilds/LKGHalle/wp-content/upgrade/fff1cd13/ using UpdraftPlus_ZipArchive, starting index 0
+0014.018 () Unzip progress: 111 out of 111 files (6.8 MB, languages-old/themes/busiprof-de_DE.mo)
+0014.029 () Räume auf ...
+0014.045 () The current theme was not found; to prevent this stopping the site from loading, your theme has been reverted to the default theme
+0014.045 () Restore successful!
+0014.045 () Restore successful
