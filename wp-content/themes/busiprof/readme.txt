@@ -55,6 +55,18 @@ Support
 -------
 
 Do you enjoy this theme? Send your ideas - issues - on the theme formn . Thank you!
+@version 2.0.2
+1. Fixed service section image issue.
+@version 2.0.1
+1. Added Archive page title setting.
+@version 2.0
+1. Fixed data migration.
+@version 1.9.9
+1. Fixed service icon and image issue.
+@version 1.9.8
+1. Added link settings in project.
+@version 1.9.7
+1. Added WooCommerce Gallery Support.
 @version 1.9.6
 1. Fixed Upgrade css issue.
 @version 1.9.5
