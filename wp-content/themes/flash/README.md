@@ -1,8 +1,8 @@
 === Flash ===
 Author: ThemeGrill
 Requires at least: WordPress 4.3
-Tested up to: WordPress 4.6
-Version: 1.1.9
+Tested up to: WordPress 5.0.3
+Version: 1.2.6
 License: GPLv3 or later
 License URI: https://www.gnu.org/licenses/gpl-3.0.en.html
 Tags: one-column, two-columns, left-sidebar, right-sidebar, grid-layout, custom-background, custom-colors, custom-menu, custom-logo, featured-images, footer-widgets, full-width-template, theme-options, threaded-comments, translation-ready, blog, e-commerce
@@ -80,8 +80,36 @@ Source: https://pixabay.com/en/coffee-book-flowers-setting-2390136/
 Unless otherwise specified, all the theme files, scripts and images including the screenshot image are licensed under [GNU GPL] (http://www.gnu.org/licenses/gpl-3.0.txt), version 3 or later.
 
 == Changelog ==
-= 1.2.0 - 2018-04-30 = 
-* Tweak - Fixed deprecated WC function Fix 
+= Version 1.2.8 - 2019-03-26 =
+* Fix - Upload Theme button not working
+
+= Version 1.2.7 - 2019-03-07 =
+* Tweak - Modify pingback url autodiscovery for single posts, pages, or attachments.
+* Tweak - Added site library and demo import process in About Flash page.
+
+= Version 1.2.6 - 2019-01-16 =
+* Updated - Isotope library to 3.0.6 
+* Updated - Kirki to 3.0.35.3
+
+= Version 1.2.5 - 2018-12-05 =
+* Fix - Gallery margin for Gutenberg
+* Fix - Woocommerce page not showing left sidebar
+
+= Version 1.2.4 - 2018-11-20 =
+* Added - Gutenberg compatibility
+
+= Version 1.2.3 - 2018-08-31 =
+* Update - Upsell link
+* Update - Screenshot updated as per new wordpress.org guideline
+
+= 1.2.2 - 2018-06-18 =
+* Feature - Added RTL language support
+
+= 1.2.1 - 2018-04-30 =
+* Feature - Added related posts
+
+= 1.2.0 - 2018-04-30 =
+* Tweak - Fixed deprecated WC function Fix
 
 = 1.1.9 - 2018-04-02 =
 * Fix - Responsive menu item click on onepage.
@@ -108,10 +136,10 @@ Unless otherwise specified, all the theme files, scripts and images including th
 
 = 1.1.4 - 2017-08-08 =
 * Tweak - Updated fontawesome to `v4.7.0` and it's list files
-* Fix   - Scroll offset for one page menu 
+* Fix   - Scroll offset for one page menu
 * Tweak - Kirki updated to `v3.0.9`
-* Fix   - Menu alignment center 
-* Fix   - Blog widget styling 
+* Fix   - Menu alignment center
+* Fix   - Blog widget styling
 * Fix 	- List style in post
 * Tweak - Migrated demo preview screen shots
 
