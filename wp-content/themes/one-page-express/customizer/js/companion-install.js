@@ -4,7 +4,8 @@ jQuery(document).ready(function () {
     jQuery('#TB_window').css({
         'z-index': '5000001',
         'height': '460px',
-        'width': '630px'
+        'width': '630px',
+        'margin-left': '-315px',
     })
     jQuery('#TB_overlay').css({
         'z-index': '5000000'

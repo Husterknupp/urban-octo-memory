@@ -41,7 +41,7 @@ function one_page_express_setup()
         'height'      => 70,
     ));
 
-    add_image_size( 'one-page-express-full-hd', 1920, 1080 );
+    add_image_size('one-page-express-full-hd', 1920, 1080);
 
 
     add_theme_support('customize-selective-refresh-widgets');
@@ -97,12 +97,13 @@ function one_page_express_setup()
 }
 
 
-add_filter( 'image_size_names_choose', 'one_page_express_full_hd_image_size_label' );
+add_filter('image_size_names_choose', 'one_page_express_full_hd_image_size_label');
 
-function one_page_express_full_hd_image_size_label( $sizes ) {
-    return array_merge( $sizes, array(
-        'one-page-express-full-hd' => __( 'Full HD' , 'one-page-express' ),
-    ) );
+function one_page_express_full_hd_image_size_label($sizes)
+{
+    return array_merge($sizes, array(
+        'one-page-express-full-hd' => __('Full HD', 'one-page-express'),
+    ));
 }
 
 function one_page_express_register_theme_page()
@@ -285,10 +286,29 @@ function one_page_express_add_sections($wp_customize)
         )
     );
 
-    $wp_customize->add_section('one_page_express_page_content', array(
-        'priority' => 2,
-        'title'    => __('Front Page content', 'one-page-express'),
-    ));
+
+    if ( ! apply_filters('one_page_exress_companion_installed', false)) {
+
+        $wp_customize->add_section(
+            new \OnePageExpress\FrontPageSection(
+                $wp_customize,
+                'page_content',
+                array(
+                    'priority' => 2,
+                    'title'    => esc_html__('Front Page content', 'one-page-express'),
+                )
+            )
+        );
+
+    } else {
+
+        $wp_customize->add_section('one_page_express_page_content', array(
+            'priority' => 2,
+            'title'    => __('Front Page content', 'one-page-express'),
+        ));
+
+    }
+
 
     $wp_customize->add_section('one_page_express_footer_template', array(
         'title'    => __('Footer Settings', 'one-page-express'),
@@ -1403,6 +1423,7 @@ function one_page_express_customize_register_controls($wp_customize)
     });
 
     require_once get_template_directory() . "/customizer/customizer-controls.php";
+    require_once get_template_directory() . "/customizer/customizer.php";
 
     one_page_express_add_sections($wp_customize);
     one_page_express_customize_register_action($wp_customize);
@@ -2077,10 +2098,10 @@ add_action('widgets_init', 'one_page_express_widgets_init');
 function one_page_express_excerpt_more($link)
 {
 
-    if ( is_admin() ) {
+    if (is_admin()) {
         return $link;
     }
-    
+
     return '&hellip; <br> <a class="button small blue" href="' . esc_url(get_permalink(get_the_ID())) . '">' . __('Read more', 'one-page-express') . '</a>';
 }
 
@@ -2141,7 +2162,7 @@ function one_page_express_logo($footer = false)
         }
 
         the_custom_logo();
-    } else if ($footer) {
+    } elseif ($footer) {
         printf('<h2 class="footer-logo">%1$s</h2>', get_bloginfo('name'));
     } else {
         printf('<a class="text-logo" href="%1$s">%2$s</a>', esc_url(home_url('/')), one_page_express_bold(get_bloginfo('name')));
@@ -2197,7 +2218,7 @@ function one_page_express_latest_posts_partial()
                     </div>
                 </div>
             </div>
-            <?php
+        <?php
         endwhile;
         wp_reset_postdata();
     endif;
@@ -2259,7 +2280,7 @@ function one_page_express_scripts()
 
     $theme = wp_get_theme();
     $ver   = $theme->get('Version');
-    
+
     wp_enqueue_style('one-page-express-style', get_stylesheet_uri(), array(), $ver);
     wp_enqueue_style('one-page-express-font-awesome', get_template_directory_uri() . '/assets/font-awesome/font-awesome.min.css', array(), $ver);
     wp_enqueue_style('one-page-express-animate', get_template_directory_uri() . '/assets/css/animate.css', array(), $ver);
@@ -2302,13 +2323,13 @@ add_action('wp_enqueue_scripts', 'one_page_express_scripts');
  * @return string The footer copyright text.
  */
 
-if(!function_exists('one_page_express_copyright')){
+if ( ! function_exists('one_page_express_copyright')) {
     function one_page_express_copyright()
     {
         $defaultText   = __('Built using WordPress and <a href="https://extendthemes.com/go/built-with-one-page-express">OnePage Express Theme</a>.', 'one-page-express');
         $copyrightText = apply_filters("one-page-express-copyright", $defaultText);
 
-        return '&copy;&nbsp;' . "&nbsp;" . date_i18n(__('Y','one-page-express')) . '&nbsp;' . esc_html(get_bloginfo('name')) . '.&nbsp;' . wp_kses_post($copyrightText);
+        return '&copy;&nbsp;' . "&nbsp;" . date_i18n(__('Y', 'one-page-express')) . '&nbsp;' . esc_html(get_bloginfo('name')) . '.&nbsp;' . wp_kses_post($copyrightText);
     }
 }
 
@@ -2338,22 +2359,22 @@ function one_page_express_title()
 
     if (is_404()) {
         $title = __('Page not found', 'one-page-express');
-    } else if (is_search()) {
+    } elseif (is_search()) {
         $title = sprintf(__('Search Results for &#8220;%s&#8221;', 'one-page-express'), get_search_query());
-    } else if (is_home()) {
+    } elseif (is_home()) {
         if (is_front_page()) {
             $title = get_bloginfo('name');
         } else {
             $title = single_post_title();
         }
-    } else if (is_archive()) {
+    } elseif (is_archive()) {
 
         if (is_post_type_archive()) {
             $title = post_type_archive_title('', false);
         } else {
             $title = get_the_archive_title();
         }
-    } else if (is_single()) {
+    } elseif (is_single()) {
         $title = get_bloginfo('name');
 
         global $post;
@@ -2448,7 +2469,7 @@ function one_page_express_background($inner = false)
 
             if (preg_match('#^https?://(?:www\.)?(?:youtube\.com/watch|youtu\.be/)#', $video_url)) {
                 $settings['mimeType'] = 'video/x-youtube';
-            } else if ( ! empty($video_type['type'])) {
+            } elseif ( ! empty($video_type['type'])) {
                 $settings['mimeType'] = $video_type['type'];
             }
 
@@ -2613,7 +2634,7 @@ function one_page_express_print_video_container($inner = false)
                 display: none;
             }
         </style>
-        <?php
+    <?php
     endif;
 }
 
@@ -2735,7 +2756,7 @@ add_action('wp_head', function () {
     $margin            = get_theme_mod('one_page_express_blog_header_margin', '200px');
     $showBlogSeparator = get_theme_mod('one_page_express_blog_header_overlap', true);
 
-    if(function_exists('one_page_express_is_woocommerce') && one_page_express_is_woocommerce()){
+    if (function_exists('one_page_express_is_woocommerce') && one_page_express_is_woocommerce()) {
         return;
     }
 
@@ -2763,7 +2784,7 @@ add_action('wp_head', function () {
                 }
             }
         </style>
-        <?php
+    <?php
     endif;
 });
 
@@ -2840,10 +2861,59 @@ Kirki::add_field('one_page_express', array(
 ));
 
 
+function one_page_express_kirki_configuration($config)
+{
+    $config['url_path'] = get_template_directory_uri() . '/customizer/kirki/';
 
-
-function one_page_express_kirki_configuration( $config ) {
-    $config['url_path']     = get_template_directory_uri() . '/customizer/kirki/';
     return $config;
 }
-add_filter( 'kirki/config', 'one_page_express_kirki_configuration', 10 );
+
+add_filter('kirki/config', 'one_page_express_kirki_configuration', 10);
+
+
+function one_page_express_is_modified()
+{
+    $mods = get_theme_mods();
+    foreach ((array)$mods as $mod => $value) {
+        if (strpos($mod, "header") !== false) {
+            return true;
+        }
+    }
+
+    return false;
+}
+
+
+function one_page_express_is_wporg_preview()
+{
+
+    $url    = site_url();
+    $parse  = parse_url($url);
+    $wp_org = 'wp-themes.com';
+    $result = false;
+
+    if (isset($parse['host']) && $parse['host'] === $wp_org) {
+        $result = true;
+    }
+
+    return $result;
+
+}
+
+add_action('after_switch_theme', function () {
+    $modified = one_page_express_is_modified();
+
+    if ( ! $modified) {
+        set_theme_mod('show_front_page_hero_by_default', true);
+    }
+});
+
+add_filter('one_page_express_get_header', function ($header) {
+
+    $can_show = (get_theme_mod('show_front_page_hero_by_default', false) || one_page_express_is_wporg_preview());
+    if (is_front_page() && $can_show) {
+        $header = "homepage";
+    }
+
+    return $header;
+});
