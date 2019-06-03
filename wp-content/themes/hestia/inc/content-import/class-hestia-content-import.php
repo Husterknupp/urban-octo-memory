@@ -3,7 +3,7 @@
  * Hestia import handler.
  *
  * @package Hestia
- * @since 1.1.49
+ * @since   1.1.49
  */
 
 /**
@@ -89,7 +89,7 @@ final class Hestia_Content_Import {
 	 * Hestia_Content_Import constructor.
 	 *
 	 * @access public
-	 * @since 1.1.49
+	 * @since  1.1.49
 	 */
 	public function __construct() {
 
@@ -105,7 +105,7 @@ final class Hestia_Content_Import {
 	 * Main import handler function.
 	 *
 	 * @access private
-	 * @since 1.1.49
+	 * @since  1.1.49
 	 */
 	public final function import() {
 
@@ -132,7 +132,7 @@ final class Hestia_Content_Import {
 	 * @param theme -mods $mods theme mods array.
 	 *
 	 * @access private
-	 * @since 1.1.49
+	 * @since  1.1.49
 	 */
 	private final function prefix_theme_mods( $mods ) {
 		$prefix = str_replace( '-', '_', $this->previous_theme ) . '_';
@@ -150,73 +150,44 @@ final class Hestia_Content_Import {
 	 * Add exceptions and bail if the previous theme was not Azera, Parallax or Llorix,
 	 *
 	 * @access private
-	 * @since 1.1.49
+	 * @since  1.1.49
 	 */
 	private final function add_exceptions() {
 		// Add exceptions and bail if there's another theme than these three.
 		switch ( $this->previous_theme ) {
 			case 'azera-shop':
 				$this->azera_specific_changes();
-				$theme_exceptions = array(
 
-					// Big title background
+				$theme_exceptions        = array(
 					'hestia_big_title_background' => 'header_image',
-
-					// Ribbon background
 					'hestia_ribbon_background'    => 'azera_shop_ribbon_background',
-
-					// Shop section
 					'hestia_shop_title'           => 'azera_shop_shop_section_title',
 					'hestia_shop_subtitle'        => 'azera_shop_shop_section_subtitle',
 					'hestia_shop_items'           => 'azera_shop_number_of_products',
-
 				);
 				$this->simple_theme_mods = array_merge( $this->simple_theme_mods, $theme_exceptions );
 				break;
-				break;
 			case 'parallax-one':
 				$this->parallax_specific_changes();
-				$theme_exceptions = array(
-
-					// Big title background
+				$theme_exceptions        = array(
 					'hestia_big_title_background' => 'header_image',
-
-					// Ribbon background
 					'hestia_ribbon_background'    => 'paralax_one_ribbon_background',
-
-					// Shop section
 					'hestia_shop_title'           => 'parallax_one_plus_shop_section_title',
 					'hestia_shop_subtitle'        => 'parallax_one_plus_shop_section_subtitle',
 					'hestia_shop_items'           => 'parallax_one_plus_number_of_products',
-
-					// Blog section
 					'hestia_blog_title'           => 'parallax_one_latest_news_title',
-
-					// Parallax
-					'hestia_parallax_layer1'      => 'paralax_one_first_layer',
-					'hestia_parallax_layer2'      => 'paralax_one_second_layer',
-
 				);
 				$this->simple_theme_mods = array_merge( $this->simple_theme_mods, $theme_exceptions );
 				break;
 			case 'llorix-one-lite':
 				$this->llorix_specific_changes();
-				$theme_exceptions = array(
-
-					// Big title background
+				$theme_exceptions        = array(
 					'hestia_big_title_background' => 'header_image',
-
-					// Ribbon background
 					'hestia_ribbon_background'    => 'llorix_one_lite_ribbon_background',
-
-					// Shop section
 					'hestia_shop_title'           => 'llorix_one_plus_shop_section_title',
 					'hestia_shop_subtitle'        => 'llorix_one_plus_shop_section_subtitle',
 					'hestia_shop_items'           => 'llorix_one_plus_number_of_products',
-
-					// Blog section
 					'hestia_blog_title'           => 'llorix_one_lite_latest_news_title',
-
 				);
 				$this->simple_theme_mods = array_merge( $this->simple_theme_mods, $theme_exceptions );
 				break;
@@ -228,7 +199,7 @@ final class Hestia_Content_Import {
 	 * Import content from previous theme.
 	 *
 	 * @access private
-	 * @since 1.1.49
+	 * @since  1.1.49
 	 */
 	private function import_content() {
 
@@ -251,18 +222,6 @@ final class Hestia_Content_Import {
 		$clients_hide = get_theme_mod( 'hestia_clients_bar_hide' );
 		if ( ! empty( $this->previous_theme_content[ $prefix . 'logos_content' ] ) && empty( $clients_hide ) ) {
 			set_theme_mod( 'hestia_clients_bar_hide', false );
-		}
-
-		/**
-		 * Slider type
-		 */
-		$slider_type = get_theme_mod( 'hestia_slider_type' );
-		if ( ! empty( $this->previous_theme_content[ $prefix . 'enable_move' ] ) && empty( $slider_type ) ) {
-			if ( $this->previous_theme_content[ $prefix . 'enable_move' ] ) {
-				set_theme_mod( 'hestia_slider_type', 'parallax' );
-			} else {
-				set_theme_mod( 'hestia_slider_type', 'video' );
-			}
 		}
 
 		/**
@@ -426,7 +385,7 @@ final class Hestia_Content_Import {
 	 * @param theme -mods $mods theme mods array.
 	 *
 	 * @access private
-	 * @since 1.1.49
+	 * @since  1.1.49
 	 */
 	private function set_simple_mods( $mods ) {
 		// Prefix the theme mods with the previous active theme name and set them in Hestia.
@@ -440,11 +399,11 @@ final class Hestia_Content_Import {
 	/**
 	 * Utility method to set theme mod from import.
 	 *
-	 * @param hestia-mod-id   $hestia_mod_id the hestia mod to set.
-	 * @param imported-mod-id $imported_mod_id the imported theme mod id.
+	 * @param  hestia-mod-id   $hestia_mod_id the hestia mod to set.
+	 * @param  imported-mod-id $imported_mod_id the imported theme mod id.
 	 *
 	 * @access private
-	 * @since 1.1.49
+	 * @since  1.1.49
 	 */
 	private final function set_hestia_mod( $hestia_mod_id, $imported_mod_id ) {
 		$hestia_mod = get_theme_mod( $hestia_mod_id );
@@ -460,14 +419,13 @@ final class Hestia_Content_Import {
 	 * Do specific actions for Llorix theme.
 	 *
 	 * @access private
-	 * @since 1.1.49
+	 * @since  1.1.49
 	 */
 	private function llorix_specific_changes() {
 
 		/* Set fonts */
 		set_theme_mod( 'hestia_headings_font', 'Cabin' );
 		set_theme_mod( 'hestia_body_font', 'Cabin' );
-		set_theme_mod( 'hestia_general_layout', false );
 
 		/* Set default color */
 		set_theme_mod( 'accent_color', '#be5000' );
@@ -486,14 +444,13 @@ final class Hestia_Content_Import {
 	 * Do specific actions for Azera theme.
 	 *
 	 * @access private
-	 * @since 1.1.49
+	 * @since  1.1.49
 	 */
 	private function azera_specific_changes() {
 
 		/* Set fonts */
 		set_theme_mod( 'hestia_headings_font', 'Cabin' );
 		set_theme_mod( 'hestia_body_font', 'Cabin' );
-		set_theme_mod( 'hestia_general_layout', false );
 
 		/* Set default color */
 		set_theme_mod( 'accent_color', '#FFA200' );
@@ -509,13 +466,12 @@ final class Hestia_Content_Import {
 	 * Do modifications for parallax that needs some logic.
 	 *
 	 * @access private
-	 * @since 1.1.49
+	 * @since  1.1.49
 	 */
 	private function parallax_specific_changes() {
 		/* Set fonts */
 		set_theme_mod( 'hestia_headings_font', 'Cabin' );
 		set_theme_mod( 'hestia_body_font', 'Cabin' );
-		set_theme_mod( 'hestia_general_layout', false );
 
 		/* Set default color */
 		set_theme_mod( 'accent_color', '#008ed6' );
@@ -543,7 +499,7 @@ final class Hestia_Content_Import {
 		$page_content  = ! empty( $about_content ) ? $about_content : '';
 		$page          = array(
 			'post_type'    => 'page',
-			'post_title'   => 'Front page',
+			'post_title'   => __( 'Front page', 'hestia' ),
 			'post_content' => wp_kses_post( $page_content ),
 			'post_status'  => 'publish',
 			'post_author'  => 1,

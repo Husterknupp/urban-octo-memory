@@ -11,7 +11,7 @@
  */
 
 
-if ( ! is_page_template() ) {
+if ( ! is_page_template() && ! get_theme_mod( 'disable_frontpage_sections', false ) ) {
 
 		get_header();
 		/**
@@ -20,7 +20,6 @@ if ( ! is_page_template() ) {
 		 * @hooked hestia_slider_section
 		 */
 		do_action( 'hestia_header' ); ?>
-	</header>
 	<div class="<?php echo esc_attr( hestia_layout() ); ?>">
 		<?php
 		/**

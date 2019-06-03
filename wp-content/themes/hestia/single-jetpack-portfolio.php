@@ -7,8 +7,9 @@
  */
 
 get_header();
-hestia_display_page_header(); ?>
-</header>
+
+do_action( 'hestia_before_single_post_wrapper' ); ?>
+
 <div class="<?php echo hestia_layout(); ?>">
 	<div class="blog-post blog-post-wrapper">
 		<div class="container">

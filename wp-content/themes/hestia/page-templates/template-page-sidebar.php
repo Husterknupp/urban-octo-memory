@@ -14,16 +14,12 @@ get_header();
 /**
  * Don't display page header if header layout is set as classic blog.
  */
-$hestia_header_layout = get_theme_mod( 'hestia_header_layout', 'default' );
-if ( $hestia_header_layout !== 'classic-blog' ) {
-	hestia_display_page_header();
-} ?>
+do_action( 'hestia_before_single_page_wrapper' ); ?>
 
-</header>
 <div class="<?php echo hestia_layout(); ?>">
 	<?php
 	$class_to_add = '';
-	if ( hestia_woocommerce_check() && ! is_cart() ) {
+	if ( class_exists( 'WooCommerce' ) && ! is_cart() ) {
 		$class_to_add = 'blog-post-wrapper';
 	}
 	?>
@@ -34,9 +30,6 @@ if ( $hestia_header_layout !== 'classic-blog' ) {
 				while ( have_posts() ) :
 					the_post();
 					get_template_part( 'template-parts/content', 'page' );
-					if ( comments_open() || get_comments_number() ) :
-						comments_template();
-					endif;
 				endwhile;
 			else :
 				get_template_part( 'template-parts/content', 'none' );

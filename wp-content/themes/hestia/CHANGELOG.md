@@ -1,4 +1,275 @@
 
+ ### v2.4.5 - 2019-05-27 
+ **Changes:** 
+ * Fixed editor visual integration with the latest update of WordPress
+* Fixed duplicated comments area when using Elementor Pro templates
+ 
+ ### v2.4.4 - 2019-04-22 
+ **Changes:** 
+ * New logging mechanism to the onboarding module
+* Improved the whole routine for the content import in the onboarding module
+* Added new wp_body_open() function for WP 5.2
+* Fixed logo disappearing on scroll on the distraction-free checkout mode
+* Made blog text color darker when using the full content articles option
+* Fixed portfolio featured image not visible in Firefox in the lightbox
+* Fixed overlapping content on the blog page
+* Fixed incorrect title attribute for the primary menu
+* Fixed Shop page layout on the third header layout
+* Remove title appearing in the navigation cart in the latest update of WooCommerce
+ 
+ ### v2.4.2 - 2019-04-02 
+ **Changes:** 
+ * Updated the Starter Sites library
+ 
+ ### v2.4.1 - 2019-03-29 
+ **Changes:** 
+ * Compatibility with the Header, Footer & Blocks for Elementor plugin
+* New Agency Travel Demo Starter Site
+* Fixed issue with the color picker needing two clicks
+* Updated the Contact and Facebook community links
+* Updated tags list with the new tags
+* Fixed importing issues with the Starter Sites
+* Fixed White Label error appearing lower PHP versions
+* Fixed issue with contact form shortcode not being translation ready
+* Updated Starter Sites library images
+ 
+ ### v2.4.0 - 2019-03-21 
+ **Changes:** 
+ * [Hestia Pro] New White Label module
+* Fixed issue with Big Title buttons shadow color
+* Fixed issue with Portfolio pop-up not opening in Microsoft Edge
+* Fixed issue with Blog options taking control over the custom post types archives pages
+* Fixed issue with invalid CSS inline style
+ 
+ ### v2.3.0 - 2019-03-01 
+ **Changes:** 
+ * Fixed products categories layout on the Shop pane and Homepage
+* Fixed issue with the title attribute not escaping HTML tags in the primary menu
+* New Hestia Original starter site
+ 
+ ### v2.2.1 - 2019-02-12 
+ **Changes:** 
+ * [Hestia PRO] Fixed issue with the [hestia_slider] shortcode not working
+* Fixed search results page layout when using the second header option
+* Replaced Google+ sharing option with an Email option
+* Fixed link for sharing on Twitter option
+* Fixed issue with color control updating only after two clicks
+ 
+ ### v2.2.0 - 2019-02-06 
+ **Changes:** 
+ * NEW Hestia Specific Gutenberg blocks for Otter Blocks
+* Improved the onboarding process
+* New filter for compatibility with the Central Color Palette plugin
+* Fixed default font weight for headings
+* Fixed issue with default small font size for lists
+* Allow HTML tags in the single product page title
+* Fixed problem with the footer not sticking to the bottom of the blog page
+* Fixed warning with the Connections plugin
+ 
+ ### v2.1.1 - 2019-01-17 
+ **Changes:** 
+ * Changed the boxed layout for the third header layout
+* Improved layout of the onboarding notice and page
+* Small layout fixes for the Orfeo child theme
+* Fixed the upgrade link
+ 
+ ### v2.1.0 - 2019-01-09 
+ **Changes:** 
+ * NEW Custom integration with Gutenberg
+* NEW Options to differentially enable/disable navigation and footer areas on posts/pages
+* Fixed compatibility with Everest Forms plugin
+* Fixed compatibility with Quiz Cat plugin
+* Fixed problem with the About Section background image remaining fixed in Firefox
+* Removed the Featured tag for the sticky posts
+ 
+ ### v2.0.19 - 2018-12-18 
+ **Changes:** 
+ * Fixed WooCommerce related product layout in Fagri
+* Fixed issue with the Very Top Bar not visible on Elementor Full Width page templates
+* Fixed issue with the Contact section content area that did not opened with Gutenberg
+ 
+ ### v2.0.18 - 2018-12-12 
+ **Changes:** 
+ * Revert Font Awesome 5
+ 
+ ### v2.0.17 - 2018-12-11 
+ **Changes:** 
+ * Update to Font Awesome 5
+ 
+ ### v2.0.16 - 2018-12-10 
+ **Changes:** 
+ * Updated Tested up to version to 5.0
+* Removed unused notice
+ 
+ ### v2.0.15 - 2018-12-05 
+ **Changes:** 
+ * Fixed problem with Very Top Bar not visible on mobile on the single product page
+* Recommend Otter Blocks plugin
+ 
+ ### v2.0.14 - 2018-11-30 
+ **Changes:** 
+ * Fixed issues with the Hestia Woocommerce Demo
+* Updated theme license
+* Added back filter to allow you to display the product image in the header of the single product page
+ 
+ ### v2.0.13 - 2018-11-28 
+ **Changes:** 
+ * Fixed issues with retina images on the shop page
+* Fixed import from Zelle
+* Updated the Hestia WooCommerce demo
+* Recommend Neve
+ 
+ ### v2.0.12 - 2018-11-16 
+ **Changes:** 
+ * Update readme file
+* Fixed warnings on the typography file
+* [Fagri child theme] fix padding issue on the Pirate Forms form
+ 
+ ### v2.0.11 - 2018-11-09 
+ **Changes:** 
+ * Fixed fatal error happening in a few cases
+ 
+ ### v2.0.10 - 2018-11-06 
+ **Changes:** 
+ * Fixed compatibility with the latest release of WooCommerce
+* Fixed compatibility with Google Console
+* Added config file for Toolset plugin
+* New filters used for child themes
+ 
+ ### v2.0.9 - 2018-11-05 
+ **Changes:** 
+ * Fixed Google Console issues
+* Small tweaks for the Sites Library Demos
+ 
+ ### v2.0.8 - 2018-11-02 
+ **Changes:** 
+ * Gutenberg support
+* Fixed import for Zelle ( Zerif ) to Elementor
+* Improved title responsive font size for the 2nd and 3rd header layouts
+* Refactored the About Hestia page
+* Updated the readme file with correct license and used resources
+* Fixed some escaping issues
+* Fixed compatibility issues with the child themes
+* Updated the screenshot
+* Fixed error causing customizer not to load after a demo templated was imported
+ 
+ ### v2.0.7 - 2018-10-10 
+ **Changes:** 
+ * Fixed import from Zerif
+ 
+ ### v2.0.6 - 2018-10-10 
+ **Changes:** 
+ * Fixed compatibility with Brizy Page Builder
+* Improved compatibility with WPForms Lite
+* Improved theme speed with less system calls
+ 
+ ### v2.0.5 - 2018-09-28 
+ **Changes:** 
+ * Fixed Big Title section compatibility in Internet Explorer
+* Added some new filters that can be used in child themes
+* Fixed responsive issues with the Big Title section when using iframes
+* Fixed fatal error in customizer when the frontpage content was previously edited with Elementor
+* Change timing for the upsells
+ 
+ ### v2.0.4 - 2018-09-11 
+ **Changes:** 
+ * Fixed issue with the dropdown menu active items
+ 
+ ### v2.0.3 - 2018-09-11 
+ **Changes:** 
+ * Fixed issues with the header layout option
+* [Hestia PRO] Fixed problem with embeds not working in the Portfolio lightboxes
+* Fixed issue with the category description not visible on the category archive page
+* [Hestia PRO] Fixed compatibility issues with Elementor Pro
+* New filter for the Related Posts title that can be changed using this doc https://docs.themeisle.com/article/937-change-related-post-title-on-post-page-in-hestia-theme
+ 
+ ### v2.0.2 - 2018-08-29 
+ **Changes:** 
+ * Fix issue with Import Zerif to Elementor notice
+* Fix issue with the navigation menu on the tablet
+ 
+ ### v2.0.1 - 2018-08-24 
+ **Changes:** 
+ * Fixed issue with woocommerce buttons
+* Fixed issue on third layout on blog
+* Make elementor import notice dismissible
+ 
+ ### v2.0.0 - 2018-08-24 
+ **Changes:** 
+ * NEW options for styling the buttons padding and border radius
+* [Hestia PRO] NEW option for styling the buttons hover effect ( color or shadow )
+* NEW options for the Blog page ( choose content or excerpt, type of pagination and hide the categories )
+* [Hestia PRO] NEW layout for the Blog page with a customizable number of columns and masonry option
+* New option to allow the Big Title section to be disabled
+* New option to disable the custom Frontpage sections
+* Fixed title problem on the archive pages for Chinese locals
+* Optimized and minified the CSS and JS files
+* Fixed issue with white bar appearing on mobile devices on the single product page
+* Refactored the code for the primary menu
+* Fixed issues with Elementor blocks extending outside the content of the page
+* Fixed issues with TinyMCE
+* Improved compatibility with the WPForms Lite plugin
+* Fixed issue on shop with older browsers
+ 
+ ### v1.1.86 - 2018-08-13 
+ **Changes:** 
+ * Updated screenshot
+ 
+ ### v1.1.85 - 2018-07-26 
+ **Changes:** 
+ * Improved UX for the Subscribe section in Customizer
+* Improved compatibility with the WooCommerce Compare List plugin
+* Improved compatibility with the Max Mega Menu plugin
+* Fixed title problem on the archive pages for locals different than English
+* Fixed small layout compatibility problem with Elementor
+ 
+ ### v1.1.84 - 2018-07-19 
+ **Changes:** 
+ * Fixed compatibility issues with Thrive Architect plugin
+* Fixed layout issues for WooCommerce products and categories cards
+* Fixed layout issues for the Shop page on Internet Explorer 11
+* Redone the way sections can be overridden in child themes using this documentation:
+* https://docs.themeisle.com/article/918-how-to-override-sections-in-hestia-pro
+ 
+ ### v1.1.83 - 2018-07-06 
+ **Changes:** 
+ * Fixed js console errors
+* Fixed mobile issue with the fallback image for the video header
+ 
+ ### v1.1.82 - 2018-07-05 
+ **Changes:** 
+ * [Hestia PRO] Fixed problem with Big Title video size on larger devices
+* [Hestia PRO] Fixed problem with the number of widget areas option in the Footer
+* Made transition to a default theme, when a PHP version lower than 5.3.29 is used
+* Fixed problem with the duplicated description on the products categories page
+* Fixed problem with the missing cookie field in the comments form
+* Fixed layout problem for categories on the Shop page
+* Fixed compatibility with Orfeo child theme
+* Improved Clients Bar section layout
+* Small code improvements
+ 
+ ### v1.1.81 - 2018-06-26 
+ **Changes:** 
+ * Fixed products alignment issue on the shop page when a left sidebar is used
+* Fixed problem with the Big Title alignment option callback function
+ 
+ ### v1.1.80 - 2018-06-25 
+ **Changes:** 
+ * Fixed issue with style enqueued for the About page
+ 
+ ### v1.1.79 - 2018-06-25 
+ **Changes:** 
+ * Improved compatibility with WooCommerce Product Catalog options
+* Fixed responsive alignment issues in the Big Title section
+* Fixed issue with product/articles categories colors
+* Improved frontpage Products section layout
+ 
+ ### v1.1.78 - 2018-06-21 
+ **Changes:** 
+ * Refactored the entire code
+* Redone the Big Title section for a better UX
+* Fixed Big Title buttons alignment and notice on the checkout page in the Orfeo child theme
+ 
  ### v1.1.77 - 2018-05-24 
  **Changes:** 
  * Fixed compatibility with WP GDPR Compliance plugin

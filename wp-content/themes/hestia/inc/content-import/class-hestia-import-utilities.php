@@ -197,7 +197,7 @@ class Hestia_Import_Utilities {
 
 		if ( ! empty( $about_html ) ) {
 			set_theme_mod( 'hestia_page_editor', $about_html );
-			hestia_sync_content_from_control( $about_html );
+			$this->sync_content_from_control( $about_html );
 		}
 	}
 
@@ -364,7 +364,7 @@ class Hestia_Import_Utilities {
 
 		if ( ! empty( $ribbon_html ) ) {
 			set_theme_mod( 'hestia_page_editor', $ribbon_html );
-			hestia_sync_content_from_control( $ribbon_html );
+			$this->sync_content_from_control( $ribbon_html );
 		}
 	}
 
@@ -376,6 +376,12 @@ class Hestia_Import_Utilities {
 	 * @since 1.1.49
 	 */
 	public function shortcodes_section_to_html( $shortcodes_content ) {
+
+		$execute = get_option( 'should_import_zerif_shortcodes' );
+		if ( $execute !== false ) {
+			return;
+		}
+
 		if ( empty( $shortcodes_content ) ) {
 			return;
 		}
@@ -410,10 +416,12 @@ class Hestia_Import_Utilities {
 
 				if ( ! empty( $shortcode_html ) ) {
 					set_theme_mod( 'hestia_page_editor', $shortcode_html );
-					hestia_sync_content_from_control( $shortcode_html );
+					$this->sync_content_from_control( $shortcode_html );
 				}
 			}
 		}
+
+		update_option( 'should_import_zerif_shortcodes', true );
 
 	}
 
@@ -451,7 +459,7 @@ class Hestia_Import_Utilities {
 
 		if ( empty( $theme_navs['top-bar-menu'] ) && ! empty( $footer_socials_content ) ) {
 
-			$menu_name   = 'Header socials menu';
+			$menu_name   = __( 'Header socials menu', 'hestia' );
 			$menu_exists = wp_get_nav_menu_object( $menu_name );
 			if ( ! $menu_exists ) {
 				$menu_id     = wp_create_nav_menu( $menu_name );
@@ -460,8 +468,10 @@ class Hestia_Import_Utilities {
 					foreach ( $icons_array as $social ) {
 						if ( ! empty( $social->link ) ) {
 							wp_update_nav_menu_item(
-								$menu_id, 0, array(
-									'menu-item-title'  => 'Custom Page',
+								$menu_id,
+								0,
+								array(
+									'menu-item-title'  => __( 'Custom Page', 'hestia' ),
 									'menu-item-url'    => $social->link,
 									'menu-item-status' => 'publish',
 								)
@@ -571,6 +581,25 @@ class Hestia_Import_Utilities {
 				}
 			}
 			wp_reset_postdata();
+		}
+	}
+
+	/**
+	 * Sync frontpage content with customizer control
+	 *
+	 * @param string $value New value.
+	 */
+	protected function sync_content_from_control( $value ) {
+		$frontpage_id = get_option( 'page_on_front' );
+		if ( ! empty( $frontpage_id ) && ! empty( $value ) ) {
+			if ( ! wp_is_post_revision( $frontpage_id ) ) {
+				// update the post, which calls save_post again
+				$post = array(
+					'ID'           => $frontpage_id,
+					'post_content' => wp_kses_post( $value ),
+				);
+				wp_update_post( $post );
+			}
 		}
 	}
 }

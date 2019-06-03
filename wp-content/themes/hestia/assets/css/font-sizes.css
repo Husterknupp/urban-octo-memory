@@ -106,7 +106,7 @@ section.pricing p.text-gray,
  * Post/page headings.
  */
 h1,
-.single-post-wrap article h1,
+.single-post-wrap h1,
 .page-content-wrap h1,
 .hestia-title.title-in-content {
 	font-size: 42px;
@@ -119,73 +119,73 @@ h1,
 }
 
 h2,
-.single-post-wrap article h2,
+.single-post-wrap h2,
 .page-content-wrap h2 {
 	font-size: 37px;
 }
 
 h3,
-.single-post-wrap article h3,
+.single-post-wrap h3,
 .page-content-wrap h3 {
 	font-size: 32px;
 }
 
 h4,
-.single-post-wrap article h4,
+.single-post-wrap h4,
 .page-content-wrap h4 {
 	font-size: 27px;
 }
 
 h5,
-.single-post-wrap article h5,
+.single-post-wrap h5,
 .page-content-wrap h5 {
 	font-size: 23px;
 }
 
 h6,
-.single-post-wrap article h6,
+.single-post-wrap h6,
 .page-content-wrap h6 {
 	font-size: 18px;
 }
 
 @media (max-width: 768px) {
 	h1,
-	.single-post-wrap article h1,
+	.single-post-wrap h1,
 	.page-content-wrap h1,
 	.page-template-template-fullwidth article h1 {
 		font-size: 36px;
 	}
 
 	h2,
-	.single-post-wrap article h2,
+	.single-post-wrap h2,
 	.page-content-wrap h2,
 	.page-template-template-fullwidth article h2 {
 		font-size: 32px;
 	}
 
 	h3,
-	.single-post-wrap article h3,
+	.single-post-wrap h3,
 	.page-content-wrap h3,
 	.page-template-template-fullwidth article h3 {
 		font-size: 28px;
 	}
 
 	h4,
-	.single-post-wrap article h4,
+	.single-post-wrap h4,
 	.page-content-wrap h4,
 	.page-template-template-fullwidth article h4 {
 		font-size: 24px;
 	}
 
 	h5,
-	.single-post-wrap article h5,
+	.single-post-wrap h5,
 	.page-content-wrap h5,
 	.page-template-template-fullwidth article h5 {
 		font-size: 21px;
 	}
 
 	h6,
-	.single-post-wrap article h6,
+	.single-post-wrap h6,
 	.page-content-wrap h6,
 	.page-template-template-fullwidth article h6 {
 		font-size: 18px;
@@ -195,15 +195,15 @@ h6,
 /*
  * Post/page content.
  */
-.single-post-wrap article p,
+.single-post-wrap p,
 .page-content-wrap p,
-.single-post-wrap article ul,
+.single-post-wrap ul,
 .page-content-wrap ul,
-.single-post-wrap article ol,
+.single-post-wrap ol,
 .page-content-wrap ol,
-.single-post-wrap article dl,
+.single-post-wrap dl,
 .page-content-wrap dl,
-.single-post-wrap article table,
+.single-post-wrap table,
 .page-content-wrap table,
 .page-template-template-fullwidth article p,
 .page-template-template-fullwidth article ul,
@@ -214,15 +214,15 @@ h6,
 }
 
 @media (max-width: 768px) {
-	.single-post-wrap article p,
+	.single-post-wrap p,
 	.page-content-wrap p,
-	.single-post-wrap article ul,
+	.single-post-wrap ul,
 	.page-content-wrap ul,
-	.single-post-wrap article ol,
+	.single-post-wrap ol,
 	.page-content-wrap ol,
-	.single-post-wrap article dl,
+	.single-post-wrap dl,
 	.page-content-wrap dl,
-	.single-post-wrap article table,
+	.single-post-wrap table,
 	.page-content-wrap table,
 	.page-template-template-fullwidth article p,
 	.page-template-template-fullwidth article ul,

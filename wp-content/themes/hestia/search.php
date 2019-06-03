@@ -14,49 +14,26 @@
  * @modified 1.1.30
  */
 
-
-$default_blog_layout        = hestia_sidebar_on_single_post_get_default();
-$hestia_blog_sidebar_layout = get_theme_mod( 'hestia_blog_sidebar_layout', $default_blog_layout );
-$args                       = array(
-	'sidebar-right' => 'col-md-8 blog-posts-wrap',
-	'sidebar-left'  => 'col-md-8 blog-posts-wrap',
-	'full-width'    => 'col-md-10 col-md-offset-1 blog-posts-wrap',
-);
-$hestia_sidebar_width       = get_theme_mod( 'hestia_sidebar_width', 25 );
-if ( $hestia_sidebar_width > 3 && $hestia_sidebar_width < 80 ) {
-	$args['sidebar-left'] .= ' col-md-offset-1';
-}
-
-$class_to_add = hestia_get_content_classes( $hestia_blog_sidebar_layout, 'sidebar-1', $args );
-
+$default                    = hestia_get_blog_layout_default();
+$hestia_blog_sidebar_layout = apply_filters( 'hestia_sidebar_layout', get_theme_mod( 'hestia_blog_sidebar_layout', $default ) );
+$wrap_class                 = apply_filters( 'hestia_filter_index_search_content_classes', 'col-md-8 blog-posts-wrap' );
 get_header();
+
+do_action( 'hestia_before_search_wrapper' );
 ?>
-	<div id="primary" class="<?php echo hestia_boxed_layout_header(); ?> page-header header-small" data-parallax="active">
-		<div class="container">
-			<div class="row">
-				<div class="col-md-10 col-md-offset-1 text-center">
-					<h1 class="hestia-title">
-						<?php
-						/* translators: %s is Search query */
-						printf( esc_html__( 'Search Results for: %s', 'hestia' ), get_search_query() );
-						?>
-						</h1>
-				</div>
-			</div>
-		</div>
-		<?php hestia_output_wrapper_header_background(); ?>
-	</div>
-</header>
+
 <div class="<?php echo hestia_layout(); ?>">
-	<div class="hestia-blogs">
+	<div class="hestia-blogs" data-layout="<?php echo esc_attr( $hestia_blog_sidebar_layout ); ?>">
 		<div class="container">
 			<div class="row">
 				<?php
+				do_action( 'hestia_before_search_content' );
+
 				if ( $hestia_blog_sidebar_layout === 'sidebar-left' ) {
 					get_sidebar();
 				}
 				?>
-				<div class="<?php echo esc_attr( $class_to_add ); ?>">
+				<div class="<?php echo esc_attr( $wrap_class ); ?>">
 					<?php
 					if ( have_posts() ) :
 						while ( have_posts() ) :

@@ -8,30 +8,23 @@
 
 get_header();
 
-/**
- * Don't display page header if header layout is set as classic blog.
- */
-$hestia_header_layout = get_theme_mod( 'hestia_header_layout', 'default' );
-if ( $hestia_header_layout !== 'classic-blog' ) {
-	hestia_display_page_header( 'post' );
-}
+do_action( 'hestia_before_single_post_wrapper' );
 ?>
 
-</header>
 <div class="<?php echo hestia_layout(); ?>">
 	<div class="blog-post blog-post-wrapper">
-			<div class="container">
-				<?php
-				if ( have_posts() ) :
-					while ( have_posts() ) :
-						the_post();
-						get_template_part( 'template-parts/content', 'single' );
-					endwhile;
-				else :
-					get_template_part( 'template-parts/content', 'none' );
-				endif;
-				?>
-			</div>
+		<div class="container">
+			<?php
+			if ( have_posts() ) :
+				while ( have_posts() ) :
+					the_post();
+					get_template_part( 'template-parts/content', 'single' );
+				endwhile;
+			else :
+				get_template_part( 'template-parts/content', 'none' );
+			endif;
+			?>
+		</div>
 	</div>
 </div>
 

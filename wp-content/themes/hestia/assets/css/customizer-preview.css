@@ -318,4 +318,15 @@ body.page .hestia-blogs:not(.is-shortcode):hover:before,
   opacity: 1;
 }
 
-/*# sourceMappingURL=customizer-preview.css.map */
+.customize-partial-refreshing:before {
+  content: url(../img/ajax-loader.gif) !important;
+  top: 50% !important;
+  transform: translate3d(-50%, 0, 0);
+  border: none !important;
+  bottom: auto !important;
+  right: auto !important;
+  margin: 0 auto;
+  left: 50% !important;
+  position: absolute;
+  z-index: 10000;
+}

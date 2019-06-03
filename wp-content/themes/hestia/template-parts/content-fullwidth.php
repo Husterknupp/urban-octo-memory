@@ -13,11 +13,12 @@
 		<div class="row">
 			<div class="col-md-12">
 				<?php
-				$hestia_header_layout = get_theme_mod( 'hestia_header_layout', 'default' );
-				if ( ( $hestia_header_layout !== 'default' ) && ! ( hestia_woocommerce_check() && ( is_product() || is_cart() || is_checkout() ) ) ) {
-					hestia_show_header_content( 'page', $hestia_header_layout );
-				}
+				do_action( 'hestia_before_page_content' );
 				the_content();
+
+				if ( comments_open() || get_comments_number() ) :
+					comments_template();
+				endif;
 				?>
 			</div>
 		</div>

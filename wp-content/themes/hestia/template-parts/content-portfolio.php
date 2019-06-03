@@ -12,7 +12,10 @@
 	<article id="post-<?php the_ID(); ?>" class="section section-text">
 		<div class="row">
 			<div class="col-md-8 col-md-offset-2">
-				<?php the_content(); ?>
+				<?php
+				do_action( 'hestia_before_single_post_content' );
+				the_content();
+				?>
 			</div>
 		</div>
 	</article>
