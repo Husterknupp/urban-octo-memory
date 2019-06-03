@@ -57,3 +57,4 @@ wp-includes/
 /xmlrpc.php
 .metadata/application
 .metadata/installation-files
+php.ini
