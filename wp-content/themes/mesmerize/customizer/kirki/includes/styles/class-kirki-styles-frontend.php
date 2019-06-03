@@ -69,7 +69,9 @@ if ( ! class_exists('Kirki_Styles_Frontend')) {
         public function init()
         {
             
-            Kirki_Fonts_Google::get_instance();
+            if ( ! mesmerize_can_show_cached_value('mesmerize_google_fonts')) {
+                Kirki_Fonts_Google::get_instance();
+            }
             
             global $wp_customize;
             
@@ -116,25 +118,40 @@ if ( ! class_exists('Kirki_Styles_Frontend')) {
                     
                     $styles = '';
                     
-//                    if ( ! WP_DEBUG) {
-                        if (mesmerize_can_show_cached_style()) {
-                            if ($cached_styles = get_option("mesmerize_cached_kirki_style_{$config_id}", '')) {
-                                $styles = "/** cached kirki style */\n{$cached_styles}\n/** cached kirki style */\n";
-                            }
+                    $cached_kirki_style_key = "mesmerize_cached_kirki_style_{$config_id}";
+                    
+                    if (mesmerize_can_show_cached_value($cached_kirki_style_key)) {
+                        $styles = mesmerize_get_cached_value($cached_kirki_style_key, null);
+                        if ($styles !== null) {
+                            $styles = "/** cached kirki style */{$styles}";
                         }
-//                    }
+                        
+                    }
                     
                     if ( ! $styles) {
+                        
                         $styles = self::loop_controls($config_id);
                         $styles = apply_filters('kirki/' . $config_id . '/dynamic_css', $styles);
                         if ( ! mesmerize_is_customize_preview() && ! empty($styles)) {
-                            update_option('mesmerize_has_cached_style', true, 'yes');
-                            update_option("mesmerize_cached_kirki_style_{$config_id}", $styles, 'yes');
+                            mesmerize_cache_value($cached_kirki_style_key, $styles);
                         }
                     }
+                    
+                    
                     if ( ! empty($styles)) {
-                        wp_enqueue_style('kirki-styles-' . $config_id, trailingslashit(Kirki::$url) . 'assets/css/kirki-styles.css', null, null);
-                        wp_add_inline_style('kirki-styles-' . $config_id, $styles);
+                        
+                        $theme = wp_get_theme();
+                        
+                        $textDomain = $theme->get('TextDomain');
+                        
+                        if ($theme->get('Template')) {
+                            $templateData = wp_get_theme($theme->get('Template'));
+                            $textDomain   = $templateData->get('TextDomain');
+                        }
+                        
+                        $textDomain = apply_filters('mesmerize_kirki_add_inline_style_handle', "$textDomain-style");
+                        
+                        wp_add_inline_style($textDomain, $styles);
                     }
                 }
                 $this->processed = true;

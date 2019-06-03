@@ -19,11 +19,11 @@
 }
 
 .mesmerize_cp_column h4 {
-    font-size: 30px;
+    font-size: 20px;
     line-height: 120%;
     margin: 0px;
     text-align: left;
-    font-weight: 400;
+    font-weight: 500;
 }
 
 .mesmerize_cp_column li {
@@ -34,7 +34,7 @@
 .mesmerize_cp_column {
     font-size: 15px;
     line-height: 157%;
-    color: rgb(255, 255, 255);
+    /* color: rgb(255, 255, 255); */
     text-align: left;
     padding: 45px 0px 0px 30px;
 }
@@ -66,7 +66,7 @@ a.mesmerize-popup-cancel:hover {
 
 .mesmerize-features-list li:before {
     font-family: dashicons;
-    color: white;
+    color: #444444;
     content: "\f147";
     padding-right: 10px;
 }
@@ -81,7 +81,7 @@ a.mesmerize-popup-cancel:hover {
 
 .mesmerize-popup .mesmerize_title {
     text-align: left;
-    color: #ffffff;
+    /* color: #ffffff; */
     font-weight: 300;
     margin: 0px 0px 20px 0px;
     line-height: 130%;
@@ -91,11 +91,11 @@ a.mesmerize-popup-cancel:hover {
     width: 780px;
     margin-left: -15px;
     margin-right: -15px;
-    height: 480px;
     margin-top: -20px;
     margin-bottom: -4px;
     background-size: cover;
     background-repeat: no-repeat;
+    height: 372px;
 }
 
 /* info page css */
@@ -195,6 +195,13 @@ div#TB_window.companion-popup .footer {
 }
 
 a.mesmerize-popup-cancel {
-    color: #ffffff !important;
+    /*color: #ffffff !important;*/
     background: transparent !important;
+}
+
+img.popup-theme-screenshot {
+    width: calc(100% - 30px);
+    margin-top: 0px;
+    -webkit-box-shadow: 0 3px 6px rgba( 0, 0, 0, 0.3);
+    box-shadow: 0 3px 6px rgba( 0, 0, 0, 0.3);
 }

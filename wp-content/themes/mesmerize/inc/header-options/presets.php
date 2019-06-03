@@ -4,6 +4,7 @@ function mesmerize_get_header_presets()
 {
     global $MESMERIZE_HEADER_PRESETS;
 
+
     $result       = array();
     $presets_file = get_template_directory() . '/customizer/presets.php';
     if (file_exists($presets_file) && ! isset($MESMERIZE_HEADER_PRESETS)) {
@@ -16,10 +17,42 @@ function mesmerize_get_header_presets()
 
 
     $result = apply_filters('mesmerize_header_presets', $result);
+    $result = mesmerize_filter_defaults($result);
 
     return $result;
 
 }
+
+function mesmerize_filter_defaults($data)
+{
+    foreach ($data as $key => $value) {
+        if (is_array($value)) {
+            $data[$key] = mesmerize_filter_defaults($value);
+        } else {
+            if (is_string($value)) {
+                $data[$key] = str_replace(
+                    array('[tag_companion_uri]', '[tag_theme_uri]', '[tag_style_uri]'),
+                    get_template_directory_uri(),
+                    $value
+                );
+            }
+        }
+    }
+
+    return $data;
+}
+
+add_filter('cloudpress\companion\ajax_cp_data', function ($data, $companion, $filter) {
+
+    if ($filter !== "headers") {
+        return $data;
+    }
+
+    $data['headers'] = isset($data['headers']) ? $data['headers'] : array();
+    $data['headers'] = array_merge($data['headers'], mesmerize_get_header_presets());
+
+    return $data;
+}, 10, 3);
 
 
 add_action("mesmerize_customize_register", function ($wp_customize) {
@@ -36,7 +69,10 @@ add_action("mesmerize_customize_register", function ($wp_customize) {
         "insertText"  => esc_html__("Apply Preset", "mesmerize"),
         'pro_message' => false,
         "type"        => "presets_changer",
-        "dataSource"  => mesmerize_get_header_presets(),
+        "dataSource"  => array(
+            "use_ajax" => true,
+            "filter"   => "headers",
+        ),
         "priority"    => 2,
     )));
 
@@ -58,4 +94,3 @@ add_action("mesmerize_customize_register", function ($wp_customize) {
             )));
     }
 });
-

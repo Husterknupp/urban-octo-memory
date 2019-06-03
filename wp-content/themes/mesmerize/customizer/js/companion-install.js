@@ -1,5 +1,4 @@
 jQuery(document).ready(function () {
-
     tb_show('Mesmerize Companion', '#TB_inline?width=400&height=430&inlineId=mesmerize_homepage');
     jQuery('#TB_closeWindowButton').hide();
     jQuery('#TB_window').css({
@@ -11,5 +10,4 @@ jQuery(document).ready(function () {
         'z-index': '5000000'
     });
 
-    jQuery('#TB_window').addClass('companion-popup');
 });

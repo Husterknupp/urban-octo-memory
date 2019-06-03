@@ -89,7 +89,7 @@ if ( ! class_exists( 'Kirki_Controls_Spacing_Control' ) ) {
 					<div class="control">
 						<# for ( choiceKey in data.default ) { #>
 							<div class="{{ choiceKey }}">
-								<h5>{{ data.l10n[ choiceKey ] }}</h5>
+								<h5>{{ kirkiL10n[ choiceKey ] }}</h5>
 								<div class="{{ choiceKey }} input-wrapper">
 									<input {{{ data.inputAttrs }}} type="text" value="{{ data.value[ choiceKey ] }}"/>
 								</div>

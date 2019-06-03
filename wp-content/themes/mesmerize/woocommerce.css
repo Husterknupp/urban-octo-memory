@@ -181,6 +181,7 @@ ul:not(#offcanvas_menu) li.mesmerize-menu-cart a {
   padding-right: 6px;
 }
 
+li.mesmerize-menu-cart-secondary a i.fa,
 li.mesmerize-menu-cart a i.fa {
   font-size: 1.4em;
   margin-top: -0.05em;
@@ -203,7 +204,7 @@ li.mesmerize-menu-cart a i.fa {
   background-color: #ffffff;
   width: 400px;
   margin-left: -400px;
-  padding: 2.25rem 20px 20px;
+  padding: 2rem 20px;
   box-shadow: rgba(0, 0, 0, 0.33) 0px 0px 5px 2px;
 }
 
@@ -839,6 +840,15 @@ form.woocommerce-ordering {
   vertical-align: middle;
 }
 
+.woocommerce .widget_price_filter .price_slider_amount .price_label {
+  text-align: left;
+  float: left;
+}
+
+.woocommerce .widget_product_search [type="submit"] {
+  display: none;
+}
+
 .woocommerce input[type=submit] {
   margin-top: 1rem;
 }
@@ -1247,7 +1257,6 @@ form.woocommerce-ordering {
 .woocommerce button.button.inverted.outline:hover,
 .woocommerce input.button.inverted.outline:hover,
 .woocommerce #respond input#submit.inverted.outline:hover {
-  color: rgba(255, 255, 255, 0.9);
   border-color: rgba(255, 255, 255, 0.7);
 }
 
@@ -1402,7 +1411,6 @@ form.woocommerce-ordering {
 .woocommerce button.button.secondary.outline:hover,
 .woocommerce input.button.secondary.outline:hover,
 .woocommerce #respond input#submit.secondary.outline:hover {
-  color: rgba(255, 255, 255, 0.9);
   border-color: rgba(49, 52, 57, 0.7);
 }
 
@@ -1752,7 +1760,6 @@ form.woocommerce-ordering {
 .woocommerce input.button.alt.inverted.outline:hover,
 .woocommerce a.added_to_cart.inverted.outline:hover,
 .woocommerce #respond input#submit.alt.inverted.outline:hover {
-  color: rgba(255, 255, 255, 0.9);
   border-color: rgba(255, 255, 255, 0.7);
 }
 
@@ -1922,7 +1929,6 @@ form.woocommerce-ordering {
 .woocommerce input.button.alt.secondary.outline:hover,
 .woocommerce a.added_to_cart.secondary.outline:hover,
 .woocommerce #respond input#submit.alt.secondary.outline:hover {
-  color: rgba(255, 255, 255, 0.9);
   border-color: rgba(49, 52, 57, 0.7);
 }
 
@@ -2806,6 +2812,10 @@ form.woocommerce-ordering {
   padding-bottom: 0.75rem;
 }
 
+.woocommerce.single .woocommerce-message p {
+  margin-top: 4px;
+}
+
 .woocommerce .woocommerce-message * {
   display: inline-block !important;
 }
@@ -2824,6 +2834,10 @@ form.woocommerce-ordering {
 .woocommerce tfoot th,
 .woocommerce tfoot td {
   color: #8E9DAE;
+}
+
+.woocommerce .woocommerce-privacy-policy-text {
+  margin-bottom: 1rem;
 }
 
 .woocommerce-checkout .woocommerce-customer-details-card,

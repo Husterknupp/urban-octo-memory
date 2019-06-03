@@ -18,13 +18,13 @@ if ( ! defined('ABSPATH')) {
 }
 
 if ( ! class_exists('Kirki_Enqueue')) {
-
+    
     /**
      * Enqueues JS & CSS assets
      */
     class Kirki_Enqueue
     {
-
+        
         /**
          * The class constructor.
          * Adds actions to enqueue our assets.
@@ -36,38 +36,38 @@ if ( ! class_exists('Kirki_Enqueue')) {
             add_action('customize_controls_print_scripts', array($this, 'branding'));
             add_action('customize_preview_init', array($this, 'postmessage'));
         }
-
+        
         /**
          * L10n helper for controls.
          */
         public function customize_controls_l10n()
         {
-
+            
             // Register the l10n script.
             wp_register_script('kirki-l10n', trailingslashit(Kirki::$url) . 'assets/js/l10n.js');
-
+            
             // Add localization strings.
             // We'll do this on a per-config basis so that the filters are properly applied.
             $configs = Kirki::$config;
             $l10n    = array();
             foreach ($configs as $id => $args) {
-                $l10n[$id] = Kirki_l10n::get_strings($id);
+                $l10n = array_merge($l10n, Kirki_l10n::get_strings($id));
             }
-
+            
             wp_localize_script('kirki-l10n', 'kirkiL10n', $l10n);
             wp_enqueue_script('kirki-l10n');
-
+            
         }
-
+        
         /**
          * Assets that have to be enqueued in 'customize_controls_enqueue_scripts'.
          */
         public function customize_controls_enqueue_scripts()
         {
-
+            
             // Get an array of all our fields.
             $fields = Kirki::$fields;
-
+            
             // Do we have tooltips anywhere?
             $has_tooltips = false;
             foreach ($fields as $field) {
@@ -83,76 +83,61 @@ if ( ! class_exists('Kirki_Enqueue')) {
                     $has_tooltips = true;
                 }
             }
-
+            
             // If we have tooltips, enqueue the tooltips script.
             /* TODO: if ( $has_tooltips ) { */
-            wp_enqueue_script('kirki-tooltip', trailingslashit(Kirki::$url) . 'assets/js/tooltip.js', array('jquery', 'customize-controls', 'jquery-ui-tooltip'));
+//            wp_enqueue_script('kirki-tooltip', trailingslashit(Kirki::$url) . 'assets/js/tooltip.js', array('jquery', 'customize-controls', 'jquery-ui-tooltip'));
             /* TODO: } */
-
-            // Enqueue the reset script.
-            wp_enqueue_script('kirki-reset', trailingslashit(Kirki::$url) . 'assets/js/reset.js', array('jquery', 'kirki-set-setting-value'));
-
-            // Register kirki-functions.
-            wp_register_script('kirki-set-setting-value', trailingslashit(Kirki::$url) . 'assets/js/functions/set-setting-value.js');
-            wp_register_script('kirki-validate-css-value', trailingslashit(Kirki::$url) . 'assets/js/functions/validate-css-value.js');
-            wp_register_script('kirki-notifications', trailingslashit(Kirki::$url) . 'assets/js/functions/notifications.js', array('kirki-l10n', 'kirki-validate-css-value'));
-
-            // Register serialize.js.
-            wp_register_script('serialize-js', trailingslashit(Kirki::$url) . 'assets/js/vendor/serialize.js');
-
+            
             // Register the color-alpha picker.
             wp_enqueue_style('wp-color-picker');
-            wp_register_script('wp-color-picker-alpha', trailingslashit(Kirki::$url) . 'assets/js/vendor/wp-color-picker-alpha.js', array('wp-color-picker'), '1.2', true);
-
-            // Register the jquery-ui-spinner.
-            wp_register_script('jquery-ui-spinner', trailingslashit(Kirki::$url) . 'assets/js/vendor/jquery-ui-spinner', array('jquery', 'jquery-ui-core', 'jquery-ui-button'));
-
-            // Register codemirror.
-//            wp_register_script('codemirror', trailingslashit(Kirki::$url) . 'assets/js/vendor/codemirror/lib/codemirror.js', array('jquery'));
-
-            // Register selectize.
-            wp_register_script('selectize', trailingslashit(Kirki::$url) . 'assets/js/vendor/selectize.js', array('jquery'));
-
+            
             // An array of control scripts and their dependencies.
+            
+            wp_enqueue_script('kirki-functions-all-minified', trailingslashit(Kirki::$url) . 'assets/js/functions.min.js', array('jquery', 'customize-base', 'jquery-ui-spinner', 'wp-color-picker', 'customize-controls', 'jquery-ui-tooltip'), false, true);
+            wp_enqueue_script('kirki-vendor-all-minified', trailingslashit(Kirki::$url) . 'assets/js/vendor.min.js', array('kirki-functions-all-minified'), false, true);
+            wp_enqueue_script('kirki-controls-all-minified', trailingslashit(Kirki::$url) . 'assets/js/controls.min.js', array('kirki-vendor-all-minified'), false, true);
+            
             $scripts = array(
-                // Add controls scripts.
-                'checkbox'        => array('jquery', 'customize-base'),
-                'code'            => array('jquery', 'customize-base', 'codemirror'),
-                'color'           => array('jquery', 'customize-base', 'wp-color-picker-alpha'),
-                'color-palette'   => array('jquery', 'customize-base', 'jquery-ui-button'),
-                'dashicons'       => array('jquery', 'customize-base'),
-                'date'            => array('jquery', 'customize-base', 'jquery-ui-datepicker'),
-                'dimension'       => array('jquery', 'customize-base', 'kirki-notifications'),
-                'dropdown-pages'  => array('jquery', 'customize-base', 'selectize'),
-                'editor'          => array('jquery', 'customize-base', 'kirki-l10n'),
-                'generic'         => array('jquery', 'customize-base'),
-                'multicheck'      => array('jquery', 'customize-base'),
-                'multicolor'      => array('jquery', 'customize-base', 'wp-color-picker-alpha'),
-                'number'          => array('jquery', 'customize-base', 'jquery-ui-spinner'),
-                'palette'         => array('jquery', 'customize-base', 'jquery-ui-button'),
-                'preset'          => array('jquery', 'customize-base', 'selectize', 'kirki-set-setting-value'),
-                'radio-buttonset' => array('jquery', 'customize-base'),
-                'radio-image'     => array('jquery', 'customize-base'),
-                'radio'           => array('jquery', 'customize-base'),
-                'repeater'        => array('jquery', 'customize-base', 'jquery-ui-core', 'jquery-ui-sortable', 'kirki-l10n'),
-                'select'          => array('jquery', 'customize-base', 'selectize'),
-                'slider'          => array('jquery', 'customize-base'),
-                'sortable'        => array('jquery', 'customize-base', 'jquery-ui-core', 'jquery-ui-sortable', 'serialize-js'),
-                'spacing'         => array('jquery', 'customize-base', 'kirki-notifications'),
-                'switch'          => array('jquery', 'customize-base'),
-                'toggle'          => array('jquery', 'customize-base'),
-                'typography'      => array('jquery', 'customize-base', 'selectize', 'wp-color-picker-alpha'),
+                'checkbox',
+                'code',
+                'color',
+                'color-palette',
+                'dashicons',
+                'date',
+                'dimension',
+                'dropdown-pages',
+                'editor',
+                'generic',
+                'multicheck',
+                'multicolor',
+                'number',
+                'palette',
+                'preset',
+                'radio-buttonset',
+                'radio-image',
+                'radio',
+                'repeater',
+                'select',
+                'slider',
+                'sortable',
+                'spacing',
+                'switch',
+                'toggle',
+                'typography',
             );
-            foreach ($scripts as $id => $dependencies) {
-                wp_register_script('kirki-' . $id, trailingslashit(Kirki::$url) . 'assets/js/controls/' . $id . '.js', $dependencies, false, true);
+            
+            foreach ($scripts as $script) {
+                wp_register_script('kirki-' . $script, null, array('kirki-controls-all-minified'), false, true);
+                
             }
-
+            
             // Add fonts to our JS objects.
-            $google_fonts   = Kirki_Fonts::get_google_fonts();
+//            $google_fonts   = Kirki_Fonts::get_google_fonts();
             $standard_fonts = Kirki_Fonts::get_standard_fonts();
             $all_variants   = Kirki_Fonts::get_all_variants();
-            $all_subsets    = Kirki_Fonts::get_google_font_subsets();
-
+//            $all_subsets    = Kirki_Fonts::get_google_font_subsets();
+            
             $standard_fonts_final = array();
             foreach ($standard_fonts as $key => $value) {
                 $standard_fonts_final[] = array(
@@ -180,39 +165,12 @@ if ( ! class_exists('Kirki_Enqueue')) {
                     ),
                 );
             }
-
-            $google_fonts_final = array();
-            foreach ($google_fonts as $family => $args) {
-                $label    = (isset($args['label'])) ? $args['label'] : $family;
-                $variants = (isset($args['variants'])) ? $args['variants'] : array('regular', '700');
-                $subsets  = (isset($args['subsets'])) ? $args['subsets'] : array();
-
-                $available_variants = array();
-                foreach ($variants as $variant) {
-                    if (array_key_exists($variant, $all_variants)) {
-                        $available_variants[] = array('id' => $variant, 'label' => $all_variants[$variant]);
-                    }
-                }
-
-                $available_subsets = array();
-                foreach ($subsets as $subset) {
-                    if (array_key_exists($subset, $all_subsets)) {
-                        $available_subsets[] = array('id' => $subset, 'label' => $all_subsets[$subset]);
-                    }
-                }
-
-                $google_fonts_final[] = array(
-                    'family'   => $family,
-                    'label'    => $label,
-                    'variants' => $available_variants,
-                    'subsets'  => $available_subsets,
-                );
-            }
-            $final = array_merge($standard_fonts_final, $google_fonts_final);
+            
+            $final = array_merge($standard_fonts_final);
             wp_localize_script('kirki-typography', 'kirkiAllFonts', $final);
             wp_localize_script('kirki-typography', 'kirkiAllVariantsLabels', $all_variants);
         }
-
+        
         /**
          * Enqueues the script responsible for branding the customizer
          * and also adds variables to it using the wp_localize_script function.
@@ -220,7 +178,7 @@ if ( ! class_exists('Kirki_Enqueue')) {
          */
         public function branding()
         {
-
+            
             $config = apply_filters('kirki/config', array());
             $vars   = array(
                 'logoImage'   => '',
@@ -232,14 +190,14 @@ if ( ! class_exists('Kirki_Enqueue')) {
             if (isset($config['description']) && '' !== $config['description']) {
                 $vars['description'] = esc_textarea($config['description']);
             }
-
+            
             if ( ! empty($vars['logoImage']) || ! empty($vars['description'])) {
                 wp_register_script('kirki-branding', Kirki::$url . '/assets/js/branding.js');
                 wp_localize_script('kirki-branding', 'kirkiBranding', $vars);
                 wp_enqueue_script('kirki-branding');
             }
         }
-
+        
         /**
          * Enqueues the postMessage script
          * and adds variables to it using the wp_localize_script function.

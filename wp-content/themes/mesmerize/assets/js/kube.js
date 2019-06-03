@@ -1914,4 +1914,4 @@
 
     }(Kube));
 
-})(jQuery)
+})(jQuery);

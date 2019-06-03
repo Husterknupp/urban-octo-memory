@@ -83,12 +83,6 @@ class Companion_Plugin
 
     public static function show_companion_popup()
     {
-        $is_popup_disabled = get_option("mesmerize_companion_disable_popup", 0);
-
-        if (1 === intval($is_popup_disabled)) {
-            return;
-        }
-
 
         add_action('admin_enqueue_scripts', array('\Mesmerize\Companion_Plugin', 'thickbox'));
         add_action('customize_controls_print_footer_scripts', array('\Mesmerize\Companion_Plugin', 'output_companion_message'));
@@ -98,8 +92,16 @@ class Companion_Plugin
     {
         add_thickbox();
         wp_enqueue_style('dashicons');
-        wp_enqueue_script('mesmerize_customizer_js', get_template_directory_uri() . '/customizer/js/companion-install.js', array('jquery'), false, true);
         wp_enqueue_style('mesmerize_customizer_css', get_template_directory_uri() . '/customizer/css/companion-install.css');
+    
+        $is_popup_disabled = get_option("mesmerize_companion_disable_popup", 0);
+    
+        if (1 === intval($is_popup_disabled)) {
+            return;
+        }
+        
+        wp_enqueue_script('mesmerize_customizer_js', get_template_directory_uri() . '/customizer/js/companion-install.js', array('jquery'), false, true);
+    
     }
 
     public static function output_companion_message()

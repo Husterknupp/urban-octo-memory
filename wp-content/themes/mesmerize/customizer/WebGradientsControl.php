@@ -11,11 +11,15 @@ class WebGradientsControl extends \Kirki_Customize_Control {
 		parent::__construct( $manager, $id, $args );
 	}
 
-	public function enqueue() {
-		$jsRoot = get_template_directory_uri() . "/customizer/js";
-		wp_enqueue_script( 'mesmerize-webgradients-media-tab', $jsRoot . "/webgradients-media-tab.js", array( 'media-views' ) );
-		wp_enqueue_script( 'mesmerize-webgradients-control', $jsRoot . "/webgradients-control.js", array( "mesmerize-webgradients-media-tab" ) );
-	}
+	public function enqueue()
+    {
+        $jsRoot = get_template_directory_uri() . "/customizer/js";
+        
+        if ( ! apply_filters('mesmerize_load_bundled_version', true)) {
+            wp_enqueue_script('mesmerize-webgradients-media-tab', $jsRoot . "/webgradients-media-tab.js", array('media-views'));
+            wp_enqueue_script('mesmerize-webgradients-control', $jsRoot . "/webgradients-control.js", array("mesmerize-webgradients-media-tab"));
+        }
+    }
 
 	public function to_json() {
 		parent::to_json();

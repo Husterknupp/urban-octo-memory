@@ -61,7 +61,6 @@ mesmerize_add_kirki_field(array(
     'label'     => esc_html__('Related products per row on desktop', 'mesmerize'),
     'section'   => 'mesmerize_woocommerce_product_list',
     'default'   => 4,
-   
     'priority'  => '30',
 ));
 

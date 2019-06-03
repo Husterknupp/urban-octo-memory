@@ -10,6 +10,18 @@
         });
     });
 
+
+    function installPlugin(slug, successCallback, errorCallback) {
+        $(document).trigger('extendthemes-plugin-status-update', [slug, 'install']);
+        wp.updates.ajax('install-plugin', {
+            slug: slug,
+            success: successCallback,
+            error: errorCallback || function () {
+            }
+        })
+    }
+
+
     function updateLinkedSettings(newValue) {
 
         var toUpdate = {};
@@ -48,6 +60,53 @@
 
     if (!root.Mesmerize) {
         root.Mesmerize = {
+
+            activatePlugin: function (plugin, successCallback, errorCallback, alwaysCallback) {
+                $(document).trigger('extendthemes-plugin-status-update', [plugin.slug, 'activate']);
+                $.get(plugin.activate_link)
+                    .done(successCallback || function () {
+                    })
+                    .fail(errorCallback || function () {
+
+                    })
+                    .always(function () {
+
+                        if (alwaysCallback) {
+                            alwaysCallback.apply(this, arguments);
+                        }
+                    })
+            },
+
+            installPlugin: function (plugin, callback) {
+                function pluginInstalled(slug) {
+                    $(document).trigger('extendthemes-plugin-status-update', [slug, 'ready']);
+                    callback();
+                }
+
+
+                if (plugin.status === 'not-installed') {
+
+                    installPlugin(plugin.slug, function () {
+                        plugin.activate_link = arguments[0].activateUrl;
+                        Mesmerize.activatePlugin(plugin, null, null, function () {
+                            pluginInstalled(plugin.slug);
+                        });
+                    }, function () {
+                        pluginInstalled(plugin.slug);
+                    });
+                }
+
+                if (plugin.status === 'installed') {
+                    Mesmerize.activatePlugin(plugin, null, null, function () {
+                        pluginInstalled(plugin.slug);
+                    });
+                }
+
+                if (plugin.status === "active") {
+                    pluginInstalled(plugin.slug);
+                }
+
+            },
 
             Utils: {
                 getGradientString: function (colors, angle) {
@@ -451,7 +510,7 @@
 
         overlappableSetting.bind(function (value) {
             if (CP_Customizer && value) {
-                var sectionData = CP_Customizer.options('data:sections').filter(function (data) {
+                var sectionData = CP_Customizer.options('data:sections', []).filter(function (data) {
                     return data.id === value
                 }).pop();
 
@@ -483,3 +542,108 @@
     });
 
 })(jQuery);
+
+(function ($) {
+
+    $(document).on('click', '[data-plugin-install]', function (event) {
+        event.preventDefault();
+        event.stopPropagation();
+
+        var $this = $(this);
+        if ($this.is('.disabled')) {
+            return;
+        }
+
+        var pluginData = {
+            status: $(this).data('status'),
+            slug: $(this).data('slug'),
+            activate_link: $(this).data('activate-href')
+        };
+
+        $this.next('.spinner').css('visibility', 'visible');
+        $this.addClass('disabled');
+        Mesmerize.installPlugin(pluginData, function () {
+        });
+    });
+
+    $(document).on('extendthemes-plugin-status-update', function (event, slug, status) {
+        var $button = $('[data-plugin-install][data-slug="' + slug + '"]');
+
+        if (status === "ready") {
+            $button.next('.spinner').css('visibility', 'hidden');
+        }
+
+    });
+
+    jQuery(function () {
+        if (!window.cpCustomizerGlobal) {
+
+            if(!wp.customize.section('extendthemes_start_from_demo_site')){
+                return;
+            } 
+
+            var predefignedSitesSection = wp.customize.section('extendthemes_start_from_demo_site').container;
+            predefignedSitesSection.find('*').andSelf().off();
+
+            predefignedSitesSection.on('click', function (event) {
+
+                event.preventDefault();
+                event.stopPropagation();
+                var w = window;
+                w.tb_show('Mesmerize Companion', '#TB_inline?width=400&height=430&inlineId=mesmerize_homepage');
+                w.jQuery('#TB_closeWindowButton').hide();
+                w.jQuery('#TB_window').css({
+                    'z-index': '5000001',
+                    'height': '480px',
+                    'width': '780px'
+                });
+                w.jQuery('#TB_overlay').css({
+                    'z-index': '5000000'
+                });
+
+                return false;
+
+            });
+        }
+
+    })
+
+})(jQuery);
+
+(function (root, $, api) {
+    var binded = false;
+    wp.customize.bind('pane-contents-reflowed', function () {
+        if (binded) {
+            return;
+        }
+
+        binded = true;
+
+        api.previewer.bind('focus-control-for-setting', function (settingId) {
+            var matchedControls = [];
+            api.control.each(function (control) {
+                var settingIds = _.pluck(control.settings, 'id');
+                if (-1 !== _.indexOf(settingIds, settingId)) {
+                    matchedControls.push(control);
+                }
+            });
+
+            if (matchedControls.length) {
+                var control = matchedControls[0];
+                var sidebar = control.container.closest('.customizer-right-section');
+                if (sidebar.length) {
+                    var buttonSelectorValue = sidebar.attr('id').replace('-popup', ''),
+                        buttonSelector = '[data-sidebar-container="' + buttonSelectorValue + '"]';
+
+                    if ($(buttonSelector).length) {
+                        $(buttonSelector)[0].scrollIntoView();
+                        $(buttonSelector).click();
+                    }
+
+                    control.focus();
+                }
+            }
+
+        })
+    })
+})(window, jQuery, wp.customize);

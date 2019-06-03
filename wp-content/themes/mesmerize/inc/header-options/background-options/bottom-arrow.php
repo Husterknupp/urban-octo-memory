@@ -5,27 +5,30 @@ add_action("mesmerize_header_background_overlay_settings", "mesmerize_front_page
 
 function mesmerize_front_page_header_bottom_arrow_settings($section, $prefix, $group, $inner, $priority)
 {
-
-    if ($inner) return;
-
+    
+    if ($inner) {
+        return;
+    }
+    
     $priority = 5;
-
-    $prefix   = $inner ? "inner_header_" : "header_";
-    $section  = "header_background_chooser";
-
+    
+    $prefix  = $inner ? "inner_header_" : "header_";
+    $section = "header_background_chooser";
+    
     $group = "{$prefix}bottom_arrow_options_group_button";
-
+    
     mesmerize_add_kirki_field(array(
-        'priority' => $priority,
-        'type'     => 'checkbox',
-        'settings' => 'header_show_bottom_arrow',
-        'label'    => esc_html__('Use Bottom Arrow', 'mesmerize'),
-        'section'  => $section,
-        'default'  => false,
+        'type'            => 'checkbox',
+        'settings'        => 'header_show_bottom_arrow',
+        'label'           => esc_html__('Use Bottom Arrow', 'mesmerize'),
+        'section'         => $section,
+        'priority'        => $priority,
+        'default'         => false,
+        'transport'       => 'postMessage',
         'active_callback' => apply_filters('mesmerize_header_active_callback_filter', array(), $inner),
     ));
-
-     mesmerize_add_kirki_field(array(
+    
+    mesmerize_add_kirki_field(array(
         'type'            => 'sidebar-button-group',
         'settings'        => $group,
         'label'           => esc_html__('Options', 'mesmerize'),
@@ -41,9 +44,9 @@ function mesmerize_front_page_header_bottom_arrow_settings($section, $prefix, $g
             ),
             $inner
         ),
-        'in_row_with' => array('header_show_bottom_arrow')
+        'in_row_with'     => array('header_show_bottom_arrow'),
     ));
-
+    
     mesmerize_add_kirki_field(array(
         'type'            => 'checkbox',
         'settings'        => 'header_bounce_bottom_arrow',
@@ -51,6 +54,7 @@ function mesmerize_front_page_header_bottom_arrow_settings($section, $prefix, $g
         'section'         => $section,
         'default'         => true,
         'priority'        => $priority,
+        'transport'       => 'postMessage',
         'active_callback' => array(
             array(
                 'setting'  => 'header_show_bottom_arrow',
@@ -58,17 +62,17 @@ function mesmerize_front_page_header_bottom_arrow_settings($section, $prefix, $g
                 'value'    => true,
             ),
         ),
-        'group' => $group
+        'group'           => $group,
     ));
-
+    
     mesmerize_add_kirki_field(array(
-        'priority' => $priority,
-
         'type'            => 'font-awesome-icon-control',
         'settings'        => 'header_bottom_arrow',
         'label'           => esc_html__('Icon', 'mesmerize'),
         'section'         => $section,
-        'default'         => "fa-angle-down",
+        'default'         => 'fa-angle-down',
+        'priority'        => $priority,
+        'transport'       => 'postMessage',
         'active_callback' => array(
             array(
                 'setting'  => 'header_show_bottom_arrow',
@@ -76,60 +80,39 @@ function mesmerize_front_page_header_bottom_arrow_settings($section, $prefix, $g
                 'value'    => true,
             ),
         ),
-        'group' => $group
+        'group'           => $group,
     ));
-
+    
     mesmerize_add_kirki_field(array(
-        'priority' => $priority,
-
         'type'            => 'slider',
         'settings'        => 'header_size_bottom_arrow',
         'label'           => esc_html__('Icon Size', 'mesmerize'),
         'section'         => $section,
-        'default'         => "50",
+        'default'         => '50',
         'choices'         => array(
             'min'  => '10',
             'max'  => '100',
             'step' => '1',
         ),
-        "output"          => array(
+        'priority'        => $priority,
+        'output'          => array(
             array(
-                'element'  => '.header-homepage-arrow',
-                'property' => 'font-size',
-                'suffix'   => 'px !important',
+                'element'       => '.header-homepage-arrow',
+                'property'      => 'font-size',
+                'value_pattern' => 'calc( $px * 0.84 )',
             ),
             array(
-                'element'  => '.header-homepage-arrow > i',
+                'element'  => '.header-homepage-arrow > i.fa',
                 'property' => 'width',
                 'suffix'   => 'px',
             ),
             array(
-                'element'  => '.header-homepage-arrow > i',
+                'element'  => '.header-homepage-arrow > i.fa',
                 'property' => 'height',
                 'suffix'   => 'px',
             ),
         ),
         'transport'       => 'postMessage',
-        'js_vars'         => array(
-            array(
-                'element'  => '.header-homepage-arrow',
-                'function' => 'css',
-                'property' => 'font-size',
-                'suffix'   => 'px !important',
-            ),
-            array(
-                'element'  => '.header-homepage-arrow > i',
-                'function' => 'css',
-                'property' => 'width',
-                'suffix'   => 'px',
-            ),
-            array(
-                'element'  => '.header-homepage-arrow > i',
-                'function' => 'css',
-                'property' => 'height',
-                'suffix'   => 'px',
-            ),
-        ),
         'active_callback' => array(
             array(
                 'setting'  => 'header_show_bottom_arrow',
@@ -137,46 +120,30 @@ function mesmerize_front_page_header_bottom_arrow_settings($section, $prefix, $g
                 'value'    => true,
             ),
         ),
-        'active_callback' => array(
-            array(
-                'setting'  => 'header_show_bottom_arrow',
-                'operator' => '==',
-                'value'    => true,
-            ),
-        ),
-        'group' => $group
+        'group'           => $group,
     ));
-
-
+    
+    
     mesmerize_add_kirki_field(array(
-        'priority' => $priority,
-
         'type'            => 'slider',
         'settings'        => 'header_offset_bottom_arrow',
         'label'           => esc_html__('Icon Bottom Offset', 'mesmerize'),
         'section'         => $section,
-        'default'         => "20",
+        'default'         => '20',
         'choices'         => array(
             'min'  => '0',
             'max'  => '200',
             'step' => '1',
         ),
-        "output"          => array(
+        'priority'        => $priority,
+        'output'          => array(
             array(
                 'element'  => '.header-homepage-arrow',
                 'property' => 'bottom',
-                'suffix'   => 'px !important',
+                'suffix'   => 'px',
             ),
         ),
         'transport'       => 'postMessage',
-        'js_vars'         => array(
-            array(
-                'element'  => '.header-homepage-arrow',
-                'function' => 'css',
-                'property' => 'bottom',
-                'suffix'   => 'px !important',
-            ),
-        ),
         'active_callback' => array(
             array(
                 'setting'  => 'header_show_bottom_arrow',
@@ -184,42 +151,26 @@ function mesmerize_front_page_header_bottom_arrow_settings($section, $prefix, $g
                 'value'    => true,
             ),
         ),
-        'active_callback' => array(
-            array(
-                'setting'  => 'header_show_bottom_arrow',
-                'operator' => '==',
-                'value'    => true,
-            ),
-        ),
-        'group' => $group
+        'group'           => $group,
     ));
-
+    
     mesmerize_add_kirki_field(array(
-        'priority' => $priority,
-
         'type'            => 'color',
         'settings'        => 'header_color_bottom_arrow',
         'label'           => esc_html__('Icon Color', 'mesmerize'),
         'section'         => $section,
-        'default'         => "#ffffff",
+        'default'         => '#ffffff',
         'choices'         => array(
             'alpha' => true,
         ),
-        "output"          => array(
+        'priority'        => $priority,
+        'output'          => array(
             array(
                 'element'  => '.header-homepage-arrow > i',
                 'property' => 'color',
             ),
         ),
         'transport'       => 'postMessage',
-        'js_vars'         => array(
-            array(
-                'element'  => '.header-homepage-arrow > i',
-                'function' => 'css',
-                'property' => 'color',
-                'suffix'   => ' !important',
-            ),
-        ),
         'active_callback' => array(
             array(
                 'setting'  => 'header_show_bottom_arrow',
@@ -227,34 +178,26 @@ function mesmerize_front_page_header_bottom_arrow_settings($section, $prefix, $g
                 'value'    => true,
             ),
         ),
-        'group' => $group
+        'group'           => $group,
     ));
-
+    
     mesmerize_add_kirki_field(array(
-        'priority'        => $priority,
         'type'            => 'color',
         'settings'        => 'header_background_bottom_arrow',
         'label'           => esc_html__('Icon Background Color', 'mesmerize'),
         'section'         => $section,
-        'default'         => "rgba(255,255,255,0)",
+        'default'         => 'rgba(255,255,255,0)',
         'choices'         => array(
             'alpha' => true,
         ),
-        "output"          => array(
+        'priority'        => $priority,
+        'output'          => array(
             array(
                 'element'  => '.header-homepage-arrow',
                 'property' => 'background',
             ),
         ),
         'transport'       => 'postMessage',
-        'js_vars'         => array(
-            array(
-                'element'  => '.header-homepage-arrow',
-                'function' => 'css',
-                'property' => 'background',
-                'suffix'   => ' !important',
-            ),
-        ),
         'active_callback' => array(
             array(
                 'setting'  => 'header_show_bottom_arrow',
@@ -262,27 +205,32 @@ function mesmerize_front_page_header_bottom_arrow_settings($section, $prefix, $g
                 'value'    => true,
             ),
         ),
-        'group' => $group
+        'group'           => $group,
     ));
-
+    
 }
 
 
 function mesmerize_header_bottom_arrow()
 {
-    $show   = get_theme_mod('header_show_bottom_arrow', false);
-    $bounce = get_theme_mod('header_bounce_bottom_arrow', true);
-
-    $class = "header-homepage-arrow ";
-
+    $show   = get_theme_mod('header_show_bottom_arrow', mesmerize_mod_default('header_show_bottom_arrow', false));
+    $bounce = get_theme_mod('header_bounce_bottom_arrow', mesmerize_mod_default('header_bounce_bottom_arrow', true));
+    
+    $class       = "header-homepage-arrow ";
+    $hidden_attr = "";
+    
+    if ( ! $show) {
+        $hidden_attr = "data-reiki-hidden='true'";
+    }
+    
     if ($bounce) {
         $class .= "move-down-bounce";
     }
-
-    if ($show) {
+    
+    if (mesmerize_is_customize_preview() || ( ! mesmerize_is_customize_preview() && $show)) {
         $icon = get_theme_mod('header_bottom_arrow', "fa-angle-down");
         ?>
-        <div class="header-homepage-arrow-c">
+        <div class="header-homepage-arrow-c" <?php echo $hidden_attr; ?>>
             <span class="<?php echo esc_attr($class); ?>"> <i class="fa arrow <?php echo esc_attr($icon); ?>" aria-hidden="true"></i>
             </span>
         </div>

@@ -209,6 +209,7 @@ if ( ! function_exists('mesmerize_print_header_media')) {
     {
         $headerContent = mesmerize_get_front_page_header_media_and_partial();
         $mediaType     = $headerContent['media'];
+        
         do_action('mesmerize_print_header_media', $mediaType);
         
     }
@@ -223,17 +224,33 @@ function mesmerize_get_header_top_spacing_script()
     ob_start();
     ?>
     <script>
-        (function ($) {
+        (function () {
             function setHeaderTopSpacing() {
-                $('.header-wrapper .header,.header-wrapper .header-homepage').css({
-                    'padding-top': $('.header-top').height()
-                })
+
+                setTimeout(function() {
+                  var headerTop = document.querySelector('.header-top');
+                  var headers = document.querySelectorAll('.header-wrapper .header,.header-wrapper .header-homepage');
+
+                  for (var i = 0; i < headers.length; i++) {
+                      var item = headers[i];
+                      item.style.paddingTop = headerTop.getBoundingClientRect().height + "px";
+                  }
+
+                    var languageSwitcher = document.querySelector('.mesmerize-language-switcher');
+
+                    if(languageSwitcher){
+                        languageSwitcher.style.top = "calc( " +  headerTop.getBoundingClientRect().height + "px + 1rem)" ;
+                    }
+                    
+                }, 100);
+
+             
             }
 
-            jQuery(window).on('resize orientationchange', setHeaderTopSpacing);
+            window.addEventListener('resize', setHeaderTopSpacing);
             window.mesmerizeSetHeaderTopSpacing = setHeaderTopSpacing
-
-        })(jQuery);
+            mesmerizeDomReady(setHeaderTopSpacing);
+        })();
     </script>
     <?php
     
@@ -269,7 +286,7 @@ function mesmerize_print_background_content_color()
         .mesmerize-inner-page .page-content,
         .mesmerize-inner-page .content,
         .mesmerize-front-page.mesmerize-content-padding .page-content {
-            background-color: #<?php echo str_replace("#", "", get_background_color());  ?>;
+            background-color: #<?php echo str_replace("#", "", (get_background_color() ? get_background_color() : 'F5FAFD'));  ?>;
         }
     </style>
     <?php

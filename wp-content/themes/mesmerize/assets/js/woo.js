@@ -1,23 +1,20 @@
 (function ($) {
 
     var addCloseCartBind = function ($cart, $cart_button, $menu) {
-        $('body').on('mouseover.ope-wooo', function () {
-
+        $('body').on('mouseover.ope-woo', function (event) {
             var $target = $(event.target);
             var related = isHeaderCartRelated($target, $cart, $cart_button) || $target.is($menu);
             if (!related) {
-                $('body').off('mouseover.ope-wooo');
+                $('body').off('mouseover.ope-woo');
                 $cart.fadeOut();
             }
-
         });
     };
 
     jQuery(document).ready(function () {
-
         var $menu = jQuery('#main_menu');
         var $cart_button = $menu.find('li.mesmerize-menu-cart');
-        var $cart = $cart_button.find('.mesmerize-woo-header-cart');
+        var $cart = jQuery('.mesmerize-woo-header-cart');
         positionateWooCartItem($menu, $cart_button, $cart);
         addCloseCartButton($cart);
 
@@ -59,18 +56,17 @@
         $cart.prepend('<a href="#" class="close-mini-cart small"><i class="fa fa-close"></i></a>');
 
         $('.close-mini-cart').click(function () {
-            $('body').off('mouseover.ope-wooo');
+            $('body').off('mouseover.ope-woo');
             $cart.fadeOut();
         });
 
     }
 
     function positionateWooCartItem($menu, $cart_button, $cart) {
-
         $menu.parent().append($cart);
         var $menuItems = $menu.find('li').not($cart_button);
 
-        $cart_button.off().on('mouseover', function (event) {
+        $cart_button.children('a').off().on('mouseover', function (event) {
 
             if ($cart.children().length === 0) {
                 return;
@@ -92,7 +88,7 @@
             return;
         }
 
-        var top = $cart_button.offset().top + $cart_button.outerHeight() - $cart_button.closest('div').offset().top ;
+        var top = $cart_button.offset().top + $cart_button.outerHeight() - $cart_button.closest('div').offset().top;
         var position = /*$menu.closest('[data-sticky]') ? "fixed" :*/ "absolute";
 
         if ($cart_button.offset().left < $cart.outerWidth()) {
@@ -113,10 +109,11 @@
     }
 
     function isHeaderCartRelated($target, $cart, $cart_button) {
+
         var isMenuButtoRelated = $.contains($cart_button[0], $target[0]) || $target.is($cart_button);
         var isCartContentRelated = $.contains($cart[0], $target[0]) || $target.is($cart);
 
-        return isMenuButtoRelated || isCartContentRelated
+        return (isMenuButtoRelated || isCartContentRelated);
     }
 
 

@@ -5,16 +5,19 @@ add_filter('mesmerize_header_background_types', 'mesmerize_header_background_sli
 
 function mesmerize_header_background_slideshow($types)
 {
-
+    
     $types['slideshow'] = esc_html__('Slideshow', 'mesmerize');
-
+    
     return $types;
 }
 
 add_action("mesmerize_background", function ($bg_type, $inner, $prefix) {
     if ($bg_type == 'slideshow') {
-        $js = get_template_directory_uri() . "/assets/js/libs/jquery.backstretch.js";
-        wp_enqueue_script(mesmerize_get_text_domain() . '-backstretch', $js, array('jquery'), false, true);
+        
+        if ( ! apply_filters('mesmerize_load_bundled_version', true)) {
+            $js = get_template_directory_uri() . "/assets/js/libs/jquery.backstretch.js";
+            wp_enqueue_script(mesmerize_get_text_domain() . '-backstretch', $js, array('jquery'), false, true);
+        }
         add_action('wp_footer', "mesmerize_" . $prefix . '_slideshow_script');
     }
 }, 1, 3);
@@ -24,12 +27,12 @@ add_filter("mesmerize_header_background_type_settings", 'mesmerize_header_backgr
 
 function mesmerize_header_background_type_slideshow_settings($section, $prefix, $group, $inner, $priority)
 {
-
+    
     $prefix  = $inner ? "inner_header" : "header";
     $section = $inner ? "header_image" : "header_background_chooser";
-
+    
     $group = "{$prefix}_bg_options_group_button";
-
+    
     mesmerize_add_kirki_field(array(
         'type'            => 'sectionseparator',
         'label'           => esc_html__('Slideshow Background Options', 'mesmerize'),
@@ -45,7 +48,7 @@ function mesmerize_header_background_type_slideshow_settings($section, $prefix, 
         ),
         'group'           => $group,
     ));
-
+    
     mesmerize_add_kirki_field(array(
         'type'            => 'repeater',
         'label'           => esc_html__('Header Slideshow Images', 'mesmerize'),
@@ -56,10 +59,7 @@ function mesmerize_header_background_type_slideshow_settings($section, $prefix, 
             'value' => esc_attr__('slideshow image', 'mesmerize'),
         ),
         'settings'        => $prefix . '_slideshow',
-        'default'         => array(
-            array("url" => get_template_directory_uri() . "/assets/images/slideshow_slide1.jpg"),
-            array("url" => get_template_directory_uri() . "/assets/images/slideshow_slide2.jpg"),
-        ),
+        'default'         => mesmerize_mod_default($prefix . '_slideshow'),
         'fields'          => array(
             'url' => array(
                 'type'    => 'image',
@@ -84,6 +84,7 @@ function mesmerize_header_background_type_slideshow_settings($section, $prefix, 
         'section'         => $section,
         'priority'        => 2,
         'default'         => 5000,
+        'transport'       => 'postMessage',
         'active_callback' => array(
             array(
                 'setting'  => $prefix . '_background_type',
@@ -93,7 +94,7 @@ function mesmerize_header_background_type_slideshow_settings($section, $prefix, 
         ),
         'group'           => $group,
     ));
-
+    
     mesmerize_add_kirki_field(array(
         'type'            => 'number',
         'priority'        => 2,
@@ -101,6 +102,7 @@ function mesmerize_header_background_type_slideshow_settings($section, $prefix, 
         'label'           => esc_html__('Effect Speed', 'mesmerize'),
         'section'         => $section,
         'default'         => 1000,
+        'transport'       => 'postMessage',
         'active_callback' => array(
             array(
                 'setting'  => $prefix . '_background_type',
@@ -129,22 +131,24 @@ function mesmerize_add_slideshow_scripts($inner = false)
 
     $textDomain = mesmerize_get_text_domain();
 
-    $bgSlideshow = get_theme_mod($prefix . "_slideshow", array(
-        array("url" => get_template_directory_uri() . "/assets/images/slideshow_slide1.jpg"),
-        array("url" => get_template_directory_uri() . "/assets/images/slideshow_slide2.jpg"),
-    ));
+    $bgSlideshow = get_theme_mod($prefix . "_slideshow", mesmerize_mod_default($prefix . '_slideshow'));
 
     $images = array();
     foreach ($bgSlideshow as $key => $value) {
+        $url = "";
         if (is_numeric($value['url'])) {
-            array_push($images, esc_url_raw(wp_get_attachment_url($value['url'])));
+            $url = esc_url_raw(wp_get_attachment_url($value['url']));
         } else {
-            array_push($images, esc_url_raw($value['url']));
+            $url = esc_url_raw($value['url']);
+        }
+
+        if ($url) {
+            array_push($images, $url);
         }
     }
 
-    $bgSlideshowSpeed    = intval(get_theme_mod($prefix . "_slideshow_speed", '1000'));
-    $bgSlideshowDuration = intval(get_theme_mod($prefix . "_slideshow_duration", '5000'));
+    $bgSlideshowSpeed    = intval(get_theme_mod($prefix . "_slideshow_speed",  mesmerize_mod_default($prefix . "_slideshow_speed",'1000')));
+    $bgSlideshowDuration = intval(get_theme_mod($prefix . "_slideshow_duration", mesmerize_mod_default($prefix . "_slideshow_duration",'5000')));
 
     $mesmerize_jssettings = array(
         'images'             => $images,
@@ -153,5 +157,11 @@ function mesmerize_add_slideshow_scripts($inner = false)
         'animateFirst'       => false,
     );
 
-    wp_localize_script($textDomain . '-backstretch', 'mesmerize_backstretch', $mesmerize_jssettings);
+    $handle = $textDomain . "-backstretch";
+
+    if (apply_filters('mesmerize_load_bundled_version', true)) {
+        $handle = $textDomain . "-theme";
+    }
+
+    wp_localize_script($handle, 'mesmerize_backstretch', $mesmerize_jssettings);
 }

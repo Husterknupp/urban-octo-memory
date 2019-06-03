@@ -74,7 +74,7 @@ wp.customize.controlConstructor['kirki-sortable'] = wp.customize.Control.extend(
 
 		'use strict';
 
-		var newValueSerialized = serialize( newValue );
+		var newValueSerialized = newValue;// serialize( newValue );
 
 		this.setting.set( newValueSerialized );
 

@@ -226,3 +226,13 @@
     background: rgb(255, 255, 255);
     margin-bottom: 1em;
 }
+
+.appearance_page_mesmerize-welcome div#wpfooter,
+.appearance_page_mesmerize-demos div#wpfooter {
+    display: none;
+}
+
+.appearance_page_mesmerize-welcome .wrap.about-wrap.full-width-layout.mesmerize-page ,
+.appearance_page_mesmerize-demos .wrap.about-wrap.full-width-layout.mesmerize-page {
+    max-width: 100%;
+}

@@ -105,6 +105,20 @@ function mesmerize_posts_wrapper_class()
     echo esc_attr($class);
 }
 
+function mesmerize_print_blog_list_attrs()
+{
+    $atts = apply_filters('mesmerize_print_blog_list_attrs', array());
+    
+    $result = "";
+    
+    foreach ($atts as $key => $value) {
+        $value  = esc_attr($value);
+        $result .= "{$key}='$value'";
+    }
+    
+    echo " {$result} ";
+}
+
 function mesmerize_get_header($header = null)
 {
     $name = apply_filters('mesmerize_header', null);
@@ -223,12 +237,33 @@ function mesmerize_single_item_title()
     }
 }
 
-function mesmerize_mod_default($name)
+function mesmerize_current_preset()
 {
-    $defaults       = mesmerize_theme_defaults();
-    $current_preset = get_theme_mod('theme_default_preset', WP_DEBUG ? 2 : 1);
+    $current_preset = get_theme_mod('theme_default_preset', WP_DEBUG ? mesmerize_default_preset_number() : 1);
     
-    return $defaults[$current_preset][$name];
+    if (mesmerize_is_wporg_preview()) {
+        $current_preset = mesmerize_default_preset_number();
+    }
+    
+    return $current_preset;
+}
+
+function mesmerize_mod_default($name, $fallback = false)
+{
+    if (mesmerize_has_in_memory('mesmerize_mod_default')) {
+        $defaults = mesmerize_get_from_memory('mesmerize_mod_defaults');
+    } else {
+        $defaults = mesmerize_theme_defaults();
+        
+        $current_preset = mesmerize_current_preset();
+        
+        $defaults = apply_filters('mesmerize_theme_defaults', $defaults[$current_preset]);
+        
+        mesmerize_set_in_memory('mesmerize_mod_defaults', $defaults);
+    }
+    
+    
+    return array_key_exists($name, $defaults) ? $defaults[$name] : $fallback;
 }
 
 
@@ -354,10 +389,14 @@ function mesmerize_print_archive_entry_class()
     $hasBigClass  = (is_sticky() || ($index === 0 && apply_filters('mesmerize_archive_post_highlight', true)));
     $showBigEntry = (is_archive() || is_home());
     
+    if (mesmerize_is_wporg_preview()) {
+        $hasBigClass = false;
+    }
+    
     if ($showBigEntry && $hasBigClass) {
         $classes[] = "col-sm-12 col-md-12";
     } else {
-        $postsPerRow = apply_filters('mesmerize_posts_per_row', 2);
+        $postsPerRow = apply_filters('mesmerize_posts_per_row', mesmerize_mod_default('blog_posts_per_row'));
         $classes[]   = "col-sm-12 col-md-" . (12 / intval($postsPerRow));
     }
     
@@ -380,7 +419,7 @@ function mesmerize_print_masonry_col_class($echo = false)
     if ($showBigEntry && $hasBigClass) {
         $class = "col-md-12";
     } else {
-        $postsPerRow = apply_filters('mesmerize_posts_per_row', 2);
+        $postsPerRow = apply_filters('mesmerize_posts_per_row', mesmerize_mod_default('blog_posts_per_row'));
         $class       = "col-sm-12.col-md-" . (12 / intval($postsPerRow));
     }
     
@@ -407,10 +446,19 @@ function mesmerize_print_post_thumb($classes = "")
             if (has_post_thumbnail()) {
                 the_post_thumbnail();
             } else {
+                $preview_image = apply_filters('mesmerize_post_image_preview', false);
+                
                 $placeholder_color = get_theme_mod('blog_post_thumb_placeholder_color', mesmerize_get_theme_colors('color2'));
-                $placeholder_color = str_replace('#', '', $placeholder_color);
+                $placeholder_color = maybe_hash_hex_color($placeholder_color);
                 ?>
-                <img src="<?php echo esc_url('https://placehold.it/380X220/' . esc_attr($placeholder_color) . '/ffffff?text=%20'); ?>"
+                
+                <?php if ($preview_image): ?>
+                    <img src="<?php echo esc_attr($preview_image); ?>" class="esmerize-post-list-item-thumb-placeholder">
+                <?php else: ?>
+                    <svg class="mesmerize-post-list-item-thumb-placeholder" width="890" height="580" viewBox="0 0 890 580" preserveAspectRatio="none">
+                        <rect width="890" height="580" style="fill:<?php echo esc_attr($placeholder_color); ?>;"></rect>
+                    </svg>
+                <?php endif; ?>
             <?php } ?>
         </a>
     </div>
@@ -419,6 +467,7 @@ function mesmerize_print_post_thumb($classes = "")
 
 function mesmerize_is_customize_preview()
 {
+    
     $is_preview = (function_exists('is_customize_preview') && is_customize_preview());
     
     if ( ! $is_preview) {
@@ -427,16 +476,6 @@ function mesmerize_is_customize_preview()
     
     return $is_preview;
     
-}
-
-function mesmerize_can_show_cached_style()
-{
-    if (mesmerize_is_customize_preview() || wp_doing_ajax()) {
-        return false;
-    }
-    
-    $result = (intval(get_option('mesmerize_has_cached_style', false)) !== 0);
-    return $result;
 }
 
 
@@ -448,3 +487,26 @@ function mesmerize_add_script_data($handle, $key, $data, $position = 'before')
     
     wp_add_inline_script($handle, $script, $position);
 }
+
+
+add_filter('mesmerize_header', function ($header) {
+    
+    $can_show = (get_theme_mod('show_front_page_hero_by_default', false) || mesmerize_is_wporg_preview());
+    
+    if (is_front_page() && $can_show) {
+        return "homepage";
+    }
+    
+    return $header;
+});
+
+add_filter('mesmerize_is_front_page', function ($value) {
+    
+    $can_show = (get_theme_mod('show_front_page_hero_by_default', false) || mesmerize_is_wporg_preview());
+    
+    if (is_front_page() && $can_show) {
+        $value = true;
+    }
+    
+    return $value;
+});

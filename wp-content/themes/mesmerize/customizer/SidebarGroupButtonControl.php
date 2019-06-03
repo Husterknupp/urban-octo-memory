@@ -19,9 +19,11 @@ class SidebarGroupButtonControl extends \Kirki_Customize_Control
 
     public function enqueue()
     {
-        $jsRoot = get_template_directory_uri() . "/customizer/js";
-        wp_enqueue_script('mesmerize-sb-group-button-control', $jsRoot . "/sb-group-button-control.js");
-
+        
+        if ( ! apply_filters('mesmerize_load_bundled_version', true)) {
+        	$jsRoot = get_template_directory_uri() . "/customizer/js";
+        	wp_enqueue_script('mesmerize-sb-group-button-control', $jsRoot . "/sb-group-button-control.js");
+        }
     }
 
     public function json()
@@ -57,12 +59,12 @@ class SidebarGroupButtonControl extends \Kirki_Customize_Control
         <label>
 
             <# if ( data.description ) { #>
-                <span class="title customize-control-title" style="visibility: hidden;">{{{ data.description }}}</span>
-                <# } #>
+            <span class="title customize-control-title" style="visibility: hidden;">{{{ data.description }}}</span>
+            <# } #>
 
-                    <button type="button" class="button" data-sidebar-container="{{ data.popup }}" id="group_customize-button-{{ data.popup }}">
-                        {{{ data.label }}}
-                    </button>
+            <button type="button" class="button" data-sidebar-container="{{ data.popup }}" id="group_customize-button-{{ data.popup }}">
+                {{{ data.label }}}
+            </button>
         </label>
 
         <div id="{{ data.popup }}-popup" class="customizer-right-section">

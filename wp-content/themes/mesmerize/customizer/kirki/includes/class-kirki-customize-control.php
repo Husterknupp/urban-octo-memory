@@ -139,14 +139,14 @@ if ( ! class_exists('Kirki_Customize_Control')) {
             } else {
                 $this->json['default'] = $this->setting->default;
             }
-            $this->json['js_vars']     = $this->js_vars;
-            $this->json['output']      = $this->output;
-            $this->json['value']       = $this->value();
-            $this->json['choices']     = $this->choices;
-            $this->json['link']        = $this->get_link();
-            $this->json['tooltip']     = $this->tooltip;
-            $this->json['id']          = $this->id;
-            $this->json['l10n']        = $this->l10n;
+            $this->json['js_vars'] = $this->js_vars;
+            $this->json['output']  = $this->output;
+            $this->json['value']   = $this->value();
+            $this->json['choices'] = $this->choices;
+            $this->json['link']    = $this->get_link();
+            $this->json['tooltip'] = $this->tooltip;
+            $this->json['id']      = $this->id;
+//            $this->json['l10n']        = $this->l10n;
             $this->json['kirkiConfig'] = $this->kirki_config;
 
             $field = Kirki::$fields[$this->id];
@@ -178,7 +178,7 @@ if ( ! class_exists('Kirki_Customize_Control')) {
             $id    = 'customize-control-' . str_replace(array('[', ']'), array('-', ''), $this->id);
             $class = 'customize-control customize-control-kirki customize-control-' . $this->type;
             ?>
-        <li id="<?php echo esc_attr($id); ?>" class="<?php echo esc_attr($class); ?>">
+            <li id="<?php echo esc_attr($id); ?>" class="<?php echo esc_attr($class); ?>">
             <?php $this->render_content(); ?>
             </li><?php
         }
@@ -192,7 +192,8 @@ if ( ! class_exists('Kirki_Customize_Control')) {
         {
         }
 
-        public static function load(){
+        public static function load()
+        {
 
         }
     }

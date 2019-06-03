@@ -3,11 +3,9 @@
     function getHandler() {
         for (var id in wp.customHeader.handlers) {
             var handle = wp.customHeader.handlers[id];
-
             if (handle.settings) {
                 return handle;
             }
-
         }
     }
 
@@ -27,7 +25,6 @@
         if (animate === false) {
             return;
         }
-
 
     }
 
@@ -55,6 +52,10 @@
         if (videoElement) {
             resizeVideo(videoElement);
             return;
+        }
+
+        if(! document.querySelector('#wp-custom-header')){
+            return
         }
 
         document.querySelector('#wp-custom-header').addEventListener('play', function () {

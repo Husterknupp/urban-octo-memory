@@ -1,5 +1,5 @@
 <div id="mesmerize_homepage" style="display:none; ">
-    <div class="mesmerize-popup" style="background-image: url(<?php echo esc_url(get_template_directory_uri() . "/customizer/images/admin-onboarding.jpg"); ?>)">
+    <div class="mesmerize-popup" style="">
         <div>
             <div class="mesmerize_cp_column">
                 <h3 class="mesmerize_title"><?php esc_html_e('Please Install the Mesmerize Companion Plugin to Enable All the Theme Features', 'mesmerize') ?></h3>
@@ -14,6 +14,14 @@
                     <li><?php esc_html_e('and many other features', 'mesmerize'); ?></li>
                 </ul>
             </div>
+            <div class="mesmerize_cp_column">
+                <?php if (apply_filters('mesmerize_companion_show_popup_screenshot', true)): ?>
+                    <img class="popup-theme-screenshot" src="<?php echo esc_attr(get_template_directory_uri() . "/screenshot.jpg") ?>"/>
+                <?php else: ?>
+                    <?php do_action('mesmerize_companion_popup_screenshot'); ?>
+                <?php endif; ?>
+            </div>
+            <div class="clearfix"></div>
         </div>
         <div class="footer">
             <label class="disable-popup-cb">

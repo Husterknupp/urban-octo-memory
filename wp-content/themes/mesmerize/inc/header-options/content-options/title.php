@@ -45,12 +45,12 @@ function mesmerize_front_page_header_title_options($section, $prefix, $priority)
             'default'           => "",
             'sanitize_callback' => 'mesmerize_wp_kses_post',
             'priority'          => $priority,
-
-            'transport' => 'postMessage',
-            'js_vars'   => array(
-                array(
-                    'element'  => ".header-homepage .hero-title",
-                    'function' => 'html',
+            'partial_refresh'   => array(
+                'header_title' => array(
+                    'selector'        => ".header-homepage .hero-title",
+                    'render_callback' => function () {
+                        return get_theme_mod('header_title');
+                    },
                 ),
             ),
         ));
@@ -71,6 +71,10 @@ function mesmerize_print_header_title()
     if (mesmerize_can_show_demo_content()) {
         if ($title == "") {
             $title = esc_html__('You can set this title from the customizer.', 'mesmerize');
+        }
+    } else {
+        if ($title == "") {
+            $title = get_bloginfo('description');
         }
     }
 

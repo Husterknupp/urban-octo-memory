@@ -1,8 +1,8 @@
 <?php
 
-function mesmerize_get_default_colors()
+function mesmerize_get_default_colors($as_key_value_pair = false)
 {
-    return array(
+    $data = array(
         array("label" => esc_html__("Primary", "mesmerize"), "name" => "color1", "value" => "#03a9f4"),
         array("label" => esc_html__("Secondary", "mesmerize"), "name" => "color2", "value" => "#FF9800"),
         array("label" => esc_html__("color3", "mesmerize"), "name" => "color3", "value" => "#fbc02d"),
@@ -10,6 +10,16 @@ function mesmerize_get_default_colors()
         array("label" => esc_html__("color5", "mesmerize"), "name" => "color5", "value" => "#ff3369"),
         array("label" => esc_html__("color6", "mesmerize"), "name" => "color6", "value" => "#343a40"),
     );
+
+    $result = $data;
+
+    if ($as_key_value_pair) {
+        foreach ($data as $color) {
+            $result[$color['name']] = $color['value'];
+        }
+    }
+
+    return $result;
 }
 
 
@@ -37,6 +47,28 @@ function mesmerize_get_theme_colors($color = false)
     }
 
     return $colors;
+}
+
+
+function mesmerize_get_changed_theme_colors()
+{
+    $colors         = mesmerize_get_theme_colors();
+    $default_colors = mesmerize_get_default_colors(true);
+    $result         = array();
+
+    foreach ($colors as $color) {
+        $name = $color['name'];
+
+        if (isset($default_colors[$name])) {
+            if ($default_colors[$name] !== $color['value']) {
+                $result[] = $color;
+            }
+        } else {
+            $result[] = $color;
+        }
+    }
+
+    return $result;
 }
 
 add_filter('kirki_color_picker_palettes', 'mesmerize_theme_kirki_palettes');

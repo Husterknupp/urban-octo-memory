@@ -1,8 +1,274 @@
 <?php
 
+add_action('wp_head', function () {
+    ?>
+    <script>
+        (function (exports, d) {
+            var _isReady = false,
+                _event,
+                _fns = [];
+
+            function onReady(event) {
+                d.removeEventListener("DOMContentLoaded", onReady);
+                _isReady = true;
+                _event = event;
+                _fns.forEach(function (_fn) {
+                    var fn = _fn[0],
+                        context = _fn[1];
+                    fn.call(context || exports, window.jQuery);
+                });
+            }
+
+            function onReadyIe(event) {
+                if (d.readyState === "complete") {
+                    d.detachEvent("onreadystatechange", onReadyIe);
+                    _isReady = true;
+                    _event = event;
+                    _fns.forEach(function (_fn) {
+                        var fn = _fn[0],
+                            context = _fn[1];
+                        fn.call(context || exports, event);
+                    });
+                }
+            }
+
+            d.addEventListener && d.addEventListener("DOMContentLoaded", onReady) ||
+            d.attachEvent && d.attachEvent("onreadystatechange", onReadyIe);
+
+            function domReady(fn, context) {
+                if (_isReady) {
+                    fn.call(context, _event);
+                }
+
+                _fns.push([fn, context]);
+            }
+
+            exports.mesmerizeDomReady = domReady;
+        })(window, document);
+    </script>
+    <?php
+}, 0);
+
 mesmerize_require("inc/variables.php");
 mesmerize_require("inc/defaults.php");
-mesmerize_require("inc/jetpack.php");
+mesmerize_require("inc/theme-cache-cleaner.php");
+
+
+add_filter('mesmerize_upgrade_url', function ($url) {
+    return get_option('mesmerize_upgrade_url', $url);
+}, 0);
+
+if ( ! function_exists('mesmerize_get_upgrade_link')) {
+    function mesmerize_get_upgrade_link($args = array(), $hash = "")
+    {
+        $base_url = "https://extendthemes.com/go/mesmerize-upgrade/";
+        $url      = add_query_arg($args, $base_url);
+        
+        if ($hash = trim($hash)) {
+            $hash = "#" . $hash;
+        }
+        
+        $url = $url . esc_url($hash);
+        
+        return apply_filters('mesmerize_upgrade_url', $url, $base_url, $args, $hash);
+    }
+}
+
+function mesmerize_is_wporg_preview()
+{
+    
+    if (defined('MESMERIZE_IS_WPORG_PREVIEW') && MESMERIZE_IS_WPORG_PREVIEW) {
+        return MESMERIZE_IS_WPORG_PREVIEW;
+    }
+    
+    if (mesmerize_has_in_memory('mesmerize_is_wporg_preview')) {
+        return mesmerize_get_from_memory('mesmerize_is_wporg_preview');
+    }
+    
+    $url    = site_url();
+    $parse  = parse_url($url);
+    $wp_org = 'wp-themes.com';
+    $result = false;
+    
+    if (isset($parse['host']) && $parse['host'] === $wp_org) {
+        $result = true;
+    }
+    
+    mesmerize_set_in_memory('mesmerize_is_wporg_preview', $result);
+    
+    return $result;
+    
+}
+
+function mesmerize_get_companion_data($key)
+{
+    
+    $plugin_path = WP_PLUGIN_DIR . '/mesmerize-companion/mesmerize-companion.php';
+    
+    if (file_exists($plugin_path)) {
+        
+        if ( ! function_exists('get_plugin_data')) {
+            include_once ABSPATH . '/wp-admin/includes/plugin.php';
+        }
+        
+        $data = get_plugin_data($plugin_path, false);
+        
+        if (isset($data[$key])) {
+            return $data[$key];
+        }
+    }
+    
+    return null;
+}
+
+if ( ! apply_filters('mesmerize_is_companion_installed', false)) {
+    add_action('wp_ajax_cp_load_data', 'mesmerize_load_ajax_data');
+}
+
+function mesmerize_load_ajax_data()
+{
+    $filter      = filter_input(INPUT_GET, 'filter', FILTER_SANITIZE_STRING);
+    $filter      = trim($filter);
+    $filterParts = explode(".", $filter);
+    
+    if (empty($filterParts)) {
+        wp_send_json(array("error" => "empty_filter"));
+    }
+    
+    $companion = null;
+    
+    $result = apply_filters('cloudpress\companion\ajax_cp_data', array(), $companion, $filter);
+    
+    if ( ! isset($result[$filter])) {
+        wp_send_json(array("error" => "invalid_filter"));
+    }
+    
+    wp_send_json($result[$filter]);
+}
+
+function mesmerize_set_in_memory($key, $value = false)
+{
+    
+    if ( ! isset($GLOBALS['MESMERIZE_MEMORY_CACHE'])) {
+        $GLOBALS['MESMERIZE_MEMORY_CACHE'] = array();
+    }
+    
+    $GLOBALS['MESMERIZE_MEMORY_CACHE'][$key] = $value;
+}
+
+function mesmerize_has_in_memory($key)
+{
+    
+    if (isset($GLOBALS['MESMERIZE_MEMORY_CACHE']) && isset($GLOBALS['MESMERIZE_MEMORY_CACHE'][$key])) {
+        return $key;
+    } else {
+        return false;
+    }
+}
+
+function mesmerize_get_from_memory($key)
+{
+    if (mesmerize_has_in_memory($key)) {
+        return $GLOBALS['MESMERIZE_MEMORY_CACHE'][$key];
+    }
+    
+    return false;
+}
+
+function mesmerize_skip_customize_register()
+{
+    return isset($_REQUEST['mesmerize_skip_customize_register']);
+}
+
+function mesmerize_get_cache_option_key()
+{
+    return "__mesmerize_cached_values__";
+}
+
+function mesmerize_can_show_cached_value($slug)
+{
+    global $wp_customize;
+    
+    if ($wp_customize || mesmerize_is_customize_preview() || wp_doing_ajax() || WP_DEBUG || mesmerize_is_wporg_preview()) {
+        return false;
+    }
+    
+    if ($value = mesmerize_get_from_memory("mesmerize_can_show_cached_value_{$slug}")) {
+        return $value;
+    }
+    
+    $result = (mesmerize_get_cached_value($slug) !== null);
+    
+    mesmerize_set_in_memory("mesmerize_can_show_cached_value_{$slug}", $result);
+    
+    return $result;
+}
+
+function mesmerize_cache_value($slug, $value, $cache_on_ajax = false)
+{
+    
+    if (wp_doing_ajax()) {
+        if ( ! $cache_on_ajax) {
+            return;
+        }
+    }
+    
+    if (mesmerize_is_customize_preview()) {
+        return;
+    }
+    
+    $cached_values = get_option(mesmerize_get_cache_option_key(), array());
+    
+    $cached_values[$slug] = $value;
+    
+    update_option(mesmerize_get_cache_option_key(), $cached_values, 'yes');
+    
+}
+
+function mesmerize_remove_cached_value($slug)
+{
+    $cached_values = get_option(mesmerize_get_cache_option_key(), array());
+    
+    if (isset($cached_values[$slug])) {
+        unset($cached_values[$slug]);
+    }
+    
+    update_option(mesmerize_get_cache_option_key(), $cached_values, 'yes');
+}
+
+function mesmerize_get_cached_value($slug)
+{
+    $cached_values = get_option(mesmerize_get_cache_option_key(), array());
+    
+    if (isset($cached_values[$slug])) {
+        return $cached_values[$slug];
+    }
+    
+    return null;
+}
+
+function mesmerize_clear_cached_values()
+{
+    // cleanup old cached values
+    $slugs = get_option('mesmerize_cached_values_slugs', array());
+    
+    if (count($slugs)) {
+        foreach ($slugs as $slug) {
+            mesmerize_remove_cached_value($slug);
+        }
+        
+        delete_option('mesmerize_cached_values_slugs');
+    }
+    // cleanup old cached values
+    
+    delete_option(mesmerize_get_cache_option_key());
+    
+    if (class_exists('autoptimizeCache')) {
+        autoptimizeCache::clearall();
+    }
+}
+
+add_action('cloudpress\companion\clear_caches', 'mesmerize_clear_cached_values');
 
 function mesmerize_get_var($name)
 {
@@ -21,7 +287,6 @@ function mesmerize_wrap_with_double_quotes($element)
     return "&quot;{$element}&quot;";
 }
 
-
 function mesmerize_wp_kses_post($text)
 {
     // fix the issue with rgb / rgba colors in style atts
@@ -32,20 +297,16 @@ function mesmerize_wp_kses_post($text)
     $rgbaRegex = "#rgba\(((\s*\d+\s*,){3}[\d\.]+)\)#i";
     $text      = preg_replace($rgbaRegex, "rgba__$1__rgb", $text);
     
-    
     // fix google fonts
     $fontsOption       = apply_filters('mesmerize_google_fonts', mesmerize_get_general_google_fonts());
     $fonts             = array_keys($fontsOption);
     $singleQuotedFonts = array_map('mesmerize_wrap_with_single_quote', $fonts);
     $doubleQuotedFonts = array_map('mesmerize_wrap_with_double_quotes', $fonts);
     
-    
     $text = str_replace($singleQuotedFonts, $fonts, $text);
     $text = str_replace($doubleQuotedFonts, $fonts, $text);
     
-    
     $text = wp_kses_post($text);
-    
     
     $text = str_replace("rgba__", "rgba(", $text);
     $text = str_replace("rgb__", "rgb(", $text);
@@ -89,7 +350,7 @@ function mesmerize_setup()
     ));
     
     add_theme_support('custom-header', apply_filters('mesmerize_custom_header_args', array(
-        'default-image' => get_template_directory_uri() . "/assets/images/home_page_header.jpg",
+        'default-image' => mesmerize_mod_default('inner_header_front_page_image'),
         'width'         => 1920,
         'height'        => 800,
         'flex-height'   => true,
@@ -121,10 +382,11 @@ function mesmerize_setup()
     
     mesmerize_theme_page();
     mesmerize_suggest_plugins();
+    
+    mesmerize_require("inc/wp-forms/wp-forms.php");
 }
 
 add_action('after_setup_theme', 'mesmerize_setup');
-
 
 function mesmerize_full_hd_image_size_label($sizes)
 {
@@ -135,20 +397,21 @@ function mesmerize_full_hd_image_size_label($sizes)
 
 add_filter('image_size_names_choose', 'mesmerize_full_hd_image_size_label');
 
-
 function mesmerize_suggest_plugins()
 {
-    
     
     require_once get_template_directory() . '/inc/companion.php';
     
     /* tgm-plugin-activation */
     require_once get_template_directory() . '/class-tgm-plugin-activation.php';
     
+    
+    $companion_description = esc_html__('Mesmerize Companion plugin adds drag and drop functionality and many other features to the Mesmerize theme.', 'mesmerize');
+    
     $plugins = array(
         'mesmerize-companion' => array(
             'title'       => esc_html__('Mesmerize Companion', 'mesmerize'),
-            'description' => esc_html__('Mesmerize Companion plugin adds drag and drop functionality and many other features to the Mesmerize theme.', 'mesmerize'),
+            'description' => apply_filters('mesmerize_companion_description', $companion_description),
             'activate'    => array(
                 'label' => esc_html__('Activate', 'mesmerize'),
             ),
@@ -156,9 +419,9 @@ function mesmerize_suggest_plugins()
                 'label' => esc_html__('Install', 'mesmerize'),
             ),
         ),
-        'contact-form-7'      => array(
-            'title'       => esc_html__('Contact Form 7', 'mesmerize'),
-            'description' => esc_html__('The Contact Form 7 plugin is recommended for the Mesmerize contact section.', 'mesmerize'),
+        'wpforms-lite'        => array(
+            'title'       => esc_html__('Contact Form by WPForms', 'mesmerize'),
+            'description' => esc_html__('The Contact Form by WPForms plugin is recommended for the Mesmerize contact section.', 'mesmerize'),
             'activate'    => array(
                 'label' => esc_html__('Activate', 'mesmerize'),
             ),
@@ -178,7 +441,6 @@ function mesmerize_suggest_plugins()
     ));
 }
 
-
 function mesmerize_tgma_suggest_plugins()
 {
     $plugins = array(
@@ -189,8 +451,8 @@ function mesmerize_tgma_suggest_plugins()
         ),
         
         array(
-            'name'     => 'Contact Form 7',
-            'slug'     => 'contact-form-7',
+            'name'     => 'Contact Form by WPForms',
+            'slug'     => 'wpforms-lite',
             'required' => false,
         ),
     );
@@ -215,9 +477,14 @@ function mesmerize_tgma_suggest_plugins()
 
 add_action('tgmpa_register', 'mesmerize_tgma_suggest_plugins');
 
-
 function mesmerize_can_show_demo_content()
 {
+    global $wp_customize;
+    
+    if ($wp_customize || mesmerize_is_customize_preview()) {
+        return true;
+    }
+    
     return apply_filters("mesmerize_can_show_demo_content", current_user_can('edit_theme_options'));
 }
 
@@ -253,11 +520,22 @@ function mesmerize_get_text_domain()
     return $textDomain;
 }
 
-function mesmerize_require($path)
+function mesmerize_file_exists($path)
 {
     $path = trim($path, "\\/");
+    
     if (file_exists(get_template_directory() . "/{$path}")) {
-        require_once get_template_directory() . "/{$path}";
+        return get_template_directory() . "/{$path}";
+    }
+    
+    return null;
+}
+
+function mesmerize_require($path)
+{
+    $path = mesmerize_file_exists($path);
+    if ($path !== null) {
+        require_once $path;
         
     }
 }
@@ -271,10 +549,21 @@ mesmerize_require('/inc/theme-options.php');
 
 function mesmerize_add_kirki_field($args)
 {
-    Kirki::add_field('mesmerize', $args);
+    $has_cached_values = mesmerize_can_show_cached_value("mesmerize_cached_kirki_style_mesmerize");
+    
+    if ( ! $has_cached_values) {
+        $args = apply_filters('mesmerize_kirki_field_filter', $args);
+        Kirki::add_field('mesmerize', $args);
+    }
 }
 
 // SCRIPTS AND STYLES
+
+function mesmerize_replace_file_extension($filename, $old_extenstion, $new_extension)
+{
+    
+    return preg_replace('#\\' . $old_extenstion . '$#', $new_extension, $filename);
+}
 
 function mesmerize_enqueue($type = 'style', $handle, $args = array())
 {
@@ -294,14 +583,13 @@ function mesmerize_enqueue($type = 'style', $handle, $args = array())
         return;
     }
     
-    $isScriptDebug = defined("SCRIPT_DEBUG") && SCRIPT_DEBUG;
-    if ($data['has_min'] && ! $isScriptDebug) {
+    if ($data['has_min']) {
         if ($type === 'style') {
-            $data['src'] = str_replace('.css', '.min.css', $data['src']);
+            $data['src'] = mesmerize_replace_file_extension($data['src'], '.css', '.min.css');
         }
         
         if ($type === 'script') {
-            $data['src'] = str_replace('.js', '.min.js', $data['src']);
+            $data['src'] = mesmerize_replace_file_extension($data['src'], '.js', '.min.js');
         }
     }
     
@@ -334,6 +622,180 @@ function mesmerize_associative_array_splice($oldArray, $offset, $key, $data)
     return $newArray;
 }
 
+function mesmerize_enqueue_styles($textDomain, $ver, $is_child)
+{
+    
+    mesmerize_enqueue_style(
+        $textDomain . '-style',
+        array(
+            'src'     => get_stylesheet_uri(),
+            'has_min' => apply_filters('mesmerize_stylesheet_has_min', ! $is_child),
+            'deps'    => apply_filters('mesmerize_stylesheet_deps', array()),
+        )
+    );
+    
+    if (apply_filters('mesmerize_load_bundled_version', true)) {
+        
+        mesmerize_enqueue_style(
+            $textDomain . '-style-bundle',
+            array(
+                'src' => get_template_directory_uri() . '/assets/css/theme.bundle.min.css',
+            )
+        );
+        
+    } else {
+        
+        mesmerize_enqueue_style(
+            $textDomain . '-font-awesome',
+            array(
+                'src' => get_template_directory_uri() . '/assets/font-awesome/font-awesome.min.css',
+            )
+        );
+        
+        mesmerize_enqueue_style(
+            'animate',
+            array(
+                'src'     => get_template_directory_uri() . '/assets/css/animate.css',
+                'has_min' => true,
+            )
+        );
+        
+        mesmerize_enqueue_style(
+            $textDomain . '-webgradients',
+            array(
+                'src'     => get_template_directory_uri() . '/assets/css/webgradients.css',
+                'has_min' => true,
+            )
+        );
+    }
+}
+
+function mesmerize_defer_js_scripts($tag)
+{
+    $matches = array(
+        'theme.bundle.min.js',
+        'companion.bundle.min.js',
+        includes_url('/js/masonry.min.js'),
+        includes_url('/js/imagesloaded.min.js'),
+        includes_url('/js/wp-embed.min.js'),
+    );
+    
+    foreach ($matches as $match) {
+        if (strpos($tag, $match) !== false) {
+            return str_replace('src', ' defer="defer" src', $tag);
+        }
+    }
+    
+    return $tag;
+    
+}
+
+add_filter('script_loader_tag', 'mesmerize_defer_js_scripts', 11, 1);
+
+function mesmerize_defer_css_scripts($tag)
+{
+    $matches = array(
+        'fonts.googleapis.com',
+        'companion.bundle.min.css',
+    );
+    
+    if ( ! mesmerize_is_customize_preview()) {
+        foreach ($matches as $match) {
+            if (strpos($tag, $match) !== false) {
+                return str_replace('href', ' data-href', $tag);
+            }
+        }
+    }
+    
+    return $tag;
+}
+
+add_filter('style_loader_tag', 'mesmerize_defer_css_scripts', 11, 1);
+
+add_action('wp_head', function () {
+    ?>
+    <script type="text/javascript" data-name="async-styles">
+        (function () {
+            var links = document.querySelectorAll('link[data-href]');
+            for (var i = 0; i < links.length; i++) {
+                var item = links[i];
+                item.href = item.getAttribute('data-href')
+            }
+        })();
+    </script>
+    <?php
+});
+
+function mesmerize_enqueue_scripts($textDomain, $ver, $is_child)
+{
+    
+    if (apply_filters('mesmerize_load_bundled_version', true)) {
+        $theme_deps = array('jquery', 'masonry');
+        mesmerize_enqueue_script(
+            $textDomain . '-theme',
+            array(
+                "src"  => get_template_directory_uri() . '/assets/js/theme.bundle.min.js',
+                "deps" => $theme_deps,
+            )
+        );
+        
+    } else {
+        
+        mesmerize_enqueue_script(
+            $textDomain . '-smoothscroll',
+            array(
+                'src'     => get_template_directory_uri() . '/assets/js/smoothscroll.js',
+                'deps'    => array('jquery', 'jquery-effects-core'),
+                'has_min' => true,
+            )
+        );
+        
+        mesmerize_enqueue_script(
+            $textDomain . '-ddmenu',
+            array(
+                'src'     => get_template_directory_uri() . '/assets/js/drop_menu_selection.js',
+                'deps'    => array('jquery-effects-slide', 'jquery'),
+                'has_min' => true,
+            )
+        );
+        
+        mesmerize_enqueue_script(
+            'kube',
+            array(
+                'src'     => get_template_directory_uri() . '/assets/js/kube.js',
+                'deps'    => array('jquery'),
+                'has_min' => true,
+            )
+        );
+        
+        mesmerize_enqueue_script(
+            $textDomain . '-fixto',
+            array(
+                'src'     => get_template_directory_uri() . '/assets/js/libs/fixto.js',
+                'deps'    => array('jquery'),
+                'has_min' => true,
+            )
+        );
+        
+        wp_enqueue_script($textDomain . '-sticky', get_template_directory_uri() . '/assets/js/sticky.js', array($textDomain . '-fixto'), $ver, true);
+        
+        $theme_deps = array('jquery', 'masonry');
+        $theme_deps = apply_filters("mesmerize_theme_deps", $theme_deps);
+        
+        mesmerize_enqueue_script(
+            $textDomain . '-theme',
+            array(
+                "src"     => get_template_directory_uri() . '/assets/js/theme.js',
+                "deps"    => $theme_deps,
+                'has_min' => true,
+            )
+        );
+    }
+    
+    if (is_singular() && comments_open() && get_option('thread_comments')) {
+        wp_enqueue_script('comment-reply');
+    }
+}
 
 function mesmerize_do_enqueue_assets()
 {
@@ -343,96 +805,25 @@ function mesmerize_do_enqueue_assets()
     $isChildTheme = $theme->get('Template');
     $textDomain   = mesmerize_get_text_domain();
     
-    mesmerize_enqueue_style(
-        $textDomain . '-style',
-        array(
-            'src'     => get_stylesheet_uri(),
-            'has_min' => ! $isChildTheme,
-        )
-    );
-    
-    mesmerize_enqueue_style(
-        $textDomain . '-font-awesome',
-        array(
-            'src' => get_template_directory_uri() . '/assets/font-awesome/font-awesome.min.css',
-        )
-    );
-    
-    mesmerize_enqueue_style(
-        'animate',
-        array(
-            'src'     => get_template_directory_uri() . '/assets/css/animate.css',
-            'has_min' => true,
-        )
-    );
-    
-    mesmerize_enqueue_script(
-        $textDomain . '-smoothscroll',
-        array(
-            'src'     => get_template_directory_uri() . '/assets/js/smoothscroll.js',
-            'deps'    => array('jquery', 'jquery-effects-core'),
-            'has_min' => true,
-        )
-    );
-    
-    mesmerize_enqueue_script(
-        $textDomain . '-ddmenu',
-        array(
-            'src'     => get_template_directory_uri() . '/assets/js/drop_menu_selection.js',
-            'deps'    => array('jquery-effects-slide', 'jquery'),
-            'has_min' => true,
-        )
-    );
-    
-    mesmerize_enqueue_script(
-        'kube',
-        array(
-            'src'     => get_template_directory_uri() . '/assets/js/kube.js',
-            'deps'    => array('jquery'),
-            'has_min' => true,
-        )
-    );
-    
-    mesmerize_enqueue_script(
-        $textDomain . '-fixto',
-        array(
-            'src'     => get_template_directory_uri() . '/assets/js/libs/fixto.js',
-            'deps'    => array('jquery'),
-            'has_min' => true,
-        )
-    );
-    
-    wp_enqueue_script($textDomain . '-sticky', get_template_directory_uri() . '/assets/js/sticky.js', array($textDomain . '-fixto'), $ver, true);
-    
-    
-    wp_enqueue_script('masonry');
-    wp_enqueue_script('comment-reply');
-    
-    $theme_deps = apply_filters("mesmerize_theme_deps", array('jquery'));
-    wp_enqueue_script($textDomain . '-theme', get_template_directory_uri() . '/assets/js/theme.js', $theme_deps, $ver, true);
+    mesmerize_enqueue_styles($textDomain, $ver, $isChildTheme);
+    mesmerize_enqueue_scripts($textDomain, $ver, $isChildTheme);
     
     $maxheight = intval(get_theme_mod('logo_max_height', 70));
-    wp_add_inline_style($textDomain . '-style', sprintf('img.logo.dark, img.custom-logo{width:auto;max-height:%1$s;}', $maxheight . "px"));
+    wp_add_inline_style($textDomain . '-style', sprintf('img.logo.dark, img.custom-logo{width:auto;max-height:%1$s !important;}', $maxheight . "px"));
     
-    mesmerize_enqueue_style(
-        $textDomain . '-webgradients',
-        array(
-            'src'     => get_template_directory_uri() . '/assets/css/webgradients.css',
-            'has_min' => true,
-        )
-    );
 }
 
 add_action('wp_enqueue_scripts', 'mesmerize_do_enqueue_assets');
-
 
 add_action('customize_controls_enqueue_scripts', function () {
     
     $theme = wp_get_theme();
     $ver   = $theme->get('Version');
     
-    wp_enqueue_style('mesmerize-customizer-spectrum', get_template_directory_uri() . '/customizer/libs/spectrum.css', array(), $ver);
-    wp_enqueue_script('mesmerize-customizer-spectrum', get_template_directory_uri() . '/customizer/libs/spectrum.js', array(), $ver, true);
+    if ( ! apply_filters('mesmerize_load_bundled_version', true)) {
+        wp_enqueue_style('mesmerize-customizer-spectrum', get_template_directory_uri() . '/customizer/libs/spectrum.css', array(), $ver);
+        wp_enqueue_script('mesmerize-customizer-spectrum', get_template_directory_uri() . '/customizer/libs/spectrum.js', array('customize-base'), $ver, true);
+    }
 });
 
 function mesmerize_get_general_google_fonts()
@@ -445,7 +836,7 @@ function mesmerize_get_general_google_fonts()
         
         array(
             'family'  => 'Muli',
-            "weights" => array("300", "300italic", "400", "400italic", "600", "600italic", "700", "700italic", "900", "900italic",),
+            "weights" => array("300", "300italic", "400", "400italic", "600", "600italic", "700", "700italic", "900", "900italic"),
         ),
         array(
             'family'  => 'Playfair Display',
@@ -456,28 +847,36 @@ function mesmerize_get_general_google_fonts()
 
 function mesmerize_do_enqueue_google_fonts()
 {
-    $gFonts = mesmerize_get_general_google_fonts();
-    
-    $fonts = array();
-    
-    foreach ($gFonts as $font) {
-        $fonts[$font['family']] = $font;
+    $fontsURL = array();
+    if (mesmerize_can_show_cached_value('mesmerize_google_fonts')) {
+        
+        $fontsURL = mesmerize_get_cached_value('mesmerize_google_fonts');
+    } else {
+        $gFonts = mesmerize_get_general_google_fonts();
+        
+        $fonts = array();
+        
+        foreach ($gFonts as $font) {
+            $fonts[$font['family']] = $font;
+        }
+        
+        $gFonts = apply_filters("mesmerize_google_fonts", $fonts);
+        
+        $fontQuery = array();
+        foreach ($gFonts as $family => $font) {
+            $fontQuery[] = $family . ":" . implode(',', $font['weights']);
+        }
+        
+        $query_args = array(
+            'family' => urlencode(implode('|', $fontQuery)),
+            'subset' => urlencode('latin,latin-ext'),
+        );
+        
+        $fontsURL = add_query_arg($query_args, 'https://fonts.googleapis.com/css');
+        
+        mesmerize_cache_value('mesmerize_google_fonts', $fontsURL);
     }
     
-    $gFonts = apply_filters("mesmerize_google_fonts", $fonts);
-    
-    $fontQuery = array();
-    foreach ($gFonts as $family => $font) {
-        $fontQuery[] = $family . ":" . implode(',', $font['weights']);
-    }
-    
-    $query_args = array(
-        'family' => urlencode(implode('|', $fontQuery)),
-        'subset' => urlencode('latin,latin-ext'),
-    );
-    
-    
-    $fontsURL = add_query_arg($query_args, 'https://fonts.googleapis.com/css');
     wp_enqueue_style('mesmerize-fonts', $fontsURL, array(), null);
 }
 
@@ -494,7 +893,6 @@ function mesmerize_pingback_header()
 }
 
 add_action('wp_head', 'mesmerize_pingback_header');
-
 
 /**
  * Register sidebar
@@ -570,9 +968,7 @@ function mesmerize_excerpt_more($link)
 
 add_filter('excerpt_more', 'mesmerize_excerpt_more');
 
-
 // UTILS
-
 
 function mesmerize_nomenu_fallback($walker = '')
 {
@@ -589,14 +985,12 @@ function mesmerize_nomenu_fallback($walker = '')
     ));
 }
 
-
 function mesmerize_nomenu_cb()
 {
     return mesmerize_nomenu_fallback('');
 }
 
-
-function mesmerize_no_hamburdegr_menu_cb()
+function mesmerize_no_hamburger_menu_cb()
 {
     return wp_page_menu(array(
         "menu_class" => 'offcanvas_menu',
@@ -673,7 +1067,6 @@ function mesmerize_bold_text($str)
     return $result;
 }
 
-
 function mesmerize_sanitize_checkbox($val)
 {
     return (isset($val) && $val == true ? true : false);
@@ -693,7 +1086,6 @@ if ( ! function_exists('mesmerize_post_type_is')) {
         
         if ( ! is_array($type)) {
             
-            
             $type = array($type);
         }
         
@@ -702,7 +1094,6 @@ if ( ! function_exists('mesmerize_post_type_is')) {
 }
 
 //////////////////////////////////////////////////////////////////////////////////////
-
 
 function mesmerize_footer_container($class)
 {
@@ -748,8 +1139,28 @@ function mesmerize_theme_page()
     add_action('admin_menu', 'mesmerize_register_theme_page');
 }
 
-function mesmerize_load_theme_partial()
+add_filter('mesmerize_info_page_tabs', function ($tabs) {
+    
+    if ( ! apply_filters('mesmerize_is_companion_installed', false)) {
+        $data = array(
+            'title'   => __('Demo Import', 'mesmerize'),
+            'partial' => get_template_directory() . "/inc/infopage-parts/demo-import.php",
+        );
+        $tabs = mesmerize_associative_array_splice($tabs, 1, 'demo-imports', $data);
+    }
+    
+    return $tabs;
+});
+
+function mesmerize_load_theme_partial($currentTab = null)
 {
+    
+    $requestTab = (isset($_REQUEST['tab'])) ? $_REQUEST['tab'] : 'getting-started';
+    
+    if ( ! $currentTab) {
+        $currentTab = $requestTab;
+    }
+    
     require_once get_template_directory() . '/inc/companion.php';
     require_once get_template_directory() . "/inc/theme-info.php";
     wp_enqueue_style('mesmerize-theme-info', get_template_directory_uri() . "/assets/css/theme-info.css");
@@ -758,9 +1169,9 @@ function mesmerize_load_theme_partial()
 
 function mesmerize_register_theme_page()
 {
-    add_theme_page(__('Mesmerize Info', 'mesmerize'), __('Mesmerize Info', 'mesmerize'), 'activate_plugins', 'mesmerize-welcome', 'mesmerize_load_theme_partial');
+    $page_name = apply_filters('mesmerize_theme_page_name', __('Mesmerize Info', 'mesmerize'));
+    add_theme_page($page_name, $page_name, 'activate_plugins', 'mesmerize-welcome', 'mesmerize_load_theme_partial');
 }
-
 
 function mesmerize_instantiate_widget($widget, $args = array())
 {
@@ -787,3 +1198,50 @@ if (class_exists('WooCommerce')) {
     require_once get_template_directory() . "/inc/woocommerce/woocommerce-ready.php";
 }
 mesmerize_require("/inc/integrations/index.php");
+
+function mesmerize_is_woocommerce_page()
+{
+    
+    if (function_exists("is_woocommerce") && is_woocommerce()) {
+        return true;
+    }
+    
+    $woocommerce_keys = array(
+        "woocommerce_shop_page_id",
+        "woocommerce_terms_page_id",
+        "woocommerce_cart_page_id",
+        "woocommerce_checkout_page_id",
+        "woocommerce_pay_page_id",
+        "woocommerce_thanks_page_id",
+        "woocommerce_myaccount_page_id",
+        "woocommerce_edit_address_page_id",
+        "woocommerce_view_order_page_id",
+        "woocommerce_change_password_page_id",
+        "woocommerce_logout_page_id",
+        "woocommerce_lost_password_page_id",
+    );
+    
+    foreach ($woocommerce_keys as $wc_page_id) {
+        if (get_the_ID() == get_option($wc_page_id, 0)) {
+            return true;
+        }
+    }
+    
+    return false;
+}
+
+function mesmerize_customize_save_clear_data($value)
+{
+    
+    if ( ! isset($value['changeset_status']) || $value['changeset_status'] !== "auto-draft") {
+        mesmerize_clear_cached_values();
+    }
+    
+    return $value;
+}
+
+add_filter("customize_save_response", "mesmerize_customize_save_clear_data");
+
+if (mesmerize_is_wporg_preview()) {
+    mesmerize_require("/inc/wporg-preview.php");
+}

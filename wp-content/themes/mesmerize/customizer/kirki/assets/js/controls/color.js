@@ -25,6 +25,7 @@ kirki.kirkiGetColorPicker = function ($input, callback, options) {
         });
 
         $input.spectrum({
+            instant: options ? options.instant : false,
             preferredFormat: alpha ? "rgb" : "hex",
             showInput: true,
             showPalette: true,
@@ -34,14 +35,14 @@ kirki.kirkiGetColorPicker = function ($input, callback, options) {
             showAlpha: alpha,
             change: setColor,
             hide: setColor,
-            move: ( changeOnMove ? setColor : function () {
+            move: (changeOnMove ? setColor : function () {
+
             }),
 
             beforeShow: function () {
                 $input.spectrum("option", "palette", kirki.kirkiGetColorPalette());
             }
         });
-
 
     } else {
         $input.wpColorPicker(options);

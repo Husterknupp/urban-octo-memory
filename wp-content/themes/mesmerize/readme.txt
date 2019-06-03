@@ -3,7 +3,7 @@
 Contributors: horearadu
 Tags: entertainment, food-and-drink, portfolio, one-column, two-columns, right-sidebar, grid-layout, custom-header, custom-menu, custom-logo, full-width-template, theme-options, translation-ready, featured-images, threaded-comments
 Requires at least:      3.3.0
-Tested up to:           4.9
+Tested up to:           5.0.2
 
 == Description ==
 
@@ -76,10 +76,6 @@ The exceptions to this license are as follows:
 * TinyColor v1.1.2 - https://github.com/bgrins/TinyColor
   Brian Grinstead, MIT License
 
- * Slimdown - A very basic regex-based Markdown parser - https://gist.github.com/jbroadway/2836900
-  Johnny Broadway <johnny@johnnybroadway.com>
-  License: MIT
- 
 * Google Fonts:
 
    Open Sans (https://fonts.google.com/specimen/Open+Sans)
@@ -158,28 +154,31 @@ The exceptions to this license are as follows:
     * images/headers/pixabay-girl-2618562.jpg
     Source: https://pixabay.com/en/girl-woman-working-office-business-2618562/
 
+    * images/assets/images/home_page_header-3.jpg
+    Source: https://www.maxpixel.net/Petals-Colorful-Flower-2591093
+
     The following SVG files are the creation of Horea Radu and are distributed under the Creative Commons Zero License, http://creativecommons.org/publicdomain/zero/1.0/
 
   * images/video-poster.jpg
   * customizer/images/admin-onboarding.jpg
 
-	* assets/images/header-shapes/circles.png			
+	* assets/images/header-shapes/circles.png
 
-	* assets/separators/mesmerize1.wave-and-line-negative.svg		
+	* assets/separators/mesmerize1.wave-and-line-negative.svg
 	* assets/separators/mesmerize5.triple-waves-3-negative.svg
-	* assets/separators/mesmerize1.wave-and-line.svg			
+	* assets/separators/mesmerize1.wave-and-line.svg
 	* assets/separators/mesmerize5.triple-waves-3.svg
-	* assets/separators/mesmerize2.middle-waves-horizontal-flipped.svg	
+	* assets/separators/mesmerize2.middle-waves-horizontal-flipped.svg
 	* assets/separators/mesmerize6.triple-waves-2-negative.svg
-	* assets/separators/mesmerize2.middle-waves.svg			
+	* assets/separators/mesmerize2.middle-waves.svg
 	* assets/separators/mesmerize6.triple-waves-2.svg
-	* assets/separators/mesmerize2a.middle-waves-negative.svg		
+	* assets/separators/mesmerize2a.middle-waves-negative.svg
 	* assets/separators/mesmerize7.stright-angles-1-negative.svg
-	* assets/separators/mesmerize2a.middle-waves.svg			
+	* assets/separators/mesmerize2a.middle-waves.svg
 	* assets/separators/mesmerize7.stright-angles-1.svg
-	* assets/separators/mesmerize3.waves-noCentric-negative.svg		
+	* assets/separators/mesmerize3.waves-noCentric-negative.svg
 	* assets/separators/mesmerize8.stright-angles-2-negative.svg
-	* assets/separators/mesmerize3.waves-noCentric.svg			
+	* assets/separators/mesmerize3.waves-noCentric.svg
 	* assets/separators/mesmerize8.stright-angles-2.svg
 	* assets/separators/mesmerize4.clouds.svg
 

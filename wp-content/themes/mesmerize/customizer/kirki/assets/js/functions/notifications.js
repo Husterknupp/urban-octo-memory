@@ -9,7 +9,7 @@ function kirkiNotifications(settingName, type, configID) {
             // Dimension fields.
             if ('kirki-dimension' === type) {
 
-                message = window.kirki.l10n[configID]['invalid-value'];
+                message = window.kirki.l10n['invalid-value'];
 
                 if (false === kirkiValidateCSSValue(value)) {
                     kirkiNotificationsWarning(setting, code, message);
@@ -25,7 +25,7 @@ function kirkiNotifications(settingName, type, configID) {
                 setting.notifications.remove(code);
                 if ('undefined' !== typeof value.top) {
                     if (false === kirkiValidateCSSValue(value.top)) {
-                        subs.top = window.kirki.l10n[configID].top;
+                        subs.top = window.kirki.l10n.top;
                     } else {
                         delete subs.top;
                     }
@@ -33,7 +33,7 @@ function kirkiNotifications(settingName, type, configID) {
 
                 if ('undefined' !== typeof value.bottom) {
                     if (false === kirkiValidateCSSValue(value.bottom)) {
-                        subs.bottom = window.kirki.l10n[configID].bottom;
+                        subs.bottom = window.kirki.l10n.bottom;
                     } else {
                         delete subs.bottom;
                     }
@@ -41,7 +41,7 @@ function kirkiNotifications(settingName, type, configID) {
 
                 if ('undefined' !== typeof value.left) {
                     if (false === kirkiValidateCSSValue(value.left)) {
-                        subs.left = window.kirki.l10n[configID].left;
+                        subs.left = window.kirki.l10n.left;
                     } else {
                         delete subs.left;
                     }
@@ -49,14 +49,14 @@ function kirkiNotifications(settingName, type, configID) {
 
                 if ('undefined' !== typeof value.right) {
                     if (false === kirkiValidateCSSValue(value.right)) {
-                        subs.right = window.kirki.l10n[configID].right;
+                        subs.right = window.kirki.l10n.right;
                     } else {
                         delete subs.right;
                     }
                 }
 
                 if (!_.isEmpty(subs)) {
-                    message = window.kirki.l10n[configID]['invalid-value'] + ' (' + _.values(subs).toString() + ') ';
+                    message = window.kirki.l10n['invalid-value'] + ' (' + _.values(subs).toString() + ') ';
                     kirkiNotificationsWarning(setting, code, message);
                 } else {
                     setting.notifications.remove(code);
