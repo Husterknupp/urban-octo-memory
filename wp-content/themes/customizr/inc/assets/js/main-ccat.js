@@ -177,7 +177,8 @@ var czrapp = czrapp || {};
                           czrapp.errorLog( 'setupDOMListeners : selector must be a string not empty. Aborting setup of action(s) : ' + _event.actions.join(',') );
                           return;
                     }
-                    args.dom_el.on( _event.trigger , _event.selector, function( e, event_params ) {
+                    var once = _event.once ? _event.once : false;
+                    args.dom_el[ once ? 'one' : 'on' ]( _event.trigger , _event.selector, function( e, event_params ) {
                           e.stopPropagation();
                           if ( czrapp.isKeydownButNotEnterEvent( e ) ) {
                             return;
@@ -717,7 +718,7 @@ var czrapp = czrapp || {};
                         });
                   };//end centerInfiniteImagesClassicStyle
                   czrapp.$_body.on( 'post-load', function( e, response ) {
-                        if ( 'success' == response.type && response.collection && response.container ) {
+                        if ( ( 'undefined' !== typeof response ) && 'success' == response.type && response.collection && response.container ) {
                               centerInfiniteImagesClassicStyle(
                                   response.collection,
                                   '#'+response.container //_container
@@ -817,7 +818,7 @@ var czrapp = czrapp || {};
                 leftAdjust : 2.5,
                 oncustom : ['smartload', 'simple_load']
               });
-              $('.thumb-wrapper', '.hentry' ).centerImages( {
+              $('.thumb-wrapper', '.czr-hentry' ).centerImages( {
                 enableCentering : 1 == TCParams.centerAllImg,
                 enableGoldenRatio : false,
                 disableGRUnder : 0,//<= don't disable golden ratio when responsive
@@ -1087,7 +1088,7 @@ var czrapp = czrapp || {};
 
               var _excl_sels = ( TCParams.anchorSmoothScrollExclude && _.isArray( TCParams.anchorSmoothScrollExclude.simple ) ) ? TCParams.anchorSmoothScrollExclude.simple.join(',') : '',
                   self = this,
-                  $_links = $('a[href^="#"]', '#content').not(_excl_sels);
+                  $_links = $('#tc-page-wrap a[href^="#"],#tc-sn a[href^="#"]').not(_excl_sels);
               var _links, _deep_excl = _.isObject( TCParams.anchorSmoothScrollExclude.deep ) ? TCParams.anchorSmoothScrollExclude.deep : null ;
               if ( _deep_excl )
                 _links = _.toArray($_links).filter( function ( _el ) {
@@ -1145,7 +1146,7 @@ var czrapp = czrapp || {};
               function _toggleThisOnClass( evt ) {
                     _toggleElementClassOnHover( $(this), 'on', evt );
               }
-              
+
               function _toggleElementClassOnHover( $_el, _class, _evt ) {
                     if ( 'mouseenter' == _evt.type )
                        $_el.addClass( _class );
@@ -1750,6 +1751,8 @@ var czrapp = czrapp || {};
               return czrapp.$_body.hasClass('tc-sticky-footer');
             },
             _get_full_height : function() {
+              if ( this.$_page.length < 1 )
+                return $(window).outerHeight(true);
               var _full_height = this.$_page.outerHeight(true) + this.$_page.offset().top,
                   _push_height = 'block' == this.$_push.css('display') ? this.$_push.outerHeight() : 0;
 
