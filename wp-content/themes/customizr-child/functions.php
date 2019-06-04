@@ -15,5 +15,5 @@ show_admin_bar(false);
 
 add_action( 'wp_enqueue_scripts', 'my_google_font' );
 function my_google_font() {
-	wp_enqueue_style( $handle = 'my-google-font', $src = 'http://fonts.googleapis.com/css?family=Amatic+SC|Cabin|Pacifico', $deps = array(), $ver = null, $media = null );
+	wp_enqueue_style( $handle = 'my-google-font', $src = 'http://fonts.googleapis.com/css?family=Amatic+SC|Cabin', $deps = array(), $ver = null, $media = null );
 }

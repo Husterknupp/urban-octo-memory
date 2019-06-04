@@ -8,19 +8,26 @@
 */
 
 @media all and (max-width: 767px) {
-    .fp-button, [class^="fp-text-"] {
+    /*.fp-button, [class^="fp-text-"] {*/
+    /* also disable featured "overview" text */
+    .fp-button {
         display: none;
+    }
+
+    /* slider title */
+    .czrs-title, .display-1, .thick, .very-big {
+        font-size: 2em !important;
+    }
+
+    /* slider subtitle */
+    .czrs-subtitle, .semi-bold {
+        font-size: 1.5em !important;
     }
 }
 
-.branding .header-tagline {
+.branding .navbar-brand {
     font-size: 2.1em;
     font-weight: bold;
-    font-style: normal;
-    line-height: normal;
-    padding: 0;
-    margin: 2px .1em 0 0;
-    width: 100%
 }
 
 .map-wrapper {
@@ -30,30 +37,16 @@
 
 body {
     font-family: 'Cabin', sans-serif;
+    /*    font-family: 'Cabin', sans-serif;*/ /* clear, machine written */
+    /*    font-family: 'Pacifico', Cabin;*/ /* curly, hand-written like */
     font-weight: normal;
 }
-
-/*body {*/
-/*    font-family: 'Pacifico', cursive;*/
-/*}*/
-
-/* activate to have same font everywhere */
-
-/* clear, machine written */
-/*.navbar-brand, .header-tagline, h1, h2, h3, .tc-dropcap {*/
-/*    font-family: 'Cabin', sans-serif;*/
-/*}*/
-
-/* curly, hand-written like */
-/*.navbar-brand, .header-tagline, h1, h2, h3, .tc-dropcap {*/
-/*    font-family: 'Pacifico', Cabin;*/
-/*}*/
 
 /* thin hand-written like, clear*/
 .navbar-brand, .header-tagline, h1, h2, h3, .tc-dropcap {
     font-family: 'Amatic SC', sans-serif;
 }
 
-.can-shrink-brand.sticky-brand-shrink-on .desktop-sticky .header-tagline {
+.can-shrink-brand.sticky-brand-shrink-on .desktop-sticky .navbar-brand {
     font-size: 2.1em;
 }
