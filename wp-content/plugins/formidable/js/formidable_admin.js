@@ -1019,15 +1019,27 @@ function frmAdminBuildJS() {
 			if ( typeof fieldId !== 'undefined' && fieldId ) {
 				fields.push( {
 					'fieldId': fieldId,
-					'fieldName': document.getElementById( 'frm_name_' + fieldId ).value,
-					'fieldType': document.getElementById( 'field_options_type_' + fieldId ).value,
-					'fieldKey': document.getElementById( 'field_options_field_key_' + fieldId ).value
+					'fieldName': getPossibleValue( 'frm_name_' + fieldId ),
+					'fieldType': getPossibleValue( 'field_options_type_' + fieldId ),
+					'fieldKey': getPossibleValue( 'field_options_field_key_' + fieldId )
 				} );
 			}
 
 			if ( i === allFields.length - 1 ) {
 				return fields;
 			}
+		}
+	}
+
+	/**
+	 * If the element doesn't exist, use a blank value.
+	 */
+	function getPossibleValue( id ) {
+		field = document.getElementById( id );
+		if ( field !== null ) {
+			return field.value;
+		} else {
+			return '';
 		}
 	}
 
@@ -1488,9 +1500,9 @@ function frmAdminBuildJS() {
 				action: 'frm_add_logic_row',
 				form_id: form_id,
 				field_id: id,
-				fields: getFieldList(),
+				nonce: frmGlobal.nonce,
 				meta_name: meta_name,
-				nonce: frmGlobal.nonce
+				fields: getFieldList()
 			},
 			success: function( html ) {
 				jQuery( document.getElementById( 'logic_' + id ) ).fadeOut( 'slow', function() {
@@ -1741,25 +1753,9 @@ function frmAdminBuildJS() {
 			return;
 		}
 
-		clickAction( this );
-	}
-
-	function clickSectionVis( e ) {
-		/*jshint validthis:true */
-		if ( typeof jQuery( e.target ).closest( '.widget-top' ).attr( 'class' ) !== 'undefined' ) {
-			clickWidget( e, jQuery( e.target ).closest( '.widget-top' ) );
-		}
-
-		// Do not stop propagation if opening TB_iframe
-		if ( e.target.className.indexOf( 'thickbox' ) === -1 ) {
+		if ( this.closest( '.start_divider' ) !== null ) {
 			e.stopPropagation();
-			var isButton = jQuery( e.target ).closest( '.frm-btn-group' );
-			if ( isButton !== null ) {
-				// allow bootstrap dropdown to open
-				jQuery( isButton ).find( '[data-toggle=dropdown]' ).dropdown( 'toggle' );
-			}
 		}
-
 		clickAction( this );
 	}
 
@@ -4582,10 +4578,9 @@ function frmAdminBuildJS() {
 			$builderForm.on( 'change', '.frm_toggle_mult_sel', toggleMultSel );
 			$builderForm.on( 'focusin', '.frm_classes', showBuilderModal );
 
-			jQuery( builderArea ).on( 'click', '#frm-show-fields .frm_primary_label', clickLabel );
-			jQuery( builderArea ).on( 'click', '.frm_description', clickDescription );
-			jQuery( builderArea ).on( 'click', '#frm-show-fields > li.ui-state-default', clickVis );
-			$newFields.on( 'click', '.start_divider li.ui-state-default', clickSectionVis );
+			$newFields.on( 'click', '.frm_primary_label', clickLabel );
+			$newFields.on( 'click', '.frm_description', clickDescription );
+			$newFields.on( 'click', 'li.ui-state-default', clickVis );
 			$builderForm.on( 'change', '.frm_tax_form_select', toggleFormTax );
 			$builderForm.on( 'change', 'select.conf_field', addConf );
 
