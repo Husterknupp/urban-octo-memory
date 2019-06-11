@@ -239,10 +239,7 @@ final class PC_infinite_scroll {
                                           break;
 
                                           default:
-
-                                                continue;
-
-                                          break;
+                                                break;
 
                                     }//end switch
                               }//endforeach
@@ -388,7 +385,7 @@ final class PC_infinite_scroll {
                 'pc-infinite-scroll',
                 sprintf('%1$sfront/assets/js/endlessly%2$s.js',trailingslashit( PC_INFINITE_SCROLL_BASE_URL ) , ( defined('WP_DEBUG') && true === WP_DEBUG ) ? '' : '.min'),
                 array( 'jquery' ),
-                (defined('WP_DEBUG') && true === WP_DEBUG ) ? '4.0.0' . time() : '4.0.0' ,
+                (defined('WP_DEBUG') && true === WP_DEBUG ) ? '20190215' . time() : '420190215',
                 true
             );
 
@@ -397,7 +394,7 @@ final class PC_infinite_scroll {
                 'pc-infinite-scroll',
                 sprintf('%1$sfront/assets/css/endlessly%2$s.css',trailingslashit( PC_INFINITE_SCROLL_BASE_URL ) , ( defined('WP_DEBUG') && true === WP_DEBUG ) ? '' : '.min'),
                 array(),
-                ( defined('WP_DEBUG') && true === WP_DEBUG ) ? '20140422' . time() :'20140422'
+                ( defined('WP_DEBUG') && true === WP_DEBUG ) ? '20140422' . time() : '20140422'
             );
 
             // Make sure there are enough posts for IS
@@ -1303,7 +1300,7 @@ final class PC_infinite_scroll {
             //@pc_addon:
             //fire ajax_query_ready which will cache the skope options
             //if not done yet, e.g. in the preview
-            if ( !did_action( 'skope_options_cached' ) ) {
+            if ( !did_action( 'contextualizer_options_filters_setup' ) ) {
                   do_action( 'ajax_query_ready' );
             }
 

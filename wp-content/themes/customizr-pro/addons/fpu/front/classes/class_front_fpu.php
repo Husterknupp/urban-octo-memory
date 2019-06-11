@@ -505,10 +505,9 @@ class TC_front_fpu {
               $tc_fp_img_block = sprintf('<div class="thumb-wrapper %1$s %2$s">%3$s%4$s</div>',
                    ( $fp_img == $fp_holder_img ) ? 'tc-holder' : '',
                    $tc_show_fp_img ? '' : 'fpc-hide',
-                   apply_filters('fpc_round_div' , sprintf('<a class="round-div" href="%1$s" title="%2$s"></a>',
-                                                    $featured_page_link,
-                                                    esc_attr( $featured_page_title )
-                                                  ) ,
+                   apply_filters('fpc_round_div' , sprintf('<a class="round-div" href="%1$s"></a>',
+                                                    $featured_page_link
+                                                  ),
                                 $fp_single_id ),
                    $fp_img
               );
@@ -579,7 +578,7 @@ class TC_front_fpu {
               $fpc_button_text = apply_filters( 'fpc_button_text' , $tc_button_text , $fp_single_id );
 
               $tc_show_fp_button = $tc_show_fp_button && $fpc_button_text ? true : false;
-              $tc_fp_button_block = sprintf('<a class="%1$s %2$s" href="%3$s" title="%4$s" data-color="%5$s" %6$s>%7$s</a>',
+              $tc_fp_button_block = sprintf('<a class="%1$s %2$s" href="%3$s" data-color="%4$s" %5$s>%6$s</a>',
 
                                     apply_filters( 'fpc_button_class' ,
                                                 sprintf('%1$s fp-button %2$s %3$s %4$s',
@@ -593,7 +592,6 @@ class TC_front_fpu {
 
                                     $tc_show_fp_button ? '' : 'fpc-hide',
                                     $featured_page_link,
-                                    esc_attr( $featured_page_title ),
                                     $fpc_button_color,
                                     $btn_style,
                                     $fpc_button_text
@@ -751,9 +749,8 @@ class TC_front_fpu {
                     'czr__r-wFP', //<- aspect ratio, make it optional
                     $tc_show_fp_img ? '' : 'fpc-hide',
                     ( $fp_img == $fp_holder_img ) ? 'tc-holder' : '',
-                    apply_filters('fpc_round_div' , sprintf('<a class="czr-link-mask" href="%1$s" title="%2$s"></a>',
-                                                    $featured_page_link,
-                                                    esc_attr( $featured_page_title )
+                    apply_filters('fpc_round_div' , sprintf('<a class="czr-link-mask" href="%1$s"></a>',
+                                                    $featured_page_link
                                                   ),
                                 $fp_single_id
                     ),
@@ -828,7 +825,7 @@ class TC_front_fpu {
               $fpc_button_text = apply_filters( 'fpc_button_text' , $tc_button_text , $fp_single_id );
 
               $tc_show_fp_button = $tc_show_fp_button && $fpc_button_text ? true : false;
-              $tc_fp_button_block = sprintf('<span class="fp-button readmore-holder %1$s"><a class="%2$s" href="%3$s" title="%4$s" data-color="%5$s" %6$s>%7$s</a></span>',
+              $tc_fp_button_block = sprintf('<span class="fp-button readmore-holder %1$s"><a class="%2$s" href="%3$s"data-color="%4$s" %5$s>%6$s</a></span>',
 
                                     $tc_show_fp_button ? '' : 'fpc-hide',
 
@@ -842,7 +839,6 @@ class TC_front_fpu {
                                                 $fp_single_id
                                     ),//end filter
                                     $featured_page_link,
-                                    esc_attr( $featured_page_title ),
                                     $fpc_button_color,
                                     $btn_style,
                                     $fpc_button_text
@@ -867,7 +863,7 @@ class TC_front_fpu {
     */
     private function tc_show_fp() {
         //gets display options
-        $tc_show_featured_pages         = 0 != esc_attr( tc__f( '__get_fpc_option' , 'tc_show_fp' ) ) && tc__f('__is_home');
+        $tc_show_featured_pages = 0 != esc_attr( tc__f( '__get_fpc_option' , 'tc_show_fp' ) ) && tc__f('__is_home');
 
         //hide featured pages when page>1
         if ( apply_filters( 'tc_fp_hide_featured_pages_when_paged', is_main_query() ) ) {

@@ -3,14 +3,6 @@
 * Fires the pro theme : constants definition, core classes loading
 * Defined in the customizr dev folder but not part of the free theme distribution
 *
-*
-* @package      Customizr
-* @subpackage   classes
-* @since        3.0
-* @author       Nicolas GUILLAUME <nicolas@presscustomizr.com>
-* @copyright    Copyright (c) 2013-2015, Nicolas GUILLAUME
-* @link         http://presscustomizr.com/customizr
-* @license      http://www.gnu.org/licenses/old-licenses/gpl-2.0.html
 */
 if ( ! class_exists( 'CZR_init_pro' ) ) :
   class CZR_init_pro {
@@ -35,7 +27,7 @@ if ( ! class_exists( 'CZR_init_pro' ) ) :
         $this -> czr_fn_pro_load();
         //hide update notification for a list of version
         //typically useful when several versions are released in a short time interval, to avoid hammering the wp admin dashboard with a new admin notice each time
-        $this -> _hide_pro_update_notification_for_versions = array( '2.0.15' );
+        $this -> _hide_pro_update_notification_for_versions = array( '2.1.31' );
         if( ! defined( 'DISPLAY_PRO_UPDATE_NOTIFICATION' ) ) {
             define( 'DISPLAY_PRO_UPDATE_NOTIFICATION' , ! in_array( CUSTOMIZR_VER, $this -> _hide_pro_update_notification_for_versions ) );
         }

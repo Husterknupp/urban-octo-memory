@@ -139,14 +139,19 @@ function hu_print_wfc_mod_js_templates() {
                 <input data-czrtype="color-hover" type="text" value="{{ data['color-hover'] }}"></input>
               </div>
             </div>
-            <div class="<?php echo $css_attr['sub_set_wrapper']; ?>" data-input-type="check">
+
+            <div class="<?php echo $css_attr['sub_set_wrapper']; ?>" data-input-type="nimblecheck">
               <# var _checked = ( false != data['important'] ) ? "checked=checked" : ''; #>
               <div class="customize-control-title"><?php _e('Override any other style', 'customizr-pro'); ?></div>
               <div class="czr-input">
-                <input data-czrtype="important" type="checkbox" {{ _checked }}></input>
+                <div class="nimblecheck-wrap">
+                  <input id="nimblecheck-important" data-czrtype="important" type="checkbox" {{ _checked }} class="nimblecheck-input">
+                  <label for="nimblecheck-important" class="nimblecheck-label">Switch</label>
+                </div>
               </div>
               <span class="czr-notice"><?php _e( 'When checked, all css customized style properties are flagged with "!important."', 'customizr-pro'); ?></span>
             </div>
+
             <div class="<?php echo $css_attr['sub_set_wrapper']; ?>" data-input-type="text">
               <div class="czr-input">
                 <input data-czrtype="customized" type="hidden" value="" />

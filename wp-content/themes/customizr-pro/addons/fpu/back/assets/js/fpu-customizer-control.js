@@ -3,7 +3,6 @@ jQuery(function ( $ ) {
   //prevents js conflicts
   "use strict";
   var $Selects   = $('select' , '[id*="accordion-section-tc_fpu"]'),
-      $Checks    = $('input[type=checkbox]' , '[id*="accordion-section-tc_fpu"]'),
       $Numbers   = $('input[type="number"]', '[id*="accordion-section-tc_fpu"]');
 
   //init selecter
@@ -17,20 +16,6 @@ jQuery(function ( $ ) {
       $(this).siblings('.selecter').find('.selecter-selected').text(text);
     }
   });*/
-
-  //init icheck only if not already initiated
-  $Checks.each( function() {
-    if ( 0 === $(this).closest('div[class^="icheckbox"]').length ) {
-      $(this).iCheck({
-          checkboxClass: 'icheckbox_flat-grey',
-          radioClass: 'iradio_flat-grey'
-      })
-      .on('ifChanged', function() {
-        $(this).trigger('change');
-      });
-    }
-  });
-
 
   //init stepper for number input
   $Numbers.stepper();

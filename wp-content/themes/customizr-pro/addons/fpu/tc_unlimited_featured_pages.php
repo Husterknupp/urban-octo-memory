@@ -3,7 +3,7 @@
  * Plugin Name: Featured Pages Unlimited
  * Plugin URI: https://presscustomizr.com/extension/featured-pages-unlimited/
  * Description: Engage your visitors with beautifully featured content on home. Design live from the WordPress customizer.
- * Version: 2.1.7
+ * Version: 2.1.16
  * Author: Press Customizr
  * Author URI: https://www.presscustomizr.com
  * License: GPLv2 or later
@@ -38,6 +38,7 @@ class TC_fpu {
     //Access any method or var of the class with classname::$instance -> var or method():
     static $instance;
     public $plug_name;
+    public $plug_id;
     public $plug_file;
     public $plug_version;
     public $plug_prefix;
@@ -56,9 +57,10 @@ class TC_fpu {
         /* LICENSE AND UPDATES */
         // the name of your product. This should match the download name in EDD exactly
         $this -> plug_name    = 'Featured Pages Unlimited';
+        $this -> plug_id      = 2342;
         $this -> plug_file    = __FILE__; //main plugin root file.
         $this -> plug_prefix  = 'unlimited_fp';
-        $this -> plug_version = '2.1.7';
+        $this -> plug_version = '2.1.16';
 
         //gets the theme name (or parent if child)
         $tc_theme                       = wp_get_theme();
@@ -73,7 +75,7 @@ class TC_fpu {
         }
 
         /* die if addon mode and previewing a different theme */
-        if ( ( ! in_array( self::$theme_name, array( 'customizr-pro' ) ) ) && did_action('plugin_loaded') ) {
+        if ( ( ! in_array( self::$theme_name, array( 'customizr-pro' ) ) ) && did_action('plugins_loaded') ) {
           return;
         }
 
@@ -101,9 +103,9 @@ class TC_fpu {
         $this -> fpc_size               = array('width' => 270 , 'height' => 250, 'crop' => true );
 
         $_activation_classes = array(
-          'TC_activation_key'         => array('/back/classes/activation-key/activation/class_activation_key.php', array(  $this -> plug_name , $this -> plug_prefix , $this -> plug_version )),
+          'TC_activation_key'         => array('/back/classes/activation-key/activation/class_activation_key.php', array( $this -> plug_id, $this -> plug_name , $this -> plug_prefix , $this -> plug_version )),
           'TC_plug_updater'           => array('/back/classes/activation-key/updates/class_plug_updater.php'),
-          'TC_check_updates'          => array('/back/classes/activation-key/updates/class_check_updates.php', array(  $this -> plug_name , $this -> plug_prefix , $this -> plug_version, $this -> plug_file ))
+          'TC_check_updates'          => array('/back/classes/activation-key/updates/class_check_updates.php', array( $this -> plug_id, $this -> plug_name , $this -> plug_prefix , $this -> plug_version, $this -> plug_file ))
         );
 
         $_standalone_classes = array(
@@ -174,6 +176,12 @@ class TC_fpu {
           register_activation_hook( __FILE__              , array( __CLASS__ , 'tc_write_versions' ) );
           //deactivation : delete the hook's transient and default options
           register_deactivation_hook( __FILE__            , array( __CLASS__ , 'tc_clean_plugin_settings' ) );
+
+          // WP 5.0.0 compat. until the bug is fixed
+          // this hook fires before the customize changeset is inserter / updated in database
+          // Removing the wp_targeted_link_rel callback from the 'content_save_pre' filter prevents corrupting the changeset JSON
+          // more details in this ticket : https://core.trac.wordpress.org/ticket/45292
+          add_action( 'customize_save_validation_before'  , array( $this, 'tc_fpu_remove_callback_wp_targeted_link_rel' ) );
         } else {
           //adds setup and plugin comp when as addon in customizr-pro
           add_action( 'after_setup_theme'                 , array( $this , 'tc_setup' ), 20 );
@@ -190,15 +198,31 @@ class TC_fpu {
     *
     */
     function tc_is_customizing() {
-          //checks if is customizing : two contexts, admin and front (preview frame)
-          global $pagenow;
-          $is_customizing = false;
-          if ( is_admin() && isset( $pagenow ) && 'customize.php' == $pagenow ) {
-            $is_customizing = true;
-          } else if ( is_customize_preview() || ( ! is_admin() && isset($_REQUEST['customize_messenger_channel']) ) ) {
-            $is_customizing = true;
-          }
-          return $is_customizing;
+        //checks if is customizing : two contexts, admin and front (preview frame)
+        global $pagenow;
+        $is_customizing = false;
+        $_is_ajaxing_from_customizer = isset( $_POST['customized'] ) || isset( $_POST['wp_customize'] );
+        // the check on $pagenow does NOT work on multisite install @see https://github.com/presscustomizr/nimble-builder/issues/240
+        // That's why we also check with other global vars
+        // @see wp-includes/theme.php, _wp_customize_include()
+        $is_customize_php_page = ( is_admin() && 'customize.php' == basename( $_SERVER['PHP_SELF'] ) );
+        $is_customize_admin_page_one = (
+          $is_customize_php_page
+          ||
+          ( isset( $_REQUEST['wp_customize'] ) && 'on' == $_REQUEST['wp_customize'] )
+          ||
+          ( ! empty( $_GET['customize_changeset_uuid'] ) || ! empty( $_POST['customize_changeset_uuid'] ) )
+        );
+        $is_customize_admin_page_two = is_admin() && isset( $pagenow ) && 'customize.php' == $pagenow;
+
+        if ( $is_customize_admin_page_one || $is_customize_admin_page_two ) {
+          $is_customizing = true;
+        } else if ( is_customize_preview() || ( ! is_admin() && isset($_REQUEST['customize_messenger_channel']) ) ) {
+          $is_customizing = true;
+        } else if ( $_is_ajaxing_from_customizer && ( defined( 'DOING_AJAX' ) && DOING_AJAX ) ) {
+          $is_customizing = true;
+        }
+        return $is_customizing;
     }
 
 
@@ -684,6 +708,15 @@ class TC_fpu {
             </p>
         </div>
         <?php
+    }
+
+    /**
+     * hook : customize_save_validation_before'
+     */
+    function tc_fpu_remove_callback_wp_targeted_link_rel() {
+        if ( false !== has_filter( 'content_save_pre', 'wp_targeted_link_rel' ) ) {
+            remove_filter( 'content_save_pre', 'wp_targeted_link_rel' );
+        }
     }
 
 } //end of class

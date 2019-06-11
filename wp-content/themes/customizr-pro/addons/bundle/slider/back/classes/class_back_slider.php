@@ -48,7 +48,7 @@ if ( ! class_exists( 'TC_back_pro_slider' ) ) :
 
       // enqueue pro slider admin scripts
       // this action is documented in customizr class-admin-metaboxes
-      //This way we're sure we're enqueuing select2 only where is required, meaning
+      //This way we're sure we're enqueuing czrSelect2 only where is required, meaning
       //only where the tc_slider_ajax script is enqueued
       //see theme core CZR_meta_boxes::czr_fn_slider_admin_scripts()
       add_action( 'tc_enqueue_ajax_slider_after'   , array( $this, 'tc_pro_slider_admin_scripts' ) );
@@ -246,81 +246,6 @@ if ( ! class_exists( 'TC_back_pro_slider' ) ) :
 
       /*** Print ***/
       echo '<p></p>';
-      /* We use here, most of the times, the 'customizr-pro' textdomain as most of these strings are already defined, hence localized, in Customizr free theme */
-      /* For future use: depends on Customizr meta boxes */
-      /*
-      //Section title
-      TC_meta_boxes::tc_title_view( array(
-          'title_text' => __( 'Slider of posts settings', 'customizr-pro' ),
-          'title_tag'  => 'h3'
-      ));
-      echo '<hr>';
-
-      //Number of posts to display
-      TC_meta_boxes::tc_generic_input_view( array(
-          'input_name'  => $number_of_posts_id,
-          'input_value' => $number_of_posts_value,
-          'input_type'  => 'number',
-          'title'       => array(
-             'title_text' => __('Number of posts to display', 'customizr-pro')
-          )
-      ));
-      //Sticky posts
-      TC_meta_boxes::tc_checkbox_view( array(
-          'input_state' => $sticky_only_value,
-          'input_name'  => $sticky_only_id,
-          'title'       => array(
-              'title_text' => __( 'Include only sticky posts', 'customizr-pro')
-          ),
-          'content_after' => sprintf('<p><i>%1$s <a href="https://codex.wordpress.org/Sticky_Posts" target="_blank">%2$s</a></p></i>',
-                             __( 'You can choose to display only the sticky posts. If you\'re not sure how to set a sticky post, check', 'customizr-pro' ),
-                             __('the WordPress documentation.', 'customizr-pro' )
-                         )
-      ));
-      //Display title
-      TC_meta_boxes::tc_checkbox_view( array(
-          'input_state' => $display_title_value,
-          'input_name'  => $display_title_id,
-          'title'       => array(
-              'title_text' => __( 'Display the title', 'customizr-pro')
-          ),
-      ));
-      //Display excerpt
-      TC_meta_boxes::tc_checkbox_view( array(
-          'input_state' => $display_excerpt_value,
-          'input_name'  => $display_excerpt_id,
-          'title'       => array(
-              'title_text' => __( 'Display the excerpt', 'customizr-pro')
-          ),
-      ));
-      //Type of link
-      TC_meta_boxes::tc_selectbox_view( array(
-          'select_name'  => $type_of_link_id,
-          'choices'      => $type_of_link_choices,
-          'selected'     => $type_of_link_value,
-          'title'        => array(
-              'title_text' => __( 'Link post with', 'customizr-pro')
-          ),
-      ));
-      //Button text
-      TC_meta_boxes::tc_generic_input_view( array(
-          'input_name'  => $button_text_id,
-          'input_value' => $button_text_value,
-          'input_type'  => 'text',
-          'title'       => array(
-             'title_text' => __('Button text (80 char. max length)', 'customizr-pro')
-          ),
-          'input_class' => 'widefat',
-          'custom_args' => 'style="width:50%"'
-      ));
-
-      //Categories multi-picker
-      TC_meta_boxes::tc_title_view( array(
-          'title_text' => __( 'Apply a category filter to your posts slider', 'customizr-pro' ),
-      ));
-      */
-
-      /* HTML: Remove the following block when Customizr will merge the *_view methdos */
     ?>
       <?php //Section title ?>
       <div class="meta-box-item-title">
@@ -340,12 +265,15 @@ if ( ! class_exists( 'TC_back_pro_slider' ) ) :
         <h4><?php _e( 'Include only sticky posts', 'customizr-pro' ); ?></h4>
       </div>
       <div class="meta-box-item-content">
-        <input name="<?php echo esc_attr( $sticky_only_id ); ?>" type="hidden" value="0"/>
-        <input name="<?php echo esc_attr( $sticky_only_id ); ?>" id="<?php echo esc_attr( $sticky_only_id ); ?>" type="checkbox" class="iphonecheck" value="1" <?php checked( $sticky_only_value, $current = true, $echo = true ) ?>/>
-        <?php printf('<p><i>%1$s <a href="https://codex.wordpress.org/Sticky_Posts" target="_blank">%2$s</a></p></i>',
-                             __( 'You can choose to display only the sticky posts. If you\'re not sure how to set a sticky post, check', 'customizr-pro' ),
-                             __('the WordPress documentation.', 'customizr-pro' )
-                         );
+        <?php
+          CZR_meta_boxes::czr_fn_checkbox_view( array(
+             'input_name'   => $sticky_only_id,
+             'input_state'  => $sticky_only_value,
+          ));
+          printf('<p><i>%1$s <a href="https://codex.wordpress.org/Sticky_Posts" target="_blank">%2$s</a></p></i>',
+                  __( 'You can choose to display only the sticky posts. If you\'re not sure how to set a sticky post, check', 'customizr-pro' ),
+                  __('the WordPress documentation.', 'customizr-pro' )
+          );
         ?>
       </div>
       <?php //Display title ?>
@@ -353,16 +281,24 @@ if ( ! class_exists( 'TC_back_pro_slider' ) ) :
         <h4><?php _e( 'Display the title', 'customizr-pro' ); ?></h4>
       </div>
       <div class="meta-box-item-content">
-        <input name="<?php echo esc_attr( $display_title_id ); ?>" type="hidden" value="0"/>
-        <input name="<?php echo esc_attr( $display_title_id ); ?>" id="<?php echo esc_attr( $display_title_id ); ?>" type="checkbox" class="iphonecheck" value="1" <?php checked( $display_title_value, $current = true, $echo = true ) ?>/>
+        <?php
+          CZR_meta_boxes::czr_fn_checkbox_view( array(
+             'input_name'   => esc_attr( $display_title_id ),
+             'input_state'  => $display_title_value,
+          ));
+        ?>
       </div>
       <?php //Display excerpt ?>
       <div class="meta-box-item-title">
         <h4><?php _e( 'Display the excerpt', 'customizr-pro' ); ?></h4>
       </div>
       <div class="meta-box-item-content">
-        <input name="<?php echo esc_attr( $display_excerpt_id ); ?>" type="hidden" value="0"/>
-        <input name="<?php echo esc_attr( $display_excerpt_id ); ?>" id="<?php echo esc_attr( $display_excerpt_id ); ?>" type="checkbox" class="iphonecheck" value="1" <?php checked( $display_excerpt_value, $current = true, $echo = true ) ?>/>
+        <?php
+          CZR_meta_boxes::czr_fn_checkbox_view( array(
+             'input_name'   => esc_attr( $display_excerpt_id  ),
+             'input_state'  => $display_excerpt_value,
+          ));
+        ?>
       </div>
       <?php //Type of link ?>
       <div class="meta-box-item-title">
@@ -397,7 +333,7 @@ if ( ! class_exists( 'TC_back_pro_slider' ) ) :
               'echo'               => 0 ,
               'walker'             => new TC_Walker_CategoryDropdown_Multipicker(),
               'hierarchical'       => 1,
-              'class'              => 'select2 tc_multiple_picker widefat',
+              'class'              => 'czrSelect2 tc_multiple_picker widefat',
               'selected'           => implode(',', $categories_value )
         )
       );
@@ -441,19 +377,19 @@ if ( ! class_exists( 'TC_back_pro_slider' ) ) :
       $_min_version = ( defined('WP_DEBUG') && true === WP_DEBUG ) ? '' : '.min';
 
 
-      //select2 stylesheet
+      //czrSelect2 stylesheet
       wp_enqueue_style(
-        'tc-select2-css',
-        sprintf( CZR_BASE_URL . CZR_ASSETS_PREFIX . '/czr/css/lib/select2%1$s.css', $_min_version ),
+        'tc-czrSelect2-css',
+        sprintf( CZR_BASE_URL . '/core/czr-base-fmk/assets/css/lib/czrSelect2%1$s.css', $_min_version ),
         CUSTOMIZR_VER,
         array(),
         $media = 'all'
       );
-      //select2 script
+      //czrSelect2 script
       wp_enqueue_script(
-        'selecter-script',
+        'tc-czrSelect2-js',
         //dev / debug mode mode?
-        sprintf( CZR_BASE_URL . CZR_ASSETS_PREFIX . '/back/js/lib/select2%1$s.js', $_min_version ),
+        sprintf( CZR_BASE_URL . CZR_ASSETS_PREFIX . '/back/js/lib/czrSelect2%1$s.js', $_min_version ),
         $deps = array('jquery'),
         CUSTOMIZR_VER,
         $in_footer = true

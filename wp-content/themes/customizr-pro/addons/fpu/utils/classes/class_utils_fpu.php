@@ -273,9 +273,13 @@ class TC_utils_fpu {
     *
     */
     function tc_is_home() {
-      //get info whether the front page is a list of last posts or a page
-      return ( (is_home() && ( 'posts' == get_option( 'show_on_front' ) || 'nothing' == get_option( 'show_on_front' ) ) ) || is_front_page() ) ? true : false;
+      // Warning : when show_on_front is a page, but no page_on_front has been picked yet, is_home() is true
+      // beware of https://github.com/presscustomizr/nimble-builder/issues/349
+      return ( is_home() && ( 'posts' == get_option( 'show_on_front' ) || 'nothing' == get_option( 'show_on_front' ) ) )
+      || ( is_home() && 0 == get_option( 'page_on_front' ) && 'page' == get_option( 'show_on_front' ) )//<= this is the case when the user want to display a page on home but did not pick a page yet
+      || is_front_page();
     }
+
 
 
 
@@ -369,7 +373,7 @@ class TC_utils_fpu {
                 'label'       => __( "Enable the WordPress responsive image feature for the Featured Pages images" , 'customizr-pro' ),
                 'notice'      => __( 'This feature has been introduced in WordPress v4.4+ (dec-2015), and might have minor sides effects on some of your existings images. Check / uncheck this option to safely verify that your images are displayed nicely.', 'customizr-pro' ),
                 'section'     => 'tc_fpu' ,
-                'type'        => 'checkbox' ,
+                'type'        => 'nimblecheck' ,
                 'priority'    => 20
           )
       );
@@ -534,7 +538,7 @@ class TC_utils_fpu {
                                 'control'       => 'TC_controls_fpu' ,
                                 'label'         => __( 'Enable random colors' , 'customizr-pro' ),
                                 'section'       => 'tc_fpu' ,
-                                'type'          => 'checkbox' ,
+                                'type'          => 'nimblecheck' ,
                                 'notice'        => __( 'This option will apply a beautiful flat design look to your front page with random colors' , 'customizr-pro' ),
                                 'priority'      => 16,
                         ),
@@ -546,7 +550,7 @@ class TC_utils_fpu {
                                 'control'       => 'TC_controls_fpu' ,
                                 'label'         => __( 'Display thumbnails' , 'customizr-pro' ),
                                 'section'       => 'tc_fpu' ,
-                                'type'          => 'checkbox' ,
+                                'type'          => 'nimblecheck' ,
                                 'notice'        => __( 'The images are set with the "featured image" of each pages or posts. Uncheck the option above to disable the featured images.' , 'customizr-pro' ),
                                 'priority'      => 17,
                         ),
@@ -557,7 +561,7 @@ class TC_utils_fpu {
                                 'control'       => 'TC_controls_fpu' ,
                                 'label'         => __( 'Override random colors' , 'customizr-pro' ),
                                 'section'       => 'tc_fpu' ,
-                                'type'          => 'checkbox' ,
+                                'type'          => 'nimblecheck' ,
                                 'notice'        => __( 'If this option is checked and you have enable the random color option, your page/post thumbnail will be displayed instead of the random color.' , 'customizr-pro' ),
                                 'priority'      => 18,
                         ),
@@ -582,7 +586,7 @@ class TC_utils_fpu {
                                 'control'       => 'TC_controls_fpu' ,
                                 'label'         => __( 'Dynamic thumbnails centering on any devices' , 'customizr-pro' ),
                                 'section'       => 'tc_fpu' ,
-                                'type'          => 'checkbox' ,
+                                'type'          => 'nimblecheck' ,
                                 'priority'      => 20,
                                 'notice'        => __( 'This option dynamically centers your images on any devices, vertically or horizontally according to their initial aspect ratio.' , 'customizr-pro' ),
                         ),
@@ -594,7 +598,7 @@ class TC_utils_fpu {
                                 'control'       => 'TC_controls_fpu' ,
                                 'label'         => __( 'Display titles' , 'customizr-pro' ),
                                 'section'       => 'tc_fpu' ,
-                                'type'          => 'checkbox' ,
+                                'type'          => 'nimblecheck' ,
                                 'priority'      => 21,
                         ),
 
@@ -605,7 +609,7 @@ class TC_utils_fpu {
                                 'control'       => 'TC_controls_fpu' ,
                                 'label'         => __( 'Display excerpts' , 'customizr-pro' ),
                                 'section'       => 'tc_fpu' ,
-                                'type'          => 'checkbox' ,
+                                'type'          => 'nimblecheck' ,
                                 'priority'      => 22,
                         ),
 
@@ -628,7 +632,7 @@ class TC_utils_fpu {
                                 'control'       => 'TC_controls_fpu' ,
                                 'label'         => __( 'Override random colors' , 'customizr-pro' ),
                                 'section'       => 'tc_fpu' ,
-                                'type'          => 'checkbox' ,
+                                'type'          => 'nimblecheck' ,
                                 'notice'        => __( 'If enabled, your custom color will override the random color.' , 'customizr-pro' ),
                                 'priority'      => 26,
                         ),
@@ -640,7 +644,7 @@ class TC_utils_fpu {
                                 'control'       => 'TC_controls_fpu' ,
                                 'label'         => __( 'Limit excerpt to 200 chars.' , 'customizr-pro' ),
                                 'section'       => 'tc_fpu' ,
-                                'type'          => 'checkbox' ,
+                                'type'          => 'nimblecheck' ,
                                 'notice'        => __( 'Uncheck this option if you want to disable the default limit of the excerpt.' , 'customizr-pro' ),
                                 'priority'      => 27,
                         ),
@@ -652,7 +656,7 @@ class TC_utils_fpu {
                                 'control'       => 'TC_controls_fpu' ,
                                 'label'         => __( 'Display buttons' , 'customizr-pro' ),
                                 'section'       => 'tc_fpu' ,
-                                'type'          => 'checkbox' ,
+                                'type'          => 'nimblecheck' ,
                                 'priority'      => 28,
                         ),
                          //button text
@@ -685,7 +689,7 @@ class TC_utils_fpu {
                                 'control'       => 'TC_controls_fpu' ,
                                 'label'         => __( 'Override random colors' , 'customizr-pro' ),
                                 'section'       => 'tc_fpu' ,
-                                'type'          => 'checkbox' ,
+                                'type'          => 'nimblecheck' ,
                                 'notice'        => __( 'If enabled, your custom button style will override the random color.' , 'customizr-pro' ),
                                 'priority'      => 34,
                         ),
@@ -700,6 +704,17 @@ class TC_utils_fpu {
                                 'label'         => __( 'Button text color', 'customizr-pro'),
                                 'section'       => 'tc_fpu',
                                 'priority'      =>  36,
+                        ),
+                        // introduced for https://github.com/presscustomizr/tc-unlimited-featured-pages/issues/138
+                        "{$plug_option_prefix}[tc_fp_include_woocommerce_products]" => array(
+                                'default'       => 0,
+                                //'transport'     =>  'postMessage',
+                                'control'       => 'TC_controls_fpu' ,
+                                'label'         => __( 'If you are using WooCommerce, allow your products to be featured' , 'customizr-pro' ),
+                                'section'       => 'tc_fpu' ,
+                                'type'          => 'nimblecheck' ,
+                                'notice'        => __( 'When you change this option, you need to publish and refresh the page.' , 'customizr-pro' ),
+                                'priority'      => 37,
                         ),
 
         );//end of $featured_pages_option_map

@@ -11,7 +11,7 @@ class TC_theme_updater{
 
   function __construct( $args = array() ) {
     $args = wp_parse_args( $args, array(
-        'remote_api_url' => 'http://presscustomizr.com',
+        'remote_api_url' => 'https://presscustomizr.com',
         'request_data'   => array(),
         'theme_slug'     => get_template(),
         'item_name'      => '',
@@ -20,6 +20,15 @@ class TC_theme_updater{
         'author'         => ''
     ) );
     extract( $args );
+
+    /**
+     * Fires after the theme $config is setup.
+     *
+     * @since x.x.x
+     *
+     * @param array $config Array of EDD SL theme data.
+     */
+    do_action( 'post_edd_sl_theme_updater_setup', $args );
 
     $theme                = wp_get_theme( sanitize_key( $theme_slug ) );
     $this->license        = $license;
@@ -121,7 +130,7 @@ class TC_theme_updater{
         sprintf( '%1$s <strong>%2$s</strong>. %3$s <a href="%4$s" title="%5$s">%5$s</a>.',
           __( "We couldn't check the updates for ", 'customizr-pro'),
           $theme_name,
-          __( 'You might need to check for updates on <a href="http://presscustomizr.com/extension/customizr-pro" title="Press Customizr" target="_blank">presscustomizr.com</a> and ', "customizr-pro" ),
+          __( 'You might need to check for updates on <a href="https://presscustomizr.com/customizr-pro" title="Press Customizr" target="_blank">presscustomizr.com</a> and ', "customizr-pro" ),
           admin_url( 'themes.php?page=tc-licenses'),
           __( "upload the theme manually", "customizr-pro" )
         )
@@ -146,6 +155,8 @@ class TC_theme_updater{
 
     $update_data = $this->check_for_update();
     if ( $update_data ) {
+      // Make sure the theme property is set. See issue 1463 on Github in the Software Licensing Repo.
+      $update_data['theme'] = $this->theme_slug;
       $value->response[ $this->theme_slug ] = $update_data;
     }
     return $value;
@@ -247,7 +258,7 @@ class TC_theme_updater{
       return $prepared_themes;
 
     $prepared_themes[$this->theme_slug]['update'] = str_replace(
-      'http://presscustomizr.com/extension/customizr-pro/?changelog=1&#038;TB_iframe=true&#038;width=1024&#038;height=800',
+      'https://presscustomizr.com/customizr-pro/?changelog=1&#038;TB_iframe=true&#038;width=1024&#038;height=800',
       '#TB_inline?width=640&inlineId=customizr-pro_changelog',
       $prepared_themes[$this->theme_slug]['update']
     );

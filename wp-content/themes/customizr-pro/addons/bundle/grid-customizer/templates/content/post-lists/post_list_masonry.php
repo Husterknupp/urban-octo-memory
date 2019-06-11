@@ -15,7 +15,6 @@
       <?php
           czr_fn_render_template(
             'content/common/media',
-
             array(
               'model_id'   => 'media',
               'reset_to_defaults' => false,
@@ -23,9 +22,20 @@
                 'element_class'            => czr_fn_get_property( 'media_class' ),
               )
             )
-            
           );
-      ?>
+          if ( czr_fn_get_property( 'display_additional_pf_media' ) ):
+            czr_fn_render_template(
+              'content/common/media',
+              array(
+                'model_id'   => 'additional-media',
+                'reset_to_defaults' => true,
+                'model_args' => array(
+                  'element_class'  => czr_fn_get_property( 'media_class' ),
+                )
+              )
+            );
+          endif;
+        ?>
         <section class="tc-content entry-content__holder">
           <div class="entry-content__wrapper">
           <?php
@@ -42,7 +52,7 @@
             czr_fn_render_template( 'content/post-lists/item-parts/contents/post_list_item_content_inner',
               array(
                 'model_args' => array(
-                  'content_type'  => 'all'                  
+                  'content_type'  => 'all'
                 )
               )
             );

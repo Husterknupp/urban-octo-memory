@@ -54,6 +54,10 @@ var czrapp = czrapp || {};
                               //to avoid scale transition of the masonry elements when revealed (by masonry.js) after appending
                               hiddenStyle: { opacity: 0 },
                               visibleStyle: { opacity: 1 },
+                              // see https://github.com/desandro/masonry/blob/master/sandbox/right-to-left.html
+                              // originLeft set to false should do the trick
+                              // but I've found that in the wordpress masonry version the correct option is: isOriginLeft
+                              isOriginLeft: czrapp.isRTL ? false : true,
                         })
                         //Refresh layout on image loading
                         .on( 'smartload simple_load', 'img', function(evt) {

@@ -3,7 +3,7 @@
  * Plugin Name: WordPress Font Customizer
  * Plugin URI: https://presscustomizr.com/extension/wordpress-font-customizer
  * Description: Make beautiful Google font combinations and apply awesome CSS3 effects to any text of your website. Preview everything right from the WordPress customizer before publishing live. Cross browser compatible, fast and easy, the WordPress Font Customizer is the ultimate tool for typography lovers.
- * Version: 3.0.4
+ * Version: 3.0.8
  * Author: Press Customizr
  * Author URI: https://presscustomizr.com
  * License: GPL2+
@@ -22,6 +22,7 @@ class TC_wfc {
     static $instance;
     public $version;
     public $plug_name;
+    public $plug_id;
     public $plug_file;
     public $plug_version;
     public $plug_prefix;
@@ -44,9 +45,10 @@ class TC_wfc {
         /* LICENSE AND UPDATES */
         // the name of your product. This should match the download name in EDD exactly
         $this -> plug_name    = 'WordPress Font Customizer';
+        $this -> plug_id      = 15219;
         $this -> plug_file    = __FILE__; //main plugin root file.
         $this -> plug_prefix  = 'font_customizer';
-            $this -> plug_version = '3.0.4';
+            $this -> plug_version = '3.0.8';
 
         self::$_is_plugin     = ! did_action('plugins_loaded');
 
@@ -196,9 +198,9 @@ class TC_wfc {
     function tc_wfc_load() {
         //here would be where we can safely cache  the selectors (as property of this class ) getting rid of the transient and the selectors option
         $_activation_classes = array(
-            'TC_activation_key'             => array('/back/classes/activation-key/activation/class_activation_key.php', array(  $this -> plug_name , $this -> plug_prefix , $this -> plug_version )),
+            'TC_activation_key'             => array('/back/classes/activation-key/activation/class_activation_key.php', array( $this -> plug_id, $this -> plug_name , $this -> plug_prefix , $this -> plug_version )),
             'TC_plug_updater'               => array('/back/classes/activation-key/updates/class_plug_updater.php'),
-            'TC_check_updates'              => array('/back/classes/activation-key/updates/class_check_updates.php', array(  $this -> plug_name , $this -> plug_prefix , $this -> plug_version, $this -> plug_file ))
+            'TC_check_updates'              => array('/back/classes/activation-key/updates/class_check_updates.php', array( $this -> plug_id, $this -> plug_name , $this -> plug_prefix , $this -> plug_version, $this -> plug_file ))
 
         );
 
@@ -298,8 +300,20 @@ class TC_wfc {
         $_is_ajaxing_from_customizer = isset( $_POST['customized'] ) || isset( $_POST['wp_customize'] );
 
         $is_customizing = false;
-        //hu_is_customize_left_panel() ?
-        if ( is_admin() && isset( $pagenow ) && 'customize.php' == $pagenow ) {
+        // the check on $pagenow does NOT work on multisite install @see https://github.com/presscustomizr/nimble-builder/issues/240
+        // That's why we also check with other global vars
+        // @see wp-includes/theme.php, _wp_customize_include()
+        $is_customize_php_page = ( is_admin() && 'customize.php' == basename( $_SERVER['PHP_SELF'] ) );
+        $is_customize_admin_page_one = (
+          $is_customize_php_page
+          ||
+          ( isset( $_REQUEST['wp_customize'] ) && 'on' == $_REQUEST['wp_customize'] )
+          ||
+          ( ! empty( $_GET['customize_changeset_uuid'] ) || ! empty( $_POST['customize_changeset_uuid'] ) )
+        );
+        $is_customize_admin_page_two = is_admin() && isset( $pagenow ) && 'customize.php' == $pagenow;
+
+        if ( $is_customize_admin_page_one || $is_customize_admin_page_two ) {
             $is_customizing = true;
         //hu_is_customize_preview_frame() ?
         } else if ( is_customize_preview() || ( ! is_admin() && isset($_REQUEST['customize_messenger_channel']) ) ) {
@@ -495,7 +509,7 @@ class TC_wfc {
 
         //TRANSIENT
         delete_transient('tc_gfonts');
-        delete_transient('czr_gfonts_june_2017');
+        delete_transient('czr_gfonts_nov_2018');
     }
 
 

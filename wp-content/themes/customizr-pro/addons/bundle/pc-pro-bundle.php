@@ -8,7 +8,7 @@
  * Plugin Name: PC Pro Bundle
  * Plugin URI: http://presscustomizr.com
  * Description: Various Customizr-Pro addons
- * Version: 1.2.0
+ * Version: 1.2.4
  * Author: Press Customizr
  * Author URI: http://presscustomizr.com
  * License: GPLv2 or later
@@ -48,7 +48,7 @@ class PC_pro_bundle {
         $this -> plug_name    = 'Customizr Pro Bundle';
         $this -> plug_file    = __FILE__; //main plugin root file.
         $this -> plug_prefix  = 'tc_pro_bundle';
-        $this -> plug_version = '1.2.0';
+        $this -> plug_version = '1.2.4';
 
         //checks if is customizing : two context, admin and front (preview frame)
         $this -> is_customizing = $this -> tc_is_customizing();
@@ -213,24 +213,30 @@ class PC_pro_bundle {
     function tc_is_customizing() {
       //checks if is customizing : two contexts, admin and front (preview frame)
       global $pagenow;
-      $bool = false;
-      if ( is_admin() && isset( $pagenow ) && 'customize.php' == $pagenow )
-        $bool = true;
-      if ( is_customize_preview() || ( ! is_admin() && isset($_REQUEST['customize_messenger_channel']) ) )
-        $bool = true;
-      if ( $this -> tc_doing_customizer_ajax() )
-        $bool = true;
-      return $bool;
-    }
+      $is_customizing = false;
+      $_is_ajaxing_from_customizer = isset( $_POST['customized'] ) || isset( $_POST['wp_customize'] );
+      // the check on $pagenow does NOT work on multisite install @see https://github.com/presscustomizr/nimble-builder/issues/240
+      // That's why we also check with other global vars
+      // @see wp-includes/theme.php, _wp_customize_include()
+      $is_customize_php_page = ( is_admin() && 'customize.php' == basename( $_SERVER['PHP_SELF'] ) );
+      $is_customize_admin_page_one = (
+        $is_customize_php_page
+        ||
+        ( isset( $_REQUEST['wp_customize'] ) && 'on' == $_REQUEST['wp_customize'] )
+        ||
+        ( ! empty( $_GET['customize_changeset_uuid'] ) || ! empty( $_POST['customize_changeset_uuid'] ) )
+      );
+      $is_customize_admin_page_two = is_admin() && isset( $pagenow ) && 'customize.php' == $pagenow;
 
-    /**
-    * Returns a boolean
-    * @since  3.3.2
-    */
-    function tc_doing_customizer_ajax() {
-      return isset( $_POST['customized'] ) && ( defined( 'DOING_AJAX' ) && DOING_AJAX );
+      if ( $is_customize_admin_page_one || $is_customize_admin_page_two ) {
+        $is_customizing = true;
+      } else if ( is_customize_preview() || ( ! is_admin() && isset($_REQUEST['customize_messenger_channel']) ) ) {
+        $is_customizing = true;
+      } else if ( $_is_ajaxing_from_customizer && ( defined( 'DOING_AJAX' ) && DOING_AJAX ) ) {
+        $is_customizing = true;
+      }
+      return $is_customizing;
     }
-
 } //end of class
 
 //Creates a new instance of front and admin

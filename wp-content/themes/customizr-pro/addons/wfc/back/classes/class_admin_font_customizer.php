@@ -371,13 +371,13 @@ class TC_admin_font_customizer {
             || ('customizr' == TC_wfc::$theme_name && version_compare( CUSTOMIZR_VER, '3.2.5', '>=' ) ) ) )  {
 
            //ICHECK
-           wp_enqueue_style(
-              'wfc-icheck-style',
-              sprintf('%1$s/back/assets/css/icheck%2$s.css' , TC_WFC_BASE_URL, ( defined('WP_DEBUG') && true === WP_DEBUG ) ? '' : '.min'),
-              array( 'customize-controls' ),
-              ( defined('WP_DEBUG') && true === WP_DEBUG ) ? TC_wfc::$instance -> plug_version . time() : TC_wfc::$instance -> plug_version,
-              $media = 'all'
-           );
+           // wp_enqueue_style(
+           //    'wfc-icheck-style',
+           //    sprintf('%1$s/back/assets/css/icheck%2$s.css' , TC_WFC_BASE_URL, ( defined('WP_DEBUG') && true === WP_DEBUG ) ? '' : '.min'),
+           //    array( 'customize-controls' ),
+           //    ( defined('WP_DEBUG') && true === WP_DEBUG ) ? TC_wfc::$instance -> plug_version . time() : TC_wfc::$instance -> plug_version,
+           //    $media = 'all'
+           // );
 
            //SELECTER
            wp_enqueue_style(
@@ -421,14 +421,14 @@ class TC_admin_font_customizer {
             ! ( ( 'hueman' == TC_wfc::$theme_name && defined( 'HUEMAN_VER' ) && version_compare( HUEMAN_VER, '3.0.0', '>=' ) )
               || ('customizr' == TC_wfc::$theme_name && version_compare( CUSTOMIZR_VER, '3.2.5', '>=' ) ) ) )  {
 
-            wp_enqueue_script(
-               'icheck-script',
-               //dev / debug mode mode?
-               sprintf('%1$s/back/assets/js/lib/lib_icheck.js' , TC_WFC_BASE_URL),
-               $deps = array('jquery'),
-               ( defined('WP_DEBUG') && true === WP_DEBUG ) ? TC_wfc::$instance -> plug_version . time() : TC_wfc::$instance -> plug_version,
-               $in_footer = true
-            );
+            // wp_enqueue_script(
+            //    'icheck-script',
+            //    //dev / debug mode mode?
+            //    sprintf('%1$s/back/assets/js/lib/lib_icheck.js' , TC_WFC_BASE_URL),
+            //    $deps = array('jquery'),
+            //    ( defined('WP_DEBUG') && true === WP_DEBUG ) ? TC_wfc::$instance -> plug_version . time() : TC_wfc::$instance -> plug_version,
+            //    $in_footer = true
+            // );
 
             wp_enqueue_script(
                'selecter-script',

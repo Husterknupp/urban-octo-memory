@@ -28,8 +28,9 @@ class CZR_post_list_masonry_model_class extends CZR_Model {
             );
 
 
-    private static $post_formats_with_icon_allowed  = array( 'quote', 'link', 'status', 'aside', 'chat' );
-    private static $post_formats_without_media      = array( 'quote', 'link', 'status', 'aside', 'chat' );
+    private static $post_formats_with_icon_allowed     = array( 'quote', 'link', 'status', 'aside', 'chat' );
+    private static $post_formats_without_media         = array( 'quote', 'link', 'status', 'aside', 'chat' );
+    private static $post_formats_with_additional_media = array( 'audio' );
 
     /*
     * We decided that in masonry all the images (even those with text) should be displayed like the gallery
@@ -181,6 +182,9 @@ class CZR_post_list_masonry_model_class extends CZR_Model {
         return $this -> czr_fn__get_post_list_item_property( 'show_comment_meta' );
     }
 
+    function czr_fn_get_display_additional_pf_media() {
+        return $this -> czr_fn__get_post_list_item_property( 'display_additional_pf_media' );
+    }
 
     function czr_fn_get_media_class() {
         return $this -> czr_fn__get_post_list_item_property( 'media_class' );
@@ -207,13 +211,15 @@ class CZR_post_list_masonry_model_class extends CZR_Model {
         $current_post_format          = get_post_format();
         $is_full_image_candidate      = $this -> czr_fn__get_is_full_image_candidate( $current_post_format );
 
-        $is_post_with_media           = $this -> czr_fn__get_is_post_with_media( $current_post_format );
-
-        $post_media                   = false;
+        $is_post_with_media          = $this -> czr_fn__get_is_post_with_media( $current_post_format );
+        $display_additional_pf_media = $is_post_with_media && in_array( $current_post_format, self::$post_formats_with_additional_media );
+        $post_media                  = false;
 
         if ( $is_post_with_media ) {
             $post_media                 = $this->czr_fn__get_post_media ( array(
-                'post_format'           => $current_post_format,
+                // if post format with additional media we display both the featured image and the additional post format media, e.g. audio iframe
+                // this translates into retrieving the featured image here as for a "standard" post format, hence 'post_format' => ''
+                'post_format'           => $display_additional_pf_media ? '' : $current_post_format,
                 'thumb_size'            => $is_full_image_candidate ? self::$big_thumb_img_size_name : self::$default_thumb_img_size_name,
                 'image_centering'       => $is_full_image_candidate ? $this->image_centering : 'no-js-centering'
             ) );
@@ -234,13 +240,13 @@ class CZR_post_list_masonry_model_class extends CZR_Model {
         $media_class                  = $is_full_image ? self::$big_image_ratio_wrapper_class : '';
         $media_class                  = ! $media_class && 'video' == $current_post_format ? self::$video_ratio_wrapper_class : $media_class;
 
-
         return array(
-            'article_selectors'      => $article_selectors,
-            'media_class'            => $media_class,
-            'has_post_media'         => $has_post_media,
-            'has_header_format_icon' => $has_header_format_icon,
-            'show_comment_meta'      => $show_comment_meta,
+            'article_selectors'           => $article_selectors,
+            'media_class'                 => $media_class,
+            'has_post_media'              => $has_post_media,
+            'has_header_format_icon'      => $has_header_format_icon,
+            'show_comment_meta'           => $show_comment_meta,
+            'display_additional_pf_media' => $display_additional_pf_media
         );
 
     }
@@ -301,7 +307,6 @@ class CZR_post_list_masonry_model_class extends CZR_Model {
     protected function czr_fn__get_has_header_format_icon( $current_post_format ) {
         return in_array(  $current_post_format  , self::$post_formats_with_icon_allowed );
     }
-
 
 
 
@@ -450,6 +455,7 @@ class CZR_post_list_masonry_model_class extends CZR_Model {
             }
             .grid-container__masonry .format-audio .audio-container iframe {
               height: 80px;
+              width: 100%;
             }
             .grid-container__masonry .full-image .tc-thumbnail img {
                 width: auto;
@@ -481,10 +487,13 @@ class CZR_post_list_masonry_model_class extends CZR_Model {
                 padding-bottom: 0;
             }
             .grid-container__masonry .entry-link a,
-            .grid-container__masonry blockquote p {
+            .grid-container__masonry blockquote > * {
                 margin: 0;
                 max-width: 100%;
                 padding-left: 0;
+            }
+            .grid-container__masonry blockquote cite {
+                margin-top: .8em;
             }
             .grid-container__masonry blockquote::before,
             .grid-container__masonry .entry-link::before {

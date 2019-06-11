@@ -107,9 +107,6 @@
   -webkit-backface-visibility: hidden;
   -moz-backface-visibility: hidden;
   backface-visibility: hidden;
-  -webkit-perspective: 1000px;
-  -moz-perspective: 1000px;
-  perspective: 1000px;
 }
 .fpc-widget-front .thumb-wrapper img {
   min-height: 250px;
@@ -211,11 +208,6 @@
    -webkit-backface-visibility: visible;
    -moz-backface-visibility: visible;
    backface-visibility: visible;
- }
- body.animating .fpc-widget-front .thumb-wrapper {
-   -webkit-perspective: none;
-   -moz-perspective: none;
-   perspective: none;
  }
 .fpc-container .fpc-edit-link {
   position: absolute;

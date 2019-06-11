@@ -41,7 +41,7 @@ class PC_yoast_breadcrumbs {
   * @package PC_pro_bundle
   */
   function pc_yoastbr_plugins_compatibility() {
-    if ( current_theme_supports( 'yoast-seo-breadcrumbs' ) && CZR_plugins_compat::$instance -> czr_fn_is_plugin_active('wordpress-seo/wp-seo.php') )
+    if ( current_theme_supports( 'yoast-seo-breadcrumbs' ) && czr_fn_is_plugin_active('wordpress-seo/wp-seo.php') )
       $this -> pc_yoastbr_set_yoast_seo_breadcrumbs_compat();
   }
 

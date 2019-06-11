@@ -20,8 +20,6 @@
   overflow: hidden;
   -webkit-backface-visibility: hidden;
   backface-visibility: hidden;
-  -webkit-perspective: 1000px;
-  perspective: 1000px;
   -webkit-transform-style: preserve-3d;
   transform-style: preserve-3d;
 }
@@ -55,6 +53,8 @@
           flex-wrap: wrap;
   margin-right: -15px;
   margin-left: -15px;
+  -ms-flex-pack: center;
+  justify-content: center;
 }
 
 /* Equivalent of the bootstrap fpc-col-X */
@@ -626,7 +626,6 @@
   top: 50%;
   left: 50%;
   max-width: 100%;
-  min-height: 100%;
 }
 
 

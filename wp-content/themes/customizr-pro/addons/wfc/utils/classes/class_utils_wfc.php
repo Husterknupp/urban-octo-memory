@@ -218,11 +218,11 @@ class TC_utils_wfc {
   // 2) from the transiet set if it exists
   //
   // => Until June 2017, the webfonts have been stored in 'tc_gfonts' transient
-  // => In June 2017, the Google Fonts have been updated with a new webfonts.json generated from : https://www.googleapis.com/webfonts/v1/webfonts?key=AIzaSyBID8gp8nBOpWyH5MrsF7doP4fczXGaHdA
-  // => The transient name is now : czr_gfonts_june_2017
+  // => In November 2018, the Google Fonts have been updated with a new webfonts.json generated from : https://www.googleapis.com/webfonts/v1/webfonts?key=AIzaSyBID8gp8nBOpWyH5MrsF7doP4fczXGaHdA
+  // => The transient name is now : czr_gfonts_nov_2018
   function retrieve_decoded_gfonts() {
 
-      if ( false == get_transient( 'czr_gfonts_june_2017' ) ) {
+      if ( false == get_transient( 'czr_gfonts_nov_2018' ) ) {
           $gfont_raw      = @file_get_contents( dirname( dirname(__FILE__) ) ."/assets/fonts/webfonts.json" );
 
           if ( $gfont_raw === false ) {
@@ -230,10 +230,10 @@ class TC_utils_wfc {
           }
 
           $gfonts_decoded   = json_decode( $gfont_raw, true );
-          set_transient( 'czr_gfonts_june_2017' , $gfonts_decoded , 60*60*24*3000 );
+          set_transient( 'czr_gfonts_nov_2018' , $gfonts_decoded , 60*60*24*3000 );
       }
       else {
-        $gfonts_decoded = get_transient( 'czr_gfonts_june_2017' );
+        $gfonts_decoded = get_transient( 'czr_gfonts_nov_2018' );
       }
 
       return $gfonts_decoded;

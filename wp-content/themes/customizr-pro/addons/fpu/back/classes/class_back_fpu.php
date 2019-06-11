@@ -273,21 +273,21 @@ class TC_back_fpu {
       ! ( ( 'hueman'    == $theme_name && defined( 'HUEMAN_VER' ) && version_compare( HUEMAN_VER, '3.0.0', '>=' ) )
           || ('customizr' == $theme_name && version_compare( CUSTOMIZR_VER, '3.2.5', '>=' ) ) ) )  {
       //ICHECK
-      wp_enqueue_style(
-        'fpu-icheck-style',
-        sprintf('%1$s/back/assets/css/icheck%2$s.css' , TC_FPU_BASE_URL, ( defined('WP_DEBUG') && true === WP_DEBUG ) ? '' : '.min'),
-        array( 'customize-controls' ),
-        TC_fpu::$instance -> plug_version,
-        $media = 'all'
-      );
-      wp_enqueue_script(
-        'icheck-script',
-        //dev / debug mode mode?
-        sprintf('%1$s/back/assets/js/lib/lib_icheck.js' , TC_FPU_BASE_URL),
-        $deps = array('jquery'),
-        TC_fpu::$instance -> plug_version,
-        $in_footer = true
-      );
+      // wp_enqueue_style(
+      //   'fpu-icheck-style',
+      //   sprintf('%1$s/back/assets/css/icheck%2$s.css' , TC_FPU_BASE_URL, ( defined('WP_DEBUG') && true === WP_DEBUG ) ? '' : '.min'),
+      //   array( 'customize-controls' ),
+      //   TC_fpu::$instance -> plug_version,
+      //   $media = 'all'
+      // );
+      // wp_enqueue_script(
+      //   'icheck-script',
+      //   //dev / debug mode mode?
+      //   sprintf('%1$s/back/assets/js/lib/lib_icheck.js' , TC_FPU_BASE_URL),
+      //   $deps = array('jquery'),
+      //   TC_fpu::$instance -> plug_version,
+      //   $in_footer = true
+      // );
 
       //SELECTER
       wp_enqueue_style(

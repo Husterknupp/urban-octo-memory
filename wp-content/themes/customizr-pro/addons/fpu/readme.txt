@@ -3,8 +3,8 @@ Contributors : Press Customizr
 Donate link: http://www.presscustomizr.com#footer
 Tags: pages, customizer, home, wordpress
 Requires at least: 3.4
-Tested up to: 4.2
-Stable tag: 2.1.7
+Tested up to: 5.2
+Stable tag: 2.1.16
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -41,6 +41,36 @@ SUPPORT : http://presscustomizr.com/support-forums/
 
 
 #######################  Changelog ######################
+= 2.1.16 May 14th 2019 =
+* improved : remove title attribute on fp thubmnails and readmore button
+
+= 2.1.15 April 9th 2019 =
+* fixed : changed priority of WooCommerce option so that it is displayed at the right place
+
+= 2.1.14 April 5th 2019 =
+* improved : implemented a new checkbox style for the customizer controls
+
+= 2.1.13 March 21st 2019 =
+* fixed : Static page on home => display the FP even if no page is specified. fixes #139
+
+= 2.1.12 March 5th 2019 =
+* improved : added an option to include WooCommerce products in the list of possible featured posts, disabled by default. fixes #138
+
+= 2.1.11 February 27th 2019 =
+* fixed : compatibility with WP 5.1
+
+= 2.1.10 February 14th 2019 =
+* fixed : removed unwanted lines displayed around the images of the featured pages on chrome
+* improved : better horizontal centering of the featured pages in their row
+
+= 2.1.9 November 16th 2018 =
+* improved : tc_is_customizing() => the check on $pagenow does NOT work on multisite install
+* improved : add wp 5.0 compatibility patch see https://github.com/presscustomizr/customizr/issues/1623
+
+= 2.1.8 September 18th 2018 =
+* Fix: do not set the fpu img min height to 100% when js-centering disabled
+* Updated the plugin updater
+
 = 2.1.7 March 29th 2018 =
 * Fix: class_browsers.php: Use of deprecated PHP4 style class constructor is not supported since PHP 7. fixes #124
 * Fix: modern - fpu container position must be relative

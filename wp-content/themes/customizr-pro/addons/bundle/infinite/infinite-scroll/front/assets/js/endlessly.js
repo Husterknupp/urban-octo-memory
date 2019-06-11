@@ -12,11 +12,6 @@
             IEVersion = parseInt( IEVersion[1], 10 );
       }
 
-      // HTTP ajaxurl when site is HTTPS causes Access-Control-Allow-Origin failure in Desktop and iOS Safari
-      if ( "https:" == document.location.protocol ) {
-            infiniteScroll.settings.ajaxurl = infiniteScroll.settings.ajaxurl.replace( "http://", "https://" );
-      }
-
       /**
        * Loads new posts when users scroll near the bottom of the page.
        */
@@ -741,8 +736,14 @@
        */
       $( document ).ready( function() {
             // Check for our variables
-            if ( 'object' != typeof infiniteScroll )
+            if ( 'object' != typeof infiniteScroll ) {
                   return;
+            }
+
+            // HTTP ajaxurl when site is HTTPS causes Access-Control-Allow-Origin failure in Desktop and iOS Safari
+            if ( "https:" == document.location.protocol ) {
+                  infiniteScroll.settings.ajaxurl = infiniteScroll.settings.ajaxurl.replace( "http://", "https://" );
+            }
 
             $( document.body ).addClass( infiniteScroll.settings.body_class );
 

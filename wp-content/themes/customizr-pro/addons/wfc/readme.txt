@@ -14,7 +14,22 @@ SUPPORT : http://presscustomizr.com/support-forums/
 
 
 #######################  Changelog ######################
-= 3.0.4 June 19th 2018 =
+= 3.0.8 April 5th 2019 =
+* improved : Implemented a unified style fox checkboxes in the customizer accross Press Customizr themes and plugin.
+
+= 3.0.7 November 26th 2018 =
+* Updated Google fonts.
+
+= 3.0.6 November 16th 2018 =
+* fixed : tc_is_customizing() => the check on $pagenow does NOT work on multisite install @see https://github.com/presscustomizr/nimble-builder/issues/240
+* improved : replace select2 with our namespaced czrSelect2 wfc part of the fix for presscustomizr/themes-customizer-fmk#50
+
+= 3.0.5 September 18th 2018 =
+* updated Font Awesome icons
+* updated the plugin updater
+* updated the customizer framework
+
+= 3.0.4 July 10th 2018 =
 * updated czr base fmk namespace for WFC
 
 = 3.0.3 March 22nd 2018 =

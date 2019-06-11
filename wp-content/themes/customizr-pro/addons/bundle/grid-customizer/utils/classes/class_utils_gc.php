@@ -65,7 +65,7 @@ class TC_utils_gc {
                             'label'         => __( 'Limit the excerpt length when the grid customizer is enabled' , 'customizr-pro' ),
                             'section'       => 'post_lists_sec',
                             'control'       => 'CZR_controls' ,
-                            'type'          => 'checkbox',
+                            'type'          => 'nimblecheck',
                             'priority'      => 25,
                             'notice'        =>  __( "Note : bear in mind that some grid customizer effects look better when the excerpt's length is limited to only a few words." , 'customizr-pro' ),
               ),
@@ -164,7 +164,7 @@ class TC_utils_gc {
                             'label'         => __( 'Post titles in big caps' , 'customizr-pro' ),
                             'section'       => 'post_lists_sec',
                             'control'       => 'CZR_controls' ,
-                            'type'          => 'checkbox',
+                            'type'          => 'nimblecheck',
                             'priority'      => 56,
                             'transport'     => 'postMessage'
             ),

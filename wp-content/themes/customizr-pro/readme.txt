@@ -1,4 +1,4 @@
-# Customizr Pro v2.1.6
+# Customizr Pro v2.1.31
 ![Customizr - Pro](/screenshot.png)
 
 > The pro version of the popular Customizr WordPress theme.
@@ -14,6 +14,148 @@ Customizr Pro is distributed under the terms of the [GNU GPL v2.0 or later](http
 * SUPPORT : http://presscustomizr.com/support/
 
 ## Changelog
+= 2.1.31 June 4th 2019 =
+* fixed : minor font-size issue
+* improved : replaced TGMPA class for plugin recommendation
+
+= 2.1.30 May 29th 2019 =
+* improved : deactivation of modular font-size for headings (Hx) by default for mobile devices
+
+= 2.1.29 May 14th 2019 =
+* fixed : reponsive wrapper "breaking" video post formats when using self-hosted or facebook video URLs we now handle only the responsiveness embeds which are iframes
+* fixed : remove 'hentry' among the post classes
+* fixed : added missing nimblecheck controls in the customizer
+* improved : remove offset for 2nd level submenu in desktops
+* improved : remove title attribute "Permalink To" on thumbnails links in post lists and featured pages
+* added : new wp_body_open theme Hook
+
+= 2.1.28 April 24th 2019 =
+* improved : block editor style in order to only enlarge the editor
+* fixed : smooth scroll throwing JS errors in latest chrome
+* fixed : using the letters "span" in categories could make their containers inherit the CSS rules defined with [class*="span"]
+
+= 2.1.27 April 9th, 2019 =
+* fixed : a bug with the images of featured pages not displayed sometimes.
+
+= 2.1.26 April 5th, 2019 =
+* fixed : remove title attribute on logo and site title + add aria-label attribute
+* fixed : compatibility issue with Event Tickets plugins. When the plugin was enabled no lists of posts were displayed
+* fixed : make sure we catch the post_type_archive case when displaying the archive titles
+* improved : style of checkboxes in customizer controls
+* added : a new option to control the current menu item highlighting
+
+= 2.1.25 March 22nd, 2019 =
+* fixed : bug leading to related posts displayed in pages
+
+= 2.1.24 March 21st, 2019 =
+* fixed : WooCommerce product image issue
+
+= 2.1.23 March 21st, 2019 =
+* fixed : WooCommerce product image on top of the page disabled by default
+* fixed : display the featured pages even if no static page is specified on home
+
+= 2.1.22 March 20th, 2019 =
+* fixed : compatibility issue with the Event Tickets plugin
+* fixed : php syntax, ensure that the delimiter param is always passed to the explode PHP function
+* fixed : use https protocol to check for theme updates
+* improved : new option to allow the WooCommerce featured image to be displayed before the main wrapper in full width
+
+= 2.1.21 March 1st, 2019 =
+* fixed : footer template tags like {{year}} may not properly parsed
+
+= 2.1.20 February 28th, 2019 =
+* fixed : possible PHP error when using PHP < 5.4 because of the use of the short array syntax
+
+= 2.1.19 February 27th, 2019 =
+* fixed : make sure registered locations in the Customizr theme are always rendered when using the Nimble template and the Nimble header and footer
+* fixed : infinite scroll compatibility issue with ngg-gallery plugin
+* improved : hide main slider nav arrows in mobile with CSS only
+* improved : "You May Also Like" smaller
+* improved : post list pagination is larger
+* improved : default year date in footer has been turned into a template tag {{year}}
+* added : a simple template tag parser, to be used with the filter 'czr_parse_template_tags'
+
+= 2.1.18 February 14th, 2019 =
+* fixed : removed unwanted lines displayed around the images of the featured pages on chrome
+* fixed : assigned width and height attributes to placehoder images
+* improved : compatibility with the Social Media Share Buttons & Social Sharing Icons plugin
+
+= 2.1.17 February 2nd, 2019 =
+* fixed : the absolute positioned header should be displayed only when on home AND on first paginated page of the blog
+* fixed : WooCommerce cart style issue when using several variations
+* fixed : reset margin-top when a p html elemnt is a child of a li html element
+* fixed : the blog category filter for pro infinite scroll
+* updated : de_DE translations for Customizr Pro
+* improved : extend anchor smooth scroll range of action
+
+= 2.1.16 January 16th, 2019 =
+* fixed : wrong html5 shiv file path.
+* improved : remove unused iphone checkboxes assets.
+* added : an option to remove the various transparent header borders.
+* added : compatibility with the Q2W3 plugin
+* added : registered a new Nimble builder location above the footer.
+
+= 2.1.15 December 22nd, 2018 =
+* improved : added block editor style rtl, and make sure it is loaded when is_rtl()
+
+= 2.1.14 December 21st, 2018 =
+* fixed : re-build the theme to fix php7.3 warning when using the infinite scroll
+
+= 2.1.13 December 18th, 2018 =
+* fixed : php7.3 warning when using "continue" in a switch statement.
+* fixed : old customizer logo not displayed in customizer live preview
+* improved : style of the new WordPress block editor, especially to enlarge the editor content width
+
+= 2.1.12 December 15th, 2018 =
+* fixed : admin page css style not compatible with WP 5.0
+* fixed : mobile submenu background breaking with chrome on android. fixes #1635
+* fixed : amend select min-width:100% causing plugin compatibility issues. fixes #1636
+* fixed : PHP-7.3 warnings when passing undefined variables to compact(). fixes #1644
+* improved : update FontAwesome to v5.5.0. see presscustomizr/hueman#727. Also removed partial css files we don't use
+* improved : compatibility with the Nimble Builder v1.4+
+* improved : analytics params to external links in admin
+* improved : use the standard wp custom logo in place of our custom one. fixes #1633
+
+= 2.1.11 November 26th, 2018 =
+* fixed : improve multisite install support in the customizer
+* improved : replace select2 with our namespaced czrSelect2
+* improved : gutenberg alignment compatibility
+* improved : The Events Calendar Pro mini calendar table style compat
+* improved : WordPress 5.0 compatibility patch
+* improved : Nimble Builder compatibility. Don't load css and javascript front assets when using the full Nimble template
+* updated the Google Fonts list
+
+= 2.1.10 November 9th 2018 =
+* fixed : updated url to https://gmpg.org/xfn/11 see https://github.com/presscustomizr/hueman/issues/714
+* fixed : potential compatibility issue with WordPress 5.0. for #1623
+* fixed : element id duplication when using horizontal primary menu
+* fixed : html validation for meta with http-equiv attribute with value X-UA-Compatible: must have the value IE=EDGE fixes #1583
+* improved: added new WP editor responsive embeds support
+* improved: new WP editor blockquote style. Part of #1601
+* added : 3 social icons to the social links module : Line, Map, Discord
+
+= 2.1.9 October 25th 2018 =
+* fixed : remove breadcrumb itemprop that can produce html validation issues
+* fixed : fix buddypress member activity filter issue
+* improved : support for new WordPress editor, block cover image alignwide/alignfull
+* improved : readme.txt file, according to the latest TRT requirements https://make.wordpress.org/themes/2015/04/29/a-revised-readme/
+
+= 2.1.8 October 7th 2018 =
+* fixed : missing space between fancybox link attributes. fixes #1593
+* fixed : WooCommerce variation form inputs appearance on Mozilla browsers. fixes #1598
+* improved : added a dropzone location "__before_main_wrapper" for the Nimble Builder plugin
+* improved : support custom post types in related posts
+* added : new option to make the header absolute positionned with a transparent background, on home.
+
+= 2.1.7 August 1st 2018 =
+* added : new option to display the site title next to the logo. Enabled by default. fixes #1573
+* imp : always make sure WC functions exist before calling them. fixes #1529
+* imp : replace slider iphone checks with checkboxes consistent with the Gutenberg editor style. also fixes #1540
+* imp : better compatibility with the Gutenberg editor for post-formats metaboxes. fixes #1576
+* imp: update masonry quote post format CSS according to the new core code
+* fix: wrong post order on masonry grid layout (RTL)
+* fix: do not stretch the featured pages image to 100% of the height if not requested
+
 = 2.1.6 June 19th 2018 =
 * Fix: do not wrap ol item counters.
 * Fix: improve scoping of the link underline effect only to widgets we know

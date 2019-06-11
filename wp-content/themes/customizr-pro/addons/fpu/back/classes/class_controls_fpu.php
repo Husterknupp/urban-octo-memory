@@ -118,21 +118,39 @@ class TC_controls_fpu extends WP_Customize_Control	{
 	        	<?php
         		break;
 
-        	case 'checkbox':
-			?>
-				<div class="tc-check-label">
-					<label>
-						<span class="customize-control-title"><?php echo esc_html( $this->label ); ?></span>
-					</label>
-				</div>
-				<input type="checkbox" class="iphonecheck" value="<?php echo esc_attr( $this->value() ); ?>" <?php $this->link(); checked( $this->value() ); ?> />
+        	 case 'checkbox':
+            case 'nimblecheck':
+              ?>
+              <?php if (isset( $this->title)) : ?>
+                <h3 class="czr-customizr-title"><?php echo esc_html( $this->title); ?></h3>
+              <?php endif; ?>
 
-				<?php if(!empty( $this -> notice)) : ?>
-			       <span class="tc-notice"><?php echo esc_html( $this-> notice ) ?></span>
-			     <?php endif; ?>
-			     <!-- <hr class="tc-customizer-separator-invisible" /> -->
-			<?php
-			break;
+              <?php if ( 'checkbox' === $this->type ) : ?>
+                <?php
+                    printf('<div class="czr-check-label"><label><span class="customize-control-title">%1$s</span></label></div>',
+                      $this->label
+                    );
+                ?>
+                <input <?php $this->link(); ?> type="checkbox" value="<?php echo esc_attr( $this->value() ); ?>"  <?php checked( $this->value() ); ?> />
+              <?php elseif ( 'nimblecheck' === $this->type ) : ?>
+                <div class="czr-control-nimblecheck">
+                  <?php
+                    printf('<div class="czr-check-label"><label><span class="customize-control-title">%1$s</span></label></div>',
+                      $this->label
+                    );
+                  ?>
+                  <div class="nimblecheck-wrap">
+                    <input id="nimblecheck-<?php echo $this -> id; ?>" <?php $this->link(); ?> type="checkbox" value="<?php echo esc_attr( $this->value() ); ?>"  <?php checked( $this->value() ); ?> class="nimblecheck-input">
+                    <label for="nimblecheck-<?php echo $this -> id; ?>" class="nimblecheck-label">Switch</label>
+                  </div>
+                </div>
+              <?php endif; ?>
+
+              <?php if(!empty( $this -> notice)) : ?>
+               <span class="czr-notice"><?php echo $this-> notice ?></span>
+              <?php endif; ?>
+              <?php
+            break;
 
         	case 'textarea':
         		?>
@@ -156,7 +174,10 @@ class TC_controls_fpu extends WP_Customize_Control	{
 	        case 'dropdown-posts-pages':
                 //retrieve post, pages and custom post types (if any) and generate the ordered select list for the button link
                 if ( ! isset(self::$tc_all_posts) ){
-                  $exclude    =  apply_filters('fpc_excluded_post_types', array('attachment', 'product') );
+                  // introduced for https://github.com/presscustomizr/tc-unlimited-featured-pages/issues/138
+                  $include_woocommerce_product = esc_attr( tc__f( '__get_fpc_option' , 'tc_fp_include_woocommerce_products') );
+                  $exclude    =  apply_filters('fpc_excluded_post_types', $include_woocommerce_product ? array('attachment') : array('attachment', 'product') );
+
                   $post_types = ( array_diff(
                         array_values( get_post_types( array( 'public' => true ) ) ),
                         $exclude
@@ -191,8 +212,29 @@ class TC_controls_fpu extends WP_Customize_Control	{
             break;
 
         	default:
-        		screen_icon( $this -> type );
-        		break;
+              global $wp_version;
+              ?>
+              <?php if (isset( $this->title)) : ?>
+                <h3 class="czr-customizr-title"><?php echo esc_html( $this->title); ?></h3>
+              <?php endif; ?>
+              <label>
+                <?php if ( ! empty( $this->label ) ) : ?>
+                  <span class="customize-control-title"><?php echo $this->label; ?></span>
+                <?php endif; ?>
+                <?php if ( ! empty( $this->description ) ) : ?>
+                  <span class="description customize-control-description"><?php echo $this->description; ?></span>;;;
+                <?php endif; ?>
+                <?php if ( ! version_compare( $wp_version, '4.0', '>=' ) ) : ?>
+                  <input type="<?php echo esc_attr( $this->type ); ?>" value="<?php echo esc_attr( $this->value() ); ?>" <?php $this->link(); ?> />
+                <?php else : ?>
+                  <input type="<?php echo esc_attr( $this->type ); ?>" <?php $this->input_attrs(); ?> value="<?php echo esc_attr( $this->value() ); ?>" <?php $this->link(); ?> />
+                <?php endif; ?>
+                <?php if(!empty( $this -> notice)) : ?>
+                  <span class="czr-notice"><?php echo $this-> notice; ?></span>
+                <?php endif; ?>
+              </label>
+              <?php
+            break;
         }//end switch
 	 }//end function
 }//end of class

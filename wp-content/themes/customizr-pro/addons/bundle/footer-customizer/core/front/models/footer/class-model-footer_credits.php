@@ -42,6 +42,13 @@ class CZR_footer_credits_model_class extends CZR_Model {
             }
 
 
+            // Template tags parsing
+            foreach ($_model as $k => $v) {
+                if ( is_string($v) && !empty($v) ) {
+                    $_model[$k] = apply_filters('czr_parse_template_tags', $v );
+                }
+            }
+
             //sanitize some options
             foreach ( array( 'copyright', 'credit', 'copyright_after' ) as $text_option ) {
                   //we allow html in the text options
@@ -68,7 +75,6 @@ class CZR_footer_credits_model_class extends CZR_Model {
             //separators visibility
             $_model[ 'fc_wp_powered_sep_class' ]            = isset( $_model[ 'fc_show_wp_powered' ] ) && $_model[ 'fc_show_wp_powered' ] && isset( $_model[ 'fc_show_designer_credits' ] ) && $_model[ 'fc_show_designer_credits' ] ? '' : 'hidden';
             $_model[ 'fc_copyright_after_sep_class' ]       = !empty( $_model[ 'fc_copyright_after_text' ] ) && ( !empty( $_model[ 'fc_copyright_text' ] ) || !empty( $_model[ 'fc_site_name' ] ) ) ? '' : 'hidden';
-
 
             // When customizing we display some elements but hide them through CSS class
             if ( PC_pro_bundle::$instance -> is_customizing ) {

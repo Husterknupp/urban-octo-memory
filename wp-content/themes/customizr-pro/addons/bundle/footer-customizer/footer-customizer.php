@@ -46,9 +46,9 @@ class TC_fc {
 
             $this -> default_options = array(
               'fc_show_footer_credits'    => 1,
-              'fc_copyright_text'         => sprintf( '&copy; %1$s', esc_attr( date( 'Y' ) ) ),
-              'fc_site_name'              => esc_attr( get_bloginfo() ),
-              'fc_site_link'              => esc_url( home_url() ),
+              'fc_copyright_text'         => '&copy; {{year}}',//sprintf( '&copy; %1$s', esc_attr( date( 'Y' ) ) ),
+              'fc_site_name'              => '{{site_title}}',//esc_attr( get_bloginfo() ),
+              'fc_site_link'              => '{{home_url}}',//esc_url( home_url() ),
               'fc_copyright_after_text'   => __( 'All rights reserved' , 'customizr-pro' ),
               'fc_site_link_target'       => 0, // 0 = _self, 1 = _blank
               'fc_show_designer_credits'  => 1,
@@ -147,9 +147,9 @@ class TC_fc {
         //copyright
         $_html = sprintf('<span class="%1$s"><span class="fc-copyright-text">%2$s</span> <a class="fc-copyright-link" href="%3$s" title="%4$s" rel="bookmark" target="%5$s">%4$s</a></span>',
               implode( ' ', apply_filters('fc_copyright_block', array( 'fc-copyright' ) ) ),
-              html_entity_decode( esc_attr( $_options['fc_copyright_text'] ) ),
-              esc_url( $_options['fc_site_link'] ),
-              esc_attr( $_options['fc_site_name'] ),
+              apply_filters('czr_parse_template_tags', html_entity_decode( esc_attr( $_options['fc_copyright_text'] ) ) ),
+              apply_filters('czr_parse_template_tags', esc_url( $_options['fc_site_link'] ) ),
+              apply_filters('czr_parse_template_tags', esc_attr( $_options['fc_site_name'] ) ),
               0 == esc_attr( $_options['fc_site_link_target']) ? '_self' : '_blank'
         );
         //designer
@@ -197,8 +197,9 @@ class TC_fc {
                     'control'       => 'CZR_controls' ,
                     'label'         => __( "Enable the footer copyrights and credits" , 'customizr-pro' ),
                     'section'       => 'footer_customizer_sec' ,
-                    'type'          => 'checkbox',
-                    'priority'      => 1
+                    'type'          => 'nimblecheck',
+                    'priority'      => 1,
+                    'notice'        => __('The following template tags can be used : {{year}}, {{site_title}}, {{home_url}}', 'customizr-pro')
           ),
           "fc_copyright_text" =>  array(
                     'default'       => isset( $_defaults['fc_copyright_text'] ) ? $_defaults['fc_copyright_text'] : false,
@@ -208,7 +209,7 @@ class TC_fc {
                     'section'       => 'footer_customizer_sec' ,
                     'type'          => 'text',
                     'priority'      => 5,
-                    'transport'   =>  'postMessage',
+                    'transport'   =>  'postMessage'
           ),
           "fc_site_name" =>  array(
                     'default'       => isset( $_defaults['fc_site_name'] ) ? $_defaults['fc_site_name'] : false,
@@ -233,7 +234,7 @@ class TC_fc {
                     'control'       => 'CZR_controls' ,
                     'label'         => __( 'Open link in a new page/tab', 'customizr-pro' ),
                     'section'       => 'footer_customizer_sec' ,
-                    'type'          => 'checkbox',
+                    'type'          => 'nimblecheck',
                     'priority'      => 21,
                     'transport'   =>  'postMessage',
           ),
@@ -252,7 +253,7 @@ class TC_fc {
                     'label'         => __( "Display the designer's credits" , 'customizr-pro' ),
                     'title'         => __( "Credits", 'customizr-pro'),
                     'section'       => 'footer_customizer_sec' ,
-                    'type'          => 'checkbox',
+                    'type'          => 'nimblecheck',
                     'priority'      => 30,
                     'transport'   =>  'postMessage',
           ),
@@ -288,7 +289,7 @@ class TC_fc {
                     'control'       => 'CZR_controls' ,
                     'label'         => __( 'Open link in a new page/tab' , 'customizr-pro' ),
                     'section'       => 'footer_customizer_sec' ,
-                    'type'          => 'checkbox',
+                    'type'          => 'nimblecheck',
                     'priority'      => 61,
                     'transport'   =>  'postMessage',
           ),
@@ -298,7 +299,7 @@ class TC_fc {
                     'title'         => __( "Powered by WordPress", 'customizr-pro' ),
                     'label'         => __( "Display 'Powered by WordPress'" , 'customizr-pro' ),
                     'section'       => 'footer_customizer_sec' ,
-                    'type'          => 'checkbox',
+                    'type'          => 'nimblecheck',
                     'priority'      => 62,
                     'transport'   =>  'postMessage',
           ),
@@ -325,17 +326,17 @@ class TC_fc {
         /*
         * QTranslatex
         */
-        if ( current_theme_supports( 'qtranslate-x' ) && CZR_plugins_compat::$instance -> czr_fn_is_plugin_active('qtranslate-x/qtranslate.php') )
+        if ( current_theme_supports( 'qtranslate-x' ) && czr_fn_is_plugin_active('qtranslate-x/qtranslate.php') )
           $this -> fc_set_qtranslatex_compat();
         /*
         * Polylang
         */
-        if ( current_theme_supports( 'polylang' ) && ( CZR_plugins_compat::$instance -> czr_fn_is_plugin_active('polylang/polylang.php') ||  CZR_plugins_compat::$instance -> czr_fn_is_plugin_active('polylang-pro/polylang.php') ) )
+        if ( current_theme_supports( 'polylang' ) && ( czr_fn_is_plugin_active('polylang/polylang.php') ||  czr_fn_is_plugin_active('polylang-pro/polylang.php') ) )
           $this -> fc_set_polylang_compat();
         /*
         * WPML
         */
-        if ( current_theme_supports( 'wpml' ) && CZR_plugins_compat::$instance -> czr_fn_is_plugin_active('sitepress-multilingual-cms/sitepress.php') )
+        if ( current_theme_supports( 'wpml' ) && czr_fn_is_plugin_active('sitepress-multilingual-cms/sitepress.php') )
           $this -> fc_set_wpml_compat();
       }
 

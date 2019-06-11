@@ -25,7 +25,8 @@ class TC_activation_key {
         //adds the menu if no other plugins has already defined it
         add_action('admin_menu'                     , array( $this , 'tc_licenses_menu') );
         // this is the URL our updater / license checker pings. This should be the URL of the site with EDD installed
-        define( 'TC_THEME_URL' , 'http://presscustomizr.com' );
+        // March 20th 2019 => updated to https. See https://github.com/presscustomizr/customizr-pro-activation-key/issues/7
+        define( 'TC_THEME_URL' , 'https://presscustomizr.com' );
       }
 
       $this -> strings = array(
@@ -177,14 +178,14 @@ class TC_activation_key {
             <p>
               <?php printf('%1$s ( %2$s ) <br/><br/><strong><a class="button-primary" href="%3$s" title="%4$s">%4$s</a></strong>',
                     __("It is <span style='text-decoration: underline;'>important to activate your key</span> in order to receive the new versions of the theme in your dashboard. This way you'll make sure that <span style='text-decoration: underline;'>your website is always compatible with the latest version of WordPress</span>, and that you'll have all the latest features and bug fixes for the theme.", 'customizr-pro' ),
-                    sprintf( '<a href="%1$s" title="%2$s" target="_blank">%2$s</a>', 'http://docs.presscustomizr.com/article/276-why-should-you-keep-your-theme-up-to-date', __( "Why should you keep your Wordpress theme up to date ?", 'customizr-pro' ) ),
+                    sprintf( '<a href="%1$s" title="%2$s" target="_blank">%2$s</a>', 'https://docs.presscustomizr.com/article/276-why-should-you-keep-your-theme-up-to-date', __( "Why should you keep your Wordpress theme up to date ?", 'customizr-pro' ) ),
                     admin_url( 'themes.php?page=tc-licenses'),
                     __('Enter your activation key now' , 'customizr-pro')
                   );
                ?>
                 <?php printf('<em>%1$s <strong><a href="%2$s" target="_blank" title="%3$s">%3$s</a></strong>.</em>',
                     __("You'll find your key in your purchase receipt email or in your", 'customizr-pro' ),
-                    'http://presscustomizr.com/account/',
+                    'https://presscustomizr.com/account/',
                     __('account' , 'customizr-pro')
                   );
                 ?>
@@ -305,8 +306,10 @@ class TC_activation_key {
       // Make sure the response came back okay.
       if ( is_wp_error( $response ) ) {
         set_transient( $transients['no-api-answer'], $this -> _create_api_warning_transient($_html) , ( 60 * 60 * 24 ) );
-        wp_die( $response->get_error_message(), __( 'Error', 'customizr-pro' ) . $response->get_error_code() );
+        //wp_die( $response->get_error_message(), __( 'Error' ) . $response->get_error_code() );
       }
+
+
       //if answer is ok
       //delete the transient and return the api response
       delete_transient( $transients['no-api-answer'] );
@@ -331,7 +334,7 @@ class TC_activation_key {
               <ol>
                 <li><?php printf( '%1$s <strong><a href="%2$s" target="_blank">%3$s</a></strong>',
                       __('Connect to', 'customizr-pro'),
-                      'http://presscustomizr.com/account',
+                      'https://presscustomizr.com/account',
                       __('your account', 'customizr-pro')
                   ); ?>
                 </li>
@@ -339,7 +342,7 @@ class TC_activation_key {
                 <li>
                   <?php printf( '%1$s <strong><a href="%2$s" target="_blank">%3$s</a></strong> %4$s',
                               __('Install the theme ( check ' , 'customizr-pro' ) ,
-                              'http://docs.presscustomizr.com/article/259-pro-installing-customizr-pro-theme',
+                              'https://docs.presscustomizr.com/article/259-pro-installing-customizr-pro-theme',
                               __('this guide', 'customizr-pro'),
                               __("if you're not sure how to install a theme )", 'customizr-pro' )
                         );?>
@@ -403,6 +406,11 @@ class TC_activation_key {
       if ( is_wp_error( $response ) || 200 !== wp_remote_retrieve_response_code( $response ) ) {
           $error_message = is_wp_error( $response ) ? $response->get_error_message() : '';
           $message =  ( ! empty( $error_message ) ) ? $error_message : __( 'Error when trying to activate, this is usually due to a connection problem or a server firewall issue.', 'customizr-pro' );
+
+          $base_url = admin_url( 'themes.php?page=tc-licenses');
+          $redirect = add_query_arg( array( 'sl_theme_activation' => 'false', 'message' => urlencode( $message ) ), $base_url );
+          wp_redirect( $redirect );
+          exit();
       } else {
           $license_data = json_decode( wp_remote_retrieve_body( $response ) );
           if ( false === $license_data->success ) {
@@ -556,6 +564,11 @@ class TC_activation_key {
           $error_message = is_wp_error( $response ) ? $response->get_error_message() : '';
           $message =  ( ! empty( $error_message ) ) ? $error_message : __( 'An error occurred, please try again.', 'customizr-pro' );
 
+          $base_url = admin_url( 'themes.php?page=tc-licenses');
+          $redirect = add_query_arg( array( 'sl_theme_activation' => 'false', 'message' => urlencode( $message ) ), $base_url );
+          wp_redirect( $redirect );
+          exit();
+
       } else {
           $license_data = json_decode( wp_remote_retrieve_body( $response ) );
 
@@ -571,7 +584,6 @@ class TC_activation_key {
       if ( ! empty( $message ) ) {
           $base_url = admin_url( 'themes.php?page=tc-licenses' );
           $redirect = add_query_arg( array( 'sl_theme_activation' => 'false', 'message' => urlencode( $message ) ), $base_url );
-
           wp_redirect( $redirect );
           exit();
       }
@@ -684,6 +696,12 @@ class TC_activation_key {
     if ( is_wp_error( $response ) || 200 != wp_remote_retrieve_response_code( $response ) ) {
         $error_message = is_wp_error( $response ) ? $response->get_error_message() : '';
         $message =  ( ! empty( $error_message ) ) ? $error_message : $strings['license-status-unknown'];
+
+        $base_url = admin_url( 'themes.php?page=tc-licenses');
+        $redirect = add_query_arg( array( 'sl_theme_activation' => 'false', 'message' => urlencode( $message ) ), $base_url );
+        wp_redirect( $redirect );
+        exit();
+
     } else {
         $license_data = json_decode( wp_remote_retrieve_body( $response ) );
         //Check if user has activated the key for the current website
@@ -716,7 +734,7 @@ class TC_activation_key {
         if ( false === $license_data->success ) {
             $message = $this -> tc_get_license_error_message( $license_data );
         } else if ( 0 === $license_data->activations_left && ( $current_site_activation_status === false || $current_site_activation_status  != 'valid' ) ) {
-            $message = sprintf( '<span style="color:#f57717;line-height: 27px">%1$s <a style="color:#f57717;line-height: 27px;font-weight: bold;" href="http://docs.presscustomizr.com/search?query=upgrade+key" target="_blank">%2$s</a></span>', __( 'Your key has reached its activation limit.', 'customizr-pro' ), __('Upgrade to unlock new activations.', 'customizr-pro') );
+            $message = sprintf( '<span style="color:#f57717;line-height: 27px">%1$s <a style="color:#f57717;line-height: 27px;font-weight: bold;" href="https://docs.presscustomizr.com/search?query=upgrade+key" target="_blank">%2$s</a></span>', __( 'Your key has reached its activation limit.', 'customizr-pro' ), __('Upgrade to unlock new activations.', 'customizr-pro') );
         } else if ( $license_data->license == 'valid' ) {
             // Get site counts
             $site_count = $license_data->site_count;

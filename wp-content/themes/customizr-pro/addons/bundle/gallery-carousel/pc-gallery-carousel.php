@@ -61,7 +61,7 @@ class PC_gallery_carousel {
                   'control'   => 'CZR_controls' ,
                   'label'     => __( 'Display the gallery post formats as a carousel' , 'customizr-pro' ),
                   'section'   => 'galleries_sec' ,
-                  'type'      => 'checkbox',
+                  'type'      => 'nimblecheck',
                   'notice'    =>  __( 'Note : When this option is checked, the first gallery embedded in a gallery post format is displayed as a carousel in all post lists ( blog, archives, author page, search pages, ... )', 'customizr-pro' ),
                   'priority'      => 40,
                   // 'active_callback' => 'czr_fn_is_list_of_posts',
