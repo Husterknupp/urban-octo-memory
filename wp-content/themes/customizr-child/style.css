@@ -25,14 +25,15 @@
     }
 
     .featured-page {
-        margin-top: 0
+        margin: 0;
     }
 
 }
 
-.branding .navbar-brand {
-    font-size: 2.1em;
-    font-weight: bold;
+@media all and (min-width: 768px) {
+    .featured-page {
+        margin: 2em 0;
+    }
 }
 
 .map-wrapper {
@@ -47,6 +48,11 @@ body {
     font-weight: normal;
 }
 
+.branding .navbar-brand {
+    font-size: 2.1em;
+    font-weight: bold;
+}
+
 /* thin hand-written like, clear*/
 .navbar-brand, .header-tagline, h1, h2, h3, .tc-dropcap {
     font-family: 'Amatic SC', sans-serif;
@@ -56,8 +62,19 @@ body {
     font-size: 2.1em;
 }
 
-/* todo only in mobile media queries? */
+/* not sure why there's so much margin here, seems even too much */
+/* only in mobile media queries? */
 .marketing {
     margin-bottom: 0
 }
+.fpc-marketing {
+    margin-bottom: 0
+}
 /* END only in mobile media queries? */
+
+/* main page has an article container, but we don't write articles
+   can be disabled probably also in a different way
+ */
+.container[role=main] {
+    display: none;
+}
