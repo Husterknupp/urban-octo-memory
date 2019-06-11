@@ -23,6 +23,11 @@
     .czrs-subtitle, .semi-bold {
         font-size: 1.5em !important;
     }
+
+    .featured-page {
+        margin-top: 0
+    }
+
 }
 
 .branding .navbar-brand {
@@ -50,3 +55,9 @@ body {
 .can-shrink-brand.sticky-brand-shrink-on .desktop-sticky .navbar-brand {
     font-size: 2.1em;
 }
+
+/* todo only in mobile media queries? */
+.marketing {
+    margin-bottom: 0
+}
+/* END only in mobile media queries? */
