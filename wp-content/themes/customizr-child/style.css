@@ -76,5 +76,5 @@ body {
    can be disabled probably also in a different way
  */
 .container[role=main] {
-    display: none;
+    /*display: none;*/ /* breaks content in actual pages? */
 }
