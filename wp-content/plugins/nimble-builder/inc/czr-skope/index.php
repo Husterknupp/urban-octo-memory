@@ -257,7 +257,7 @@ function skp_get_query_skope() {
         $obj_id  = 'home';
         // December 2018
         // when the home page is a page, the skope now includes the page id, instead of being generic as it was since then : skp__post_page_home
-        // This has been introduced to facilitate the compatibility of the Nimble Builder with multilanguage plugins like polylang
+        // This has been introduced to facilitate the compatibility of Nimble Builder with multilanguage plugins like polylang
         // => Allows user to create a different home page for each languages
         //
         // To summarize,
