@@ -49,12 +49,13 @@ body {
 }
 
 .branding .navbar-brand {
-    font-size: 2.1em;
+    /*font-size: 2.1em;*/     /* too tiny with Amatic SC */
     font-weight: bold;
 }
 
 /* thin hand-written like, clear*/
-.navbar-brand, .header-tagline, h1, h2, h3, .tc-dropcap {
+.navbar-brand, h1,
+.header-tagline, h2, h3, .tc-dropcap {
     font-family: 'Amatic SC', sans-serif;
 }
 
