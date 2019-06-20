@@ -58,4 +58,4 @@ wp-includes/
 .metadata/application
 .metadata/installation-files
 php.ini
-wp-content/updraft/log.2ea31fc43bf0.txt
+wp-content/updraft/log.*.txt
