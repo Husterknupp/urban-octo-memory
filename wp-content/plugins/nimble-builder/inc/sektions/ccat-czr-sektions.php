@@ -419,6 +419,7 @@ function nimble_add_i18n_localized_control_params( $params ) {
 
             'Sections for an introduction' => __('Sections for an introduction', 'nimble-builder'),
             'Sections for services and features' => __('Sections for services and features', 'nimble-builder'),
+            'About us sections' => __('About us sections', 'nimble-builder'),
             'Contact-us sections' => __('Contact-us sections', 'nimble-builder'),
             'Empty sections with columns layout' => __('Empty sections with columns layout', 'nimble-builder'),
             'Header sections' => __('Header sections', 'nimble-builder'),
@@ -535,9 +536,11 @@ function nimble_add_i18n_localized_control_params( $params ) {
             'File successfully imported' => __('File successfully imported', 'nimble-builder'),
             'Import failed, invalid file content' => __('Import failed, invalid file content', 'nimble-builder'),
             'Import failed, file problem' => __('Import failed, file problem', 'nimble-builder'),
-            'Some image(s) could not be imported' => __('Some image(s) could not be imported', 'nimble-builder')
+            'Some image(s) could not be imported' => __('Some image(s) could not be imported', 'nimble-builder'),
             // 'Module' => __('Module', 'text_doma'),
-            //
+
+            // Column width
+            'This is a single-column section with a width of 100%. You can act on the internal width of the parent section, or adjust padding and margin.' => __('This is a single-column section with a width of 100%. You can act on the internal width of the parent section, or adjust padding and margin.', 'nimble-builder')
 
         )//array()
     )//array()

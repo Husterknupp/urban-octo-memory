@@ -1084,10 +1084,20 @@ var CZRSeksPrototype = CZRSeksPrototype || {};
                             $closestLevel = $el.closest('[data-nimb-level]');
                         api.previewer.send('sek-animate-to-level', { id : $closestLevel.data('nimb-id') });
                         api.previewer.send('sek-clean-level-uis');
+                        // Display the level ui in the preview
+                        // and expand the level options in the customizer control panel
                         _.delay( function() {
                               api.previewer.send('sek-display-level-ui', { id : $closestLevel.data('nimb-id') });
-                        }, 100 );
 
+                              var _id = $closestLevel.data('nimb-id'),
+                                  _level = $closestLevel.data('nimb-level');
+
+                              if ( 'column' === _level || 'section' === _level ) {
+                                    api.previewer.trigger('sek-edit-options', { id : _id, level : _level });
+                              } else if ( 'module' === _level ) {
+                                    api.previewer.trigger('sek-edit-module', { id : _id, level : _level });
+                              }
+                        }, 100 );
                   });
 
                   $('body').on('click', '#nimble-level-tree .sek-remove-level', function(evt) {
@@ -3526,6 +3536,15 @@ var CZRSeksPrototype = CZRSeksPrototype || {};
                               priority : 10,
                               icon : '<i class="fas fa-grip-vertical sek-level-option-icon"></i>'
                         },
+                        sek_about_sec_picker_module : {
+                              settingControlId : sektionsLocalizedData.optPrefixForSektionsNotSaved + self.guid() + '_sek_draggable_sections_ui',
+                              module_type : 'sek_about_sec_picker_module',
+                              controlLabel :  sektionsLocalizedData.i18n['About us sections'],
+                              content_type : 'section',
+                              expandAndFocusOnInit : false,
+                              priority : 10,
+                              icon : '<i class="fas fa-grip-vertical sek-level-option-icon"></i>'
+                        },
                         sek_contact_sec_picker_module : {
                               settingControlId : sektionsLocalizedData.optPrefixForSektionsNotSaved + self.guid() + '_sek_draggable_sections_ui',
                               module_type : 'sek_contact_sec_picker_module',
@@ -4027,6 +4046,16 @@ var CZRSeksPrototype = CZRSeksPrototype || {};
                                     module_type : 'sek_level_breakpoint_module',
                                     controlLabel : sektionsLocalizedData.i18n['Responsive settings : breakpoint, column direction'],
                                     icon : '<i class="material-icons sek-level-option-icon">devices</i>'
+                              }
+                        });
+                  }
+                  if ( 'column' === params.level ) {
+                        $.extend( modulesRegistrationParams, {
+                              width : {
+                                    settingControlId : params.id + '__width_options',
+                                    module_type : 'sek_level_width_column',
+                                    controlLabel : sektionsLocalizedData.i18n['Width settings for the'] + ' ' + sektionsLocalizedData.i18n[params.level],
+                                    icon : '<i class="fas fa-ruler-horizontal sek-level-option-icon"></i>'
                               }
                         });
                   }
@@ -4965,9 +4994,11 @@ var CZRSeksPrototype = CZRSeksPrototype || {};
                                     }
 
                                     // RESET ALL COLUMNS WIDTH
-                                    _.each( sektionCandidate.collection, function( colModel ) {
-                                          colModel.width = '';
-                                    });
+                                    // _.each( sektionCandidate.collection, function( colModel ) {
+                                    //       colModel.width = '';
+                                    // });
+                                    self.resetColumnsWidthInSection( sektionCandidate );
+
                                     sektionCandidate.collection.push({
                                           id :  params.id,
                                           level : 'column',
@@ -4990,9 +5021,10 @@ var CZRSeksPrototype = CZRSeksPrototype || {};
                                                 return column.id != params.id;
                                           });
                                           // RESET ALL COLUMNS WIDTH
-                                          _.each( sektionCandidate.collection, function( colModel ) {
-                                                colModel.width = '';
-                                          });
+                                          // _.each( sektionCandidate.collection, function( colModel ) {
+                                          //       colModel.width = '';
+                                          // });
+                                          self.resetColumnsWidthInSection( sektionCandidate );
                                     } else {
                                           api.errare( 'updateAPISetting => ' + params.action + ' => no parent sektion matched' );
                                     }
@@ -5028,9 +5060,10 @@ var CZRSeksPrototype = CZRSeksPrototype || {};
                                     cloneId = deepClonedColumn.id;//will be passed in resolve()
                                     sektionCandidate.collection.splice( parseInt( _position + 1, 10 ), 0, deepClonedColumn );
                                     // RESET ALL COLUMNS WIDTH
-                                    _.each( sektionCandidate.collection, function( colModel ) {
-                                          colModel.width = '';
-                                    });
+                                    // _.each( sektionCandidate.collection, function( colModel ) {
+                                    //       colModel.width = '';
+                                    // });
+                                    self.resetColumnsWidthInSection( sektionCandidate );
                               break;
 
 
@@ -5051,37 +5084,65 @@ var CZRSeksPrototype = CZRSeksPrototype || {};
                                           break;
                                     }
 
-                                    resizedColumn.width = parseFloat( params.resizedColumnWidthInPercent );
+                                    var _getColumnWidth = function( _candidate_ ) {
+                                          var _width = '_not_set_';
+                                          var _options = _.isObject( _candidate_.options ) ? _candidate_.options : {};
+                                          if ( ! _.isEmpty( _options ) && _options.width && _options.width['custom-width'] ) {
+                                                _width = parseFloat( _options.width['custom-width'] * 1 );
+                                          }
+                                          return _width;
+                                    };
 
+                                    var _setColumnWidth = function( _candidate_, newWidthValue ) {
+                                          // start from a deep cloned object
+                                          // important => fixes https://github.com/presscustomizr/nimble-builder/issues/455
+                                          var _new_options_values = $.extend( true, {}, _candidate_.options || {} );
+
+                                          _new_options_values.width = _.isObject( _new_options_values.width ) ? _new_options_values.width : {};
+                                          _new_options_values.width['custom-width'] = newWidthValue;
+                                          _candidate_.options = _new_options_values;
+
+                                          // Live update the input value ( when rendered )
+                                          $('body').find('[data-sek-width-range-column-id="'+ _candidate_.id +'"]').val( newWidthValue ).trigger('input', { is_resize_column_trigger : true } );
+                                          return newWidthValue;
+                                    };
+                                    ///
+
+
+                                    // DEPRECATED SINCE JUNE 2019 => resizedColumn.width = parseFloat( params.resizedColumnWidthInPercent );
+
+                                    var resizedColumnWidthInPercent = _setColumnWidth( resizedColumn, parseFloat( params.resizedColumnWidthInPercent ) );
+                                    // cast to number
+                                    resizedColumnWidthInPercent = parseFloat( resizedColumnWidthInPercent );
 
                                     // SET OTHER COLUMNS WIDTH
                                     var parentSektion = self.getLevelModel( params.in_sektion, newSetValue.collection );
                                     var otherColumns = _.filter( parentSektion.collection, function( _col_ ) {
-                                              return _col_.id != resizedColumn.id && _col_.id != sistercolumn.id;
-                                        });
-                                    var otherColumnsWidth = parseFloat( resizedColumn.width.toFixed(3) );
+                                          return _col_.id != resizedColumn.id && _col_.id != sistercolumn.id;
+                                    });
+                                    var otherColumnsWidth = parseFloat( resizedColumnWidthInPercent.toFixed(3) );
 
                                     if ( ! _.isEmpty( otherColumns ) ) {
                                          _.each( otherColumns, function( colModel ) {
-                                                currentColWidth = parseFloat( colModel.width * 1 );
-                                                if ( ! _.has( colModel, 'width') || ! _.isNumber( currentColWidth * 1 ) || _.isEmpty( currentColWidth + '' ) || 1 > currentColWidth ) {
-                                                      colModel.width = parseFloat( ( 100 / params.col_number ).toFixed(3) );
+                                                currentColWidth = _getColumnWidth( colModel );
+                                                if ( '_not_set_' === currentColWidth || ! _.isNumber( currentColWidth * 1 ) || _.isEmpty( currentColWidth + '' ) || 1 > currentColWidth ) {
+                                                      // DEPRECATED SINCE JUNE 2019 => colModel.width = parseFloat( ( 100 / params.col_number ).toFixed(3) );
+                                                      currentColWidth = _setColumnWidth( colModel, parseFloat( ( 100 / params.col_number ).toFixed(3) ) );
                                                 }
+
                                                 // sum up all other column's width, excluding the resized and sister one.
-                                                otherColumnsWidth = parseFloat( ( otherColumnsWidth  +  colModel.width ).toFixed(3) );
+                                                otherColumnsWidth = parseFloat( ( otherColumnsWidth  +  currentColWidth ).toFixed(3) );
                                           });
                                     }
 
-
                                     // SET SISTER COLUMN WIDTH
-
                                     // sum up all other column's width, excluding the resized and sister one.
                                     // api.infoLog( "resizedColumn.width", resizedColumn.width  );
                                     // api.infoLog( "otherColumns", otherColumns );
 
                                     // then calculate the sistercolumn so we are sure that we feel the entire space of the sektion
-                                    sistercolumn.width = parseFloat( ( 100 - otherColumnsWidth ).toFixed(3) );
-
+                                    // DEPRECATED SINCE JUNE 2019 => sistercolumn.width = parseFloat( ( 100 - otherColumnsWidth ).toFixed(3) );
+                                    _setColumnWidth( sistercolumn, parseFloat( ( 100 - otherColumnsWidth ).toFixed(3) ) );
                                     // api.infoLog('otherColumnsWidth', otherColumnsWidth );
                                     // api.infoLog("sistercolumn.width", sistercolumn.width );
                                     // api.infoLog( "sistercolumn.width + otherColumnsWidth" , Number( sistercolumn.width ) + Number( otherColumnsWidth ) );
@@ -5116,9 +5177,10 @@ var CZRSeksPrototype = CZRSeksPrototype || {};
                                                 return column.id != params.id;
                                           });
                                           // Reset the column's width in the target sektion
-                                          _.each( fromSektionCandidate.collection, function( colModel ) {
-                                                colModel.width = '';
-                                          });
+                                          // _.each( fromSektionCandidate.collection, function( colModel ) {
+                                          //       colModel.width = '';
+                                          // });
+                                          self.resetColumnsWidthInSection( fromSektionCandidate );
                                     }
 
                                     // update the target sektion
@@ -5140,9 +5202,10 @@ var CZRSeksPrototype = CZRSeksPrototype || {};
                                     toSektionCandidate.collection = reorderedCollection;
 
                                     // Reset the column's width in the target sektion
-                                    _.each( toSektionCandidate.collection, function( colModel ) {
-                                          colModel.width = '';
-                                    });
+                                    // _.each( toSektionCandidate.collection, function( colModel ) {
+                                    //       colModel.width = '';
+                                    // });
+                                    self.resetColumnsWidthInSection( toSektionCandidate );
 
                               break;
 
@@ -5902,6 +5965,22 @@ var CZRSeksPrototype = CZRSeksPrototype || {};
             },//updateAPISetting
 
 
+            // used on :
+            // - add column
+            // - remove column
+            // - duplicate column
+            // - move column
+            // added in June 2019 for https://github.com/presscustomizr/nimble-builder/issues/279
+            resetColumnsWidthInSection : function( sektionCandidate ) {
+                  // RESET ALL COLUMNS WIDTH
+                  _.each( sektionCandidate.collection, function( colModel ) {
+                        if ( colModel.options && colModel.options.width && colModel.options.width['custom-width'] ) {
+                              colModel.options.width = _.omit( colModel.options.width, 'custom-width' );
+                        }
+                        colModel.width = '';// For backward compat since June 2019
+                  });
+            },
+
 
             // @return a promise()
             // caches the sections in api.sek_presetSections when api.section( '__content_picker__') is registered
@@ -6264,6 +6343,63 @@ var CZRSeksPrototype = CZRSeksPrototype || {};
                   }
 
                   return _data_;
+            },
+
+
+            // @params = { id : '', level : '' }
+            // Recursively walk the level tree until a match is found
+            // @return the level model object
+            getParentSectionFromColumnId : function( id, collection ) {
+                  var self = this, _section_model_ = 'no_match',
+                      // @param id mandatory
+                      // @param collection mandatory
+                      // @param collectionSettingId optional
+                      // @param localOrGlobal optional
+                      _walk_ = function( id, collection, collectionSettingId, localOrGlobal ) {
+                            // do we have a collection ?
+                            // if not, let's use the root one
+                            if ( _.isUndefined( collection ) ) {
+                                  var currentSektionSettingValue = api( collectionSettingId )();
+                                  var sektionSettingValue = _.isObject( currentSektionSettingValue ) ? $.extend( true, {}, currentSektionSettingValue ) : $.extend( true, {}, self.getDefaultSektionSettingValue( localOrGlobal ) );
+                                  collection = _.isArray( sektionSettingValue.collection ) ? sektionSettingValue.collection : [];
+                            }
+                            _.each( collection, function( levelData ) {
+                                  // did we found a match recursively ?
+                                  if ( 'no_match' != _section_model_ )
+                                    return;
+
+                                  var colCandidate;
+                                  if ( 'section' == levelData.level ) {
+                                        colCandidate = _.findWhere( levelData.collection, { id : id });
+                                  }
+                                  if ( ! _.isEmpty( colCandidate ) ) {
+                                        // we found our column in this section
+                                        _section_model_ = levelData;
+                                  } else {
+                                        if ( _.isArray( levelData.collection ) ) {
+                                              _walk_( id, levelData.collection, collectionSettingId, localOrGlobal );
+                                        }
+                                  }
+                            });
+                            return _section_model_;
+                      };
+
+                  // if a collection has been provided in the signature, let's walk it.
+                  // Otherwise, let's walk the local and global ones until a match is found.
+                  if ( ! _.isEmpty( collection ) ) {
+                        _walk_( id, collection );
+                  } else {
+                        _.each( {
+                              local : self.localSectionsSettingId(),
+                              global : self.getGlobalSectionsSettingId()
+                        }, function( collectionSettingId, localOrGlobal ) {
+                              if ( 'no_match' === _section_model_ ) {
+                                    _walk_( id, collection, collectionSettingId, localOrGlobal );
+                              }
+                        });
+                  }
+
+                  return _section_model_;
             },
 
 
@@ -12233,6 +12369,254 @@ var CZRSeksPrototype = CZRSeksPrototype || {};
                   defaultItemModel : _.extend(
                         { id : '', title : '' },
                         api.czr_sektions.getDefaultItemModelFromRegisteredModuleData( 'sek_level_width_module' )
+                  )
+            },
+      });
+})( wp.customize , jQuery, _ );//global sektionsLocalizedData, serverControlParams
+//extends api.CZRDynModule
+( function ( api, $, _ ) {
+      var Constructor = {
+            initialize: function( id, options ) {
+                  var module = this;
+                  // EXTEND THE DEFAULT CONSTRUCTORS FOR INPUT
+                  module.inputConstructor = api.CZRInput.extend( module.CZRInputConstructor || {} );
+                  // EXTEND THE DEFAULT CONSTRUCTORS FOR MONOMODEL
+                  module.itemConstructor = api.CZRItem.extend( module.CZRItemConstructor || {} );
+                  //run the parent initialize
+                  api.CZRDynModule.prototype.initialize.call( module, id, options );
+
+            },//initialize
+
+            // Constructor for the input
+            CZRInputConstructor : {
+                    // initialize : function( name, options ) {
+                    //       var input = this;
+                    //       // Expand the editor when ready
+                    //       if ( 'detached_tinymce_editor' == input.type ) {
+                    //             input.isReady.then( function() {
+                    //                   input.container.find('[data-czr-action="open-tinymce-editor"]').trigger('click');
+                    //             });
+                    //       }
+                    //       api.CZRInput.prototype.initialize.call( input, name, options );
+                    // },
+
+                    // Overrides the default range_simple method for the column width module
+                    range_simple : function( params ) {
+                          var input = this,
+                              $wrapper = $('.sek-range-with-unit-picker-wrapper', input.container ),
+                              $numberInput = $wrapper.find( 'input[type="number"]'),
+                              $rangeInput = $wrapper.find( 'input[type="range"]');
+
+                          // Get the moduleRegistration Params
+                          var moduleRegistrationParams;
+                          try{ moduleRegistrationParams = input.module.control.params.sek_registration_params; } catch( er ) {
+                                api.errare('Error when getting the module registration params', er  );
+                                return;
+                          }
+                          if ( _.isUndefined( moduleRegistrationParams.level_id ) ) {
+                                api.errare('Error : missing column id', er  );
+                                return;
+                          }
+
+                          // Get the column id and model,
+                          // the parent section model
+                          // and calculate the number of columns in the parent section
+                          input.columnId = moduleRegistrationParams.level_id;
+                          input.columnModel = $.extend( true, {}, api.czr_sektions.getLevelModel( input.columnId ) );
+                          input.parentSectionModel = api.czr_sektions.getParentSectionFromColumnId( input.columnId );
+
+                          if ( 'no_match' == input.columnModel ) {
+                                api.errare( 'sek_level_width_column module => invalid column model' );
+                                return;
+                          }
+                          if ( 'no_match' == input.parentSectionModel ) {
+                                api.errare( 'sek_level_width_column module => invalid parent section model' );
+                                return;
+                          }
+
+                          // Calculate the column number in the parent section
+                          input.colNb = _.size( input.parentSectionModel.collection );
+
+                          // Add the column id identifier, so we can communicate with it and update its value when the column gets resized from user
+                          // @see update api setting, 'sek-resize-columns' case
+                          $numberInput.attr('data-sek-width-range-column-id', input.columnId );
+
+                          // For single column section, we don't want to display this module
+                          if ( 1 === input.colNb ) {
+                                input.container.html( ['<p>', sektionsLocalizedData.i18n['This is a single-column section with a width of 100%. You can act on the internal width of the parent section, or adjust padding and margin.']].join('') );
+                          } else {
+                                input.container.show();
+                          }
+
+                          // Always get the value from the model instead of relying on the setting val.
+                          // => because the column width value is not only set from the customizer input, but also from the preview when resizing manually, this is an exception
+                          var currentColumnModelValue = api.czr_sektions.getLevelModel( input.columnId ),
+                              currentColumnWidthValueFromModel = '_not_set_',
+                              columnWidthInPercent;
+
+                          if ( 'no_match' == currentColumnModelValue ) {
+                                api.errare( 'sek_level_width_column module => invalid column model' );
+                                return;
+                          }
+
+                          var hasCustomWidth = currentColumnModelValue.options && currentColumnModelValue.options.width && currentColumnModelValue.options.width['custom-width'] && _.isNumber( +currentColumnModelValue.options.width['custom-width'] );
+
+                          if ( hasCustomWidth ) {
+                                currentColumnWidthValueFromModel = currentColumnModelValue.options.width['custom-width'];
+                          }
+                          // For retrocompat, use the former width property when exists.
+                          // Deprecated in June 2019. See https://github.com/presscustomizr/nimble-builder/issues/279
+                          else if ( ! hasCustomWidth && currentColumnModelValue.width && _.isNumber( +currentColumnModelValue.width ) ) {
+                                currentColumnWidthValueFromModel = currentColumnModelValue.width;
+                          }
+
+
+                          if ( '_not_set_' !== currentColumnWidthValueFromModel ) {
+                                columnWidthInPercent = currentColumnWidthValueFromModel;
+                          }
+                          // The default width is "_not_set_"
+                          // @see php sek_get_module_params_for_sek_level_width_column()
+                          // If not set, calculate the column width in percent based on the number of columns of the parent section
+                          else if ( '_not_set_' === input() ) {
+                                //$rangeInput.val( $numberInput.val() || 0 );
+                                columnWidthInPercent = Math.floor( 100/input.colNb );
+                          } else {
+                                columnWidthInPercent = input();
+                          }
+
+                          // Cast to a number
+                          columnWidthInPercent = +parseFloat(columnWidthInPercent).toFixed(3)*1;
+
+                          // Make sure we have a number between 0 and 100
+                          if ( ! _.isNumber( columnWidthInPercent ) || 100 < columnWidthInPercent || 0 > columnWidthInPercent ) {
+                                api.errare( 'Error => invalid column width', columnWidthInPercent );
+                                columnWidthInPercent = 50;
+                          }
+
+
+                          // synchronizes range input and number input
+                          // number is the master => sets the input() val
+                          $rangeInput.on('input', function( evt, params ) {
+                                $numberInput.val( $(this).val() ).trigger('input', params );
+                          });
+                          // debounced to avoid a intermediate state of visual disorder of the columns
+                          $numberInput.on('input', _.debounce(function( evt, params ) {
+                                $rangeInput.val( $(this).val() );
+                                if ( params && params.is_init )
+                                  return;
+                                input( +parseFloat( $(this).val() ).toFixed(3) );
+                          }, 300 ) );
+
+                          // say it to the api, so we can regenerate the columns width for all columns.
+                          // consistently with the action triggered when resizing the column manually
+
+                          // Make sure that we don't react to the event sent when resizing column in update api setting, case 'sek-resize-columns'
+                          // where we do $('body').find('[data-sek-width-range-column-id="'+ _candidate_.id +'"]').val( newWidthValue ).trigger('input', { is_resize_column_trigger : true } );
+                          // => otherwise it will create an infinite loop
+                          //
+                          // Debounce to avoid server hammering
+                          $numberInput.on( 'input', _.debounce( function( evt, params ) {
+                                if ( params && ( params.is_init || params.is_resize_column_trigger ) )
+                                  return;
+                                input.sayItToApi( $(this).val() );
+                          }, 300 ) );
+                          // trigger a change on init to sync the range input
+                          $rangeInput.val( columnWidthInPercent ).trigger('input', { is_init : true } );
+                    },
+
+
+                    sayItToApi : function( columnWidthInPercent, _val  ) {
+                          var input = this;
+                          // Get the sister column id
+                          // If parent section has at least 2 columns, the sister column is the one on the right if not in last position. On the left if last.
+                          var indexOfResizedColumn = _.findIndex( input.parentSectionModel.collection, {id : input.columnId} ),
+                              isLastColumn = indexOfResizedColumn + 1 == input.colNb,
+                              sisterColumnIndex = isLastColumn ? indexOfResizedColumn - 1 : indexOfResizedColumn + 1,
+                              sisterColumnModel = _.find( input.parentSectionModel.collection, function( _val, _key ) { return sisterColumnIndex === _key; });
+
+                          if ( 'no_match' === sisterColumnModel ) {
+                                api.errare( 'sek_level_width_column module => invalid sister column model' );
+                          }
+
+                          api.previewer.trigger( 'sek-resize-columns', {
+                                action : 'sek-resize-columns',
+                                level : 'column',
+                                in_sektion : input.parentSectionModel.id,
+                                id : input.columnId,
+
+                                resized_column : input.columnId,
+                                sister_column : sisterColumnModel.id ,
+
+                                resizedColumnWidthInPercent : columnWidthInPercent,
+
+                                col_number : input.colNb
+                          });
+                    }
+
+            },//CZRTextEditorInputMths
+            // CZRItemConstructor : {
+            //       //overrides the parent ready
+            //       ready : function() {
+            //             var item = this;
+            //             //wait for the input collection to be populated,
+            //             //and then set the input visibility dependencies
+            //             item.inputCollection.bind( function( col ) {
+            //                   if( _.isEmpty( col ) )
+            //                     return;
+            //                   try { item.setInputVisibilityDeps(); } catch( er ) {
+            //                         api.errorLog( 'item.setInputVisibilityDeps() : ' + er );
+            //                   }
+            //             });//item.inputCollection.bind()
+
+            //             //fire the parent
+            //             api.CZRItem.prototype.ready.call( item );
+            //       },
+
+
+            //       //Fired when the input collection is populated
+            //       //At this point, the inputs are all ready (input.isReady.state() === 'resolved') and we can use their visible Value ( set to true by default )
+            //       setInputVisibilityDeps : function() {
+            //             var item = this,
+            //                 module = item.module;
+
+            //             //Internal item dependencies
+            //             item.czr_Input.each( function( input ) {
+            //                   switch( input.id ) {
+            //                         case 'width-type' :
+            //                               api.czr_sektions.scheduleVisibilityOfInputId.call( input, 'custom-width', function() {
+            //                                     return 'custom' === input();
+            //                               });
+            //                               api.czr_sektions.scheduleVisibilityOfInputId.call( input, 'h_alignment', function() {
+            //                                     return 'custom' === input();
+            //                               });
+            //                         break;
+            //                   }
+            //             });
+            //       }
+            // }//CZRItemConstructor
+      };
+
+
+      //provides a description of each module
+      //=> will determine :
+      //1) how to initialize the module model. If not crud, then the initial item(s) model shall be provided
+      //2) which js template(s) to use : if crud, the module template shall include the add new and pre-item elements.
+      //   , if crud, the item shall be removable
+      //3) how to render : if multi item, the item content is rendered when user click on edit button.
+      //    If not multi item, the single item content is rendered as soon as the item wrapper is rendered.
+      //4) some DOM behaviour. For example, a multi item shall be sortable.
+      api.czrModuleMap = api.czrModuleMap || {};
+      $.extend( api.czrModuleMap, {
+            sek_level_width_column : {
+                  mthds : Constructor,
+                  crud : false,
+                  name : api.czr_sektions.getRegisteredModuleProperty( 'sek_level_width_column', 'name' ),
+                  has_mod_opt : false,
+                  ready_on_section_expanded : false,
+                  ready_on_control_event : 'sek-accordion-expanded',// triggered in ::scheduleModuleAccordion()
+                  defaultItemModel : _.extend(
+                        { id : '', title : '' },
+                        api.czr_sektions.getDefaultItemModelFromRegisteredModuleData( 'sek_level_width_column' )
                   )
             },
       });
