@@ -28,6 +28,12 @@
         margin: 0;
     }
 
+    /* why is there a desktop, but no mobile customizer option? */
+    /*.nav__search, .hamburger-toggler__container { !* gets overwritten by .utils classes *!*/
+    .mobile-utils__wrapper.nav__utils {
+        display: none;
+    }
+
 }
 
 @media all and (min-width: 768px) {
