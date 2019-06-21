@@ -452,6 +452,7 @@ function nimble_add_i18n_localized_control_params( $params ) {
             'Reset the sections displayed in global locations' => __( 'Reset the sections displayed in global locations', 'nimble-builder'),
             'Page speed optimizations' => __( 'Page speed optimizations', 'nimble-builder'),
 
+            'Global text options for Nimble sections' => __('Global text options for Nimble sections', 'nimble-builder'),
             'Site wide header and footer' => __( 'Site wide header and footer', 'nimble-builder'),
             'Site wide breakpoint for Nimble sections' => __( 'Site wide breakpoint for Nimble sections', 'nimble-builder'),
             'Site wide inner and outer sections widths' => __( 'Site wide inner and outer sections widths', 'nimble-builder'),

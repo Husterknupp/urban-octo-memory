@@ -503,7 +503,7 @@ var CZRSeksPrototype = CZRSeksPrototype || {};
                         id : sektionsLocalizedData.optNameForGlobalOptions,
                         dirty : false,
                         value : sektionsLocalizedData.globalOptionDBValues,
-                        transport : 'refresh',//'refresh',//// ,
+                        transport : 'postMessage',//'refresh',//// ,
                         type : 'option'
                   });
 
@@ -3174,6 +3174,34 @@ var CZRSeksPrototype = CZRSeksPrototype || {};
 
                               // Set it
                               api( sektionsLocalizedData.optNameForGlobalOptions )( clonedGlobalOptions );
+
+                              // REFRESH THE PREVIEW ?
+                              if ( false !== refresh_preview ) {
+                                    api.previewer.refresh();
+                              }
+
+                              // Refresh the font list now, before ajax stylesheet update
+                              // So that the .fonts collection is ready server side
+                              if ( true === refresh_fonts ) {
+                                    var newFontFamily = params.settingParams.args.input_value;
+                                    if ( ! _.isString( newFontFamily ) ) {
+                                          api.errare( 'updateAPISettingAndExecutePreviewActions => font-family must be a string', newFontFamily );
+                                          return;
+                                    }
+
+                                    // add it only if gfont
+                                    if ( newFontFamily.indexOf('gfont') > -1 ) {
+                                          self.updateGlobalGFonts( newFontFamily );
+                                    }
+                              }
+
+                              // REFRESH THE STYLESHEET ?
+                              if ( true === refresh_stylesheet ) {
+                                    api.previewer.send( 'sek-refresh-stylesheet', {
+                                          local_skope_id : api.czr_skopeBase.getSkopeProperty( 'skope_id' ),
+                                          location_skope_id : sektionsLocalizedData.globalSkopeId
+                                    });
+                              }
                         } else {
                               // LEVEL OPTION CASE => LOCAL
                               return self.updateAPISetting({
@@ -3273,27 +3301,31 @@ var CZRSeksPrototype = CZRSeksPrototype || {};
 
                         // add it only if gfont
                         if ( newFontFamily.indexOf('gfont') > -1 ) {
-                              self.updateAPISetting({
-                                    action : 'sek-update-fonts',
-                                    font_family : newFontFamily,
-                                    is_global_location : self.isGlobalLocation( params.uiParams )
-                              })
-                              // we use always() instead of done here, because the api section setting might not be changed ( and therefore return a reject() promise ).
-                              // => this can occur when a user is setting a google font already picked elsewhere
-                              // @see case 'sek-update-fonts'
-                              .always( function() {
-                                    _doUpdateWithRequestedAction().then( function() {
-                                          // always refresh again after
-                                          // Why ?
-                                          // Because the first refresh was done before actually setting the new font family, so based on a previous set of fonts
-                                          // which leads to have potentially an additional google fonts that we don't need after the first refresh
-                                          // that's why this second refresh is required. It wont trigger any preview ajax actions. Simply refresh the root fonts property of the main api setting.
-                                          self.updateAPISetting({
-                                                action : 'sek-update-fonts',
-                                                is_global_location : self.isGlobalLocation( params.uiParams )
+                              if ( true === params.isGlobalOptions ) {
+                                    _doUpdateWithRequestedAction( newFontFamily );
+                              } else {
+                                    self.updateAPISetting({
+                                          action : 'sek-update-fonts',
+                                          font_family : newFontFamily,
+                                          is_global_location : self.isGlobalLocation( params.uiParams )
+                                    })
+                                    // we use always() instead of done here, because the api section setting might not be changed ( and therefore return a reject() promise ).
+                                    // => this can occur when a user is setting a google font already picked elsewhere
+                                    // @see case 'sek-update-fonts'
+                                    .always( function() {
+                                          _doUpdateWithRequestedAction().then( function() {
+                                                // always refresh again after
+                                                // Why ?
+                                                // Because the first refresh was done before actually setting the new font family, so based on a previous set of fonts
+                                                // which leads to have potentially an additional google fonts that we don't need after the first refresh
+                                                // that's why this second refresh is required. It wont trigger any preview ajax actions. Simply refresh the root fonts property of the main api setting.
+                                                self.updateAPISetting({
+                                                      action : 'sek-update-fonts',
+                                                      is_global_location : self.isGlobalLocation( params.uiParams )
+                                                });
                                           });
                                     });
-                              });
+                              }
                         } else {
                              _doUpdateWithRequestedAction();
                         }
@@ -3304,10 +3336,60 @@ var CZRSeksPrototype = CZRSeksPrototype || {};
 
 
 
+            // IMPORTANT => Updates the setting for global options
+            updateGlobalGFonts : function( newFontFamily ) {
+                  var self = this;
+                  //api( sektionsLocalizedData.optNameForGlobalOptions )() is registered on ::initialize();
+                  var rawGlobalOptions = api( sektionsLocalizedData.optNameForGlobalOptions )(),
+                      clonedGlobalOptions = $.extend( true, {}, _.isObject( rawGlobalOptions ) ? rawGlobalOptions : {} );
+
+                  // Get the gfonts from the level options and modules values
+                  var currentGfonts = self.sniffGlobalGFonts( clonedGlobalOptions );
+                  if ( ! _.contains( currentGfonts, newFontFamily ) ) {
+                        if ( newFontFamily.indexOf('gfont') < 0 ) {
+                              api.errare( 'updateAPISetting => ' + params.action + ' => error => must be a google font, prefixed gfont' );
+                              __updateAPISettingDeferred__.reject( 'updateAPISetting => ' + params.action + ' => error => must be a google font, prefixed gfont');
+                              return;
+                        }
+                        currentGfonts.push( newFontFamily );
+                  }
+                  // update the global gfonts collection
+                  // this is then used server side in Sek_Dyn_CSS_Handler::sek_get_gfont_print_candidates to build the Google Fonts request
+                  clonedGlobalOptions.fonts = currentGfonts;
+
+                  // Set it
+                  api( sektionsLocalizedData.optNameForGlobalOptions )( clonedGlobalOptions );
+            },
 
 
+            // Walk the global option and populate an array of google fonts
+            // To be a candidate for sniffing, an input font value font should start with [gfont]
+            // @return array
+            sniffGlobalGFonts : function( _data_ ) {
+                  var self = this,
+                  gfonts = [],
+                  _snifff_ = function( _data_ ) {
+                        _.each( _data_, function( levelData, _key_ ) {
+                              // of course, don't sniff the already stored fonts
+                              if ( 'fonts' === _key_ )
+                                return;
+                              // example of input_id candidate 'font_family_css'
+                              if ( _.isString( _key_ ) && _key_.indexOf('font_family') > -1 ) {
+                                    if ( levelData.indexOf('gfont') > -1 && ! _.contains( gfonts, levelData ) ) {
+                                          gfonts.push( levelData );
+                                    }
+                              }
 
-
+                              if ( _.isArray( levelData ) || _.isObject( levelData ) ) {
+                                    _snifff_( levelData );
+                              }
+                        });
+                  };
+                  if ( _.isArray( _data_ ) || _.isObject( _data_ ) ) {
+                        _snifff_( _data_ );
+                  }
+                  return gfonts;
+            },
 
 
 
@@ -4375,7 +4457,7 @@ var CZRSeksPrototype = CZRSeksPrototype || {};
                               if ( ! api.has( optionData.settingControlId ) ) {
                                     var doUpdate = function( to, from, args ) {
                                           try { self.updateAPISettingAndExecutePreviewActions({
-                                                defaultPreviewAction : 'refresh',
+                                                defaultPreviewAction : 'refresh_preview',
                                                 uiParams : params,
                                                 options_type : optionType,
                                                 settingParams : {
@@ -4502,12 +4584,20 @@ var CZRSeksPrototype = CZRSeksPrototype || {};
                   _.each( sektionsLocalizedData.globalOptionsMap, function( mod_type, opt_name ) {
                         switch( opt_name ) {
                               // Header and footer have been beta tested during 5 months and released in June 2019, in version 1.8.0
-                              case 'global_header_footer':
+                              case 'global_text' :
                                     registrationParams[ opt_name ] = {
-                                          settingControlId : _id_ + '__header_footer',
+                                          settingControlId : _id_ + '__global_text',
                                           module_type : mod_type,
-                                          controlLabel : sektionsLocalizedData.i18n['Site wide header and footer'],
-                                          icon : '<i class="material-icons sek-level-option-icon">web</i>'
+                                          controlLabel : sektionsLocalizedData.i18n['Global text options for Nimble sections'],
+                                          icon : '<i class="material-icons sek-level-option-icon">text_format</i>'
+                                    };
+                              break;
+                              case 'widths' :
+                                    registrationParams[ opt_name ] = {
+                                          settingControlId : _id_ + '__widths',
+                                          module_type : mod_type,
+                                          controlLabel : sektionsLocalizedData.i18n['Site wide inner and outer sections widths'],
+                                          icon : '<i class="fas fa-ruler-horizontal sek-level-option-icon"></i>'
                                     };
                               break;
                               case 'breakpoint' :
@@ -4519,14 +4609,15 @@ var CZRSeksPrototype = CZRSeksPrototype || {};
                                           icon : '<i class="material-icons sek-level-option-icon">devices</i>'
                                     };
                               break;
-                              case 'widths' :
+                              case 'global_header_footer':
                                     registrationParams[ opt_name ] = {
-                                          settingControlId : _id_ + '__widths',
+                                          settingControlId : _id_ + '__header_footer',
                                           module_type : mod_type,
-                                          controlLabel : sektionsLocalizedData.i18n['Site wide inner and outer sections widths'],
-                                          icon : '<i class="fas fa-ruler-horizontal sek-level-option-icon"></i>'
+                                          controlLabel : sektionsLocalizedData.i18n['Site wide header and footer'],
+                                          icon : '<i class="material-icons sek-level-option-icon">web</i>'
                                     };
                               break;
+
                               case 'performances' :
                                     registrationParams[ opt_name ] = {
                                           settingControlId : _id_ + '__performances',
@@ -4582,7 +4673,7 @@ var CZRSeksPrototype = CZRSeksPrototype || {};
                                     var doUpdate = function( to, from, args ) {
                                           try { self.updateAPISettingAndExecutePreviewActions({
                                                 isGlobalOptions : true,//<= indicates that we won't update the local skope setting id
-                                                defaultPreviewAction : 'refresh',
+                                                defaultPreviewAction : 'refresh_preview',
                                                 uiParams : params,
                                                 options_type : optionType,
                                                 settingParams : {
@@ -12982,6 +13073,82 @@ var CZRSeksPrototype = CZRSeksPrototype || {};
                   defaultItemModel : _.extend(
                         { id : '', title : '' },
                         api.czr_sektions.getDefaultItemModelFromRegisteredModuleData( 'sek_local_imp_exp' )
+                  )
+            },
+      });
+})( wp.customize , jQuery, _ );//global sektionsLocalizedData, serverControlParams
+//extends api.CZRDynModule
+( function ( api, $, _ ) {
+      var Constructor = {
+            initialize: function( id, options ) {
+                  var module = this;
+                  // EXTEND THE DEFAULT CONSTRUCTORS FOR MONOMODEL
+                  module.itemConstructor = api.CZRItem.extend( module.CZRItemConstructor || {} );
+                  //run the parent initialize
+                  api.CZRDynModule.prototype.initialize.call( module, id, options );
+
+            },//initialize
+
+            CZRItemConstructor : {
+                  //overrides the parent ready
+                  ready : function() {
+                        var item = this;
+                        //wait for the input collection to be populated,
+                        //and then set the input visibility dependencies
+                        item.inputCollection.bind( function( col ) {
+                              if( _.isEmpty( col ) )
+                                return;
+                              try { item.setInputVisibilityDeps(); } catch( er ) {
+                                    api.errorLog( 'item.setInputVisibilityDeps() : ' + er );
+                              }
+                        });//item.inputCollection.bind()
+
+                        //fire the parent
+                        api.CZRItem.prototype.ready.call( item );
+                  },
+
+
+                  //Fired when the input collection is populated
+                  //At this point, the inputs are all ready (input.isReady.state() === 'resolved') and we can use their visible Value ( set to true by default )
+                  setInputVisibilityDeps : function() {
+                        var item = this,
+                            module = item.module;
+
+                        //Internal item dependencies
+                        item.czr_Input.each( function( input ) {
+                              switch( input.id ) {
+                                    case 'links_underline' :
+                                          api.czr_sektions.scheduleVisibilityOfInputId.call( input, 'links_underline_hover', function() {
+                                                return !input();
+                                          });
+                                    break;
+                              }
+                        });
+                  }
+            }//CZRItemConstructor
+      };
+
+
+      //provides a description of each module
+      //=> will determine :
+      //1) how to initialize the module model. If not crud, then the initial item(s) model shall be provided
+      //2) which js template(s) to use : if crud, the module template shall include the add new and pre-item elements.
+      //   , if crud, the item shall be removable
+      //3) how to render : if multi item, the item content is rendered when user click on edit button.
+      //    If not multi item, the single item content is rendered as soon as the item wrapper is rendered.
+      //4) some DOM behaviour. For example, a multi item shall be sortable.
+      api.czrModuleMap = api.czrModuleMap || {};
+      $.extend( api.czrModuleMap, {
+            sek_global_text : {
+                  mthds : Constructor,
+                  crud : false,
+                  name : api.czr_sektions.getRegisteredModuleProperty( 'sek_global_text', 'name' ),
+                  has_mod_opt : false,
+                  ready_on_section_expanded : false,
+                  ready_on_control_event : 'sek-accordion-expanded',// triggered in ::scheduleModuleAccordion()
+                  defaultItemModel : _.extend(
+                        { id : '', title : '' },
+                        api.czr_sektions.getDefaultItemModelFromRegisteredModuleData( 'sek_global_text' )
                   )
             },
       });

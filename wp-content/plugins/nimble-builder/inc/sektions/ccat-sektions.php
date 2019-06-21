@@ -3949,6 +3949,31 @@ function sek_extract_numeric_value( $value ) {
     return is_numeric( $numeric ) ? $numeric : null;
 }
 
+// Return a font family string, usable in a css stylesheet
+// [cfont]Helvetica Neue, Helvetica, Arial, sans-serif =>  Helvetica Neue, Helvetica, Arial, sans-serif
+// [gfont]Assistant:regular => Assistant
+function sek_extract_css_font_family_from_customizer_option( $family ) {
+    //sek_error_log( __FUNCTION__ . ' font-family', $value );
+    // Preprocess the selected font family
+    // font: [font-stretch] [font-style] [font-variant] [font-weight] [font-size]/[line-height] [font-family];
+    // special treatment for font-family
+    if ( false != strstr( $family, '[gfont]') ) {
+        $split = explode(":", $family);
+        $family = $split[0];
+        //only numbers for font-weight. 400 is default
+        $properties_to_render['font-weight']    = $split[1] ? preg_replace('/\D/', '', $split[1]) : '';
+        $properties_to_render['font-weight']    = empty($properties_to_render['font-weight']) ? 400 : $properties_to_render['font-weight'];
+        $properties_to_render['font-style']     = ( $split[1] && strstr($split[1], 'italic') ) ? 'italic' : 'normal';
+    }
+    if ( 'none' === $family ) {
+        $family = '';
+    } else {
+        $family = false != strstr( $family, '[cfont]') ? $family : "'" . str_replace( '+' , ' ' , $family ) . "'";
+        $family = str_replace( array( '[gfont]', '[cfont]') , '' , $family );
+    }
+
+    return $family;
+}
 
 ?><?php
 // The base fmk is loaded @after_setup_theme:10
@@ -6195,6 +6220,310 @@ function sek_get_module_params_for_sek_local_imp_exp() {
 }
 ?><?php
 //Fired in add_action( 'after_setup_theme', 'sek_register_modules', 50 );
+function sek_get_module_params_for_sek_global_text() {
+    return array(
+        'dynamic_registration' => true,
+        'module_type' => 'sek_global_text',
+        'name' => __('Global text', 'nimble-builder'),
+        // 'starting_value' => array(
+        //     'global_custom_css' => sprintf( '/* %1$s */', __('Add your own CSS code here', 'text_doma' ) )
+        // ),
+        // 'sanitize_callback' => 'function_prefix_to_be_replaced_sanitize_callback__czr_social_module',
+        // 'validate_callback' => 'function_prefix_to_be_replaced_validate_callback__czr_social_module',
+        'tmpl' => array(
+            'item-inputs' => array(
+                'default_font_family' => array(
+                    'input_type'  => 'font_picker',
+                    'title'       => __('Font family', 'nimble-builder'),
+                    'default'     => '',
+                    'refresh_stylesheet' => true,
+                    'refresh_fonts' => true,
+                    'refresh_preview' => false,
+                    'html_before' => '<h3>' . __('GLOBAL TEXT STYLE', 'nimble-builder') .'</h3>'
+                ),
+                'default_font_size'       => array(
+                    'input_type'  => 'range_with_unit_picker_device_switcher',
+                    'title'       => __( 'Font size', 'nimble-builder' ),
+                    // the default value is commented to fix https://github.com/presscustomizr/nimble-builder/issues/313
+                    // => as a consequence, when a module uses the font child module, the default font-size rule must be defined in the module SCSS file.
+                    //'default'     => array( 'desktop' => '16px' ),
+                    'min' => 0,
+                    'max' => 100,
+                    'title_width' => 'width-100',
+                    'width-100'         => true,
+                    'refresh_stylesheet' => true,
+                    'refresh_preview' => false,
+                ),//16,//"14px",
+                'default_line_height'     => array(
+                    'input_type'  => 'range_with_unit_picker',
+                    'title'       => __( 'Line height', 'nimble-builder' ),
+                    'default'     => '1.5em',
+                    'min' => 0,
+                    'max' => 10,
+                    'step' => 0.1,
+                    'width-100'         => true,
+                    'refresh_stylesheet' => true,
+                    'refresh_preview' => false,
+                ),//24,//"20px",
+                'default_color'           => array(
+                    'input_type'  => 'wp_color_alpha',
+                    'title'       => __('Text color', 'nimble-builder'),
+                    'default'     => '',
+                    'refresh_stylesheet' => true,
+                    'refresh_preview' => false,
+                    'width-100'   => true,
+                    'notice_before' => __('Inherits your active theme\'s option when not set.', 'nimble-builder')
+                ),//"#000000",
+
+                'links_color'           => array(
+                    'input_type'  => 'wp_color_alpha',
+                    'title'       => __('Links color', 'nimble-builder'),
+                    'default'     => '',
+                    'refresh_stylesheet' => true,
+                    'refresh_preview' => false,
+                    'width-100'   => true,
+                    'notice_before' => __('Inherits your active theme\'s option when not set.', 'nimble-builder'),
+                    'html_before' => '<hr/><h3>' . __('GLOBAL STYLE OPTIONS FOR LINKS', 'nimble-builder') .'</h3>'
+                ),//"#000000",
+                'links_color_hover'           => array(
+                    'input_type'  => 'wp_color_alpha',
+                    'title'       => __('Links color on mouse hover', 'nimble-builder'),
+                    'default'     => '',
+                    'refresh_stylesheet' => true,
+                    'refresh_preview' => false,
+                    'width-100'   => true,
+                    'notice_before' => __('Inherits your active theme\'s option when not set.', 'nimble-builder'),
+                    'title_width' => 'width-100'
+                ),//"#000000",
+                'links_underlining'      => array(
+                    'input_type'  => 'simpleselect',
+                    'title'       => __('Link underlining', 'nimble-builder'),
+                    'default'     => 'inherit',
+                    'refresh_stylesheet' => true,
+                    'refresh_preview' => false,
+                    'choices'            => array(
+                        'inherit' => __('Inherit theme', 'nimble-builder'),
+                        'underlined' => __( 'Underlined', 'nimble-builder'),
+                        'not_underlined' => __( 'Not underlined', 'nimble-builder'),
+                    )
+                ),//null,
+                'links_underlining_hover'      => array(
+                    'input_type'  => 'simpleselect',
+                    'title'       => __('Link underlining on mouse hover', 'nimble-builder'),
+                    'default'     => 'inherit',
+                    'refresh_stylesheet' => true,
+                    'refresh_preview' => false,
+                    'choices'            => array(
+                        'inherit' => __('Inherit theme', 'nimble-builder'),
+                        'underlined' => __( 'Underlined', 'nimble-builder'),
+                        'not_underlined' => __( 'Not underlined', 'nimble-builder'),
+                    )
+                ),//null,
+
+                'headings_font_family' => array(
+                    'input_type'  => 'font_picker',
+                    'title'       => __('Font family', 'nimble-builder'),
+                    'default'     => '',
+                    'refresh_stylesheet' => true,
+                    'refresh_fonts' => true,
+                    'refresh_preview' => false,
+                    'html_before' => '<hr/><h3>' . __('GLOBAL STYLE OPTIONS FOR HEADINGS', 'nimble-builder') .'</h3>'
+                ),
+            )
+        )//tmpl
+    );
+}
+
+
+
+// Nimble implements an inheritance for both logic, determined by the css selectors, and the media query rules.
+// For example, an inner width of 85% applied for skope will win against the global one, but can be overriden by a specific inner width set at a section level.
+add_filter( 'nimble_get_dynamic_stylesheet', '\Nimble\sek_add_raw_global_text_css', 10, 2 );
+// @filter 'nimble_get_dynamic_stylesheet'
+// this filter is declared in Sek_Dyn_CSS_Builder::get_stylesheet() with 2 parameters
+// apply_filters( 'nimble_get_dynamic_stylesheet', $css, $this->is_global_stylesheet );
+function sek_add_raw_global_text_css( $css, $is_global_stylesheet ) {
+    // the global text rules must be restricted to the local stylesheet
+    if ( !$is_global_stylesheet )
+      return $css;
+
+    $css = is_string( $css ) ? $css : '';
+
+    $global_options = get_option( NIMBLE_OPT_NAME_FOR_GLOBAL_OPTIONS );
+    if ( ! is_array( $global_options ) || empty( $global_options['global_text'] ) || !is_array( $global_options['global_text'] ) )
+      return $css;
+
+    $text_options = $global_options['global_text'];
+    if ( ! is_array( $text_options  ) )
+      return $css;
+
+    $rules = array();
+    // SELECTORS
+    $default_text_selector = '.sektion-wrapper [data-sek-level], [data-sek-level] p, [data-sek-level] .sek-btn, [data-sek-level] button, [data-sek-level] input, [data-sek-level] select, [data-sek-level] optgroup, [data-sek-level] textarea';
+    $links_selector = '.sektion-wrapper [data-sek-level] a';
+    $links_hover_selector = '.sektion-wrapper [data-sek-level] a:hover';
+    $headings_selector = '.sektion-wrapper [data-sek-level] h1, .sektion-wrapper [data-sek-level] h2, .sektion-wrapper [data-sek-level] h3, .sektion-wrapper [data-sek-level] h4, .sektion-wrapper [data-sek-level] h5, .sektion-wrapper [data-sek-level] h6';
+
+    // DEFAULT TEXT OPTIONS
+    // Font Family
+    if ( !empty( $text_options['default_font_family'] ) ) {
+        $rules[] = array(
+            'selector'    => $default_text_selector,
+            'css_rules'   => sprintf( '%1$s:%2$s;', 'font-family', sek_extract_css_font_family_from_customizer_option( $text_options['default_font_family'] ) ),
+            'mq'          => null
+        );
+    }
+    // Font size by devices
+    // @see sek_add_css_rules_for_css_sniffed_input_id()
+    if ( !empty( $text_options['default_font_size'] ) ) {
+        $default_font_size = $text_options['default_font_size'];
+        $default_font_size = !is_array($default_font_size) ? array() : $default_font_size;
+        $default_font_size = wp_parse_args( $default_font_size, array(
+            'desktop' => '16px',
+            'tablet' => '',
+            'mobile' => ''
+        ));
+        $rules = sek_set_mq_css_rules( array(
+            'value' => $default_font_size,
+            'css_property' => 'font-size',
+            'selector' => $default_text_selector,
+            'is_important' => false,
+        ), $rules );
+    }
+    // Line height
+    if ( !empty( $text_options['default_line_height'] ) ) {
+        $rules[] = array(
+            'selector'    => $default_text_selector,
+            'css_rules'   => sprintf( '%1$s:%2$s;', 'line-height', $text_options['default_line_height'] ),
+            'mq'          => null
+        );
+    }
+    // Color
+    if ( !empty( $text_options['default_color'] ) ) {
+        $rules[] = array(
+            'selector'    => $default_text_selector,
+            'css_rules'   => sprintf( '%1$s:%2$s;', 'color', $text_options['default_color'] ),
+            'mq'          => null
+        );
+    }
+
+    // LINKS OPTIONS
+    // Color
+    if ( !empty( $text_options['links_color'] ) ) {
+        $rules[] = array(
+            'selector'    => $links_selector,
+            'css_rules'   => sprintf( '%1$s:%2$s;', 'color', $text_options['links_color'] ),
+            'mq'          => null
+        );
+    }
+    // Color on hover
+    if ( !empty( $text_options['links_color_hover'] ) ) {
+        $rules[] = array(
+            'selector'    => $links_hover_selector,
+            'css_rules'   => sprintf( '%1$s:%2$s;', 'color', $text_options['links_color_hover'] ),
+            'mq'          => null
+        );
+    }
+    // Underline
+    if ( !empty( $text_options['links_underlining'] ) && 'inherit' !== $text_options['links_underlining'] ) {
+        $rules[] = array(
+            'selector'    => $links_selector,
+            'css_rules'   => sprintf( '%1$s:%2$s;', 'text-decoration', 'underlined' === $text_options['links_underlining'] ? 'underline' : 'solid' ),
+            'mq'          => null
+        );
+    }
+    // Underline on hover
+    if ( !empty( $text_options['links_underlining_hover'] ) && 'inherit' !== $text_options['links_underlining_hover'] ) {
+        $rules[] = array(
+            'selector'    => $links_hover_selector,
+            'css_rules'   => sprintf( '%1$s:%2$s;', 'text-decoration', 'underlined' === $text_options['links_underlining_hover'] ? 'underline' : 'solid' ),
+            'mq'          => null
+        );
+    }
+
+    // HEADINGS OPTIONS
+    // Font Family
+    if ( !empty( $text_options['headings_font_family'] ) ) {
+        $rules[] = array(
+            'selector'    => $headings_selector,
+            'css_rules'   => sprintf( '%1$s:%2$s;', 'font-family', sek_extract_css_font_family_from_customizer_option( $text_options['headings_font_family'] ) ),
+            'mq'          => null
+        );
+    }
+
+    // sek_error_log('ALORS text_options ?', $text_options);
+
+
+    $global_text_options_css = Sek_Dyn_CSS_Builder::sek_generate_css_stylesheet_for_a_set_of_rules( $rules );
+
+    //sek_error_log('ALORS CSS ?', $global_text_options_css );
+
+    return is_string( $global_text_options_css ) ? $css . $global_text_options_css : $css;
+
+    // // Note that the option 'outer-section-width' and 'inner-section-width' can be empty when set to a value === default
+    // // @see js czr_setions::normalizeAndSanitizeSingleItemInputValues()
+    // foreach ( $user_defined_widths as $width_opt_name => $selector ) {
+    //     if ( ! empty( $width_options[ $width_opt_name ] ) && ! is_array( $width_options[ $width_opt_name ] ) ) {
+    //         sek_error_log( __FUNCTION__ . ' => error => the width option should be an array( {device} => {number}{unit} )');
+    //     }
+    //     // $width_options[ $width_opt_name ] should be an array( {device} => {number}{unit} )
+    //     // If not set in the width options , it means that it is equal to default
+    //     $user_custom_width_value = ( empty( $width_options[ $width_opt_name ] ) || ! is_array( $width_options[ $width_opt_name ] ) ) ? array('desktop' => '100%') : $width_options[ $width_opt_name ];
+    //     $user_custom_width_value = wp_parse_args( $user_custom_width_value, array(
+    //         'desktop' => '100%',
+    //         'tablet' => '',
+    //         'mobile' => ''
+    //     ));
+    //     $max_width_value = $user_custom_width_value;
+    //     $margin_value = array();
+
+    //     foreach ( $user_custom_width_value as $device => $num_unit ) {
+    //         $numeric = sek_extract_numeric_value( $num_unit );
+    //         if ( ! empty( $numeric ) ) {
+    //             $unit = sek_extract_unit( $num_unit );
+    //             $max_width_value[$device] = $numeric . $unit;
+    //             $margin_value[$device] = '0 auto';
+    //             $padding_of_the_parent_container[$device] = 'inherit';
+    //         }
+    //     }
+
+    //     $rules = sek_set_mq_css_rules(array(
+    //         'value' => $max_width_value,
+    //         'css_property' => 'max-width',
+    //         'selector' => $selector
+    //     ), $rules );
+
+    //     // when customizing the inner section width, we need to reset the default padding rules for .sek-container-fluid {padding-right:10px; padding-left:10px}
+    //     // @see assets/front/scss/_grid.scss
+    //     if ( 'inner-section-width' === $width_opt_name ) {
+    //         $rules = sek_set_mq_css_rules(array(
+    //             'value' => $padding_of_the_parent_container,
+    //             'css_property' => 'padding-left',
+    //             'selector' => '.sektion-wrapper [data-sek-level="section"] > .sek-container-fluid'
+    //         ), $rules );
+    //         $rules = sek_set_mq_css_rules(array(
+    //             'value' => $padding_of_the_parent_container,
+    //             'css_property' => 'padding-right',
+    //             'selector' => '.sektion-wrapper [data-sek-level="section"] > .sek-container-fluid'
+    //         ), $rules );
+    //     }
+
+    //     if ( ! empty( $margin_value ) ) {
+    //         $rules = sek_set_mq_css_rules(array(
+    //             'value' => $margin_value,
+    //             'css_property' => 'margin',
+    //             'selector' => $selector
+    //         ), $rules );
+    //     }
+    // }//foreach
+
+    // $width_options_css = Sek_Dyn_CSS_Builder::sek_generate_css_stylesheet_for_a_set_of_rules( $rules );
+
+    // return is_string( $width_options_css ) ? $css . $width_options_css : $css;
+}
+
+?><?php
+//Fired in add_action( 'after_setup_theme', 'sek_register_modules', 50 );
 function sek_get_module_params_for_sek_global_breakpoint() {
     return array(
         'dynamic_registration' => true,
@@ -6712,9 +7041,9 @@ function sek_get_module_params_for_czr_tiny_mce_editor_module() {
             // this list is limited to the most commonly used tags in the editor.
             // note that Hx headings have a default style set in _heading.scss
             '.sek-module-inner',
-            'p',
-            'a',
-            'li'
+            '.sek-module-inner p',
+            '.sek-module-inner a',
+            '.sek-module-inner li'
         ),
         'render_tmpl_path' => NIMBLE_BASE_PATH . "/tmpl/modules/tinymce_editor_module_tmpl.php",
         'placeholder_icon' => 'short_text'
@@ -8078,7 +8407,7 @@ function sek_get_module_params_for_czr_quote_quote_child() {
  *  CITE CONTENT AND FONT
 /* ------------------------------------------------------------------------- */
 function sek_get_module_params_for_czr_quote_cite_child() {
-    $cite_font_selectors  = array( '.sek-quote-design .sek-cite', '.sek-quote-design .sek-cite a' );
+    $cite_font_selectors  = array( '.sek-cite', '.sek-cite *');
     return array(
         'dynamic_registration' => true,
         'module_type' => 'czr_quote_cite_child',
@@ -8379,7 +8708,7 @@ function sek_get_module_params_for_czr_button_module() {
                 'color_css'  => '#ffffff',
             )
         ),
-        'css_selectors' => array( '.sek-btn' ),
+        'css_selectors' => array( '.sek-module-inner .sek-btn' ),
         'render_tmpl_path' => NIMBLE_BASE_PATH . "/tmpl/modules/button_module_tmpl.php"
     );
 }
@@ -8698,7 +9027,8 @@ function sek_get_module_params_for_czr_simple_form_module() {
                 'push_effect' => 1
             ),
             'form_fonts' => array(
-                'fl_font_family_css' => '[cfont]Lucida Console,Monaco,monospace',
+                // 'fl_font_family_css' => '[cfont]Lucida Console,Monaco,monospace',
+                'fl_font_weight_css' => 'bold',
                 'btn_color_css' => '#ffffff'
             ),
             'form_submission' => array(
@@ -9151,7 +9481,7 @@ function sek_get_module_params_for_czr_simple_form_fonts_child() {
                             'fl_font_weight_css'     => array(
                                 'input_type'  => 'simpleselect',
                                 'title'       => __( 'Font weight', 'nimble-builder' ),
-                                'default'     => 400,
+                                'default'     => 'bold',
                                 'refresh_markup' => false,
                                 'refresh_stylesheet' => true,
                                 'css_identifier' => 'font_weight',
@@ -10108,10 +10438,10 @@ function sek_get_module_params_for_czr_post_grid_metas_child() {
  *  FONTS
 /* ------------------------------------------------------------------------- */
 function sek_get_module_params_for_czr_post_grid_fonts_child() {
-    $pt_font_selectors = array( '.sek-pg-title a', '.sek-pg-title' );
-    $pe_font_selectors = array( '.sek-post-grid-wrapper .sek-excerpt', '.sek-post-grid-wrapper .sek-excerpt *' );
-    $cat_font_selectors = array( '.sek-pg-category a' );
-    $metas_font_selectors = array( '.sek-pg-metas span', '.sek-pg-metas a');
+    $pt_font_selectors = array( '.sek-module-inner .sek-post-grid-wrapper .sek-pg-title a', '.sek-module-inner .sek-post-grid-wrapper .sek-pg-title' );
+    $pe_font_selectors = array( '.sek-module-inner  .sek-post-grid-wrapper .sek-excerpt', '.sek-module-inner  .sek-post-grid-wrapper .sek-excerpt *' );
+    $cat_font_selectors = array( '.sek-module-inner .sek-pg-category a' );
+    $metas_font_selectors = array( '.sek-module-inner .sek-pg-metas span', '.sek-module-inner .sek-pg-metas a');
     return array(
         'dynamic_registration' => true,
         'module_type' => 'czr_post_grid_fonts_child',
@@ -10762,7 +11092,7 @@ function sek_get_module_params_for_czr_menu_module() {
             //     'color_css'  => '#ffffff',
             // )
         ),
-        'css_selectors' => array( '.sek-menu-module > li' ),//<=@see tmpl/modules/menu_module_tmpl.php
+        'css_selectors' => array( '.sek-menu-module > li > a' ),//<=@see tmpl/modules/menu_module_tmpl.php
         'render_tmpl_path' => NIMBLE_BASE_PATH . "/tmpl/modules/menu_module_tmpl.php"
     );
 }
@@ -11727,7 +12057,7 @@ class Sek_Dyn_CSS_Handler {
 
     private $builder;//will hold the Sek_Dyn_CSS_Builder instance
 
-    private $sek_model = 'no_set';
+    public $sek_model = 'no_set';
 
 
     /**
@@ -11955,53 +12285,6 @@ class Sek_Dyn_CSS_Handler {
             $this->mode     = self::MODE_INLINE;
             $this->enqueued_or_printed = true;
         }
-
-        // GOOGLE FONTS
-        // When customizing
-        $print_candidates = $this->sek_get_gfont_print_candidates();
-        if ( !empty( $print_candidates ) ) {
-            if ( defined( 'DOING_AJAX' ) && DOING_AJAX ) {
-                $this -> sek_gfont_print( $print_candidates );
-            } else {
-                if ( in_array( current_filter(), array( 'wp_footer', 'wp_head' ) ) ) {
-                    $this -> sek_gfont_print( $print_candidates );
-                } else {
-                    wp_enqueue_style(
-                        'sek-gfonts-'.$this->id,
-                        sprintf( '//fonts.googleapis.com/css?family=%s', $print_candidates ),
-                        array(),
-                        null,
-                        'all'
-                    );
-                }
-            }
-        }
-    }
-
-    // hook : wp_head
-    // or fired directly when ajaxing
-    // When ajaxing, the link#sek-gfonts-{$this->id} gets removed from the dom and replaced by this string
-    function sek_gfont_print( $print_candidates ) {
-       if ( ! empty( $print_candidates ) ) {
-            printf('<link rel="stylesheet" id="sek-gfonts-%1$s" href="%2$s">',
-                $this->id,
-                "//fonts.googleapis.com/css?family={$print_candidates}"
-            );
-        }
-    }
-
-    //@return string
-    private function sek_get_gfont_print_candidates() {
-        // in a front end, not logged-in scenario, the sek_model is 'not set', because the stylesheet has not been re-built in the constructor
-        $sektions = 'no_set' === $this->sek_model ? sek_get_skoped_seks( $this -> skope_id ) : $this->sek_model;
-        $print_candidates = '';
-
-        if ( !empty( $sektions['fonts'] ) && is_array( $sektions['fonts'] ) ) {
-            $ffamilies = implode( "|", $sektions['fonts'] );
-            $print_candidates = str_replace( '|', '%7C', $ffamilies );
-            $print_candidates = str_replace( '[gfont]', '' , $print_candidates );
-        }
-        return $print_candidates;
     }
 
 
@@ -12472,22 +12755,7 @@ function sek_add_css_rules_for_css_sniffed_input_id( $rules, $value, $input_id, 
             $properties_to_render['align-items'] = $v_align_value;
         break;
         case 'font_family' :
-            $family = $value;
-            //sek_error_log( __FUNCTION__ . ' font-family', $value );
-            // Preprocess the selected font family
-            // font: [font-stretch] [font-style] [font-variant] [font-weight] [font-size]/[line-height] [font-family];
-            // special treatment for font-family
-            if ( false != strstr( $value, '[gfont]') ) {
-                $split = explode(":", $family);
-                $family = $split[0];
-                //only numbers for font-weight. 400 is default
-                $properties_to_render['font-weight']    = $split[1] ? preg_replace('/\D/', '', $split[1]) : '';
-                $properties_to_render['font-weight']    = empty($properties_to_render['font-weight']) ? 400 : $properties_to_render['font-weight'];
-                $properties_to_render['font-style']     = ( $split[1] && strstr($split[1], 'italic') ) ? 'italic' : 'normal';
-            }
-
-            $family = str_replace( array( '[gfont]', '[cfont]') , '' , $family );
-            $properties_to_render['font-family'] = false != strstr( $value, '[cfont]') ? $family : "'" . str_replace( '+' , ' ' , $family ) . "'";
+            $properties_to_render['font-family'] = sek_extract_css_font_family_from_customizer_option( $value );
         break;
 
         /* Spacer */
@@ -12845,9 +13113,10 @@ if ( ! class_exists( 'SEK_Front_Construct' ) ) :
         // option key as saved in db => module_type
         // is used in _1_6_5_sektions_generate_UI_global_options.js and when normalizing the global option in sek_normalize_global_options_with_defaults()
         public static $global_options_map = [
-            'global_header_footer' => 'sek_global_header_footer',
-            'breakpoint' => 'sek_global_breakpoint',
+            'global_text' => 'sek_global_text',
             'widths' => 'sek_global_widths',
+            'breakpoint' => 'sek_global_breakpoint',
+            'global_header_footer' => 'sek_global_header_footer',
             'performances' => 'sek_global_performances',
             'recaptcha' => 'sek_global_recaptcha',
             'global_revisions' => 'sek_global_revisions',
@@ -12907,10 +13176,11 @@ if ( ! class_exists( 'SEK_Front_Construct' ) ) :
           'sek_local_imp_exp',
 
           // global options modules
-          'sek_global_breakpoint',
+          'sek_global_text',
           'sek_global_widths',
-          'sek_global_performances',
+          'sek_global_breakpoint',
           'sek_global_header_footer',
+          'sek_global_performances',
           'sek_global_recaptcha',
           'sek_global_revisions',
           'sek_global_reset',
@@ -15120,6 +15390,7 @@ if ( ! class_exists( 'SEK_Front_Render_Css' ) ) :
         // 1) on wp_enqueue_scripts or wp_head
         // 2) when ajaxing, for actions 'sek-resize-columns', 'sek-refresh-stylesheet'
         function print_or_enqueue_seks_style( $skope_id = null ) {
+            $google_fonts_print_candidates = '';
             // when this method is fired in a customize preview context :
             //    - the skope_id has to be built. Since we are after 'wp', this is not a problem.
             //    - the css rules are printed inline in the <head>
@@ -15129,13 +15400,19 @@ if ( ! class_exists( 'SEK_Front_Render_Css' ) ) :
             //    - the skope_id must be passed as param
             //    - the css rules are printed inline in the <head>
             //    - we set the hook to ''
-            //
-            // in a front normal context, the css is enqueued from the already written file.
+
             // AJAX REQUESTED STYLESHEET
             if ( ( ! is_null( $skope_id ) && ! empty( $skope_id ) ) && ( defined( 'DOING_AJAX' ) && DOING_AJAX ) ) {
-                $this->_instantiate_css_handler( array( 'skope_id' => $skope_id, 'is_global_stylesheet' => NIMBLE_GLOBAL_SKOPE_ID === $skope_id ) );
-            } else {
-                $skope_id = skp_build_skope_id();
+                if ( ! isset($_POST['local_skope_id']) ) {
+                    sek_error_log( __CLASS__ . '::' . __FUNCTION__ . ' => error missing local_skope_id');
+                    return;
+                }
+                $local_skope_id = $_POST['local_skope_id'];
+                $css_handler_instance = $this->_instantiate_css_handler( array( 'skope_id' => $skope_id, 'is_global_stylesheet' => NIMBLE_GLOBAL_SKOPE_ID === $skope_id ) );
+            }
+            // in a front normal context, the css is enqueued from the already written file.
+            else {
+                $local_skope_id = skp_build_skope_id();
                 // LOCAL SECTIONS STYLESHEET
                 $this->_instantiate_css_handler( array( 'skope_id' => skp_build_skope_id() ) );
                 // GLOBAL SECTIONS STYLESHEET
@@ -15145,16 +15422,84 @@ if ( ! class_exists( 'SEK_Front_Render_Css' ) ) :
                     $this->_instantiate_css_handler( array( 'skope_id' => NIMBLE_GLOBAL_SKOPE_ID, 'is_global_stylesheet' => true ) );
                 }
             }
+            $google_fonts_print_candidates = $this->sek_get_gfont_print_candidates( $local_skope_id );
+
+            // GOOGLE FONTS
+            if ( !empty( $google_fonts_print_candidates ) ) {
+                // When customizing
+                if ( defined( 'DOING_AJAX' ) && DOING_AJAX ) {
+                    $this -> sek_gfont_print( $google_fonts_print_candidates );
+                } else {
+                    if ( in_array( current_filter(), array( 'wp_footer', 'wp_head' ) ) ) {
+                        $this -> sek_gfont_print( $google_fonts_print_candidates );
+                    } else {
+                        wp_enqueue_style(
+                            'sek-gfonts-local-and-global',
+                            sprintf( '//fonts.googleapis.com/css?family=%s', $google_fonts_print_candidates ),
+                            array(),
+                            null,
+                            'all'
+                        );
+                    }
+                }
+            }
+
             if ( empty( $skope_id ) ) {
                 sek_error_log(  __CLASS__ . '::' . __FUNCTION__ . ' =>the skope_id should not be empty' );
             }
         }//print_or_enqueue_seks_style
 
+        //@return string
+        // sek_model is passed when customizing in SEK_Front_Render_Css::print_or_enqueue_seks_style()
+        function sek_get_gfont_print_candidates( $local_skope_id ) {
+            // local sections
+            $local_seks = sek_get_skoped_seks( $local_skope_id );
+            // global sections
+            $global_seks = sek_get_skoped_seks( NIMBLE_GLOBAL_SKOPE_ID );
+            // global options
+            $global_options = get_option( NIMBLE_OPT_NAME_FOR_GLOBAL_OPTIONS );
+
+            $print_candidates = '';
+            $ffamilies = array();
+
+            // Let's build the collection of google fonts from local sections, global sections, global options
+            if ( is_array( $local_seks ) && !empty( $local_seks['fonts'] ) && is_array( $local_seks['fonts'] ) ) {
+                $ffamilies = $local_seks['fonts'];
+            }
+            if ( is_array( $global_seks ) && !empty( $global_seks['fonts'] ) && is_array( $global_seks['fonts'] ) ) {
+                $ffamilies = array_merge( $ffamilies, $global_seks['fonts'] );
+            }
+            if ( is_array( $global_options ) && !empty( $global_options['fonts'] ) && is_array( $global_options['fonts'] ) ) {
+                $ffamilies = array_merge( $ffamilies, $global_options['fonts'] );
+            }
+
+            // remove duplicate if any
+            $ffamilies = array_unique( $ffamilies );
+
+            if ( ! empty( $ffamilies ) ) {
+                $ffamilies = implode( "|", $ffamilies );
+                $print_candidates = str_replace( '|', '%7C', $ffamilies );
+                $print_candidates = str_replace( '[gfont]', '' , $print_candidates );
+            }
+            return $print_candidates;
+        }
+
+        // hook : wp_head
+        // or fired directly when ajaxing
+        // When ajaxing, the link#sek-gfonts-{$this->id} gets removed from the dom and replaced by this string
+        function sek_gfont_print( $print_candidates ) {
+           if ( ! empty( $print_candidates ) ) {
+                printf('<link rel="stylesheet" id="%1$s" href="%2$s">',
+                    'sek-gfonts-local-and-global',
+                    "//fonts.googleapis.com/css?family={$print_candidates}"
+                );
+            }
+        }
 
         // @param params = array( array( 'skope_id' => NIMBLE_GLOBAL_SKOPE_ID, 'is_global_stylesheet' => true ) )
         private function _instantiate_css_handler( $params = array() ) {
             $params = wp_parse_args( $params, array( 'skope_id' => '', 'is_global_stylesheet' => false ) );
-            new Sek_Dyn_CSS_Handler( array(
+            $css_handler_instance = new Sek_Dyn_CSS_Handler( array(
                 'id'             => $params['skope_id'],
                 'skope_id'       => $params['skope_id'],
                 // property "is_global_stylesheet" has been added when fixing https://github.com/presscustomizr/nimble-builder/issues/273
@@ -15165,6 +15510,7 @@ if ( ! class_exists( 'SEK_Front_Render_Css' ) ) :
                 'force_rewrite'  => is_user_logged_in() && current_user_can( 'customize' ), //<- write even if the file exists
                 'hook'           => ( ! defined( 'DOING_AJAX' ) && is_customize_preview() ) ? 'wp_head' : ''
             ));
+            return $css_handler_instance;
         }
 
     }//class
