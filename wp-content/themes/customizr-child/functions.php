@@ -2,7 +2,6 @@
 /**
  * * include child theme stylesheet after the original stylesheet
  * */
-
 function child_theme_styles() {
 	wp_enqueue_style( 'parent-style', get_template_directory_uri() . '/style.css' );
 	wp_enqueue_style( 'child-theme-css', get_stylesheet_directory_uri() .'/style.css' , array('parent-style'));
@@ -10,7 +9,18 @@ function child_theme_styles() {
 }
 add_action( 'wp_enqueue_scripts', 'child_theme_styles' );
 
-/* Disable WordPress Admin Bar for all users but admins. */
+/*
+ * DYNAMIC CSS URL VERSION NUMBER (caching)
+ * */
+function theme_slug_scripts() {
+	$modificated = date( 'YmdHi', filemtime( get_stylesheet_directory() . '/style.css' ) );
+	wp_enqueue_style( 'theme-slug-stylesheet', get_stylesheet_uri(), array(), $modificated );
+}
+add_action( 'wp_enqueue_scripts', 'theme_slug_scripts' );
+
+/* 
+ * DISABLE WORDPRESS ADMIN BAR FOR ALL USERS BUT ADMINS
+ * */
 show_admin_bar(false);
 
 add_action( 'wp_enqueue_scripts', 'my_google_font' );
@@ -18,7 +28,9 @@ function my_google_font() {
 	wp_enqueue_style( $handle = 'my-google-font', $src = 'http://fonts.googleapis.com/css?family=Amatic+SC|Cabin', $deps = array(), $ver = null, $media = null );
 }
 
-// [desktoponly] shortcode
+/*
+ * MOBILE / DESKTOP ONLY CONTENT
+ * */
 add_shortcode('desktoponly', 'shailan_desktop_only_shortcode');
 function shailan_desktop_only_shortcode($atts, $content = null){ 
     if( !wp_is_mobile() ){ 
@@ -27,8 +39,6 @@ function shailan_desktop_only_shortcode($atts, $content = null){
         return null; 
     } 
 }
- 
-// [mobileonly] shortcode
 add_shortcode('mobileonly', 'shailan_mobile_only_shortcode');
 function shailan_mobile_only_shortcode($atts, $content = null){ 
     if( wp_is_mobile() ){ 
