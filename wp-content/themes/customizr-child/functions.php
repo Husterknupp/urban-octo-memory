@@ -7,8 +7,8 @@ function child_theme_styles() {
 // 	wp_enqueue_style( 'child-theme-style', get_stylesheet_directory_uri() .'/style.css' , array('parent-style'));
 
 // 	 for caching we need dynamic css url version number
-	$modificated = date( 'YmdHi', filemtime( get_stylesheet_directory() . '/style.css' ) );
-	wp_enqueue_style( 'child-theme-style', get_stylesheet_uri(), array(), $modificated );
+// 	$modificated = date( 'YmdHi', filemtime( get_stylesheet_directory() . '/style.css' ) );
+// 	wp_enqueue_style( 'child-theme-style', get_stylesheet_uri(), array(), $modificated );
 }
 add_action( 'wp_enqueue_scripts', 'child_theme_styles' );
 
