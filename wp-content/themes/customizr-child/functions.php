@@ -3,7 +3,7 @@
  * * include child theme stylesheet after the original stylesheet
  * */
 function child_theme_styles() {
-	wp_enqueue_style( 'parent-style', get_template_directory_uri() . '/style.css' );
+// 	wp_enqueue_style( 'parent-style', get_template_directory_uri() . '/style.css' );
 // 	wp_enqueue_style( 'child-theme-style', get_stylesheet_directory_uri() .'/style.css' , array('parent-style'));
 
 // 	 for caching we need dynamic css url version number
