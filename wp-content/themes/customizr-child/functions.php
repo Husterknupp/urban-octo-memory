@@ -16,8 +16,11 @@ add_action( 'wp_enqueue_scripts', 'child_theme_styles' );
 /* 
  * DISABLE WORDPRESS ADMIN BAR FOR ALL USERS BUT ADMINS
  * */
-show_admin_bar(false);
+// show_admin_bar(false);
 
+/*
+ * FONTS
+ * */
 add_action( 'wp_enqueue_scripts', 'my_google_font' );
 function my_google_font() {
 	wp_enqueue_style( $handle = 'my-google-font', $src = 'http://fonts.googleapis.com/css?family=Amatic+SC|Cabin', $deps = array(), $ver = null, $media = null );
