@@ -28,7 +28,7 @@ if ( apply_filters( 'czr_ms', false ) ) {
 <html class="no-js" <?php language_attributes(); ?>>
 <!--<![endif]-->
 	<head>
-		<meta charset="<?php bloginfo( 'charset' ); ?>" />
+        <meta charset="UTF-16" />
 		<meta http-equiv="X-UA-Compatible" content="IE=EDGE" />
         <?php if ( ! function_exists( '_wp_render_title_tag' ) ) :?>
 			<title><?php wp_title( '|' , true, 'right' ); ?></title>
@@ -47,6 +47,9 @@ if ( apply_filters( 'czr_ms', false ) ) {
 	?>
 
 	<body <?php body_class(); ?> <?php echo apply_filters('tc_body_attributes' , '') ?>>
+    <h1>
+        Moin moin!
+    </h1>
     <?php
     // see https://github.com/presscustomizr/customizr/issues/1722
     if ( function_exists( 'wp_body_open' ) ) {
