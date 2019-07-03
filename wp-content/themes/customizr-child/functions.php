@@ -2,21 +2,31 @@
 /**
  * * include child theme stylesheet after the original stylesheet
  * */
+add_action( 'wp_enqueue_scripts', 'child_theme_styles' );
 function child_theme_styles() {
-	wp_deregister_style( 'customizr-style' ); 
-	wp_deregister_style( 'customizr-style-css' ); 
-	wp_dequeue_style( 'customizr-style' ); 
-	wp_dequeue_style( 'customizr-style-css' ); 
+	// wp_deregister_style( 'customizr-style' ); 
+	// wp_deregister_style( 'customizr-style-css' ); 
+	// wp_dequeue_style( 'customizr-style' ); 
+	// wp_dequeue_style( 'customizr-style-css' ); 
 	
 	wp_enqueue_style( 'parent-style', get_template_directory_uri() . '/style.css' );
 // 	wp_enqueue_style( 'child-theme-style', get_stylesheet_directory_uri() .'/style.css' , array('parent-style'));
 
-// 	 for caching we need dynamic css url version number
-	$modificated = date( 'YmdHi', filemtime( get_stylesheet_directory() . '/style.css' ) );
-// 	wp_enqueue_style( 'child-theme-style', get_stylesheet_uri(), array(), $modificated );
-	wp_enqueue_style( 'child-theme-style', get_stylesheet_uri(), array('parent-style'), $modificated );
+// ideally should happen here - but because the header gets assembled weirdly, this gets overwritten
+// // 	 for caching we need dynamic css url version number
+// 	$modificated = date( 'YmdHi', filemtime( get_stylesheet_directory() . '/style.css' ) );
+// // 	wp_enqueue_style( 'child-theme-style', get_stylesheet_uri(), array(), $modificated );
+// 	wp_enqueue_style( 'child-theme-style', get_stylesheet_uri(), array('parent-style'), $modificated );
 }
-add_action( 'wp_enqueue_scripts', 'child_theme_styles' );
+
+add_action('wp_head', 'overwrite_buggy_header_child_styles');
+function overwrite_buggy_header_child_styles(){
+    $modificated = date( 'YmdHi', filemtime( get_stylesheet_directory() . '/style.css' ) );
+
+    ?>
+<link rel='stylesheet' id='child-theme-style-css'  href='<?php echo get_stylesheet_uri() . "?ver=" . $modificated ?>' type='text/css' media='all' />
+    <?php
+}
 
 /* 
  * DISABLE WORDPRESS ADMIN BAR FOR ALL USERS BUT ADMINS
