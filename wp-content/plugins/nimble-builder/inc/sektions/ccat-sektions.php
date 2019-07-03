@@ -15,8 +15,11 @@ if ( !defined( 'NIMBLE_CPT' ) ) { define( 'NIMBLE_CPT' , 'nimble_post_type' ); }
 if ( !defined( 'NIMBLE_CSS_FOLDER_NAME' ) ) { define( 'NIMBLE_CSS_FOLDER_NAME' , 'sek_css' ); }
 if ( !defined( 'NIMBLE_OPT_PREFIX_FOR_SEKTION_COLLECTION' ) ) { define( 'NIMBLE_OPT_PREFIX_FOR_SEKTION_COLLECTION' , 'nimble___' ); }
 if ( !defined( 'NIMBLE_GLOBAL_SKOPE_ID' ) ) { define( 'NIMBLE_GLOBAL_SKOPE_ID' , 'skp__global' ); }
+
 if ( !defined( 'NIMBLE_OPT_NAME_FOR_GLOBAL_OPTIONS' ) ) { define( 'NIMBLE_OPT_NAME_FOR_GLOBAL_OPTIONS' , '__nimble_options__' ); }
 if ( !defined( 'NIMBLE_OPT_NAME_FOR_SAVED_SEKTIONS' ) ) { define( 'NIMBLE_OPT_NAME_FOR_SAVED_SEKTIONS' , 'nimble_saved_sektions' ); }
+if ( !defined( 'NIMBLE_OPT_NAME_FOR_MOST_USED_FONTS' ) ) { define( 'NIMBLE_OPT_NAME_FOR_MOST_USED_FONTS' , 'nimble_most_used_fonts' ); }
+
 if ( !defined( 'NIMBLE_OPT_PREFIX_FOR_LEVEL_UI' ) ) { define( 'NIMBLE_OPT_PREFIX_FOR_LEVEL_UI' , '__nimble__' ); }
 if ( !defined( 'NIMBLE_WIDGET_PREFIX' ) ) { define( 'NIMBLE_WIDGET_PREFIX' , 'nimble-widget-area-' ); }
 if ( !defined( 'NIMBLE_ASSETS_VERSION' ) ) { define( 'NIMBLE_ASSETS_VERSION', sek_is_dev_mode() ? time() : NIMBLE_VERSION ); }
@@ -472,14 +475,17 @@ function sek_get_default_module_model( $module_type = '' ) {
                 sek_error_log( __FUNCTION__ . ' => ' . $module_type . ' children modules should be an array' );
                 return $default;
             }
-            foreach ( $registered_modules[ $module_type ][ 'children' ] as $opt_group => $mod_type ) {
-                if ( empty( $registered_modules[ $mod_type ][ 'tmpl' ] ) ) {
-                    sek_error_log( __FUNCTION__ . ' => ' . $mod_type . ' => missing "tmpl" property => impossible to build the father default model.' );
+
+            foreach ( $registered_modules[ $module_type ][ 'children' ] as $opt_group => $child_mod_type ) {
+                if ( empty( $registered_modules[ $child_mod_type ][ 'tmpl' ] ) ) {
+                    sek_error_log( __FUNCTION__ . ' => ' . $child_mod_type . ' => missing "tmpl" property => impossible to build the father default model.' );
                     continue;
                 }
-                $default[$opt_group] = _sek_build_default_model( $registered_modules[ $mod_type ][ 'tmpl' ] );
+                $default[$opt_group] = _sek_build_default_model( $registered_modules[ $child_mod_type ][ 'tmpl' ] );
             }
-        } else {
+        }
+        // Not father module case
+        else {
             if ( empty( $registered_modules[ $module_type ][ 'tmpl' ] ) ) {
                 sek_error_log( __FUNCTION__ . ' => ' . $module_type . ' => missing "tmpl" property => impossible to build the default model.' );
                 return $default;
@@ -607,15 +613,15 @@ function sek_get_registered_module_input_list( $module_type = '' ) {
                 return $input_list;
             }
             $temp = array();
-            foreach ( $registered_modules[ $module_type ][ 'children' ] as $opt_group => $mod_type ) {
-                if ( empty( $registered_modules[ $mod_type ][ 'tmpl' ] ) ) {
-                    sek_error_log( __FUNCTION__ . ' => ' . $mod_type . ' => missing "tmpl" property => impossible to build the master input_list.' );
+            foreach ( $registered_modules[ $module_type ][ 'children' ] as $opt_group => $child_mod_type ) {
+                if ( empty( $registered_modules[ $child_mod_type ][ 'tmpl' ] ) ) {
+                    sek_error_log( __FUNCTION__ . ' => ' . $child_mod_type . ' => missing "tmpl" property => impossible to build the master input_list.' );
                     continue;
                 }
-                // $temp[$opt_group] = _sek_build_input_list( $registered_modules[ $mod_type ][ 'tmpl' ] );
+                // $temp[$opt_group] = _sek_build_input_list( $registered_modules[ $child_mod_type ][ 'tmpl' ] );
                 // $input_list = array_merge( $input_list, $temp[$opt_group] );
 
-                $input_list[$opt_group] = _sek_build_input_list( $registered_modules[ $mod_type ][ 'tmpl' ] );
+                $input_list[$opt_group] = _sek_build_input_list( $registered_modules[ $child_mod_type ][ 'tmpl' ] );
             }
         } else {
             if ( empty( $registered_modules[ $module_type ][ 'tmpl' ] ) ) {
@@ -742,9 +748,9 @@ function sek_normalize_module_value_with_defaults( $raw_module_model ) {
             sek_error_log( __FUNCTION__ . ' => ' . $module_type . ' children modules should be an array' );
             return $default;
         }
-        foreach ( $children as $opt_group => $mod_type ) {
+        foreach ( $children as $opt_group => $child_mod_type ) {
             $children_value = ( ! empty( $raw_module_value[$opt_group] ) && is_array( $raw_module_value[$opt_group] ) ) ? $raw_module_value[$opt_group] : array();
-            $normalized_model['value'][ $opt_group ] = _sek_normalize_single_module_values( $children_value, $mod_type );
+            $normalized_model['value'][ $opt_group ] = _sek_normalize_single_module_values( $children_value, $child_mod_type );
         }
     } else {
         $normalized_model['value'] = _sek_normalize_single_module_values( $raw_module_value, $module_type );
@@ -1659,6 +1665,12 @@ function sek_get_module_collection() {
           'icon' => 'Nimble_map_icon.svg'
         ),
         array(
+          'content-type' => 'module',
+          'content-id' => 'czr_social_icons_module',
+          'title' => __( 'Social Profiles', 'nimble-builder' ),
+          'icon' => 'Nimble_social_icon.svg'
+        ),
+        array(
           'content-type' => 'preset_section',
           'content-id' => 'two_columns',
           'title' => __( 'Two Columns', 'nimble-builder' ),
@@ -1720,8 +1732,7 @@ function sek_get_module_collection() {
           'title' => __( 'Menu', 'nimble-builder' ),
           'font_icon' => '<i class="material-icons">menu</i>'
           //'active' => sek_are_beta_features_enabled()
-        ),
-
+        )
         // array(
         //   'content-type' => 'module',
         //   'content-id' => 'czr_special_img_module',
@@ -5151,7 +5162,7 @@ function sek_add_css_rules_for_spacing( $rules, $level ) {
             if ( !empty( $column_options['width'] ) && !empty( $column_options['width']['custom-width'] ) ) {
                 $width_candidate = (float)$column_options['width']['custom-width'];
                 if ( $width_candidate < 0 || $width_candidate > 100 ) {
-                    sek_error_log( __FUNCTION__ . ' => invalid width valude for column id : ' . $column['id'] );
+                    sek_error_log( __FUNCTION__ . ' => invalid width value for column id : ' . $column['id'] );
                 } else {
                     $custom_width = $width_candidate;
                 }
@@ -7512,6 +7523,325 @@ function sek_get_module_params_for_czr_featured_pages_module() {
 
 ?><?php
 /* ------------------------------------------------------------------------- *
+ *  LOAD AND REGISTER FEATURED PAGES MODULE
+/* ------------------------------------------------------------------------- */
+//Fired in add_action( 'after_setup_theme', 'sek_register_modules', 50 );
+function sek_get_module_params_for_czr_social_icons_module() {
+    return array(
+        'dynamic_registration' => true,
+        'module_type' => 'czr_social_icons_module',
+        'is_father' => true,
+        'children' => array(
+            'icons_collection' => 'czr_social_icons_settings_child',
+            'icons_style' => 'czr_social_icons_style_child'
+        ),
+        'name' => __('Social Icons', 'nimble-builder'),
+        // 'starting_value' => array(
+        //     'img' =>  NIMBLE_BASE_URL . '/assets/img/default-img.png'
+        // ),
+        // 'sanitize_callback' => 'function_prefix_to_be_replaced_sanitize_callback__czr_social_module',
+        // 'validate_callback' => 'function_prefix_to_be_replaced_validate_callback__czr_social_module',
+        'css_selectors' => array( '.sek-social-icons-wrapper' ),//array( '.sek-icon i' ),
+        'render_tmpl_path' => NIMBLE_BASE_PATH . "/tmpl/modules/social_icons_tmpl.php",
+        'front_assets' => array(
+              'czr-font-awesome' => array(
+                  'type' => 'css',
+                  //'handle' => 'czr-font-awesome',
+                  'src' => NIMBLE_BASE_URL . '/assets/front/fonts/css/fontawesome-all.min.css'
+                  //'deps' => array()
+              )
+        )
+    );
+}
+
+
+/* ------------------------------------------------------------------------- *
+ *  MAIN SETTINGS
+/* ------------------------------------------------------------------------- */
+function sek_get_module_params_for_czr_social_icons_settings_child() {
+    return array(
+        'dynamic_registration' => true,
+        'module_type' => 'czr_social_icons_settings_child',
+        'is_crud' => true,
+        'name' => __( 'Icon collection', 'nimble-builder' ),
+        //'sanitize_callback' => '\Nimble\sanitize_callback__czr_simple_form_module',
+        'css_selectors' => array( '.sek-social-icon' ),//array( '.sek-icon i' ),
+        'tmpl' => array(
+            'pre-item' => array(
+                // 'page-id' => array(
+                //     'input_type'  => 'content_picker',
+                //     'title'       => __('Pick a page', 'text_doma')
+                // ),
+                'icon' => array(
+                    'input_type'  => 'fa_icon_picker',
+                    'title'       => __('Select an icon', 'nimble-builder')
+                ),
+                'link'  => array(
+                    'input_type'  => 'text',
+                    'title'       => __('Social link url', 'nimble-builder'),
+                    'notice_after'      => __('Enter the full url of your social profile (must be valid url).', 'nimble-builder'),
+                    'placeholder' => __('http://...,mailto:...,...', 'nimble-builder')
+                )
+            ),
+            'item-inputs' => array(
+                'icon' => array(
+                    'input_type'  => 'fa_icon_picker',
+                    'title'       => __('Select an icon', 'nimble-builder')
+                ),
+                'link'  => array(
+                    'input_type'  => 'text',
+                    'default'     => '',
+                    'title'       => __('Social link url', 'nimble-builder'),
+                    'notice_after'      => __('Enter the full url of your social profile (must be valid url).', 'nimble-builder'),
+                    'placeholder' => __('http://...,mailto:...,...', 'nimble-builder')
+                ),
+                'title_attr'  => array(
+                    'input_type'  => 'text',
+                    'default'     => '',
+                    'title'       => __('Title', 'nimble-builder'),
+                    'notice_after'      => __('This is the text displayed on mouse over.', 'nimble-builder'),
+                ),
+                'link_target' => array(
+                    'input_type'  => 'nimblecheck',
+                    'title'       => __('Open link in a new browser tab', 'nimble-builder'),
+                    'default'     => false,
+                    'title_width' => 'width-80',
+                    'input_width' => 'width-20',
+                ),
+                'color_css' => array(
+                    'input_type'  => 'wp_color_alpha',
+                    'title'       => __('Color', 'nimble-builder'),
+                    'width-100'   => true,
+                    'default'    => '#707070',
+                    'refresh_markup' => false,
+                    'refresh_stylesheet' => true,
+                    'css_identifier' => 'color'
+                ),
+                'use_custom_color_on_hover' => array(
+                    'input_type'  => 'nimblecheck',
+                    'title'       => __( 'Set a custom icon color on mouse hover', 'nimble-builder' ),
+                    'title_width' => 'width-80',
+                    'input_width' => 'width-20',
+                    'refresh_markup' => false,
+                    'refresh_stylesheet' => true,
+                    'default'     => false,
+                ),
+                'social_color_hover' => array(
+                    'input_type'  => 'wp_color_alpha',
+                    'title'       => __('Hover color', 'nimble-builder'),
+                    'width-100'   => true,
+                    'default'    => '#969696',
+                    'refresh_markup' => false,
+                    'refresh_stylesheet' => true,
+                    //'css_identifier' => 'color_hover'
+                )
+            )
+        ),
+        'render_tmpl_path' => '',
+    );
+}
+
+
+/* ------------------------------------------------------------------------- *
+ *  SOCIAL ICONS STYLING
+/* ------------------------------------------------------------------------- */
+function sek_get_module_params_for_czr_social_icons_style_child() {
+    return array(
+        'dynamic_registration' => true,
+        'module_type' => 'czr_social_icons_style_child',
+        'name' => __( 'Design options : size, spacing, alignment,...', 'nimble-builder' ),
+        //'sanitize_callback' => '\Nimble\sanitize_callback__czr_simple_form_module',
+        // 'starting_value' => array(
+        //     'button_text' => __('Click me','text_doma'),
+        //     'color_css'  => '#ffffff',
+        //     'bg_color_css' => '#020202',
+        //     'bg_color_hover' => '#151515', //lighten 15%,
+        //     'use_custom_bg_color_on_hover' => 0,
+        //     'border_radius_css' => '2',
+        //     'h_alignment_css' => 'center',
+        //     'use_box_shadow' => 1,
+        //     'push_effect' => 1
+        // ),
+        'css_selectors' => array( '.sek-social-icons-wrapper' ),//array( '.sek-icon i' ),
+        'tmpl' => array(
+            'item-inputs' => array(
+                'font_size_css'       => array(
+                    'input_type'  => 'range_with_unit_picker_device_switcher',
+                    'title'       => __( 'Icons size', 'nimble-builder' ),
+                    // the default value is commented to fix https://github.com/presscustomizr/nimble-builder/issues/313
+                    // => as a consequence, when a module uses the font child module, the default font-size rule must be defined in the module SCSS file.
+                    //'default'     => array( 'desktop' => '16px' ),
+                    'min' => 0,
+                    'max' => 100,
+                    'title_width' => 'width-100',
+                    'width-100'         => true,
+                    'refresh_markup' => false,
+                    'refresh_stylesheet' => true,
+                    'css_identifier' => 'font_size',
+                    'css_selectors'      => '.sek-module-inner .sek-social-icons-wrapper > li .sek-social-icon',
+                ),//16,//"14px",
+                'line_height_css'     => array(
+                    'input_type'  => 'range_with_unit_picker',
+                    'title'       => __( 'Line height', 'nimble-builder' ),
+                    'default'     => '1.5em',
+                    'min' => 0,
+                    'max' => 10,
+                    'step' => 0.1,
+                    'width-100'         => true,
+                    'refresh_markup' => false,
+                    'refresh_stylesheet' => true,
+                    'css_identifier' => 'line_height',
+                    'css_selectors'      => '.sek-module-inner .sek-social-icons-wrapper > li .sek-social-icon',
+                ),//24,//"20px",
+                'h_alignment_css'        => array(
+                    'input_type'  => 'horizAlignmentWithDeviceSwitcher',
+                    'title'              => __( 'Horizontal alignment', 'nimble-builder' ),
+                    'default'     => array( 'desktop' => 'center' ),//consistent with SCSS
+                    'refresh_markup'     => false,
+                    'refresh_stylesheet' => true,
+                    'css_identifier'     => 'h_alignment',
+                    //'css_selectors'      => '.sek-module-inner',
+                    'title_width' => 'width-100',
+                    'width-100'   => true,
+                ),
+                'space_between_icons' => array(
+                    'input_type'  => 'range_with_unit_picker_device_switcher',
+                    'title'       => __('Space between icons', 'nimble-builder'),
+                    'min' => 1,
+                    'max' => 100,
+                    //'unit' => 'px',
+                    'default' => array( 'desktop' => '8px' ),
+                    'width-100'   => true,
+                    'refresh_markup' => false,
+                    'refresh_stylesheet' => true,
+                    'title_width' => 'width-100'
+                ),
+                'spacing_css'     => array(
+                    'input_type'  => 'spacingWithDeviceSwitcher',
+                    'title'       => __( 'Spacing of the icons wrapper', 'nimble-builder' ),
+                    'default'     => array('desktop' => array('margin-bottom' => '10', 'margin-top' => '10', 'unit' => 'px')),//consistent with SCSS
+                    'title_width' => 'width-100',
+                    'width-100'   => true,
+                    'refresh_markup'     => false,
+                    'refresh_stylesheet' => true,
+                    'css_identifier' => 'spacing_with_device_switcher',
+                    'css_selectors'      => '.sek-module-inner .sek-social-icons-wrapper',
+                    // 'css_selectors'=> '.sek-icon i'
+                )
+            )
+        ),
+        'render_tmpl_path' => '',
+    );
+}
+
+/* ------------------------------------------------------------------------- *
+ *  SCHEDULE CSS RULES FILTERING
+/* ------------------------------------------------------------------------- */
+// PER ITEM CSS DESIGN => FILTERING OF EACH ITEM MODEL, TARGETING THE ID ( [data-sek-item-id="893af157d5e3"] )
+add_filter( 'sek_add_css_rules_for_single_item_in_module_type___czr_social_icons_settings_child', '\Nimble\sek_add_css_rules_for_items_in_czr_social_icons_settings_child', 10, 2 );
+// filter documented in Sek_Dyn_CSS_Builder::sek_css_rules_sniffer_walker
+// Note : $complete_modul_model has been normalized
+// @return populated $rules
+// @param $params
+// Array
+// (
+//     [input_list] => Array
+//         (
+//             [icon] => fab fa-acquisitions-incorporated
+//             [link] => https://twitter.com/home
+//             [title_attr] => Follow me on twitter
+//             [link_target] =>
+//             [color_css] => #dd9933
+//             [use_custom_color_on_hover] =>
+//             [social_color_hover] => #dd3333
+//             [id] => 62316ab99b4d
+//         )
+//     [parent_module_id] =>
+//     [module_type] => czr_social_icons_settings_child
+//     [module_css_selector] => Array
+//         (
+//             [0] => .sek-social-icon
+//         )
+
+// )
+function sek_add_css_rules_for_items_in_czr_social_icons_settings_child( $rules, $params ) {
+    //sek_error_log('SOCIAL ITEMS PARAMS?', $params );
+
+    // $item_input_list = wp_parse_args( $item_input_list, $default_value_model );
+    $item_model = isset( $params['input_list'] ) ? $params['input_list'] : array();
+
+    // COLOR ON HOVER
+    $icon_color = $item_model['color_css'];
+    if ( sek_booleanize_checkbox_val( $item_model['use_custom_color_on_hover'] ) ) {
+        $color_hover = $item_model['social_color_hover'];
+    } else {
+        // Build the lighter rgb from the user picked bg color
+        if ( 0 === strpos( $icon_color, 'rgba' ) ) {
+            list( $rgb, $alpha ) = sek_rgba2rgb_a( $icon_color );
+            $color_hover_rgb  = sek_lighten_rgb( $rgb, $percent=15, $array = true );
+            $color_hover      = sek_rgb2rgba( $color_hover_rgb, $alpha, $array = false, $make_prop_value = true );
+        } else if ( 0 === strpos( $icon_color, 'rgb' ) ) {
+            $color_hover      = sek_lighten_rgb( $icon_color, $percent=15 );
+        } else {
+            $color_hover      = sek_lighten_hex( $icon_color, $percent=15 );
+        }
+    }
+    $color_hover_selector = sprintf( '[data-sek-id="%1$s"]  [data-sek-item-id="%2$s"] .sek-social-icon:hover', $params['parent_module_id'], $item_model['id'] );
+    $rules[] = array(
+        'selector' => $color_hover_selector,
+        'css_rules' => 'color:' . $color_hover . ';',
+        'mq' =>null
+    );
+    return $rules;
+}
+
+// GLOBAL CSS DESIGN => FILTERING OF THE ENTIRE MODULE MODEL
+add_filter( 'sek_add_css_rules_for_module_type___czr_social_icons_module', '\Nimble\sek_add_css_rules_for_czr_social_icons_module', 10, 2 );
+// filter documented in Sek_Dyn_CSS_Builder::sek_css_rules_sniffer_walker
+// Note : $complete_modul_model has been normalized
+// @return populated $rules
+function sek_add_css_rules_for_czr_social_icons_module( $rules, $complete_modul_model ) {
+    if ( empty( $complete_modul_model['value'] ) || !is_array( $complete_modul_model['value'] ) )
+      return $rules;
+
+    $value = $complete_modul_model['value'];
+    $icons_style = $value['icons_style'];
+
+    // HORIZONTAL SPACE BETWEEN ICONS
+    $padding_right = $icons_style['space_between_icons'];
+    $padding_right = is_array( $padding_right ) ? $padding_right : array();
+    $defaults = array(
+        'desktop' => '15px',// <= this value matches the static CSS rule and the input default for the module
+        'tablet' => '',
+        'mobile' => ''
+    );
+    $padding_right = wp_parse_args( $padding_right, $defaults );
+    $padding_right_ready_val = $padding_right;
+    foreach ($padding_right as $device => $num_unit ) {
+        $num_val = sek_extract_numeric_value( $num_unit );
+        $padding_right_ready_val[$device] = '';
+        // Leave the device value empty if === to default
+        // Otherwise it will print a duplicated dynamic css rules, already hardcoded in the static stylesheet
+        // fixes https://github.com/presscustomizr/nimble-builder/issues/419
+        if ( ! empty( $num_unit ) && $num_val.'px' !== $defaults[$device].'' ) {
+            $unit = sek_extract_unit( $num_unit );
+            $num_val = $num_val < 0 ? 0 : $num_val;
+            $padding_right_ready_val[$device] = $num_val . $unit;
+        }
+    }
+    $rules = sek_set_mq_css_rules( array(
+        'value' => $padding_right_ready_val,
+        'css_property' => 'padding-right',
+        'selector' => implode(',', array(
+            '[data-sek-id="'.$complete_modul_model['id'].'"] .sek-module-inner .sek-social-icons-wrapper > *:not(:last-child)',
+        )),
+        'is_important' => false
+    ), $rules );
+
+    return $rules;
+}
+?><?php
+/* ------------------------------------------------------------------------- *
  *  TEXT EDITOR FATHER MODULE
 /* ------------------------------------------------------------------------- */
 //Fired in add_action( 'after_setup_theme', 'sek_register_modules', 50 );
@@ -8966,7 +9296,7 @@ function sek_add_css_rules_for_button_front_module( $rules, $complete_modul_mode
         }
     }
     $rules[] = array(
-        'selector' => '[data-sek-id="'.$complete_modul_model['id'].'"] .sek-btn:hover',
+        'selector' => '[data-sek-id="'.$complete_modul_model['id'].'"] .sek-module-inner .sek-btn:hover',
         'css_rules' => 'background-color:' . $bg_color_hover . ';',
         'mq' =>null
     );
@@ -11407,6 +11737,16 @@ class Sek_Dyn_CSS_Builder {
     }
 
 
+
+
+
+
+
+
+
+
+
+
     // Fired in the constructor
     // Walk the level tree and build rules when needed
     // The rules are filtered when some conditions are met.
@@ -11457,56 +11797,72 @@ class Sek_Dyn_CSS_Builder {
                                       sek_error_log( 'Father module ' . $father_mod_type . ' has a invalid child for option group : '. $opt_group_type);
                                       continue;
                                   }
+                                  // The module type of the currently looped child
                                   $child_mod_type = $children[ $opt_group_type ];
 
                                   // If the child module has no css_selectors set, we fallback on the father css_selector
                                   $child_css_selector = sek_get_registered_module_type_property( $child_mod_type, 'css_selectors' );
                                   $child_css_selector = empty( $child_css_selector ) ? $module_level_css_selectors : $child_css_selector;
 
-                                  foreach ( $input_candidates as $input_id_candidate => $_input_val ) {
-                                      // let's skip the $key that are reserved for the structure of the sektion tree
-                                      // ! in_array( $key, [ 'level', 'collection', 'id', 'module_type', 'options', 'value' ] )
-                                      // The generic rules must be suffixed with '_css'
-                                      if ( false !== strpos( $input_id_candidate, '_css') ) {
-                                          if ( is_array( $registered_input_list ) && is_array( $registered_input_list[ $opt_group_type ] )&& ! empty( $registered_input_list[ $opt_group_type ][ $input_id_candidate ] ) && ! empty( $registered_input_list[ $opt_group_type ][ $input_id_candidate ]['css_identifier'] ) ) {
-                                              $rules = apply_filters(
-                                                  "sek_add_css_rules_for_input_id",
-                                                  $rules,// <= the in-progress array of css rules to be populated
-                                                  $_input_val,// <= the css property value
-                                                  $input_id_candidate, // <= the unique input_id as it as been declared on module registration
-                                                  $registered_input_list[ $opt_group_type ],// <= the full list of input for the module
-                                                  $parent_level,// <= the parent module level. can be one of those array( 'location', 'section', 'column', 'module' )
-                                                  $child_css_selector
-                                              );
-                                          } else {
-                                              sek_error_log( __FUNCTION__ . ' => missing the css_identifier param when registering father module ' . $father_mod_type . ' for a css input candidate : ' . $input_id_candidate . ' in option group : ' . $opt_group_type, $parent_level );
-                                              sek_error_log('$registered_input_list', $registered_input_list );
-                                          }
+                                  // Is is a multi-item module ?
+                                  $is_multi_items_module = true === sek_get_registered_module_type_property( $child_mod_type, 'is_crud' );
+
+                                  if ( $is_multi_items_module ) {
+                                      foreach ( $input_candidates as $item_input_list ) {
+                                          $rules = $this->sek_loop_on_input_candidates_and_maybe_generate_css_rules( $rules, array(
+                                              'input_list' => $item_input_list,
+                                              'registered_input_list' => $registered_input_list[ $opt_group_type ],// <= the full list of input for the module
+                                              'parent_module_level' => $parent_level,// <= the parent module level. can be one of those array( 'location', 'section', 'column', 'module' )
+                                              'module_css_selector' => $child_css_selector, //a default set of css_se
+                                              'is_multi_items' => true
+                                          ) );
+
+                                          $rules = apply_filters( "sek_add_css_rules_for_single_item_in_module_type___{$child_mod_type}", $rules, array(
+                                              'input_list' => wp_parse_args( $item_input_list, sek_get_default_module_model( $child_mod_type ) ),
+                                              'parent_module_type' => $child_mod_type,// 'registered_input_list' => $registered_input_list[ $opt_group_type ],// <= the full list of input for the module
+                                              'parent_module_id' => $parent_level['id'],// <= the parent module level id, used to increase the CSS specificity
+                                              'module_css_selector' => $child_css_selector //a default set of css_se
+                                          ) );
                                       }
-                                  }//foreach
-                              }//foreach
-                          } else {
-                              foreach ( $entry as $input_id_candidate => $_input_val ) {
-                                  // let's skip the $key that are reserved for the structure of the sektion tree
-                                  // ! in_array( $key, [ 'level', 'collection', 'id', 'module_type', 'options', 'value' ] )
-                                  // The generic rules must be suffixed with '_css'
-                                  if ( false !== strpos( $input_id_candidate, '_css') ) {
-                                      if ( is_array( $registered_input_list ) && ! empty( $registered_input_list[ $input_id_candidate ] ) && ! empty( $registered_input_list[ $input_id_candidate ]['css_identifier'] ) ) {
-                                          $rules = apply_filters(
-                                              "sek_add_css_rules_for_input_id",
-                                              $rules,// <= the in-progress array of css rules to be populated
-                                              $_input_val,// <= the css property value
-                                              $input_id_candidate, // <= the unique input_id as it as been declared on module registration
-                                              $registered_input_list,// <= the full list of input for the module
-                                              $parent_level,// <= the parent module level. can be one of those array( 'location', 'section', 'column', 'module' )
-                                              $module_level_css_selectors // <= if the parent is a module, a default set of css_selectors might have been specified on module registration
-                                          );
-                                      } else {
-                                          sek_error_log( __FUNCTION__ . ' => missing the css_identifier param when registering module ' . $parent_level['module_type'] . ' for a css input candidate : ' . $input_id_candidate, $parent_level );
-                                          sek_error_log('$registered_input_list', $registered_input_list );
-                                      }
+                                  } else {
+                                      $rules = $this->sek_loop_on_input_candidates_and_maybe_generate_css_rules( $rules, array(
+                                          'input_list' => $input_candidates,
+                                          'registered_input_list' => $registered_input_list[ $opt_group_type ],// <= the full list of input for the module
+                                          'parent_module_level' => $parent_level,// <= the parent module level. can be one of those array( 'location', 'section', 'column', 'module' )
+                                          'module_css_selector' => $child_css_selector //a default set of css_selectors might have been specified on module registration
+                                      ));
                                   }
                               }//foreach
+                          } //if ( $is_father )
+                          else {
+                              // Is is a multi-item module ?
+                              $is_multi_items_module = true === sek_get_registered_module_type_property( $father_mod_type, 'is_crud' );
+
+                              if ( $is_multi_items_module ) {
+                                  foreach ( $entry as $item_input_list ) {
+                                      $rules = $this->sek_loop_on_input_candidates_and_maybe_generate_css_rules( $rules, array(
+                                          'input_list' => $item_input_list,
+                                          'registered_input_list' => $registered_input_list,// <= the full list of input for the module
+                                          'parent_module_level' => $parent_level,// <= the parent module level. can be one of those array( 'location', 'section', 'column', 'module' )
+                                          'module_css_selector' => $module_level_css_selectors, //a default set of css_se
+                                          'is_multi_items' => true
+                                      ) );
+
+                                      $rules = apply_filters( "sek_add_css_rules_for_multi_item_module_type___{$father_mod_type}", $rules, array(
+                                          'input_list' => wp_parse_args( $item_input_list, sek_get_default_module_model( $father_mod_type ) ),
+                                          'parent_module_type' => $father_mod_type,// <= the full list of input for the module
+                                          'parent_module_id' => $parent_level['id'],// <= the parent module level id, used to increase the CSS specificity
+                                          'module_css_selector' => $module_level_css_selectors, //a default set of css_se
+                                      ) );
+                                  }
+                              } else {
+                                  $rules = $this->sek_loop_on_input_candidates_and_maybe_generate_css_rules( $rules, array(
+                                      'input_list' => $entry,
+                                      'registered_input_list' => $registered_input_list,// <= the full list of input for the module
+                                      'parent_module_level' => $parent_level,// <= the parent module level. can be one of those array( 'location', 'section', 'column', 'module' )
+                                      'module_css_selector' => $module_level_css_selectors //a default set of css_selectors might have been specified on module registration
+                                  ));
+                              }
                           }//if is_father
                     }//if
                 }//if
@@ -11574,6 +11930,69 @@ class Sek_Dyn_CSS_Builder {
 
         }//foreach
     }//sek_css_rules_sniffer_walker()
+
+
+
+
+    // @param $rules // <= the in-progress global array of css rules to be populated
+    // @param $params= array()
+    // @return array of css rules*
+    // The input ids prefixed with '_css' are eligible for automaric CSS rules generation.
+    // @see add_filter( "sek_add_css_rules_for_input_id", '\Nimble\sek_add_css_rules_for_css_sniffed_input_id', 10, 1 );
+    function sek_loop_on_input_candidates_and_maybe_generate_css_rules( $rules, $params ) {
+        // normalize params
+        $default_params = array(
+            'input_list' => array(),
+            'registered_input_list' => array(),// <= the full list of input for the module
+            'parent_module_level' => array(),// <= the parent module level. can be one of those array( 'location', 'section', 'column', 'module' )
+            'module_css_selector' => '',//a default set of css_selectors might have been specified on module registration
+            'is_multi_items' => false
+        );
+        $params = wp_parse_args( $params, $default_params );
+
+        // FOR MULTI-ITEM MODULES=> add the item-id
+        // a multi-item module has a unique id for each item
+        // An item looks like :
+        // Array
+        // (
+        //     [id] => 34913f6eef98
+        //     [icon] => fab fa-accusoft
+        //     [color_css] => #dd9933
+        // )
+        $item_id = null;
+        if ( $params['is_multi_items'] ) {
+            if ( !is_array( $params['input_list'] ) || !isset($params['input_list']['id']) ) {
+                sek_error_log( __FUNCTION__ . ' => Error => eact item of a multi-item module must have an id', $params );
+            } else {
+                $item_id = $params['input_list']['id'];
+            }
+        }
+
+        foreach( $params['input_list'] as $input_id_candidate => $_input_val ) {
+              if ( false !== strpos( $input_id_candidate, '_css') ) {
+                  $rules = apply_filters( 'sek_add_css_rules_for_input_id', $rules, array(
+                      'css_val' => $_input_val,//string or array(), //<= the css property value
+                      'input_id' => $input_id_candidate,//string// <= the unique input_id as it as been declared on module registration
+                      'registered_input_list' => $params['registered_input_list'],// <= the full list of input for the module
+                      'parent_module_level' => $params['parent_module_level'],// <= the parent module level. can be one of those array( 'location', 'section', 'column', 'module' )
+                      'module_css_selector' => $params['module_css_selector'],// <= a default set of css_selectors might have been specified on module registration
+                      'is_multi_items' => $params['is_multi_items'],// <= for multi-item modules, the input selectors will be made specific for each item-id. In module templates, we'll use data-sek-item-id="%5$s"
+                      // implemented to allow CSS rules to be generated on a per-item basis
+                      // for https://github.com/presscustomizr/nimble-builder/issues/78
+                      'item_id' => $item_id // <= a multi-item module has a unique id for each item
+                  ));
+              }
+        }
+        return $rules;
+    }
+
+
+
+
+
+
+
+
 
 
 
@@ -11772,7 +12191,7 @@ class Sek_Dyn_CSS_Builder {
         if ( !empty( $column_options['width'] ) && !empty( $column_options['width']['custom-width'] ) ) {
             $width_candidate = (float)$column_options['width']['custom-width'];
             if ( $width_candidate < 0 || $width_candidate > 100 ) {
-                sek_error_log( __FUNCTION__ . ' => invalid width valude for column id : ' . $column['id'] );
+                sek_error_log( __FUNCTION__ . ' => invalid width value for column id : ' . $column['id'] );
             } else {
                 $width = $width_candidate;
             }
@@ -12535,8 +12954,33 @@ class Sek_Dyn_CSS_Handler {
 // $rules = apply_filters( "sek_add_css_rules_for_input_id", $rules, $key, $entry, $this -> parent_level );
 // the rules are filtered if ( false !== strpos( $input_id_candidate, '_css') )
 // Example of input id candidate filtered : 'h_alignment_css'
-add_filter( "sek_add_css_rules_for_input_id", '\Nimble\sek_add_css_rules_for_css_sniffed_input_id', 10, 6 );
-function sek_add_css_rules_for_css_sniffed_input_id( $rules, $value, $input_id, $registered_input_list, $parent_level, $module_level_css_selectors ) {
+// @see function sek_loop_on_input_candidates_and_maybe_generate_css_rules( $params ) {}
+add_filter( "sek_add_css_rules_for_input_id", '\Nimble\sek_add_css_rules_for_css_sniffed_input_id', 10, 2 );
+
+//@param $params = array()
+//@param $rules <= the in-progress global array of css rules to be populated
+function sek_add_css_rules_for_css_sniffed_input_id( $rules, $params ) {
+    // normalize params
+    $default_params = array(
+        'css_val' => '',//string or array(), //<= the css property value
+        'input_id' => '',//string// <= the unique input_id as it as been declared on module registration
+        'registered_input_list' => array(),// <= the full list of input for the module
+        'parent_module_level' => array(),// <= the parent module level. can be one of those array( 'location', 'section', 'column', 'module' )
+        'module_css_selector' => '',//<= a default set of css_selectors might have been specified on module registration
+        'is_multi_items' => false,// <= for multi-item modules, the input selectors will be made specific for each item-id. In module templates, we'll use data-sek-item-id="%5$s"
+        'item_id' => '' // <= a multi-item module has a unique id for each item
+    );
+
+    $params = wp_parse_args( $params, $default_params );
+
+    // map variables
+    $value = $params['css_val'];
+    $input_id = $params['input_id'];
+    $registered_input_list = $params['registered_input_list'];
+    $parent_level = $params['parent_module_level'];
+    $module_level_css_selectors = $params['module_css_selector'];
+    $is_multi_items = $params['is_multi_items'];
+    $item_id = $params['item_id'];
 
     if ( ! is_string( $input_id ) || empty( $input_id ) ) {
         sek_error_log( __FUNCTION__ . ' => missing input_id', $parent_level);
@@ -12548,11 +12992,18 @@ function sek_add_css_rules_for_css_sniffed_input_id( $rules, $value, $input_id, 
     }
     $input_registration_params = $registered_input_list[ $input_id ];
     if ( ! is_string( $input_registration_params['css_identifier'] ) || empty( $input_registration_params['css_identifier'] ) ) {
-        sek_error_log( __FUNCTION__ . ' => missing css_identifier', $parent_level );
+        sek_error_log( __FUNCTION__ . ' => missing css_identifier for parent level', $parent_level );
+        sek_error_log('$registered_input_list', $registered_input_list );
         return $rules;
     }
 
-    $selector = '[data-sek-id="'.$parent_level['id'].'"]';
+    $selector = sprintf( '[data-sek-id="%1$s"]', $parent_level['id'] );
+    // for multi-items module, each item has a unique id allowing us to identify it
+    // implemented to allow CSS rules to be generated on a per-item basis
+    // for https://github.com/presscustomizr/nimble-builder/issues/78
+    if ( $is_multi_items ) {
+        $selector = sprintf( '[data-sek-id="%1$s"]  [data-sek-item-id="%2$s"]', $parent_level['id'], $item_id );
+    }
     $css_identifier = $input_registration_params['css_identifier'];
 
     // SPECIFIC CSS SELECTOR AT MODULE LEVEL
@@ -12996,7 +13447,11 @@ function sek_add_css_rules_for_css_sniffed_input_id( $rules, $value, $input_id, 
         );
     }
     return $rules;
-}
+}//sek_add_css_rules_for_css_sniffed_input_id
+
+
+
+
 
 
 // @return boolean
@@ -13262,10 +13717,15 @@ if ( ! class_exists( 'SEK_Front_Construct' ) ) :
             'czr_menu_mobile_options',
             'czr_font_child'
           ),
-
-
-          'czr_widget_area_module'
           //'czr_menu_design_child',
+
+          'czr_widget_area_module',
+
+          'czr_social_icons_module' => array(
+            'czr_social_icons_module',
+            'czr_social_icons_settings_child',
+            'czr_social_icons_style_child',
+          ),
         ];
 
         // Is merged with front module when sek_is_header_footer_enabled() === true
@@ -13273,6 +13733,8 @@ if ( ! class_exists( 'SEK_Front_Construct' ) ) :
         // and sek_register_modules_when_not_customizing_and_not_ajaxing
         public static $ui_front_beta_modules = [];
 
+        // introduced for https://github.com/presscustomizr/nimble-builder/issues/456
+        public $global_sections_rendered = false;
 
         /////////////////////////////////////////////////////////////////
         // <CONSTRUCTOR>
@@ -14494,8 +14956,9 @@ if ( ! class_exists( 'SEK_Front_Render' ) ) :
                 return;
             }
             $locationSettingValue = array();
+            $is_global_location = sek_is_global_location( $location_id );
             if ( empty( $location_data ) ) {
-                $skope_id = sek_is_global_location( $location_id )  ? NIMBLE_GLOBAL_SKOPE_ID : skp_build_skope_id();
+                $skope_id = $is_global_location ? NIMBLE_GLOBAL_SKOPE_ID : skp_build_skope_id();
                 $locationSettingValue = sek_get_skoped_seks( $skope_id, $location_id );
             } else {
                 $locationSettingValue = $location_data;
@@ -14514,6 +14977,11 @@ if ( ! class_exists( 'SEK_Front_Render' ) ) :
 
                 add_filter('the_content', array( $this, 'sek_wrap_wp_content' ), NIMBLE_WP_CONTENT_WRAP_FILTER_PRIORITY );
 
+                // inform Nimble Builder that a global section has been rendered
+                // introduced for https://github.com/presscustomizr/nimble-builder/issues/456
+                if ( $is_global_location ) {
+                    Nimble_Manager()->global_sections_rendered = true;
+                }
 
             } else {
                 error_log( __CLASS__ . ' :: ' . __FUNCTION__ .' => sek_get_skoped_seks() should always return an array().');
@@ -15444,7 +15912,7 @@ if ( ! class_exists( 'SEK_Front_Render_Css' ) ) :
                 }
             }
 
-            if ( empty( $skope_id ) ) {
+            if ( defined( 'DOING_AJAX' ) && DOING_AJAX && empty( $skope_id ) ) {
                 sek_error_log(  __CLASS__ . '::' . __FUNCTION__ . ' =>the skope_id should not be empty' );
             }
         }//print_or_enqueue_seks_style
