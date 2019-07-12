@@ -1659,18 +1659,6 @@ function sek_get_module_collection() {
           'icon' => 'Nimble_posts-list_icon.svg'
         ),
         array(
-          'content-type' => 'module',
-          'content-id' => 'czr_map_module',
-          'title' => __( 'Map', 'nimble-builder' ),
-          'icon' => 'Nimble_map_icon.svg'
-        ),
-        array(
-          'content-type' => 'module',
-          'content-id' => 'czr_social_icons_module',
-          'title' => __( 'Social Profiles', 'nimble-builder' ),
-          'icon' => 'Nimble_social_icon.svg'
-        ),
-        array(
           'content-type' => 'preset_section',
           'content-id' => 'two_columns',
           'title' => __( 'Two Columns', 'nimble-builder' ),
@@ -1688,13 +1676,32 @@ function sek_get_module_collection() {
           'title' => __( 'Four Columns', 'nimble-builder' ),
           'icon' => 'Nimble_4-columns_icon.svg'
         ),
-
         array(
           'content-type' => 'module',
           'content-id' => 'czr_simple_html_module',
           'title' => __( 'Html Content', 'nimble-builder' ),
           'icon' => 'Nimble_html_icon.svg'
         ),
+        array(
+          'content-type' => 'module',
+          'content-id' => 'czr_map_module',
+          'title' => __( 'Map', 'nimble-builder' ),
+          'icon' => 'Nimble_map_icon.svg'
+        ),
+        array(
+          'content-type' => 'module',
+          'content-id' => 'czr_widget_area_module',
+          'title' => __( 'WordPress widget area', 'nimble-builder' ),
+          'font_icon' => '<i class="fab fa-wordpress-simple"></i>'
+          //'active' => sek_are_beta_features_enabled()
+        ),
+        array(
+          'content-type' => 'module',
+          'content-id' => 'czr_social_icons_module',
+          'title' => __( 'Social Profiles', 'nimble-builder' ),
+          'icon' => 'Nimble_social_icon.svg'
+        ),
+
         array(
           'content-type' => 'module',
           'content-id' => 'czr_quote_module',
@@ -1719,13 +1726,7 @@ function sek_get_module_collection() {
           'title' => __( 'Simple Contact Form', 'nimble-builder' ),
           'icon' => 'Nimble_contact-form_icon.svg'
         ),
-        array(
-          'content-type' => 'module',
-          'content-id' => 'czr_widget_area_module',
-          'title' => __( 'WordPress widget area', 'nimble-builder' ),
-          'font_icon' => '<i class="fab fa-wordpress-simple"></i>'
-          //'active' => sek_are_beta_features_enabled()
-        ),
+
         array(
           'content-type' => 'module',
           'content-id' => 'czr_menu_module',
@@ -2379,7 +2380,7 @@ function sek_add_customize_link() {
           NIMBLE_BASE_URL.'/assets/img/nimble/nimble_icon.svg?ver='.NIMBLE_VERSION,
           __('Nimble Builder','nimble-builder'),
           __('Add sections in live preview with Nimble Builder', 'nimble-builder'),
-          __( 'Nimble Builder', 'nimble-builder' )
+          __( 'Build with Nimble Builder', 'nimble-builder' )
       ),
       'href'   => $customize_url,
       'meta'   => array(
@@ -2398,20 +2399,23 @@ function sek_get_customize_url_when_is_admin( $ajax_server_request_uri = '') {
     $current_screen = get_current_screen();
     $post = get_post();
 
-    if ( 'post' == $current_screen->base
-        && 'add' != $current_screen->action
-        && ( $post_type_object = get_post_type_object( $post->post_type ) )
-        && current_user_can( 'read_post', $post->ID )
-        && ( $post_type_object->public )
-        && ( $post_type_object->show_in_admin_bar ) )
-    {
-        if ( 'draft' == $post->post_status ) {
-            $preview_link = get_preview_post_link( $post );
-            $customize_url = esc_url( $preview_link );
-        } else {
-            $customize_url = get_permalink( $post->ID );
-        }
-    } elseif ( 'edit' == $current_screen->base
+    // July 2019 => Don't display the admin button in post and pages, where we already have the edit button next to the post title
+    // if ( 'post' == $current_screen->base
+    //     && 'add' != $current_screen->action
+    //     && ( $post_type_object = get_post_type_object( $post->post_type ) )
+    //     && current_user_can( 'read_post', $post->ID )
+    //     && ( $post_type_object->public )
+    //     && ( $post_type_object->show_in_admin_bar ) )
+    // {
+    //     if ( 'draft' == $post->post_status ) {
+    //         $preview_link = get_preview_post_link( $post );
+    //         $customize_url = esc_url( $preview_link );
+    //     } else {
+    //         $customize_url = get_permalink( $post->ID );
+    //     }
+    // } else
+
+    if ( 'edit' == $current_screen->base
         && ( $post_type_object = get_post_type_object( $current_screen->post_type ) )
         && ( $post_type_object->public )
         && ( $post_type_object->show_in_admin_bar )
@@ -6377,7 +6381,7 @@ function sek_add_raw_global_text_css( $css, $is_global_stylesheet ) {
 
     // DEFAULT TEXT OPTIONS
     // Font Family
-    if ( !empty( $text_options['default_font_family'] ) ) {
+    if ( !empty( $text_options['default_font_family'] ) && 'none' !== $text_options['default_font_family'] ) {
         $rules[] = array(
             'selector'    => $default_text_selector,
             'css_rules'   => sprintf( '%1$s:%2$s;', 'font-family', sek_extract_css_font_family_from_customizer_option( $text_options['default_font_family'] ) ),
@@ -6454,7 +6458,7 @@ function sek_add_raw_global_text_css( $css, $is_global_stylesheet ) {
 
     // HEADINGS OPTIONS
     // Font Family
-    if ( !empty( $text_options['headings_font_family'] ) ) {
+    if ( !empty( $text_options['headings_font_family'] ) && 'none' !== $text_options['headings_font_family'] ) {
         $rules[] = array(
             'selector'    => $headings_selector,
             'css_rules'   => sprintf( '%1$s:%2$s;', 'font-family', sek_extract_css_font_family_from_customizer_option( $text_options['headings_font_family'] ) ),
@@ -6466,8 +6470,6 @@ function sek_add_raw_global_text_css( $css, $is_global_stylesheet ) {
 
 
     $global_text_options_css = Sek_Dyn_CSS_Builder::sek_generate_css_stylesheet_for_a_set_of_rules( $rules );
-
-    //sek_error_log('ALORS CSS ?', $global_text_options_css );
 
     return is_string( $global_text_options_css ) ? $css . $global_text_options_css : $css;
 
@@ -6581,9 +6583,8 @@ function sek_write_global_custom_breakpoint() {
     $custom_breakpoint = sek_get_global_custom_breakpoint();
     if ( $custom_breakpoint >= 1 ) {
         $css .= '@media (min-width:' . $custom_breakpoint . 'px) {.sek-global-custom-breakpoint-col-8 {-ms-flex: 0 0 8.333%;flex: 0 0 8.333%;max-width: 8.333%;}.sek-global-custom-breakpoint-col-9 {-ms-flex: 0 0 9.090909%;flex: 0 0 9.090909%;max-width: 9.090909%;}.sek-global-custom-breakpoint-col-10 {-ms-flex: 0 0 10%;flex: 0 0 10%;max-width: 10%;}.sek-global-custom-breakpoint-col-11 {-ms-flex: 0 0 11.111%;flex: 0 0 11.111%;max-width: 11.111%;}.sek-global-custom-breakpoint-col-12 {-ms-flex: 0 0 12.5%;flex: 0 0 12.5%;max-width: 12.5%;}.sek-global-custom-breakpoint-col-14 {-ms-flex: 0 0 14.285%;flex: 0 0 14.285%;max-width: 14.285%;}.sek-global-custom-breakpoint-col-16 {-ms-flex: 0 0 16.666%;flex: 0 0 16.666%;max-width: 16.666%;}.sek-global-custom-breakpoint-col-20 {-ms-flex: 0 0 20%;flex: 0 0 20%;max-width: 20%;}.sek-global-custom-breakpoint-col-25 {-ms-flex: 0 0 25%;flex: 0 0 25%;max-width: 25%;}.sek-global-custom-breakpoint-col-30 {-ms-flex: 0 0 30%;flex: 0 0 30%;max-width: 30%;}.sek-global-custom-breakpoint-col-33 {-ms-flex: 0 0 33.333%;flex: 0 0 33.333%;max-width: 33.333%;}.sek-global-custom-breakpoint-col-40 {-ms-flex: 0 0 40%;flex: 0 0 40%;max-width: 40%;}.sek-global-custom-breakpoint-col-50 {-ms-flex: 0 0 50%;flex: 0 0 50%;max-width: 50%;}.sek-global-custom-breakpoint-col-60 {-ms-flex: 0 0 60%;flex: 0 0 60%;max-width: 60%;}.sek-global-custom-breakpoint-col-66 {-ms-flex: 0 0 66.666%;flex: 0 0 66.666%;max-width: 66.666%;}.sek-global-custom-breakpoint-col-70 {-ms-flex: 0 0 70%;flex: 0 0 70%;max-width: 70%;}.sek-global-custom-breakpoint-col-75 {-ms-flex: 0 0 75%;flex: 0 0 75%;max-width: 75%;}.sek-global-custom-breakpoint-col-80 {-ms-flex: 0 0 80%;flex: 0 0 80%;max-width: 80%;}.sek-global-custom-breakpoint-col-83 {-ms-flex: 0 0 83.333%;flex: 0 0 83.333%;max-width: 83.333%;}.sek-global-custom-breakpoint-col-90 {-ms-flex: 0 0 90%;flex: 0 0 90%;max-width: 90%;}.sek-global-custom-breakpoint-col-100 {-ms-flex: 0 0 100%;flex: 0 0 100%;max-width: 100%;}}';
+        printf('<style type="text/css" id="nimble-global-breakpoint-options">%1$s</style>', $css );
     }
-
-    printf('<style type="text/css" id="nimble-global-breakpoint-options">%1$s</style>', $css );
 }
 ?><?php
 //Fired in add_action( 'after_setup_theme', 'sek_register_modules', 50 );
@@ -7007,7 +7008,8 @@ function sek_get_module_params_for_czr_simple_html_module() {
             'item-inputs' => array(
                 'html_content' => array(
                     'input_type'  => 'code_editor',
-                    'title'       => __( 'HTML Content' , 'nimble-builder' )
+                    'title'       => __( 'HTML Content' , 'nimble-builder' ),
+                    'refresh_markup' => '.sek-module-inner'
                     //'code_type' => 'text/html' //<= use 'text/css' to instantiate the code mirror as CSS editor, which by default will be an HTML editor
                 )
             )
@@ -12551,8 +12553,12 @@ class Sek_Dyn_CSS_Handler {
             $this->builder = new Sek_Dyn_CSS_Builder( $this->sek_model, $this->is_global_stylesheet );
 
             // now that the stylesheet is ready let's cache it
-            $this->css_string_to_enqueue_or_print = (string)$this->builder-> get_stylesheet();
+            $this->css_string_to_enqueue_or_print = (string)$this->builder->get_stylesheet();
         }
+
+        // Do we have any rules to print / enqueue ?
+        // If yes, print in the dom or enqueue depending on the current context ( customization or front )
+        // If not, delete any previouly created stylesheet
 
         //hook setup for printing or enqueuing
         //bail if "customizer_save" == true, typically when saving the customizer settings @see Nimble_Customizer_Setting::update()
@@ -13801,7 +13807,23 @@ if ( ! class_exists( 'SEK_Front_Ajax' ) ) :
             // @see api.czrInputMap.category_picker
             add_action( 'wp_ajax_sek_get_post_categories', array( $this, 'sek_get_post_categories' ) );
 
+            // Fetches the code editor params to generate the options for a textarea input
+            // @see api.czrInputMap.code_editor
+            add_action( 'wp_ajax_sek_get_code_editor_params', array( $this, 'sek_get_code_editor_params' ) );
+
             add_action( 'wp_ajax_sek_postpone_feedback', array( $this, 'sek_postpone_feedback_notification' ) );
+
+            // <AJAX TO FETCH INPUT COMPONENTS>
+            // this dynamic filter is declared on wp_ajax_ac_get_template in the czr_base_fmk
+            // It allows us to populate the server response with the relevant module html template
+            // $html = apply_filters( "ac_set_ajax_czr_tmpl___{$module_type}", '', $tmpl );
+            add_filter( "ac_set_ajax_czr_tmpl___fa_icon_picker_input", array( $this, 'sek_get_fa_icon_list_tmpl' ), 10, 3 );
+
+            // this dynamic filter is declared on wp_ajax_ac_get_template in the czr_base_fmk
+            // It allows us to populate the server response with the relevant module html template
+            // $html = apply_filters( "ac_set_ajax_czr_tmpl___{$module_type}", '', $tmpl );
+            add_filter( "ac_set_ajax_czr_tmpl___font_picker_input", array( $this, 'sek_get_font_list_tmpl' ), 10, 3 );
+            // </AJAX TO FETCH INPUT COMPONENTS>
 
             // Returns the customize url for the edit button when using Gutenberg editor
             // implemented for https://github.com/presscustomizr/nimble-builder/issues/449
@@ -14290,9 +14312,17 @@ if ( ! class_exists( 'SEK_Front_Ajax' ) ) :
             wp_send_json_success( $cat_collection );
         }
 
-
-
-
+        ////////////////////////////////////////////////////////////////
+        // CODE EDITOR PARAMS => to be used in the code editor input
+        // Fired in __construct()
+        function sek_get_code_editor_params() {
+            $this->sek_do_ajax_pre_checks( array( 'check_nonce' => true ) );
+            $code_type = isset( $_POST['code_type'] ) ? $_POST['code_type'] : 'text/html';
+            $editor_params = nimble_get_code_editor_settings( array(
+                'type' => $code_type
+            ));
+            wp_send_json_success( $editor_params );
+        }
 
         ////////////////////////////////////////////////////////////////
         // POSTPONE FEEDBACK NOTIFICATION IN CUSTOMIZER
@@ -14343,6 +14373,189 @@ if ( ! class_exists( 'SEK_Front_Ajax' ) ) :
 
             wp_send_json_success( $customize_url );
         }
+
+
+        ////////////////////////////////////////////////////////////////
+        // FETCH FONT AWESOME ICONS
+        // hook : ac_set_ajax_czr_tmpl___czr_tiny_mce_editor_module
+        // this dynamic filter is declared on wp_ajax_ac_get_template
+        // It allows us to populate the server response with the relevant module html template
+        // $html = apply_filters( "ac_set_ajax_czr_tmpl___{$module_type}", '', $tmpl );
+        //
+        // For czr_tiny_mce_editor_module, we request the font_list tmpl
+        function sek_get_fa_icon_list_tmpl( $html, $requested_tmpl = '', $posted_params = array() ) {
+            if ( empty( $requested_tmpl ) ) {
+                wp_send_json_error( __FUNCTION__ . ' => the requested tmpl is empty' );
+            }
+            return wp_json_encode(
+                $this->sek_retrieve_decoded_font_awesome_icons()
+            );//will be sent by wp_send_json_success() in ::ac_set_ajax_czr_tmpl()
+        }
+
+
+
+        //retrieves faicons:
+        // 1) from faicons.json if needed (transient doesn't exists, or is new version => set in TC_wfc ) and decodes them
+        // otherwise
+        // 2) from the transient set if it exists
+        function sek_retrieve_decoded_font_awesome_icons() {
+            // this file must be generated with: https://github.com/presscustomizr/nimble-builder/issues/57
+            $faicons_json_path      = NIMBLE_BASE_PATH . '/assets/faicons.json';
+            $faicons_transient_name = 'sek_font_awesome_november_2018';
+            if ( false == get_transient( $faicons_transient_name ) ) {
+                if ( file_exists( $faicons_json_path ) ) {
+                    $faicons_raw      = @file_get_contents( $faicons_json_path );
+
+                    if ( false === $faicons_raw ) {
+                        $faicons_raw = wp_remote_fopen( $faicons_json_path );
+                    }
+
+                    $faicons_decoded   = json_decode( $faicons_raw, true );
+                    set_transient( $faicons_transient_name , $faicons_decoded , 60*60*24*3000 );
+                } else {
+                    wp_send_json_error( __FUNCTION__ . ' => the file faicons.json is missing' );
+                }
+            }
+            else {
+                $faicons_decoded = get_transient( $faicons_transient_name );
+            }
+
+            return $faicons_decoded;
+        }
+
+
+
+
+
+
+
+
+        ////////////////////////////////////////////////////////////////
+        // FETCH FONT LISTS
+        // hook : ac_set_ajax_czr_tmpl___czr_tiny_mce_editor_module
+        // For czr_tiny_mce_editor_module, we request the font_list tmpl
+        function sek_get_font_list_tmpl( $html, $requested_tmpl = '', $posted_params = array() ) {
+            if ( empty( $requested_tmpl ) ) {
+                wp_send_json_error( __FUNCTION__ . ' => the requested tmpl is empty' );
+            }
+
+            return wp_json_encode( array(
+                'cfonts' => $this->sek_get_cfonts(),
+                'gfonts' => $this->sek_get_gfonts(),
+            ) );//will be sent by wp_send_json_success() in ::ac_set_ajax_czr_tmpl()
+        }
+
+
+        function sek_get_cfonts() {
+            $cfonts = array();
+            $raw_cfonts = array(
+                'Arial Black,Arial Black,Gadget,sans-serif',
+                'Century Gothic',
+                'Comic Sans MS,Comic Sans MS,cursive',
+                'Courier New,Courier New,Courier,monospace',
+                'Georgia,Georgia,serif',
+                'Helvetica Neue, Helvetica, Arial, sans-serif',
+                'Impact,Charcoal,sans-serif',
+                'Lucida Console,Monaco,monospace',
+                'Lucida Sans Unicode,Lucida Grande,sans-serif',
+                'Palatino Linotype,Book Antiqua,Palatino,serif',
+                'Tahoma,Geneva,sans-serif',
+                'Times New Roman,Times,serif',
+                'Trebuchet MS,Helvetica,sans-serif',
+                'Verdana,Geneva,sans-serif',
+            );
+            foreach ( $raw_cfonts as $font ) {
+              //no subsets for cfonts => epty array()
+              $cfonts[] = array(
+                  'name'    => $font ,
+                  'subsets'   => array()
+              );
+            }
+            return apply_filters( 'sek_font_picker_cfonts', $cfonts );
+        }
+
+
+        //retrieves gfonts:
+        // 1) from webfonts.json if needed (transient doesn't exists, or is new version => set in TC_wfc ) and decodes them
+        // otherwise
+        // 2) from the transiet set if it exists
+        //
+        // => Until June 2017, the webfonts have been stored in 'tc_gfonts' transient
+        // => In June 2017, the Google Fonts have been updated with a new webfonts.json
+        // generated from : https://www.googleapis.com/webfonts/v1/webfonts?key=AIzaSyBID8gp8nBOpWyH5MrsF7doP4fczXGaHdA
+        //
+        // => The transient name is now : czr_gfonts_june_2017
+        function sek_retrieve_decoded_gfonts() {
+            if ( false == get_transient( 'sek_gfonts_may_2018' ) ) {
+                $gfont_raw      = @file_get_contents( NIMBLE_BASE_PATH ."/assets/webfonts.json" );
+
+                if ( $gfont_raw === false ) {
+                  $gfont_raw = wp_remote_fopen( NIMBLE_BASE_PATH ."/assets/webfonts.json" );
+                }
+
+                $gfonts_decoded   = json_decode( $gfont_raw, true );
+                set_transient( 'sek_gfonts_may_2018' , $gfonts_decoded , 60*60*24*3000 );
+            }
+            else {
+              $gfonts_decoded = get_transient( 'sek_gfonts_may_2018' );
+            }
+
+            return $gfonts_decoded;
+        }
+
+
+
+        //@return the google fonts
+        function sek_get_gfonts( $what = null ) {
+          //checks if transient exists or has expired
+
+          $gfonts_decoded = $this->sek_retrieve_decoded_gfonts();
+          $gfonts = array();
+          //$subsets = array();
+
+          // $subsets['all-subsets'] = sprintf( '%1$s ( %2$s %3$s )',
+          //   __( 'All languages' , 'text_doma' ),
+          //   count($gfonts_decoded['items']) + count( $this -> get_cfonts() ),
+          //   __('fonts' , 'text_doma' )
+          // );
+
+          foreach ( $gfonts_decoded['items'] as $font ) {
+            foreach ( $font['variants'] as $variant ) {
+              $name     = str_replace( ' ', '+', $font['family'] );
+              $gfonts[]   = array(
+                  'name'    => $name . ':' .$variant
+                  //'subsets'   => $font['subsets']
+              );
+            }
+            //generates subset list : subset => font number
+            // foreach ( $font['subsets'] as $sub ) {
+            //   $subsets[$sub] = isset($subsets[$sub]) ? $subsets[$sub]+1 : 1;
+            // }
+          }
+
+          //finalizes the subset array
+          // foreach ( $subsets as $subset => $font_number ) {
+          //   if ( 'all-subsets' == $subset )
+          //     continue;
+          //   $subsets[$subset] = sprintf('%1$s ( %2$s %3$s )',
+          //     $subset,
+          //     $font_number,
+          //     __('fonts' , 'text_doma' )
+          //   );
+          // }
+
+          return ('subsets' == $what) ? apply_filters( 'sek_font_picker_gfonts_subsets ', $subsets ) : apply_filters( 'sek_font_picker_gfonts', $gfonts )  ;
+        }
+
+
+
+
+
+
+
+
+
+
 
         // hook : 'wp_ajax_sek_get_preview_ui_element'
         /*function sek_get_ui_content_for_injection( $params ) {
@@ -15851,7 +16064,7 @@ if ( ! class_exists( 'SEK_Front_Render_Css' ) ) :
     class SEK_Front_Render_Css extends SEK_Front_Render {
         // Fired in __construct()
         function _setup_hook_for_front_css_printing_or_enqueuing() {
-            add_action( 'wp_enqueue_scripts', array( $this, 'print_or_enqueue_seks_style') );
+            add_action( 'wp_enqueue_scripts', array( $this, 'print_or_enqueue_seks_style'), PHP_INT_MAX );
         }
 
         // Can be fired :
@@ -15884,11 +16097,8 @@ if ( ! class_exists( 'SEK_Front_Render_Css' ) ) :
                 // LOCAL SECTIONS STYLESHEET
                 $this->_instantiate_css_handler( array( 'skope_id' => skp_build_skope_id() ) );
                 // GLOBAL SECTIONS STYLESHEET
-                // always printed when customizing
-                // otherwise, printed if !is_null( sek_get_seks_post( NIMBLE_GLOBAL_SKOPE_ID ) )
-                if ( sek_has_global_sections() ) {
-                    $this->_instantiate_css_handler( array( 'skope_id' => NIMBLE_GLOBAL_SKOPE_ID, 'is_global_stylesheet' => true ) );
-                }
+                // Can hold rules for global sections and global styling
+                $this->_instantiate_css_handler( array( 'skope_id' => NIMBLE_GLOBAL_SKOPE_ID, 'is_global_stylesheet' => true ) );
             }
             $google_fonts_print_candidates = $this->sek_get_gfont_print_candidates( $local_skope_id );
 

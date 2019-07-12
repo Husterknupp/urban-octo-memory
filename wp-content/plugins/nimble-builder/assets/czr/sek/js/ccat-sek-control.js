@@ -1,4 +1,225 @@
 //global sektionsLocalizedData
+//global serverControlParams
+(function ( api, $ ) {
+      api.CZR_Helpers.getInputSubTemplate = function( template_name ) {
+            if ( $('#tmpl-nimble-subtemplate___' + template_name ).length > 0 ) {
+                return wp.template( 'nimble-subtemplate___' + template_name );
+            } else {
+                api.errare( 'problem in api.czr_sektions.getInputSubTemplate(), missing js template in the DOM for template_name : ' + template_name );
+                return null;
+            }
+      };
+
+      var getInputTemplate = function( input_type ) {
+            var template_name = input_type;
+            switch( input_type ) {
+                  case 'czr_layouts' ://<= specific to the hueman theme
+                  case 'select' ://<= used in the customizr and hueman theme
+                  case 'simpleselect' ://<=used in Nimble Builder
+                  case 'fa_icon_picker' :
+                  case 'font_picker':
+                        template_name = 'simpleselect';
+                  break;
+
+                  case 'h_alignment' :
+                  case 'horizAlignmentWithDeviceSwitcher' :
+                        template_name = 'h_alignment';
+                  break;
+
+                  case 'h_text_alignment' :
+                  case 'horizTextAlignmentWithDeviceSwitcher' :
+                        template_name = 'h_text_alignment';
+                  break;
+
+                  case 'font_size' :
+                  case 'line_height' :
+                        template_name = 'font_size_line_height';
+                  break;
+
+                  case 'range_simple' :
+                  case 'range_simple_device_switcher' :
+                        template_name = 'range_simple';
+                  break;
+
+                  case 'range_with_unit_picker' :
+                  case 'range_with_unit_picker_device_switcher' :
+                        template_name = 'range_with_unit_picker';
+                  break;
+
+                  case 'spacing' :
+                  case 'spacingWithDeviceSwitcher' :
+                        template_name = 'spacing';
+                  break;
+
+                  case 'upload' :
+                  case 'upload_url' :
+                        template_name = 'upload';
+                  break;
+
+                  case 'bg_position' :
+                  case 'bgPositionWithDeviceSwitcher' :
+                        template_name = 'bg_position';
+                  break;
+
+                  case 'multiselect':
+                  case 'category_picker':
+                        template_name = 'multiselect';
+                  break;
+
+                  case 'verticalAlignWithDeviceSwitcher' :
+                        template_name = 'v_alignment';
+                  break;
+            }
+            if ( $('#tmpl-nimble-input___' + template_name ).length > 0 ) {
+                return wp.template( 'nimble-input___' + template_name );
+            } else {
+                api.errare( 'problem in getInputTemplate(), missing js template in the DOM for input_type : ' + input_type );
+                return null;
+            }
+      };
+
+
+      // Overrides FMK method
+      // @param args
+      // control_id: "__nimble__51b2f35191b3__main_settings"
+      // item_model: {id: "czr_heading_child_0", title: "", heading_text: "This is a heading.", heading_tag: "h1", h_alignment_css: {…}, …}
+      // module_id: "__nimble__51b2f35191b3__main_settings_czr_module"
+      // module_type: "czr_heading_child"
+      // tmpl: "item-inputs"
+      var originalMethod = api.CZR_Helpers.getModuleTmpl;
+      api.CZR_Helpers.getModuleTmpl = function( args ) {
+            args = _.extend( {
+                  tmpl : '',
+                  module_type: '',
+                  module_id : '',
+                  cache : true,//<= shall we cache the tmpl or not. Should be true in almost all cases.
+                  nonce: api.settings.nonce.save//<= do we need to set a specific nonce to fetch the tmpls ?
+            }, args );
+
+            // target only Nimble modules
+            // a nimble module id looks like : "__nimble__00b8efefe207_czr_module"
+            if ( -1 === args.module_id.indexOf('__nimble__') ) {
+                  return originalMethod( args );
+            }
+
+            var dfd = $.Deferred();
+            // are we good to go ?
+            if ( _.isEmpty( args.tmpl ) || _.isEmpty( args.module_type ) ) {
+                  dfd.reject( 'api.CZR_Helpers.getModuleTmpl => missing tmpl or module_type param' );
+            }
+
+            if ( ! api.czr_sektions.isModuleRegistered( args.module_type ) ) {
+                  dfd.reject( 'api.CZR_Helpers.getModuleTmpl => module type not registered' );
+                  dfd.resolve();
+                  return originalMethod( args );
+            }
+
+            /// TEMP !! ///
+            // dfd.resolve();
+            // return originalMethod( args );
+            if ( _.contains( [
+              // 'sek_content_type_switcher_module',
+              // 'sek_module_picker_module'
+            ], args.module_type ) ) {
+                  dfd.resolve();
+                  return originalMethod( args );
+            }
+            /// TEMP !! ///
+
+            // Get the item input map
+            var item_input_tmpls = api.czr_sektions.getRegisteredModuleProperty( args.module_type, 'tmpl' );
+            var item_input_map = ( _.isObject( item_input_tmpls ) && item_input_tmpls[ args.tmpl ] ) ? item_input_tmpls[ args.tmpl ] : {};
+            if ( _.isEmpty( item_input_map ) || !_.isObject( item_input_map ) ) {
+                  api.errare( 'getModuleTmpl => Error empty or invalid input map for module : ', args.module_type );
+                  dfd.reject( 'getModuleTmpl => Error empty or invalid input map for module : ', args.module_type );
+            }
+
+            // Get the item value
+            var item_model = args.item_model,
+                default_item_model = $.extend( true, {}, api.czr_sektions.getDefaultItemModelFromRegisteredModuleData( args.module_type ) ),
+                cloned_default = $.extend( true, {},default_item_model );
+
+
+            // normalizes the item_model with defaults
+            item_model = $.extend( cloned_default, item_model );
+
+            if ( _.isEmpty( item_model ) ) {
+                  api.errare( 'getModuleTmpl => Error invalid item model for module : ', args.module_type );
+                  dfd.reject( 'getModuleTmpl => Error invalid item model for module : ', args.module_type );
+            }
+
+            var input_html = '', input_type;
+
+            // Loop on the item input map and render the input
+            // the rendering uses a nested _ template mechanism
+            // see https://stackoverflow.com/questions/8938841/underscore-js-nested-templates#13649447
+            var renderInputCollection = function( inputCollection ) {
+                  var _html = '';
+                  _.each( inputCollection, function( input_data, input_id ){
+                        input_type = input_data.input_type;
+                        // render generic input wrapper
+                        try { _html +=  wp.template( 'nimble-input-wrapper' )( {
+                            input_type : input_type,
+                            input_data : input_data,
+                            input_id : input_id,
+                            item_model : item_model,
+                            input_tmpl : getInputTemplate( input_type ),
+                            control_id : args.control_id //<= needed for some modules like tiny_mce_editor
+                        }); } catch( er ) {
+                              api.errare( 'getModuleTmpl => Error when parsing the nimble-input-wrapper template', er );
+                              dfd.reject( 'getModuleTmpl => Error when parsing the nimble-input-wrapper template');
+                              return false;
+                        }
+                  });
+                  return _html;
+            };//renderInputCollection
+
+
+            // GENERATE MODULE HTML : two cases, with or without tabs
+            if ( item_input_map.tabs ) {
+                  var _tabNavHtml = '', _tabContentHtml ='';
+
+                  _.each( item_input_map.tabs, function( rawTabData, tabKey ) {
+                        // normalizes
+                        var tabData = $.extend( true, {}, rawTabData );
+                        tabData = $.extend( { inputs : {}, title : '' }, tabData );
+                        // generate tab nav html
+                        var _attributes = !_.isEmpty( tabData.attributes ) ? tabData.attributes : '';
+                        _tabNavHtml += '<li data-tab-id="section-topline-' + ( +tabKey+1 ) +'" '+ _attributes +'><a href="#" title="' + tabData.title + '"><span>' + tabData.title +'</span></a></li>';
+                        // generate tab content html
+                        var _inputCollectionHtml = renderInputCollection( tabData.inputs );
+                        _tabContentHtml += '<section id="section-topline-' + ( +tabKey+1 ) +'">' + _inputCollectionHtml +'</section>';
+                  });
+
+
+                  // put it all together
+                  input_html += [
+                      '<div class="tabs tabs-style-topline">',
+                        '<nav>',
+                          '<ul>',
+                            _tabNavHtml,
+                          '</ul>',
+                        '</nav>',
+                        '<div class="content-wrap">',
+                          _tabContentHtml,
+                        '</div>',
+                      '</div>',
+                  ].join('');
+
+            } else {
+                  input_html = renderInputCollection(item_input_map);
+            }
+
+
+
+            // 1) Get the input map from the module registration params
+            // 2) Normalizes input data with defaults
+            // 3) loop on the input map
+            // 4) print the default input tmpl wrapper
+
+            return dfd.resolve( input_html ).promise();
+      };
+})( wp.customize, jQuery );//global sektionsLocalizedData
 var CZRSeksPrototype = CZRSeksPrototype || {};
 (function ( api, $ ) {
       $.extend( CZRSeksPrototype, {
@@ -1245,7 +1466,7 @@ var CZRSeksPrototype = CZRSeksPrototype || {};
                         try {
                               _tmpl =  wp.template( 'nimble-level-tree' )( {} );
                         } catch( er ) {
-                              api.errare( 'Error when parsing the the nimble-level-tree template', er );
+                              api.errare( 'Error when parsing the nimble-level-tree template', er );
                               return false;
                         }
                         $( '#customize-preview' ).after( $( _tmpl ) );
@@ -3598,11 +3819,13 @@ var CZRSeksPrototype = CZRSeksPrototype || {};
                   var registrationParams = {};
 
                   $.extend( registrationParams, {
+                        // The content type switcher has a priority lower than the other so it's printed on top
+                        // it's loaded last, because it needs to know the existence of all other
                         content_type_switcher : {
                               settingControlId : sektionsLocalizedData.optPrefixForSektionsNotSaved + '_sek_content_type_switcher_ui',
                               module_type : 'sek_content_type_switcher_module',
                               controlLabel :  sektionsLocalizedData.i18n['Select a content type'],
-                              priority : 0,
+                              priority : 10,
                               settingValue : { content_type : params.content_type }
                               //icon : '<i class="material-icons sek-level-option-icon">center_focus_weak</i>'
                         },
@@ -3620,8 +3843,8 @@ var CZRSeksPrototype = CZRSeksPrototype || {};
                               module_type : 'sek_intro_sec_picker_module',
                               controlLabel :  sektionsLocalizedData.i18n['Sections for an introduction'],
                               content_type : 'section',
-                              expandAndFocusOnInit : false,
-                              priority : 10,
+                              expandAndFocusOnInit : true,
+                              priority : 30,
                               icon : '<i class="fas fa-grip-vertical sek-level-option-icon"></i>'
                         },
                         sek_features_sec_picker_module : {
@@ -3630,7 +3853,7 @@ var CZRSeksPrototype = CZRSeksPrototype || {};
                               controlLabel :  sektionsLocalizedData.i18n['Sections for services and features'],
                               content_type : 'section',
                               expandAndFocusOnInit : false,
-                              priority : 10,
+                              priority : 30,
                               icon : '<i class="fas fa-grip-vertical sek-level-option-icon"></i>'
                         },
                         sek_about_sec_picker_module : {
@@ -3639,7 +3862,7 @@ var CZRSeksPrototype = CZRSeksPrototype || {};
                               controlLabel :  sektionsLocalizedData.i18n['About us sections'],
                               content_type : 'section',
                               expandAndFocusOnInit : false,
-                              priority : 10,
+                              priority : 30,
                               icon : '<i class="fas fa-grip-vertical sek-level-option-icon"></i>'
                         },
                         sek_contact_sec_picker_module : {
@@ -3648,7 +3871,7 @@ var CZRSeksPrototype = CZRSeksPrototype || {};
                               controlLabel :  sektionsLocalizedData.i18n['Contact-us sections'],
                               content_type : 'section',
                               expandAndFocusOnInit : false,
-                              priority : 10,
+                              priority : 30,
                               icon : '<i class="fas fa-grip-vertical sek-level-option-icon"></i>'
                         },
                         sek_column_layouts_sec_picker_module : {
@@ -3657,7 +3880,7 @@ var CZRSeksPrototype = CZRSeksPrototype || {};
                               controlLabel :  sektionsLocalizedData.i18n['Empty sections with columns layout'],
                               content_type : 'section',
                               expandAndFocusOnInit : false,
-                              priority : 10,
+                              priority : 30,
                               icon : '<i class="fas fa-grip-vertical sek-level-option-icon"></i>'
                         },
 
@@ -3668,7 +3891,7 @@ var CZRSeksPrototype = CZRSeksPrototype || {};
                               controlLabel : sektionsLocalizedData.i18n['Header sections'],// sektionsLocalizedData.i18n['Header sections'],
                               content_type : 'section',
                               expandAndFocusOnInit : false,
-                              priority : 10,
+                              priority : 30,
                               icon : '<i class="fas fa-grip-vertical sek-level-option-icon"></i>'
                         },
                         sek_footer_sec_picker_module : {
@@ -3677,7 +3900,7 @@ var CZRSeksPrototype = CZRSeksPrototype || {};
                               controlLabel : sektionsLocalizedData.i18n['Footer sections'],// sektionsLocalizedData.i18n['Header sections'],
                               content_type : 'section',
                               expandAndFocusOnInit : false,
-                              priority : 10,
+                              priority : 30,
                               icon : '<i class="fas fa-grip-vertical sek-level-option-icon"></i>'
                         }
                   });
@@ -3787,6 +4010,7 @@ var CZRSeksPrototype = CZRSeksPrototype || {};
                                           }
 
                                           // ACCORDION
+
                                           // Setup the accordion only for section content type
                                           if ( 'section' === _control_.content_type ) {
                                                 // Hide the item wrapper
@@ -3798,7 +4022,8 @@ var CZRSeksPrototype = CZRSeksPrototype || {};
                                                 _control_.container.attr('data-sek-expanded', "false" );
                                                 if ( true === optionData.expandAndFocusOnInit && "false" == _control_.container.attr('data-sek-expanded' ) ) {
                                                       //_control_.container.find('.czr-items-wrapper').show();
-                                                      $title.trigger('click');
+                                                      //$title.trigger('click');
+                                                      _control_.container.addClass('sek-expand-on-init');
                                                 }
                                           } else {
                                                 _control_.container.attr('data-sek-accordion', 'no');
@@ -3807,6 +4032,8 @@ var CZRSeksPrototype = CZRSeksPrototype || {};
                                     });
                               });
                         });//_.each
+
+                        api.trigger('nimble-modules-and-sections-controls-registered');
                   };//_do_register_
 
 
@@ -3830,8 +4057,8 @@ var CZRSeksPrototype = CZRSeksPrototype || {};
                         }
 
                         // Schedule the accordion behaviour
-                        self.scheduleModuleAccordion.call( _section_, { expand_first_control : true } );
-
+                        self.scheduleModuleAccordion.call( _section_, { expand_first_control : false } );
+                        _section_.container.find('.customize-control.sek-expand-on-init').find('label > .customize-control-title').trigger('click');
                         // Fetch the presetSectionCollection from the server now, so we save a few milliseconds when injecting the first preset_section
                         // it populates api.sek_presetSections
                         //
@@ -4291,9 +4518,9 @@ var CZRSeksPrototype = CZRSeksPrototype || {};
                                     $title.prepend('<span class="sek-animated-arrow" data-name="icon-chevron-down"><span class="fa fa-chevron-down"></span></span>');
                                     // setup the initial state + initial click
                                     _control_.container.attr('data-sek-expanded', "false" );
-                                    // if ( true === optionData.expandAndFocusOnInit && "false" == _control_.container.attr('data-sek-expanded' ) ) {
-                                    //       $title.trigger('click');
-                                    // }
+                                    if ( true === optionData.expandAndFocusOnInit && "false" == _control_.container.attr('data-sek-expanded' ) ) {
+                                          $title.trigger('click');
+                                    }
                               });
                         });//_.each()
                   };//_do_register_()
@@ -6695,7 +6922,7 @@ var CZRSeksPrototype = CZRSeksPrototype || {};
                   // This method should normally not be invoked for a father module type
                   if ( sektionsLocalizedData.registeredModules[moduleType].is_father ) {
                         api.errare( 'getDefaultItemModelFromRegisteredModuleData => Father modules should be treated specifically' );
-                        return;
+                        return {};
                   }
                   var data = sektionsLocalizedData.registeredModules[ moduleType ].tmpl['item-inputs'],
                       // title, id are always included in the defaultItemModel
@@ -7217,6 +7444,9 @@ var CZRSeksPrototype = CZRSeksPrototype || {};
             // "this" is the input
             maybeSetupDeviceSwitcherForInput : function() {
                   var input = this;
+                  // If this has already been done, let's stop now
+                  if ( input.previewedDevice )
+                    return;
                   // render the device switcher before the input title
                   var deviceSwitcherHtml = [
                         '<span class="sek-input-device-switcher">',
@@ -7226,7 +7456,7 @@ var CZRSeksPrototype = CZRSeksPrototype || {};
                         '</span>'
                   ].join(' ');
 
-                  input.container.find('.customize-control-title').prepend( deviceSwitcherHtml );
+                  input.container.find('.customize-control-title').first().prepend( deviceSwitcherHtml );
                   input.previewedDevice = new api.Value( api.previewedDevice() );
 
 
@@ -9431,8 +9661,8 @@ var CZRSeksPrototype = CZRSeksPrototype || {};
                       item           = input.input_parent(),
                       editorSettings = false,
                       $textarea      = input.container.find( 'textarea' ),
-                      $input_title   = input.container.find( '.customize-control-title' ),
-                      editor_params  = $textarea.data( 'editor-params' );
+                      $input_title   = input.container.find( '.customize-control-title' );
+                      //editor_params  = $textarea.data( 'editor-params' );
 
                   // // When using blocking notifications (type: error) the following block will append a checkbox to the
                   // // notification message block that once checked will allow to save and publish anyways
@@ -9456,12 +9686,47 @@ var CZRSeksPrototype = CZRSeksPrototype || {};
                   //             };
                   //       })( notification.render );
                   // } );
+                  var _getEditorParams = function() {
+                        return $.Deferred( function( _dfd_ ) {
+                              var code_type = _.isEmpty( $textarea.data('editor-code-type') ) ? 'text/html' : $textarea.data('editor-code-type');
+                              if ( api.czr_sektions.code_editor_params && api.czr_sektions.code_editor_params[ code_type ] ) {
+                                    _dfd_.resolve( api.czr_sektions.code_editor_params[ code_type ] );
+                              } else {
+                                    wp.ajax.post( 'sek_get_code_editor_params', {
+                                          nonce: api.settings.nonce.save,
+                                          code_type : code_type
+                                    }).done( function( code_editor_params ) {
+                                          if ( !_.isObject( code_editor_params ) ) {
+                                                api.errare( input.id + ' => error => invalid code editor params sent by server', code_editor_params );
+                                          }
+                                          api.czr_sektions.code_editor_params = {} || api.czr_sektions.code_editor_params;
+                                          api.czr_sektions.code_editor_params[ code_type ] = code_editor_params;
+                                          _dfd_.resolve( api.czr_sektions.code_editor_params[ code_type ] );
+                                    }).fail( function( _r_ ) {
+                                          _dfd_.reject( _r_ );
+                                    });
+                              }
+                        });
+                  };
 
-                  // Obtain editorSettings for instantiation.
-                  if ( wp.codeEditor  && ( _.isUndefined( editor_params ) || false !== editor_params )  ) {
-                        // Obtain this input editor settings (we don't have defaults).
-                        editorSettings = editor_params;
-                  }
+                  // do
+                  var _fetchEditorParamsAndInstantiate = function( params ) {
+                        if ( true === input.catCollectionSet )
+                          return;
+                        $.when( _getEditorParams() ).done( function( editorParams ) {
+                              _generateOptionsAndInstantiateSelect2(editorParams);
+                              if ( params && true === params.open_on_init ) {
+                                    // let's open select2 after a delay ( because there's no 'ready' event with select2 )
+                                    _.delay( function() {
+                                          try{ $selectEl.czrSelect2('open'); } catch(er) {}
+                                    }, 100 );
+                              }
+                        }).fail( function( _r_ ) {
+                              api.errare( input.id + ' => fail response when _getEditorParams()', _r_ );
+                        });
+                        input.catCollectionSet = true;
+                  };
+
 
                   input.isReady.done( function() {
                         var _doInstantiate = function( evt ) {
@@ -9486,15 +9751,27 @@ var CZRSeksPrototype = CZRSeksPrototype || {};
                                    $input_title.click();
                               }, 10 );
                         };
-                        // Try to instantiate now
-                        _doInstantiate.call(input);
 
-                        // the input should be visible otherwise the code mirror initializes wrongly:
-                        // e.g. bad ui (bad inline CSS maths), not visible content until click.
-                        // When the code_editor input is rendered in an accordion control ( @see CZRSeksPrototype.scheduleModuleAccordion ), we need to defer the instantiation when the control has been expanded.
-                        // fixes @see https://github.com/presscustomizr/nimble-builder/issues/176
-                        input.module.control.container.on('sek-accordion-expanded', function() {
-                              _doInstantiate.call( input );
+                        $.when( _getEditorParams() ).done( function( editorParams ) {
+                              //$textarea.attr( 'data-editor-params', editorParams );
+                              // Obtain editorSettings for instantiation.
+                              if ( wp.codeEditor  && ( _.isUndefined( editorParams ) || false !== editorParams )  ) {
+                                    // Obtain this input editor settings (we don't have defaults).
+                                    editorSettings = editorParams;
+                              }
+
+                              // Try to instantiate now
+                              _doInstantiate.call(input);
+
+                              // the input should be visible otherwise the code mirror initializes wrongly:
+                              // e.g. bad ui (bad inline CSS maths), not visible content until click.
+                              // When the code_editor input is rendered in an accordion control ( @see CZRSeksPrototype.scheduleModuleAccordion ), we need to defer the instantiation when the control has been expanded.
+                              // fixes @see https://github.com/presscustomizr/nimble-builder/issues/176
+                              input.module.control.container.on('sek-accordion-expanded', function() {
+                                    _doInstantiate.call( input );
+                              });
+                        }).fail( function(er) {
+                              api.errare( input.id + ' => error when getting the editor params from server');
                         });
                   });
 
@@ -10634,7 +10911,23 @@ var CZRSeksPrototype = CZRSeksPrototype || {};
                               action : 'sek-reset-collection',
                               scope : scope,//<= will determine which setting will be updated,
                               // => self.getGlobalSectionsSettingId() or self.localSectionsSettingId()
-                        }).fail( function( response ) {
+                        })
+                        .done( function( resp) {
+                              api.previewer.refresh();
+                              api.previewer.trigger('sek-notify', {
+                                    notif_id : 'reset-success',
+                                    type : 'success',
+                                    duration : 8000,
+                                    message : [
+                                          '<span>',
+                                            '<strong>',
+                                            sektionsLocalizedData.i18n['Reset complete'],
+                                            '</strong>',
+                                          '</span>'
+                                    ].join('')
+                              });
+                        })
+                        .fail( function( response ) {
                               api.errare( 'reset_button input => error when firing ::updateAPISetting', response );
                               api.previewer.trigger('sek-notify', {
                                     notif_id : 'reset-failed',
@@ -11822,7 +12115,13 @@ var CZRSeksPrototype = CZRSeksPrototype || {};
                   // Initialize
                   // Fixes issue https://github.com/presscustomizr/nimble-builder/issues/248
                   api.czr_sektions.currentContentPickerType = api.czr_sektions.currentContentPickerType || new api.Value( input() );
-                  _do_( api.czr_sektions.currentContentPickerType() );
+                  // This event is emitted by ::generateUIforDraggableContent()
+                  // this way we are sure that all controls for modules and sections are instantiated
+                  // and we can use _section_.controls() to set the visibility of module / section controls when switching
+                  api.bind('nimble-modules-and-sections-controls-registered', function() {
+                        _do_( api.czr_sektions.currentContentPickerType() );
+                  });
+
 
                   // Schedule a reaction to changes
                   api.czr_sektions.currentContentPickerType.bind( function( contentType ) {
@@ -15242,7 +15541,7 @@ var CZRSeksPrototype = CZRSeksPrototype || {};
                   crud : false,
                   name : api.czr_sektions.getRegisteredModuleProperty( 'czr_menu_content_child', 'name' ),
                   has_mod_opt : false,
-                  ready_on_section_expanded : true,
+                  ready_on_section_expanded : false,
                   ready_on_control_event : 'sek-accordion-expanded',// triggered in ::scheduleModuleAccordion()
                   defaultItemModel : api.czr_sektions.getDefaultItemModelFromRegisteredModuleData( 'czr_menu_content_child' )
             }
@@ -15271,7 +15570,7 @@ var CZRSeksPrototype = CZRSeksPrototype || {};
                   crud : false,
                   name : api.czr_sektions.getRegisteredModuleProperty( 'czr_menu_mobile_options', 'name' ),
                   has_mod_opt : false,
-                  ready_on_section_expanded : true,
+                  ready_on_section_expanded : false,
                   ready_on_control_event : 'sek-accordion-expanded',// triggered in ::scheduleModuleAccordion()
                   defaultItemModel : api.czr_sektions.getDefaultItemModelFromRegisteredModuleData( 'czr_menu_mobile_options' )
             }
@@ -15771,6 +16070,10 @@ var CZRSeksPrototype = CZRSeksPrototype || {};
                   //console.log('INITIALIZING FP MODULE', id, options );
                   var module = this;
 
+
+                  module.crudModulePart = 'nimble-crud-module-part';
+                  module.rudItemPart = 'nimble-rud-item-part';
+
                   // //EXTEND THE DEFAULT CONSTRUCTORS FOR MONOMODEL
                   module.itemConstructor = api.CZRItem.extend( module.CZRItemConstructor || {} );
 
@@ -15872,7 +16175,7 @@ var CZRSeksPrototype = CZRSeksPrototype || {};
                         api.CZRItem.prototype.ready.call( item );
                   },
 
-                  //
+
                   _buildTitle : function( title, icon, color ) {
                           var item = this,
                               module     = item.module;
@@ -15918,6 +16221,10 @@ var CZRSeksPrototype = CZRSeksPrototype || {};
                         });
                   },
 
+                  // Overrides the default fmk method in order to disable the remove dialog box
+                  toggleRemoveAlert : function() {
+                        this.removeItem();
+                  },
 
                   // Overrides the default fmk method, to disable the default preview refresh
                   //fired on click dom event
@@ -15925,6 +16232,7 @@ var CZRSeksPrototype = CZRSeksPrototype || {};
                   //@return void()
                   //@param params : { dom_el : {}, dom_event : {}, event : {}, model {} }
                   removeItem : function( params ) {
+                        params = params || {};
                         var item = this,
                             module = this.module,
                             _new_collection = _.clone( module.itemCollection() );

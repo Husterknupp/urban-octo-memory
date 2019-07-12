@@ -658,10 +658,11 @@ function sek_print_nb_btn_edit_with_nimble( $editor_type ) {
     ?>
     <button id="sek-edit-with-nimble" type="button" class="<?php echo $btn_css_classes; ?>" data-cust-url="<?php echo esc_url( $customize_url ); ?>">
       <?php //_e( 'Edit with Nimble Builder', 'text_doma' ); ?>
-      <?php printf( '<span class="sek-nimble-icon" title="%3$s"><img src="%1$s" alt="%2$s"/><span class="sek-nimble-admin-bar-title">%2$s</span></span>',
+      <?php printf( '<span class="sek-nimble-icon" title="%3$s"><img src="%1$s" alt="%2$s"/><span class="sek-nimble-admin-bar-title">%2$s</span><span class="sek-nimble-mobile-admin-bar-title">%3$s</span></span>',
           NIMBLE_BASE_URL.'/assets/img/nimble/nimble_icon.svg?ver='.NIMBLE_VERSION,
-          __('Add sections with Nimble Builder','nimble-builder'),
-          __('Add sections in live preview with Nimble Builder', 'nimble-builder')
+          __('Build with Nimble Builder','nimble-builder'),
+          __('Build','nimble-builder'),
+          __('Build sections in live preview with Nimble Builder', 'nimble-builder')
       ); ?>
     </button>
     <?php

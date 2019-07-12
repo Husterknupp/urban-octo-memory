@@ -2563,11 +2563,7 @@ $.extend( CZRItemMths , {
                         trigger   : 'click keydown',
                         selector  : [ '.' + item.module.control.css_attr.display_alert_btn, '.' + item.module.control.css_attr.cancel_alert_btn ].join(','),
                         name      : 'toggle_remove_alert',
-                        actions   : function() {
-                              var _isVisible = this.removeDialogVisible();
-                              this.module.closeRemoveDialogs();
-                              this.removeDialogVisible( ! _isVisible );
-                        }
+                        actions   : ['toggleRemoveAlert']
                   },
                   //removes item and destroys its view
                   {
@@ -2745,11 +2741,20 @@ $.extend( CZRItemMths , {
             });
       },
 
+      // fired on click event
+      // @see initialize()
+      toggleRemoveAlert : function() {
+            var _isVisible = this.removeDialogVisible();
+            this.module.closeRemoveDialogs();
+            this.removeDialogVisible( ! _isVisible );
+      },
+
       //fired on click dom event
       //for dynamic multi input modules
       //@return void()
       //@param params : { dom_el : {}, dom_event : {}, event : {}, model {} }
       removeItem : function( params ) {
+            params = params || {};
             var item = this,
                 module = this.module,
                 _new_collection = _.clone( module.itemCollection() );
@@ -2882,7 +2887,7 @@ $.extend( CZRItemMths , {
                         if ( 1 > $( '#tmpl-' + _template_selector ).length ) {
                             dfd.reject( 'Missing template for item ' + item.id + '. The provided template script has no been found : #tmpl-' + _template_selector );
                         }
-                        appendAndResolve( wp.template( _template_selector )( item_model_for_template_injection ) );
+                        appendAndResolve( wp.template( _template_selector )( $.extend( item_model_for_template_injection, { is_sortable : module.sortable } ) ) );
                   } else {
 
                         // allow plugin to alter the ajax params before fetching
@@ -2907,7 +2912,7 @@ $.extend( CZRItemMths , {
                         } else {
                               api.CZR_Helpers.getModuleTmpl( requestParams ).done( function( _serverTmpl_ ) {
                                     //console.log( 'renderItemWrapper => success response =>', module.id, _serverTmpl_);
-                                    appendAndResolve( api.CZR_Helpers.parseTemplate( _serverTmpl_ )( { is_sortable : module.sortable } ) );
+                                    appendAndResolve( api.CZR_Helpers.parseTemplate( _serverTmpl_ )(  $.extend( item_model_for_template_injection, { is_sortable : module.sortable } ) ) );
                               }).fail( function( _r_ ) {
                                     //console.log( 'renderItemWrapper => fail response =>', _r_);
                                     dfd.reject( 'renderItemWrapper => Problem when fetching the rud-item-part tmpl from server for module : '+ module.id );
@@ -3152,7 +3157,7 @@ $.extend( CZRItemMths , {
                   if ( 1 > $( '#tmpl-' + tmplSelectorSuffix ).length ) {
                         dfd.reject( 'renderItemContent => No itemInputList content template defined for module ' + module.id + '. The template script id should be : #tmpl-' + tmplSelectorSuffix );
                   } else {
-                        appendAndResolve( wp.template( tmplSelectorSuffix )( item_model_for_template_injection ) );
+                        appendAndResolve( wp.template( tmplSelectorSuffix )( $.extend( item_model_for_template_injection, { control_id : module.control.id } ) ) );
                   }
 
             } else {
@@ -3607,13 +3612,14 @@ $.extend( CZRModuleMths, {
             $.extend( module, constructorOptions || {} );
 
             //extend the module with new template Selectors
+            //can have been overriden at this stage from a module constructor
             $.extend( module, {
-                  crudModulePart : '', //'czr-crud-module-part',//create, read, update, delete
-                  rudItemPart : '',// 'czr-rud-item-part',//read, update, delete
-                  ruItemPart : '',// 'czr-ru-item-part',//read, update <= ONLY USED IN THE WIDGET MODULE
-                  alertPart : '',// 'czr-rud-item-alert-part',//used both for items and modules removal
-                  itemInputList : '',//is specific for each crud module
-                  modOptInputList : ''//is specific for each module
+                  crudModulePart : module.crudModulePart || '', //'czr-crud-module-part',//create, read, update, delete
+                  rudItemPart : module.rudItemPart || '',// 'czr-rud-item-part',//read, update, delete
+                  ruItemPart : module.ruItemPart || '',// 'czr-ru-item-part',//read, update <= ONLY USED IN THE WIDGET MODULE
+                  alertPart : module.alertPart || '',// 'czr-rud-item-alert-part',//used both for items and modules removal
+                  itemInputList : module.itemInputList || '',//is specific for each crud module
+                  modOptInputList : module.modOptInputList || ''//is specific for each module
             } );
 
             //embed : define a container, store the embed state, fire the render method
