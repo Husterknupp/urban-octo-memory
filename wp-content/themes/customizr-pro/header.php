@@ -28,7 +28,7 @@ if ( apply_filters( 'czr_ms', false ) ) {
 <html class="no-js" <?php language_attributes(); ?>>
 <!--<![endif]-->
 	<head>
-        <meta charset="UTF-8" />
+		<meta charset="<?php bloginfo( 'charset' ); ?>" />
 		<meta http-equiv="X-UA-Compatible" content="IE=EDGE" />
         <?php if ( ! function_exists( '_wp_render_title_tag' ) ) :?>
 			<title><?php wp_title( '|' , true, 'right' ); ?></title>

@@ -1,4 +1,4 @@
-# Customizr Pro v2.1.31
+# Customizr Pro v2.1.32
 ![Customizr - Pro](/screenshot.png)
 
 > The pro version of the popular Customizr WordPress theme.
@@ -14,6 +14,11 @@ Customizr Pro is distributed under the terms of the [GNU GPL v2.0 or later](http
 * SUPPORT : http://presscustomizr.com/support/
 
 ## Changelog
+= 2.1.32 June 30th 2019 =
+* fixed : fix dropdown menu on hover not opening in tablet iOS based
+* fixed : WooCommerce compat reduce the font size of the "apply coupon" text
+* fixed H1 tag wrapping site-title, leading to possible multiple H1 on singular pages
+
 = 2.1.31 June 4th 2019 =
 * fixed : minor font-size issue
 * improved : replaced TGMPA class for plugin recommendation

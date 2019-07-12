@@ -4,8 +4,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: * Customizr-Pro v2.1.15\n"
 "Report-Msgid-Bugs-To: https://presscustomizr.com/contact/\n"
-"POT-Creation-Date: 2019-06-04 16:49:18+00:00\n"
-"PO-Revision-Date: 2019-01-27 18:32+0100\n"
+"POT-Creation-Date: 2019-06-30 15:24:20+00:00\n"
+"PO-Revision-Date: 2019-06-08 19:47+0200\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "Language: de\n"
@@ -377,13 +377,12 @@ msgid "We couldn't check the updates for "
 msgstr "Wir konnten die Updates nicht überprüfen für "
 
 #: addons/activation-key/updates/class_theme_updater.php:133
-#, fuzzy
 msgid ""
 "You might need to check for updates on <a href=\"https://presscustomizr.com/"
 "customizr-pro\" title=\"Press Customizr\" target=\"_blank\">presscustomizr."
 "com</a> and "
 msgstr ""
-"Möglicherweise musst du prüfen, ob es Updates für <a href=\"http://"
+"Möglicherweise musst du prüfen, ob es Updates für <a href=\"https://"
 "presscustomizr.com/extension/customizr-pro\" title=\"Press Customizr\" "
 "target=\"_blank\">presscustomizr.com</a> und "
 
@@ -538,6 +537,8 @@ msgid ""
 "The following template tags can be used : {{year}}, {{site_title}}, "
 "{{home_url}}"
 msgstr ""
+"Die folgenden Template-Tags können verwendet werden: {{Jahr}}, {{site _ "
+"title}}, {{home _ url}}"
 
 #: addons/bundle/footer-customizer/footer-customizer.php:207
 msgid "Copyright text"
@@ -609,7 +610,7 @@ msgstr ""
 
 #: addons/bundle/grid-customizer/tc_grid_customizer.php:235
 msgid "Masonry grid layout"
-msgstr "Raster-Layout"
+msgstr "Masonry Raster-Layout"
 
 #: addons/bundle/grid-customizer/tc_grid_customizer.php:236
 msgid "Plain excerpt layout"
@@ -1551,10 +1552,14 @@ msgstr "Button-Textfarbe"
 #: addons/fpu/utils/classes/class_utils_fpu.php:713
 msgid "If you are using WooCommerce, allow your products to be featured"
 msgstr ""
+"Wenn du WooCommerce verwendest, lasse es zu, dass deine Produkte vorgestellt "
+"werden"
 
 #: addons/fpu/utils/classes/class_utils_fpu.php:716
 msgid "When you change this option, you need to publish and refresh the page."
 msgstr ""
+"Wenn du diese Option änderst, musst du die Seite veröffentlichen und "
+"aktualisieren."
 
 #: addons/wfc/back/classes/class_admin_font_customizer.php:43
 #: addons/wfc/back/classes/class_admin_font_customizer.php:61
@@ -1893,27 +1898,27 @@ msgstr ""
 "title }} ?</strong>"
 
 #: addons/wfc/back/czr-base-fmk/czr-base-fmk.php:1562
-#: core/czr-base-fmk/czr-base-fmk.php:1579
+#: core/czr-base-fmk/czr-base-fmk.php:1578
 msgid "Set a custom url"
 msgstr "Eine individuelle URL festlegen"
 
 #: addons/wfc/back/czr-base-fmk/czr-base-fmk.php:1596
 #: addons/wfc/back/czr-base-fmk/czr-base-fmk.php:1796
-#: core/czr-base-fmk/czr-base-fmk.php:1613
-#: core/czr-base-fmk/czr-base-fmk.php:1813
+#: core/czr-base-fmk/czr-base-fmk.php:1612
+#: core/czr-base-fmk/czr-base-fmk.php:1812
 msgid "ajax_load_available_items => Security check failed."
 msgstr "ajax_load_available_items => Sicherheitsprüfung fehlgeschlagen."
 
 #. translators: %d: ID of a post
 #: addons/wfc/back/czr-base-fmk/czr-base-fmk.php:1717
 #: addons/wfc/back/czr-base-fmk/czr-base-fmk.php:1926
-#: core/czr-base-fmk/czr-base-fmk.php:1734
-#: core/czr-base-fmk/czr-base-fmk.php:1943
+#: core/czr-base-fmk/czr-base-fmk.php:1733
+#: core/czr-base-fmk/czr-base-fmk.php:1942
 msgid "#%d (no title)"
 msgstr "#%d (kein Titel)"
 
 #: addons/wfc/back/czr-base-fmk/czr-base-fmk.php:1860
-#: core/czr-base-fmk/czr-base-fmk.php:1877
+#: core/czr-base-fmk/czr-base-fmk.php:1876
 msgid "No results found."
 msgstr "Keine Ergebnisse gefunden."
 
@@ -2392,20 +2397,21 @@ msgid "a short guide here."
 msgstr "eine kurze Anleitung hier."
 
 #: core/class-plugin-rec.php:22
-#, fuzzy
 msgid "Customizr theme recommends %1$s."
-msgstr "Customizr-Theme-Dokumentation"
+msgstr "Customizr Thema empfiehlt%1$s."
 
 #: core/class-plugin-rec.php:25
-#, fuzzy
 msgid "Nimble Page Builder"
-msgstr "Nimble Builder"
+msgstr "Nimble Page Builder"
 
 #: core/class-plugin-rec.php:30
 msgid ""
 "Nimble Page Builder is a free, easy to use yet powerful page builder used by "
 "30K+ WordPress websites."
 msgstr ""
+"Nimble Page Builder ist ein kostenloser, einfach zu bedienender, aber "
+"leistungsstarker Page Builder, der von 30K+ WordPress-Websites verwendet "
+"wird."
 
 #: core/class-plugin-rec.php:32
 msgid ""
@@ -2415,11 +2421,15 @@ msgid ""
 "Builder uses the live customizer which is the native WordPress interface for "
 "real-time design."
 msgstr ""
+"Es ermöglicht dir, mobile, fertige Spaltenlayouts zu erstellen und Module "
+"per Drag and Drop wie Beitrags-Tabellen, Buttons, Widget-Zonen, Karten, "
+"Icons oder schöne vorgefertigte Abschnitte mit einziehenden% von 1$s auf "
+"jeder Seite deiner Website zu erstellen. Nimble Builder verwendet den Live-"
+"Customizer, der die native WordPress-Schnittstelle für Echtzeit-Design ist."
 
 #: core/class-plugin-rec.php:33
-#, fuzzy
 msgid "parallax backgrounds"
-msgstr "Kein Hintergrund"
+msgstr "Parallax-Hintergründe"
 
 #: core/class-plugin-rec.php:35
 msgid ""
@@ -2430,14 +2440,12 @@ msgstr ""
 "Leichtgewichtig und sicher."
 
 #: core/class-plugin-rec.php:42
-#, fuzzy
 msgid "Activate Nimble Builder Now"
-msgstr "Aktiviere Nimble Builder"
+msgstr "Jetzt den Nimble-Builder aktivieren"
 
 #: core/class-plugin-rec.php:48
-#, fuzzy
 msgid "Install Nimble Builder Now"
-msgstr "Nimble Builder"
+msgstr "Jetzt Nimble Builder installieren"
 
 #: core/core-functions.php:1494
 msgid "Page %s"
@@ -2689,7 +2697,7 @@ msgstr "Header-Vordergrundfarbe"
 
 #: core/core-settings-map.php:546
 msgid " Highlight contextually active menu items"
-msgstr ""
+msgstr "Markiere die aktiven Menüpunkte"
 
 #: core/core-settings-map.php:554
 msgid "Apply a transparent background to your header on home."
@@ -3910,6 +3918,8 @@ msgstr ""
 msgid ""
 "This option can sometimes reduce too much the headings font-size on mobiles."
 msgstr ""
+"Diese Option kann manchmal zu sehr die Überschriften Schriftgröße auf "
+"Mobiltelefonen reduzieren."
 
 #: core/core-settings-map.php:2368
 msgid ""
@@ -3964,9 +3974,8 @@ msgstr ""
 "Child Theme vor der Anwendung in einer Staging-Site zu testen."
 
 #: core/core-settings-map.php:2403
-#, fuzzy
 msgid "Display the product featured image"
-msgstr "Änderungsdatum anzeigen"
+msgstr "Anzeige des Produktes mit Bild"
 
 #: core/core-settings-map.php:2427
 msgid "Global settings"
@@ -4060,7 +4069,7 @@ msgstr "Wähle eine Primärfarbe für das Theme"
 
 #: core/core-settings-map.php:2585
 msgid "Font picker and font size"
-msgstr ""
+msgstr "Schriftauswahl und Schriftgröße"
 
 #: core/core-settings-map.php:2598
 msgid "Formatting : links, paragraphs ..."
@@ -4167,9 +4176,8 @@ msgid "Front-end Icons (Font Awesome)"
 msgstr "Frontend-Icons (Font Awesome)"
 
 #: core/core-settings-map.php:2783
-#, fuzzy
 msgid "Adaptative font size on mobile devices"
-msgstr "Wähle das/die Menü/s für mobile Geräte aus"
+msgstr "Automatische Anpassung der Schriftgrößeauf mobilen Geräten"
 
 #: core/core-settings-map.php:2788
 msgid "Theme style"
