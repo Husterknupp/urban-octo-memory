@@ -391,6 +391,20 @@
   z-index: 1001;
   bottom: 3px;
 }
+/* when a column has nested section(s), its ui might be hidden by deeper columns.*/
+/* that's why a CSS class is added to position it on the top right corner, instead of bottom right*/
+/* @see https://github.com/presscustomizr/nimble-builder/issues/488*/
+.sek-column > .sek-dyn-ui-wrapper.sek-col-has-nested-section .sek-dyn-ui-location-type {
+    top: 0px;
+    bottom: auto;
+}
+.sek-column > .sek-column-dyn-ui.sek-col-has-nested-section .sek-dyn-ui-inner {
+  top: 0%;
+  bottom: auto;
+  z-index: 1002;
+  display: none;
+}
+
 .sek-column-dyn-ui {
     border: 2px dotted #00b846;
     /* was 1rem, fixes https://github.com/presscustomizr/nimble-builder/issues/270 */
@@ -1330,24 +1344,6 @@ html.no-js [id*=sek-slider-loader-wrapper] {
 
 
 
-/* PLACEHOLDER STYLE FOR TINYMCE MODULE */
-.sek-tiny-mce-module-placeholder-text {
-  padding:10px;
-  border: 1px dotted;
-  background: rgba(0, 0, 0, 0.35);
-  color: #fff;
-  font-size:1rem;
-  line-height: 1.5rem;
-}
-
-/* PLACEHOLDER FOR POST GRID */
-.sek-module-placeholder.sek-post-grid {
-  font-size: 150px;
-}
-
-
-
-
 
 /* STYLE LINKS */
 .nimble-unclickable{cursor: not-allowed !important;}
@@ -1439,4 +1435,53 @@ https://github.com/presscustomizr/nimble-builder/issues/317 */
 .sek-target-for-double-click-insertion .sek-drop-zone [data-sek-click-on="pick-content"]{
   /*display: none;*/
   visibility: hidden;
+}
+
+
+
+
+/* PLACEHOLDER STYLE FOR TINYMCE MODULE */
+.sek-tiny-mce-module-placeholder-text {
+  padding:10px;
+  border: 1px dotted;
+  background: rgba(0, 0, 0, 0.35);
+  color: #fff;
+  font-size:1rem;
+  line-height: 1.5rem;
+}
+
+/* PLACEHOLDER FOR POST GRID */
+.sek-module-placeholder.sek-post-grid {
+  font-size: 150px;
+}
+
+/* PLACEHOLDERS */
+[data-sek-module-type] .sek-mod-preview-placeholder {
+  height: 150px;
+  background: #eee;
+}
+[data-sek-module-type] .sek-mod-preview-placeholder .sek-preview-ph-text {
+  font-size:25px;
+  position: relative;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-pack: center;
+  justify-content: center;
+  -ms-flex-align: flex-end;
+  align-items: flex-end;
+}
+
+[data-sek-module-type] .sek-mod-preview-placeholder .sek-preview-ph-text > p { padding: 10px;position: relative;margin: 0;color:#767676 }
+[data-sek-module-type] .sek-mod-preview-placeholder .sek-preview-ph-text::before {
+        content: '';
+        left: 0;
+        right: 0;
+        bottom: 0;
+        top: 0;
+        position: absolute;
+        background-color: #ffffff;
+        opacity: 0.6;
 }

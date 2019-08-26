@@ -1085,6 +1085,34 @@ function sek_front_needs_magnific_popup( $bool = false, $recursive_data = null )
     return true === $bool;
 }
 
+// @return bool
+// Fired in 'wp_enqueue_scripts'
+// Recursively sniff the local and global sections to find a 'img-lightbox' string
+// @see sek_get_module_params_for_czr_image_main_settings_child
+function sek_front_needs_swiper( $bool = false, $recursive_data = null ) {
+    if ( !$bool ) {
+        if ( is_null( $recursive_data ) ) {
+            $local_skope_settings = sek_get_skoped_seks( skp_get_skope_id() );
+            $local_collection = ( is_array( $local_skope_settings ) && !empty( $local_skope_settings['collection'] ) ) ? $local_skope_settings['collection'] : array();
+            $global_skope_settings = sek_get_skoped_seks( NIMBLE_GLOBAL_SKOPE_ID );
+            $global_collection = ( is_array( $global_skope_settings ) && !empty( $global_skope_settings['collection'] ) ) ? $global_skope_settings['collection'] : array();
+
+            $recursive_data = array_merge( $local_collection, $global_collection );
+        }
+
+        $swiper_dependant_modules = array( 'czr_img_slider_module' );
+
+        foreach ($recursive_data as $key => $value) {
+            if ( is_array( $value ) && array_key_exists('module_type', $value) && in_array($value['module_type'], $swiper_dependant_modules ) ) {
+                $bool = true;
+                break;
+            } else if ( is_array( $value ) ) {
+                $bool = sek_front_needs_swiper( $bool, $value );
+            }
+        }
+    }
+    return true === $bool;
+}
 
 
 
@@ -1622,6 +1650,24 @@ function sek_is_customize_previewing_a_changeset_post() {
 function sek_get_module_collection() {
     return array(
         array(
+          'content-type' => 'preset_section',
+          'content-id' => 'two_columns',
+          'title' => __( 'Two Columns', 'nimble-builder' ),
+          'icon' => 'Nimble_2-columns_icon.svg'
+        ),
+        array(
+          'content-type' => 'preset_section',
+          'content-id' => 'three_columns',
+          'title' => __( 'Three Columns', 'nimble-builder' ),
+          'icon' => 'Nimble_3-columns_icon.svg'
+        ),
+        array(
+          'content-type' => 'preset_section',
+          'content-id' => 'four_columns',
+          'title' => __( 'Four Columns', 'nimble-builder' ),
+          'icon' => 'Nimble_4-columns_icon.svg'
+        ),
+        array(
           'content-type' => 'module',
           'content-id' => 'czr_tiny_mce_editor_module',
           'title' => __( 'WordPress Editor', 'nimble-builder' ),
@@ -1654,27 +1700,15 @@ function sek_get_module_collection() {
         ),
         array(
           'content-type' => 'module',
-          'content-id' => 'czr_post_grid_module',
-          'title' => __( 'Post Grid', 'nimble-builder' ),
-          'icon' => 'Nimble_posts-list_icon.svg'
+          'content-id' => 'czr_img_slider_module',
+          'title' => __( 'Image & Text Carousel', 'nimble-builder' ),
+          'icon' => 'Nimble_slideshow_icon.svg'
         ),
         array(
-          'content-type' => 'preset_section',
-          'content-id' => 'two_columns',
-          'title' => __( 'Two Columns', 'nimble-builder' ),
-          'icon' => 'Nimble_2-columns_icon.svg'
-        ),
-        array(
-          'content-type' => 'preset_section',
-          'content-id' => 'three_columns',
-          'title' => __( 'Three Columns', 'nimble-builder' ),
-          'icon' => 'Nimble_3-columns_icon.svg'
-        ),
-        array(
-          'content-type' => 'preset_section',
-          'content-id' => 'four_columns',
-          'title' => __( 'Four Columns', 'nimble-builder' ),
-          'icon' => 'Nimble_4-columns_icon.svg'
+          'content-type' => 'module',
+          'content-id' => 'czr_accordion_module',
+          'title' => __( 'Accordion', 'nimble-builder' ),
+          'icon' => 'Nimble_accordion_icon.svg'
         ),
         array(
           'content-type' => 'module',
@@ -1684,29 +1718,21 @@ function sek_get_module_collection() {
         ),
         array(
           'content-type' => 'module',
-          'content-id' => 'czr_map_module',
-          'title' => __( 'Map', 'nimble-builder' ),
-          'icon' => 'Nimble_map_icon.svg'
+          'content-id' => 'czr_post_grid_module',
+          'title' => __( 'Post Grid', 'nimble-builder' ),
+          'icon' => 'Nimble_posts-list_icon.svg'
         ),
-        array(
-          'content-type' => 'module',
-          'content-id' => 'czr_widget_area_module',
-          'title' => __( 'WordPress widget area', 'nimble-builder' ),
-          'font_icon' => '<i class="fab fa-wordpress-simple"></i>'
-          //'active' => sek_are_beta_features_enabled()
-        ),
-        array(
-          'content-type' => 'module',
-          'content-id' => 'czr_social_icons_module',
-          'title' => __( 'Social Profiles', 'nimble-builder' ),
-          'icon' => 'Nimble_social_icon.svg'
-        ),
-
         array(
           'content-type' => 'module',
           'content-id' => 'czr_quote_module',
           'title' => __( 'Quote', 'nimble-builder' ),
           'icon' => 'Nimble_quote_icon.svg'
+        ),
+        array(
+          'content-type' => 'module',
+          'content-id' => 'czr_shortcode_module',
+          'title' => __( 'Shortcode', 'nimble-builder' ),
+          'icon' => 'Nimble_shortcode_icon.svg'
         ),
         array(
           'content-type' => 'module',
@@ -1719,6 +1745,26 @@ function sek_get_module_collection() {
           'content-id' => 'czr_divider_module',
           'title' => __( 'Divider', 'nimble-builder' ),
           'icon' => 'Nimble__divider_icon.svg'
+        ),
+        array(
+          'content-type' => 'module',
+          'content-id' => 'czr_map_module',
+          'title' => __( 'Map', 'nimble-builder' ),
+          'icon' => 'Nimble_map_icon.svg'
+        ),
+
+        array(
+          'content-type' => 'module',
+          'content-id' => 'czr_widget_area_module',
+          'title' => __( 'WordPress widget area', 'nimble-builder' ),
+          'font_icon' => '<i class="fab fa-wordpress-simple"></i>'
+          //'active' => sek_are_beta_features_enabled()
+        ),
+        array(
+          'content-type' => 'module',
+          'content-id' => 'czr_social_icons_module',
+          'title' => __( 'Social Profiles', 'nimble-builder' ),
+          'icon' => 'Nimble_social_icon.svg'
         ),
         array(
           'content-type' => 'module',
@@ -1786,8 +1832,8 @@ function sek_get_feedback_notif_status() {
     $start_version = get_option( 'nimble_started_with_version', NIMBLE_VERSION );
     //sek_error_log('START VERSION ?' . $start_version, version_compare( $start_version, '1.6.0', '<=' ) );
 
-    // Bail if user did not start before 1.7.4, May 10th 2019
-    if ( ! version_compare( $start_version, '1.7.4', '<=' ) )
+    // Bail if user did not start before 1.8.3, June 20th 2019
+    if ( ! version_compare( $start_version, '1.8.3', '<=' ) )
       return;
 
     $sek_post_query_vars = array(
@@ -1828,7 +1874,7 @@ function sek_get_feedback_notif_status() {
     // sek_error_log('$modules_used ?? ' . count($modules_used), $modules_used );
     // sek_error_log('$customized_pages ??', $customized_pages );
     //version_compare( $this->wp_version, '4.1', '>=' )
-    return $customized_pages > 0 && $nb_section_created > 2 && count($modules_used) > 3;
+    return $customized_pages > 0 && $nb_section_created > 2 && count($modules_used) > 2;
 }
 
 // recursive helper to count the number of sections in a given set of sections data
@@ -1914,6 +1960,21 @@ function sek_maybe_get_presscustomizr_theme_name( $theme_name ) {
   return $theme_name;
 }
 
+// @return a string
+function sek_get_th_start_ver( $theme_name ) {
+  if ( !in_array( $theme_name, ['customizr', 'hueman'] ) )
+    return '';
+  $start_ver = '';
+  switch( $theme_name ) {
+      case 'customizr' :
+          $start_ver = defined( 'CZR_USER_STARTED_USING_FREE_THEME' ) ? CZR_USER_STARTED_USING_FREE_THEME : '';
+      break;
+      case 'hueman' :
+          $start_ver = get_transient( 'started_using_hueman' );
+      break;
+  }
+  return $start_ver;
+}
 
 
 
@@ -2030,8 +2091,13 @@ if ( !defined( "NIMBLE_DATA_API_URL_V2" ) ) { define( "NIMBLE_DATA_API_URL_V2", 
 function sek_get_nimble_api_data( $force_update = false ) {
     $api_data_transient_name = 'nimble_api_data_' . NIMBLE_VERSION;
     $info_data = get_transient( $api_data_transient_name );
+    $theme_slug = sek_get_parent_theme_slug();
+    $pc_theme_name = sek_maybe_get_presscustomizr_theme_name( $theme_slug );
     // set this constant in wp_config.php
     $force_update = ( defined( 'NIMBLE_FORCE_UPDATE_API_DATA') && NIMBLE_FORCE_UPDATE_API_DATA ) ? true : $force_update;
+    if ( true === $force_update && sek_is_dev_mode() ) {
+          sek_error_log('API is in force update mode');
+    }
 
     // Refresh every 12 hours, unless force_update set to true
     if ( $force_update || false === $info_data ) {
@@ -2041,7 +2107,8 @@ function sek_get_nimble_api_data( $force_update = false ) {
           'body' => [
             'api_version' => NIMBLE_VERSION,
             'site_lang' => get_bloginfo( 'language' ),
-            'theme_name' => sek_maybe_get_presscustomizr_theme_name( sek_get_parent_theme_slug() )
+            'theme_name' => $pc_theme_name,
+            'start_ver' => sek_get_th_start_ver( $pc_theme_name )
           ],
         ) );
 
@@ -2132,19 +2199,18 @@ function sek_get_latest_posts_api_data( $force_update = false ) {
 }
 
 // @return html string
-function sek_get_cta_message_from_api( $theme_name, $force_update = false ) {
+function sek_start_msg_from_api( $theme_name, $force_update = false ) {
     $info_data = sek_get_nimble_api_data( $force_update );
-    if ( !sek_is_presscustomizr_theme( $theme_name ) || ! is_array( $info_data ) ) {
+    if ( !sek_is_presscustomizr_theme( $theme_name ) || !is_array( $info_data ) ) {
         return '';
     }
-    $message = '';
-    $cta_data = isset( $info_data['cta'] ) ? $info_data['cta'] : null;
+    $msg = '';
+    $api_msg = isset( $info_data['start_msg'] ) ? $info_data['start_msg'] : null;
 
-    $fn = 'customizr' === sek_maybe_get_presscustomizr_theme_name( $theme_name ) ? 'czr_fn_user_started_before_version' : 'hu_user_started_before_version';
-    if ( function_exists($fn) && !is_null($cta_data) && isset( $cta_data['started_before'] ) && call_user_func_array( $fn, array( $cta_data['started_before'] ) ) ) {
-        $message = !empty( $cta_data['html'] ) ? $cta_data['html'] : '';
+    if ( !is_null($api_msg) && is_string($api_msg) ) {
+        $msg = $api_msg;
     }
-    return $message;
+    return $msg;
 }
 
 // Refresh the api data on plugin update and theme switch
@@ -3531,52 +3597,134 @@ function sek_set_mq_css_rules( $params, $rules ) {
         'selector' => '',
         'is_important' => false
     ));
-    if ( ! empty( $params['value'][ 'desktop' ] ) ) {
-        $_font_size_mq[ 'desktop' ] = null;
+
+    $css_value_by_devices = $params['value'];
+    $_font_size_mq = array('desktop' => null , 'tablet' => null , 'mobile' => null );
+
+    if ( !empty( $css_value_by_devices ) ) {
+          if ( ! empty( $css_value_by_devices[ 'desktop' ] ) ) {
+              $_font_size_mq[ 'desktop' ] = null;
+          }
+
+          if ( ! empty( $css_value_by_devices[ 'tablet' ] ) ) {
+              $_font_size_mq[ 'tablet' ]  = '(max-width:'. ( Sek_Dyn_CSS_Builder::$breakpoints['md'] - 1 ) . 'px)'; //max-width: 767
+          }
+
+          if ( ! empty( $css_value_by_devices[ 'mobile' ] ) ) {
+              $_font_size_mq[ 'mobile' ]  = '(max-width:'. ( Sek_Dyn_CSS_Builder::$breakpoints['sm'] - 1 ) . 'px)'; //max-width: 575
+          }
+
+          // $css_value_by_devices looks like
+          // array(
+          //     'desktop' => '30px',
+          //     'tablet' => '',
+          //     'mobile' => ''
+          // );
+          foreach ( $css_value_by_devices as $device => $val ) {
+              if ( ! in_array( $device, array( 'desktop', 'tablet', 'mobile' ) ) ) {
+                  sek_error_log( __FUNCTION__ . ' => error => unknown device : ' . $device );
+                  continue;
+              }
+              if ( ! empty(  $val ) ) {
+                  // the css_property can be an array
+                  // this is needed for example to write properties supporting several vendor prefixes
+                  $css_property = $params['css_property'];
+                  if ( is_array( $css_property ) ) {
+                      $css_rules_array = array();
+                      foreach ( $css_property as $property ) {
+                          $css_rules_array[] = sprintf( '%1$s:%2$s%3$s;', $property, $val, $params['is_important'] ? '!important' : '' );
+                      }
+                      $css_rules = implode( '', $css_rules_array );
+                  } else {
+                      $css_rules = sprintf( '%1$s:%2$s%3$s;', $css_property, $val, $params['is_important'] ? '!important' : '' );
+                  }
+                  $rules[] = array(
+                      'selector' => $params['selector'],
+                      'css_rules' => $css_rules,
+                      'mq' => $_font_size_mq[ $device ]
+                  );
+              }
+          }
+    } else {
+        sek_error_log( __FUNCTION__ . ' Error => missing css rules ');
     }
 
-    if ( ! empty( $params['value'][ 'tablet' ] ) ) {
-        $_font_size_mq[ 'tablet' ]  = '(max-width:'. ( Sek_Dyn_CSS_Builder::$breakpoints['md'] - 1 ) . 'px)'; //max-width: 767
-    }
-
-    if ( ! empty( $params['value'][ 'mobile' ] ) ) {
-        $_font_size_mq[ 'mobile' ]  = '(max-width:'. ( Sek_Dyn_CSS_Builder::$breakpoints['sm'] - 1 ) . 'px)'; //max-width: 575
-    }
-    // $params['value'] looks like
-    // array(
-    //     'desktop' => '30px',
-    //     'tablet' => '',
-    //     'mobile' => ''
-    // );
-    foreach ( $params['value'] as $device => $val ) {
-        if ( ! in_array( $device, array( 'desktop', 'tablet', 'mobile' ) ) ) {
-            sek_error_log( __FUNCTION__ . ' => error => unknown device : ' . $device );
-            continue;
-        }
-        if ( ! empty(  $val ) ) {
-            // the css_property can be an array
-            // this is needed for example to write properties supporting several vendor prefixes
-            $css_property = $params['css_property'];
-            if ( is_array( $css_property ) ) {
-                $css_rules_array = array();
-                foreach ( $css_property as $property ) {
-                    $css_rules_array[] = sprintf( '%1$s:%2$s%3$s;', $property, $val, $params['is_important'] ? '!important' : '' );
-                }
-                $css_rules = implode( '', $css_rules_array );
-            } else {
-                $css_rules = sprintf( '%1$s:%2$s%3$s;', $css_property, $val, $params['is_important'] ? '!important' : '' );
-            }
-            $rules[] = array(
-                'selector' => $params['selector'],
-                'css_rules' => $css_rules,
-                'mq' => $_font_size_mq[ $device ]
-            );
-        }
-    }
     return $rules;
 }
 
 
+// New version of sek_set_mq_css_rules() created in July 2019
+// => this version uses a param "css_rules_by_device" which describe the complete rule ( like padding-top:5em; ) for each device, instead of spliting value and property like the previous one
+// => it fixes the problem of vendor prefixes for which the value is not written the same.
+// For example, a top alignment in flex is written this way :
+// -webkit-box-align:start;
+// -ms-flex-align:start;
+//     align-items:flex-start;
+//
+// In this case, the param css_rules_by_device will be : "align-items:flex-start;-webkit-box-align:start;-ms-flex-align:start;";
+//
+// This function is invoked when sniffing the input rules.
+// It's a generic helper to generate media query css rule
+// @return an array of css rules looking like
+// $rules[] = array(
+//     'selector'    => $selector,
+//     'css_rules'   => $css_rules,
+//     'mq'          => $mq
+// );
+// @params params(array). Example
+// array(
+//     'css_rules_by_device' => array of css rules by devices
+//     'selector' => $selector,(string)
+//     'is_important' => $important,(bool)
+// )
+// params['value'] = Array
+// (
+//     [desktop] => padding-top:5em;
+//     [tablet] => padding-top:4em
+//     [mobile] => padding-top:25px
+// )
+function sek_set_mq_css_rules_new_version( $params, $rules ) {
+    // TABLETS AND MOBILES WILL INHERIT UPPER MQ LEVELS IF NOT OTHERWISE SPECIFIED
+    // Sek_Dyn_CSS_Builder::$breakpoints = [
+    //     'xs' => 0,
+    //     'sm' => 576,
+    //     'md' => 768,
+    //     'lg' => 992,
+    //     'xl' => 1200
+    // ];
+    $params = wp_parse_args( $params, array(
+        'css_rules_by_device' => array(),
+        'selector' => ''
+    ));
+
+    $css_rules_by_device = $params['css_rules_by_device'];
+    $_font_size_mq = array('desktop' => null , 'tablet' => null , 'mobile' => null );
+
+    if ( !empty( $css_rules_by_device ) ) {
+          if ( ! empty( $css_rules_by_device[ 'desktop' ] ) ) {
+              $_font_size_mq[ 'desktop' ] = null;
+          }
+
+          if ( ! empty( $css_rules_by_device[ 'tablet' ] ) ) {
+              $_font_size_mq[ 'tablet' ]  = '(max-width:'. ( Sek_Dyn_CSS_Builder::$breakpoints['md'] - 1 ) . 'px)'; //max-width: 767
+          }
+
+          if ( ! empty( $css_rules_by_device[ 'mobile' ] ) ) {
+              $_font_size_mq[ 'mobile' ]  = '(max-width:'. ( Sek_Dyn_CSS_Builder::$breakpoints['sm'] - 1 ) . 'px)'; //max-width: 575
+          }
+          foreach ( $css_rules_by_device as $device => $rules_for_device ) {
+              $rules[] = array(
+                  'selector' => $params['selector'],
+                  'css_rules' => $rules_for_device,
+                  'mq' => $_font_size_mq[ $device ]
+              );
+          }
+    } else {
+        sek_error_log( __FUNCTION__ . ' Error => missing css rules ');
+    }
+
+    return $rules;
+}
 
 
 
@@ -4471,6 +4619,28 @@ function sek_get_module_params_for_sek_module_picker_module() {
 // }
 ?><?php
 //Fired in add_action( 'after_setup_theme', 'sek_register_modules', 50 );
+function sek_get_module_params_for_sek_mod_option_switcher_module() {
+    return array(
+        'dynamic_registration' => true,
+        'module_type' => 'sek_mod_option_switcher_module',
+        'name' => __('Option switcher', 'nimble-builder'),
+        // 'sanitize_callback' => 'function_prefix_to_be_replaced_sanitize_callback__czr_social_module',
+        // 'validate_callback' => 'function_prefix_to_be_replaced_validate_callback__czr_social_module',
+        'tmpl' => array(
+            'item-inputs' => array(
+                'content_type' => array(
+                    'input_type'  => 'module_option_switcher',
+                    'title'       => '',//__('Which type of content would you like to drop in your page ?', 'text_doma'),
+                    'width-100'   => true,
+                    'title_width' => 'width-100',
+                )
+            )
+        )
+    );
+}
+
+?><?php
+//Fired in add_action( 'after_setup_theme', 'sek_register_modules', 50 );
 function sek_get_module_params_for_sek_level_bg_module() {
     return array(
         'dynamic_registration' => true,
@@ -5022,19 +5192,18 @@ function sek_add_css_rules_for_level_height( $rules, $level ) {
         foreach ( $v_alignment_value as $device => $align_val ) {
             switch ( $align_val ) {
                 case 'top' :
-                    $mapped_values[$device] = "flex-start";
+                    $mapped_values[$device] = "align-items:flex-start;-webkit-box-align:start;-ms-flex-align:start;";
                 break;
                 case 'center' :
-                    $mapped_values[$device] = "center";
+                    $mapped_values[$device] = "align-items:center;-webkit-box-align:center;-ms-flex-align:center;";
                 break;
                 case 'bottom' :
-                    $mapped_values[$device] = "flex-end";
+                    $mapped_values[$device] = "align-items:flex-end;-webkit-box-align:end;-ms-flex-align:end";
                 break;
             }
         }
-        $rules = sek_set_mq_css_rules( array(
-            'value' => $mapped_values,
-            'css_property' => 'align-items',
+        $rules = sek_set_mq_css_rules_new_version( array(
+            'css_rules_by_device' => $mapped_values,
             'selector' => '[data-sek-id="'.$level['id'].'"]'
         ), $rules );
     }
@@ -5304,20 +5473,19 @@ function sek_add_css_rules_for_module_width( $rules, $module ) {
         foreach ( $h_alignment_value as $device => $align_val ) {
             switch ( $align_val ) {
                 case 'left' :
-                    $mapped_values[$device] = "flex-start";
+                    $mapped_values[$device] = "align-self:flex-start;-ms-grid-row-align:start;-ms-flex-item-align:start;";
                 break;
                 case 'center' :
-                    $mapped_values[$device] = "center";
+                    $mapped_values[$device] = "align-self:center;-ms-grid-row-align:center;-ms-flex-item-align:center;";
                 break;
                 case 'right' :
-                    $mapped_values[$device] = "flex-end";
+                    $mapped_values[$device] = "align-self:flex-end;-ms-grid-row-align:end;-ms-flex-item-align:end;";
                 break;
             }
         }
 
-        $rules = sek_set_mq_css_rules( array(
-            'value' => $mapped_values,
-            'css_property' => 'align-self',
+        $rules = sek_set_mq_css_rules_new_version( array(
+            'css_rules_by_device' => $mapped_values,
             'selector' => '[data-sek-id="'.$module['id'].'"]'
         ), $rules );
     }
@@ -7525,7 +7693,7 @@ function sek_get_module_params_for_czr_featured_pages_module() {
 
 ?><?php
 /* ------------------------------------------------------------------------- *
- *  LOAD AND REGISTER FEATURED PAGES MODULE
+ *  LOAD AND REGISTER SOCIAL ICONS MODULE
 /* ------------------------------------------------------------------------- */
 //Fired in add_action( 'after_setup_theme', 'sek_register_modules', 50 );
 function sek_get_module_params_for_czr_social_icons_module() {
@@ -7538,9 +7706,13 @@ function sek_get_module_params_for_czr_social_icons_module() {
             'icons_style' => 'czr_social_icons_style_child'
         ),
         'name' => __('Social Icons', 'nimble-builder'),
-        // 'starting_value' => array(
-        //     'img' =>  NIMBLE_BASE_URL . '/assets/img/default-img.png'
-        // ),
+        'starting_value' => array(
+            'icons_collection' => array(
+                array( 'icon' => 'fab fa-facebook', 'color_css' => '#3b5998' ),
+                array( 'icon' => 'fab fa-twitter', 'color_css' => '#1da1f2' ),
+                array( 'icon' => 'fab fa-instagram', 'color_css' => '#262626' )
+            )
+        ),
         // 'sanitize_callback' => 'function_prefix_to_be_replaced_sanitize_callback__czr_social_module',
         // 'validate_callback' => 'function_prefix_to_be_replaced_validate_callback__czr_social_module',
         'css_selectors' => array( '.sek-social-icons-wrapper' ),//array( '.sek-icon i' ),
@@ -7898,7 +8070,6 @@ function sek_get_module_params_for_czr_heading_child() {
                     'width-100'         => true,
                     'refresh_markup'    => '.sek-heading [data-sek-input-type="textarea"]'
                     //'notice_before'      => __( 'You may use some html tags like a, br, span with attributes like style, id, class ...', 'text_doma'),
-
                 ),
                 'heading_tag' => array(
                     'input_type'         => 'simpleselect',
@@ -11686,6 +11857,1138 @@ function sek_get_module_params_for_czr_widget_area_module() {
 }
 
 ?><?php
+
+/* ------------------------------------------------------------------------- *
+ *  LOAD AND REGISTER IMG SLIDER MODULE
+/* ------------------------------------------------------------------------- */
+//Fired in add_action( 'after_setup_theme', 'sek_register_modules', 50 );
+function sek_get_module_params_for_czr_img_slider_module() {
+    return array(
+        'dynamic_registration' => true,
+        'module_type' => 'czr_img_slider_module',
+        'is_father' => true,
+        'children' => array(
+            'img_collection' => 'czr_img_slider_collection_child',
+            'slider_options' => 'czr_img_slider_opts_child'
+        ),
+        'name' => __('Image & Text Carousel', 'nimble-builder'),
+        'starting_value' => array(
+            'img_collection' => array(
+                array( 'img' =>  NIMBLE_BASE_URL . '/assets/img/default-img.png' ),
+                array( 'img' =>  NIMBLE_BASE_URL . '/assets/img/default-img.png' ),
+                array( 'img' =>  NIMBLE_BASE_URL . '/assets/img/default-img.png' )
+            )
+        ),
+        // 'sanitize_callback' => 'function_prefix_to_be_replaced_sanitize_callback__czr_social_module',
+        // 'validate_callback' => 'function_prefix_to_be_replaced_validate_callback__czr_social_module',
+        'css_selectors' => array( '[data-sek-swiper-id]' ),//array( '.sek-icon i' ),
+        'render_tmpl_path' => NIMBLE_BASE_PATH . "/tmpl/modules/img_slider_tmpl.php",
+        // 'front_assets' => array(
+        //       'czr-font-awesome' => array(
+        //           'type' => 'css',
+        //           //'handle' => 'czr-font-awesome',
+        //           'src' => NIMBLE_BASE_URL . '/assets/front/fonts/css/fontawesome-all.min.css'
+        //           //'deps' => array()
+        //       )
+        // )
+    );
+}
+
+
+/* ------------------------------------------------------------------------- *
+ *  MAIN SETTINGS
+/* ------------------------------------------------------------------------- */
+function sek_get_module_params_for_czr_img_slider_collection_child() {
+    $text_content_selector = array( '.sek-slider-text-content', '.sek-slider-text-content *' );
+    return array(
+        'dynamic_registration' => true,
+        'module_type' => 'czr_img_slider_collection_child',
+        'is_crud' => true,
+        'name' => sprintf('<i class="material-icons" style="font-size: 1.2em;">photo_library</i> %1$s', __( 'Slide collection', 'nimble-builder' ) ),
+        'starting_value' => array(
+            'img' =>  NIMBLE_BASE_URL . '/assets/img/default-img.png'
+        ),
+        //'sanitize_callback' => '\Nimble\sanitize_callback__czr_simple_form_module',
+        //'css_selectors' => array( '.sek-social-icon' ),//array( '.sek-icon i' ),
+        'tmpl' => array(
+            'pre-item' => array(
+                // 'page-id' => array(
+                //     'input_type'  => 'content_picker',
+                //     'title'       => __('Pick a page', 'text_doma')
+                // ),
+                'img' => array(
+                    'input_type'  => 'upload',
+                    'title'       => __('Pick an image', 'nimble-builder'),
+                    'default'     => ''
+                ),
+            ),
+            'item-inputs' => array(
+                'tabs' => array(
+                    array(
+                        'title' => __( 'Image', 'nimble-builder' ),
+                        'inputs' => array(
+                            'img' => array(
+                                'input_type'  => 'upload',
+                                'title'       => __('Pick an image', 'nimble-builder'),
+                                'default'     => ''
+                            ),
+                            'title_attr'  => array(
+                                'input_type'  => 'text',
+                                'default'     => '',
+                                'title'       => __('Title', 'nimble-builder'),
+                                'notice_after' => sprintf( __('This is the text displayed on mouse over. You can use the following template tags referring to the image attributes : %1$s', 'nimble-builder'), '&#123;&#123;title&#125;&#125;, &#123;&#123;caption&#125;&#125;, &#123;&#123;description&#125;&#125;' )
+                            )
+                        )
+                    ),
+                    array(
+                        'title' => __( 'Text', 'nimble-builder' ),
+                        'inputs' => array(
+                            'enable_text' => array(
+                                'input_type'  => 'nimblecheck',
+                                'title'       => __('Add text content', 'nimble-builder'),
+                                'default'     => false,
+                                'title_width' => 'width-80',
+                                'input_width' => 'width-20',
+                                'notice_after' => __('Note : you can adjust the text color and / or use a color overlay to improve accessibility of your text content.', 'nimble-builder')
+                            ),
+                            'text_content' => array(
+                                'input_type'        => 'nimble_tinymce_editor',
+                                'editor_params'     => array(
+                                    'media_button' => false,
+                                    'includedBtns' => 'basic_btns',
+                                ),
+                                'title'             => __( 'Text content', 'nimble-builder' ),
+                                'default'           => '',
+                                'width-100'         => true,
+                                'refresh_markup'    => '.sek-slider-text-content',
+                                'notice_before' => sprintf( __('You may use some html tags in the "text" tab of the editor. You can also use the following template tags referring to the image attributes : %1$s', 'nimble-builder'), '&#123;&#123;title&#125;&#125;, &#123;&#123;caption&#125;&#125;, &#123;&#123;description&#125;&#125;' )
+                            ),
+
+                            'color_css'           => array(
+                                'input_type'  => 'wp_color_alpha',
+                                'title'       => __( 'Text color', 'nimble-builder' ),
+                                'default'     => '#e2e2e2',// why this light grey ? => if set to white ( #fff ), the text is not visible when no image is picked, which might be difficult to understand for users
+                                'refresh_markup' => false,
+                                'refresh_stylesheet' => true,
+                                'width-100'   => true,
+                                'css_identifier' => 'color',
+                                'css_selectors' => $text_content_selector,
+                            ),//"#000000",
+
+                            'font_family_css' => array(
+                                'input_type'  => 'font_picker',
+                                'title'       => __( 'Font family', 'nimble-builder' ),
+                                'default'     => '',
+                                'refresh_markup' => false,
+                                'refresh_stylesheet' => true,
+                                'refresh_fonts' => true,
+                                'css_identifier' => 'font_family',
+                                'css_selectors' => $text_content_selector,
+                                'html_before' => '<hr/><h3>' . __('FONT OPTIONS', 'nimble-builder') .'</h3>'
+                            ),
+                            'font_size_css'       => array(
+                                'input_type'  => 'range_with_unit_picker_device_switcher',
+                                'default'     => array( 'desktop' => '16px' ),
+                                'title_width' => 'width-100',
+                                'title'       => __( 'Font size', 'nimble-builder' ),
+                                'min' => 0,
+                                'max' => 100,
+                                'width-100'         => true,
+                                'refresh_markup' => false,
+                                'refresh_stylesheet' => true,
+                                'css_identifier' => 'font_size',
+                                'css_selectors' => $text_content_selector,
+                            ),//16,//"14px",
+                            'line_height_css'     => array(
+                                'input_type'  => 'range_with_unit_picker',
+                                'title'       => __( 'Line height', 'nimble-builder' ),
+                                'default'     => '1.5em',
+                                'min' => 0,
+                                'max' => 10,
+                                'step' => 0.1,
+                                'width-100'         => true,
+                                'refresh_markup' => false,
+                                'refresh_stylesheet' => true,
+                                'css_identifier' => 'line_height',
+                                'css_selectors' => $text_content_selector,
+                            ),//24,//"20px",
+
+                            'h_alignment_css' => array(
+                                'input_type'  => 'horizTextAlignmentWithDeviceSwitcher',
+                                'title'       => __('Horizontal alignment', 'nimble-builder'),
+                                'default'     => array( 'desktop' => 'center'),
+                                'refresh_markup' => false,
+                                'refresh_stylesheet' => true,
+                                'css_identifier' => 'h_alignment',
+                                'title_width' => 'width-100',
+                                'width-100'   => true,
+                                'css_selectors' => array( '.sek-slider-text-content' ),
+                                'html_before' => '<hr/><h3>' . __('ALIGNMENTS', 'nimble-builder') .'</h3>'
+                            ),
+                            'v_alignment' => array(
+                                'input_type'  => 'verticalAlignWithDeviceSwitcher',
+                                'title'       => __('Vertical alignment', 'nimble-builder'),
+                                'default'     => array( 'desktop' => 'center' ),
+                                'refresh_markup' => false,
+                                'refresh_stylesheet' => true,
+                                //'css_identifier' => 'v_alignment',
+                                'title_width' => 'width-100',
+                                'width-100'   => true,
+                            ),
+                            'spacing_css'     => array(
+                                'input_type'  => 'spacingWithDeviceSwitcher',
+                                'title'       => __( 'Spacing of the text content', 'nimble-builder' ),
+                                'default'     => array('desktop' => array(
+                                    'padding-bottom' => '5',
+                                    'padding-top' => '5',
+                                    'padding-right' => '5',
+                                    'padding-left' => '5',
+                                    'unit' => '%')
+                                ),//consistent with SCSS
+                                'title_width' => 'width-100',
+                                'width-100'   => true,
+                                'refresh_markup'     => false,
+                                'refresh_stylesheet' => true,
+                                'css_identifier' => 'spacing_with_device_switcher',
+                                'css_selectors' => array( '.sek-slider-text-content' ),
+                                'html_before' => '<hr/><h3>' . __('SPACING', 'nimble-builder') .'</h3>'
+                            )
+                        )
+                    ),
+                    array(
+                        'title' => __( 'Color overlay', 'nimble-builder' ),
+                        'inputs' => array(
+                            'apply-overlay' => array(
+                                'input_type'  => 'nimblecheck',
+                                'notice_after' => __('A color overlay is usually recommended when displaying text content on top of the image. You can customize the color and transparency in the global design settings of the carousel.', 'nimble-builder' ),
+                                'title'       => __('Apply a color overlay', 'nimble-builder'),
+                                'default'     => false,
+                                'title_width' => 'width-80',
+                                'input_width' => 'width-20',
+                                'html_before' => '<hr/><h3>' . __('COLOR OVERLAY', 'nimble-builder') .'</h3>'
+                            ),
+                            'color-overlay' => array(
+                                'input_type'  => 'wp_color_alpha',
+                                'title'       => __('Overlay Color', 'nimble-builder'),
+                                'width-100'   => true,
+                                'default'     => '#000000',
+                                'refresh_markup' => false,
+                                'refresh_stylesheet' => true
+                            ),
+                            'opacity-overlay' => array(
+                                'input_type'  => 'range_simple',
+                                'title'       => __('Opacity (in percents)', 'nimble-builder'),
+                                'orientation' => 'horizontal',
+                                'min' => 0,
+                                'max' => 100,
+                                // 'unit' => '%',
+                                'default'  => '30',
+                                'width-100'   => true,
+                                'title_width' => 'width-100',
+                                'refresh_markup' => false,
+                                'refresh_stylesheet' => true
+                            )
+                        )
+                    )
+                )//'tabs'
+            )//'item-inputs'
+        ),
+        'render_tmpl_path' => '',
+    );
+}
+
+
+/* ------------------------------------------------------------------------- *
+ *  SLIDER OPTIONS
+/* ------------------------------------------------------------------------- */
+function sek_get_module_params_for_czr_img_slider_opts_child() {
+    return array(
+        'dynamic_registration' => true,
+        'module_type' => 'czr_img_slider_opts_child',
+        'name' => sprintf('<i class="material-icons" style="font-size: 1.2em;">tune</i> %1$s', __( 'Slider options : height, autoplay, navigation...', 'nimble-builder' ) ),
+        //'sanitize_callback' => '\Nimble\sanitize_callback__czr_simple_form_module',
+        // 'starting_value' => array(
+        //     'button_text' => __('Click me','text_doma'),
+        //     'color_css'  => '#ffffff',
+        //     'bg_color_css' => '#020202',
+        //     'bg_color_hover' => '#151515', //lighten 15%,
+        //     'use_custom_bg_color_on_hover' => 0,
+        //     'border_radius_css' => '2',
+        //     'h_alignment_css' => 'center',
+        //     'use_box_shadow' => 1,
+        //     'push_effect' => 1
+        // ),
+        //'css_selectors' => array( '.sek-social-icons-wrapper' ),//array( '.sek-icon i' ),
+        'tmpl' => array(
+            'item-inputs' => array(
+                'tabs' => array(
+                    array(
+                        'title' => __( 'General', 'nimble-builder' ),
+                        'inputs' => array(
+                            'image-layout' => array(
+                                'input_type'  => 'simpleselect',
+                                'title'       => __('Image layout', 'nimble-builder'),
+                                'default'     => 'nimble-wizard',
+                                'choices'     => array(
+                                    'nimble-wizard' => __('Nimble wizard', 'nimble-builder' ),
+                                    'width-100' => __('Adapt images to carousel\'s width', 'nimble-builder' ),
+                                    'height-100' => __('Adapt images to carousel\'s height', 'nimble-builder' ),
+                                ),
+                                'title_width' => 'width-100',
+                                'width-100'   => true,
+                                'notice_before' => __('Nimble wizard ensures that the images fill all available space of the carousel in any devices, without blank spaces on the edges, and without stretching the images.', 'nimble-builder' ),
+                            ),
+                            'autoplay' => array(
+                                'input_type'  => 'nimblecheck',
+                                'title'       => __('Autoplay', 'nimble-builder'),
+                                'default'     => true,
+                                'title_width' => 'width-80',
+                                'input_width' => 'width-20',
+                                'notice_after' => __('Note that the autoplay is disabled during customization.', 'nimble-builder' ),
+                            ),
+                            'autoplay_delay' => array(
+                                'input_type'  => 'range_simple',
+                                'title'       => __( 'Delay between each slide in milliseconds (ms)', 'nimble-builder' ),
+                                'min' => 1,
+                                'max' => 10000,
+                                'unit' => '',
+                                'default' => 3000,
+                                'width-100'   => true,
+                                'title_width' => 'width-100'
+                            ),
+                            'infinite_loop' => array(
+                                'input_type'  => 'nimblecheck',
+                                'title'       => __('Infinite loop', 'nimble-builder'),
+                                'default'     => true,
+                                'title_width' => 'width-80',
+                                'input_width' => 'width-20'
+                            ),
+                            'pause_on_hover' => array(
+                                'input_type'  => 'nimblecheck',
+                                'title'       => __('Pause autoplay on mouse over', 'nimble-builder'),
+                                'default'     => true,
+                                'title_width' => 'width-80',
+                                'input_width' => 'width-20'
+                            )
+                        )//inputs
+                    ),
+                    array(
+                        'title' => __( 'Height', 'nimble-builder' ),
+                        'inputs' => array(
+                            'height-type' => array(
+                                'input_type'  => 'simpleselect',
+                                'title'       => __('Height : auto or custom', 'nimble-builder'),
+                                'default'     => 'custom',
+                                'choices'     => sek_get_select_options_for_input_id( 'height-type' ),// auto, custom
+                                'refresh_markup'     => false,
+                                'refresh_stylesheet' => true,
+                                'html_before' => '<hr/><h3>' . __('SLIDER HEIGHT', 'nimble-builder') .'</h3>'
+                            ),
+                            'custom-height' => array(
+                                'input_type'  => 'range_with_unit_picker_device_switcher',
+                                'title'       => __('Custom height', 'nimble-builder'),
+                                'min' => 0,
+                                'max' => 1000,
+                                'default'     => array( 'desktop' => '400px', 'mobile' => '200px' ),
+                                'width-100'   => true,
+                                'title_width' => 'width-100',
+                                'refresh_markup'     => false,
+                                'refresh_stylesheet' => true,
+                            )
+                        )
+                    ),
+                    array(
+                        'title' => __( 'Navigation', 'nimble-builder' ),
+                        'inputs' => array(
+                            'nav_type' => array(
+                                'input_type'  => 'simpleselect',
+                                'title_width' => 'width-100',
+                                'width-100'   => true,
+                                'default' => 'arrows_dots',
+                                'choices'     => array(
+                                    'arrows_dots' => __('Arrows and bullets', 'nimble-builder'),
+                                    'arrows' => __('Arrows only', 'nimble-builder'),
+                                    'dots' => __('Bullets only', 'nimble-builder'),
+                                    'none' => __('None', 'nimble-builder')
+                                ),
+                                'html_before' => '<hr/><h3>' . __('NAVIGATION', 'nimble-builder') .'</h3>'
+                            ),
+                            'hide_nav_on_mobiles' => array(
+                                'input_type'  => 'nimblecheck',
+                                'title'       => __('Hide arrows and bullets on mobiles', 'nimble-builder'),
+                                'default'     => false,
+                                'title_width' => 'width-80',
+                                'input_width' => 'width-20'
+                            ),
+                            // 'arrows_size'  => array(
+                            //     'input_type'  => 'range_simple_device_switcher',
+                            //     'title'       => __( 'Size of the arrows', 'text_doma' ),
+                            //     'default'     => array( 'desktop' => '18'),
+                            //     'min'         => 1,
+                            //     'max'         => 50,
+                            //     'step'        => 1,
+                            //     'width-100'   => true,
+                            //     'title_width' => 'width-100'
+                            // ),//null,
+                            'arrows_color_css' => array(
+                                'input_type'  => 'wp_color_alpha',
+                                'title'       => __('Color of the navigation arrows', 'nimble-builder'),
+                                'width-100'   => true,
+                                'title_width' => 'width-100',
+                                'default'    => '#ffffff',
+                                'refresh_markup' => false,
+                                'refresh_stylesheet' => true,
+                                'css_identifier' => 'border_color',
+                                'css_selectors' => array('.sek-swiper-nav .sek-swiper-arrows .sek-chevron')
+                            ),
+                            // 'dots_size'  => array(
+                            //     'input_type'  => 'range_simple_device_switcher',
+                            //     'title'       => __( 'Size of the dots', 'text_doma' ),
+                            //     'default'     => array( 'desktop' => '16'),
+                            //     'min'         => 1,
+                            //     'max'         => 50,
+                            //     'step'        => 1,
+                            //     'width-100'   => true,
+                            //     'title_width' => 'width-100'
+                            // ),//null,
+                            'dots_color_css' => array(
+                                'input_type'  => 'wp_color_alpha',
+                                'title'       => __('Color of the active pagination bullet', 'nimble-builder'),
+                                'width-100'   => true,
+                                'title_width' => 'width-100',
+                                'default'    => '#ffffff',
+                                'refresh_markup' => false,
+                                'refresh_stylesheet' => true,
+                                'css_identifier' => 'background_color',
+                                'css_selectors' => array('.swiper-pagination-bullet-active')
+                            ),
+                        )//inputs
+                    )
+                )//tabs
+            )
+        ),
+        'render_tmpl_path' => '',
+    );
+}
+
+
+
+
+/* ------------------------------------------------------------------------- *
+ *  SCHEDULE CSS RULES FILTERING
+/* ------------------------------------------------------------------------- */
+// PER ITEM CSS DESIGN => FILTERING OF EACH ITEM MODEL, TARGETING THE ID ( [data-sek-item-id="893af157d5e3"] )
+add_filter( 'sek_add_css_rules_for_single_item_in_module_type___czr_img_slider_collection_child', '\Nimble\sek_add_css_rules_for_items_in_czr_img_slider_collection_child', 10, 2 );
+
+// filter documented in Sek_Dyn_CSS_Builder::sek_css_rules_sniffer_walker
+// Note : $complete_modul_model has been normalized
+// @return populated $rules
+// @param $params
+// Array
+// (
+//     [input_list] => Array
+//         (
+//             [icon] => fab fa-acquisitions-incorporated
+//             [link] => https://twitter.com/home
+//             [title_attr] => Follow me on twitter
+//             [link_target] =>
+//             [color_css] => #dd9933
+//             [use_custom_color_on_hover] =>
+//             [social_color_hover] => #dd3333
+//             [id] => 62316ab99b4d
+//         )
+//     [parent_module_id] =>
+//     [module_type] => czr_img_slider_collection_child
+//     [module_css_selector] => Array
+//         (
+//             [0] => .sek-social-icon
+//         )
+
+// )
+function sek_add_css_rules_for_items_in_czr_img_slider_collection_child( $rules, $params ) {
+    // $item_input_list = wp_parse_args( $item_input_list, $default_value_model );
+    $item_model = isset( $params['input_list'] ) ? $params['input_list'] : array();
+    $all_defaults = sek_get_default_module_model( 'czr_img_slider_collection_child');
+    // Default :
+    // [v_alignment] => Array
+    // (
+    //     [desktop] => center
+    // )
+    // VERTICAL ALIGNMENT
+    if ( ! empty( $item_model[ 'v_alignment' ] ) && $all_defaults['v_alignment'] != $item_model[ 'v_alignment' ] ) {
+        if ( ! is_array( $item_model[ 'v_alignment' ] ) ) {
+            sek_error_log( __FUNCTION__ . ' => error => the v_alignment option should be an array( {device} => {alignment} )');
+        }
+        $v_alignment_value = is_array( $item_model[ 'v_alignment' ] ) ? $item_model[ 'v_alignment' ] : array();
+        $v_alignment_value = wp_parse_args( $v_alignment_value, array(
+            'desktop' => 'center',
+            'tablet' => '',
+            'mobile' => ''
+        ));
+        $mapped_values = array();
+        foreach ( $v_alignment_value as $device => $align_val ) {
+            switch ( $align_val ) {
+                case 'top' :
+                    $mapped_values[$device] = "align-items:flex-start;-webkit-box-align:start;-ms-flex-align:start;";
+                break;
+                case 'center' :
+                    $mapped_values[$device] = "align-items:center;-webkit-box-align:center;-ms-flex-align:center;";
+                break;
+                case 'bottom' :
+                    $mapped_values[$device] = "align-items:flex-end;-webkit-box-align:end;-ms-flex-align:end";
+                break;
+            }
+        }
+        $rules = sek_set_mq_css_rules_new_version( array(
+            'css_rules_by_device' => $mapped_values,
+            'selector' => sprintf( '[data-sek-id="%1$s"]  [data-sek-item-id="%2$s"] .sek-slider-text-wrapper', $params['parent_module_id'], $item_model['id'] )
+        ), $rules );
+    }//Vertical alignment
+
+    //Background overlay?
+    // 1) a background image should be set
+    // 2) the option should be checked
+    if ( sek_is_checked( $item_model[ 'apply-overlay'] ) ) {
+        //(needs validation: we need a sanitize hex or rgba color)
+        $bg_color_overlay = isset( $item_model[ 'color-overlay' ] ) ? $item_model[ 'color-overlay' ] : null;
+        if ( $bg_color_overlay ) {
+            //overlay pseudo element
+            $bg_overlay_css_rules = 'background-color:'.$bg_color_overlay;
+
+            //opacity
+            //validate/sanitize
+            $bg_overlay_opacity     = isset( $item_model[ 'opacity-overlay' ] ) ? filter_var( $item_model[ 'opacity-overlay' ], FILTER_VALIDATE_INT, array( 'options' =>
+                array( "min_range"=>0, "max_range"=>100 ) )
+            ) : FALSE;
+            $bg_overlay_opacity     = FALSE !== $bg_overlay_opacity ? filter_var( $bg_overlay_opacity / 100, FILTER_VALIDATE_FLOAT ) : $bg_overlay_opacity;
+
+            $bg_overlay_css_rules = FALSE !== $bg_overlay_opacity ? $bg_overlay_css_rules . ';opacity:' . $bg_overlay_opacity . ';' : $bg_overlay_css_rules;
+
+            $rules[]     = array(
+                'selector' => sprintf( '[data-sek-id="%1$s"]  [data-sek-item-id="%2$s"][data-sek-has-overlay="true"] .sek-carousel-img::after', $params['parent_module_id'], $item_model['id'] ),
+                'css_rules' => $bg_overlay_css_rules,
+                'mq' =>null
+            );
+        }
+    }// BG Overlay
+
+    return $rules;
+}
+
+
+
+
+// GLOBAL CSS DESIGN => FILTERING OF THE ENTIRE MODULE MODEL
+add_filter( 'sek_add_css_rules_for_module_type___czr_img_slider_module', '\Nimble\sek_add_css_rules_for_czr_img_slider_module', 10, 2 );
+// filter documented in Sek_Dyn_CSS_Builder::sek_css_rules_sniffer_walker
+// Note : $complete_modul_model has been normalized
+// @return populated $rules
+function sek_add_css_rules_for_czr_img_slider_module( $rules, $complete_modul_model ) {
+    if ( empty( $complete_modul_model['value'] ) || !is_array( $complete_modul_model['value'] ) )
+      return $rules;
+
+    $value = $complete_modul_model['value'];
+    $slider_options = $value['slider_options'];
+
+    $selector = '[data-sek-id="'.$complete_modul_model['id'].'"] .sek-module-inner .swiper-container .swiper-wrapper';
+
+
+    // CUSTOM HEIGHT BY DEVICE
+    if ( ! empty( $slider_options[ 'height-type' ] ) ) {
+        if ( 'custom' === $slider_options[ 'height-type' ] ) {
+            $custom_user_height = array_key_exists( 'custom-height', $slider_options ) ? $slider_options[ 'custom-height' ] : array();
+
+            if ( ! is_array( $custom_user_height ) ) {
+                sek_error_log( __FUNCTION__ . ' => error => the height option should be an array( {device} => {number}{unit} )', $custom_user_height);
+            }
+            $custom_user_height = is_array( $custom_user_height ) ? $custom_user_height : array();
+
+            // DEFAULTS :
+            // array(
+            //     'desktop' => '400px',
+            //     'tablet' => '',
+            //     'mobile' => '200px'
+            // );
+            $all_defaults = sek_get_default_module_model( 'czr_img_slider_module');
+            $slider_defaults = $all_defaults['slider_options'];
+            $defaults = $slider_defaults['custom-height'];
+
+            $custom_user_height = wp_parse_args( $custom_user_height, $defaults );
+
+            if ( $defaults != $custom_user_height ) {
+                $height_value = $custom_user_height;
+                foreach ( $custom_user_height as $device => $num_unit ) {
+                    $numeric = sek_extract_numeric_value( $num_unit );
+                    if ( ! empty( $numeric ) ) {
+                        $unit = sek_extract_unit( $num_unit );
+                        $unit = '%' === $unit ? 'vh' : $unit;
+                        $height_value[$device] = $numeric . $unit;
+                    }
+                }
+
+                $rules = sek_set_mq_css_rules(array(
+                    'value' => $height_value,
+                    'css_property' => 'height',
+                    'selector' => $selector
+                ), $rules );
+            }
+        }// if custom height
+        else {
+            $rules[] = array(
+                'selector' => $selector,
+                'css_rules' => 'height:auto;',
+                'mq' =>null
+            );
+        }
+    }// Custom height rules
+
+    return $rules;
+}
+
+
+?><?php
+
+/* ------------------------------------------------------------------------- *
+ *  LOAD AND REGISTER ACCORDION MODULE
+/* ------------------------------------------------------------------------- */
+//Fired in add_action( 'after_setup_theme', 'sek_register_modules', 50 );
+function sek_get_module_params_for_czr_accordion_module() {
+    return array(
+        'dynamic_registration' => true,
+        'module_type' => 'czr_accordion_module',
+        'is_father' => true,
+        'children' => array(
+            'accord_collec' => 'czr_accordion_collection_child',
+            'accord_opts' => 'czr_accordion_opts_child'
+        ),
+        'name' => __('Accordion', 'nimble-builder'),
+        'starting_value' => array(
+            'accord_collec' => array(
+                array('text_content' => 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed non risus. Suspendisse lectus tortor, dignissim sit amet, adipiscing nec, ultricies sed, dolor.'),
+                array('text_content' => 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed non risus. Suspendisse lectus tortor, dignissim sit amet, adipiscing nec, ultricies sed, dolor.'),
+                array('text_content' => 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed non risus. Suspendisse lectus tortor, dignissim sit amet, adipiscing nec, ultricies sed, dolor.')
+            )
+        ),
+        // 'sanitize_callback' => 'function_prefix_to_be_replaced_sanitize_callback__czr_social_module',
+        // 'validate_callback' => 'function_prefix_to_be_replaced_validate_callback__czr_social_module',
+        'css_selectors' => array( '[data-sek-accordion-id]' ),//array( '.sek-icon i' ),
+        'render_tmpl_path' => NIMBLE_BASE_PATH . "/tmpl/modules/accordion_tmpl.php",
+        // 'front_assets' => array(
+        //       'czr-font-awesome' => array(
+        //           'type' => 'css',
+        //           //'handle' => 'czr-font-awesome',
+        //           'src' => NIMBLE_BASE_URL . '/assets/front/fonts/css/fontawesome-all.min.css'
+        //           //'deps' => array()
+        //       )
+        // )
+    );
+}
+
+
+/* ------------------------------------------------------------------------- *
+ *  MAIN SETTINGS
+/* ------------------------------------------------------------------------- */
+function sek_get_module_params_for_czr_accordion_collection_child() {
+    return array(
+        'dynamic_registration' => true,
+        'module_type' => 'czr_accordion_collection_child',
+        'is_crud' => true,
+        'name' => sprintf('<i class="material-icons" style="font-size: 1.2em;">toc</i> %1$s', __( 'Item collection', 'nimble-builder' ) ),
+        'starting_value' => array(
+            'text_content' => 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed non risus. Suspendisse lectus tortor, dignissim sit amet, adipiscing nec, ultricies sed, dolor.'
+        ),
+        //'sanitize_callback' => '\Nimble\sanitize_callback__czr_simple_form_module',
+        //'css_selectors' => array( '.sek-social-icon' ),//array( '.sek-icon i' ),
+        'tmpl' => array(
+            'pre-item' => array(
+                // 'page-id' => array(
+                //     'input_type'  => 'content_picker',
+                //     'title'       => __('Pick a page', 'text_doma')
+                // ),
+                'img' => array(
+                    'input_type'  => 'upload',
+                    'title'       => __('Pick an image', 'nimble-builder'),
+                    'default'     => ''
+                ),
+            ),
+            'item-inputs' => array(
+                'tabs' => array(
+                    array(
+                        'title' => __( 'Title', 'nimble-builder' ),
+                        'inputs' => array(
+                            'title_text' => array(
+                                'input_type'        => 'nimble_tinymce_editor',
+                                'editor_params'     => array(
+                                    'media_button' => false,
+                                    'includedBtns' => 'basic_btns',
+                                    'height' => 50
+                                ),
+                                'title'              => __( 'Heading text', 'nimble-builder' ),
+                                'default'            => '',
+                                'width-100'         => true,
+                                'refresh_markup'    => '.sek-inner-accord-title',
+                                'notice_before'      => __( 'You may use some html tags like a, br, span with attributes like style, id, class ...', 'nimble-builder'),
+                            ),
+                            'title_attr'  => array(
+                                'input_type'  => 'text',
+                                'default'     => '',
+                                'title'       => __('Title on mouse over', 'nimble-builder'),
+                                'notice_after' => __('This is the text displayed on mouse over.', 'nimble-builder' )
+                            ),
+                        )
+                    ),
+                    array(
+                        'title' => __( 'Content', 'nimble-builder' ),
+                        'inputs' => array(
+                            'text_content' => array(
+                                'input_type'        => 'nimble_tinymce_editor',
+                                'editor_params'     => array(
+                                    'media_button' => true,
+                                    'includedBtns' => 'basic_btns_with_lists',
+                                ),
+                                'title'             => __( 'Text content', 'nimble-builder' ),
+                                'default'           => '',
+                                'width-100'         => true,
+                                'refresh_markup'    => '.sek-accord-content',
+                                'notice_before' => __('You may use some html tags in the "text" tab of the editor.', 'nimble-builder')
+                            ),
+                            'h_alignment_css' => array(
+                                'input_type'  => 'horizTextAlignmentWithDeviceSwitcher',
+                                'title'       => __('Horizontal alignment', 'nimble-builder'),
+                                'default'     => array( 'desktop' => 'center'),
+                                'refresh_markup' => false,
+                                'refresh_stylesheet' => true,
+                                'css_identifier' => 'h_alignment',
+                                'title_width' => 'width-100',
+                                'width-100'   => true,
+                                'css_selectors' => array( '.sek-accord-content' )
+                            )
+                        )
+                    ),
+                )//'tabs'
+            )//'item-inputs'
+        ),
+        'render_tmpl_path' => '',
+    );
+}
+
+
+/* ------------------------------------------------------------------------- *
+ *  ACCORDION OPTIONS
+/* ------------------------------------------------------------------------- */
+function sek_get_module_params_for_czr_accordion_opts_child() {
+    $title_content_selector = array( '.sek-accord-item .sek-accord-title *' );
+    $main_content_selector = array( '.sek-accord-item .sek-accord-content', '.sek-accord-item .sek-accord-content *' );
+    return array(
+        'dynamic_registration' => true,
+        'module_type' => 'czr_accordion_opts_child',
+        'name' => sprintf('<i class="material-icons" style="font-size: 1.2em;">tune</i> %1$s', __( 'Accordion options : font style, borders, background, ...', 'nimble-builder' ) ),
+        //'sanitize_callback' => '\Nimble\sanitize_callback__czr_simple_form_module',
+        // 'starting_value' => array(
+        //     'button_text' => __('Click me','text_doma'),
+        //     'color_css'  => '#ffffff',
+        //     'bg_color_css' => '#020202',
+        //     'bg_color_hover' => '#151515', //lighten 15%,
+        //     'use_custom_bg_color_on_hover' => 0,
+        //     'border_radius_css' => '2',
+        //     'h_alignment_css' => 'center',
+        //     'use_box_shadow' => 1,
+        //     'push_effect' => 1
+        // ),
+        //'css_selectors' => array( '.sek-social-icons-wrapper' ),//array( '.sek-icon i' ),
+        'tmpl' => array(
+            'item-inputs' => array(
+                'tabs' => array(
+                    array(
+                        'title' => __( 'General', 'nimble-builder' ),
+                        'inputs' => array(
+                            'first_expanded' => array(
+                                'input_type'  => 'nimblecheck',
+                                'title'       => __('Display first item expanded', 'nimble-builder'),
+                                'default'     => true,
+                                'title_width' => 'width-80',
+                                'input_width' => 'width-20'
+                            ),
+                            'one_expanded' => array(
+                                'input_type'  => 'nimblecheck',
+                                'title'       => __('Display one item expanded at a time', 'nimble-builder'),
+                                'default'     => true,
+                                'title_width' => 'width-80',
+                                'input_width' => 'width-20'
+                            ),
+                            'border_width_css' => array(
+                                'input_type'  => 'range_with_unit_picker',
+                                'title'       => __( 'Border weight', 'nimble-builder' ),
+                                'min' => 0,
+                                'max' => 80,
+                                'default' => '1px',
+                                'width-100'   => true,
+                                //'refresh_markup' => false,
+                                'refresh_stylesheet' => true,
+                                'css_identifier' => 'border_width',
+                                'css_selectors' => '.sek-accord-wrapper .sek-accord-item',
+                                'html_before' => '<hr/><h3>' . __('BORDER', 'nimble-builder') .'</h3>'
+                            ),
+                            'border_color_css' => array(
+                                'input_type'  => 'wp_color_alpha',
+                                'title'       => __( 'Border color', 'nimble-builder' ),
+                                'width-100'   => true,
+                                'default'     => '#e3e3e3',
+                                'refresh_markup' => false,
+                                'refresh_stylesheet' => true,
+                                'css_identifier' => 'border_color',
+                                'css_selectors' => '.sek-accord-wrapper .sek-accord-item'
+                            ),
+                        )//inputs
+                    ),
+                    array(
+                        'title' => __( 'Title style', 'nimble-builder' ),
+                        'inputs' => array(
+                            'title_bg_css' => array(
+                                'input_type'  => 'wp_color_alpha',
+                                'title'       => __('Backround color', 'nimble-builder'),
+                                'width-100'   => true,
+                                'title_width' => 'width-100',
+                                'default'    => '#ffffff',
+                                'refresh_markup' => false,
+                                'refresh_stylesheet' => true,
+                                'css_identifier' => 'background_color',
+                                'css_selectors' => '.sek-accord-wrapper .sek-accord-item .sek-accord-title',
+                                'html_before' => '<h3>' . __('COLOR AND BACKGROUND', 'nimble-builder') .'</h3>'
+                            ),
+                            'color_css'           => array(
+                                'input_type'  => 'wp_color_alpha',
+                                'title'       => __( 'Text color', 'nimble-builder' ),
+                                'default'     => '#565656',
+                                'refresh_markup' => false,
+                                'refresh_stylesheet' => true,
+                                'width-100'   => true,
+                                'css_identifier' => 'color',
+                                'css_selectors' => $title_content_selector
+                            ),//"#000000",
+
+                            'color_active_css'           => array(
+                                'input_type'  => 'wp_color_alpha',
+                                'title_width' => 'width-100',
+                                'title'       => __( 'Text color when active', 'nimble-builder' ),
+                                'default'     => '#1e261f',
+                                'refresh_markup' => false,
+                                'refresh_stylesheet' => true,
+                                'width-100'   => true,
+                                'css_identifier' => 'color',
+                                'css_selectors' => array( '.sek-accord-item .sek-accord-title:hover *', '[data-sek-expanded="true"] .sek-accord-title *')
+                            ),//"#000000",
+
+                            'font_family_css' => array(
+                                'input_type'  => 'font_picker',
+                                'title'       => __( 'Font family', 'nimble-builder' ),
+                                'default'     => '',
+                                'refresh_markup' => false,
+                                'refresh_stylesheet' => true,
+                                'refresh_fonts' => true,
+                                'css_identifier' => 'font_family',
+                                'css_selectors' => $title_content_selector,
+                                'html_before' => '<hr/><h3>' . __('FONT OPTIONS', 'nimble-builder') .'</h3>'
+                            ),
+                            'font_size_css'       => array(
+                                'input_type'  => 'range_with_unit_picker_device_switcher',
+                                'default'     => array( 'desktop' => '16px' ),
+                                'title_width' => 'width-100',
+                                'title'       => __( 'Font size', 'nimble-builder' ),
+                                'min' => 0,
+                                'max' => 100,
+                                'width-100' => true,
+                                'refresh_markup' => false,
+                                'refresh_stylesheet' => true,
+                                'css_identifier' => 'font_size',
+                                'css_selectors' => $title_content_selector
+                            ),//16,//"14px",
+                            'line_height_css'     => array(
+                                'input_type'  => 'range_with_unit_picker',
+                                'title'       => __( 'Line height', 'nimble-builder' ),
+                                'default'     => '1.5em',
+                                'min' => 0,
+                                'max' => 10,
+                                'step' => 0.1,
+                                'width-100' => true,
+                                'refresh_markup' => false,
+                                'refresh_stylesheet' => true,
+                                'css_identifier' => 'line_height',
+                                'css_selectors' => $title_content_selector
+                            ),//24,//"20px",
+                            'title_border_w_css' => array(
+                                'input_type'  => 'range_with_unit_picker',
+                                'title'       => __( 'Border bottom weight', 'nimble-builder' ),
+                                'min' => 0,
+                                'max' => 80,
+                                'default' => '1px',
+                                'title_width' => 'width-100',
+                                'width-100'   => true,
+                                'refresh_markup' => false,
+                                'refresh_stylesheet' => true,
+                                'css_identifier' => 'border_width',
+                                'css_selectors' => '.sek-accord-wrapper .sek-accord-item .sek-accord-title',
+                                'html_before' => '<hr/><h3>' . __('BORDER BOTTOM', 'nimble-builder') .'</h3>'
+                            ),
+                            'title_border_c_css' => array(
+                                'input_type'  => 'wp_color_alpha',
+                                'title'       => __( 'Border bottom color', 'nimble-builder' ),
+                                'width-100'   => true,
+                                'default'     => '#e3e3e3',
+                                //'refresh_markup' => false,
+                                'refresh_stylesheet' => true,
+                                'css_identifier' => 'border_color',
+                                'css_selectors' => '.sek-accord-wrapper .sek-accord-item .sek-accord-title'
+                            ),
+                            'spacing_css'     => array(
+                                'input_type'  => 'spacingWithDeviceSwitcher',
+                                'title'       => __( 'Spacing', 'nimble-builder' ),
+                                'default'     => array('desktop' => array('padding-top' => '15', 'padding-right' => '20', 'padding-left' => '20', 'padding-bottom' => '15', 'unit' => 'px')),//consistent with SCSS
+                                'title_width' => 'width-100',
+                                'width-100'   => true,
+                                'refresh_markup'     => false,
+                                'refresh_stylesheet' => true,
+                                'css_identifier' => 'spacing_with_device_switcher',
+                                'css_selectors'      => '.sek-accord-item .sek-accord-title',
+                                'html_before' => '<hr/><h3>' . __('SPACING', 'nimble-builder') .'</h3>'
+                            )
+                        )
+                    ),
+                    array(
+                        'title' => __( 'Content style', 'nimble-builder' ),
+                        'inputs' => array(
+                            'ct_bg_css' => array(
+                                'input_type'  => 'wp_color_alpha',
+                                'title'       => __('Backround color', 'nimble-builder'),
+                                'width-100'   => true,
+                                'title_width' => 'width-100',
+                                'default'    => '#f2f2f2',
+                                'refresh_markup' => false,
+                                'refresh_stylesheet' => true,
+                                'css_identifier' => 'background_color',
+                                'css_selectors' => array('.sek-accord-item .sek-accord-content'),
+                                'html_before' => '<h3>' . __('COLOR AND BACKGROUND', 'nimble-builder') .'</h3>'
+                            ),
+                            'ct_color_css'           => array(
+                                'input_type'  => 'wp_color_alpha',
+                                'title'       => __( 'Text color', 'nimble-builder' ),
+                                'default'     => '#1e261f',
+                                'refresh_markup' => false,
+                                'refresh_stylesheet' => true,
+                                'width-100'   => true,
+                                'css_identifier' => 'color',
+                                'css_selectors' => $main_content_selector
+                            ),//"#000000",
+
+                            'ct_font_family_css' => array(
+                                'input_type'  => 'font_picker',
+                                'title'       => __( 'Font family', 'nimble-builder' ),
+                                'default'     => '',
+                                'refresh_markup' => false,
+                                'refresh_stylesheet' => true,
+                                'refresh_fonts' => true,
+                                'css_identifier' => 'font_family',
+                                'css_selectors' => $main_content_selector,
+                                'html_before' => '<hr/><h3>' . __('FONT OPTIONS', 'nimble-builder') .'</h3>'
+                            ),
+                            'ct_font_size_css'       => array(
+                                'input_type'  => 'range_with_unit_picker_device_switcher',
+                                'default'     => array( 'desktop' => '16px' ),
+                                'title_width' => 'width-100',
+                                'title'       => __( 'Font size', 'nimble-builder' ),
+                                'min' => 0,
+                                'max' => 100,
+                                'width-100'         => true,
+                                'refresh_markup' => false,
+                                'refresh_stylesheet' => true,
+                                'css_identifier' => 'font_size',
+                                'css_selectors' => $main_content_selector
+                            ),//16,//"14px",
+                            'ct_line_height_css'     => array(
+                                'input_type'  => 'range_with_unit_picker',
+                                'title'       => __( 'Line height', 'nimble-builder' ),
+                                'default'     => '1.5em',
+                                'min' => 0,
+                                'max' => 10,
+                                'step' => 0.1,
+                                'width-100'         => true,
+                                'refresh_markup' => false,
+                                'refresh_stylesheet' => true,
+                                'css_identifier' => 'line_height',
+                                'css_selectors' => $main_content_selector
+                            ),//24,//"20px",
+                            'ct_spacing_css'     => array(
+                                'input_type'  => 'spacingWithDeviceSwitcher',
+                                'title'       => __( 'Spacing', 'nimble-builder' ),
+                                'default'     => array('desktop' => array('padding-top' => '15', 'padding-right' => '20', 'padding-left' => '20', 'padding-bottom' => '15', 'unit' => 'px')),//consistent with SCSS
+                                'title_width' => 'width-100',
+                                'width-100'   => true,
+                                'refresh_markup'     => false,
+                                'refresh_stylesheet' => true,
+                                'css_identifier' => 'spacing_with_device_switcher',
+                                'css_selectors'      => '.sek-accord-item .sek-accord-content',
+                                'html_before' => '<hr/><h3>' . __('SPACING', 'nimble-builder') .'</h3>'
+                            )
+                        )//inputs
+                    )
+                )//tabs
+            )
+        ),
+        'render_tmpl_path' => '',
+    );
+}
+
+
+
+
+/* ------------------------------------------------------------------------- *
+ *  SCHEDULE CSS RULES FILTERING
+/* ------------------------------------------------------------------------- */
+// PER ITEM CSS DESIGN => FILTERING OF EACH ITEM MODEL, TARGETING THE ID ( [data-sek-item-id="893af157d5e3"] )
+//add_filter( 'sek_add_css_rules_for_single_item_in_module_type___czr_accordion_collection_child', '\Nimble\sek_add_css_rules_for_items_in_czr_accordion_collection_child', 10, 2 );
+
+// filter documented in Sek_Dyn_CSS_Builder::sek_css_rules_sniffer_walker
+// Note : $complete_modul_model has been normalized
+// @return populated $rules
+// @param $params
+// Array
+// (
+//     [input_list] => Array
+//         (
+//             [icon] => fab fa-acquisitions-incorporated
+//             [link] => https://twitter.com/home
+//             [title_attr] => Follow me on twitter
+//             [link_target] =>
+//             [color_css] => #dd9933
+//             [use_custom_color_on_hover] =>
+//             [social_color_hover] => #dd3333
+//             [id] => 62316ab99b4d
+//         )
+//     [parent_module_id] =>
+//     [module_type] => czr_accordion_collection_child
+//     [module_css_selector] => Array
+//         (
+//             [0] => .sek-social-icon
+//         )
+
+// )
+function sek_add_css_rules_for_items_in_czr_accordion_collection_child( $rules, $params ) {
+    // $item_input_list = wp_parse_args( $item_input_list, $default_value_model );
+    $item_model = isset( $params['input_list'] ) ? $params['input_list'] : array();
+
+    // VERTICAL ALIGNMENT
+    // if ( ! empty( $item_model[ 'v_alignment' ] ) ) {
+    //     if ( ! is_array( $item_model[ 'v_alignment' ] ) ) {
+    //         sek_error_log( __FUNCTION__ . ' => error => the v_alignment option should be an array( {device} => {alignment} )');
+    //     }
+    //     $v_alignment_value = is_array( $item_model[ 'v_alignment' ] ) ? $item_model[ 'v_alignment' ] : array();
+    //     $v_alignment_value = wp_parse_args( $v_alignment_value, array(
+    //         'desktop' => 'center',
+    //         'tablet' => '',
+    //         'mobile' => ''
+    //     ));
+    //     $mapped_values = array();
+    //     foreach ( $v_alignment_value as $device => $align_val ) {
+    //         switch ( $align_val ) {
+    //             case 'top' :
+    //                 $mapped_values[$device] = "flex-start";
+    //             break;
+    //             case 'center' :
+    //                 $mapped_values[$device] = "center";
+    //             break;
+    //             case 'bottom' :
+    //                 $mapped_values[$device] = "flex-end";
+    //             break;
+    //         }
+    //     }
+    //     $rules = sek_set_mq_css_rules( array(
+    //         'value' => $mapped_values,
+    //         'css_property' => 'align-items',
+    //         'selector' => sprintf( '[data-sek-id="%1$s"]  [data-sek-item-id="%2$s"] .sek-slider-text-wrapper', $params['parent_module_id'], $item_model['id'] )
+    //     ), $rules );
+    // }//Vertical alignment
+
+
+    return $rules;
+}
+
+
+
+
+// GLOBAL CSS DESIGN => FILTERING OF THE ENTIRE MODULE MODEL
+add_filter( 'sek_add_css_rules_for_module_type___czr_accordion_module', '\Nimble\sek_add_css_rules_for_czr_accordion_module', 10, 2 );
+
+// filter documented in Sek_Dyn_CSS_Builder::sek_css_rules_sniffer_walker
+// Note : $complete_modul_model has been normalized
+// @return populated $rules
+function sek_add_css_rules_for_czr_accordion_module( $rules, $complete_modul_model ) {
+    if ( empty( $complete_modul_model['value'] ) || !is_array( $complete_modul_model['value'] ) )
+      return $rules;
+
+    $value = $complete_modul_model['value'];
+    $defaults = sek_get_default_module_model( 'czr_accordion_module');
+    $accord_defaults = $defaults['accord_opts'];
+
+    $accord_opts = $value['accord_opts'];
+
+    //sek_error_log('sek_get_default_module_model() ?', sek_get_default_module_model( 'czr_accordion_module') );
+
+    // TEXT COLOR ( for the plus / minus icon )
+    if ( ! empty( $accord_opts[ 'color_css' ] ) && $accord_defaults[ 'color_css' ] != $accord_opts[ 'color_css' ] ) {
+        $rules[] = array(
+            'selector' => sprintf( '[data-sek-id="%1$s"] .sek-module-inner .sek-accord-wrapper .sek-accord-item button span', $complete_modul_model['id'] ),
+            'css_rules' => 'background:'. $accord_opts[ 'color_css' ] .';',
+            'mq' =>null
+        );
+    }
+    // ACTIVE / HOVER TEXT COLOR ( for the plus / minus icon )
+    if ( ! empty( $accord_opts[ 'color_active_css' ] ) && $accord_defaults[ 'color_active_css' ] != $accord_opts[ 'color_active_css' ] ) {
+        $rules[] = array(
+            'selector' => sprintf( '[data-sek-id="%1$s"] .sek-module-inner .sek-accord-wrapper [data-sek-expanded="true"] .sek-accord-title button span, [data-sek-id="%1$s"] .sek-module-inner .sek-accord-wrapper .sek-accord-item .sek-accord-title:hover button span', $complete_modul_model['id'] ),
+            'css_rules' => sprintf('background:%s;', $accord_opts[ 'color_active_css' ] ),
+            'mq' =>null
+        );
+    }
+
+    return $rules;
+}
+
+
+?><?php
+/* ------------------------------------------------------------------------- *
+ *  LOAD AND REGISTER SHORTCODE MODULE
+/* ------------------------------------------------------------------------- */
+//Fired in add_action( 'after_setup_theme', 'sek_register_modules', 50 );
+function sek_get_module_params_for_czr_shortcode_module() {
+    return array(
+        'dynamic_registration' => true,
+        'module_type' => 'czr_shortcode_module',
+        'name' => __('Shortcode', 'nimble-builder'),
+        'css_selectors' => array( '.sek-module-inner > *' ),
+        // 'sanitize_callback' => 'function_prefix_to_be_replaced_sanitize_callback__czr_social_module',
+        // 'validate_callback' => 'function_prefix_to_be_replaced_validate_callback__czr_social_module',
+        'tmpl' => array(
+            'item-inputs' => array(
+                'text_content' => array(
+                    'input_type'        => 'nimble_tinymce_editor',
+                    'editor_params'     => array(
+                        'media_button' => true,
+                        'includedBtns' => 'basic_btns_with_lists',
+                    ),
+                    'title'             => __( 'Write the shortcode(s) in the text editor', 'nimble-builder' ),
+                    'default'           => '',
+                    'width-100'         => true,
+                    'title_width' => 'width-100',
+                    'refresh_markup'    => '.sek-shortcode-content',
+                    'notice_before' => __('A shortcode is a WordPress-specific code that lets you display predefined items. For example a trivial shortcode for a gallery looks like this [gallery].', 'nimble-builder') . '<br/><br/>',
+                    'notice_after' => __('You may use some html tags in the "text" tab of the editor.', 'nimble-builder')
+                )
+            )
+        ),
+        'render_tmpl_path' => NIMBLE_BASE_PATH . "/tmpl/modules/shortcode_module_tmpl.php",
+    );
+}
+?><?php
 if ( ! defined( 'ABSPATH' ) ) {
     exit;
 }
@@ -11964,7 +13267,7 @@ class Sek_Dyn_CSS_Builder {
         $item_id = null;
         if ( $params['is_multi_items'] ) {
             if ( !is_array( $params['input_list'] ) || !isset($params['input_list']['id']) ) {
-                sek_error_log( __FUNCTION__ . ' => Error => eact item of a multi-item module must have an id', $params );
+                sek_error_log( __FUNCTION__ . ' => Error => each item of a multi-item module must have an id', $params );
             } else {
                 $item_id = $params['input_list']['id'];
             }
@@ -13045,6 +14348,9 @@ function sek_add_css_rules_for_css_sniffed_input_id( $rules, $params ) {
         if ( is_array( $registered_input_list ) && ! empty( $registered_input_list[ $input_id ] ) && ! empty( $registered_input_list[ $input_id ]['css_selectors'] ) ) {
             // reset the selector to the level id selector, in case it was previously set spcifically at the module level
             $selector = '[data-sek-id="'.$parent_level['id'].'"]';
+            if ( $is_multi_items ) {
+                $selector = sprintf( '[data-sek-id="%1$s"]  [data-sek-item-id="%2$s"]', $parent_level['id'], $item_id );
+            }
             $input_level_css_selectors = $registered_input_list[ $input_id ]['css_selectors'];
             $new_selectors = array();
             if ( is_array( $input_level_css_selectors ) ) {
@@ -13145,16 +14451,16 @@ function sek_add_css_rules_for_css_sniffed_input_id( $rules, $params ) {
             foreach( $value as $device => $val ) {
                 switch ( $val ) {
                     case 'left' :
-                        $h_align_value = "flex-start";
+                        $h_align_value = sprintf('justify-content:flex-start%1$s;-webkit-box-pack:start%1$s;-ms-flex-pack:start%1$s;', $important ? '!important' : '' );
                     break;
                     case 'center' :
-                        $h_align_value = "center";
+                        $h_align_value = sprintf('justify-content:center%1$s;-webkit-box-pack:center%1$s;-ms-flex-pack:center%1$s;', $important ? '!important' : '' );
                     break;
                     case 'right' :
-                        $h_align_value = "flex-end";
+                        $h_align_value = sprintf('justify-content:flex-end%1$s;-webkit-box-pack:end%1$s;-ms-flex-pack:end%1$s;', $important ? '!important' : '' );
                     break;
                     default :
-                        $h_align_value = "center";
+                        $h_align_value = sprintf('justify-content:center%1$s;-webkit-box-pack:center%1$s;-ms-flex-pack:center%1$s;', $important ? '!important' : '' );
                     break;
                 }
                 $flex_ready_value[$device] = $h_align_value;
@@ -13165,13 +14471,12 @@ function sek_add_css_rules_for_css_sniffed_input_id( $rules, $params ) {
                 'mobile' => ''
             ));
 
-            $rules = sek_set_mq_css_rules( array(
-                'value' => $flex_ready_value,
-                'css_property' => 'justify-content',
-                'selector' => $selector,
-                'is_important' => $important,
+            $rules = sek_set_mq_css_rules_new_version( array(
+                'css_rules_by_device' => $flex_ready_value,
+                'selector' => $selector
             ), $rules );
         break;
+
         // handles simple or by device option
         case 'h_alignment' :
             if ( is_string( $value ) ) {// <= simple
@@ -13194,22 +14499,32 @@ function sek_add_css_rules_for_css_sniffed_input_id( $rules, $params ) {
                   ), $rules );
             }
         break;
+
+        // -webkit-box-align:end;
+        // -ms-flex-align:end;
+        // align-items:flex-end;
         case 'v_alignment' :
             switch ( $value ) {
                 case 'top' :
                     $v_align_value = "flex-start";
+                    $v_vendor_value = "start";
                 break;
                 case 'center' :
                     $v_align_value = "center";
+                    $v_vendor_value = "center";
                 break;
                 case 'bottom' :
                     $v_align_value = "flex-end";
+                    $v_vendor_value = "end";
                 break;
                 default :
                     $v_align_value = "center";
+                    $v_vendor_value = "center";
                 break;
             }
             $properties_to_render['align-items'] = $v_align_value;
+            $properties_to_render['-webkit-box-align'] = $v_vendor_value;
+            $properties_to_render['-ms-flex-align'] = $v_vendor_value;
         break;
         case 'font_family' :
             $properties_to_render['font-family'] = sek_extract_css_font_family_from_customizer_option( $value );
@@ -13257,7 +14572,7 @@ function sek_add_css_rules_for_css_sniffed_input_id( $rules, $params ) {
         /* Quote border */
         case 'border_width' :
             $numeric = sek_extract_numeric_value( $value );
-            if ( ! empty( $numeric ) ) {
+            if ( 0 === intval($numeric) || ! empty( $numeric ) ) {
                 $unit = sek_extract_unit( $value );
                 $properties_to_render['border-width'] = $numeric . $unit;
             }
@@ -13611,7 +14926,8 @@ if ( ! class_exists( 'SEK_Front_Construct' ) ) :
         ];
 
         public static $ui_level_modules = [
-            // UI LEVEL MODULES
+          // UI LEVEL MODULES
+          'sek_mod_option_switcher_module',
           'sek_level_bg_module',
           'sek_level_border_module',
           //'sek_level_section_layout_module',<// deactivated for now. Replaced by sek_level_width_section
@@ -13730,8 +15046,22 @@ if ( ! class_exists( 'SEK_Front_Construct' ) ) :
           'czr_social_icons_module' => array(
             'czr_social_icons_module',
             'czr_social_icons_settings_child',
-            'czr_social_icons_style_child',
+            'czr_social_icons_style_child'
           ),
+
+          'czr_img_slider_module' => array(
+            'czr_img_slider_module',
+            'czr_img_slider_collection_child',
+            'czr_img_slider_opts_child'
+          ),
+
+          'czr_accordion_module' => array(
+            'czr_accordion_module',
+            'czr_accordion_collection_child',
+            'czr_accordion_opts_child'
+          ),
+
+          'czr_shortcode_module',
         ];
 
         // Is merged with front module when sek_is_header_footer_enabled() === true
@@ -13959,9 +15289,49 @@ if ( ! class_exists( 'SEK_Front_Ajax' ) ) :
                 }
             }
 
+            $html = '';
             // is this action possible ?
             if ( in_array( $sek_action, $this -> ajax_action_map ) ) {
-                $html = $this -> sek_ajax_fetch_content( $sek_action );
+                $content_type = null;
+                if ( array_key_exists( 'content_type', $_POST ) && is_string( $_POST['content_type'] ) ) {
+                    $content_type = $_POST['content_type'];
+                }
+
+                // This 'preset_section' === $content_type statement has been introduced when implementing support for multi-section pre-build sections
+                // @see https://github.com/presscustomizr/nimble-builder/issues/489
+                if ( 'preset_section' === $content_type ) {
+                    $collection_of_preset_section_id = null;
+                    if ( array_key_exists( 'collection_of_preset_section_id', $_POST ) && is_array( $_POST['collection_of_preset_section_id'] ) ) {
+                        $collection_of_preset_section_id = $_POST['collection_of_preset_section_id'];
+                    }
+
+                    switch ( $sek_action ) {
+                        // when 'sek-add-content-in-new-sektion' is fired, the section has already been populated with a column and a module
+                        case 'sek-add-content-in-new-sektion' :
+                        case 'sek-add-content-in-new-nested-sektion' :
+                            if ( 'preset_section' === $content_type ) {
+                                if ( !is_array( $collection_of_preset_section_id ) || empty( $collection_of_preset_section_id ) ) {
+                                    wp_send_json_error(  __CLASS__ . '::' . __FUNCTION__ . ' ' . $sek_action .' => missing param collection_of_preset_section_id when injecting a preset section' );
+                                    break;
+                                }
+                                foreach ( $_POST['collection_of_preset_section_id'] as $preset_section_id ) {
+                                    $html .= $this -> sek_ajax_fetch_content( $sek_action, $preset_section_id );
+                                }
+                            // 'module' === $content_type
+                            } else {
+                                $html = $this -> sek_ajax_fetch_content( $sek_action );
+                            }
+
+                        break;
+
+                        default :
+                            $html = $this -> sek_ajax_fetch_content( $sek_action );
+                        break;
+                    }
+                } else {
+                      $html = $this -> sek_ajax_fetch_content( $sek_action );
+                }
+
                 //sek_error_log(__CLASS__ . '::' . __FUNCTION__ , $html );
                 if ( is_wp_error( $html ) ) {
                     wp_send_json_error( $html );
@@ -13993,7 +15363,8 @@ if ( ! class_exists( 'SEK_Front_Ajax' ) ) :
         // )
         // @return string
         // @param $sek_action is $_POST['sek_action']
-        private function sek_ajax_fetch_content( $sek_action = '' ) {
+        // @param $maybe_preset_section_id is used when injecting a collection of preset sections
+        private function sek_ajax_fetch_content( $sek_action = '', $maybe_preset_section_id = '' ) {
             //sek_error_log( __CLASS__ . '::' . __FUNCTION__ , $_POST );
             // the $_POST['customized'] has already been updated
             // so invoking sek_get_skoped_seks() will ensure that we get the latest data
@@ -14021,37 +15392,61 @@ if ( ! class_exists( 'SEK_Front_Ajax' ) ) :
 
             switch ( $sek_action ) {
                 case 'sek-add-section' :
-                // when 'sek-add-content-in-new-sektion' is fired, the section has already been populated with a column and a module
-                case 'sek-add-content-in-new-sektion' :
-                case 'sek-add-content-in-new-nested-sektion' :
+                case 'sek-duplicate-section' :
                     if ( array_key_exists( 'is_nested', $_POST ) && true === json_decode( $_POST['is_nested'] ) ) {
                         // we need to set the parent_mode here to access it later in the ::render method to calculate the column width.
                         $this -> parent_model = sek_get_level_model( $_POST[ 'in_sektion' ], $sektion_collection );
                         $level_model = sek_get_level_model( $_POST[ 'in_column' ], $sektion_collection );
                     } else {
+                        //$level_model = sek_get_level_model( $_POST[ 'id' ], $sektion_collection );
                         $level_model = sek_get_level_model( $_POST[ 'id' ], $sektion_collection );
+                    }
+                break;
+
+                // This $content_type var has been introduced when implementing support for multi-section pre-build sections
+                // @see https://github.com/presscustomizr/nimble-builder/issues/489
+                // when 'sek-add-content-in-new-sektion' is fired, the section has already been populated with a column and a module
+                case 'sek-add-content-in-new-sektion' :
+                case 'sek-add-content-in-new-nested-sektion' :
+                    $content_type = null;
+                    if ( array_key_exists( 'content_type', $_POST ) && is_string( $_POST['content_type'] ) ) {
+                        $content_type = $_POST['content_type'];
+                    }
+                    if ( 'preset_section' === $content_type ) {
+                        if ( ! array_key_exists( 'collection_of_preset_section_id', $_POST ) || ! is_array( $_POST['collection_of_preset_section_id'] ) ) {
+                            wp_send_json_error(  __CLASS__ . '::' . __FUNCTION__ . ' ' . $sek_action .' => missing param collection_of_preset_section_id when injecting a preset section' );
+                            break;
+                        }
+                        if ( ! is_string( $maybe_preset_section_id ) || empty( $maybe_preset_section_id ) ) {
+                            wp_send_json_error(  __CLASS__ . '::' . __FUNCTION__ . ' ' . $sek_action .' => inavalid preset section id' );
+                            break;
+                        }
+                        $level_id = $maybe_preset_section_id;
+                    // module content type case.
+                    // the level id has been passed the regular way
+                    } else {
+                        $level_id = $_POST[ 'id' ];
+                    }
+
+                    if ( array_key_exists( 'is_nested', $_POST ) && true === json_decode( $_POST['is_nested'] ) ) {
+                        // we need to set the parent_mode here to access it later in the ::render method to calculate the column width.
+                        $this -> parent_model = sek_get_level_model( $_POST[ 'in_sektion' ], $sektion_collection );
+                        $level_model = sek_get_level_model( $_POST[ 'in_column' ], $sektion_collection );
+                    } else {
+                        //$level_model = sek_get_level_model( $_POST[ 'id' ], $sektion_collection );
+                        $level_model = sek_get_level_model( $level_id, $sektion_collection );
                     }
                 break;
 
                 //only used for nested section
                 case 'sek-remove-section' :
                     if ( ! array_key_exists( 'is_nested', $_POST ) || true !== json_decode( $_POST['is_nested'] ) ) {
-                        wp_send_json_error(  __CLASS__ . '::' . __FUNCTION__ . ' sek-remove-section => the section must be nested in this ajax action' );
+                        wp_send_json_error(  __CLASS__ . '::' . __FUNCTION__ . ' ' . $sek_action .' => the section must be nested in this ajax action' );
                         break;
                     } else {
                         // we need to set the parent_model here to access it later in the ::render method to calculate the column width.
                         $this -> parent_model = sek_get_parent_level_model( $_POST[ 'in_column' ], $sektion_collection );
                         $level_model = sek_get_level_model( $_POST[ 'in_column' ], $sektion_collection );
-                    }
-                break;
-
-                case 'sek-duplicate-section' :
-                    if ( array_key_exists( 'is_nested', $_POST ) && true === json_decode( $_POST['is_nested'] ) ) {
-                        // we need to set the parent_mode here to access it later in the ::render method to calculate the column width.
-                        $this -> parent_model = sek_get_parent_level_model( $_POST[ 'in_column' ], $sektion_collection );
-                        $level_model = sek_get_level_model( $_POST[ 'in_column' ], $sektion_collection );
-                    } else {
-                        $level_model = sek_get_level_model( $_POST[ 'id' ], $sektion_collection );
                     }
                 break;
 
@@ -14698,6 +16093,26 @@ if ( ! class_exists( 'SEK_Front_Assets' ) ) :
                 );
             }
 
+
+            // Swiper js + css is needed for the czr_img_slider_module
+            if ( skp_is_customizing() || ( ! skp_is_customizing() && sek_front_needs_swiper() ) ) {
+                wp_enqueue_style(
+                    'czr-swiper',
+                    sek_is_dev_mode() ? NIMBLE_BASE_URL . '/assets/front/css/libs/swiper.css' : NIMBLE_BASE_URL . '/assets/front/css/libs/swiper.min.css',
+                    array(),
+                    NIMBLE_ASSETS_VERSION,
+                    $media = 'all'
+                );
+                wp_enqueue_script(
+                    'czr-swiper',
+                    sek_is_dev_mode() ? NIMBLE_BASE_URL . '/assets/front/js/libs/swiper.js' : NIMBLE_BASE_URL . '/assets/front/js/libs/swiper.min.js',
+                    array( 'jquery'),
+                    NIMBLE_ASSETS_VERSION,
+                    true
+                );
+            }
+
+
             // Google reCAPTCHA
             $global_recaptcha_opts = sek_get_global_option_value('recaptcha');
             $global_recaptcha_opts = is_array( $global_recaptcha_opts ) ? $global_recaptcha_opts : array();
@@ -14715,7 +16130,8 @@ if ( ! class_exists( 'SEK_Front_Assets' ) ) :
                     'recaptcha_public_key' => !empty ( $global_recaptcha_opts['public_key'] ) ? $global_recaptcha_opts['public_key'] : ''
                 )
             );
-        }
+
+        }//sek_enqueue_front_assets
 
 
         // enqueue / print customize preview assets
@@ -14887,7 +16303,13 @@ if ( ! class_exists( 'SEK_Front_Assets' ) ) :
 
               <script type="text/html" id="sek-dyn-ui-tmpl-column">
                   <?php //<# console.log( 'data', data ); #> ?>
-                  <div class="sek-dyn-ui-wrapper sek-column-dyn-ui">
+                  <?php
+                    // when a column has nested section(s), its ui might be hidden by deeper columns.
+                    // that's why a CSS class is added to position it on the top right corner, instead of bottom right
+                    // @see https://github.com/presscustomizr/nimble-builder/issues/488
+                  ?>
+                  <# var has_nested_section_class = true === data.has_nested_section ? 'sek-col-has-nested-section' : ''; #>
+                  <div class="sek-dyn-ui-wrapper sek-column-dyn-ui {{has_nested_section_class}}">
                     <div class="sek-dyn-ui-inner <?php echo $icon_right_side_class; ?>">
                       <div class="sek-dyn-ui-icons">
                         <i class="fas fa-arrows-alt sek-move-column" title="<?php _e( 'Move column', 'nimble-builder' ); ?>"></i>

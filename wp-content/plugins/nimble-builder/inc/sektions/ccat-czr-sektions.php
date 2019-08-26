@@ -180,6 +180,8 @@ function sek_enqueue_controls_js_css() {
                 // basic btns are used for the heading, the quote content and quote cite
                 'basic_btns' => array('forecolor','bold','italic','underline','strikethrough','link','unlink'),
                 'basic_btns_nolink' => array('forecolor','bold','italic','underline','strikethrough'),
+                // with list introduced for the accordion module https://github.com/presscustomizr/nimble-builder/issues/482
+                'basic_btns_with_lists' => array('forecolor','bold','italic','underline','strikethrough','link','unlink', 'bullist', 'numlist'),
 
                 'eligibleForFeedbackNotification' => sek_get_feedback_notif_status(),
 
@@ -625,7 +627,8 @@ function nimble_add_i18n_localized_control_params( $params ) {
             // Column width
             'This is a single-column section with a width of 100%. You can act on the internal width of the parent section, or adjust padding and margin.' => __('This is a single-column section with a width of 100%. You can act on the internal width of the parent section, or adjust padding and margin.', 'nimble-builder'),
 
-
+            // Accordion module
+            'Accordion title' => __('Accordion title', 'nimble-builder')
             //'Remove this element' => __('Remove this element', 'text_dom'),
             //'Remove this element' => __('Remove this element', 'text_dom'),
             //'Remove this element' => __('Remove this element', 'text_dom'),
@@ -792,11 +795,17 @@ function sek_print_nimble_customizer_tmpl() {
           <div class="sek-feedback-step-two-enjoying">
             <span class="sek-stars" data-sek-feedback-action="go_review">&#9733;&#9733;&#9733;&#9733;&#9733;</span>
             <p>Awesome! Could you please leave a rating on WordPress.org ?<br/>
-            This would encourage other users to discover Nimble Builder and help me improve the plugin. A huge thanks in advance!</p>
+            This would encourage other users discovering Nimble Builder. A huge thanks in advance!</p>
             <p class="sek-signature">-Nicolas, Founder and Lead Developer of Nimble Builder</p>
-            <button class="button sek-feedback-btn sek-neg" data-sek-feedback-action="maybe_later" type="button">
-              <?php _e('No thanks, maybe later', 'nimble-builder'); ?>
-            </button>
+            <?php
+              // Hidden since July 2019
+              // @see https://github.com/presscustomizr/nimble-builder/issues/481
+              //<button class="button sek-feedback-btn sek-neg" data-sek-feedback-action="maybe_later" type="button">
+              //
+            ?>
+                <?php //_e('No thanks, maybe later', 'text_domain'); ?>
+              <?php //</button>
+            ?>
             <button class="button sek-feedback-btn sek-pos" data-sek-feedback-action="go_review" type="button">
               <?php _e('OK, you deserve it', 'nimble-builder'); ?>
             </button>
@@ -847,6 +856,10 @@ function sek_print_nimble_customizer_tmpl() {
 
 // Introduced for https://github.com/presscustomizr/nimble-builder/issues/395
 function sek_has_active_cache_plugin() {
+    if ( defined( 'WP_CACHE' ) && WP_CACHE ) {
+        return true;
+    }
+
     $cache_plugins = array(
         'WP Fastest Cache' => 'wp-fastest-cache/wpFastestCache.php',
         'W3 Total Cache' => 'w3-total-cache/w3-total-cache.php',
@@ -1019,11 +1032,12 @@ function sek_print_nimble_input_templates() {
         <#
           var item_model = data.item_model,
               input_id = data.input_id,
-              value = _.has( item_model, input_id ) ? item_model[input_id] : null,
+              rawValue = _.has( item_model, input_id ) ? item_model[input_id] : null,
+              value,
               unit;
 
-          value = _.isString( value ) ? value.replace(/px|em|%/g,'') : value;
-          unit = _.isString( value ) ? value.replace(/[0-9]|\.|,/g, '') : 'px';
+          value = _.isString( rawValue ) ? rawValue.replace(/px|em|%/g,'') : rawValue;
+          unit = _.isString( rawValue ) ? rawValue.replace(/[0-9]|\.|,/g, '') : 'px';
           unit = _.isEmpty( unit ) ? 'px' : unit;
           var _step = _.has( data.input_data, 'step' ) ? 'step="' + data.input_data.step + '"' : '',
               _saved_unit = _.has( item_model, 'unit' ) ? 'data-unit="' + data.input_data.unit + '"' : '',
@@ -1080,7 +1094,7 @@ function sek_print_nimble_input_templates() {
               value = _.has( item_model, input_id ) ? item_model[input_id] : null,
               code_type = data.input_data.code_type;
         #>
-        <textarea data-czrtype="{{input_id}}" data-editor-code-type="{{code_type}}" class="width-100" name="textarea" rows="10" cols="">{{value}}</textarea>
+        <textarea data-czrtype="{{input_id}}" data-editor-code-type="{{code_type}}" class="width-100" name="textarea" rows="10" cols=""></textarea>
       </script>
 
 
@@ -1095,7 +1109,7 @@ function sek_print_nimble_input_templates() {
         #>
         <button type="button" class="button text_editor-button" data-czr-control-id="{{ data.control_id }}" data-czr-input-id="{{input_id}}" data-czr-action="open-tinymce-editor"><?php _e('Edit', 'nimble-builder'); ?></button>&nbsp;
         <button type="button" class="button text_editor-button" data-czr-control-id="{{ data.control_id }}" data-czr-input-id="{{input_id}}" data-czr-action="close-tinymce-editor"><?php _e('Hide editor', 'nimble-builder'); ?></button>
-        <input data-czrtype="{{input_id}}" type="hidden" value="{{value}}"/>
+        <input data-czrtype="{{input_id}}" type="hidden" value=""/>
       </script>
 
       <script type="text/html" id="tmpl-nimble-input___nimble_tinymce_editor">
@@ -1108,7 +1122,7 @@ function sek_print_nimble_input_templates() {
               input_id = data.input_id,
               value = _.has( item_model, input_id ) ? item_model[input_id] : null;
         #>
-        <textarea id="textarea-{{data.control_id}}" data-czrtype="{{input_id}}" class="width-100" name="textarea" rows="10" cols="">{{value}}</textarea>
+        <textarea id="textarea-{{input_id}}" data-czrtype="{{input_id}}" class="width-100" name="textarea" rows="10" cols=""></textarea>
       </script>
 
 
@@ -1161,37 +1175,6 @@ function sek_print_nimble_input_templates() {
 
       <?php
       /* ------------------------------------------------------------------------- *
-       *  FONT SIZE / LINE HEIGHT
-      /* ------------------------------------------------------------------------- */
-      ?>
-      <script type="text/html" id="tmpl-nimble-input___font_size_line_height">
-        <?php
-          // we save the int value + unit
-          // we want to keep only the numbers when printing the tmpl
-          // dev note : value.replace(/\D+/g, '') : ''; not working because remove "." which we might use for em for example
-        ?>
-        <#
-          var item_model = data.item_model,
-              input_id = data.input_id,
-              value = _.has( item_model, input_id ) ? item_model[input_id] : null,
-              unit;
-
-          value = _.isString( value ) ? value.replace(/px|em|%/g,'') : value;
-          unit = _.isString( value ) ? value.replace(/[0-9]|\.|,/g, '') : 'px';
-          unit = _.isEmpty( unit ) ? 'px' : unit;
-        #>
-        <div class="sek-font-size-line-height-wrapper">
-          <input data-czrtype="{{input_id}}" type="hidden" data-sek-unit="{{unit}}"/>
-          <div aria-label="<?php _e('unit', 'nimble-builder'); ?>" class="sek-ui-button-group sek-float-right" role="group">
-                <button type="button" aria-pressed="false" class="sek-ui-button" title="<?php _e('pixels', 'nimble-builder'); ?>" data-sek-unit="px">px</button><button type="button" aria-pressed="false" class="sek-ui-button" title="em" data-sek-unit="em">em</button><button type="button" aria-pressed="false" class="sek-ui-button" title="<?php _e('percents', 'nimble-builder'); ?>" data-sek-unit="%">%</button></div>
-          </div>
-        </div>
-      </script>
-
-
-
-      <?php
-      /* ------------------------------------------------------------------------- *
        *  ALPHA COLOR
       /* ------------------------------------------------------------------------- */
       ?>
@@ -1214,7 +1197,15 @@ function sek_print_nimble_input_templates() {
         <select data-czrtype="{{data.input_id}}"></select>
       </script>
 
-
+      <?php
+      /* ------------------------------------------------------------------------- *
+       *  SIMPLE SELECT WITH DEVICE SWITCHER
+      /* ------------------------------------------------------------------------- */
+      ?>
+      <script type="text/html" id="tmpl-nimble-input___simpleselect_deviceswitcher">
+        <input data-czrtype="{{data.input_id}}" type="hidden"/>
+        <select></select>
+      </script>
 
 
       <?php
@@ -1406,6 +1397,20 @@ function sek_print_nimble_input_templates() {
       </script>
 
 
+      <?php
+      /* ------------------------------------------------------------------------- *
+       *  MODULE OPTION SWITCHER
+      /* ------------------------------------------------------------------------- */
+      ?>
+      <script type="text/html" id="tmpl-nimble-input___module_option_switcher">
+        <input data-czrtype="{{data.input_id}}" type="hidden"/>
+        <div class="sek-content-type-wrapper">
+            <div aria-label="<?php _e('Option type', 'nimble-builder'); ?>" class="sek-ui-button-group" role="group">
+                <button type="button" aria-pressed="false" class="sek-ui-button" title="<?php _e('Module Content', 'nimble-builder'); ?>" data-sek-option-type="content"><span class="sek-wrap-opt-switch-btn"><i class="material-icons">create</i><span><?php _e('Module Content', 'nimble-builder'); ?></span></span></button>
+                <button type="button" aria-pressed="false" class="sek-ui-button" title="<?php _e('Module Settings', 'nimble-builder'); ?>" data-sek-option-type="settings"><span class="sek-wrap-opt-switch-btn"><i class="material-icons">tune</i><span><?php _e('Module Settings', 'nimble-builder'); ?></span></span></button>
+            </div>
+        </div>
+      </script>
 
 
       <?php

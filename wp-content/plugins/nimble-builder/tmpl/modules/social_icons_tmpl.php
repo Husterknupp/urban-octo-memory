@@ -6,6 +6,9 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 if ( ! function_exists( 'Nimble\sek_print_social_links' ) ) {
   function sek_print_social_links( $icons_collection, $icons_style ) {
+      // Add more protocols to be allowed as safe urls. See: https://github.com/presscustomizr/nimble-builder/issues/461:wq
+      $allowed_protocols =  array_merge( (array) wp_allowed_protocols(), array( 'skype', 'callto' ) );
+
       echo '<ul class="sek-social-icons-wrapper">';
           foreach( $icons_collection as $item ) {
               // normalize
@@ -23,27 +26,28 @@ if ( ! function_exists( 'Nimble\sek_print_social_links' ) ) {
 
               $item = wp_parse_args( $item, $default_item );
 
-              // links like tel:*** or skype:**** or call:**** should work
-              // implemented for https://github.com/presscustomizr/social-links-modules/issues/7
               $social_link = 'javascript:void(0)';
               if ( isset($item['link']) && ! empty( $item['link'] ) ) {
-                  if ( false !== strpos($item['link'], 'callto:') || false !== strpos($item['link'], 'tel:') || false !== strpos($item['link'], 'skype:') ) {
-                      $social_link = esc_attr( $item['link'] );
-                  } else {
-                      $social_link = esc_url( $item['link'] );
-                  }
+                  $social_link = esc_url( $item['link'], $allowed_protocols );
               }
 
+              $link_attr = array();
+              // target attr.
+              $link_attr[] = false != $item['link_target'] ? 'target="_blank"' : '';
+              // rel attr.
+              $link_attr[] = false != $item['link_target'] ? 'rel="nofollow noopener noreferrer"' : 'rel="nofollow"';
+
               // Put them together
-              printf( '<li data-sek-item-id="%5$s"><a rel="nofollow" title="%1$s" aria-label="%1$s" href="%2$s" %3$s>%4$s</a></li>',
+              printf( '<li data-sek-item-id="%5$s"><a title="%1$s" aria-label="%1$s" href="%2$s" %3$s>%4$s</a></li>',
                   esc_attr( $item['title_attr'] ),
                   $social_link,
-                  false != $item['link_target'] ? 'target="_blank"' : '',
+                  implode( ' ', $link_attr ),
                   ( ( empty( $item['icon'] ) || ! is_string( $item['icon'] ) ) && skp_is_customizing() ) ? '<i class="material-icons">pan_tool</i>' : '<i class="sek-social-icon ' . $item['icon'] .'"></i>',
                   $item['id']
               );
           }//foreach
       echo '</ul>';
+
   }
 }
 
@@ -56,8 +60,9 @@ if ( !empty( $icons_collection ) ) {
     sek_print_social_links( $icons_collection, $icons_style );
 } else {
     if ( skp_is_customizing() ) {
-        printf( '<ul class="sek-social-icons-wrapper"><li class="sek-social-icons-placeholder"><span><i>%1$s</i></span></li></ul>',
-            __('Click to start adding social icons.', 'nimble-builder')
+        printf( '<div class="sek-mod-preview-placeholder"><div class="sek-preview-ph-text" style="%2$s"><p>%1$s</p></div></div>',
+            __('Click to start adding social icons.', 'nimble-builder'),
+            'background: url(' . NIMBLE_MODULE_ICON_PATH . 'Nimble_social_icon.svg) no-repeat 50% 75%;background-size: 150px;'
         );
     }
 }

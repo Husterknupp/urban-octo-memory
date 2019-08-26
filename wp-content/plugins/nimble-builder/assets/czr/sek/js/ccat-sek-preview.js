@@ -897,7 +897,8 @@ var SekPreviewPrototype = SekPreviewPrototype || {};
                               params = _.extend( params, {
                                     parent_can_have_more_columns : $parent_sektion.find('.sek-sektion-inner').first().children( 'div[data-sek-level="column"]' ).length < 12,
                                     parent_is_single_column : $parent_sektion.find('.sek-sektion-inner').first().children( 'div[data-sek-level="column"]' ).length < 2,
-                                    parent_is_last_allowed_nested : true === $parent_sektion.data('sek-is-nested')
+                                    parent_is_last_allowed_nested : true === $parent_sektion.data('sek-is-nested'),
+                                    has_nested_section : $levelEl.find('[data-sek-is-nested="true"]').length > 0
                               });
                         break;
                         case 'module' :
@@ -1684,6 +1685,13 @@ var SekPreviewPrototype = SekPreviewPrototype || {};
 
                                         //=> 'sek-level-refreshed' is listened to ( for example ) clean the loader overlay in time
                                         $( '[data-sek-id="' + params.apiParams.id + '"]' ).trigger( 'sek-level-refreshed', { level : params.apiParams.level, id : params.apiParams.id } );
+
+                                        // When completing actions 'sek-move-section-down' && 'sek-move-section-up', a 'sek-refresh-level' is triggered.
+                                        // We pass the moved_level_id so we can focus on it after it's been re-located in the DOM
+                                        // implemented for https://github.com/presscustomizr/nimble-builder/issues/471
+                                        if ( params.apiParams.moved_level_id ) {
+                                              api.preview.trigger( 'sek-animate-to-level', { id : params.apiParams.moved_level_id } );
+                                        }
                                   });
                             },
 
@@ -1982,7 +1990,14 @@ var SekPreviewPrototype = SekPreviewPrototype || {};
                             // resulting in the target element not being rendered on first call
                             'sek-update-html-in-selector' : function( params ) {
                                   var $level_el = $('[data-sek-id="' + params.id + '"]' ),
-                                      $target_el = $(params.selector, $level_el);
+                                      $target_el;
+
+                                  // for multi-item modules, the changed item id is passed
+                                  if ( !_.isEmpty( params.changed_item_id ) ) {
+                                        $target_el = $( '[data-sek-item-id="' + params.changed_item_id + '"] ' + params.selector, $level_el);
+                                  } else {
+                                        $target_el = $(params.selector, $level_el);
+                                  }
 
                                   if ( $level_el.length > 0 && $target_el.length > 0 ) {
                                         $target_el.html( params.html );
@@ -2014,6 +2029,13 @@ var SekPreviewPrototype = SekPreviewPrototype || {};
                                     // always send back the {msgId}_done message, so the control panel can fire the "complete" callback.
                                     // @see api.czr_sektions::reactToPreviewMsg
                                     api.preview.send( [ msgId, 'done'].join('_'), params );
+
+                                    // For multi-items module, when the level is refreshed, we want to focus on the changed_item
+                                    // @see CZRSeksPrototype::doSektionThinksOnApiReady
+                                    if ( params.apiParams.is_multi_items && params.apiParams.action === 'sek-refresh-level' ) {
+                                          api.preview.send( 'multi-items-module-refreshed', params );
+                                    }
+
                                     if ( _.isUndefined( _ajaxResponse_ ) )
                                       return;
 
@@ -2027,18 +2049,18 @@ var SekPreviewPrototype = SekPreviewPrototype || {};
                               $('body').addClass( msgId );
                               try {
                                     $.when( _.isFunction( callbackFn ) ? callbackFn( params ) : self[callbackFn].call( self, params ) )
-                                    .done( function( _ajaxResponse_ ) {
-                                          sendSuccessDataToPanel( _ajaxResponse_ );
-                                    })
-                                    .fail( function() {
-                                          api.preview.send( 'sek-notify', { type : 'error', duration : 10000, message : sekPreviewLocalized.i18n['Something went wrong, please refresh this page.'] });
-                                    })
-                                    .always( function( _ajaxResponse_ ) {
-                                          $('body').removeClass( msgId );
-                                    })
-                                    .then( function() {
-                                          api.preview.trigger( 'control-panel-requested-action-done', { action : msgId, args : params } );
-                                    });
+                                          .done( function( _ajaxResponse_ ) {
+                                                sendSuccessDataToPanel( _ajaxResponse_ );
+                                          })
+                                          .fail( function() {
+                                                api.preview.send( 'sek-notify', { type : 'error', duration : 10000, message : sekPreviewLocalized.i18n['Something went wrong, please refresh this page.'] });
+                                          })
+                                          .always( function( _ajaxResponse_ ) {
+                                                $('body').removeClass( msgId );
+                                          })
+                                          .then( function() {
+                                                api.preview.trigger( 'control-panel-requested-action-done', { action : msgId, args : params } );
+                                          });
                               } catch( _er_ ) {
                                     self.errare( 'reactToPanelMsg => Error when firing the callback of ' + msgId , _er_  );
                                     $('body').removeClass( msgId );
@@ -2069,7 +2091,12 @@ var SekPreviewPrototype = SekPreviewPrototype || {};
                         location_skope_id : params.location_skope_id,
                         local_skope_id : params.local_skope_id,
                         sek_action : params.apiParams.action,
-                        is_nested : params.apiParams.is_nested
+                        is_nested : params.apiParams.is_nested,
+
+                        // The following params have been introduced when implementing support for multi-section pre-build sections
+                        // @see https://github.com/presscustomizr/nimble-builder/issues/489
+                        content_type : ( params.all_params && params.all_params.content_type ) ? params.all_params.content_type : null,
+                        collection_of_preset_section_id : ( params.all_params && params.all_params.collection_of_preset_section_id ) ? params.all_params.collection_of_preset_section_id : []
                   }).done( function( _r_ ) {
                         var html_content = '';
                         //@see php SEK_Front_Ajax::sek_get_level_content_for_injection

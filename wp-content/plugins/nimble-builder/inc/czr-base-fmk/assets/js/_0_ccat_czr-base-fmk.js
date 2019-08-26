@@ -2176,19 +2176,27 @@ $.extend( CZRInputMths , {
               canUpload     : true
         };
 
-        api.CZR_Helpers.getModuleTmpl( {
-              tmpl : 'img-uploader',
-              module_type: 'all_modules',
-              module_id : input.module.id
-        } ).done( function( _serverTmpl_ ) {
-              //console.log( 'renderModuleParts => success response =>', input.module.id, _serverTmpl_);
-              $_view_el.html( api.CZR_Helpers.parseTemplate( _serverTmpl_ )( _template_params ) );
+        if ( $('#tmpl-czr-img-uploader').length > 0 ) {
+              $_view_el.html( wp.template( 'czr-img-uploader' )( _template_params ) );
               input.tmplRendered.resolve();
               input.container.trigger( input.id + ':content_rendered' );
-        }).fail( function( _r_ ) {
-              //console.log( 'renderModuleParts => fail response =>', _r_);
-              input.tmplRendered.reject( 'renderImageUploaderTemplate => Problem when fetching the tmpl from server for module : '+ input.module.id );
-        });
+        } else {
+              api.CZR_Helpers.getModuleTmpl( {
+                    tmpl : 'img-uploader',
+                    module_type: 'all_modules',
+                    module_id : input.module.id
+              } ).done( function( _serverTmpl_ ) {
+                    //console.log( 'renderModuleParts => success response =>', input.module.id, _serverTmpl_);
+                    $_view_el.html( api.CZR_Helpers.parseTemplate( _serverTmpl_ )( _template_params ) );
+                    input.tmplRendered.resolve();
+                    input.container.trigger( input.id + ':content_rendered' );
+              }).fail( function( _r_ ) {
+                    //console.log( 'renderModuleParts => fail response =>', _r_);
+                    input.tmplRendered.reject( 'renderImageUploaderTemplate => Problem when fetching the tmpl from server for module : '+ input.module.id );
+              });
+        }
+
+
         return true;
   },
 
@@ -4728,6 +4736,11 @@ $.extend( CZRModuleMths, {
                     if ( module.czr_Item.has(_item.id) && 'expanded' == module.czr_Item(_item.id)._getViewState(_item.id) )
                       module.czr_Item( _item.id ).viewState.set( 'closed' ); // => will fire the cb toggleItemExpansion
               } );
+
+              // 'czr-all-items-closed' has been introduced when coding the Simple Nimble slider module. @see https://github.com/presscustomizr/nimble-builder/issues/82
+              // When using the text editor in the items of in a multi-item module
+              // We need to clear the editor instances each time all items are closed, before opening a new one
+              api.trigger('czr-all-items-closed', { module_id : module.id } );
               return this;
       },
 
@@ -5058,6 +5071,14 @@ $.extend( CZRDynModuleMths, {
             module.trigger( 'pre-item-input-collection-ready' );
       },
 
+      // Intended to be overriden in a module
+      // introduced in July 2019 to make it simple for a multi-item module to set a default pre-item
+      // typically, in the slider image, this is a way to have a default image when adding an item
+      // @see https://github.com/presscustomizr/nimble-builder/issues/479
+      getPreItem : function() {
+            return this.preItem();
+      },
+
 
       // overridable method introduced with the flat skope
       // problem to solve in skope => an item, can't always be instantiated in a given context.
@@ -5075,7 +5096,7 @@ $.extend( CZRDynModuleMths, {
                   return dfd.reject().promise();
             }
             var module = this,
-                item_candidate = module.preItem(),
+                item_candidate = module.getPreItem(),
                 collapsePreItem = function() {
                       module.preItemExpanded.set( false );
                       //module.toggleSuccessMessage('off');

@@ -6,7 +6,7 @@ Tags: page builder, visual editor, customizer, drag and drop, header, footer, la
 Requires at least: 4.7
 Requires PHP: 5.4
 Tested up to: 5.2.2
-Stable tag: 1.8.8
+Stable tag: 1.8.16
 License: GPLv3
 License URI: https://www.gnu.org/licenses/gpl-3.0.html
 Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=8FMNQPU36U27J&source=url
@@ -47,11 +47,12 @@ Nimble Builder allows you to insert sections in any context of your site : home 
 
 = Content modules =
 * Headings
-* WordPress text editor
+* WordPress text editor ( support blocks and shortcodes )
 * [Image](https://docs.presscustomizr.com/article/381-how-to-enable-lightbox-on-your-images-with-the-nimble-builder/?utm_source=wp-org&utm_medium=link&utm_campaign=nimble-builder-page)
 * Button
 * Icon
 * Post Grid
+* Image Carousel
 * [Contact Form](https://docs.presscustomizr.com/article/385-how-to-enable-recaptcha-protection-against-spam-in-your-forms-with-the-nimble-builder/?utm_source=wp-org&utm_medium=link&utm_campaign=nimble-builder-page)
 * [Google Map](https://docs.presscustomizr.com/article/387-how-to-insert-google-maps-in-your-wordpress-pages-with-the-nimble-builder/?utm_source=wp-org&utm_medium=link&utm_campaign=nimble-builder-page)
 * Menu
@@ -61,7 +62,9 @@ Nimble Builder allows you to insert sections in any context of your site : home 
 * Columns
 * Quote
 * Widget zone
-* Accordion ( under development )
+* Accordion
+* Shortcode
+* Tabs ( coming soon )
 * ... and more to come !
 
 = Getting started =
@@ -95,9 +98,13 @@ You'll find a growing online knowledge base for Nimble builder here : [Nimble bu
 5. Drag a module from the left panel and drop it in a drop zone of the previewed page
 
 == Frequently Asked Questions ==
+= How do I use Nimble Builder ? =
+
+[Getting started with Nimble Page Builder for WordPress](https://docs.presscustomizr.com/article/337-getting-started-with-the-nimble-builder-plugin/?utm_source=wp-org&utm_medium=link&utm_campaign=nimble-builder-page).
+
 = Can I use Nimble Builder with any theme ? =
 
-Nimble builder works with any WordPress theme. If you experience any problem with a specific theme, please report it in the [plugin support forum](https://wordpress.org/support/plugin/nimble-builder).
+Yes, Nimble builder works with any WordPress theme. If you experience any problem with a specific theme, please report it in the [plugin support forum](https://wordpress.org/support/plugin/nimble-builder).
 
 = How to troubleshoot problems with Nimble Builder ? =
 1. **Use the latest software versions** : make sure WordPress, Nimble Builder and your theme are all up to date.
@@ -108,11 +115,57 @@ Nimble builder works with any WordPress theme. If you experience any problem wit
 6. **Browser** : [clear your browser's cache / history](https://docs.presscustomizr.com/article/309-how-to-clear-your-browsers-cache-cookies-and-history/?utm_source=wp-org&utm_medium=link&utm_campaign=nimble-builder-page). Switch to another browser if needed. Make sure you do not use a browser extension that conflicts with the plugin.
 7. **Theme** : try to switch to another WordPress theme, like the default WordPress theme. If you use a child theme, activate the parent theme instead.
 
+We have also published a detailed [troubleshooting guide for Nimble Builder](https://docs.presscustomizr.com/article/351-nimble-troubleshooting-guide/?utm_source=wp-org&utm_medium=link&utm_campaign=nimble-builder-page).
+
+If you can't troubleshoot your issue, please open a new thread in [Nimble Builder support forum](https://wordpress.org/support/plugin/nimble-builder/).
+
 == Upgrade Notice ==
-= 1.8.8 =
-This releases fixes a regression introduced in version 1.8.7, leading to a stylesheet not loaded on page refresh.
+= 1.8.16 =
+Introduction of a new Shortcode module. Fixed various minor issues.
 
 == Changelog ==
+= 1.8.16 : July 29th 2019 =
+* fixed : Google fonts not updated when injecting a pre-build section in a new nested section
+* fixed : preview level ui => overlapping problem => the ui of column with a nested section can not be accessed easily
+* improved : notify users of cache plugin based on the value of php constant WP_CACHE
+* improved : pre-built sections => add support for pre-built multi-sections
+* improved : add lazy loading support for images embedded in accordion text editor
+* added : a Shortcode module.
+
+= 1.8.15 : July 26th 2019 =
+* fixed : allow a value of 0 when generating the border-width css rules
+* fixed : multi-items modules => fix item ids becoming not unique on duplication or pre-build section injection
+* fixed : missing vendor prefixes for some dynamically added CSS rules like vertical alignment in flex columns
+* added : introduction of an Accordion module
+* added : [Slider module] => introduction of a 3 slides starting value
+* added : [Social profiles module] => introduction of a starting value collection with Twitter, Facebook, Instagram
+* improved : [Blockquote module] => make sure the blockquote doesn't inherit another border style from the theme or a plugin
+* improved : allow multi-item modules to use multi-item starting values
+
+= 1.8.14 : July 21st 2019 =
+* improved : in the modules ui, addition of an option switcher between content options and general settings
+* minor improvements of the remote api requests
+
+= 1.8.13 : July 20th 2019 =
+* improved : in the modules ui, addition of an option switcher between content options and general settings
+
+= 1.8.12 : July 18th 2019 =
+* fixed : [Carousel module] CSS classes added dynamically by javascript centering, .sek-h-centrd and .sek-v-centrd, were not styled. In particular missing the position:relative rule
+* improved : [Carousel module] added an animated opacity to hide the possible move of image while being re-positionned on centering actions
+
+= 1.8.11 : July 17th 2019 =
+* fixed : Slider module => implemented pure CSS right / left chevrons
+
+= 1.8.10 : July 15th 2019 =
+* improved : when moving section up / down => keep focus on the moved section
+* improved : [Social icons module] set rel="noopener noreferrer" to social links opening in a new tab
+* improved : [Social icons module] better support for additional protocols in social links urls
+* improved : [Carousel module] don't use a placeholder image when the default image has been removed + various ui improvements
+
+= 1.8.9 : July 12th 2019 =
+* fixed : wrong initial unit for font-size and line-height inputs.
+* added : a new Image Carousel module
+
 = 1.8.8 : July 6th 2019 =
 * fixed : Nimble dyn stylesheet gets removed on refresh
 * fixed : don't print nimble-global-breakpoint-options style if no global breakpoint set
