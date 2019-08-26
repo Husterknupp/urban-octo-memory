@@ -12,7 +12,7 @@
         <div class="colophon__row row flex-row justify-content-between">
             <div class="footer__credits col-12 col-sm-auto">
                 <a href="?page_id=185">Datenschutz </a>- <a href="?page_id=74">Impressum</a> - <a
-                        href="http://s522716835.online.de/wp-content/uploads/2019/06/GB-Juli-August.pdf" target="_blank">Veranstaltungs-Plan</a>
+                        href="http://s522716835.online.de/wp-content/uploads/2019/08/GB-September-Oktober.pdf" target="_blank">Veranstaltungs-Plan</a>
             </div>
             <div class="col-12 col-sm-auto">
 				<?php if ( czr_fn_is_registered_or_possible( 'footer_credits' ) )
