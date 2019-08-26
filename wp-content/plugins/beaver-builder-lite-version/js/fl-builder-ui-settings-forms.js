@@ -158,6 +158,10 @@
 				return false;
 			}
 
+			if ( config.hide ) {
+				return true;
+			}
+
 			// Render the lightbox and form.
 			if ( ! config.lightbox ) {
 
@@ -650,8 +654,9 @@
 			// Save settings
 			FLBuilder.addHook( 'didSaveNodeSettings', this.updateOnNodeEvent.bind( this ) );
 			FLBuilder.addHook( 'didSaveNodeSettingsComplete', this.updateOnNodeEvent.bind( this ) );
-			FLBuilder.addHook( 'didSaveGlobalSettingsComplete', this.updateOnSaveGlobalSettings.bind( this ) );
 			FLBuilder.addHook( 'didSaveLayoutSettingsComplete', this.updateOnSaveLayoutSettings.bind( this ) );
+			FLBuilder.addHook( 'didSaveGlobalSettingsComplete', this.updateOnSaveGlobalSettings.bind( this ) );
+			FLBuilder.addHook( 'didSaveGlobalSettingsComplete', this.reload );
 
 			// Add nodes
 			FLBuilder.addHook( 'didAddRow', this.updateOnNodeEvent.bind( this ) );
@@ -683,6 +688,19 @@
 			FLBuilder.addHook( 'didApplyColTemplateComplete', this.updateOnApplyTemplate.bind( this ) );
 			FLBuilder.addHook( 'didSaveGlobalNodeTemplate', this.updateOnApplyTemplate.bind( this ) );
 			FLBuilder.addHook( 'didRestoreRevisionComplete', this.updateOnApplyTemplate.bind( this ) );
+		},
+
+		/**
+		 * Reloads the core settings config from the server.
+		 *
+		 * @since 2.2.2
+		 * @method reload
+		 */
+		reload: function() {
+			var url = FLBuilderConfig.editUrl + '&fl_builder_load_settings_config=core';
+
+			$( 'script[src*="fl_builder_load_settings_config=core"]' ).remove();
+			$( 'head' ).append( '<script src="' + url + '"></script>' );
 		},
 
 		/**

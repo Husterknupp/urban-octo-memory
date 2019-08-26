@@ -68,7 +68,7 @@ final class FLBuilder {
 	 * @since 2.1
 	 */
 	static public $fa4_url     = '';
-	static public $fa5_pro_url = 'https://pro.fontawesome.com/releases/v5.8.1/css/all.css';
+	static public $fa5_pro_url = 'https://pro.fontawesome.com/releases/v5.9.0/css/all.css';
 
 	/**
 	 * Initializes hooks.
@@ -120,6 +120,13 @@ final class FLBuilder {
 		} else {
 			$locale = apply_filters( 'plugin_locale', get_locale(), 'fl-builder' );
 		}
+
+		/**
+		 * Allow users to overide the locale.
+		 * @see fl_set_ui_locale
+		 * @since 2.2.4
+		 */
+		$locale = apply_filters( 'fl_set_ui_locale', $locale );
 
 		//Setup paths to current locale file
 		$mofile_global = trailingslashit( WP_LANG_DIR ) . 'plugins/bb-plugin/' . $locale . '.mo';
@@ -771,6 +778,23 @@ final class FLBuilder {
 			}
 		}
 		wp_add_inline_style( 'admin-bar', '#wp-admin-bar-fl-builder-frontend-edit-link .ab-icon:before { content: "\f116" !important; top: 2px; margin-right: 3px; }' );
+		$args = array(
+			'product'     => FLBuilderModel::get_branding(),
+			'white_label' => FLBuilderModel::is_white_labeled(),
+			/**
+			 * Custom info text for crash popup.
+			 * @see fl_builder_crash_white_label_text
+			 */
+			'labeled_txt' => apply_filters( 'fl_builder_crash_white_label_text', '' ),
+			'vars'        => array(
+				'PHP Version'    => phpversion(),
+				'Memory Limit'   => FL_Debug::safe_ini_get( 'memory_limit' ),
+				'max_input_vars' => FL_Debug::safe_ini_get( 'max_input_vars' ),
+				'modsecfix'      => ( defined( 'FL_BUILDER_MODSEC_FIX' ) && FL_BUILDER_MODSEC_FIX ) ? 'Enabled' : 'Disabled',
+			),
+		);
+		wp_localize_script( 'fl-builder-min', 'crash_vars', $args );
+		wp_localize_script( 'fl-builder', 'crash_vars', $args );
 	}
 
 	/**
@@ -1516,6 +1540,11 @@ final class FLBuilder {
 
 		// Build the attributes string.
 		$attr_string = '';
+		/**
+		 * Change attributes for container.
+		 * @see fl_render_content_by_id_attrs
+		 */
+		$attrs = apply_filters( 'fl_render_content_by_id_attrs', $attrs, $post_id );
 
 		foreach ( $attrs as $attr_key => $attr_value ) {
 			$attr_string .= ' ' . $attr_key . '="' . $attr_value . '"';
@@ -1558,6 +1587,12 @@ final class FLBuilder {
 			$content = preg_replace_callback( "/$pattern/s", 'FLBuilder::double_escape_shortcodes', $content );
 			$content = $wp_embed->run_shortcode( $content );
 			$content = do_shortcode( $content );
+			/**
+			 * Allow content to be filtered after shortcodes are processed.
+			 * @see fl_builder_after_render_shortcodes
+			 * @since 2.2.4
+			 */
+			$content = apply_filters( 'fl_builder_after_render_shortcodes', $content );
 		}
 
 		// Add srcset attrs to images with the class wp-image-<ID>.
@@ -1923,6 +1958,12 @@ final class FLBuilder {
 			 * @see fl_builder_after_render_row
 			 */
 			do_action( 'fl_builder_after_render_row', $row, $groups );
+		} else {
+			/**
+			 * Fires in place of a hidden row.
+			 * @see fl_builder_hidden_node
+			 */
+			do_action( 'fl_builder_hidden_node', $row );
 		}
 	}
 
@@ -2160,6 +2201,12 @@ final class FLBuilder {
 
 		if ( $active || $visible ) {
 			include FL_BUILDER_DIR . 'includes/column.php';
+		} else {
+			/**
+			 * Fires in place of a hidden column.
+			 * @see fl_builder_hidden_node
+			 */
+			do_action( 'fl_builder_hidden_node', $col );
 		}
 	}
 
@@ -2308,6 +2355,12 @@ final class FLBuilder {
 			 * @see fl_builder_after_render_module
 			 */
 			do_action( 'fl_builder_after_render_module', $module );
+		} else {
+			/**
+			 * Fires in place of a hidden module.
+			 * @see fl_builder_hidden_node
+			 */
+			do_action( 'fl_builder_hidden_node', $module );
 		}
 	}
 
@@ -2500,6 +2553,8 @@ final class FLBuilder {
 	 */
 
 	static public function render_css( $include_global = true ) {
+		global $wp_the_query;
+
 		$active          = FLBuilderModel::is_builder_active();
 		$nodes           = FLBuilderModel::get_categorized_nodes();
 		$node_status     = FLBuilderModel::get_node_status();
@@ -2622,7 +2677,7 @@ final class FLBuilder {
 		$css .= self::render_global_nodes_custom_code( 'css' );
 
 		// Custom Layout CSS
-		if ( 'published' == $node_status ) {
+		if ( 'published' == $node_status || $post_id !== $wp_the_query->post->ID ) {
 			$css .= FLBuilderModel::get_layout_settings()->css;
 		}
 
@@ -3092,8 +3147,8 @@ final class FLBuilder {
 
 		// Add the layout settings JS.
 		if ( ! isset( $_GET['safemode'] ) ) {
-			$js .= self::render_global_nodes_custom_code( 'js' );
-			$js .= ( is_array( $layout_settings->js ) || is_object( $layout_settings->js ) ) ? json_encode( $layout_settings->js ) : $layout_settings->js;
+			$js .= self::js_comment( 'Global Node Custom JS', self::render_global_nodes_custom_code( 'js' ) );
+			$js .= ( is_array( $layout_settings->js ) || is_object( $layout_settings->js ) ) ? self::js_comment( 'Layout Custom JS', json_encode( $layout_settings->js ) ) : self::js_comment( 'Layout Custom JS', $layout_settings->js );
 		}
 
 		// Call the FLBuilder._renderLayoutComplete method if we're currently editing.
@@ -3166,8 +3221,14 @@ final class FLBuilder {
 		$js .= fl_builder_filesystem()->file_get_contents( FL_BUILDER_DIR . 'js/fl-builder-layout.js' );
 
 		// Add the global settings JS.
-		$js .= $global_settings->js;
+		$js .= self::js_comment( 'Global JS', $global_settings->js );
 
+		return $js;
+	}
+
+	static public function js_comment( $comment, $js ) {
+
+		$js = sprintf( "\n/* Start %s */\n%s\n/* End %s */\n\n", $comment, $js, $comment );
 		return $js;
 	}
 
@@ -3457,6 +3518,35 @@ final class FLBuilder {
 			unset( $query['post_type'][ array_search( 'fl-builder-template', $query['post_type'] ) ] );
 		}
 		return $query;
+	}
+
+	/**
+	 * @since 2.2.3
+	 */
+	static public function is_schema_enabled() {
+
+		/**
+		 * Disable all schema.
+		 * @see fl_builder_disable_schema
+		 */
+		if ( false !== apply_filters( 'fl_builder_disable_schema', false ) ) {
+			return false;
+		} else {
+			return true;
+		}
+	}
+
+	/**
+	 * @since 2.2.3
+	 */
+	static public function print_schema( $schema, $echo = true ) {
+		if ( self::is_schema_enabled() ) {
+			if ( $echo ) {
+				echo $schema;
+			} else {
+				return $schema;
+			}
+		}
 	}
 
 	/**

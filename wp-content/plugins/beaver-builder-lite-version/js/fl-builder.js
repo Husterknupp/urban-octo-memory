@@ -3787,7 +3787,7 @@
 				template 		= wp.template( 'fl-col-overlay' ),
 				overlay			= null;
 
-			if ( FLBuilderConfig.simpleUi ) {
+			if ( FLBuilderConfig.simpleUi && ! global ) {
 				return;
 			}
 			else if ( global && parentGlobal && hasModules && ! isColTemplate ) {
@@ -5265,6 +5265,7 @@
 				helper    : FLBuilder._moduleHelpers[ data.type ],
 				rules     : FLBuilder._moduleHelpers[ data.type ] ? FLBuilder._moduleHelpers[ data.type ].rules : null,
 				messages  : FLBuilder._moduleHelpers[ data.type ] ? FLBuilder._moduleHelpers[ data.type ].messages : null,
+				hide      : ( ! FLBuilderConfig.userCanEditGlobalTemplates && data.global ) ? true : false,
 				preview   : {
 					type     : 'module',
 					layout   : data.layout,
@@ -8545,6 +8546,7 @@
 
 				init.setup = function (editor) {
 					editor.on('SaveContent', function (e) {
+						e.content = e.content.replace(/<a href="(\.\.\/){1,2}/g, '<a href="' + FLBuilderConfig.homeUrl + '/' );
 						e.content = e.content.replace(/src="(\.\.\/){1,2}/g, 'src="' + FLBuilderConfig.homeUrl + '/' );
 					});
 				}
@@ -9290,21 +9292,62 @@
 				data.node_settings = FLBuilder._ajaxModSecFix( $.extend( true, {}, data.node_settings ) );
 			}
 
+			data.settings      = FLBuilder._inputVarsCheck( data.settings );
+			data.node_settings = FLBuilder._inputVarsCheck( data.node_settings );
+
+			if ( 'error' === data.settings || 'error' === data.node_settings ) {
+				return 0;
+			}
+
 			// Store the data in a single variable to avoid conflicts.
 			data = { fl_builder_data: data };
 
 			// Do the ajax call.
 			FLBuilder._ajaxRequest = $.post(FLBuilder._ajaxUrl(), data, function(response) {
-
 				if(typeof callback !== 'undefined') {
 					callback.call(this, response);
 				}
 
 				FLBuilder.triggerHook('didCompleteAJAX', data );
 
-			}).always( FLBuilder._ajaxComplete );
+			})
+			.always( FLBuilder._ajaxComplete )
+			.fail( function( xhr, status, error ){
+				msg = false;
+				switch(xhr.status) {
+					case 403:
+					case 409:
+						msg  = 'Something you entered has triggered a ' + xhr.status + ' error.<br /><br />This is nearly always due to mod_security settings from your hosting provider.'
+						if ( ! window.crash_vars.white_label ) {
+							msg += '<br /><br />See this <a target="_blank" style="color: #428bca;font-size:inherit" href="https://kb.wpbeaverbuilder.com/article/40-403-forbidden-or-blocked-error">Knowledge Base</a> article for more info.</br />'
+						}
+					break;
+				}
+				if ( msg ) {
+					console.log(xhr)
+					console.log(error)
+					FLBuilder.alert(msg)
+				}
+			})
+
 
 			return FLBuilder._ajaxRequest;
+		},
+
+		_inputVarsCheck: function( o ) {
+
+			var maxInput = FLBuilderConfig.MaxInputVars || 0;
+
+			if ( 'undefined' != typeof o && maxInput > 0 ) {
+				count = $.map( o, function(n, i) { return i; }).length;
+				if ( count > maxInput ) {
+					FLBuilder.alert( '<h1 style="font-size:2em;text-align:center">Critical Issue</h1><br />The number of settings being saved (' + count + ') exceeds the PHP Max Input Vars setting (' + maxInput + ').<br />Please contact your host to have this value increased, the default is 1000.' );
+					console.log( 'Vars Count: ' + count );
+					console.log( 'Max Input: ' + maxInput );
+					return 'error';
+				}
+			}
+			return o;
 		},
 
 		/**
@@ -9660,18 +9703,30 @@
 
 		crashMessage: function(debug)
 		{
+			FLLightbox.closeAll();
 			var alert = new FLLightbox({
 					className: 'fl-builder-alert-lightbox fl-builder-crash-lightbox',
 					destroyOnClose: true
 				}),
-				template = wp.template( 'fl-crash-lightbox' );
+				template  = wp.template( 'fl-crash-lightbox' ),
+				product   = window.crash_vars.product,
+				labeled   = window.crash_vars.white_label,
+				label_txt = window.crash_vars.labeled_txt;
 
-				message  = "Beaver Builder has detected a plugin conflict that is preventing the page from saving.<p>( In technical terms there’s probably a PHP error in Ajax. )</p>"
+
+
+				message  = product + " has detected a plugin conflict that is preventing the page from saving.<p>( In technical terms there’s probably a PHP error in Ajax. )</p>"
 				info     = "If you contact Beaver Builder Support, we need to know what the error is in the JavaScript console in your browser.<p>To open the JavaScript console:<br />Chrome: View > Developer > JavaScript Console<br />Firefox: Tools > Web Developer > Browser Console<br />Safari: Develop > Show JavaScript console</p>Copy the errors you find there and submit them with your Support ticket. It saves us having to ask you that as a second step.<br /><br />If you want to troubleshoot further, you can check our <a class='link' target='_blank' href='https://kb.wpbeaverbuilder.com/article/42-known-beaver-builder-incompatibilities'>Knowledge Base</a> for plugins we know to be incompatible. Then deactivate your plugins one by one while you try to save the page in the Beaver Builder editor. When the page saves normally, you have identified the plugin causing the conflict. <a class='link' target='_blank' href='https://www.wpbeaverbuilder.com/beaver-builder-support/'>Contact Support</a> if you need further help."
 
-				debug    = false
+				if ( FLBuilderConfig.MaxInputVars <= 3000 ) {
+					info += '<br /><br />The PHP config value max_input_vars is only set to ' + FLBuilderConfig.MaxInputVars + '. If you are using 3rd party addons this could very likely be the cause of this error. [<a class="link" href="https://kb.wpbeaverbuilder.com/article/746-troubleshooting-number-of-settings-being-saved-exceeds-php-max-input-vars">doc link</a>].'
+				}
 
-			alert.open( template( { message : message, info: info, debug: debug } ) );
+				debug    = false
+				if ( labeled ) {
+					info = label_txt
+				}
+				alert.open( template( { message : message, info: info, debug: debug } ) );
 		},
 
 		/**
@@ -9806,6 +9861,10 @@
 						FLBuilder.log( "Debug Info" );
 						console.log( data );
 				}
+				// Show debug data in console.
+				$.each( window.crash_vars.vars, function(i,t) {
+					console.log(i + ': ' + t)
+				})
 				FLBuilder.log( '************************************************************************' );
 				if ( 'undefined' != typeof data && data ) {
 					message = data + "\n" + message
@@ -9845,9 +9904,9 @@
 		_jsonParse: function( data ) {
 			try {
 					data = JSON.parse( data );
-	        } catch (e) {
-	            FLBuilder.logError( e, FLBuilder._parseError( data ) );
-	        }
+					} catch (e) {
+						FLBuilder.logError( e, FLBuilder._parseError( data ) );
+					}
 					return data;
 		},
 
@@ -9857,6 +9916,9 @@
 		 * @param {string} data the JSON containing error(s)
 		 */
 		_parseError: function( data ) {
+			if( data.indexOf('</head>') ) {
+				return 'AJAX returned HTML page instead of data. (Possible 404 or max_input_vars)';
+			}
 			php = data.match(/^<.*/gm) || false;
 			if ( php && php.length > 0 ) {
 				var txt = '';

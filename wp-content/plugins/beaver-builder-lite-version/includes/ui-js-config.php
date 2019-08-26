@@ -4,7 +4,7 @@
  * Filter main UI JS config.
  * @see fl_builder_ui_js_config
  */
-echo 'FLBuilderConfig              = ' . json_encode( apply_filters('fl_builder_ui_js_config', array(
+echo 'FLBuilderConfig              = ' . FLBuilderUtils::json_encode( apply_filters('fl_builder_ui_js_config', array(
 	'adminUrl'                   => admin_url(),
 	'ajaxNonce'                  => wp_create_nonce( 'fl_ajax_update' ),
 	'builderEnabled'             => get_post_meta( $post_id, '_fl_builder_enabled', true ) ? true : false,
@@ -20,6 +20,7 @@ echo 'FLBuilderConfig              = ' . json_encode( apply_filters('fl_builder_
 	'isUserTemplate'             => false,
 	'lite'                       => true === FL_BUILDER_LITE,
 	'modSecFix'                  => ( defined( 'FL_BUILDER_MODSEC_FIX' ) && FL_BUILDER_MODSEC_FIX ),
+	'MaxInputVars'               => FL_Debug::safe_ini_get( 'max_input_vars' ),
 	'moduleGroups'               => FLBuilderModel::get_module_groups(),
 	'nestedColumns'              => ( ! defined( 'FL_BUILDER_NESTED_COLUMNS' ) || FL_BUILDER_NESTED_COLUMNS ),
 	'newUser'                    => FLBuilderModel::is_new_user(),
@@ -68,7 +69,7 @@ echo 'FLBuilderConfig              = ' . json_encode( apply_filters('fl_builder_
  * Filter UI JS Strings.
  * @see fl_builder_ui_js_strings
  */
-echo 'FLBuilderStrings             = ' . json_encode( apply_filters('fl_builder_ui_js_strings', array(
+echo 'FLBuilderStrings             = ' . FLBuilderUtils::json_encode( apply_filters('fl_builder_ui_js_strings', array(
 	'actionsLightboxTitle'           => esc_attr__( 'What would you like to do?', 'fl-builder' ),
 	/* translators: %s: field name */
 	'addField'                       => esc_attr_x( 'Add %s', 'Field name to add.', 'fl-builder' ),
