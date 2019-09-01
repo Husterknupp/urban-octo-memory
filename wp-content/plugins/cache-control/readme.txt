@@ -2,7 +2,7 @@
 Contributors: geekysoft
 Tags: caching, performance, cache-control, http
 Requires at least: 4.4.1
-Tested up to: 5.0.2
+Tested up to: 5.2.2
 Stable tag: 2.2.5
 Donate link: https://flattr.com/domain/daniel.priv.no
 License URI: https://www.gnu.org/licenses/gpl-3.0.html
