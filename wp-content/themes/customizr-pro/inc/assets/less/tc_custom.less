@@ -697,7 +697,7 @@ filter: progid:DXImageTransform.Microsoft.gradient(enabled=false);
   display: block;
 } */
 
-.tc-hover-menu.nav li:hover > ul {
+.tc-hover-menu.nav li:hover > ul, .tc-hover-menu.nav li.czr-focusin > ul {
   display: block;
 }
 /* GENERAL MENU STYLE */
@@ -912,7 +912,7 @@ style when side nav visible is actually rendered inline TC_menu.tc_set_sidenav_s
   filter: "progid:DXImageTransform.Microsoft.gradient(startColorstr=#CCFFFFFF, endColorstr=#CCFFFFFF)";
 }
 .btn-toggle-nav .menu-btn:focus, .btn-toggle-nav .menu-btn:hover {
-  outline: none;
+  /* outline: none; for https://github.com/presscustomizr/customizr/issues/1771 */
   outline-offset: inherit;
   background: none;
 }
@@ -1034,7 +1034,7 @@ style when side nav visible is actually rendered inline TC_menu.tc_set_sidenav_s
   text-decoration: none;
   cursor: pointer;
   margin: 1px 5px 0px;
-  outline: 0;
+  /* outline: 0; for https://github.com/presscustomizr/customizr/issues/1771 */
   float: left;
 }
 
@@ -3153,4 +3153,14 @@ footer ul, footer ol {
 .sek-dragging .sektion-wrapper[data-sek-id="__after_header"] {
     z-index: 1000;
     position: relative;
+}
+
+/* Add space before the first sidebar below content on mobile devices
+  fixes https://github.com/presscustomizr/customizr/issues/1767
+*/
+hr.tc-mobile-separator{ display:none;}
+@media (max-width: 767px) {
+  .tc-l-sidebar hr.tc-mobile-separator{ display:block;}
+  .tc-r-sidebar hr.tc-mobile-separator{ display:block;}
+  .tc-b-sidebar hr.tc-mobile-separator{ display:block;}
 }

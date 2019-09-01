@@ -1,4 +1,4 @@
-# Customizr Pro v2.1.32
+# Customizr Pro v2.1.34
 ![Customizr - Pro](/screenshot.png)
 
 > The pro version of the popular Customizr WordPress theme.
@@ -14,6 +14,15 @@ Customizr Pro is distributed under the terms of the [GNU GPL v2.0 or later](http
 * SUPPORT : http://presscustomizr.com/support/
 
 ## Changelog
+= 2.1.34 August 29th 2019 =
+* improved : better keyboard navigation to comply with new TRT requirements : https://make.wordpress.org/themes/2019/08/03/planning-for-keyboard-navigation/
+
+= 2.1.33 July 27th 2019 =
+* fixed : attachment page issue when building the gallery of siblings
+* fixed : add space after content before the first sidebar on mobile
+* fixed : use consistent line-height accross html elements
+* improved : better style for admin notices on mobiles
+
 = 2.1.32 June 30th 2019 =
 * fixed : fix dropdown menu on hover not opening in tablet iOS based
 * fixed : WooCommerce compat reduce the font size of the "apply coupon" text

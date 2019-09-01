@@ -2,9 +2,9 @@
 # This file is distributed under the same license as the Themes - Customizr-Pro package.
 msgid ""
 msgstr ""
-"Project-Id-Version: * Customizr-Pro v2.1.32\n"
+"Project-Id-Version: * Customizr-Pro v2.1.34\n"
 "Report-Msgid-Bugs-To: https://presscustomizr.com/contact/\n"
-"POT-Creation-Date: 2019-06-30 15:24:20+00:00\n"
+"POT-Creation-Date: 2019-08-29 10:06:58+00:00\n"
 "PO-Revision-Date: 2017-03-12 20:41:16+0000\n"
 "Language: sl_SI\n"
 "MIME-Version: 1.0\n"
@@ -1050,7 +1050,7 @@ msgstr "Preberi več o kategorijah prispevkov v WordPressu"
 #: addons/fpu/back/classes/class_back_fpu.php:51
 #: addons/wfc/back/classes/class_admin_font_customizer.php:587
 #: addons/wfc/back/czr-base-fmk/czr-base-fmk.php:244
-#: core/czr-base-fmk/czr-base-fmk.php:246 core/czr-customize-ccat.php:885
+#: core/czr-base-fmk/czr-base-fmk.php:248 core/czr-customize-ccat.php:885
 msgid "Settings"
 msgstr "Nastavitve"
 
@@ -1145,8 +1145,8 @@ msgstr ""
 #: addons/fpu/front/classes/class_front_fpu.php:778
 #: addons/wfc/back/czr-base-fmk/czr-base-fmk.php:238
 #: addons/wfc/back/czr-base-fmk/czr-base-fmk.php:452
-#: core/czr-admin-ccat.php:2439 core/czr-base-fmk/czr-base-fmk.php:240
-#: core/czr-base-fmk/czr-base-fmk.php:454 core/czr-customize-ccat.php:856
+#: core/czr-admin-ccat.php:2439 core/czr-base-fmk/czr-base-fmk.php:242
+#: core/czr-base-fmk/czr-base-fmk.php:543 core/czr-customize-ccat.php:856
 #: core/czr-customize-ccat.php:866
 #: core/front/models/modules/common/class-model-breadcrumb.php:624
 #: core/front/models/modules/common/class-model-breadcrumb.php:657
@@ -1699,14 +1699,14 @@ msgstr ""
 #: addons/wfc/back/classes/class_admin_font_customizer.php:516
 #: addons/wfc/back/czr-base-fmk/czr-base-fmk.php:461
 #: core/core-settings-map.php:1236 core/core-settings-map.php:1248
-#: core/czr-base-fmk/czr-base-fmk.php:463
+#: core/czr-base-fmk/czr-base-fmk.php:552
 msgid "Yes"
 msgstr "Da"
 
 #: addons/wfc/back/classes/class_admin_font_customizer.php:517
 #: addons/wfc/back/czr-base-fmk/czr-base-fmk.php:461
 #: core/core-settings-map.php:1237 core/core-settings-map.php:1249
-#: core/czr-base-fmk/czr-base-fmk.php:463 inc/czr-front-ccat.php:4084
+#: core/czr-base-fmk/czr-base-fmk.php:552 inc/czr-front-ccat.php:4084
 msgid "No"
 msgstr "Ne"
 
@@ -1776,122 +1776,122 @@ msgid ""
 msgstr ""
 
 #: addons/wfc/back/czr-base-fmk/czr-base-fmk.php:239
-#: core/czr-base-fmk/czr-base-fmk.php:241 core/czr-customize-ccat.php:857
+#: core/czr-base-fmk/czr-base-fmk.php:243 core/czr-customize-ccat.php:857
 #: inc/czr-front-ccat.php:776 inc/czr-front-ccat.php:783
 msgid "Close"
 msgstr "Zapri"
 
 #: addons/wfc/back/czr-base-fmk/czr-base-fmk.php:240
-#: core/czr-base-fmk/czr-base-fmk.php:242 core/czr-customize-ccat.php:858
+#: core/czr-base-fmk/czr-base-fmk.php:244 core/czr-customize-ccat.php:858
 msgid "Not set"
 msgstr "Ni nastavljeno"
 
 #: addons/wfc/back/czr-base-fmk/czr-base-fmk.php:241
-#: core/czr-base-fmk/czr-base-fmk.php:243 core/czr-customize-ccat.php:862
+#: core/czr-base-fmk/czr-base-fmk.php:245 core/czr-customize-ccat.php:862
 #: core/czr-modules/social-links/index.php:78
 #: core/czr-modules/social-links/social_links_module.php:80
 msgid "Done !"
 msgstr "Narejeno!"
 
 #: addons/wfc/back/czr-base-fmk/czr-base-fmk.php:243
-#: core/czr-base-fmk/czr-base-fmk.php:245 core/czr-customize-ccat.php:864
+#: core/czr-base-fmk/czr-base-fmk.php:247 core/czr-customize-ccat.php:864
 #: core/czr-customize-ccat.php:884
 msgid "Learn more about this in the documentation"
 msgstr "Več o tem v dokumentaciji"
 
 #: addons/wfc/back/czr-base-fmk/czr-base-fmk.php:245
-#: core/czr-base-fmk/czr-base-fmk.php:247 core/czr-customize-ccat.php:886
+#: core/czr-base-fmk/czr-base-fmk.php:249 core/czr-customize-ccat.php:886
 msgid "Options for"
 msgstr "Možnosti za"
 
 #: addons/wfc/back/czr-base-fmk/czr-base-fmk.php:248
 #: addons/wfc/back/czr-base-fmk/czr-base-fmk.php:253
-#: core/czr-base-fmk/czr-base-fmk.php:250
-#: core/czr-base-fmk/czr-base-fmk.php:255
+#: core/czr-base-fmk/czr-base-fmk.php:252
+#: core/czr-base-fmk/czr-base-fmk.php:257
 msgid "Select Image"
 msgstr "Izberi sliko"
 
 #: addons/wfc/back/czr-base-fmk/czr-base-fmk.php:249
-#: core/czr-base-fmk/czr-base-fmk.php:251
+#: core/czr-base-fmk/czr-base-fmk.php:253
 msgid "Change Image"
 msgstr "Spremeni sliko"
 
 #: addons/wfc/back/czr-base-fmk/czr-base-fmk.php:250
 #: addons/wfc/back/czr-base-fmk/czr-base-fmk.php:452
-#: core/czr-base-fmk/czr-base-fmk.php:252
-#: core/czr-base-fmk/czr-base-fmk.php:454 core/czr-customize-ccat.php:1479
+#: core/czr-base-fmk/czr-base-fmk.php:254
+#: core/czr-base-fmk/czr-base-fmk.php:543 core/czr-customize-ccat.php:1479
 msgid "Remove"
 msgstr "Odstrani"
 
 #: addons/wfc/back/czr-base-fmk/czr-base-fmk.php:251
-#: core/czr-base-fmk/czr-base-fmk.php:253
+#: core/czr-base-fmk/czr-base-fmk.php:255
 msgid "Default"
 msgstr "Privzeto"
 
 #: addons/wfc/back/czr-base-fmk/czr-base-fmk.php:252
-#: core/czr-base-fmk/czr-base-fmk.php:254
+#: core/czr-base-fmk/czr-base-fmk.php:256
 msgid "No image selected"
 msgstr "Ni izbranih slik"
 
 #: addons/wfc/back/czr-base-fmk/czr-base-fmk.php:254
-#: core/czr-base-fmk/czr-base-fmk.php:256
+#: core/czr-base-fmk/czr-base-fmk.php:258
 msgid "Choose Image"
 msgstr "Izberi sliko"
 
 #: addons/wfc/back/czr-base-fmk/czr-base-fmk.php:256
-#: core/czr-base-fmk/czr-base-fmk.php:258
+#: core/czr-base-fmk/czr-base-fmk.php:260
 #, fuzzy
 msgid "Customizing"
 msgstr "Customizr"
 
 #: addons/wfc/back/czr-base-fmk/czr-base-fmk.php:393
-#: core/czr-base-fmk/czr-base-fmk.php:395
+#: core/czr-base-fmk/czr-base-fmk.php:453
 msgid "ac_set_ajax_czr_tmpl => Security check failed."
 msgstr ""
 
 #: addons/wfc/back/czr-base-fmk/czr-base-fmk.php:434
-#: core/czr-base-fmk/czr-base-fmk.php:436
+#: core/czr-base-fmk/czr-base-fmk.php:525
 msgid "Add New"
 msgstr "Dodaj novo"
 
 #: addons/wfc/back/czr-base-fmk/czr-base-fmk.php:439
-#: core/czr-base-fmk/czr-base-fmk.php:441
+#: core/czr-base-fmk/czr-base-fmk.php:530
 msgid "Cancel"
 msgstr "Prekliči"
 
 #: addons/wfc/back/czr-base-fmk/czr-base-fmk.php:439
-#: core/czr-base-fmk/czr-base-fmk.php:441
+#: core/czr-base-fmk/czr-base-fmk.php:530
 msgid "Add it"
 msgstr "Dodaj"
 
 #: addons/wfc/back/czr-base-fmk/czr-base-fmk.php:460
-#: core/czr-base-fmk/czr-base-fmk.php:462
+#: core/czr-base-fmk/czr-base-fmk.php:551
 msgid "Are you sure you want to remove : <strong>{{ data.title }} ?</strong>"
 msgstr ""
 "Ali si prepričan, da želiš odstraniti: <strong>{{ data.title }} ?</strong>"
 
 #: addons/wfc/back/czr-base-fmk/czr-base-fmk.php:1562
-#: core/czr-base-fmk/czr-base-fmk.php:1578
+#: core/czr-base-fmk/czr-base-fmk.php:1667
 msgid "Set a custom url"
 msgstr ""
 
 #: addons/wfc/back/czr-base-fmk/czr-base-fmk.php:1596
 #: addons/wfc/back/czr-base-fmk/czr-base-fmk.php:1796
-#: core/czr-base-fmk/czr-base-fmk.php:1612
-#: core/czr-base-fmk/czr-base-fmk.php:1812
+#: core/czr-base-fmk/czr-base-fmk.php:1701
+#: core/czr-base-fmk/czr-base-fmk.php:1901
 msgid "ajax_load_available_items => Security check failed."
 msgstr ""
 
 #. translators: %d: ID of a post
 #: addons/wfc/back/czr-base-fmk/czr-base-fmk.php:1717
 #: addons/wfc/back/czr-base-fmk/czr-base-fmk.php:1926
-#: core/czr-base-fmk/czr-base-fmk.php:1733
-#: core/czr-base-fmk/czr-base-fmk.php:1942
+#: core/czr-base-fmk/czr-base-fmk.php:1822
+#: core/czr-base-fmk/czr-base-fmk.php:2031
 msgid "#%d (no title)"
 msgstr ""
 
 #: addons/wfc/back/czr-base-fmk/czr-base-fmk.php:1860
-#: core/czr-base-fmk/czr-base-fmk.php:1876
+#: core/czr-base-fmk/czr-base-fmk.php:1965
 msgid "No results found."
 msgstr ""
 
@@ -5231,7 +5231,7 @@ msgstr ""
 msgid "Back Home"
 msgstr "Nazaj Domov"
 
-#: inc/czr-front-ccat.php:776
+#: inc/czr-front-ccat.php:776 templates/parts/header/parts/menu_button.php:7
 msgid "Menu"
 msgstr "Meni"
 
