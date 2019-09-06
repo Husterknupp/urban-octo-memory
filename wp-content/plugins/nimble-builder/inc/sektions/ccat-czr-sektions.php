@@ -613,6 +613,7 @@ function nimble_add_i18n_localized_control_params( $params ) {
             // Import / export
             'You need to publish before exporting.' => __( 'Nimble Builder : you need to publish before exporting.', 'nimble-builder'),
             'Export / Import' => __('Export / Import', 'nimble-builder'),
+            'Export / Import global sections' => __('Export / Import global sections', 'nimble-builder'),
             'Export failed' => __('Export failed', 'nimble-builder'),
             'Nothing to export.' => __('Nimble Builder : you have nothing to export. Start adding sections to this page!', 'nimble-builder'),
             'Import failed' => __('Import failed', 'nimble-builder'),
@@ -1719,12 +1720,21 @@ function sek_print_nimble_input_templates() {
           <div class="customize-control-title width-100"><?php _e('IMPORT', 'nimble-builder'); ?></div>
           <span class="czr-notice"><?php _e('Select the file to import and click on Import button.', 'nimble-builder' ); ?></span>
           <span class="czr-notice"><?php _e('Be sure to import a file generated with Nimble Builder export system.', 'nimble-builder' ); ?></span>
-          <div class="czr-import-dialog notice notice-info">
+          <?php // <DIALOG FOR LOCAL IMPORT> ?>
+          <div class="czr-import-dialog czr-local-import notice notice-info">
               <div class="czr-import-message"><?php _e('Some of the imported sections need a location that is not active on this page. Sections in missing locations will not be rendered. You can continue importing or assign those sections to a contextually active location.', 'nimble-builder' ); ?></div>
               <button type="button" class="button" data-czr-control-id="{{ data.control_id }}" data-czr-input-id="{{data.input_id}}" data-czr-action="sek-import-as-is"><?php _e('Import without modification', 'nimble-builder' ); ?></button>
               <button type="button" class="button" data-czr-control-id="{{ data.control_id }}" data-czr-input-id="{{data.input_id}}" data-czr-action="sek-import-assign"><?php _e('Import in existing locations', 'nimble-builder' ); ?></button>
               <button type="button" class="button" data-czr-control-id="{{ data.control_id }}" data-czr-input-id="{{data.input_id}}" data-czr-action="sek-cancel-import"><?php _e('Cancel import', 'nimble-builder' ); ?></button>
           </div>
+          <?php // </DIALOG FOR LOCAL IMPORT> ?>
+          <?php // <DIALOG FOR GLOBAL IMPORT> ?>
+          <div class="czr-import-dialog czr-global-import notice notice-info">
+              <div class="czr-import-message"><?php _e('Some of the imported sections need a location that is not active on this page. For example, if you are importing a global header footer, you need to activate the Nimble site wide header and footer, in "Site wide header and footer" options.', 'nimble-builder' ); ?></div>
+               <button type="button" class="button" data-czr-control-id="{{ data.control_id }}" data-czr-input-id="{{data.input_id}}" data-czr-action="sek-import-as-is"><?php _e('Import', 'nimble-builder' ); ?></button>
+              <button type="button" class="button" data-czr-control-id="{{ data.control_id }}" data-czr-input-id="{{data.input_id}}" data-czr-action="sek-cancel-import"><?php _e('Cancel import', 'nimble-builder' ); ?></button>
+          </div>
+          <?php // </DIALOG FOR GLOBAL IMPORT> ?>
           <div class="sek-uploading"><?php _e( 'Uploading...', 'nimble-builder' ); ?></div>
           <input type="file" name="sek-import-file" class="sek-import-file" />
           <input type="hidden" name="sek-skope" value="{{data.input_data.scope}}" />
@@ -3681,6 +3691,7 @@ function sek_maybe_export() {
         sek_error_log( __FUNCTION__ . ' => missing customize capabilities.');
         return;
     }
+
     $seks_data = sek_get_skoped_seks( $_REQUEST['skope_id'] );
 
     //sek_error_log('EXPORT BEFORE FILTER ? ' . $_REQUEST['skope_id'] , $seks_data );
@@ -3702,7 +3713,7 @@ function sek_maybe_export() {
             'theme' => $theme_name
         )
     );
-    // sek_error_log('$_REQUEST ?', $_REQUEST );
+
     //sek_error_log('$export ?', $export );
 
     $skope_id = str_replace('skp__', '',  $_REQUEST['skope_id'] );
@@ -3725,6 +3736,7 @@ function sek_maybe_export() {
 // This is to avoid a white screen when generating the download window afterwards
 add_action( 'wp_ajax_sek_pre_export_checks', '\Nimble\sek_ajax_pre_export_checks' );
 function sek_ajax_pre_export_checks() {
+    //sek_error_log('PRE EXPORT CHECKS ?', $_POST );
     $action = 'save-customize_' . get_stylesheet();
     if ( ! check_ajax_referer( $action, 'nonce', false ) ) {
         wp_send_json_error( 'check_ajax_referer_failed' );
@@ -3751,6 +3763,37 @@ function sek_ajax_pre_export_checks() {
     wp_send_json_success();
 }
 
+
+
+
+
+
+// EXPORT FILTER
+add_filter( 'nimble_pre_export', '\Nimble\sek_parse_img_and_clean_id' );
+function sek_parse_img_and_clean_id( $seks_data ) {
+    $new_seks_data = array();
+    foreach ( $seks_data as $key => $value ) {
+        if ( is_array($value) ) {
+            $new_seks_data[$key] = sek_parse_img_and_clean_id( $value );
+        } else {
+            switch( $key ) {
+                case 'bg-image' :
+                case 'img' :
+                    if ( is_int( $value ) && (int)$value > 0 ) {
+                        $value = '__img_url__' . wp_get_attachment_url((int)$value);
+                    }
+                break;
+                case 'id' :
+                    if ( is_string( $value ) && false !== strpos( $value, '__nimble__' ) ) {
+                        $value = '__rep__me__';
+                    }
+                break;
+            }
+            $new_seks_data[$key] = $value;
+        }
+    }
+    return $new_seks_data;
+}
 
 
 
@@ -3876,36 +3919,6 @@ function sek_ajax_get_imported_file_content() {
     wp_send_json_success( $imported_content );
 }
 
-
-
-
-
-// EXPORT FILTER
-add_filter( 'nimble_pre_export', '\Nimble\sek_parse_img_and_clean_id' );
-function sek_parse_img_and_clean_id( $seks_data ) {
-    $new_seks_data = array();
-    foreach ( $seks_data as $key => $value ) {
-        if ( is_array($value) ) {
-            $new_seks_data[$key] = sek_parse_img_and_clean_id( $value );
-        } else {
-            switch( $key ) {
-                case 'bg-image' :
-                case 'img' :
-                    if ( is_int( $value ) && (int)$value > 0 ) {
-                        $value = '__img_url__' . wp_get_attachment_url((int)$value);
-                    }
-                break;
-                case 'id' :
-                    if ( is_string( $value ) && false !== strpos( $value, '__nimble__' ) ) {
-                        $value = '__rep__me__';
-                    }
-                break;
-            }
-            $new_seks_data[$key] = $value;
-        }
-    }
-    return $new_seks_data;
-}
 
 // IMPORT FILTER
 add_filter( 'nimble_pre_import', '\Nimble\sek_sniff_imported_img_url' );

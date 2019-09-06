@@ -165,7 +165,7 @@ function sek_get_default_location_model( $skope_id = null ) {
 //@return string
 function sek_get_seks_setting_id( $skope_id = '' ) {
   if ( empty( $skope_id ) ) {
-      sek_error_log( 'sek_get_seks_setting_id => empty skope id or location => collection setting id impossible to build' );
+      sek_error_log( __FUNCTION__ . ' => empty skope id or location => collection setting id impossible to build' );
   }
   return NIMBLE_OPT_PREFIX_FOR_SEKTION_COLLECTION . "[{$skope_id}]";
 }
@@ -180,6 +180,18 @@ function sek_has_global_sections() {
 }
 
 
+// @return bool
+// added for https://github.com/presscustomizr/nimble-builder/issues/436
+// initially used to determine if a post or a page has been customized with Nimble Builder => if so, we add an edit link in the post/page list
+// when used in admin, the skope_id must be provided
+function sek_local_skope_has_nimble_sections( $skope_id = '' ) {
+    if ( empty( $skope_id ) ) {
+        sek_error_log( __FUNCTION__ . ' => missing skope id' );
+        return false;
+    }
+    $post = sek_get_seks_post( $skope_id );
+    return $post ? true : false;
+}
 
 
 
@@ -1808,8 +1820,8 @@ function sek_get_parent_theme_slug() {
 
     //gets the theme name (or parent if child)
     $theme_data = wp_get_theme( $theme_slug );
-    if ( $theme_data -> parent() ) {
-        $theme_slug = $theme_data -> parent() -> Name;
+    if ( $theme_data->parent() ) {
+        $theme_slug = $theme_data->parent()->Name;
     }
 
     return sanitize_file_name( strtolower( $theme_slug ) );
@@ -2021,7 +2033,7 @@ function sek_sideload_img_and_return_attachment_id( $img_url ) {
     //error_log( print_r( $get_attachment->posts, true ) );
     if ( is_array( $get_attachment->posts ) && array_key_exists(0, $get_attachment->posts) ) {
         //wp_send_json_error( __CLASS__ . '::' . __CLASS__ . '::' . __FUNCTION__ . ' => file already uploaded : ' . $relative_path );
-        $img_id_already_uploaded = $get_attachment->posts[0] -> ID;
+        $img_id_already_uploaded = $get_attachment->posts[0]->ID;
     }
     // stop now and return the id if the attachment was already uploaded
     if ( isset($img_id_already_uploaded) ) {
@@ -2457,13 +2469,12 @@ function sek_add_customize_link() {
 
 // returns a customize link when is_admin() for posts and terms
 // inspired from wp-includes/admin-bar.php#wp_admin_bar_edit_menu()
-function sek_get_customize_url_when_is_admin( $ajax_server_request_uri = '') {
+// @param $post is a post object
+function sek_get_customize_url_when_is_admin( $post = null ) {
     global $tag, $user_id;
-
     $customize_url = '';
-
     $current_screen = get_current_screen();
-    $post = get_post();
+    $post = is_null( $post ) ? get_post() : $post;
 
     // July 2019 => Don't display the admin button in post and pages, where we already have the edit button next to the post title
     // if ( 'post' == $current_screen->base
@@ -2508,6 +2519,28 @@ function sek_get_customize_url_when_is_admin( $ajax_server_request_uri = '') {
         $return_customize_url = add_query_arg( 'return', urlencode( remove_query_arg( wp_removable_query_args(), wp_unslash( $_SERVER['REQUEST_URI'] ) ) ), wp_customize_url() );
         $customize_url = add_query_arg( 'url', urlencode( $customize_url ), $return_customize_url );
     }
+    return $customize_url;
+}
+
+// introduced for https://github.com/presscustomizr/nimble-builder/issues/436
+function sek_get_customize_url_for_post_id( $post_id, $return_url = '' ) {
+    // Build customize_url
+    // @see function sek_get_customize_url_when_is_admin()
+    $customize_url = get_permalink( $post_id );
+    $return_url = empty( $return_url ) ? $customize_url : $return_url;
+    $return_customize_url = add_query_arg(
+        'return',
+        urlencode(
+            remove_query_arg( wp_removable_query_args(), wp_unslash( $return_url ) )
+        ),
+        wp_customize_url()
+    );
+    $customize_url = add_query_arg( 'url', urlencode( $customize_url ), $return_customize_url );
+    $customize_url = add_query_arg(
+        array( 'autofocus' => array( 'section' => '__content_picker__' ) ),
+        $customize_url
+    );
+
     return $customize_url;
 }
 
@@ -3084,7 +3117,7 @@ function sek_get_saved_sektion_data( $saved_section_id ) {
     $sek_post = sek_get_saved_seks_post( $saved_section_id );
     $section_data = array();
     if ( $sek_post ) {
-        $section_data_decoded = maybe_unserialize( $sek_post -> post_content );
+        $section_data_decoded = maybe_unserialize( $sek_post->post_content );
         // The section data are described as an array
         // array(
         //     'title' => '',
@@ -7100,6 +7133,46 @@ function sek_get_module_params_for_sek_global_recaptcha() {
     );
 }
 
+?><?php
+//Fired in add_action( 'after_setup_theme', 'sek_register_modules', 50 );
+function sek_get_module_params_for_sek_global_imp_exp() {
+    return array(
+        'dynamic_registration' => true,
+        'module_type' => 'sek_global_imp_exp',
+        'name' => __('Export / Import global sections', 'nimble-builder'),
+        // 'starting_value' => array(
+        //     'local_custom_css' => sprintf( '/* %1$s */', __('Add your own CSS code here', 'text_doma' ) )
+        // ),
+        // 'sanitize_callback' => 'function_prefix_to_be_replaced_sanitize_callback__czr_social_module',
+        // 'validate_callback' => 'function_prefix_to_be_replaced_validate_callback__czr_social_module',
+        'tmpl' => array(
+            'item-inputs' => array(
+                'import_export' => array(
+                    'input_type'  => 'import_export',
+                    'scope' => 'global',
+                    'title'       => __('EXPORT', 'nimble-builder'),
+                    'refresh_markup' => false,
+                    'refresh_stylesheet' => false,
+                    'width-100'   => true,
+                    'title_width' => 'width-100',
+                    'html_before' => sprintf('<span class="czr-notice">%1$s</span><br/>',__('These options allows you to export and import global sections like a global header-footer.', 'nimble-builder') )
+                    // 'notice_after' => __('Select a revision from the drop-down list to preview it. You can then restore it by clicking the Publish button at the top of the page.', 'text_doma')
+                ),
+                // 'keep_existing_sections' => array(
+                //     'input_type'  => 'nimblecheck',
+                //     'title'       => __('Combine the imported sections with the current ones.', 'text_doma'),
+                //     'default'     => 0,
+                //     'title_width' => 'width-80',
+                //     'input_width' => 'width-20',
+                //     'refresh_markup' => false,
+                //     'refresh_stylesheet' => false,
+                //     'refresh_preview' => true,
+                //     'notice_after' => __( 'Check this option if you want to keep the existing sections of this page, and combine them with the imported ones.', 'text_doma'),
+                // )
+            )
+        )//tmpl
+    );
+}
 ?><?php
 //Fired in add_action( 'after_setup_theme', 'sek_register_modules', 50 );
 function sek_get_module_params_for_sek_global_revisions() {
@@ -13075,7 +13148,7 @@ class Sek_Dyn_CSS_Builder {
 
         // The parent level is set when the function is invoked recursively, from a level where we actually have a 'level' property
         if ( ! empty( $parent_level ) ) {
-            $this -> parent_level_model = $parent_level;
+            $this->parent_level_model = $parent_level;
         }
 
         foreach ( $level as $key => $entry ) {
@@ -13241,7 +13314,7 @@ class Sek_Dyn_CSS_Builder {
 
             // Reset the parent level model because it might have been modified after walking the sublevels
             if ( ! empty( $parent_level ) ) {
-                $this -> parent_level_model = $parent_level;
+                $this->parent_level_model = $parent_level;
             }
 
         }//foreach
@@ -13835,7 +13908,7 @@ class Sek_Dyn_CSS_Handler {
             }
         }
 
-        if ( empty( $this -> skope_id ) ) {
+        if ( empty( $this->skope_id ) ) {
             sek_error_log( __CLASS__ . '::' . __FUNCTION__ .' => __construct => skope_id not provided' );
             return;
         }
@@ -13855,7 +13928,7 @@ class Sek_Dyn_CSS_Handler {
         //    the normal behaviour is that the css file is enqueued.
         //    It should have been written when saving in the customizer. If no file available, we try to write it. If writing a css file is not possible, we fallback on inline printing.
         if ( is_customize_preview() || ! $this->_sek_dyn_css_file_exists() || $this->force_rewrite || $this->customizer_save ) {
-            $this->sek_model = sek_get_skoped_seks( $this -> skope_id );
+            $this->sek_model = sek_get_skoped_seks( $this->skope_id );
 
             //  on front, when no stylesheet is available, the fallback hook must be set to wp_head, because the hook property might be empty
             // fixes https://github.com/presscustomizr/nimble-builder/issues/328
@@ -14271,7 +14344,7 @@ class Sek_Dyn_CSS_Handler {
 
 ?><?php
 // filter declared in Sek_Dyn_CSS_Builder::sek_css_rules_sniffer_walker()
-// $rules = apply_filters( "sek_add_css_rules_for_input_id", $rules, $key, $entry, $this -> parent_level );
+// $rules = apply_filters( "sek_add_css_rules_for_input_id", $rules, $key, $entry, $this->parent_level );
 // the rules are filtered if ( false !== strpos( $input_id_candidate, '_css') )
 // Example of input id candidate filtered : 'h_alignment_css'
 // @see function sek_loop_on_input_candidates_and_maybe_generate_css_rules( $params ) {}
@@ -14908,6 +14981,7 @@ if ( ! class_exists( 'SEK_Front_Construct' ) ) :
             'recaptcha' => 'sek_global_recaptcha',
             'global_revisions' => 'sek_global_revisions',
             'global_reset' => 'sek_global_reset',
+            'global_imp_exp' => 'sek_global_imp_exp',
             'beta_features' => 'sek_global_beta_features'
         ];
         // option key as saved in db => module_type
@@ -14972,6 +15046,7 @@ if ( ! class_exists( 'SEK_Front_Construct' ) ) :
           'sek_global_recaptcha',
           'sek_global_revisions',
           'sek_global_reset',
+          'sek_global_imp_exp',
           'sek_global_beta_features'
         ];
 
@@ -15083,6 +15158,14 @@ if ( ! class_exists( 'SEK_Front_Construct' ) ) :
         // introduced for https://github.com/presscustomizr/nimble-builder/issues/456
         public $global_sections_rendered = false;
 
+        // introduced for https://github.com/presscustomizr/nimble-builder/issues/494
+        // september 2019
+        // this guid is used to differentiate dynamically rendered content from static content that may include a Nimble generated HTML structure
+        // an attribute "data-sek-preview-level-guid" is added to each rendered level when customizing or ajaxing
+        // @see ::render() method
+        // otherwise the preview UI can be broken
+        public $preview_level_guid = '_preview_level_guid_not_set_';
+
         /////////////////////////////////////////////////////////////////
         // <CONSTRUCTOR>
         function __construct( $params = array() ) {
@@ -15090,19 +15173,19 @@ if ( ! class_exists( 'SEK_Front_Construct' ) ) :
             $this->registered_locations = $this->default_locations;
 
             // AJAX
-            $this -> _schedule_front_ajax_actions();
-            $this -> _schedule_img_import_ajax_actions();
+            $this->_schedule_front_ajax_actions();
+            $this->_schedule_img_import_ajax_actions();
             if ( defined( 'NIMBLE_SAVED_SECTIONS_ENABLED' ) && NIMBLE_SAVED_SECTIONS_ENABLED ) {
-                $this -> _schedule_section_saving_ajax_actions();
+                $this->_schedule_section_saving_ajax_actions();
             }
             // ASSETS
-            $this -> _schedule_front_and_preview_assets_printing();
+            $this->_schedule_front_and_preview_assets_printing();
             // RENDERING
-            $this -> _schedule_front_rendering();
+            $this->_schedule_front_rendering();
             // RENDERING
-            $this -> _setup_hook_for_front_css_printing_or_enqueuing();
+            $this->_setup_hook_for_front_css_printing_or_enqueuing();
             // LOADS SIMPLE FORM
-            $this -> _setup_simple_forms();
+            $this->_setup_simple_forms();
             // REGISTER NIMBLE WIDGET ZONES
             add_action( 'widgets_init', array( $this, 'sek_nimble_widgets_init' ) );
         }//__construct
@@ -15173,7 +15256,7 @@ if ( ! class_exists( 'SEK_Front_Ajax' ) ) :
 
 
             // This is the list of accepted actions
-            $this -> ajax_action_map = array(
+            $this->ajax_action_map = array(
                   'sek-add-section',
                   'sek-remove-section',
                   'sek-duplicate-section',
@@ -15274,6 +15357,15 @@ if ( ! class_exists( 'SEK_Front_Ajax' ) ) :
                 wp_send_json_error(  __CLASS__ . '::' . __FUNCTION__ . ' => missing skope_id' );
             }
 
+            // introduced for https://github.com/presscustomizr/nimble-builder/issues/494
+            // september 2019
+            // this guid is used to differentiate dynamically rendered content from static content that may include a Nimble generated HTML structure
+            // an attribute "data-sek-preview-level-guid" is added to each rendered level when customizing or ajaxing
+            // otherwise the preview UI can be broken
+            if ( ! isset( $_POST['preview-level-guid'] ) || empty( $_POST['preview-level-guid'] ) ) {
+                wp_send_json_error(  __CLASS__ . '::' . __FUNCTION__ . ' => missing preview-level-guid' );
+            }
+
             if ( ! isset( $_POST['sek_action'] ) || empty( $_POST['sek_action'] ) ) {
                 wp_send_json_error(  __CLASS__ . '::' . __FUNCTION__ . ' => missing sek_action' );
             }
@@ -15302,7 +15394,7 @@ if ( ! class_exists( 'SEK_Front_Ajax' ) ) :
 
             $html = '';
             // is this action possible ?
-            if ( in_array( $sek_action, $this -> ajax_action_map ) ) {
+            if ( in_array( $sek_action, $this->ajax_action_map ) ) {
                 $content_type = null;
                 if ( array_key_exists( 'content_type', $_POST ) && is_string( $_POST['content_type'] ) ) {
                     $content_type = $_POST['content_type'];
@@ -15326,21 +15418,21 @@ if ( ! class_exists( 'SEK_Front_Ajax' ) ) :
                                     break;
                                 }
                                 foreach ( $_POST['collection_of_preset_section_id'] as $preset_section_id ) {
-                                    $html .= $this -> sek_ajax_fetch_content( $sek_action, $preset_section_id );
+                                    $html .= $this->sek_ajax_fetch_content( $sek_action, $preset_section_id );
                                 }
                             // 'module' === $content_type
                             } else {
-                                $html = $this -> sek_ajax_fetch_content( $sek_action );
+                                $html = $this->sek_ajax_fetch_content( $sek_action );
                             }
 
                         break;
 
                         default :
-                            $html = $this -> sek_ajax_fetch_content( $sek_action );
+                            $html = $this->sek_ajax_fetch_content( $sek_action );
                         break;
                     }
                 } else {
-                      $html = $this -> sek_ajax_fetch_content( $sek_action );
+                      $html = $this->sek_ajax_fetch_content( $sek_action );
                 }
 
                 //sek_error_log(__CLASS__ . '::' . __FUNCTION__ , $html );
@@ -15406,7 +15498,7 @@ if ( ! class_exists( 'SEK_Front_Ajax' ) ) :
                 case 'sek-duplicate-section' :
                     if ( array_key_exists( 'is_nested', $_POST ) && true === json_decode( $_POST['is_nested'] ) ) {
                         // we need to set the parent_mode here to access it later in the ::render method to calculate the column width.
-                        $this -> parent_model = sek_get_level_model( $_POST[ 'in_sektion' ], $sektion_collection );
+                        $this->parent_model = sek_get_level_model( $_POST[ 'in_sektion' ], $sektion_collection );
                         $level_model = sek_get_level_model( $_POST[ 'in_column' ], $sektion_collection );
                     } else {
                         //$level_model = sek_get_level_model( $_POST[ 'id' ], $sektion_collection );
@@ -15441,7 +15533,7 @@ if ( ! class_exists( 'SEK_Front_Ajax' ) ) :
 
                     if ( array_key_exists( 'is_nested', $_POST ) && true === json_decode( $_POST['is_nested'] ) ) {
                         // we need to set the parent_mode here to access it later in the ::render method to calculate the column width.
-                        $this -> parent_model = sek_get_level_model( $_POST[ 'in_sektion' ], $sektion_collection );
+                        $this->parent_model = sek_get_level_model( $_POST[ 'in_sektion' ], $sektion_collection );
                         $level_model = sek_get_level_model( $_POST[ 'in_column' ], $sektion_collection );
                     } else {
                         //$level_model = sek_get_level_model( $_POST[ 'id' ], $sektion_collection );
@@ -15456,7 +15548,7 @@ if ( ! class_exists( 'SEK_Front_Ajax' ) ) :
                         break;
                     } else {
                         // we need to set the parent_model here to access it later in the ::render method to calculate the column width.
-                        $this -> parent_model = sek_get_parent_level_model( $_POST[ 'in_column' ], $sektion_collection );
+                        $this->parent_model = sek_get_parent_level_model( $_POST[ 'in_column' ], $sektion_collection );
                         $level_model = sek_get_level_model( $_POST[ 'in_column' ], $sektion_collection );
                     }
                 break;
@@ -15484,9 +15576,9 @@ if ( ! class_exists( 'SEK_Front_Ajax' ) ) :
                         break;
                     }
                     if ( ! array_key_exists( 'in_sektion', $_POST ) || empty( $_POST[ 'in_sektion' ] ) ) {
-                        $this -> parent_model = sek_get_parent_level_model( $_POST[ 'in_column' ], $sektion_collection );
+                        $this->parent_model = sek_get_parent_level_model( $_POST[ 'in_column' ], $sektion_collection );
                     } else {
-                        $this -> parent_model = sek_get_level_model( $_POST[ 'in_sektion' ], $sektion_collection );
+                        $this->parent_model = sek_get_level_model( $_POST[ 'in_sektion' ], $sektion_collection );
                     }
                     $level_model = sek_get_level_model( $_POST[ 'in_column' ], $sektion_collection );
                 break;
@@ -15510,7 +15602,7 @@ if ( ! class_exists( 'SEK_Front_Ajax' ) ) :
                     }
                     if ( !empty( $_POST['level'] ) && 'column' === $_POST['level'] ) {
                         // we need to set the parent_mode here to access it later in the ::render method to calculate the column width.
-                        $this -> parent_model = sek_get_parent_level_model( $_POST['id'], $sektion_collection );
+                        $this->parent_model = sek_get_parent_level_model( $_POST['id'], $sektion_collection );
                     }
                     $level_model = sek_get_level_model( $_POST[ 'id' ], $sektion_collection );
                 break;
@@ -15521,7 +15613,7 @@ if ( ! class_exists( 'SEK_Front_Ajax' ) ) :
             ob_start();
 
             if ( $is_stylesheet ) {
-                $r = $this -> print_or_enqueue_seks_style( $_POST['location_skope_id'] );
+                $r = $this->print_or_enqueue_seks_style( $_POST['location_skope_id'] );
             } else {
                 if ( 'no_match' == $level_model ) {
                     wp_send_json_error(  __CLASS__ . '::' . __FUNCTION__ . ' ' . $sek_action . ' => missing level model' );
@@ -15534,7 +15626,7 @@ if ( ! class_exists( 'SEK_Front_Ajax' ) ) :
                     return;
                 }
                 // note that in the case of a sektion nested inside a column, the parent_model has been set in the switch{ case : ... } above ,so we can access it in the ::render method to calculate the column width.
-                $r = $this -> render( $level_model );
+                $r = $this->render( $level_model );
             }
             $html = ob_get_clean();
             if ( is_wp_error( $r ) ) {
@@ -15630,7 +15722,7 @@ if ( ! class_exists( 'SEK_Front_Ajax' ) ) :
                 wp_send_json_error( __FUNCTION__ . ' => error when invoking sek_update_saved_seks_post()' );
             } else {
                 // sek_error_log( 'ALORS CE POST?', $saved_section_post );
-                wp_send_json_success( [ 'section_post_id' => $saved_section_post -> ID ] );
+                wp_send_json_success( [ 'section_post_id' => $saved_section_post->ID ] );
             }
 
             //sek_error_log( __FUNCTION__ . '$_POST' ,  $_POST);
@@ -15762,21 +15854,8 @@ if ( ! class_exists( 'SEK_Front_Ajax' ) ) :
 
             // Build customize_url
             // @see function sek_get_customize_url_when_is_admin()
-            $ajax_server_request_uri = "/wp-admin/post.php?post={$post_id}&action=edit";
-            $customize_url = get_permalink( $post_id );
-            $return_customize_url = add_query_arg(
-                'return',
-                urlencode(
-                    remove_query_arg( wp_removable_query_args(), wp_unslash( $ajax_server_request_uri ) )
-                ),
-                wp_customize_url()
-            );
-            $customize_url = add_query_arg( 'url', urlencode( $customize_url ), $return_customize_url );
-            $customize_url = add_query_arg(
-                array( 'autofocus' => array( 'section' => '__content_picker__' ) ),
-                $customize_url
-            );
-
+            $return_url_after_customization = '';//"/wp-admin/post.php?post={$post_id}&action=edit";
+            $customize_url = sek_get_customize_url_for_post_id( $post_id, $return_url_after_customization );
             wp_send_json_success( $customize_url );
         }
 
@@ -15921,7 +16000,7 @@ if ( ! class_exists( 'SEK_Front_Ajax' ) ) :
 
           // $subsets['all-subsets'] = sprintf( '%1$s ( %2$s %3$s )',
           //   __( 'All languages' , 'text_doma' ),
-          //   count($gfonts_decoded['items']) + count( $this -> get_cfonts() ),
+          //   count($gfonts_decoded['items']) + count( $this->get_cfonts() ),
           //   __('fonts' , 'text_doma' )
           // );
 
@@ -16008,8 +16087,8 @@ if ( ! class_exists( 'SEK_Front_Ajax' ) ) :
                 return;
             }
             // we need to set the parent_mode here to access it later in the ::render method to calculate the column width.
-            $this -> parent_model = sek_get_parent_level_model( $_POST[ 'id' ], $sektionSettingValue['collection'] );
-            $this -> model = sek_get_level_model( $_POST[ 'id' ], $sektionSettingValue['collection'] );
+            $this->parent_model = sek_get_parent_level_model( $_POST[ 'id' ], $sektionSettingValue['collection'] );
+            $this->model = sek_get_level_model( $_POST[ 'id' ], $sektionSettingValue['collection'] );
 
             $level = $_POST['level'];
 
@@ -16218,6 +16297,14 @@ if ( ! class_exists( 'SEK_Front_Assets' ) ) :
                     'frontNonce' => array( 'id' => 'SEKFrontNonce', 'handle' => wp_create_nonce( 'sek-front-nonce' ) ),
 
                     'registeredModules' => CZR_Fmk_Base()->registered_modules,
+
+                    // introduced for https://github.com/presscustomizr/nimble-builder/issues/494
+                    // september 2019
+                    // this guid is used to differentiate dynamically rendered content from static content that may include a Nimble generated HTML structure
+                    // an attribute "data-sek-preview-level-guid" is added to each rendered level when customizing or ajaxing
+                    // when generating the ui, we check if the localized guid matches the one rendered server side
+                    // otherwise the preview UI can be broken
+                    'previewLevelGuid' => $this->sek_get_preview_level_guid()
                 )
             );
 
@@ -16416,7 +16503,7 @@ if ( ! class_exists( 'SEK_Front_Render' ) ) :
             add_filter( 'nimble_parse_for_smart_load', array( $this, 'sek_maybe_process_img_for_js_smart_load') );
 
             // SETUP OUR the_content FILTER for the Tiny MCE module
-            $this -> sek_setup_tiny_mce_content_filters();
+            $this->sek_setup_tiny_mce_content_filters();
 
             // REGISTER HEADER AND FOOTER GLOBAL LOCATIONS
             add_action( 'nimble_front_classes_ready', array( $this, 'sek_register_nimble_global_locations') );
@@ -16561,7 +16648,7 @@ if ( ! class_exists( 'SEK_Front_Render' ) ) :
             //   return $html;
 
             do_action( 'sek_before_location_before_content' );
-            return $this -> _filter_the_content( $html, 'before_content' );
+            return $this->_filter_the_content( $html, 'before_content' );
         }
 
         // hook : 'the_content'::9999
@@ -16573,7 +16660,7 @@ if ( ! class_exists( 'SEK_Front_Render' ) ) :
             //   return $html;
 
             do_action( 'sek_before_location_after_content' );
-            return $this -> _filter_the_content( $html, 'after_content' );
+            return $this->_filter_the_content( $html, 'after_content' );
         }
 
         private function _filter_the_content( $html, $where ) {
@@ -16758,8 +16845,8 @@ if ( ! class_exists( 'SEK_Front_Render' ) ) :
 
             // Cache the parent model
             // => used when calculating the width of the column to be added
-            $parent_model = $this -> parent_model;
-            $this -> model = $model;
+            $parent_model = $this->parent_model;
+            $this->model = $model;
 
             $collection = array_key_exists( 'collection', $model ) ? $model['collection'] : array();
 
@@ -16787,16 +16874,17 @@ if ( ! class_exists( 'SEK_Front_Render' ) ) :
                             <?php
                               $is_header_location = true === sek_get_registered_location_property( $id, 'is_header_location' );
                               $is_footer_location = true === sek_get_registered_location_property( $id, 'is_footer_location' );
-                              printf( '<div class="sektion-wrapper" data-sek-level="location" data-sek-id="%1$s" %2$s %3$s %4$s>',
+                              printf( '<div class="sektion-wrapper" data-sek-level="location" data-sek-id="%1$s" %2$s %3$s %4$s %5$s>',
                                   $id,
                                   sprintf('data-sek-is-global-location="%1$s"', sek_is_global_location( $id ) ? 'true' : 'false'),
                                   $is_header_location ? 'data-sek-is-header-location="true"' : '',
-                                  $is_footer_location ? 'data-sek-is-footer-location="true"' : ''
+                                  $is_footer_location ? 'data-sek-is-footer-location="true"' : '',
+                                  $this->sek_maybe_print_preview_level_guid_html()//<= added for #494
                               );
                             ?>
                             <?php
-                              $this -> parent_model = $model;
-                              foreach ( $collection as $_key => $sec_model ) { $this -> render( $sec_model ); }
+                              $this->parent_model = $model;
+                              foreach ( $collection as $_key => $sec_model ) { $this->render( $sec_model ); }
                             ?>
                             <?php
                               // empty global locations placeholders are only printed when customizing But not previewing a changeset post
@@ -16831,22 +16919,25 @@ if ( ! class_exists( 'SEK_Front_Render' ) ) :
                     }
 
                     ?>
-                    <?php printf('<div data-sek-level="section" data-sek-id="%1$s" %2$s class="sek-section %3$s %4$s %7$s" %5$s %6$s>',
+                    <?php printf('<div data-sek-level="section" data-sek-id="%1$s" %2$s class="sek-section %3$s %4$s %5$s" %6$s %7$s %8$s>',
                         $id,
                         $is_nested ? 'data-sek-is-nested="true"' : '',
                         $has_at_least_one_module ? 'sek-has-modules' : '',
                         $this->get_level_visibility_css_class( $model ),
+                        is_null( $custom_css_classes ) ? '' : $custom_css_classes,
+
                         is_null( $custom_anchor ) ? '' : 'id="' . $custom_anchor . '"',
                         // add smartload + parallax attributes
-                        $this -> sek_maybe_add_bg_attributes( $model ),
-                        is_null( $custom_css_classes ) ? '' : $custom_css_classes
+                        $this->sek_maybe_add_bg_attributes( $model ),
+
+                        $this->sek_maybe_print_preview_level_guid_html()//<= added for #494
                     ); ?>
                           <div class="<?php echo $column_container_class; ?>">
                             <div class="sek-row sek-sektion-inner">
                                 <?php
                                   // Set the parent model now
-                                  $this -> parent_model = $model;
-                                  foreach ( $collection as $col_model ) {$this -> render( $col_model ); }
+                                  $this->parent_model = $model;
+                                  foreach ( $collection as $col_model ) {$this->render( $col_model ); }
                                 ?>
                             </div>
                           </div>
@@ -16887,15 +16978,18 @@ if ( ! class_exists( 'SEK_Front_Render' ) ) :
                     }
                     ?>
                       <?php
-                          printf('<div data-sek-level="column" data-sek-id="%1$s" class="sek-column sek-col-base %2$s %3$s %7$s" %4$s %5$s %6$s>',
+                          printf('<div data-sek-level="column" data-sek-id="%1$s" class="sek-column sek-col-base %2$s %3$s %4$s" %5$s %6$s %7$s %8$s>',
                               $id,
                               $grid_column_class,
                               $this->get_level_visibility_css_class( $model ),
+                              is_null( $custom_css_classes ) ? '' : $custom_css_classes,
+
                               empty( $collection ) ? 'data-sek-no-modules="true"' : '',
                               // add smartload + parallax attributes
-                              $this -> sek_maybe_add_bg_attributes( $model ),
+                              $this->sek_maybe_add_bg_attributes( $model ),
                               is_null( $custom_anchor ) ? '' : 'id="' . $custom_anchor . '"',
-                              is_null( $custom_css_classes ) ? '' : $custom_css_classes
+
+                              $this->sek_maybe_print_preview_level_guid_html()//<= added for #494
                           );
                       ?>
                         <?php
@@ -16920,11 +17014,11 @@ if ( ! class_exists( 'SEK_Front_Render' ) ) :
                                   <?php
                               } else {
                                   // Set the parent model now
-                                  $this -> parent_model = $model;
+                                  $this->parent_model = $model;
                                   foreach ( $collection as $module_or_nested_section_model ) {
                                       ?>
                                       <?php
-                                      $this -> render( $module_or_nested_section_model );
+                                      $this->render( $module_or_nested_section_model );
                                   }
                                   ?>
                                   <?php
@@ -16943,25 +17037,28 @@ if ( ! class_exists( 'SEK_Front_Render' ) ) :
                     $module_type = $model['module_type'];
                     $model = sek_normalize_module_value_with_defaults( $model );
                     // update the current cached model
-                    $this -> model = $model;
+                    $this->model = $model;
                     $title_attribute = '';
                     if ( skp_is_customizing() ) {
                         $title_attribute = __('Edit module settings', 'nimble-builder');
                         $title_attribute = 'title="'.$title_attribute.'"';
                     }
                     ?>
-                      <?php printf('<div data-sek-level="module" data-sek-id="%1$s" data-sek-module-type="%2$s" class="sek-module %3$s %7$s" %4$s %5$s %6$s>',
+                      <?php printf('<div data-sek-level="module" data-sek-id="%1$s" data-sek-module-type="%2$s" class="sek-module %3$s %4$s" %5$s %6$s %7$s %8$s>',
                           $id,
                           $module_type,
                           $this->get_level_visibility_css_class( $model ),
+                          is_null( $custom_css_classes ) ? '' : $custom_css_classes,
+
                           $title_attribute,
                           // add smartload + parallax attributes
-                          $this -> sek_maybe_add_bg_attributes( $model ),
+                          $this->sek_maybe_add_bg_attributes( $model ),
                           is_null( $custom_anchor ) ? '' : 'id="' . $custom_anchor . '"',
-                          is_null( $custom_css_classes ) ? '' : $custom_css_classes
+
+                          $this->sek_maybe_print_preview_level_guid_html() //<= added for #494
                         );?>
                             <div class="sek-module-inner">
-                              <?php $this -> sek_print_module_tmpl( $model ); ?>
+                              <?php $this->sek_print_module_tmpl( $model ); ?>
                             </div>
                       </div><?php //data-sek-level="module" ?>
                     <?php
@@ -16972,7 +17069,7 @@ if ( ! class_exists( 'SEK_Front_Render' ) ) :
                 break;
             }
 
-            $this -> parent_model = $parent_model;
+            $this->parent_model = $parent_model;
         }//render
 
 
@@ -17156,7 +17253,7 @@ if ( ! class_exists( 'SEK_Front_Render' ) ) :
                     }
                 } else {
                     if ( array_key_exists( 'collection', $level_data ) && is_array( $level_data['collection'] ) ) {
-                        $enqueuing_candidates = $this -> sek_sniff_assets_to_enqueue( $level_data['collection'], $enqueuing_candidates );
+                        $enqueuing_candidates = $this->sek_sniff_assets_to_enqueue( $level_data['collection'], $enqueuing_candidates );
                     }
                 }
             }//foreach
@@ -17490,6 +17587,35 @@ if ( ! class_exists( 'SEK_Front_Render' ) ) :
             $wp_query->found_posts = $wp_query->post_count > 0;
         }// sek_maybe_include_nimble_content_in_search_results
 
+
+        // @return html string
+        // introduced for https://github.com/presscustomizr/nimble-builder/issues/494
+        function sek_maybe_print_preview_level_guid_html() {
+              if ( skp_is_customizing() || ( defined('DOING_AJAX') && DOING_AJAX ) ) {
+                  return sprintf( 'data-sek-preview-level-guid="%1$s"', $this->sek_get_preview_level_guid() );
+              }
+              return '';
+        }
+
+        // @return unique guid()
+        // inspired from https://stackoverflow.com/questions/21671179/how-to-generate-a-new-guid#26163679
+        // introduced for https://github.com/presscustomizr/nimble-builder/issues/494
+        function sek_get_preview_level_guid() {
+              if ( '_preview_level_guid_not_set_' === $this->preview_level_guid ) {
+                  // When ajaxing, typically creating content, we need to make sure that we use the initial guid generated last time the preview was refreshed
+                  // @see preview::doAjax()
+                  if ( isset( $_POST['preview-level-guid'] ) ) {
+                      if ( empty( $_POST['preview-level-guid'] ) ) {
+                            sek_error_log( __CLASS__ . '::' . __FUNCTION__ . ' => error, preview-level-guid can not be empty' );
+                      }
+                      $this->preview_level_guid = $_POST['preview-level-guid'];
+                  } else {
+                      $this->preview_level_guid = sprintf('%04X%04X%04X', mt_rand(0, 65535), mt_rand(0, 65535), mt_rand(0, 65535) );
+                  }
+
+              }
+              return $this->preview_level_guid;
+        }
     }//class
 endif;
 ?><?php
@@ -17539,10 +17665,10 @@ if ( ! class_exists( 'SEK_Front_Render_Css' ) ) :
             if ( !empty( $google_fonts_print_candidates ) ) {
                 // When customizing
                 if ( defined( 'DOING_AJAX' ) && DOING_AJAX ) {
-                    $this -> sek_gfont_print( $google_fonts_print_candidates );
+                    $this->sek_gfont_print( $google_fonts_print_candidates );
                 } else {
                     if ( in_array( current_filter(), array( 'wp_footer', 'wp_head' ) ) ) {
-                        $this -> sek_gfont_print( $google_fonts_print_candidates );
+                        $this->sek_gfont_print( $google_fonts_print_candidates );
                     } else {
                         wp_enqueue_style(
                             'sek-gfonts-local-and-global',
@@ -18580,7 +18706,7 @@ class Sek_Mailer {
         //sek_error_log( '$module_model', $module_model );
         $submission_options = empty( $module_user_values['form_submission'] ) ? array() : $module_user_values['form_submission'];
 
-        //<-allow html? -> TODO: turn into option
+        //<-allow html?->TODO: turn into option
         $allow_html     = true;
 
         $sender_email   = $this->form->get_field('nimble_email')->get_input()->get_value();

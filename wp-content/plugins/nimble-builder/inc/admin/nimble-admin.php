@@ -624,7 +624,6 @@ function sek_print_js_for_nimble_edit_btn() {
           $('body').on( 'click', '#sek-edit-with-nimble', function(evt) {
               evt.preventDefault();
               var _url = $(this).data('cust-url');
-
               if ( _.isEmpty( _url ) ) {
                   var post_id = $('#post_ID').val();
                   wp.ajax.post( 'sek_get_customize_url_for_nimble_edit_button', {
@@ -647,7 +646,9 @@ function sek_print_js_for_nimble_edit_btn() {
   <?php
 }
 function sek_print_nb_btn_edit_with_nimble( $editor_type ) {
-    $customize_url = sek_get_customize_url_when_is_admin();
+    $post = get_post();
+    $manually_built_skope_id = strtolower( NIMBLE_SKOPE_ID_PREFIX . 'post_' . $post->post_type . '_' . $post->ID );
+    $customize_url = sek_get_customize_url_when_is_admin( $post );
     if ( ! empty( $customize_url ) ) {
         $customize_url = add_query_arg(
             array( 'autofocus' => array( 'section' => '__content_picker__' ) ),
@@ -660,7 +661,7 @@ function sek_print_nb_btn_edit_with_nimble( $editor_type ) {
       <?php //_e( 'Edit with Nimble Builder', 'text_doma' ); ?>
       <?php printf( '<span class="sek-nimble-icon" title="%3$s"><img src="%1$s" alt="%2$s"/><span class="sek-nimble-admin-bar-title">%2$s</span><span class="sek-nimble-mobile-admin-bar-title">%3$s</span></span>',
           NIMBLE_BASE_URL.'/assets/img/nimble/nimble_icon.svg?ver='.NIMBLE_VERSION,
-          __('Build with Nimble Builder','nimble-builder'),
+          sek_local_skope_has_nimble_sections( $manually_built_skope_id ) ? __('Continue building with Nimble','nimble-builder') : __('Build with Nimble Builder','nimble-builder'),
           __('Build','nimble-builder'),
           __('Build sections in live preview with Nimble Builder', 'nimble-builder')
       ); ?>
@@ -689,4 +690,24 @@ function sek_current_user_can_edit( $post_id = 0 ) {
       return false;
     }
     return true;
-  }
+}
+add_filter( 'display_post_states', '\Nimble\sek_add_nimble_post_state', 10, 2 );
+function sek_add_nimble_post_state( $post_states, $post ) {
+    $manually_built_skope_id = strtolower( NIMBLE_SKOPE_ID_PREFIX . 'post_' . $post->post_type . '_' . $post->ID );
+    if ( $post && current_user_can( 'edit_post', $post->ID ) && sek_local_skope_has_nimble_sections( $manually_built_skope_id ) ) {
+        $post_states['nimble'] = __( 'Nimble Builder', 'nimble-builder' );
+    }
+    return $post_states;
+}
+add_filter( 'post_row_actions', '\Nimble\sek_filter_post_row_actions', 11, 2 );
+add_filter( 'page_row_actions', '\Nimble\sek_filter_post_row_actions', 11, 2 );
+function sek_filter_post_row_actions( $actions, $post ) {
+    $manually_built_skope_id = strtolower( NIMBLE_SKOPE_ID_PREFIX . 'post_' . $post->post_type . '_' . $post->ID );
+    if ( $post && current_user_can( 'edit_post', $post->ID ) && sek_local_skope_has_nimble_sections( $manually_built_skope_id ) ) {
+        $actions['edit_with_nimble_builder'] = sprintf( '<a href="%1$s" title="%2$s">%2$s</a>',
+            sek_get_customize_url_for_post_id( $post->ID ),
+            __( 'Edit with Nimble Builder', 'nimble-builder' )
+        );
+    }
+    return $actions;
+}
