@@ -12,7 +12,7 @@
         <div class="colophon__row row flex-row justify-content-between">
             <div class="footer__credits col-12 col-sm-auto">
                 <a href="?page_id=185">Datenschutz </a>- <a href="?page_id=74">Impressum</a> - <a
-                        href="https://lkg-halle.de/wp-content/uploads/2019/11/GB-November-Dezember.pdf" target="_blank">Veranstaltungs-Plan</a>
+                        href="https://lkg-halle.de/wp-content/uploads/Gemeindebrief.pdf" target="_blank">Veranstaltungs-Plan</a>
             </div>
             <div class="col-12 col-sm-auto">
 				<?php if ( czr_fn_is_registered_or_possible( 'footer_credits' ) )
