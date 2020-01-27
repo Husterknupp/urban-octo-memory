@@ -7043,6 +7043,9 @@ if ( ! class_exists( 'CZR_post_navigation' ) ) :
         if( ! $post_navigation_bool )
           return;
 
+        // If in static front page context show the pages navigation.
+        $_context = is_page() ? 'page' : $_context;
+
         $prev_arrow = is_rtl() ? '&rarr;' : '&larr;' ;
         $next_arrow = is_rtl() ? '&larr;' : '&rarr;' ;
         $html_id = 'nav-below';
@@ -7181,17 +7184,19 @@ if ( ! class_exists( 'CZR_post_navigation' ) ) :
       *
       */
       function czr_fn_get_context(){
-        if ( is_page() )
-          return 'page';
-        if ( is_single() && ! is_attachment() )
-          return 'single'; // exclude attachments
-        if ( is_home() && 'posts' == get_option('show_on_front') )
+        if ( is_front_page() ) {
           return 'home';
-        if ( !is_404() && !czr_fn__f( '__is_home_empty') )
+        }
+        if ( is_page() ) {
+          return 'page';
+        }
+        if ( is_single() && ! is_attachment() ) {
+          return 'single'; // exclude attachments.
+        }
+        if ( !is_404() && ! czr_fn__f( '__is_home_empty') ) {
           return 'archive';
-
+        }
         return false;
-
       }
 
       /*
@@ -7212,7 +7217,8 @@ if ( ! class_exists( 'CZR_post_navigation' ) ) :
   }//end of class
 endif;
 
-?><?php
+?>
+<?php
 /**
 * Posts thumbnails actions
 *
@@ -9247,7 +9253,7 @@ if ( ! class_exists( 'CZR_footer_main' ) ) :
   		    		sprintf( '<p>%1$s %2$s %3$s</p>',
   						    apply_filters( 'tc_copyright_link', sprintf( '&middot; <span class="tc-copyright-text">&copy; %1$s</span> <a href="%2$s" title="%3$s" rel="bookmark">%3$s</a>', esc_attr( date( 'Y' ) ), esc_url( home_url() ), esc_attr( get_bloginfo() ) ) ),
                               apply_filters( 'tc_wp_powered',
-                                  sprintf( '&middot; <span class="tc-wp-powered-text">%1$s</span> <a class="icon-wordpress" target="_blank" href="https://wordpress.org" title="%2$s"></a> &middot;',
+                                  sprintf( '&middot; <span class="tc-wp-powered-text">%1$s</span> <a class="icon-wordpress" target="_blank" rel="noopener noreferrer" href="https://wordpress.org" title="%2$s"></a> &middot;',
                                       __('Powered by', 'customizr-pro'),
                                       __('Powered by WordPress', 'customizr-pro')
                                   )

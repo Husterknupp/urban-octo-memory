@@ -145,7 +145,7 @@ if ( ! function_exists( 'czr_fn_setup_constants' ) ):
         if( ! defined( 'CZR_IS_PRO' ) )               define( 'CZR_IS_PRO' , czr_fn_is_pro() );
 
         //IS DEBUG MODE
-        if( ! defined( 'CZR_DEBUG_MODE' ) )           define( 'CZR_DEBUG_MODE', ( defined('WP_DEBUG') && true === WP_DEBUG ) || ( isset( $_GET['czr_debug'] ) && 1 == $_GET['czr_debug'] ) );
+        if( ! defined( 'CZR_DEBUG_MODE' ) )           define( 'CZR_DEBUG_MODE', isset( $_GET['czr_debug'] ) && 1 == $_GET['czr_debug'] );
 
         //IS DEV MODE
         if( ! defined( 'CZR_DEV_MODE' ) )             define( 'CZR_DEV_MODE', ( defined('CZR_DEV') && true === CZR_DEV ) );
@@ -164,7 +164,7 @@ if ( ! function_exists( 'czr_fn_setup_constants' ) ):
         //TC_BASE_URL_CHILD http url of the loaded child theme
         if( ! defined( 'TC_BASE_URL_CHILD' ) )  define( 'TC_BASE_URL_CHILD' , CZR_BASE_URL_CHILD );
 
-        if( ! defined( 'REC_NOTICE_ID' ) )  define( 'REC_NOTICE_ID' , 'rec-notice-0519' );
+        if( ! defined( 'REC_NOTICE_ID' ) )  define( 'REC_NOTICE_ID' , 'rec-notice-1119' );
 
         //fire an action hook after constants have been set up
         do_action( 'czr_after_setup_base_constants' );
@@ -1796,9 +1796,32 @@ function czr_fn_get_social_networks( $output_type = 'string' ) {
         else if ( in_array( $icon_class, $_fa_solid_icons ) ){
             $fa_group = 'fas';
         }
-
         $icon_class   = "{$fa_group} {$icon_class}";
 
+        // links like tel:*** or skype:**** or call:**** should work
+        // implemented for https://github.com/presscustomizr/social-links-modules/issues/7
+        $social_link = 'javascript:void(0)';
+
+        $is_blank_target = ( isset($item['social-target']) && false != $item['social-target'] );
+
+        // set the relationship attribute
+        // fixes : https://github.com/presscustomizr/social-links-modules/issues/8
+        // fixes : https://github.com/presscustomizr/hueman/issues/842
+        $rel_attr = 'rel="nofollow"';
+        if ( $is_blank_target ) {
+            // fix potential performance and security issues with other attributes
+            // @see https://web.dev/external-anchors-use-rel-noopener
+            $rel_attr = 'rel="nofollow noopener noreferrer"';
+        }
+
+        if ( isset($item['social-link']) && ! empty( $item['social-link'] ) ) {
+            if ( false !== strpos($item['social-link'], 'callto:') || false !== strpos($item['social-link'], 'tel:') || false !== strpos($item['social-link'], 'skype:') ) {
+                $social_link = esc_attr( $item['social-link'] );
+                $rel_attr = '';//we don't need to set a relationship attribute in this case
+            } else {
+                $social_link = esc_url( $item['social-link'] );
+            }
+        }
 
         /* Maybe build inline style */
         $social_color_css      = isset($item['social-color']) ? esc_attr($item['social-color']) : $_default_color[0];
@@ -1808,7 +1831,7 @@ function czr_fn_get_social_networks( $output_type = 'string' ) {
 
         $style_attr            = $style_props ? sprintf(' style="%1$s"', $style_props ) : '';
 
-        array_push( $_social_links, sprintf('<a rel="nofollow" class="social-icon%6$s" %1$s title="%2$s" aria-label="%2$s" href="%3$s" %4$s %7$s><i class="%5$s"></i></a>',
+        array_push( $_social_links, sprintf('<a %8$s class="social-icon%6$s" %1$s title="%2$s" aria-label="%2$s" href="%3$s" %4$s %7$s><i class="%5$s"></i></a>',
           //do we have an id set ?
           //Typically not if the user still uses the old options value.
           //So, if the id is not present, let's build it base on the key, like when added to the collection in the customizer
@@ -1816,11 +1839,12 @@ function czr_fn_get_social_networks( $output_type = 'string' ) {
           // Put them together
             ! czr_fn_is_customizing() ? '' : sprintf( 'data-model-id="%1$s"', ! isset( $item['id'] ) ? 'czr_socials_'. $key : $item['id'] ),
             isset($item['title']) ? esc_attr( $item['title'] ) : '',
-            ( isset($item['social-link']) && ! empty( $item['social-link'] ) ) ? esc_url( $item['social-link'] ) : 'javascript:void(0)',
-            ( isset($item['social-target']) && false != $item['social-target'] ) ? ' target="_blank"' : '',
+            $social_link,
+            $is_blank_target ? ' target="_blank"' : '',
             $icon_class,
             $link_icon_class,
-            $style_attr
+            $style_attr,
+            $rel_attr
         ) );
     }
 

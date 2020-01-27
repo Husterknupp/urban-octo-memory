@@ -1,4 +1,4 @@
-# Customizr Pro v2.1.34
+# Customizr Pro v2.1.40
 ![Customizr - Pro](/screenshot.png)
 
 > The pro version of the popular Customizr WordPress theme.
@@ -14,6 +14,35 @@ Customizr Pro is distributed under the terms of the [GNU GPL v2.0 or later](http
 * SUPPORT : http://presscustomizr.com/support/
 
 ## Changelog
+= 2.1.40 January 21st 2020 =
+* fixed : [Search form] current implementation can be misleading => added a search button next to the search input field
+* added : "flipboard" social network to the list of icons
+
+= 2.1.39 December 23rd 2019 =
+* fixed : Improves security for links to cross-orign destinations (social profiles, footer credits) => Add rel="noopener" or rel="noreferrer" when relevant
+* fixed : display categories below the title when the post list layout is set to plain text full content
+
+= 2.1.38 December 12th 2019 =
+* fixed : php error when inserting a WP gallery with Nimble WP editor module, which breaks customizer preview
+* fixed : missing vertical spacing for WP galleries inserted with Nimble Builder WP editor
+
+= 2.1.37 November 27th 2019 =
+* fixed : broken style for caption of images and galleries when embedded as Gutenberg blocks
+* improved : removed unused files to reduces theme's folder size
+* updated : Nimble Builder admin notification
+
+= 2.1.36 November 14th 2019 =
+* Successfully tested with WordPress 5.3
+* improved : fine tuning of post/page navigation options, in particular for the case when home is a static page
+* improved : config page now provides child theme information
+* added : Viber icon to social links
+
+= 2.1.35 October 22nd 2019 =
+* fixed : form fields, select, textarea, input, should be centered by default
+* fixed : font-size might be too small in WordPress text editor
+* fixed : post format meta boxes for the block editor
+* added : implement skip to content for TRT requirement (https://make.wordpress.org/accessibility/handbook/markup/skip-links/)
+
 = 2.1.34 August 29th 2019 =
 * improved : better keyboard navigation to comply with new TRT requirements : https://make.wordpress.org/themes/2019/08/03/planning-for-keyboard-navigation/
 
