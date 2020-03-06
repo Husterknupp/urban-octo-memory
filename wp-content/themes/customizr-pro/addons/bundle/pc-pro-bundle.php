@@ -6,11 +6,11 @@
 //
 /**
  * Plugin Name: PC Pro Bundle
- * Plugin URI: http://presscustomizr.com
+ * Plugin URI: https://presscustomizr.com
  * Description: Various Customizr-Pro addons
- * Version: 1.2.4
+ * Version: 1.2.6
  * Author: Press Customizr
- * Author URI: http://presscustomizr.com
+ * Author URI: https://presscustomizr.com
  * License: GPLv2 or later
  */
 
@@ -48,7 +48,7 @@ class PC_pro_bundle {
         $this -> plug_name    = 'Customizr Pro Bundle';
         $this -> plug_file    = __FILE__; //main plugin root file.
         $this -> plug_prefix  = 'tc_pro_bundle';
-        $this -> plug_version = '1.2.4';
+        $this -> plug_version = '1.2.6';
 
         //checks if is customizing : two context, admin and front (preview frame)
         $this -> is_customizing = $this -> tc_is_customizing();

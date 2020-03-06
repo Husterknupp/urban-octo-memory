@@ -3,8 +3,8 @@ Contributors : Press Customizr
 Donate link: http://www.presscustomizr.com#footer
 Tags: pages, customizer, home, wordpress
 Requires at least: 3.4
-Tested up to: 5.2
-Stable tag: 2.1.16
+Tested up to: 5.3.2
+Stable tag: 2.1.17
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -41,6 +41,9 @@ SUPPORT : http://presscustomizr.com/support-forums/
 
 
 #######################  Changelog ######################
+= 2.1.17 February 4th 2020 =
+* fixed : html error => missing space between data-color attribute
+
 = 2.1.16 May 14th 2019 =
 * improved : remove title attribute on fp thubmnails and readmore button
 

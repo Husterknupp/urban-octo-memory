@@ -1,4 +1,4 @@
-# Customizr Pro v2.1.40
+# Customizr Pro v2.1.45
 ![Customizr - Pro](/screenshot.png)
 
 > The pro version of the popular Customizr WordPress theme.
@@ -14,6 +14,34 @@ Customizr Pro is distributed under the terms of the [GNU GPL v2.0 or later](http
 * SUPPORT : http://presscustomizr.com/support/
 
 ## Changelog
+= 2.1.45 February 18th 2020 =
+* fixed : [javascript] potential breakage of front js when using a cache plugin along with masonry and/or infinite scrolling
+* fixed : [security] added rel="noopener noreferrer" to footer credits external links to improve performance and prevent security vulnerabilities
+* improved : [performance] removed Vivus.js library and $.fn.animateSvg().Could also break front javascript when using cache plugins and that $.fn.animateSvg() was invoked too early
+
+= 2.1.44 February 17th 2020 =
+* fixed : html markup errors when displaying post pagination
+* fixed : [Featured Pages] html error => missing space between data-color attribute
+* fixed : [Html] the "navigation" role is unnecessary for element
+* fixed : [Html] the "banner" role is unnecessary for header element
+* fixed : error when computing colors with rgb to rgba
+* improved : disable front page navigation by default
+* improved : [asset] update fontawesome to latest version
+* added : support for Viber link in social links
+* added :  featured image in singular => added a new option allowing users to display the image in its original dimensions
+
+= 2.1.43 January 31st 2020 =
+* fixed : removed support for HTML 5 "async" on main js script because of a potential conflict with masonry grid.
+
+= 2.1.42 January 30th 2020 =
+* fixed : text on search button might not be visible on a dark background
+* improved : replace "Search" text by an icon on search button
+* improved : added support for HTML 5 "async"
+* improved : Post default layout should be full width for new users
+
+= 2.1.41 January 27th 2020 =
+* fixed : text in search button can be truncated in sidebar
+
 = 2.1.40 January 21st 2020 =
 * fixed : [Search form] current implementation can be misleading => added a search button next to the search input field
 * added : "flipboard" social network to the list of icons

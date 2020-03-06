@@ -1,4 +1,4 @@
-
+// FEB 2020 => NOT CONCATENATED ANYMORE for performance considerations
 /* ===================================================
  * jqueryAnimateSvg.js v1.0.0
  * @dependency : Vivus.js (MIT licensed)

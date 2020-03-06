@@ -3,7 +3,7 @@
  * Plugin Name: Featured Pages Unlimited
  * Plugin URI: https://presscustomizr.com/extension/featured-pages-unlimited/
  * Description: Engage your visitors with beautifully featured content on home. Design live from the WordPress customizer.
- * Version: 2.1.16
+ * Version: 2.1.17
  * Author: Press Customizr
  * Author URI: https://www.presscustomizr.com
  * License: GPLv2 or later
@@ -60,7 +60,7 @@ class TC_fpu {
         $this -> plug_id      = 2342;
         $this -> plug_file    = __FILE__; //main plugin root file.
         $this -> plug_prefix  = 'unlimited_fp';
-        $this -> plug_version = '2.1.16';
+        $this -> plug_version = '2.1.17';
 
         //gets the theme name (or parent if child)
         $tc_theme                       = wp_get_theme();

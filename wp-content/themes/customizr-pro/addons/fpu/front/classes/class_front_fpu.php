@@ -825,7 +825,7 @@ class TC_front_fpu {
               $fpc_button_text = apply_filters( 'fpc_button_text' , $tc_button_text , $fp_single_id );
 
               $tc_show_fp_button = $tc_show_fp_button && $fpc_button_text ? true : false;
-              $tc_fp_button_block = sprintf('<span class="fp-button readmore-holder %1$s"><a class="%2$s" href="%3$s"data-color="%4$s" %5$s>%6$s</a></span>',
+              $tc_fp_button_block = sprintf('<span class="fp-button readmore-holder %1$s"><a class="%2$s" href="%3$s" data-color="%4$s" %5$s>%6$s</a></span>',
 
                                     $tc_show_fp_button ? '' : 'fpc-hide',
 

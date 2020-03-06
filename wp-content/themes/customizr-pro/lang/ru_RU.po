@@ -2,9 +2,9 @@
 # This file is distributed under the same license as the Themes - Customizr-Pro package.
 msgid ""
 msgstr ""
-"Project-Id-Version: * Customizr-Pro v2.1.40\n"
+"Project-Id-Version: * Customizr-Pro v2.1.45-beta4\n"
 "Report-Msgid-Bugs-To: https://presscustomizr.com/contact/\n"
-"POT-Creation-Date: 2020-01-21 16:42:47+00:00\n"
+"POT-Creation-Date: 2020-02-18 16:17:31+00:00\n"
 "PO-Revision-Date: 2017-11-18 08:06:16+0000\n"
 "Language: ru\n"
 "MIME-Version: 1.0\n"
@@ -472,14 +472,14 @@ msgid "Customize the footer credits"
 msgstr "Настройка или удаление %s"
 
 #: addons/bundle/footer-customizer/footer-customizer.php:173
-#: addons/bundle/footer-customizer/templates/footer/footer_credits.php:43
+#: addons/bundle/footer-customizer/templates/footer/footer_credits.php:61
 #: inc/czr-front-ccat.php:9257 templates/parts/footer/footer_credits.php:13
 msgid "Powered by"
 msgstr "Powered by"
 
 #: addons/bundle/footer-customizer/footer-customizer.php:175
 #: addons/bundle/footer-customizer/footer-customizer.php:299
-#: addons/bundle/footer-customizer/templates/footer/footer_credits.php:44
+#: addons/bundle/footer-customizer/templates/footer/footer_credits.php:62
 #: inc/czr-front-ccat.php:9258 templates/parts/footer/footer_credits.php:13
 msgid "Powered by WordPress"
 msgstr "Работает на WordPress"
@@ -701,7 +701,7 @@ msgstr "Применить"
 
 #: addons/bundle/grid-customizer/utils/classes/class_utils_gc.php:81
 #: addons/fpu/utils/classes/class_utils_fpu.php:466
-#: core/core-settings-map.php:1301 core/core-settings-map.php:1733
+#: core/core-settings-map.php:1301 core/core-settings-map.php:1742
 msgid "Disable"
 msgstr "Отменить"
 
@@ -1122,7 +1122,7 @@ msgstr "Панель Customizer"
 #: addons/fpu/front/classes/class_front_fpu.php:415
 #: addons/fpu/front/classes/class_front_fpu.php:658
 #: core/core-settings-map.php:1043 core/core-settings-map.php:1048
-#: core/core-settings-map.php:2338 core/czr-admin-ccat.php:1459
+#: core/core-settings-map.php:2356 core/czr-admin-ccat.php:1459
 msgid "here"
 msgstr "здесь"
 
@@ -1216,42 +1216,42 @@ msgid "Custom location"
 msgstr "Расположение комментариев"
 
 #: addons/fpu/utils/classes/class_utils_fpu.php:310
-#: core/core-settings-map.php:2847
+#: core/core-settings-map.php:2865
 msgid "Home featured page one"
 msgstr "Популярная страница один"
 
 #: addons/fpu/utils/classes/class_utils_fpu.php:311
-#: core/core-settings-map.php:2848
+#: core/core-settings-map.php:2866
 msgid "Home featured page two"
 msgstr "Популярная страница два"
 
 #: addons/fpu/utils/classes/class_utils_fpu.php:312
-#: core/core-settings-map.php:2849
+#: core/core-settings-map.php:2867
 msgid "Home featured page three"
 msgstr "Популярная страница три"
 
 #: addons/fpu/utils/classes/class_utils_fpu.php:315
-#: core/core-settings-map.php:2852
+#: core/core-settings-map.php:2870
 msgid "Featured text one (200 char. max)"
 msgstr "Описание для страницы один (максимум 200 символов)"
 
 #: addons/fpu/utils/classes/class_utils_fpu.php:316
-#: core/core-settings-map.php:2853
+#: core/core-settings-map.php:2871
 msgid "Featured text two (200 char. max)"
 msgstr "Описание для страницы два (максимум 200 символов)"
 
 #: addons/fpu/utils/classes/class_utils_fpu.php:317
-#: core/core-settings-map.php:2854
+#: core/core-settings-map.php:2872
 msgid "Featured text three (200 char. max)"
 msgstr "Описание для страницы три (максимум 200 символов)"
 
 #: addons/fpu/utils/classes/class_utils_fpu.php:336
-#: core/core-settings-map.php:2871
+#: core/core-settings-map.php:2889
 msgid "Custom featured page %1$s"
 msgstr "Пользовательские популярные страницы %1$s"
 
 #: addons/fpu/utils/classes/class_utils_fpu.php:353
-#: core/core-settings-map.php:2887
+#: core/core-settings-map.php:2905
 msgid "Featured text %1$s (200 char. max)"
 msgstr "Описание для страницы %1$s (максимум 200 символов)"
 
@@ -2300,7 +2300,7 @@ msgid "Don't know how to set a featured image to a post? Learn how in the %s."
 msgstr "Не знаете как установить миниатюру записи? Узнайте как в %s."
 
 #: core/class-fire-placeholders.php:189 core/class-fire-placeholders.php:208
-#: core/core-settings-map.php:1697 core/core-settings-map.php:1767
+#: core/core-settings-map.php:1697 core/core-settings-map.php:1776
 msgid "WordPress documentation"
 msgstr "Документация Wordpress"
 
@@ -2308,7 +2308,7 @@ msgstr "Документация Wordpress"
 msgid "You can display your page's featured image here if you have set one."
 msgstr "Здесь вы можете показать изображение страницы, если оно установлено."
 
-#: core/class-fire-placeholders.php:207 core/core-settings-map.php:1766
+#: core/class-fire-placeholders.php:207 core/core-settings-map.php:1775
 msgid "Don't know how to set a featured image to a page? Learn how in the %s."
 msgstr "Не знаете, как настроить изображение страницы? Узнайте как в %s"
 
@@ -2354,43 +2354,43 @@ msgstr "Текст кнопки слайдера записей"
 msgid "Custom Page Example"
 msgstr "Пример настраиваемой страницы"
 
-#: core/class-fire-resources_scripts.php:373 inc/czr-init-ccat.php:4262
+#: core/class-fire-resources_scripts.php:379 inc/czr-init-ccat.php:4262
 msgid "Permanently dismiss"
 msgstr "Всегда отклонять"
 
-#: core/class-fire-resources_scripts.php:527
+#: core/class-fire-resources_scripts.php:565
 msgid "Welcome in the Customizr theme"
 msgstr "Добро пожаловать в тему Customizr"
 
-#: core/class-fire-resources_scripts.php:530
+#: core/class-fire-resources_scripts.php:568
 msgid "The theme offers a wide range"
 msgstr "Тема предлагает широкий спектр"
 
-#: core/class-fire-resources_scripts.php:532
+#: core/class-fire-resources_scripts.php:570
 msgid "of customization options"
 msgstr "параметры настройки"
 
-#: core/class-fire-resources_scripts.php:533
+#: core/class-fire-resources_scripts.php:571
 msgid "to let you create the best possible websites."
 msgstr "чтобы позволить вам создавать лучшие веб-сайты."
 
-#: core/class-fire-resources_scripts.php:536
+#: core/class-fire-resources_scripts.php:574
 msgid "If you need inspiration, you can visit our online demos"
 msgstr "Если вам нужно вдохновение, вы можете посетить наши онлайн демо"
 
-#: core/class-fire-resources_scripts.php:538
+#: core/class-fire-resources_scripts.php:576
 msgid "Customizr Demo 1"
 msgstr "Customizr Демо 1"
 
-#: core/class-fire-resources_scripts.php:540
+#: core/class-fire-resources_scripts.php:578
 msgid "Customizr Demo 2"
 msgstr "Customizr Демо 2"
 
-#: core/class-fire-resources_scripts.php:543
+#: core/class-fire-resources_scripts.php:581
 msgid "To help you getting started with Customizr, we have published"
 msgstr "Чтобы помочь вам начать работу с Customizr, мы опубликовали"
 
-#: core/class-fire-resources_scripts.php:545
+#: core/class-fire-resources_scripts.php:583
 msgid "a short guide here."
 msgstr "краткое руководство здесь."
 
@@ -2687,11 +2687,11 @@ msgstr "Эта опция активирует гладкую прокрутку
 msgid "Header style"
 msgstr "Стиль шапки"
 
-#: core/core-settings-map.php:515 core/core-settings-map.php:2167
+#: core/core-settings-map.php:515 core/core-settings-map.php:2185
 msgid "Dark"
 msgstr "Темная"
 
-#: core/core-settings-map.php:516 core/core-settings-map.php:2168
+#: core/core-settings-map.php:516 core/core-settings-map.php:2186
 msgid "Light"
 msgstr "Светлая"
 
@@ -3020,12 +3020,12 @@ msgid ""
 "Make sure that you have assigned your menus to the relevant locations %s."
 msgstr "Убедитесь, что вы назначили правильные места для ваших меню %s."
 
-#: core/core-settings-map.php:929 core/core-settings-map.php:2551
+#: core/core-settings-map.php:929 core/core-settings-map.php:2569
 msgid "in the menu panel"
 msgstr "в панели меню"
 
-#: core/core-settings-map.php:930 core/core-settings-map.php:2544
-#: core/core-settings-map.php:2552
+#: core/core-settings-map.php:930 core/core-settings-map.php:2562
+#: core/core-settings-map.php:2570
 msgid "create/edit menus"
 msgstr "создать/редактировать меню"
 
@@ -3389,11 +3389,11 @@ msgstr "Стандартный"
 msgid "Thumbnails position"
 msgstr "Расположение миниатюры"
 
-#: core/core-settings-map.php:1534 core/core-settings-map.php:2225
+#: core/core-settings-map.php:1534 core/core-settings-map.php:2243
 msgid "Right"
 msgstr "Справа"
 
-#: core/core-settings-map.php:1535 core/core-settings-map.php:2224
+#: core/core-settings-map.php:1535 core/core-settings-map.php:2242
 msgid "Left"
 msgstr "Слева"
 
@@ -3475,29 +3475,29 @@ msgstr "Макс. длина заголовка записи (в словах)"
 msgid "Display thumbnail placeholder if no images available"
 msgstr "Показывать заполнитель миниатюры если изображения не доступны"
 
-#: core/core-settings-map.php:1683 core/core-settings-map.php:1753
+#: core/core-settings-map.php:1683 core/core-settings-map.php:1762
 msgid "Post thumbnail position"
 msgstr "Расположение миниатюры записи"
 
-#: core/core-settings-map.php:1684 core/core-settings-map.php:1754
-#: core/core-settings-map.php:2408
+#: core/core-settings-map.php:1684 core/core-settings-map.php:1763
+#: core/core-settings-map.php:2426
 msgid "Featured Image"
 msgstr "Изображение записи"
 
-#: core/core-settings-map.php:1688 core/core-settings-map.php:1758
-#: core/core-settings-map.php:2179
+#: core/core-settings-map.php:1688 core/core-settings-map.php:1767
+#: core/core-settings-map.php:2197
 msgid "Don't display"
 msgstr "Не показывать"
 
-#: core/core-settings-map.php:1689 core/core-settings-map.php:1759
+#: core/core-settings-map.php:1689 core/core-settings-map.php:1768
 msgid "Before the title in full width"
 msgstr "Перед заголовком, во всю ширину"
 
-#: core/core-settings-map.php:1690 core/core-settings-map.php:1760
+#: core/core-settings-map.php:1690 core/core-settings-map.php:1769
 msgid "Before the title boxed"
 msgstr "Перед сворачиванием заголовка"
 
-#: core/core-settings-map.php:1691 core/core-settings-map.php:1761
+#: core/core-settings-map.php:1691 core/core-settings-map.php:1770
 msgid "After the title"
 msgstr "После заголовка"
 
@@ -3510,37 +3510,41 @@ msgstr ""
 "записи) ваших записей перед их содержанием, когда они отображаются по "
 "отдельности."
 
-#: core/core-settings-map.php:1705 core/core-settings-map.php:1775
+#: core/core-settings-map.php:1704 core/core-settings-map.php:1783
+msgid "Display featured images in their original dimensions"
+msgstr ""
+
+#: core/core-settings-map.php:1714 core/core-settings-map.php:1793
 #: inc/czr-init-ccat.php:3009
 msgid "Set the thumbnail's max height in pixels"
 msgstr "Установить максимальную высоту миниатюры в пикселях"
 
-#: core/core-settings-map.php:1717 core/core-settings-map.php:1787
+#: core/core-settings-map.php:1726 core/core-settings-map.php:1805
 #, fuzzy
 msgid "Set the thumbnail's max height in pixels for smartphones"
 msgstr "Установить максимальную высоту миниатюры в пикселях"
 
-#: core/core-settings-map.php:1727
+#: core/core-settings-map.php:1736
 msgid "Related posts"
 msgstr "Похожие записи"
 
-#: core/core-settings-map.php:1728
+#: core/core-settings-map.php:1737
 msgid "Single - Related Posts"
 msgstr "Одиночная запись - Похожие записи"
 
-#: core/core-settings-map.php:1734
+#: core/core-settings-map.php:1743
 msgid "Related by categories"
 msgstr "Из одной рубрики"
 
-#: core/core-settings-map.php:1735
+#: core/core-settings-map.php:1744
 msgid "Related by tags"
 msgstr "С одинаковыми метками"
 
-#: core/core-settings-map.php:1737
+#: core/core-settings-map.php:1746
 msgid "Display randomized related articles below the post"
 msgstr "Показывать случайные похожие записи под записью"
 
-#: core/core-settings-map.php:1765
+#: core/core-settings-map.php:1774
 msgid ""
 "You can display the featured image (also called the post thumbnail) of your "
 "pages before their content, when they are displayed individually."
@@ -3548,23 +3552,23 @@ msgstr ""
 "Вы можете показать изображения (также называемое эскизом публикации) ваших "
 "страниц перед их содержимым, когда они отображаются индивидуально."
 
-#: core/core-settings-map.php:1808
+#: core/core-settings-map.php:1826
 msgid "Display Breadcrumb"
 msgstr "Применить Breadcrumb"
 
-#: core/core-settings-map.php:1817
+#: core/core-settings-map.php:1835
 msgid "Display the breadcrumb on home page"
 msgstr "Показывать хлебные крошки на главной"
 
-#: core/core-settings-map.php:1825
+#: core/core-settings-map.php:1843
 msgid "Display the breadcrumb in pages"
 msgstr "Показывать хлебные крошки на страницах"
 
-#: core/core-settings-map.php:1834
+#: core/core-settings-map.php:1852
 msgid "Display the breadcrumb in single posts"
 msgstr "Показывать хлебные крошки на отдельных записях"
 
-#: core/core-settings-map.php:1843
+#: core/core-settings-map.php:1861
 msgid ""
 "Display the breadcrumb in posts lists : blog page, archives, search "
 "results..."
@@ -3572,27 +3576,27 @@ msgstr ""
 "Показывать хлебные крошки в списках записей: страница блога, архивы, "
 "результаты поиска..."
 
-#: core/core-settings-map.php:1851
+#: core/core-settings-map.php:1869
 msgid "Use Yoast SEO breadcrumbs"
 msgstr "Использовать хлебные крошки Yoast SEO"
 
-#: core/core-settings-map.php:1854
+#: core/core-settings-map.php:1872
 msgid "Jump to the Yoast SEO breadcrumbs %s"
 msgstr "Перейти к хлебным крошкам Yoast SEO %s"
 
-#: core/core-settings-map.php:1857
+#: core/core-settings-map.php:1875
 msgid "customization panel"
 msgstr "панель настроек"
 
-#: core/core-settings-map.php:1858
+#: core/core-settings-map.php:1876
 msgid "Yoast SEO breadcrumbs settings"
 msgstr "Настройки хлебных крошек Yoast SEO"
 
-#: core/core-settings-map.php:1877
+#: core/core-settings-map.php:1895
 msgid "Display posts metas"
 msgstr "Показывать метаописания записей"
 
-#: core/core-settings-map.php:1880
+#: core/core-settings-map.php:1898
 msgid ""
 "When this option is checked, the post metas (like taxonomies, date and "
 "author) are displayed below the post titles."
@@ -3600,89 +3604,89 @@ msgstr ""
 "Если эта опция отмечена, то метаописания записей (такие как таксономии, дата "
 "и автор)  показываются под заголовками записей."
 
-#: core/core-settings-map.php:1887 core/core-settings-map.php:2081
+#: core/core-settings-map.php:1905 core/core-settings-map.php:2099
 msgid "Select the contexts"
 msgstr "Выбрать контексты"
 
-#: core/core-settings-map.php:1888
+#: core/core-settings-map.php:1906
 msgid "Display posts metas on home"
 msgstr "Показывать метаописания записей на главной"
 
-#: core/core-settings-map.php:1897
+#: core/core-settings-map.php:1915
 msgid "Display posts metas for single posts"
 msgstr "Показывать метаописания записей для отдельных записей"
 
-#: core/core-settings-map.php:1906
+#: core/core-settings-map.php:1924
 msgid "Display posts metas in post lists (archives, blog page)"
 msgstr ""
 "Показывать метаописания записей в списках записей (архивы, страница блога)"
 
-#: core/core-settings-map.php:1916
+#: core/core-settings-map.php:1934
 msgid "Select the metas to display"
 msgstr "Выбирите метаописания для показа"
 
-#: core/core-settings-map.php:1917
+#: core/core-settings-map.php:1935
 msgid "Display hierarchical taxonomies (like categories)"
 msgstr "Показ иерархических таксономий (например категорий)"
 
-#: core/core-settings-map.php:1926
+#: core/core-settings-map.php:1944
 msgid "Display non-hierarchical taxonomies (like tags)"
 msgstr "Показ  не-иерархических таксономий (например тегов)"
 
-#: core/core-settings-map.php:1935
+#: core/core-settings-map.php:1953
 msgid "Display the author"
 msgstr "Показывать автора"
 
-#: core/core-settings-map.php:1943
+#: core/core-settings-map.php:1961
 msgid "Display the publication date"
 msgstr "Показать дату публикации"
 
-#: core/core-settings-map.php:1953
+#: core/core-settings-map.php:1971
 msgid "Display the update date"
 msgstr "Показывать дату обновления"
 
-#: core/core-settings-map.php:1972
+#: core/core-settings-map.php:1990
 msgid "Enable Customizr galleries"
 msgstr "Включить галереи Customizr"
 
-#: core/core-settings-map.php:1974
+#: core/core-settings-map.php:1992
 msgid "Apply Customizr effects to galleries images"
 msgstr "Применить эффекты Customizr к изображениям галерей"
 
-#: core/core-settings-map.php:1981
+#: core/core-settings-map.php:1999
 msgid "Enable Lightbox effect in galleries"
 msgstr "Включить эффект лайтбокса в галереях"
 
-#: core/core-settings-map.php:1983
+#: core/core-settings-map.php:2001
 msgid "Apply lightbox effects to galleries images"
 msgstr "Применить эффекты лайтбокса к изображениям галерей"
 
-#: core/core-settings-map.php:1990
+#: core/core-settings-map.php:2008
 msgid "Enable Customizr effects on hover"
 msgstr "Включить эффекты Customizr при наведении"
 
-#: core/core-settings-map.php:1992
+#: core/core-settings-map.php:2010
 msgid "Apply nice on hover expansion effect to the galleries images"
 msgstr ""
 "Применить приятный эффект расширения при наведении на изображения галерей"
 
-#: core/core-settings-map.php:2012
+#: core/core-settings-map.php:2030
 msgid "Display the number of comments below the post titles"
 msgstr "Отображение количества комментариев под заголовками записей"
 
-#: core/core-settings-map.php:2012
+#: core/core-settings-map.php:2030
 msgid "Display the number of comments in a bubble next to the post title"
 msgstr "Показывать число комментариев в пузырьке рядом с заголовком записи"
 
-#: core/core-settings-map.php:2020
+#: core/core-settings-map.php:2038
 msgid "Other comments settings"
 msgstr "Другие настройки комментариев"
 
-#: core/core-settings-map.php:2021
+#: core/core-settings-map.php:2039
 msgid "Enable comments on pages"
 msgstr "Разрешить комментарии на страницах"
 
-#: core/core-settings-map.php:2026
+#: core/core-settings-map.php:2044
 msgid ""
 "If checked, this option will enable comments on pages. You can disable "
 "comments for a single page in the quick edit mode of the page list screen."
@@ -3691,19 +3695,19 @@ msgstr ""
 "запретить комментарии для любой страницы в режиме быстрой правки в списке "
 "страниц на вкладке Страницы."
 
-#: core/core-settings-map.php:2027
+#: core/core-settings-map.php:2045
 msgid "You can also change other comments settings in :"
 msgstr "Вы можете также изменить другие настройки комментариев в :"
 
-#: core/core-settings-map.php:2029
+#: core/core-settings-map.php:2047
 msgid "the discussion settings page."
 msgstr "странице настроек обсуждения."
 
-#: core/core-settings-map.php:2035
+#: core/core-settings-map.php:2053
 msgid "Enable comments on posts"
 msgstr "Разрешить комментарии к записям"
 
-#: core/core-settings-map.php:2040
+#: core/core-settings-map.php:2058
 msgid ""
 "If checked, this option enables comments on all types of single posts. You "
 "can disable comments for a single post in quick edit mode from the"
@@ -3712,23 +3716,23 @@ msgstr ""
 "одиночных записей. Вы можете отключить комментарии для одиночной записи в "
 "режиме быстрого редактирования с"
 
-#: core/core-settings-map.php:2042
+#: core/core-settings-map.php:2060
 msgid "post screen"
 msgstr "экран записи"
 
-#: core/core-settings-map.php:2043
+#: core/core-settings-map.php:2061
 msgid "You can also change other comments settings in the"
 msgstr "Вы можете также изменить другие настройки комментариев на"
 
-#: core/core-settings-map.php:2045
+#: core/core-settings-map.php:2063
 msgid "discussion settings page."
 msgstr "странице настроек дискуссий."
 
-#: core/core-settings-map.php:2051
+#: core/core-settings-map.php:2069
 msgid "Display the comment list"
 msgstr "Показать список комментариев"
 
-#: core/core-settings-map.php:2055
+#: core/core-settings-map.php:2073
 msgid ""
 "By default, WordPress displays the past comments, even if comments are "
 "disabled in posts or pages. Unchecking this option allows you to not display "
@@ -3738,26 +3742,26 @@ msgstr ""
 "комментарии отключены в записях или страницах. Установив этот параметр "
 "позволит Вам не показывать эту историю комментария."
 
-#: core/core-settings-map.php:2070
+#: core/core-settings-map.php:2088
 msgid "Display posts navigation"
 msgstr "Отображение сообщений навигации"
 
-#: core/core-settings-map.php:2073
+#: core/core-settings-map.php:2091
 msgid ""
 "When this option is checked, the posts navigation is displayed below the "
 "posts"
 msgstr ""
 "Когда этот флажок установлен, сообщения навигации отображается ниже записи"
 
-#: core/core-settings-map.php:2082
+#: core/core-settings-map.php:2100
 msgid "Display navigation in pages"
 msgstr "Отображение навигации на страницах"
 
-#: core/core-settings-map.php:2091
+#: core/core-settings-map.php:2109
 msgid "Display posts navigation in single posts"
 msgstr "Отображение сообщения навигации в одиночной записи"
 
-#: core/core-settings-map.php:2100
+#: core/core-settings-map.php:2118
 msgid ""
 "Display posts navigation in post lists (archives, blog page, categories, "
 "search results ..)"
@@ -3765,41 +3769,41 @@ msgstr ""
 "Отображение сообщений навигации в списках записей (архивы, страница блога, "
 "категории, результаты поиска..)"
 
-#: core/core-settings-map.php:2123
+#: core/core-settings-map.php:2141
 msgid "Social links in left sidebar"
 msgstr "Соцсети в левой боковой панели"
 
-#: core/core-settings-map.php:2136
+#: core/core-settings-map.php:2154
 msgid "Social links in right sidebar"
 msgstr "Соцсети в правой боковой панели"
 
-#: core/core-settings-map.php:2165
+#: core/core-settings-map.php:2183
 msgid "Footer style"
 msgstr "Стиль подвала"
 
-#: core/core-settings-map.php:2177
+#: core/core-settings-map.php:2195
 msgid "Horizontal widget area in your footer"
 msgstr ""
 
-#: core/core-settings-map.php:2180
+#: core/core-settings-map.php:2198
 #, fuzzy
 msgid "Display full-width"
 msgstr "Показать контент целиком"
 
-#: core/core-settings-map.php:2181
+#: core/core-settings-map.php:2199
 #, fuzzy
 msgid "Display boxed"
 msgstr " Показывать верхнюю границу"
 
-#: core/core-settings-map.php:2189
+#: core/core-settings-map.php:2207
 msgid "Social links in footer"
 msgstr "Соцсети в подвале"
 
-#: core/core-settings-map.php:2202
+#: core/core-settings-map.php:2220
 msgid "Stick the footer to the bottom of the page"
 msgstr "Прикрепить подвал в нижней части страницы"
 
-#: core/core-settings-map.php:2207
+#: core/core-settings-map.php:2225
 msgid ""
 "Enabling this option will glue your footer to the bottom of the screen, when "
 "pages are shorter than the viewport's height."
@@ -3807,21 +3811,21 @@ msgstr ""
 "Включение опции \"приклеит\" подвал к нижней части экрана, если размер "
 "страницы меньше высоты видимой области просмотра."
 
-#: core/core-settings-map.php:2212
+#: core/core-settings-map.php:2230
 msgid "Display a back to top arrow on scroll"
 msgstr "Показывать стрелку Наверх, при прокручивании"
 
-#: core/core-settings-map.php:2220
+#: core/core-settings-map.php:2238
 msgid "Back to top arrow position"
 msgstr "Расположение стрелки \"Наверх\""
 
-#: core/core-settings-map.php:2252
+#: core/core-settings-map.php:2270
 msgid "Add your custom css here and design live! (for advanced users)"
 msgstr ""
 "Добавьте сюда свои пользовательские стили css и редактируйте их в живьём! "
 "(для продвинутых пользователей)"
 
-#: core/core-settings-map.php:2256
+#: core/core-settings-map.php:2274
 msgid ""
 "Use this field to test small chunks of CSS code. For important CSS "
 "customizations, you'll want to modify the style.css file of a"
@@ -3829,19 +3833,19 @@ msgstr ""
 "Используйте это поле, чтобы проверить небольшие куски кода CSS. Для больших "
 "изменений CSS редактируйте файл style.css"
 
-#: core/core-settings-map.php:2257
+#: core/core-settings-map.php:2275
 msgid "child theme."
 msgstr "дочерней темы."
 
-#: core/core-settings-map.php:2258
+#: core/core-settings-map.php:2276
 msgid "How to create and use a child theme ?"
 msgstr "Как создать и использовать дочернюю тему?"
 
-#: core/core-settings-map.php:2275
+#: core/core-settings-map.php:2293
 msgid "Performance : use the minified CSS stylesheets"
 msgstr "Производительность : использовать уменьшенную таблицу стилей CSS"
 
-#: core/core-settings-map.php:2278
+#: core/core-settings-map.php:2296
 msgid ""
 "Using the minified version of the stylesheets will speed up your webpage "
 "load time."
@@ -3849,11 +3853,11 @@ msgstr ""
 "Использование уменьшенной версии таблиц стилей позволит ускорить время "
 "загрузки страницы."
 
-#: core/core-settings-map.php:2282
+#: core/core-settings-map.php:2300
 msgid "Load images on scroll"
 msgstr "Загрузка изображений прокрутки"
 
-#: core/core-settings-map.php:2287
+#: core/core-settings-map.php:2305
 msgid ""
 "Check this option to delay the loading of non visible images. Images below "
 "the viewport will be loaded dynamically on scroll. This can boost "
@@ -3864,11 +3868,11 @@ msgstr ""
 "может повысить скорость путем уменьшения размера длинных веб-страниц с "
 "изображениями."
 
-#: core/core-settings-map.php:2291
+#: core/core-settings-map.php:2309
 msgid "Lazy load the images in sliders"
 msgstr "\"Ленивая\" загрузка изображений в слайдерах"
 
-#: core/core-settings-map.php:2296
+#: core/core-settings-map.php:2314
 msgid ""
 "Check this option to delay the loading of non visible images in sliders. "
 "This can greatly improve the speed of your website."
@@ -3876,12 +3880,12 @@ msgstr ""
 "Установите этот флажок, чтобы отложить загрузку невидимых изображений в "
 "слайдерах. Это может значительно повысить скорость вашего сайта."
 
-#: core/core-settings-map.php:2313
+#: core/core-settings-map.php:2331
 msgid "Display help notices on front-end for logged in users."
 msgstr ""
 "Показывать справочные уведомления на фронт-енде для вошедших пользователей."
 
-#: core/core-settings-map.php:2316
+#: core/core-settings-map.php:2334
 msgid ""
 "When this option is enabled, various help notices and some placeholder "
 "blocks are displayed on the front-end of your website. They are only visible "
@@ -3891,15 +3895,15 @@ msgstr ""
 "замещающие блоки отображаются во фронт-енде вашего сайта. Они видны только с "
 "зарегистрированным пользователям с административными правами."
 
-#: core/core-settings-map.php:2329
+#: core/core-settings-map.php:2347
 msgid "Load Font Awesome resources"
 msgstr "Загрузить иконки Font Awesome"
 
-#: core/core-settings-map.php:2333
+#: core/core-settings-map.php:2351
 msgid "Use with caution"
 msgstr "Используйте с осторожностью"
 
-#: core/core-settings-map.php:2334
+#: core/core-settings-map.php:2352
 msgid ""
 "When checked, the Font Awesome icons and CSS will be loaded on front end. "
 "You might want to load the Font Awesome icons with a custom code, or let a "
@@ -3909,15 +3913,15 @@ msgstr ""
 "можете загрузить иконки Font Awesome с помощью своего кода или позволить "
 "плагину сделает это за Вас."
 
-#: core/core-settings-map.php:2336
+#: core/core-settings-map.php:2354
 msgid "Check out some example of uses"
 msgstr "Посмотреть примеры использования"
 
-#: core/core-settings-map.php:2357
+#: core/core-settings-map.php:2375
 msgid "Automatically adapt the font size to the width of the devices"
 msgstr "Автоматически адаптировать размер шрифта по ширине устройства"
 
-#: core/core-settings-map.php:2360
+#: core/core-settings-map.php:2378
 msgid ""
 "When this option is enabled, your font size will automatically resize to be "
 "better displayed in mobile devices."
@@ -3925,12 +3929,12 @@ msgstr ""
 "Когда эта опция включена, размер шрифта будет автоматически изменяться  для "
 "лучшего отображения на мобильных устройствах."
 
-#: core/core-settings-map.php:2360
+#: core/core-settings-map.php:2378
 msgid ""
 "This option can sometimes reduce too much the headings font-size on mobiles."
 msgstr ""
 
-#: core/core-settings-map.php:2372
+#: core/core-settings-map.php:2390
 msgid ""
 "The Modern style provides a \"material design\" look and feel. It relies on "
 "the flexbox css mode, offering a better support for the most recent mobile "
@@ -3944,23 +3948,23 @@ msgstr ""
 "например, значки рядом с названиями. Он поддерживает как современные, так и "
 "более старые устройства и браузеры."
 
-#: core/core-settings-map.php:2377
+#: core/core-settings-map.php:2395
 msgid "Set the Modern or Classical design style"
 msgstr "Установите Современный или Классический стиль дизайна"
 
-#: core/core-settings-map.php:2377
+#: core/core-settings-map.php:2395
 msgid "Select a design style for the theme"
 msgstr "Выберите стиль оформления темы"
 
-#: core/core-settings-map.php:2381
+#: core/core-settings-map.php:2399
 msgid "Modern"
 msgstr "Современный"
 
-#: core/core-settings-map.php:2382
+#: core/core-settings-map.php:2400
 msgid "Classical"
 msgstr "Классический"
 
-#: core/core-settings-map.php:2386
+#: core/core-settings-map.php:2404
 msgid ""
 "You are using a child theme. This option must be changed from the parent "
 "theme. Activate the parent from %s."
@@ -3968,11 +3972,11 @@ msgstr ""
 "Вы используете дочернюю тему. Этот параметр должен быть изменен из "
 "родительской темы. Активируйте родительскую из %s."
 
-#: core/core-settings-map.php:2387
+#: core/core-settings-map.php:2405
 msgid "Appearance > themes"
 msgstr "Внешний вид > темы"
 
-#: core/core-settings-map.php:2389
+#: core/core-settings-map.php:2407
 msgid ""
 "The two styles can use different template files, that's why it is "
 "recommended to change the style option from the parent and test your child "
@@ -3982,57 +3986,57 @@ msgstr ""
 "рекомендуется изменить параметры стиля из родительской и протестировать "
 "дочернюю тему на промежуточном сайте перед использованием."
 
-#: core/core-settings-map.php:2407
+#: core/core-settings-map.php:2425
 #, fuzzy
 msgid "Display the product featured image"
 msgstr "Показывать дату обновления"
 
-#: core/core-settings-map.php:2431
+#: core/core-settings-map.php:2449
 msgid "Global settings"
 msgstr "Общие настройки"
 
-#: core/core-settings-map.php:2432
+#: core/core-settings-map.php:2450
 msgid "Title, Logo, Fonts, Primary color, Social, ..."
 msgstr "Заголовок, Логотип, Шрифты, Основной цвет, Соцсети, ..."
 
-#: core/core-settings-map.php:2438
+#: core/core-settings-map.php:2456
 msgid "Header"
 msgstr "Шапка"
 
-#: core/core-settings-map.php:2439
+#: core/core-settings-map.php:2457
 msgid "Style, Desktops and mobiles layout, Menus, Search, ..."
 msgstr "Внешний вид, Настольный и мобильный вид, Меню, Поиск, ..."
 
-#: core/core-settings-map.php:2445
+#: core/core-settings-map.php:2463
 msgid "Main Content"
 msgstr "Основное Содержание"
 
-#: core/core-settings-map.php:2446
+#: core/core-settings-map.php:2464
 msgid ""
 "Column layout, Post lists design, Thumbnails, Post Metas, Navigation, ..."
 msgstr "Макет разметки, Дизайн списков записей, Метаописания, Навигация, ..."
 
-#: core/core-settings-map.php:2452
+#: core/core-settings-map.php:2470
 msgid "Sidebars"
 msgstr "Боковые панели"
 
-#: core/core-settings-map.php:2458
+#: core/core-settings-map.php:2476
 msgid "Footer"
 msgstr "Подвал"
 
-#: core/core-settings-map.php:2459
+#: core/core-settings-map.php:2477
 msgid "Style, Back to top button, Sticky mode, ... "
 msgstr "Стиль, Кнопка \"Наверх\", \"Липкий\" режим ..."
 
-#: core/core-settings-map.php:2465
+#: core/core-settings-map.php:2483
 msgid "Advanced options"
 msgstr "Дополнительные параметры"
 
-#: core/core-settings-map.php:2466
+#: core/core-settings-map.php:2484
 msgid "Performances, Custom CSS ..."
 msgstr "Производительность, Пользовательский CSS ..."
 
-#: core/core-settings-map.php:2537
+#: core/core-settings-map.php:2555
 msgid "Your theme supports %s menu. Select which menu you would like to use."
 msgid_plural ""
 "Your theme supports %s menus. Select which menu appears in each location."
@@ -4044,15 +4048,15 @@ msgstr[1] ""
 msgstr[2] ""
 "Ваша тема поддерживает %s меню. Выберите, какие меню появятся в каждом месте."
 
-#: core/core-settings-map.php:2540 core/core-settings-map.php:2548
+#: core/core-settings-map.php:2558 core/core-settings-map.php:2566
 msgid "You can create new menu and edit your menu's content %s."
 msgstr "Можно создать новое меню и редактировать содержание вашего меню %s."
 
-#: core/core-settings-map.php:2543
+#: core/core-settings-map.php:2561
 msgid "on the Menus screen in the Appearance section"
 msgstr "на экране Меню в разделе Внешний вид"
 
-#: core/core-settings-map.php:2558
+#: core/core-settings-map.php:2576
 msgid ""
 "If a menu location has no menu assigned to it, a default page menu will be "
 "used."
@@ -4060,154 +4064,154 @@ msgstr ""
 "если у местоположения меню не будет меню, назначенного на него, то будет "
 "использоваться меню страницы по умолчанию."
 
-#: core/core-settings-map.php:2568
+#: core/core-settings-map.php:2586
 msgid "Site Identity : Logo, Title, Tagline and Site Icon"
 msgstr "Идентификация: Лого, Название, Девиз и Иконка сайта"
 
-#: core/core-settings-map.php:2578
+#: core/core-settings-map.php:2596
 #, fuzzy
 msgid "Site Layout"
 msgstr "Выберите макет"
 
-#: core/core-settings-map.php:2583
+#: core/core-settings-map.php:2601
 msgid "Primary color of the theme"
 msgstr "Основной цвет темы"
 
-#: core/core-settings-map.php:2585
+#: core/core-settings-map.php:2603
 msgid "Pick a primary color for the theme"
 msgstr "Выберите основной цвет темы"
 
-#: core/core-settings-map.php:2589
+#: core/core-settings-map.php:2607
 msgid "Font picker and font size"
 msgstr ""
 
-#: core/core-settings-map.php:2602
+#: core/core-settings-map.php:2620
 msgid "Formatting : links, paragraphs ..."
 msgstr "Форматирование: ссылки, параграфы ..."
 
-#: core/core-settings-map.php:2608
+#: core/core-settings-map.php:2626
 msgid "Image settings"
 msgstr "Настройки изображений"
 
-#: core/core-settings-map.php:2619
+#: core/core-settings-map.php:2637
 msgid "Sliders options"
 msgstr "Настройки слайдера"
 
-#: core/core-settings-map.php:2625
+#: core/core-settings-map.php:2643
 msgid "Authors"
 msgstr "Авторы"
 
-#: core/core-settings-map.php:2631
+#: core/core-settings-map.php:2649
 msgid "Smooth Scroll"
 msgstr "Плавная Прокрутка"
 
-#: core/core-settings-map.php:2641
+#: core/core-settings-map.php:2659
 msgid "Header design and layout"
 msgstr "Дизайн шапки и макет"
 
-#: core/core-settings-map.php:2641
+#: core/core-settings-map.php:2659
 msgid "General design settings"
 msgstr "Общие настройки внешнего вида"
 
-#: core/core-settings-map.php:2646
+#: core/core-settings-map.php:2664
 #, fuzzy
 msgid "Design settings for desktops and laptops"
 msgstr "Настройки дизайна для смартфонов и планшетов"
 
-#: core/core-settings-map.php:2651
+#: core/core-settings-map.php:2669
 msgid "Design settings for smartphones and tablets in portrait orientation"
 msgstr "Настройки дизайна для смартфонов и планшетов при портретной ориентации"
 
-#: core/core-settings-map.php:2656
+#: core/core-settings-map.php:2674
 msgid "Navigation Menus"
 msgstr "Меню Навигации"
 
-#: core/core-settings-map.php:2668
+#: core/core-settings-map.php:2686
 msgid "Front Page Content"
 msgstr "Главная Страница"
 
-#: core/core-settings-map.php:2681
+#: core/core-settings-map.php:2699
 msgid "Pages &amp; Posts Layout"
 msgstr "Страницы &amp; Вид записей"
 
-#: core/core-settings-map.php:2688
+#: core/core-settings-map.php:2706
 msgid "Post lists : blog, archives, ..."
 msgstr "Списки записей: блог, архивы,..."
 
-#: core/core-settings-map.php:2694
+#: core/core-settings-map.php:2712
 msgid "Single posts"
 msgstr "Отдельные записи"
 
-#: core/core-settings-map.php:2700
+#: core/core-settings-map.php:2718
 msgid "Single pages"
 msgstr "Отдельные страницы"
 
-#: core/core-settings-map.php:2706
+#: core/core-settings-map.php:2724
 msgid "Breadcrumb"
 msgstr "Хлебные крошки"
 
-#: core/core-settings-map.php:2712
+#: core/core-settings-map.php:2730
 msgid "Post metas (category, tags, custom taxonomies)"
 msgstr "Метаописания записей (категория, тэги, собственные таксономии)"
 
-#: core/core-settings-map.php:2718
+#: core/core-settings-map.php:2736
 msgid "Galleries"
 msgstr "Галереи"
 
-#: core/core-settings-map.php:2724
+#: core/core-settings-map.php:2742
 msgid "Comments"
 msgstr "Комментарии"
 
-#: core/core-settings-map.php:2735
+#: core/core-settings-map.php:2753
 msgid "Post/Page Navigation"
 msgstr "Навигация записи/страницы"
 
-#: core/core-settings-map.php:2746
+#: core/core-settings-map.php:2764
 msgid "Socials in Sidebars"
 msgstr "Соцсети в боковых панелях"
 
-#: core/core-settings-map.php:2755
+#: core/core-settings-map.php:2773
 msgid "Footer global settings"
 msgstr "Общие настройки подвала"
 
-#: core/core-settings-map.php:2766
+#: core/core-settings-map.php:2784
 msgid "Custom CSS"
 msgstr "Пользовательский CSS"
 
-#: core/core-settings-map.php:2771
+#: core/core-settings-map.php:2789
 msgid "Website Performances"
 msgstr "Производительность сайта"
 
-#: core/core-settings-map.php:2777
+#: core/core-settings-map.php:2795
 msgid "Front-end placeholders and help blocks"
 msgstr "Заполнители фронтенда и блоков помощи"
 
-#: core/core-settings-map.php:2782
+#: core/core-settings-map.php:2800
 msgid "Front-end Icons (Font Awesome)"
 msgstr "Фронт-энд Иконки (Font Awesome)"
 
-#: core/core-settings-map.php:2787
+#: core/core-settings-map.php:2805
 #, fuzzy
 msgid "Adaptative font size on mobile devices"
 msgstr "Выберите меню (одно или несколько) для мобильных устройств"
 
-#: core/core-settings-map.php:2792
+#: core/core-settings-map.php:2810
 msgid "Theme style"
 msgstr "Стиль темы"
 
-#: core/core-settings-map.php:2804 core/czr-admin-ccat.php:396
+#: core/core-settings-map.php:2822 core/czr-admin-ccat.php:396
 msgid "Upgrade to Customizr Pro"
 msgstr "Перейти на Customizr Pro"
 
-#: core/core-settings-map.php:2805
+#: core/core-settings-map.php:2823
 msgid "Discover the features and benefits"
 msgstr "Откройте его возможности и преимущества"
 
-#: core/core-settings-map.php:2807
+#: core/core-settings-map.php:2825
 msgid "Go Pro"
 msgstr "Перейти на Pro"
 
-#: core/core-settings-map.php:2890
+#: core/core-settings-map.php:2908
 msgid ""
 "You need to select a page first. Leave this field empty if you want to use "
 "the page excerpt."
@@ -6188,6 +6192,7 @@ msgid "Search"
 msgstr "Поиск"
 
 #: templates/parts/modules/search/searchform.php:12
+#: templates/parts/modules/search/searchform.php:14
 msgctxt "title"
 msgid "Search &hellip;"
 msgstr "Поиск &hellip;"

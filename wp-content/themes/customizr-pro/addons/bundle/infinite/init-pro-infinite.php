@@ -738,9 +738,8 @@ final class PC_init_infinite {
             ?>
             <script id="appearing-animation-js" type="text/javascript">
 
-                  !( function(czrapp, $){
-                        czrapp.ready.done( function() {
-
+                  !( function($){
+                        var _doWhenCzrappIsReady = function() {
                               var animationEnd              = 'webkitAnimationEnd animationend msAnimationEnd oAnimationEnd',
                                   wrapperSelector           = '.grid-container',
                                   animatableSelector        = '.grid__item',
@@ -913,8 +912,18 @@ final class PC_init_infinite {
 
                                     });//end each on the collection
                               };//end animateMe
-                        });//end czrapp.ready.done
-                  })(czrapp, jQuery);
+                        };//end _doWhenCzrappIsReady()
+
+                        // see wp-content/themes/customizr/assets/front/js/_front_js_fmk/_main_xfire_0.part.js
+                        // feb 2020 => implemented for https://github.com/presscustomizr/pro-bundle/issues/162
+                        if ( window.czrapp && czrapp.ready && 'resolved' == czrapp.ready.state() ) {
+                            _doWhenCzrappIsReady();
+                        } else {
+                            $('html').on('czrapp-ready', function() {
+                                _doWhenCzrappIsReady();
+                            });
+                        }
+                  })(jQuery);
             </script>
             <?php
       }//end function

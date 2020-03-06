@@ -1,3 +1,4 @@
+// FEB 2020 => NOT ENQUEUED ANYMORE, RENDERED INLINE for https://github.com/presscustomizr/pro-bundle/issues/162
 var czrapp = czrapp || {};
 /************************************************
 * MASONRY GRID SUB CLASS

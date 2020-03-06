@@ -58,7 +58,7 @@
 
             //nikeo @addon this param was introduced to disable the determineUrl for devices < minWidthForDetermineUrl
             //since we can't rely on the maybe cached localized wp_is_mobile() passed server side, the idea is to calculate it front side
-            this.minWidthForDetermineUrl = _.isUndefined( settings.minWidthForDetermineUrl ) ? 575 : settings.minWidthForDetermineUrl;
+            this.minWidthForDetermineUrl = ( typeof undefined === typeof settings.minWidthForDetermineUrl ) ? 575 : settings.minWidthForDetermineUrl;
             this.doDetermineUrl       = ! this.matchMedia( this.minWidthForDetermineUrl );
 
             // We have two type of infinite scroll

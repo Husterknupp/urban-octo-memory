@@ -70,7 +70,7 @@ class TC_fc {
 
         //js assets for the customizer
         add_action ( 'customize_controls_enqueue_scripts'   , array( $this , 'fc_customize_controls_js_css' ), 100);
-        add_action ( 'customize_preview_init'               , array( $this , 'fc_customize_preview_js' ));
+        //add_action ( 'customize_preview_init'               , array( $this , 'fc_customize_preview_js' ));
 
         //plugins compatibility
         add_action( 'after_setup_theme'                     , array( $this , 'fc_plugins_compatibility'), 20 );
@@ -208,8 +208,8 @@ class TC_fc {
                     'title'         => __( "Copyright", 'customizr-pro'),
                     'section'       => 'footer_customizer_sec' ,
                     'type'          => 'text',
-                    'priority'      => 5,
-                    'transport'   =>  'postMessage'
+                    'priority'      => 5
+                    //'transport'   =>  'postMessage'
           ),
           "fc_site_name" =>  array(
                     'default'       => isset( $_defaults['fc_site_name'] ) ? $_defaults['fc_site_name'] : false,
@@ -217,8 +217,8 @@ class TC_fc {
                     'label'         => __( "Site name" , 'customizr-pro' ),
                     'section'       => 'footer_customizer_sec' ,
                     'type'          => 'text',
-                    'priority'      => 10,
-                    'transport'   =>  'postMessage',
+                    'priority'      => 10
+                    //'transport'   =>  'postMessage',
           ),
           "fc_site_link" =>  array(
                     'default'       => isset( $_defaults['fc_site_link'] ) ? $_defaults['fc_site_link'] : false,
@@ -226,8 +226,8 @@ class TC_fc {
                     'label'         => __( "Site link" , 'customizr-pro' ),
                     'section'       => 'footer_customizer_sec' ,
                     'type'          => 'url',
-                    'priority'      => 20,
-                    'transport'   =>  'postMessage',
+                    'priority'      => 20
+                    //'transport'   =>  'postMessage',
           ),
           "fc_site_link_target" =>  array(
                     'default'       => isset( $_defaults['fc_site_link_target'] ) ? $_defaults['fc_site_link_target'] : false,
@@ -235,8 +235,8 @@ class TC_fc {
                     'label'         => __( 'Open link in a new page/tab', 'customizr-pro' ),
                     'section'       => 'footer_customizer_sec' ,
                     'type'          => 'nimblecheck',
-                    'priority'      => 21,
-                    'transport'   =>  'postMessage',
+                    'priority'      => 21
+                    //'transport'   =>  'postMessage',
           ),
           "fc_copyright_after_text" =>  array(
                     'default'       => isset( $_defaults['fc_copyright_after_text'] ) ? $_defaults['fc_copyright_after_text'] : false,
@@ -244,8 +244,8 @@ class TC_fc {
                     'label'         => __( "Copyright text after" , 'customizr-pro' ),
                     'section'       => 'footer_customizer_sec' ,
                     'type'          => 'text',
-                    'priority'      => 25,
-                    'transport'   =>  'postMessage',
+                    'priority'      => 25
+                    //'transport'   =>  'postMessage',
           ),
           "fc_show_designer_credits" =>  array(
                     'default'       => isset( $_defaults['fc_show_designer_credits'] ) ? $_defaults['fc_show_designer_credits'] : false,
@@ -254,8 +254,8 @@ class TC_fc {
                     'title'         => __( "Credits", 'customizr-pro'),
                     'section'       => 'footer_customizer_sec' ,
                     'type'          => 'nimblecheck',
-                    'priority'      => 30,
-                    'transport'   =>  'postMessage',
+                    'priority'      => 30
+                    //'transport'   =>  'postMessage',
           ),
           "fc_credit_text" =>  array(
                     'default'       => isset( $_defaults['fc_credit_text'] ) ? $_defaults['fc_credit_text'] : false,
@@ -263,8 +263,8 @@ class TC_fc {
                     'label'         => __( "Credit text" , 'customizr-pro' ),
                     'section'       => 'footer_customizer_sec' ,
                     'type'          => 'text',
-                    'priority'      => 40,
-                    'transport'   =>  'postMessage',
+                    'priority'      => 40
+                    //'transport'   =>  'postMessage',
           ),
           "fc_designer_name" =>  array(
                     'default'       => isset( $_defaults['fc_designer_name'] ) ? $_defaults['fc_designer_name'] : false,
@@ -272,8 +272,8 @@ class TC_fc {
                     'label'         => __( "Designer name" , 'customizr-pro' ),
                     'section'       => 'footer_customizer_sec' ,
                     'type'          => 'text',
-                    'priority'      => 50,
-                    'transport'   =>  'postMessage',
+                    'priority'      => 50
+                    //'transport'   =>  'postMessage',
           ),
           "fc_designer_link" =>  array(
                     'default'       => isset( $_defaults['fc_designer_link'] ) ? $_defaults['fc_designer_link'] : false,
@@ -281,8 +281,8 @@ class TC_fc {
                     'label'         => __( "Designer link" , 'customizr-pro' ),
                     'section'       => 'footer_customizer_sec' ,
                     'type'          => 'url',
-                    'priority'      => 60,
-                    'transport'   =>  'postMessage',
+                    'priority'      => 60
+                    //'transport'   =>  'postMessage',
           ),
           "fc_designer_link_target" =>  array(
                     'default'       => isset( $_defaults['fc_designer_link_target'] ) ? $_defaults['fc_designer_link_target'] : false,
@@ -290,8 +290,8 @@ class TC_fc {
                     'label'         => __( 'Open link in a new page/tab' , 'customizr-pro' ),
                     'section'       => 'footer_customizer_sec' ,
                     'type'          => 'nimblecheck',
-                    'priority'      => 61,
-                    'transport'   =>  'postMessage',
+                    'priority'      => 61
+                    //'transport'   =>  'postMessage',
           ),
           "fc_show_wp_powered" =>  array(
                     'default'       => isset( $_defaults['fc_show_wp_powered'] ) ? $_defaults['fc_show_wp_powered'] : false,
@@ -300,8 +300,8 @@ class TC_fc {
                     'label'         => __( "Display 'Powered by WordPress'" , 'customizr-pro' ),
                     'section'       => 'footer_customizer_sec' ,
                     'type'          => 'nimblecheck',
-                    'priority'      => 62,
-                    'transport'   =>  'postMessage',
+                    'priority'      => 62
+                    //'transport'   =>  'postMessage',
           ),
         );
         //back compat
@@ -478,7 +478,7 @@ class TC_fc {
 
       }
 
-
+      // fixes https://github.com/presscustomizr/pro-bundle/issues/160
       function fc_customize_controls_js_css() {
         wp_enqueue_script(
           'tc-fc-controls' ,
@@ -487,7 +487,6 @@ class TC_fc {
           PC_pro_bundle::$instance -> plug_version . time(),
           true
         );
-
       }
 
 }//end of class
