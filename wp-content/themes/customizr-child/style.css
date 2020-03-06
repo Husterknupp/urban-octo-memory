@@ -33,6 +33,11 @@
     .mobile-utils__wrapper.nav__utils {
         display: none;
     }
+	
+	/* show hide back to top / scroll to top button on mobile */
+	.czr-btt {
+		display: block !important;
+	}
 
 }
 
