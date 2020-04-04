@@ -449,11 +449,12 @@ class CZR_post_list_masonry_model_class extends CZR_Model {
           *
           * Or we can also fire the masonry at the start and re-fire it once the images are loaded
           */
-          (function($) {
+          (function() {
               var _methods =  {
 
                   // global needed : window.czrapp
                   initOnCzrAppReady : function() {
+                    jQuery( function($) {
 
                       if ( typeof undefined === typeof $.fn.masonry ) {
                         console.log('$.fn.masonry missing');
@@ -551,7 +552,8 @@ class CZR_post_list_masonry_model_class extends CZR_Model {
                                 });
                           }
                       });
-
+                      $('body').trigger('czr-masonry-ready');
+                    });//jquery()
                   }
               };//_methods{}
 
@@ -567,8 +569,8 @@ class CZR_post_list_masonry_model_class extends CZR_Model {
 
               var tryToLoadIfMasonryIsReady = function( attempts ) {
                   attempts = attempts || 0;
-                  if ( typeof undefined !== typeof $.fn.masonry ) {
-                      $('body').trigger('czr-masonry-ready');
+                  if ( window.jQuery && typeof undefined !== typeof jQuery.fn.masonry ) {
+                      _methods.initOnCzrAppReady();
                   } else if ( attempts < 10 ) {
                       setTimeout( function() {
                           attempts++;
@@ -580,24 +582,13 @@ class CZR_post_list_masonry_model_class extends CZR_Model {
               // see wp-content/themes/customizr/assets/front/js/_front_js_fmk/_main_xfire_0.part.js
               // feb 2020 => implemented for https://github.com/presscustomizr/pro-bundle/issues/162
               if ( window.czrapp && czrapp.ready && 'resolved' == czrapp.ready.state() ) {
-                  if ( typeof undefined !== typeof $.fn.masonry ) {
-                      _methods.initOnCzrAppReady();
-                  } else {
-                      tryToLoadIfMasonryIsReady();
-                  }
+                  tryToLoadIfMasonryIsReady();
               } else {
-                  $('html').on('czrapp-ready', function() {
-                      if ( typeof undefined !== typeof $.fn.masonry ) {
-                          _methods.initOnCzrAppReady();
-                      } else {
-                          tryToLoadIfMasonryIsReady();
-                      }
+                  document.addEventListener('czrapp-is-ready', function() {
+                      tryToLoadIfMasonryIsReady();
                   });
               }
-              $('body').on('czr-masonry-ready', function() {
-                  _methods.initOnCzrAppReady();
-              });
-          })(jQuery);
+          })();
         </script>
 
         <?php

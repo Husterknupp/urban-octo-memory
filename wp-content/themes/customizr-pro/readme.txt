@@ -1,4 +1,4 @@
-# Customizr Pro v2.1.45
+# Customizr Pro v2.2.1
 ![Customizr - Pro](/screenshot.png)
 
 > The pro version of the popular Customizr WordPress theme.
@@ -14,6 +14,14 @@ Customizr Pro is distributed under the terms of the [GNU GPL v2.0 or later](http
 * SUPPORT : http://presscustomizr.com/support/
 
 ## Changelog
+= 2.2.1 March 26th 2020 =
+* fixed : retina display issue with Gif images
+* added : a new option to preload Google fonts. Disabled by default
+
+= 2.2.0 March 19th 2020 =
+* fixed : style conflict with the Ninja Forms date picker
+* added : [performance] new options to defer Font Awesome icons and javascript in order to avoid render blocking issues
+
 = 2.1.45 February 18th 2020 =
 * fixed : [javascript] potential breakage of front js when using a cache plugin along with masonry and/or infinite scrolling
 * fixed : [security] added rel="noopener noreferrer" to footer credits external links to improve performance and prevent security vulnerabilities
