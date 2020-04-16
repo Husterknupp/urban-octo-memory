@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: * Customizr-Pro v2.1.15\n"
 "Report-Msgid-Bugs-To: https://presscustomizr.com/contact/\n"
-"POT-Creation-Date: 2020-03-26 18:31:01+00:00\n"
+"POT-Creation-Date: 2020-04-15 08:56:05+00:00\n"
 "PO-Revision-Date: 2020-01-28 11:41+0100\n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -842,23 +842,23 @@ msgstr "Individuelle Titelfarbe"
 msgid "Post titles in big caps"
 msgstr "Beitragstitel in Großbuchstaben"
 
-#: addons/bundle/infinite/infinite-scroll/class_infinite.php:761
+#: addons/bundle/infinite/infinite-scroll/class_infinite.php:757
 msgid "Load more posts"
 msgstr "Weitere Beiträge laden"
 
-#: addons/bundle/infinite/infinite-scroll/class_infinite.php:805
+#: addons/bundle/infinite/infinite-scroll/class_infinite.php:801
 msgid "Older %s"
 msgstr "Ältere %s"
 
-#: addons/bundle/infinite/infinite-scroll/class_infinite.php:830
+#: addons/bundle/infinite/infinite-scroll/class_infinite.php:826
 msgid "Scroll back to top"
 msgstr "Scrolle zurück nach oben"
 
-#: addons/bundle/infinite/infinite-scroll/class_infinite.php:1592
+#: addons/bundle/infinite/infinite-scroll/class_infinite.php:1588
 msgid "Proudly powered by WordPress"
 msgstr "Stolz unterstützt von WordPress"
 
-#: addons/bundle/infinite/infinite-scroll/class_infinite.php:1595
+#: addons/bundle/infinite/infinite-scroll/class_infinite.php:1591
 msgid "Theme: %1$s."
 msgstr "Theme:%1$s."
 

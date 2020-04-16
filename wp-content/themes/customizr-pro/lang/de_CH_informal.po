@@ -2,9 +2,9 @@
 # This file is distributed under the same license as the Themes - Customizr-Pro package.
 msgid ""
 msgstr ""
-"Project-Id-Version: * Customizr-Pro v2.2.1\n"
+"Project-Id-Version: * Customizr-Pro v2.2.3\n"
 "Report-Msgid-Bugs-To: https://presscustomizr.com/contact/\n"
-"POT-Creation-Date: 2020-03-26 18:31:01+00:00\n"
+"POT-Creation-Date: 2020-04-15 08:56:05+00:00\n"
 "PO-Revision-Date: 2017-12-23 12:29:45+0000\n"
 "Language: de_CH\n"
 "MIME-Version: 1.0\n"
@@ -807,27 +807,27 @@ msgstr "Titel- und Textfarbe"
 msgid "Post titles in big caps"
 msgstr ""
 
-#: addons/bundle/infinite/infinite-scroll/class_infinite.php:761
+#: addons/bundle/infinite/infinite-scroll/class_infinite.php:757
 #, fuzzy
 msgid "Load more posts"
 msgstr "Ältere Beiträge"
 
-#: addons/bundle/infinite/infinite-scroll/class_infinite.php:805
+#: addons/bundle/infinite/infinite-scroll/class_infinite.php:801
 #, fuzzy
 msgid "Older %s"
 msgstr "Ältere Beiträge"
 
-#: addons/bundle/infinite/infinite-scroll/class_infinite.php:830
+#: addons/bundle/infinite/infinite-scroll/class_infinite.php:826
 #, fuzzy
 msgid "Scroll back to top"
 msgstr "Zurück nach oben"
 
-#: addons/bundle/infinite/infinite-scroll/class_infinite.php:1592
+#: addons/bundle/infinite/infinite-scroll/class_infinite.php:1588
 #, fuzzy
 msgid "Proudly powered by WordPress"
 msgstr "Powered by WordPress"
 
-#: addons/bundle/infinite/infinite-scroll/class_infinite.php:1595
+#: addons/bundle/infinite/infinite-scroll/class_infinite.php:1591
 #, fuzzy
 msgid "Theme: %1$s."
 msgstr "Woche %1$s"

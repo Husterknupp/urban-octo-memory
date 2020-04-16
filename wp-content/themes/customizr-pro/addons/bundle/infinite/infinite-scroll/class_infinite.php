@@ -237,10 +237,6 @@ final class PC_infinite_scroll {
                                                 }
 
                                           break;
-
-                                          default:
-                                                break;
-
                                     }//end switch
                               }//endforeach
                         }//end isset( $_settings[0] ) && is_array( $_settings[0] )
