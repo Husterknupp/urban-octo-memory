@@ -1,4 +1,4 @@
-# Customizr Pro v2.2.3
+# Customizr Pro v2.2.7
 ![Customizr - Pro](/screenshot.png)
 
 > The pro version of the popular Customizr WordPress theme.
@@ -14,6 +14,34 @@ Customizr Pro is distributed under the terms of the [GNU GPL v2.0 or later](http
 * SUPPORT : http://presscustomizr.com/support/
 
 ## Changelog
+= 2.2.7 May 30th 2020 =
+* added : [search form] on desktop new simple default mode for search form in header. Full screen search is optional in Customizing ▸ Header ▸ Design settings for desktops and laptops ▸ Search icon
+* added : [post metas] add a way to hook before and after
+* fixed : [post date] user defined date format is not taken into account when rendering dates
+* fixed : [comments] when using a plugin like wpdiscuz the comment link (in post heading) links to nowhere
+
+= 2.2.6 May 14th 2020 =
+* fixed : [javascript] possible error due to missing underscore.js asset when "lightbox image" option is unchecked
+
+= 2.2.5 May 14th 2020 =
+* fixed : [Javascript][plugin compatibility] including underscore in the main script can break other plugins
+* fixed : [slider arrows][mobile] next/previous arrows are hiding a significant part of the image
+* fixed : [Woocommerce][Gutenberg] products blocks don’t work
+* fixed : fixed [Post navigation][mobile] navigation words are cut out
+* fixed : [Search form] gutenberg search block style is broken
+* fixed : [TRT] add new required fields in style.css
+* improved : [javascript] make sure maybe deprecated $.browser exists before using it
+* added : [template][hooks] add new hooks before and after post heading title in post lists
+* added : [Font Customizer][performance] add an option to disable totally Font Customizer if needed
+* added : [Font Customizer][performance] added display=swap parameter to Google fonts to ensure text remains visible during webfont load
+
+
+= 2.2.4 April 20th 2020 =
+* fixed : [Horizontal Menus] submenu expansion on click is broken
+* fixed : [Menus] make sure the cursor is a pointer for a menu item, even when it has no href attribute
+* fixed : [Lazy loading] images are not lazy loaded when dynamic content is inserted in the DOM
+* fixed : [Font Customizer] possible php warning displayed when generating CSS rules for line-height
+
 = 2.2.3 April 15th 2020 =
 * fixed : [Mobile menu] regression introduced when improving mobile menu in last update.
 

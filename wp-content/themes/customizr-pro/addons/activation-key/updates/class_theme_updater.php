@@ -17,7 +17,9 @@ class TC_theme_updater{
         'item_name'      => '',
         'license'        => '',
         'version'        => '',
-        'author'         => ''
+        'author'         => '',
+        'beta'           => false,//added april 2020, not used
+        'item_id'        => ''//added april 2020, not used
     ) );
     extract( $args );
 
@@ -39,6 +41,8 @@ class TC_theme_updater{
     $this->remote_api_url = $remote_api_url;
     $this->response_key   = $this->theme_slug . '-update-response';
     $this->strings        = TC_activation_key::$instance -> strings;
+    $this->beta           = $beta;//added april 2020, not used
+    $this->item_id        = $item_id;//added april 2020, not used
 
     //api not accessible transient name
     $this->api_not_accessible_transient = $this->theme_slug . '_api_not_accessible';
@@ -157,7 +161,13 @@ class TC_theme_updater{
     if ( $update_data ) {
       // Make sure the theme property is set. See issue 1463 on Github in the Software Licensing Repo.
       $update_data['theme'] = $this->theme_slug;
-      $value->response[ $this->theme_slug ] = $update_data;
+      // make sure we have a properly set value.
+      // fixes https://github.com/presscustomizr/customizr-pro-activation-key/issues/8
+      if ( !$value || !is_object($value) || !isset($value->response) || !is_array($value->response) ) {
+        return $value;
+      } else {
+        $value->response[ $this->theme_slug ] = $update_data;
+      }
     }
     return $value;
   }
@@ -198,7 +208,9 @@ class TC_theme_updater{
           'name'      => $this->item_name,
           'slug'      => $this->theme_slug,
           'author'    => $this->author,
-          'url'           => home_url()
+          'url'        => home_url(),
+          'beta'       => $this->beta,//added april 2020, not used
+          'item_id'    => $this->item_id//added april 2020, not used
       );
 
       $response = wp_remote_post( $this->remote_api_url, array( 'timeout' => 15, 'sslverify' => false, 'body' => $api_params , 'decompress' => false) );

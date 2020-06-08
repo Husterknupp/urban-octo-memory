@@ -668,6 +668,24 @@ var czrapp = czrapp || {};
                   _timer_();
             },
             scriptLoadingStatus : {},
+            observeAddedNodesOnDom : function(containerSelector, elementSelector, callback) {
+                var onMutationsObserved = function(mutations) {
+                        mutations.forEach(function(mutation) {
+                            if (mutation.addedNodes.length) {
+                                var elements = $(mutation.addedNodes).find(elementSelector);
+                                for (var i = 0, len = elements.length; i < len; i++) {
+                                    callback(elements[i]);
+                                }
+                            }
+                        });
+                    },
+                    target = $(containerSelector)[0],
+                    config = { childList: true, subtree: true },
+                    MutationObserver = window.MutationObserver || window.WebKitMutationObserver,
+                    observer = new MutationObserver(onMutationsObserved);
+
+                observer.observe(target, config);
+          }
       };//_methods{}
 
       czrapp.methods.Base = czrapp.methods.Base || {};
@@ -678,6 +696,8 @@ var czrapp = czrapp || {};
 (function($, czrapp) {
   var _methods =  {
     addBrowserClassToBody : function() {
+          if ( !$.browser )
+            return;
           if ( $.browser.chrome )
               czrapp.$_body.addClass("chrome");
           else if ( $.browser.webkit )
@@ -736,12 +756,24 @@ var czrapp = czrapp || {};
             },
             imgSmartLoad : function() {
                   var smartLoadEnabled = 1 == czrapp.localized.imgSmartLoadEnabled,
-                      _where           = czrapp.localized.imgSmartLoadOpts.parentSelectors.join();
-                  if (  smartLoadEnabled ) {
-                        $( _where ).imgSmartLoad(
-                            _.size( czrapp.localized.imgSmartLoadOpts.opts ) > 0 ? czrapp.localized.imgSmartLoadOpts.opts : {}
-                        );
-                  }
+                      _where = czrapp.localized.imgSmartLoadOpts.parentSelectors.join(),
+                      _params = _.size( czrapp.localized.imgSmartLoadOpts.opts ) > 0 ? czrapp.localized.imgSmartLoadOpts.opts : {};
+                  var _doLazyLoad = function() {
+                        if ( !smartLoadEnabled )
+                          return;
+
+                        $(_where).each( function() {
+                              if ( !$(this).data('smartLoadDone') ) {
+                                    $(this).imgSmartLoad(_params);
+                              } else {
+                                    $(this).trigger('trigger-smartload');
+                              }
+                        });
+                  };
+                  _doLazyLoad();
+                  this.observeAddedNodesOnDom('body', 'img', _.debounce( function(element) {
+                        _doLazyLoad();
+                  }, 50 ));
                   if ( 1 == czrapp.localized.centerAllImg ) {
                         var self                   = this,
                             $_to_center;
@@ -2374,13 +2406,22 @@ var czrapp = czrapp || {};
             );
             czrapp.userXP.windowWidth.bind( function() {
                   self.headerSearchExpanded( false );
+                  _.delay( function() {
+                     czrapp.$_body.removeClass( _search_overlay_toggle_class );
+                  }, 250 );
             });
             czrapp.$_body.on( _mobile_menu_opened_event, _mobile_menu_sel, function() {
                   self.headerSearchExpanded( false );
+                  _.delay( function() {
+                     czrapp.$_body.removeClass( _search_overlay_toggle_class );
+                  }, 250 );
             });
             if ( czrapp.userXP.stickyHeaderAnimating ) {
                   czrapp.userXP.stickyHeaderAnimating.bind( function() {
                         self.headerSearchExpanded( false );
+                        _.delay( function() {
+                           czrapp.$_body.removeClass( _search_overlay_toggle_class );
+                        }, 250 );
                   });
             }
       },//toggleHeaderSearch
@@ -3039,6 +3080,7 @@ var czrapp = czrapp || {};
               CLICK_MENU               : '.czr-open-on-click',// selector used on vertical mobile menus
               HOVER_PARENT             : '.czr-open-on-hover .menu-item-has-children, .nav__woocart',
               CLICK_PARENT             : '.czr-open-on-click .menu-item-has-children',// selector used on vertical mobile menus
+              HAS_SUBMENU              : '.menu-item-has-children',
               PARENTS                  : '.tc-header .menu-item-has-children',
               SNAKE_PARENTS            : '.regular-nav .menu-item-has-children',
               VERTICAL_NAV_ONCLICK     : '.czr-open-on-click .vertical-nav',
@@ -3124,7 +3166,6 @@ var czrapp = czrapp || {};
     dropdownOpenGoToLinkOnClick : function() {
           var self = this;
           czrapp.$_body.on( this.Event.CLICK, this.Selector.DATA_SHOWN_TOGGLE_LINK, function(evt) {
-
                 var $_el = $(this);
                 if( 'static' == $_el.find( '.'+self.ClassName.DROPDOWN ).css( 'position' ) )
                   return false;
@@ -3245,9 +3286,8 @@ var czrapp = czrapp || {};
     },//dropdownPlacement
     dropdownOnClickVerticalNav : function() {
         var self = this;
-
         czrapp.$_body
-              .on( self.Event.CLICK, self.Selector.CLICK_PARENT +' a', function(evt) {
+              .on( self.Event.CLICK, [self.Selector.VERTICAL_NAV_ONCLICK, self.Selector.HAS_SUBMENU, 'a'].join(' '), function(evt) {
                     if ( '#' === $(this).attr('href') || !$(this).attr('href') ) {
                           evt.preventDefault();
                           evt.stopPropagation();
@@ -3537,7 +3577,6 @@ var czrapp = czrapp || {};
 
         return czrDropdown;
       }();
-
       $(document)
         .on(Event.KEYDOWN_DATA_API, Selector.DATA_TOGGLE, czrDropdown._dataApiKeydownHandler)
         .on(Event.KEYDOWN_DATA_API, Selector.MENU, czrDropdown._dataApiKeydownHandler)

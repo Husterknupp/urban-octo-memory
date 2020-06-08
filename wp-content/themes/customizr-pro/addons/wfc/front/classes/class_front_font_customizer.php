@@ -25,34 +25,50 @@ class TC_front_font_customizer {
 
     function tc_write_gfonts() {
         $_opt_prefix              = TC_wfc::$instance -> plug_option_prefix;
+        // May 2020 for https://github.com/presscustomizr/wordpress-font-customizer/issues/115
+        if ( (bool)get_option( TC_wfc::$opt_name . '_deactivated' ) )
+          return;
+
         if ( ! get_option("{$_opt_prefix}_gfonts") ) {
             TC_utils_wfc::$instance -> tc_update_front_end_gfonts();
         }
         $families   = str_replace( '|', '%7C', get_option("{$_opt_prefix}_gfonts") );
         if ( empty($families) )
             return;
-
+        // May 2020 added param display=swap => Ensure text remains visible during webfont load
         printf('<link rel="stylesheet" id="tc-front-gfonts" href="%1$s">',
-            "//fonts.googleapis.com/css?family={$families}"
+            "//fonts.googleapis.com/css?family={$families}&display=swap"
         );
     }
 
     // hook : wp_head
     // When not customizing write the font very early in a separate stylesheet
     function tc_write_font_dynstyle() {
+        // May 2020 for https://github.com/presscustomizr/wordpress-font-customizer/issues/115
+        if ( (bool)get_option( TC_wfc::$opt_name . '_deactivated' ) )
+          return;
+
         if ( ! TC_wfc::$instance -> tc_is_customizing() )
             do_action( '__dyn_style' , 'fonts' );
     }
 
     // hook : wp_head
     function tc_write_other_dynstyle() {
-          do_action( '__dyn_style' , 'other' );
+        // May 2020 for https://github.com/presscustomizr/wordpress-font-customizer/issues/115
+        if ( (bool)get_option( TC_wfc::$opt_name . '_deactivated' ) )
+          return;
+
+        do_action( '__dyn_style' , 'other' );
     }
 
 
     /* PLUGIN FRONT END FUNCTIONS */
     function tc_enqueue_plug_resources() {
-         wp_enqueue_style(
+        // May 2020 for https://github.com/presscustomizr/wordpress-font-customizer/issues/115
+        if ( (bool)get_option( TC_wfc::$opt_name . '_deactivated' ) )
+          return;
+
+        wp_enqueue_style(
           'font-customizer-style' ,
           sprintf('%1$s/front/assets/css/font_customizer%2$s.css' , TC_WFC_BASE_URL, ( defined('WP_DEBUG') && true === WP_DEBUG ) ? '' : '.min'),
           array(),

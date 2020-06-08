@@ -64,7 +64,9 @@ class TC_activation_key {
         'version'   => $this -> theme_version,               // current version number
         'author'    => 'Press Customizr',  // author of this plugin
         'download_id' => '', // Optional, used for generating a license renewal link
-        'renew_url' => '' // Optional, allows for a custom license renewal link
+        'renew_url' => '', // Optional, allows for a custom license renewal link
+        'beta'           => false,//added april 2020, not used
+        'item_id'        => ''//added april 2020, not used
       );
 
       // Set config arguments
@@ -75,6 +77,8 @@ class TC_activation_key {
       $this->author = $config['author'];
       $this->download_id = $config['download_id'];
       $this->renew_url = $config['renew_url'];
+      $this->beta = $config['beta'];//added april 2020, not used
+      $this->item_id = $config['item_id'];//added april 2020, not used
 
       //Defines all api transients
       $this -> transients = array(
@@ -397,7 +401,9 @@ class TC_activation_key {
       $api_params = array(
           'edd_action'=> 'activate_license',
           'license'   => $license,
-          'item_name' => urlencode( $this -> item_name ) // the name of our product in EDD
+          'item_name' => urlencode( $this -> item_name ), // the name of our product in EDD
+          'url'        => home_url(),
+          'item_id'    => $this->item_id //added april 2020, not used
       );
 
       $response = $this->get_api_response( $api_params );
@@ -512,7 +518,7 @@ class TC_activation_key {
       $_html = false;
       $transients = $this -> transients;
 
-      if ( isset($license_data -> error ) && $license_data -> error  == 'no_activations_left' ) {
+      if ( is_object($license_data) && isset($license_data -> error ) && $license_data -> error  == 'no_activations_left' ) {
         ob_start();
         ?>
           <div class="updated">
@@ -550,7 +556,9 @@ class TC_activation_key {
       $api_params = array(
           'edd_action'=> 'deactivate_license',
           'license'   => $license,
-          'item_name' => urlencode( $this -> item_name ) // the name of our product in EDD
+          'item_name' => urlencode( $this -> item_name ), // the name of our product in EDD
+          'url'        => home_url(),
+          'item_id'    => $this->item_id //added april 2020, not used
       );
 
       //always delete the license message on deactivation
@@ -622,7 +630,11 @@ class TC_activation_key {
     }
 
 
-    //hook : tc_before_key_form
+
+    /*******************************************************
+    * ADMIN NOTICE IF KEY IS INACTIVE
+    *******************************************************/
+    //hook : admin_notices
     function tc_display_active_key_admin_notice() {
       $transients = $this -> transients;
 
@@ -686,7 +698,8 @@ class TC_activation_key {
       'edd_action' => 'check_license',
       'license'    => $license,
       'item_name'  => urlencode( $this->item_name ),
-      'url'        => home_url()
+      'url'        => home_url(),
+      'item_id'    => $this->item_id //added april 2020, not used
     );
 
     //NEW

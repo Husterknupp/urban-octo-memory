@@ -24,6 +24,9 @@ class TC_dyn_style {
     * Fixes a default Customizr(3.2.0) style for the menu items first letter
     */
     function tc_additional_styles( $what = null ) {
+        // May 2020 for https://github.com/presscustomizr/wordpress-font-customizer/issues/115
+        if ( (bool)get_option( TC_wfc::$opt_name . '_deactivated' ) )
+          return;
 
         /* If $what = 'fonts' (font-family styling) we don't need this */
         if ( 'fonts' == $what )
@@ -75,6 +78,10 @@ class TC_dyn_style {
     // 1) When not customizing, for the font-family only => printed early :  add_action( 'wp_head' , array( $this , 'tc_write_font_dynstyle'), 0 );
     // 2) for the other css properties, printed later : add_action( 'wp_head', array( $this , 'tc_write_other_dynstyle'), 999 );
     function tc_render_dyn_style( $what = null ) {
+        // May 2020 for https://github.com/presscustomizr/wordpress-font-customizer/issues/115
+        if ( (bool)get_option( TC_wfc::$opt_name . '_deactivated' ) )
+          return;
+
         $_raw                           = TC_wfc::$instance -> tc_get_saved_option();
         foreach ( $_raw as $data) {
             if ( empty( $data ) )
@@ -250,16 +257,18 @@ class TC_dyn_style {
                     //if no unit specified, then set px if value > 7, else em.
                     $unit = preg_replace('/[^a-z\s]/i', '', $value);
                     $num_value = $value;
-                    if ( ! is_numeric( $num_value ) ) {
+                    if ( !is_numeric( $num_value ) ) {
                         $num_value = preg_replace('/[^0-9]/','', $num_value );
                     }
-                    if ( '' == $unit ) {
+                    // cast to number to fix https://github.com/presscustomizr/wordpress-font-customizer/issues/114
+                    $num_value = (float)$num_value;
+                    if ( '' == $unit && $num_value >= 0 ) {
                         $unit = 'px';//( $num_value > 7 ) ? 'px' : 'rem';
                         $value = $num_value . $unit;
                     }
                     //convert in rem only if unit is pixel!
                     //Note : we might have users with a previous version, for which this is already set in em, in this case keep it unchanged
-                    if ( 'px' == $unit ) {
+                    if ( 'px' == $unit && $num_value >= 0 ) {
                         $emsize      = $num_value / 16;
                         $emsize      = number_format( (float)$emsize, 2, '.', '');
                         $value       = $emsize . 'rem';

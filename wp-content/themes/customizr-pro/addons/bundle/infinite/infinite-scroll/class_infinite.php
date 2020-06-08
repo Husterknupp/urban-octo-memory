@@ -754,7 +754,7 @@ final class PC_infinite_scroll {
             global $currentday;
 
             // Default click handle text
-            $click_handle_text = __( 'Load more posts', 'customizr-pro' );
+            $click_handle_text = __( 'Load more', 'customizr-pro' );
 
             // If a single CPT is displayed, use its plural name instead of "posts"
             // Could be empty (posts) or an array of multiple post types.

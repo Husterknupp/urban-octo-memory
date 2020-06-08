@@ -68,7 +68,20 @@ class TC_utils_wfc {
                 'transport' => 'postMessage', //'refresh',
                 //'sanitize_callback' => array( $this , 'tc_sanitize_before_db' ), //The name of the function that will be called to sanitize the input data before saving it to the database. Default: blank.
                 'priority'  => 10
-            )
+            ),
+            // May 2020 option added for https://github.com/presscustomizr/wordpress-font-customizer/issues/115
+            TC_wfc::$opt_name . '_deactivated' => array(
+                'default'   => 0,//empty items array by default
+                //'control'   => 'WFC_Customize_Modules',
+                'label'     => __('Check this option to deactivate Font Customizer ( and all related CSS and JS assets ) on this website.', 'customizr-pro'),
+                //'description' => __( 'You can totally disable the Font Customizer by unchecking this option', 'wordpress_font_customizer'),
+                'section'   => 'tc_font_customizer_settings',
+                'type'      => 'checkbox',
+                //'module_type' => 'czr_wfc_module',
+                //'transport' => 'postMessage', //'refresh',
+                //'sanitize_callback' => array( $this , 'tc_sanitize_before_db' ), //The name of the function that will be called to sanitize the input data before saving it to the database. Default: blank.
+                'priority'  => 20
+            ),
         );
 
 

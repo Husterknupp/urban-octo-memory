@@ -2,9 +2,9 @@
 # This file is distributed under the same license as the Themes - Customizr-Pro package.
 msgid ""
 msgstr ""
-"Project-Id-Version: * Customizr-Pro v2.2.3\n"
+"Project-Id-Version: * Customizr-Pro v2.2.7\n"
 "Report-Msgid-Bugs-To: https://presscustomizr.com/contact/\n"
-"POT-Creation-Date: 2020-04-15 08:56:05+00:00\n"
+"POT-Creation-Date: 2020-05-30 18:14:28+00:00\n"
 "PO-Revision-Date: 2017-04-04 15:22:05+0000\n"
 "Language: el_GR\n"
 "MIME-Version: 1.0\n"
@@ -13,22 +13,22 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 "X-Generator: GlotPress/2.4.0-alpha\n"
 
-#: core/core-settings-map.php:1611
+#: core/core-settings-map.php:1619
 msgid "1"
 msgstr "1"
 
 #: addons/bundle/grid-customizer/tc_grid_customizer.php:249
-#: core/core-settings-map.php:1612
+#: core/core-settings-map.php:1620
 msgid "2"
 msgstr "2"
 
 #: addons/bundle/grid-customizer/tc_grid_customizer.php:250
-#: core/core-settings-map.php:1613
+#: core/core-settings-map.php:1621
 msgid "3"
 msgstr "3"
 
 #: addons/bundle/grid-customizer/tc_grid_customizer.php:251
-#: core/core-settings-map.php:1614
+#: core/core-settings-map.php:1622
 msgid "4"
 msgstr "4"
 
@@ -142,17 +142,17 @@ msgid ""
 "a>."
 msgstr ""
 
-#: addons/activation-key/activation/class_activation_key.php:118
-#: addons/activation-key/activation/class_activation_key.php:119
-#: addons/activation-key/activation/class_activation_key.php:220
+#: addons/activation-key/activation/class_activation_key.php:122
+#: addons/activation-key/activation/class_activation_key.php:123
+#: addons/activation-key/activation/class_activation_key.php:224
 msgid "%1$s Key"
 msgstr ""
 
-#: addons/activation-key/activation/class_activation_key.php:177
+#: addons/activation-key/activation/class_activation_key.php:181
 msgid "You did not activate the Customizr Pro theme key yet."
 msgstr ""
 
-#: addons/activation-key/activation/class_activation_key.php:180
+#: addons/activation-key/activation/class_activation_key.php:184
 msgid ""
 "It is <span style='text-decoration: underline;'>important to activate your "
 "key</span> in order to receive the new versions of the theme in your "
@@ -162,119 +162,119 @@ msgid ""
 "for the theme."
 msgstr ""
 
-#: addons/activation-key/activation/class_activation_key.php:181
+#: addons/activation-key/activation/class_activation_key.php:185
 msgid "Why should you keep your Wordpress theme up to date ?"
 msgstr ""
 
-#: addons/activation-key/activation/class_activation_key.php:183
+#: addons/activation-key/activation/class_activation_key.php:187
 msgid "Enter your activation key now"
 msgstr ""
 
-#: addons/activation-key/activation/class_activation_key.php:187
+#: addons/activation-key/activation/class_activation_key.php:191
 msgid "You'll find your key in your purchase receipt email or in your"
 msgstr ""
 
-#: addons/activation-key/activation/class_activation_key.php:189
+#: addons/activation-key/activation/class_activation_key.php:193
 msgid "account"
 msgstr ""
 
-#: addons/activation-key/activation/class_activation_key.php:195
+#: addons/activation-key/activation/class_activation_key.php:199
 msgid "OK got it. Remind me later."
 msgstr ""
 
-#: addons/activation-key/activation/class_activation_key.php:196
+#: addons/activation-key/activation/class_activation_key.php:200
 #: core/czr-admin-ccat.php:403
 msgid "close"
 msgstr "Κλείσιμο"
 
-#: addons/activation-key/activation/class_activation_key.php:242
+#: addons/activation-key/activation/class_activation_key.php:246
 msgid "active"
 msgstr ""
 
-#: addons/activation-key/activation/class_activation_key.php:275
+#: addons/activation-key/activation/class_activation_key.php:279
 msgid "Helpful links"
 msgstr ""
 
-#: addons/activation-key/activation/class_activation_key.php:331
+#: addons/activation-key/activation/class_activation_key.php:335
 msgid ""
 "We couldn't reach our remote server to get the latest version of the theme."
 msgstr ""
 
-#: addons/activation-key/activation/class_activation_key.php:332
+#: addons/activation-key/activation/class_activation_key.php:336
 msgid ""
 "This can happen sometimes when your host server filters requests to remote "
 "servers."
 msgstr ""
 
-#: addons/activation-key/activation/class_activation_key.php:333
+#: addons/activation-key/activation/class_activation_key.php:337
 msgid ""
 "If the problem persists after several tries, please follow those simple "
 "steps to update your theme : "
 msgstr ""
 
-#: addons/activation-key/activation/class_activation_key.php:336
+#: addons/activation-key/activation/class_activation_key.php:340
 msgid "Connect to"
 msgstr ""
 
-#: addons/activation-key/activation/class_activation_key.php:338
+#: addons/activation-key/activation/class_activation_key.php:342
 msgid "your account"
 msgstr ""
 
-#: addons/activation-key/activation/class_activation_key.php:341
+#: addons/activation-key/activation/class_activation_key.php:345
 msgid "Download the latest version of the theme"
 msgstr ""
 
-#: addons/activation-key/activation/class_activation_key.php:344
+#: addons/activation-key/activation/class_activation_key.php:348
 msgid "Install the theme ( check "
 msgstr ""
 
-#: addons/activation-key/activation/class_activation_key.php:346
+#: addons/activation-key/activation/class_activation_key.php:350
 #, fuzzy
 msgid "this guide"
 msgstr "αυτό το slider"
 
-#: addons/activation-key/activation/class_activation_key.php:347
+#: addons/activation-key/activation/class_activation_key.php:351
 msgid "if you're not sure how to install a theme )"
 msgstr ""
 
-#: addons/activation-key/activation/class_activation_key.php:408
+#: addons/activation-key/activation/class_activation_key.php:414
 msgid ""
 "Error when trying to activate, this is usually due to a connection problem "
 "or a server firewall issue."
 msgstr ""
 
-#: addons/activation-key/activation/class_activation_key.php:468
+#: addons/activation-key/activation/class_activation_key.php:474
 msgid "Your activation key expired on %s."
 msgstr ""
 
-#: addons/activation-key/activation/class_activation_key.php:475
+#: addons/activation-key/activation/class_activation_key.php:481
 msgid "Your activation key has been disabled."
 msgstr ""
 
-#: addons/activation-key/activation/class_activation_key.php:480
+#: addons/activation-key/activation/class_activation_key.php:486
 msgid "Invalid activation key."
 msgstr ""
 
-#: addons/activation-key/activation/class_activation_key.php:486
+#: addons/activation-key/activation/class_activation_key.php:492
 msgid "Your activation key is not active for this URL."
 msgstr ""
 
-#: addons/activation-key/activation/class_activation_key.php:490
-#: addons/activation-key/activation/class_activation_key.php:782
+#: addons/activation-key/activation/class_activation_key.php:496
+#: addons/activation-key/activation/class_activation_key.php:795
 msgid "This appears to be an invalid activation key for %s."
 msgstr ""
 
-#: addons/activation-key/activation/class_activation_key.php:490
-#: addons/activation-key/activation/class_activation_key.php:782
+#: addons/activation-key/activation/class_activation_key.php:496
+#: addons/activation-key/activation/class_activation_key.php:795
 msgid "your product"
 msgstr ""
 
-#: addons/activation-key/activation/class_activation_key.php:495
-#: addons/activation-key/activation/class_activation_key.php:737
+#: addons/activation-key/activation/class_activation_key.php:501
+#: addons/activation-key/activation/class_activation_key.php:750
 msgid "Your key has reached its activation limit."
 msgstr ""
 
-#: addons/activation-key/activation/class_activation_key.php:499
+#: addons/activation-key/activation/class_activation_key.php:505
 msgid ""
 "<u>An error occurred, please try again.</u> In most of the cases, it's due "
 "to a wrong key, like for example a missing character. Make sure you copy the "
@@ -282,70 +282,70 @@ msgid ""
 "beginning or at the end."
 msgstr ""
 
-#: addons/activation-key/activation/class_activation_key.php:500
+#: addons/activation-key/activation/class_activation_key.php:506
 msgid "Where can you find your activation key ?"
 msgstr ""
 
-#: addons/activation-key/activation/class_activation_key.php:519
+#: addons/activation-key/activation/class_activation_key.php:525
 msgid "You've reached the limit of activated websites for your current plan."
 msgstr ""
 
-#: addons/activation-key/activation/class_activation_key.php:522
+#: addons/activation-key/activation/class_activation_key.php:528
 msgid "Connect to your account on presscustomizr.com"
 msgstr ""
 
-#: addons/activation-key/activation/class_activation_key.php:524
+#: addons/activation-key/activation/class_activation_key.php:530
 msgid "and upgrade your plan."
 msgstr ""
 
-#: addons/activation-key/activation/class_activation_key.php:565
+#: addons/activation-key/activation/class_activation_key.php:573
 #, fuzzy
 msgid "An error occurred, please try again."
 msgstr "Παρουσιάστηκε σφάλμα: ακατάλληλοι σύνδεσμοι στα κοινωνικά δίκτυα"
 
-#: addons/activation-key/activation/class_activation_key.php:737
+#: addons/activation-key/activation/class_activation_key.php:750
 msgid "Upgrade to unlock new activations."
 msgstr ""
 
-#: addons/activation-key/activation/class_activation_key.php:748
+#: addons/activation-key/activation/class_activation_key.php:761
 msgid ""
 "Key is not activated for this website yet. Enter your key and press "
 "\"Activate Key\"."
 msgstr ""
 
-#: addons/activation-key/activation/class_activation_key.php:750
+#: addons/activation-key/activation/class_activation_key.php:763
 msgid "Key is activated for this website."
 msgstr ""
 
-#: addons/activation-key/activation/class_activation_key.php:783
+#: addons/activation-key/activation/class_activation_key.php:796
 msgid ""
 "This can for example happen if you try to use a Bundle key instead of the "
 "product key."
 msgstr ""
 
-#: addons/activation-key/activation/class_activation_key.php:784
+#: addons/activation-key/activation/class_activation_key.php:797
 msgid ""
 "<a href=\"https://docs.presscustomizr.com/article/11-how-to-activate-your-"
 "product-key\" target=\"_blank\">%1$s</a>"
 msgstr ""
 
-#: addons/activation-key/activation/class_activation_key.php:784
+#: addons/activation-key/activation/class_activation_key.php:797
 msgid "How to activate your product key ?"
 msgstr ""
 
-#: addons/activation-key/updates/class_theme_updater.php:131
+#: addons/activation-key/updates/class_theme_updater.php:135
 #, fuzzy
 msgid "We couldn't check the updates for "
 msgstr "Επιλέξτε την μορφή της τελευταίας ενημέρωσης"
 
-#: addons/activation-key/updates/class_theme_updater.php:133
+#: addons/activation-key/updates/class_theme_updater.php:137
 msgid ""
 "You might need to check for updates on <a href=\"https://presscustomizr.com/"
 "customizr-pro\" title=\"Press Customizr\" target=\"_blank\">presscustomizr."
 "com</a> and "
 msgstr ""
 
-#: addons/activation-key/updates/class_theme_updater.php:135
+#: addons/activation-key/updates/class_theme_updater.php:139
 msgid "upload the theme manually"
 msgstr ""
 
@@ -362,7 +362,7 @@ msgstr "Εμφάνιση εικονιδίων της μοφής των άθρω�
 #: addons/bundle/contact-info/pc-contact-info.php:191
 #: core/core-settings-map.php:587 core/core-settings-map.php:606
 #: core/core-settings-map.php:707 core/core-settings-map.php:727
-#: core/core-settings-map.php:744 core/core-settings-map.php:881
+#: core/core-settings-map.php:752 core/core-settings-map.php:889
 #, fuzzy
 msgid "Do not display"
 msgstr "Να μην προβάλλεται"
@@ -460,7 +460,7 @@ msgid "Customizr Pro"
 msgstr "Μετάβαση στο Customizr Pro"
 
 #: addons/bundle/footer-customizer/footer-customizer.php:123
-#: addons/wfc/utils/classes/class_utils_wfc.php:123
+#: addons/wfc/utils/classes/class_utils_wfc.php:136
 #, fuzzy
 msgid "Footer credits"
 msgstr "Υποσέλιδο"
@@ -472,14 +472,14 @@ msgstr "Προσαρμόσετε ή αφαιρέσετε %s"
 
 #: addons/bundle/footer-customizer/footer-customizer.php:173
 #: addons/bundle/footer-customizer/templates/footer/footer_credits.php:61
-#: inc/czr-front-ccat.php:9257 templates/parts/footer/footer_credits.php:13
+#: inc/czr-front-ccat.php:9259 templates/parts/footer/footer_credits.php:13
 msgid "Powered by"
 msgstr "Υλοποιήθηκε από"
 
 #: addons/bundle/footer-customizer/footer-customizer.php:175
 #: addons/bundle/footer-customizer/footer-customizer.php:299
 #: addons/bundle/footer-customizer/templates/footer/footer_credits.php:62
-#: inc/czr-front-ccat.php:9258 templates/parts/footer/footer_credits.php:13
+#: inc/czr-front-ccat.php:9260 templates/parts/footer/footer_credits.php:13
 msgid "Powered by WordPress"
 msgstr "Με τη δύναμη του WordPress"
 
@@ -581,7 +581,7 @@ msgid "Masonry max number of columns"
 msgstr ""
 
 #: addons/bundle/grid-customizer/tc_grid_customizer.php:253
-#: core/core-settings-map.php:1617
+#: core/core-settings-map.php:1625
 msgid ""
 "Note : columns are limited to 3 for single sidebar layouts and to 2 for "
 "double sidebar layouts."
@@ -695,13 +695,13 @@ msgstr "Ενεργοποίηση συλλογών του Customizr"
 
 #: addons/bundle/grid-customizer/utils/classes/class_utils_gc.php:80
 #: addons/fpu/utils/classes/class_utils_fpu.php:465
-#: core/core-settings-map.php:1300
+#: core/core-settings-map.php:1308
 msgid "Enable"
 msgstr "Ενεργοποίηση"
 
 #: addons/bundle/grid-customizer/utils/classes/class_utils_gc.php:81
 #: addons/fpu/utils/classes/class_utils_fpu.php:466
-#: core/core-settings-map.php:1301 core/core-settings-map.php:1742
+#: core/core-settings-map.php:1309 core/core-settings-map.php:1750
 msgid "Disable"
 msgstr "Απενεργοποίηση"
 
@@ -808,7 +808,7 @@ msgid "Post titles in big caps"
 msgstr ""
 
 #: addons/bundle/infinite/infinite-scroll/class_infinite.php:757
-msgid "Load more posts"
+msgid "Load more"
 msgstr ""
 
 #: addons/bundle/infinite/infinite-scroll/class_infinite.php:801
@@ -959,23 +959,23 @@ msgstr ""
 "&mdash; Αυτόματα δημιουργημένο slider από τα άρθρα του ιστολογίου σας &mdash;"
 
 #: addons/bundle/slider/back/classes/class_back_slider.php:235
-#: core/core-settings-map.php:1193
+#: core/core-settings-map.php:1201
 msgid "Call to action button"
 msgstr "Κουμπί ενέργειας"
 
 #: addons/bundle/slider/back/classes/class_back_slider.php:236
-#: core/core-settings-map.php:1194
+#: core/core-settings-map.php:1202
 msgid "Entire slide"
 msgstr "Ολόκληρο το slide"
 
 #: addons/bundle/slider/back/classes/class_back_slider.php:237
-#: core/core-settings-map.php:1195
+#: core/core-settings-map.php:1203
 msgid "Entire slide and call to action button"
 msgstr "Ολόκληρο το slide και το κουμπί ενέργειας"
 
 #: addons/bundle/slider/back/classes/class_back_slider.php:241
 #: addons/fpu/utils/classes/class_utils_fpu.php:664
-#: core/core-settings-map.php:1201 core/core-settings-map.php:1319
+#: core/core-settings-map.php:1209 core/core-settings-map.php:1327
 #: core/front/template-tags/template-tags.php:121
 msgid "Read more &raquo;"
 msgstr "Διαβάστε περισσότερα &raquo;"
@@ -986,17 +986,17 @@ msgid "Slider of posts settings"
 msgstr "Επιλογές Κύλισης"
 
 #: addons/bundle/slider/back/classes/class_back_slider.php:258
-#: core/core-settings-map.php:1147
+#: core/core-settings-map.php:1155
 msgid "Number of posts to display"
 msgstr "Αριθμός άρθρων που θα εμφανιστούν"
 
 #: addons/bundle/slider/back/classes/class_back_slider.php:265
-#: core/core-settings-map.php:1158
+#: core/core-settings-map.php:1166
 msgid "Include only sticky posts"
 msgstr "Συμπερίληψη μόνο των καρφιτσωμένων άθρων"
 
 #: addons/bundle/slider/back/classes/class_back_slider.php:274
-#: core/core-settings-map.php:1163
+#: core/core-settings-map.php:1171
 msgid ""
 "You can choose to display only the sticky posts. If you're not sure how to "
 "set a sticky post, check"
@@ -1005,22 +1005,22 @@ msgstr ""
 "είστε σίγουροι πως να καρφιτσώσετε ένα άρθρο, δείτε"
 
 #: addons/bundle/slider/back/classes/class_back_slider.php:275
-#: core/core-settings-map.php:1164
+#: core/core-settings-map.php:1172
 msgid "the WordPress documentation."
 msgstr "η τεκμηρίωση του WordPress."
 
 #: addons/bundle/slider/back/classes/class_back_slider.php:281
-#: core/core-settings-map.php:1171
+#: core/core-settings-map.php:1179
 msgid "Display the title"
 msgstr "Προβολή του τίτλου"
 
 #: addons/bundle/slider/back/classes/class_back_slider.php:293
-#: core/core-settings-map.php:1180 inc/czr-init-ccat.php:2948
+#: core/core-settings-map.php:1188 inc/czr-init-ccat.php:2948
 msgid "Display the excerpt"
 msgstr "Εμφάνιση αποσπάσματος"
 
 #: addons/bundle/slider/back/classes/class_back_slider.php:305
-#: core/core-settings-map.php:1189
+#: core/core-settings-map.php:1197
 msgid "Link post with"
 msgstr "Σύνδεση του άθρου με"
 
@@ -1037,7 +1037,7 @@ msgstr ""
 "Εφαρμόστε ένα φίλτρο κατηγορίας στην αρχική σελίδα / άρθρα του blog σας"
 
 #: addons/bundle/slider/utils/classes/class_utils_slider.php:50
-#: core/core-settings-map.php:1032
+#: core/core-settings-map.php:1040
 msgid ""
 "Click inside the above field and pick post categories you want to display. "
 "No filter will be applied if empty."
@@ -1046,13 +1046,13 @@ msgstr ""
 "να εμφανίσετε. Το φίλτρο θα εφαρμοστεί εάν είναι άδειο."
 
 #: addons/bundle/slider/utils/classes/class_utils_slider.php:52
-#: core/core-settings-map.php:1034
+#: core/core-settings-map.php:1042
 msgid "Learn more about post categories in WordPress"
 msgstr "Μάθετε περισσότερα για μετά τις κατηγορίες στο WordPress"
 
 #: addons/fpu/back/classes/class_back_fpu.php:51
 #: addons/wfc/back/classes/class_admin_font_customizer.php:587
-#: addons/wfc/back/czr-base-fmk/czr-base-fmk.php:244
+#: addons/wfc/back/czr-base-fmk/czr-base-fmk.php:248
 #: core/czr-base-fmk/czr-base-fmk.php:248 core/czr-customize-ccat.php:885
 msgid "Settings"
 msgstr "Ρυθμίσεις"
@@ -1122,8 +1122,8 @@ msgstr "Οθόνη προσαρμογής"
 
 #: addons/fpu/front/classes/class_front_fpu.php:415
 #: addons/fpu/front/classes/class_front_fpu.php:658
-#: core/core-settings-map.php:1043 core/core-settings-map.php:1048
-#: core/core-settings-map.php:2380 core/czr-admin-ccat.php:1459
+#: core/core-settings-map.php:1051 core/core-settings-map.php:1056
+#: core/core-settings-map.php:2388 core/czr-admin-ccat.php:1459
 msgid "here"
 msgstr "εδώ"
 
@@ -1147,8 +1147,8 @@ msgstr ""
 
 #: addons/fpu/front/classes/class_front_fpu.php:532
 #: addons/fpu/front/classes/class_front_fpu.php:778
-#: addons/wfc/back/czr-base-fmk/czr-base-fmk.php:238
-#: addons/wfc/back/czr-base-fmk/czr-base-fmk.php:452
+#: addons/wfc/back/czr-base-fmk/czr-base-fmk.php:242
+#: addons/wfc/back/czr-base-fmk/czr-base-fmk.php:543
 #: core/czr-admin-ccat.php:2448 core/czr-base-fmk/czr-base-fmk.php:242
 #: core/czr-base-fmk/czr-base-fmk.php:543 core/czr-customize-ccat.php:856
 #: core/czr-customize-ccat.php:866
@@ -1161,7 +1161,7 @@ msgstr ""
 #: inc/czr-front-ccat.php:2501 inc/czr-front-ccat.php:2516
 #: inc/czr-front-ccat.php:2544 inc/czr-front-ccat.php:3052
 #: inc/czr-front-ccat.php:3600 inc/czr-front-ccat.php:3987
-#: inc/czr-front-ccat.php:8542
+#: inc/czr-front-ccat.php:8544
 msgid "Edit"
 msgstr "Διόρθωση"
 
@@ -1218,42 +1218,42 @@ msgid "Custom location"
 msgstr "Εκχώρηση μενού σε τοποθεσίες"
 
 #: addons/fpu/utils/classes/class_utils_fpu.php:310
-#: core/core-settings-map.php:2889
+#: core/core-settings-map.php:2897
 msgid "Home featured page one"
 msgstr "Πρώτη προεπιλεγμένη σελίδα στην αρχική"
 
 #: addons/fpu/utils/classes/class_utils_fpu.php:311
-#: core/core-settings-map.php:2890
+#: core/core-settings-map.php:2898
 msgid "Home featured page two"
 msgstr "Δεύτερη προεπιλεγμένη σελίδα στην αρχική"
 
 #: addons/fpu/utils/classes/class_utils_fpu.php:312
-#: core/core-settings-map.php:2891
+#: core/core-settings-map.php:2899
 msgid "Home featured page three"
 msgstr "Τρίτη προεπιλεγμένη σελίδα στην αρχική"
 
 #: addons/fpu/utils/classes/class_utils_fpu.php:315
-#: core/core-settings-map.php:2894
+#: core/core-settings-map.php:2902
 msgid "Featured text one (200 char. max)"
 msgstr "Πρώτο προβαλόμενο κείμενο (200 χαρ. μέγιστο) "
 
 #: addons/fpu/utils/classes/class_utils_fpu.php:316
-#: core/core-settings-map.php:2895
+#: core/core-settings-map.php:2903
 msgid "Featured text two (200 char. max)"
 msgstr "Δεύτερο προβαλόμενο κείμενο (200 χαρ. μέγιστο) "
 
 #: addons/fpu/utils/classes/class_utils_fpu.php:317
-#: core/core-settings-map.php:2896
+#: core/core-settings-map.php:2904
 msgid "Featured text three (200 char. max)"
 msgstr "Τρίτο προβαλόμενο κείμενο (200 χαρ. μέγιστο) "
 
 #: addons/fpu/utils/classes/class_utils_fpu.php:336
-#: core/core-settings-map.php:2913
+#: core/core-settings-map.php:2921
 msgid "Custom featured page %1$s"
 msgstr "Προσαρμοσμένη προεπιλεγμένη σελίδα %1$s"
 
 #: addons/fpu/utils/classes/class_utils_fpu.php:353
-#: core/core-settings-map.php:2929
+#: core/core-settings-map.php:2937
 msgid "Featured text %1$s (200 char. max)"
 msgstr "Προβαλόμενο κείμενο %1$s (200 χαρ. μέγιστο)"
 
@@ -1341,7 +1341,7 @@ msgid "Customize your featured pages"
 msgstr "Προσαρμοσμένη προεπιλεγμένη σελίδα %1$s"
 
 #: addons/fpu/utils/classes/class_utils_fpu.php:461
-#: core/core-settings-map.php:1296
+#: core/core-settings-map.php:1304
 msgid "Display home featured pages area"
 msgstr "Προβολή περιοχής προεπιλεγμένων σελίδων στην αρχική σελίδα"
 
@@ -1438,17 +1438,17 @@ msgid ""
 msgstr ""
 
 #: addons/fpu/utils/classes/class_utils_fpu.php:571
-#: core/core-settings-map.php:1515
+#: core/core-settings-map.php:1523
 msgid "Thumbnails shape"
 msgstr "Σχήμα μικρογραφιών"
 
 #: addons/fpu/utils/classes/class_utils_fpu.php:575
-#: core/core-settings-map.php:1519
+#: core/core-settings-map.php:1527
 msgid "Rounded, expand on hover"
 msgstr "Στρογγυλεμένη, με επέκταση κατά το πέρασμα του ποντικιού "
 
 #: addons/fpu/utils/classes/class_utils_fpu.php:576
-#: core/core-settings-map.php:1520
+#: core/core-settings-map.php:1528
 msgid "Rounded, no expansion"
 msgstr "Στρογγυλεμένη, χωρίς επέκταση"
 
@@ -1509,7 +1509,7 @@ msgid "Display buttons"
 msgstr "Εμφάνιση του συντάκτη"
 
 #: addons/fpu/utils/classes/class_utils_fpu.php:666
-#: core/core-settings-map.php:1202 core/core-settings-map.php:1321
+#: core/core-settings-map.php:1210 core/core-settings-map.php:1329
 msgid "Button text"
 msgstr "Κείμενο κουμπιού"
 
@@ -1704,15 +1704,15 @@ msgid "Are you sure you want to reset all your font settings to default?"
 msgstr ""
 
 #: addons/wfc/back/classes/class_admin_font_customizer.php:516
-#: addons/wfc/back/czr-base-fmk/czr-base-fmk.php:461
-#: core/core-settings-map.php:1240 core/core-settings-map.php:1252
+#: addons/wfc/back/czr-base-fmk/czr-base-fmk.php:552
+#: core/core-settings-map.php:1248 core/core-settings-map.php:1260
 #: core/czr-base-fmk/czr-base-fmk.php:552
 msgid "Yes"
 msgstr "Ναι"
 
 #: addons/wfc/back/classes/class_admin_font_customizer.php:517
-#: addons/wfc/back/czr-base-fmk/czr-base-fmk.php:461
-#: core/core-settings-map.php:1241 core/core-settings-map.php:1253
+#: addons/wfc/back/czr-base-fmk/czr-base-fmk.php:552
+#: core/core-settings-map.php:1249 core/core-settings-map.php:1261
 #: core/czr-base-fmk/czr-base-fmk.php:552 inc/czr-front-ccat.php:4084
 msgid "No"
 msgstr "Όχι"
@@ -1782,123 +1782,123 @@ msgid ""
 "theme) different than Customizr with a version less than v3.1.0."
 msgstr ""
 
-#: addons/wfc/back/czr-base-fmk/czr-base-fmk.php:239
+#: addons/wfc/back/czr-base-fmk/czr-base-fmk.php:243
 #: core/czr-base-fmk/czr-base-fmk.php:243 core/czr-customize-ccat.php:857
 #: inc/czr-front-ccat.php:776 inc/czr-front-ccat.php:783
 msgid "Close"
 msgstr "Κλείσιμο"
 
-#: addons/wfc/back/czr-base-fmk/czr-base-fmk.php:240
+#: addons/wfc/back/czr-base-fmk/czr-base-fmk.php:244
 #: core/czr-base-fmk/czr-base-fmk.php:244 core/czr-customize-ccat.php:858
 msgid "Not set"
 msgstr "Δεν ορίστηκε"
 
-#: addons/wfc/back/czr-base-fmk/czr-base-fmk.php:241
+#: addons/wfc/back/czr-base-fmk/czr-base-fmk.php:245
 #: core/czr-base-fmk/czr-base-fmk.php:245 core/czr-customize-ccat.php:862
 #: core/czr-modules/social-links/index.php:78
 #: core/czr-modules/social-links/social_links_module.php:80
 msgid "Done !"
 msgstr "Έγινε !"
 
-#: addons/wfc/back/czr-base-fmk/czr-base-fmk.php:243
+#: addons/wfc/back/czr-base-fmk/czr-base-fmk.php:247
 #: core/czr-base-fmk/czr-base-fmk.php:247 core/czr-customize-ccat.php:864
 #: core/czr-customize-ccat.php:884
 msgid "Learn more about this in the documentation"
 msgstr "Μάθετε περισσότερα γι' αυτή την τεκμηρίωση"
 
-#: addons/wfc/back/czr-base-fmk/czr-base-fmk.php:245
+#: addons/wfc/back/czr-base-fmk/czr-base-fmk.php:249
 #: core/czr-base-fmk/czr-base-fmk.php:249 core/czr-customize-ccat.php:886
 msgid "Options for"
 msgstr "Επιλογές για"
 
-#: addons/wfc/back/czr-base-fmk/czr-base-fmk.php:248
-#: addons/wfc/back/czr-base-fmk/czr-base-fmk.php:253
+#: addons/wfc/back/czr-base-fmk/czr-base-fmk.php:252
+#: addons/wfc/back/czr-base-fmk/czr-base-fmk.php:257
 #: core/czr-base-fmk/czr-base-fmk.php:252
 #: core/czr-base-fmk/czr-base-fmk.php:257
 msgid "Select Image"
 msgstr "Επιλέξτε εικόνα"
 
-#: addons/wfc/back/czr-base-fmk/czr-base-fmk.php:249
+#: addons/wfc/back/czr-base-fmk/czr-base-fmk.php:253
 #: core/czr-base-fmk/czr-base-fmk.php:253
 msgid "Change Image"
 msgstr "Αλλαγή εικόνας"
 
-#: addons/wfc/back/czr-base-fmk/czr-base-fmk.php:250
-#: addons/wfc/back/czr-base-fmk/czr-base-fmk.php:452
+#: addons/wfc/back/czr-base-fmk/czr-base-fmk.php:254
+#: addons/wfc/back/czr-base-fmk/czr-base-fmk.php:543
 #: core/czr-base-fmk/czr-base-fmk.php:254
 #: core/czr-base-fmk/czr-base-fmk.php:543 core/czr-customize-ccat.php:1479
 msgid "Remove"
 msgstr "Αφαίρεση"
 
-#: addons/wfc/back/czr-base-fmk/czr-base-fmk.php:251
+#: addons/wfc/back/czr-base-fmk/czr-base-fmk.php:255
 #: core/czr-base-fmk/czr-base-fmk.php:255
 msgid "Default"
 msgstr "Προεπιλογή"
 
-#: addons/wfc/back/czr-base-fmk/czr-base-fmk.php:252
+#: addons/wfc/back/czr-base-fmk/czr-base-fmk.php:256
 #: core/czr-base-fmk/czr-base-fmk.php:256
 msgid "No image selected"
 msgstr "Δεν επιλέχθηκε φωτογραφία"
 
-#: addons/wfc/back/czr-base-fmk/czr-base-fmk.php:254
+#: addons/wfc/back/czr-base-fmk/czr-base-fmk.php:258
 #: core/czr-base-fmk/czr-base-fmk.php:258
 msgid "Choose Image"
 msgstr "Επιλογή εικόνας"
 
-#: addons/wfc/back/czr-base-fmk/czr-base-fmk.php:256
+#: addons/wfc/back/czr-base-fmk/czr-base-fmk.php:260
 #: core/czr-base-fmk/czr-base-fmk.php:260
 #, fuzzy
 msgid "Customizing"
 msgstr "Customizr"
 
-#: addons/wfc/back/czr-base-fmk/czr-base-fmk.php:393
+#: addons/wfc/back/czr-base-fmk/czr-base-fmk.php:453
 #: core/czr-base-fmk/czr-base-fmk.php:453
 msgid "ac_set_ajax_czr_tmpl => Security check failed."
 msgstr ""
 
-#: addons/wfc/back/czr-base-fmk/czr-base-fmk.php:434
+#: addons/wfc/back/czr-base-fmk/czr-base-fmk.php:525
 #: core/czr-base-fmk/czr-base-fmk.php:525
 msgid "Add New"
 msgstr "Προσθήκη Νέου"
 
-#: addons/wfc/back/czr-base-fmk/czr-base-fmk.php:439
+#: addons/wfc/back/czr-base-fmk/czr-base-fmk.php:530
 #: core/czr-base-fmk/czr-base-fmk.php:530
 msgid "Cancel"
 msgstr "Άκυρο"
 
-#: addons/wfc/back/czr-base-fmk/czr-base-fmk.php:439
+#: addons/wfc/back/czr-base-fmk/czr-base-fmk.php:530
 #: core/czr-base-fmk/czr-base-fmk.php:530
 msgid "Add it"
 msgstr "Προσθήκη"
 
-#: addons/wfc/back/czr-base-fmk/czr-base-fmk.php:460
+#: addons/wfc/back/czr-base-fmk/czr-base-fmk.php:551
 #: core/czr-base-fmk/czr-base-fmk.php:551
 msgid "Are you sure you want to remove : <strong>{{ data.title }} ?</strong>"
 msgstr ""
 "Είστε βέβαιοι ότι θέλετε να καταργήσετε το: <strong>{{ data.title }} ;</"
 "strong>"
 
-#: addons/wfc/back/czr-base-fmk/czr-base-fmk.php:1562
+#: addons/wfc/back/czr-base-fmk/czr-base-fmk.php:1667
 #: core/czr-base-fmk/czr-base-fmk.php:1667
 msgid "Set a custom url"
 msgstr ""
 
-#: addons/wfc/back/czr-base-fmk/czr-base-fmk.php:1596
-#: addons/wfc/back/czr-base-fmk/czr-base-fmk.php:1796
+#: addons/wfc/back/czr-base-fmk/czr-base-fmk.php:1701
+#: addons/wfc/back/czr-base-fmk/czr-base-fmk.php:1901
 #: core/czr-base-fmk/czr-base-fmk.php:1701
 #: core/czr-base-fmk/czr-base-fmk.php:1901
 msgid "ajax_load_available_items => Security check failed."
 msgstr ""
 
 #. translators: %d: ID of a post
-#: addons/wfc/back/czr-base-fmk/czr-base-fmk.php:1717
-#: addons/wfc/back/czr-base-fmk/czr-base-fmk.php:1926
+#: addons/wfc/back/czr-base-fmk/czr-base-fmk.php:1822
+#: addons/wfc/back/czr-base-fmk/czr-base-fmk.php:2031
 #: core/czr-base-fmk/czr-base-fmk.php:1822
 #: core/czr-base-fmk/czr-base-fmk.php:2031
 msgid "#%d (no title)"
 msgstr ""
 
-#: addons/wfc/back/czr-base-fmk/czr-base-fmk.php:1860
+#: addons/wfc/back/czr-base-fmk/czr-base-fmk.php:1965
 #: core/czr-base-fmk/czr-base-fmk.php:1965
 msgid "No results found."
 msgstr ""
@@ -2039,151 +2039,157 @@ msgstr "Διαχειριστείτε τα μενού σας στην κεφαλ�
 msgid "The New WFC"
 msgstr ""
 
-#: addons/wfc/utils/classes/class_utils_wfc.php:94
-msgid "Default website font"
+#: addons/wfc/utils/classes/class_utils_wfc.php:76
+msgid ""
+"Check this option to deactivate Font Customizer ( and all related CSS and JS "
+"assets ) on this website."
 msgstr ""
 
-#: addons/wfc/utils/classes/class_utils_wfc.php:95
-#, fuzzy
-msgid "Site title"
-msgstr "Εισάγετε έναν τίτλο"
-
-#: addons/wfc/utils/classes/class_utils_wfc.php:96
-#, fuzzy
-msgid "Site description"
-msgstr "Επιλογές Κύλισης"
-
-#: addons/wfc/utils/classes/class_utils_wfc.php:97
-#, fuzzy
-msgid "Menu items"
-msgstr "Το μενού κεντραρίστηκε"
-
-#: addons/wfc/utils/classes/class_utils_wfc.php:98
-#, fuzzy
-msgid "Slider title"
-msgstr "Επιλογές Κύλισης"
-
-#: addons/wfc/utils/classes/class_utils_wfc.php:99
-#, fuzzy
-msgid "Slider text"
-msgstr "Κείμενο slide"
-
-#: addons/wfc/utils/classes/class_utils_wfc.php:100
-#, fuzzy
-msgid "Slider button"
-msgstr "Επιλογές Κύλισης"
-
-#: addons/wfc/utils/classes/class_utils_wfc.php:101
-#, fuzzy
-msgid "Featured pages title"
-msgstr "Ρυθμίσεις προεπιλεγμένων σελίδων"
-
-#: addons/wfc/utils/classes/class_utils_wfc.php:102
-#, fuzzy
-msgid "Featured pages text"
-msgstr "Προτεινόμενη σελίδα"
-
-#: addons/wfc/utils/classes/class_utils_wfc.php:103
-#, fuzzy
-msgid "Featured pages button"
-msgstr "Ρυθμίσεις προεπιλεγμένων σελίδων"
-
-#: addons/wfc/utils/classes/class_utils_wfc.php:104
-#, fuzzy
-msgid "Single post/page titles"
-msgstr "Μεμονωμένα άρθρα"
-
-#: addons/wfc/utils/classes/class_utils_wfc.php:105
-#, fuzzy
-msgid "Post list titles"
-msgstr "Σχεδίαση Λίστας Άθρων"
-
-#: addons/wfc/utils/classes/class_utils_wfc.php:106
-#, fuzzy
-msgid "Archive/Blog titles"
-msgstr "Τίτλοι σελίδων αρχειοθηκών"
-
 #: addons/wfc/utils/classes/class_utils_wfc.php:107
-msgid "Post content / excerpt"
+msgid "Default website font"
 msgstr ""
 
 #: addons/wfc/utils/classes/class_utils_wfc.php:108
 #, fuzzy
-msgid "Post metas"
-msgstr "Προβολή μεταδεδομένων άρθρων"
+msgid "Site title"
+msgstr "Εισάγετε έναν τίτλο"
 
 #: addons/wfc/utils/classes/class_utils_wfc.php:109
 #, fuzzy
-msgid "Links in post/pages"
-msgstr "Στόχος συνδέσμου"
+msgid "Site description"
+msgstr "Επιλογές Κύλισης"
 
 #: addons/wfc/utils/classes/class_utils_wfc.php:110
-msgid "H1 headings"
-msgstr ""
+#, fuzzy
+msgid "Menu items"
+msgstr "Το μενού κεντραρίστηκε"
 
 #: addons/wfc/utils/classes/class_utils_wfc.php:111
-msgid "H2 headings"
-msgstr ""
+#, fuzzy
+msgid "Slider title"
+msgstr "Επιλογές Κύλισης"
 
 #: addons/wfc/utils/classes/class_utils_wfc.php:112
-msgid "H3 headings"
-msgstr ""
+#, fuzzy
+msgid "Slider text"
+msgstr "Κείμενο slide"
 
 #: addons/wfc/utils/classes/class_utils_wfc.php:113
-msgid "H4 headings"
-msgstr ""
+#, fuzzy
+msgid "Slider button"
+msgstr "Επιλογές Κύλισης"
 
 #: addons/wfc/utils/classes/class_utils_wfc.php:114
-msgid "H5 headings"
-msgstr ""
+#, fuzzy
+msgid "Featured pages title"
+msgstr "Ρυθμίσεις προεπιλεγμένων σελίδων"
 
 #: addons/wfc/utils/classes/class_utils_wfc.php:115
-msgid "H6 headings"
-msgstr ""
+#, fuzzy
+msgid "Featured pages text"
+msgstr "Προτεινόμενη σελίδα"
 
 #: addons/wfc/utils/classes/class_utils_wfc.php:116
-msgid "Blockquotes"
-msgstr ""
+#, fuzzy
+msgid "Featured pages button"
+msgstr "Ρυθμίσεις προεπιλεγμένων σελίδων"
 
 #: addons/wfc/utils/classes/class_utils_wfc.php:117
 #, fuzzy
-msgid "Comments title"
-msgstr "Φούσκες σχολίων"
+msgid "Single post/page titles"
+msgstr "Μεμονωμένα άρθρα"
 
 #: addons/wfc/utils/classes/class_utils_wfc.php:118
 #, fuzzy
-msgid "Comments author"
-msgstr "Σχόλιο(α) σε"
+msgid "Post list titles"
+msgstr "Σχεδίαση Λίστας Άθρων"
 
 #: addons/wfc/utils/classes/class_utils_wfc.php:119
 #, fuzzy
-msgid "Comments content"
-msgstr "Σχόλιο(α) σε"
+msgid "Archive/Blog titles"
+msgstr "Τίτλοι σελίδων αρχειοθηκών"
 
 #: addons/wfc/utils/classes/class_utils_wfc.php:120
-msgid "Sidebar widget titles"
+msgid "Post content / excerpt"
 msgstr ""
 
 #: addons/wfc/utils/classes/class_utils_wfc.php:121
 #, fuzzy
+msgid "Post metas"
+msgstr "Προβολή μεταδεδομένων άρθρων"
+
+#: addons/wfc/utils/classes/class_utils_wfc.php:122
+#, fuzzy
+msgid "Links in post/pages"
+msgstr "Στόχος συνδέσμου"
+
+#: addons/wfc/utils/classes/class_utils_wfc.php:123
+msgid "H1 headings"
+msgstr ""
+
+#: addons/wfc/utils/classes/class_utils_wfc.php:124
+msgid "H2 headings"
+msgstr ""
+
+#: addons/wfc/utils/classes/class_utils_wfc.php:125
+msgid "H3 headings"
+msgstr ""
+
+#: addons/wfc/utils/classes/class_utils_wfc.php:126
+msgid "H4 headings"
+msgstr ""
+
+#: addons/wfc/utils/classes/class_utils_wfc.php:127
+msgid "H5 headings"
+msgstr ""
+
+#: addons/wfc/utils/classes/class_utils_wfc.php:128
+msgid "H6 headings"
+msgstr ""
+
+#: addons/wfc/utils/classes/class_utils_wfc.php:129
+msgid "Blockquotes"
+msgstr ""
+
+#: addons/wfc/utils/classes/class_utils_wfc.php:130
+#, fuzzy
+msgid "Comments title"
+msgstr "Φούσκες σχολίων"
+
+#: addons/wfc/utils/classes/class_utils_wfc.php:131
+#, fuzzy
+msgid "Comments author"
+msgstr "Σχόλιο(α) σε"
+
+#: addons/wfc/utils/classes/class_utils_wfc.php:132
+#, fuzzy
+msgid "Comments content"
+msgstr "Σχόλιο(α) σε"
+
+#: addons/wfc/utils/classes/class_utils_wfc.php:133
+msgid "Sidebar widget titles"
+msgstr ""
+
+#: addons/wfc/utils/classes/class_utils_wfc.php:134
+#, fuzzy
 msgid "Links in sidebars"
 msgstr "Σύνδεσμοι κοινωνικών δικτύων στις Πλευρικές Στήλες"
 
-#: addons/wfc/utils/classes/class_utils_wfc.php:122
+#: addons/wfc/utils/classes/class_utils_wfc.php:135
 #, fuzzy
 msgid "Widget titles"
 msgstr "Τίτλοι σελίδων αρχειοθηκών"
 
-#: addons/wfc/utils/classes/class_utils_wfc.php:124
+#: addons/wfc/utils/classes/class_utils_wfc.php:137
 msgid "Footer credits links"
 msgstr ""
 
-#: addons/wfc/utils/classes/class_utils_wfc.php:251
+#: addons/wfc/utils/classes/class_utils_wfc.php:264
 msgid "All languages"
 msgstr ""
 
-#: addons/wfc/utils/classes/class_utils_wfc.php:253
-#: addons/wfc/utils/classes/class_utils_wfc.php:277
+#: addons/wfc/utils/classes/class_utils_wfc.php:266
+#: addons/wfc/utils/classes/class_utils_wfc.php:290
 #, fuzzy
 msgid "fonts"
 msgstr "Γραμματοσειρές"
@@ -2302,14 +2308,14 @@ msgstr "%s για να προβάλετε την προεπιλεγμένη ει
 msgid "Jump to the customizer now"
 msgstr "Μετάβαση στην παραμετροποίηση τώρα"
 
-#: core/class-fire-placeholders.php:188 core/core-settings-map.php:1696
+#: core/class-fire-placeholders.php:188 core/core-settings-map.php:1704
 msgid "Don't know how to set a featured image to a post? Learn how in the %s."
 msgstr ""
 "Δεν ξέρω πώς να ορίσετε μια επιλεγμένη εικόνα για ένα άρθρο; Μάθετε πώς στο "
 "%s."
 
 #: core/class-fire-placeholders.php:189 core/class-fire-placeholders.php:208
-#: core/core-settings-map.php:1697 core/core-settings-map.php:1776
+#: core/core-settings-map.php:1705 core/core-settings-map.php:1784
 msgid "WordPress documentation"
 msgstr "Τεκμηρίωση του WordPress"
 
@@ -2319,7 +2325,7 @@ msgstr ""
 "Μπορείτε να δείτε την προεπιλεγμένη εικόνα της σελίδας σας εδώ αν ήδη έχετε "
 "ορίσει μία."
 
-#: core/class-fire-placeholders.php:207 core/core-settings-map.php:1775
+#: core/class-fire-placeholders.php:207 core/core-settings-map.php:1783
 msgid "Don't know how to set a featured image to a page? Learn how in the %s."
 msgstr ""
 "Δεν ξέρετε πώς να ορίσετε ένα μια προεπιλεγμένη εικόνα σε μια σελίδα; Μάθετε "
@@ -2423,7 +2429,7 @@ msgstr ""
 #: core/class-plugin-rec.php:30
 msgid ""
 "Developers of the Customizr theme have created Nimble Builder, a free, "
-"powerful yet easy-to-use page builder already active on 40K+ WordPress "
+"powerful yet easy-to-use page builder already active on 50K+ WordPress "
 "websites."
 msgstr ""
 
@@ -2717,11 +2723,11 @@ msgstr "Αυτή η επιλογή επιτρέπει μια ομαλότερη 
 msgid "Header style"
 msgstr "Κεφαλίδα"
 
-#: core/core-settings-map.php:515 core/core-settings-map.php:2185
+#: core/core-settings-map.php:515 core/core-settings-map.php:2193
 msgid "Dark"
 msgstr ""
 
-#: core/core-settings-map.php:516 core/core-settings-map.php:2186
+#: core/core-settings-map.php:516 core/core-settings-map.php:2194
 #, fuzzy
 msgid "Light"
 msgstr "Δεξιά"
@@ -2837,8 +2843,8 @@ msgstr ""
 "μενού."
 
 #: core/core-settings-map.php:700 core/core-settings-map.php:722
-#: core/core-settings-map.php:738 core/core-settings-map.php:756
-#: core/core-settings-map.php:770
+#: core/core-settings-map.php:746 core/core-settings-map.php:764
+#: core/core-settings-map.php:778
 msgid "Desktop devices : %s"
 msgstr ""
 
@@ -2869,12 +2875,12 @@ msgstr "Αναζήτηση"
 msgid "set the search icon location"
 msgstr "Ρυθμίσεις επιλογών εικονιδίων των τίτλων"
 
-#: core/core-settings-map.php:728 core/core-settings-map.php:745
+#: core/core-settings-map.php:728 core/core-settings-map.php:753
 #, fuzzy
 msgid "Display in the topbar"
 msgstr "Προβολή στην κεφαλίδα"
 
-#: core/core-settings-map.php:729 core/core-settings-map.php:746
+#: core/core-settings-map.php:729 core/core-settings-map.php:754
 #, fuzzy
 msgid "Display in the main header section"
 msgstr "Προβολή στην κεφαλίδα"
@@ -2885,12 +2891,16 @@ msgid ""
 "is displayed by checking \"Display a topbar\" above."
 msgstr ""
 
-#: core/core-settings-map.php:738 core/core-settings-map.php:848
+#: core/core-settings-map.php:737
+msgid "Use a full screen search block"
+msgstr ""
+
+#: core/core-settings-map.php:746 core/core-settings-map.php:856
 #: inc/czr-init-ccat.php:2544
 msgid "Display the shopping cart in the header"
 msgstr "Προβολή καλαθιού αγορών στην κεφαλίδα"
 
-#: core/core-settings-map.php:741 core/core-settings-map.php:851
+#: core/core-settings-map.php:749 core/core-settings-map.php:859
 #: inc/czr-init-ccat.php:2547
 msgid ""
 "WooCommerce: check to display a cart icon showing the number of items in "
@@ -2900,217 +2910,217 @@ msgstr ""
 "δείχνει τον αριθμό των στοιχείων στο καλάθι σας δίπλα στη γραμμή της "
 "κεφαλίδας σας."
 
-#: core/core-settings-map.php:755 core/core-settings-map.php:859
+#: core/core-settings-map.php:763 core/core-settings-map.php:867
 #, fuzzy
 msgid "Behaviour on scroll"
 msgstr "Προσκόλληση κατά την κύλιση"
 
-#: core/core-settings-map.php:756
+#: core/core-settings-map.php:764
 msgid "set the header visibility on scroll"
 msgstr ""
 
-#: core/core-settings-map.php:760 core/core-settings-map.php:864
+#: core/core-settings-map.php:768 core/core-settings-map.php:872
 msgid "Not visible when scrolling the page"
 msgstr ""
 
-#: core/core-settings-map.php:761 core/core-settings-map.php:865
+#: core/core-settings-map.php:769 core/core-settings-map.php:873
 msgid "Reveal on scroll up"
 msgstr ""
 
-#: core/core-settings-map.php:762 core/core-settings-map.php:866
+#: core/core-settings-map.php:770 core/core-settings-map.php:874
 msgid "Always visible"
 msgstr ""
 
-#: core/core-settings-map.php:770
+#: core/core-settings-map.php:778
 msgid "select the header block to stick on scroll"
 msgstr ""
 
-#: core/core-settings-map.php:774
+#: core/core-settings-map.php:782
 msgid "Topbar"
 msgstr ""
 
-#: core/core-settings-map.php:775
+#: core/core-settings-map.php:783
 #, fuzzy
 msgid "Main header section"
 msgstr "Ρύθμιση προσκόλλησης κεφαλίδας"
 
-#: core/core-settings-map.php:783
+#: core/core-settings-map.php:791
 msgid "Sticky header : shrink title / logo"
 msgstr "Προσκόλληση κεφαλίδας: σμίκρυνση του τίτλου / λογοτύπου"
 
-#: core/core-settings-map.php:792
+#: core/core-settings-map.php:800
 msgid ""
 "When your header ( containing the site title or logo ) is gluing to the top "
 "of a page, this option will make the title or logo smaller."
 msgstr ""
 
-#: core/core-settings-map.php:806
+#: core/core-settings-map.php:814
 #, fuzzy
 msgid "Header settings for %s"
 msgstr "Ρυθμίσεις κεφαλίδας του θέματος Customizr."
 
-#: core/core-settings-map.php:806 core/core-settings-map.php:807
-#: core/core-settings-map.php:837 core/core-settings-map.php:848
-#: core/core-settings-map.php:860 core/core-settings-map.php:876
+#: core/core-settings-map.php:814 core/core-settings-map.php:815
+#: core/core-settings-map.php:845 core/core-settings-map.php:856
+#: core/core-settings-map.php:868 core/core-settings-map.php:884
 msgid "Mobile devices"
 msgstr ""
 
-#: core/core-settings-map.php:807
+#: core/core-settings-map.php:815
 #, fuzzy
 msgid "Select the menu(s) to use for mobile devices"
 msgstr "Σημείωση: η ετικέτα είναι κρυμμένη σε κινητές συσκευές."
 
-#: core/core-settings-map.php:811
+#: core/core-settings-map.php:819
 msgid "Specific Mobile Menu"
 msgstr ""
 
-#: core/core-settings-map.php:812 core/init-base.php:414
+#: core/core-settings-map.php:820 core/init-base.php:414
 msgid "Main Menu"
 msgstr "Κύριο μενού"
 
-#: core/core-settings-map.php:813
+#: core/core-settings-map.php:821
 msgid "Secondary"
 msgstr ""
 
-#: core/core-settings-map.php:814
+#: core/core-settings-map.php:822
 #, fuzzy
 msgid "Topbar Menu"
 msgstr "Κύριο μενού"
 
-#: core/core-settings-map.php:817
+#: core/core-settings-map.php:825
 msgid ""
 "When your visitors are using a smartphone or a tablet, the header becomes a "
 "thin bar on top, where the menu is revealed when clicking on the hamburger "
 "button. This option let you choose which menu will be displayed."
 msgstr ""
 
-#: core/core-settings-map.php:818
+#: core/core-settings-map.php:826
 msgid ""
 "If the selected menu location has no menu assigned, the theme will try to "
 "assign another menu in this order : mobile, main, secondary, topbar."
 msgstr ""
 
-#: core/core-settings-map.php:829 core/core-settings-map.php:937
-#: core/core-settings-map.php:979
+#: core/core-settings-map.php:837 core/core-settings-map.php:945
+#: core/core-settings-map.php:987
 msgid "Expand submenus on click"
 msgstr "Ανάπτυξη υπομενού με το κλικ"
 
-#: core/core-settings-map.php:837 inc/czr-init-ccat.php:2532
+#: core/core-settings-map.php:845 inc/czr-init-ccat.php:2532
 msgid "Display the tagline in the header"
 msgstr "Εμφάνιση του tagline στην κεφαλίδα"
 
-#: core/core-settings-map.php:860
+#: core/core-settings-map.php:868
 #, fuzzy
 msgid "header menu visibility on scroll"
 msgstr "Φόρτωση εικόνων κατά την κύλιση"
 
-#: core/core-settings-map.php:876
+#: core/core-settings-map.php:884
 #, fuzzy
 msgid "Display a search button in the header"
 msgstr "Εμφάνιση του tagline στην κεφαλίδα"
 
-#: core/core-settings-map.php:882
+#: core/core-settings-map.php:890
 #, fuzzy
 msgid "Display in the mobile navbar"
 msgstr "Προβολή στην κεφαλίδα"
 
-#: core/core-settings-map.php:883
+#: core/core-settings-map.php:891
 #, fuzzy
 msgid "Display in the mobile menu"
 msgstr "Προβολή στην κεφαλίδα"
 
-#: core/core-settings-map.php:906
+#: core/core-settings-map.php:914
 msgid "Display a secondary (horizontal) menu in the header."
 msgstr "Εμφανίζει μια δευτερεύον (οριζόντιο) μενού στην κεφαλίδα."
 
-#: core/core-settings-map.php:910
+#: core/core-settings-map.php:918
 msgid ""
 "An horizontal menu can be displayed in the main header with this option. "
 "Make sure you have assigned a menu to this location in the menu panel."
 msgstr ""
 
-#: core/core-settings-map.php:917
+#: core/core-settings-map.php:925
 msgid "Main menu design"
 msgstr "Σχεδιασμός του κύριου μενού"
 
-#: core/core-settings-map.php:918
+#: core/core-settings-map.php:926
 msgid "Select a design : side menu (vertical) or regular (horizontal)"
 msgstr "Επιλέξτε ένα σχεδιασμό: πλευρικό μενού (κάθετα) ή κανονικό (οριζόντια)"
 
-#: core/core-settings-map.php:922
+#: core/core-settings-map.php:930
 msgid "Regular (horizontal)"
 msgstr "Κανονικό (οριζόντια)"
 
-#: core/core-settings-map.php:923
+#: core/core-settings-map.php:931
 msgid "Side Menu (vertical)"
 msgstr "Πλευρικό μενού (κάθετα)"
 
-#: core/core-settings-map.php:926
+#: core/core-settings-map.php:934
 msgid ""
 "Make sure that you have assigned your menus to the relevant locations %s."
 msgstr ""
 
-#: core/core-settings-map.php:929 core/core-settings-map.php:2593
+#: core/core-settings-map.php:937 core/core-settings-map.php:2601
 msgid "in the menu panel"
 msgstr "στον πίνακα των μενού"
 
-#: core/core-settings-map.php:930 core/core-settings-map.php:2586
-#: core/core-settings-map.php:2594
+#: core/core-settings-map.php:938 core/core-settings-map.php:2594
+#: core/core-settings-map.php:2602
 msgid "create/edit menus"
 msgstr "δημιουργία/επεξεργασία μενού"
 
-#: core/core-settings-map.php:938
+#: core/core-settings-map.php:946
 #, fuzzy
 msgid "Primary (vertical) menu design"
 msgstr "Σχεδίαση δευτερεύοντος (οριζόντιου) μενού"
 
-#: core/core-settings-map.php:946 inc/czr-init-ccat.php:2707
+#: core/core-settings-map.php:954 inc/czr-init-ccat.php:2707
 msgid "Menu position (for \"main\" menu)"
 msgstr "Θέση μενού (για \"το κύριο\" μενού)"
 
-#: core/core-settings-map.php:950 core/core-settings-map.php:964
+#: core/core-settings-map.php:958 core/core-settings-map.php:972
 #: inc/czr-init-ccat.php:2711 inc/czr-init-ccat.php:2732
 msgid "Menu on the left"
 msgstr "Μενού στα αριστερά"
 
-#: core/core-settings-map.php:951 core/core-settings-map.php:965
+#: core/core-settings-map.php:959 core/core-settings-map.php:973
 #: inc/czr-init-ccat.php:2713 inc/czr-init-ccat.php:2734
 msgid "Menu on the right"
 msgstr "Μενού στα δεξιά"
 
-#: core/core-settings-map.php:959 inc/czr-init-ccat.php:2727
+#: core/core-settings-map.php:967 inc/czr-init-ccat.php:2727
 msgid "Secondary (horizontal) menu design"
 msgstr "Σχεδίαση δευτερεύοντος (οριζόντιου) μενού"
 
-#: core/core-settings-map.php:960 inc/czr-init-ccat.php:2728
+#: core/core-settings-map.php:968 inc/czr-init-ccat.php:2728
 msgid "Menu position (for the horizontal menu)"
 msgstr "Θέση μενού (για το οριζόντιο μενού)"
 
-#: core/core-settings-map.php:975
+#: core/core-settings-map.php:983
 msgid "Select a submenu expansion option"
 msgstr "Επιλέξτε τον τρόπο επέκτασης ενός υπομενού"
 
-#: core/core-settings-map.php:980
+#: core/core-settings-map.php:988
 msgid "Expand submenus on hover"
 msgstr "Ανάπτυξη υπομενού με πέρασμα από πάνω"
 
-#: core/core-settings-map.php:987
+#: core/core-settings-map.php:995
 msgid "Reveal the sub-menus blocks with a fade effect"
 msgstr "Εμφάνιση των μπλοκ των υπομενού με εφέ fade"
 
-#: core/core-settings-map.php:996
+#: core/core-settings-map.php:1004
 msgid "Hover move effect for the sub menu items"
 msgstr "Εφέ κίνησης των στοιχείων των υπομενού κατά το πέρασμα από πάνω"
 
-#: core/core-settings-map.php:1005
+#: core/core-settings-map.php:1013
 msgid "Remove all the menus."
 msgstr "Αφαίρεση όλων των μενού"
 
-#: core/core-settings-map.php:1006
+#: core/core-settings-map.php:1014
 msgid "Don't display any menus in the header of your website"
 msgstr "Να μην εμφανίζεται κανένα μενού στην κεφαλίδα της ιστοσελίδας σας"
 
-#: core/core-settings-map.php:1010
+#: core/core-settings-map.php:1018
 msgid ""
 "Use with caution : provide an alternative way to navigate in your website "
 "for your users."
@@ -3118,65 +3128,65 @@ msgstr ""
 "Χρησιμοποιήστε το με προσοχή: παρέχει έναν εναλλακτικό τρόπο για να "
 "περιηγούνται οι χρήστες στην ιστοσελίδα σας."
 
-#: core/core-settings-map.php:1041
+#: core/core-settings-map.php:1049
 msgid "Set the number of posts to display"
 msgstr "Ορίστε τον αριθμό των άρθρων που θα εμφανίζονται"
 
-#: core/core-settings-map.php:1046
+#: core/core-settings-map.php:1054
 msgid "Jump to the blog design options"
 msgstr "Μετάβαση στις επιλογές σχεδίασης του ιστολογίου"
 
-#: core/core-settings-map.php:1059
+#: core/core-settings-map.php:1067
 msgid "Choose content and layout"
 msgstr "Επιλέξτε περιεχόμενο και διάταξη"
 
-#: core/core-settings-map.php:1067
+#: core/core-settings-map.php:1075
 msgid "Front page displays"
 msgstr "Η αρχική σελίδα δείχνει"
 
-#: core/core-settings-map.php:1072
+#: core/core-settings-map.php:1080
 msgid "Don't show any posts or page"
 msgstr "Να μην προβάλονται άρθρα ή σελίδες"
 
-#: core/core-settings-map.php:1073
+#: core/core-settings-map.php:1081
 msgid "Your latest posts"
 msgstr "Τελευταία άρθρα"
 
-#: core/core-settings-map.php:1074
+#: core/core-settings-map.php:1082
 msgid "A static page"
 msgstr "Στατική σελίδα"
 
-#: core/core-settings-map.php:1080
+#: core/core-settings-map.php:1088
 msgid "Front page"
 msgstr "Αρχική Σελίδα"
 
-#: core/core-settings-map.php:1088
+#: core/core-settings-map.php:1096
 msgid "Posts page"
 msgstr "Άρθρα"
 
-#: core/core-settings-map.php:1096
+#: core/core-settings-map.php:1104
 #, fuzzy
 msgid "Display navigation in your home page"
 msgstr "Προβολή επιλογής μετάβασης στη αρχική σελίδα του ιστολογίου σας"
 
-#: core/core-settings-map.php:1109
+#: core/core-settings-map.php:1117
 msgid "Apply a category filter to your home / blog posts"
 msgstr ""
 "Εφαρμόστε ένα φίλτρο κατηγορίας στην αρχική σελίδα / άρθρα του blog σας"
 
-#: core/core-settings-map.php:1119
+#: core/core-settings-map.php:1127
 msgid "Set up the front page layout"
 msgstr "Ρυθμίσεις διάταξης της αρχικής σελίδας"
 
-#: core/core-settings-map.php:1135
+#: core/core-settings-map.php:1143
 msgid "Slider options"
 msgstr "Επιλογές Κύλισης"
 
-#: core/core-settings-map.php:1136
+#: core/core-settings-map.php:1144
 msgid "Select front page slider"
 msgstr "Επιλογή του slider της αρχικής σελίδας"
 
-#: core/core-settings-map.php:1153
+#: core/core-settings-map.php:1161
 msgid ""
 "Only the posts with a featured image or at least an image inside their "
 "content will qualify for the slider. The number of post slides displayed "
@@ -3187,15 +3197,15 @@ msgstr ""
 "αριθμός των slides των άρθρων που εμφανίζονται δεν θα υπερβαίνει τον αριθμό "
 "των διαθέσιμων άρθρων στην ιστοσελίδα σας."
 
-#: core/core-settings-map.php:1175
+#: core/core-settings-map.php:1183
 msgid "The title will be limited to 80 chars max"
 msgstr "Ο τίτλος θα πρέπει να περιορίζεται σε 80 χαρακτήρες το μέγιστο"
 
-#: core/core-settings-map.php:1184
+#: core/core-settings-map.php:1192
 msgid "The excerpt will be limited to 80 chars max"
 msgstr "Το απόσπασμα θα πρέπει να περιορίζεται σε 80 χαρακτήρες το μέγιστο"
 
-#: core/core-settings-map.php:1206
+#: core/core-settings-map.php:1214
 msgid ""
 "The button text will be limited to 80 chars max. Leave this field empty to "
 "hide the button"
@@ -3203,34 +3213,34 @@ msgstr ""
 "Το κείμενο του κουμπιού θα πρέπει να περιορίζεται σε 80 χαρακτήρες το "
 "μέγιστο. Αφήστε αυτό το πεδίο κενό για να αποκρύψετε το κουμπί"
 
-#: core/core-settings-map.php:1213
+#: core/core-settings-map.php:1221
 msgid "Full width slider"
 msgstr "Slide πλήρους πλάτους"
 
-#: core/core-settings-map.php:1217
+#: core/core-settings-map.php:1225
 msgid "When checked, the front page slider occupies the full viewport's width"
 msgstr ""
 "Όταν είναι επιλεγμένο, το slider της αρχικής σελίδας καταλαμβάνει όλο το "
 "πλάτος του παραθύρου προβολής"
 
-#: core/core-settings-map.php:1225
+#: core/core-settings-map.php:1233
 msgid "Delay between each slides"
 msgstr "Καθυστέρηση μεταξύ κάθε slide"
 
-#: core/core-settings-map.php:1230
+#: core/core-settings-map.php:1238
 msgid "in ms : 1000ms = 1s"
 msgstr "σε ms : 1000ms = 1s"
 
-#: core/core-settings-map.php:1236 core/czr-admin-ccat.php:1650
+#: core/core-settings-map.php:1244 core/czr-admin-ccat.php:1650
 msgid "Apply a dark overlay on your slider's images"
 msgstr ""
 
-#: core/core-settings-map.php:1248
+#: core/core-settings-map.php:1256
 #, fuzzy
 msgid "Display navigation dots"
 msgstr "Προβολή στοιχείων πλοήγησης στις σελίδες"
 
-#: core/core-settings-map.php:1256
+#: core/core-settings-map.php:1264
 #, fuzzy
 msgid ""
 "When this option is checked, navigation dots are displayed at the bottom of "
@@ -3239,19 +3249,19 @@ msgstr ""
 "Όταν αυτή η επιλογή είναι ενεργοποιημένη, τα στοιχεία πλοήγησης εμφανίζονται "
 "κάτω από τα άρθρα."
 
-#: core/core-settings-map.php:1262
+#: core/core-settings-map.php:1270
 msgid "Set slider's height in pixels"
 msgstr "Ορισμός του ύψους του slider σε pixels"
 
-#: core/core-settings-map.php:1272
+#: core/core-settings-map.php:1280
 msgid "Apply this height to all sliders"
 msgstr "Εφαρμόστε αυτήν ύψος για όλα τα sliders"
 
-#: core/core-settings-map.php:1280
+#: core/core-settings-map.php:1288
 msgid "Replace the default image slider's height"
 msgstr "Αντικαταστήστε το προεπιλεγμένο ύψος της εικόνας του slider"
 
-#: core/core-settings-map.php:1286
+#: core/core-settings-map.php:1294
 msgid ""
 "If this option is checked, your images will be resized with your custom "
 "height on upload. This is better for your overall loading performance."
@@ -3260,19 +3270,19 @@ msgstr ""
 "αλλάζει κατά το ανέβασμα, ανάλογα με το ύψος που έχετε ορίσει. Αυτό είναι "
 "καλύτερο για τη συνολική απόδοση του ιστοτόπου σας."
 
-#: core/core-settings-map.php:1287
+#: core/core-settings-map.php:1295
 msgid "You might want to regenerate your thumbnails."
 msgstr "Ίσως να θέλετε να αναδημιουργηθούν οι μικρογραφίες σας."
 
-#: core/core-settings-map.php:1295
+#: core/core-settings-map.php:1303
 msgid "Featured pages options"
 msgstr "Ρυθμίσεις προεπιλεγμένων σελίδων"
 
-#: core/core-settings-map.php:1310
+#: core/core-settings-map.php:1318
 msgid "Show images"
 msgstr "Προβολή εικόνων"
 
-#: core/core-settings-map.php:1313
+#: core/core-settings-map.php:1321
 msgid ""
 "The images are set with the \"featured image\" of each pages (in the page "
 "edit screen). Uncheck the option above to disable the featured page images."
@@ -3281,21 +3291,21 @@ msgstr ""
 "(στην οθόνη επεξεργασίας της σελίδας). Καταργήστε την επιλογή παραπάνω για "
 "να απενεργοποιήσετε τις προεπιλεγμένες εικόνες στις σελίδες."
 
-#: core/core-settings-map.php:1342
+#: core/core-settings-map.php:1350
 msgid "Choose the global default layout"
 msgstr "Επιλέξτε την καθολικά προεπιλεγμένη διάταξη"
 
-#: core/core-settings-map.php:1346
+#: core/core-settings-map.php:1354
 msgid "Note : the home page layout has to be set in the home page section"
 msgstr ""
 "Σημείωση: η διάταξη της αρχικής σελίδας πρέπει να ρυθμιστεί στην ενότητα "
 "αρχικής σελίδας"
 
-#: core/core-settings-map.php:1354
+#: core/core-settings-map.php:1362
 msgid "Force default layout everywhere"
 msgstr "Επιβολή προεπιλεγμένης διάταξης παντού"
 
-#: core/core-settings-map.php:1357
+#: core/core-settings-map.php:1365
 msgid ""
 "This option will override the specific layouts on all posts/pages, including "
 "the front page."
@@ -3303,15 +3313,15 @@ msgstr ""
 "Αυτή η επιλογή θα παραβλέψει τις ειδικές διατάξεις για όλα τα άρθρα/σελίδες, "
 "συμπεριλαμβανομένης και της κεντρικής σελίδας."
 
-#: core/core-settings-map.php:1365
+#: core/core-settings-map.php:1373
 msgid "Choose the posts default layout"
 msgstr "Επιλέξτε την προεπιλεγμένη διάταξη των άρθρων"
 
-#: core/core-settings-map.php:1375
+#: core/core-settings-map.php:1383
 msgid "Choose the pages default layout"
 msgstr "Επιλέξτε την προεπιλεγμένη διάταξη των σελίδων"
 
-#: core/core-settings-map.php:1381
+#: core/core-settings-map.php:1389
 msgid ""
 "The above layout options will set your layout globally for your post and "
 "pages. But you can also define the layout for each post and page "
@@ -3321,11 +3331,11 @@ msgstr ""
 "σελίδες σας. Αλλά μπορείτε επίσης να ορίσετε τη διάταξη για κάθε άρθρο και "
 "σελίδα ξεχωριστά. Μάθετε πώς στο %s."
 
-#: core/core-settings-map.php:1382
+#: core/core-settings-map.php:1390
 msgid "Customizr theme documentation"
 msgstr "Τεκμηρίωση του θέματος Customizr"
 
-#: core/core-settings-map.php:1385
+#: core/core-settings-map.php:1393
 msgid ""
 "If you need to change the layout design of the front page, then open the "
 "'Front Page' section above this one."
@@ -3333,46 +3343,46 @@ msgstr ""
 "Αν χρειάζεται να αλλάξετε τη σχεδίαση της διάταξης της αρχικής σελίδας, στη "
 "συνέχεια, ανοίξτε την ενότητα 'Αρχική σελίδα' πριν από αυτό."
 
-#: core/core-settings-map.php:1392
+#: core/core-settings-map.php:1400
 msgid "Pages & Posts default sections locations"
 msgstr ""
 
-#: core/core-settings-map.php:1393
+#: core/core-settings-map.php:1401
 msgid "Author Infos location"
 msgstr ""
 
-#: core/core-settings-map.php:1397 core/core-settings-map.php:1414
-#: core/core-settings-map.php:1431
+#: core/core-settings-map.php:1405 core/core-settings-map.php:1422
+#: core/core-settings-map.php:1439
 #, fuzzy
 msgid "Right after the post content"
 msgstr ""
 "Προβολή ενός πλαισίου συντάκτη μετά από το περιεχόμενο του κάθε μεμονωνμέμου "
 "άρθρου"
 
-#: core/core-settings-map.php:1398 core/core-settings-map.php:1415
-#: core/core-settings-map.php:1432
+#: core/core-settings-map.php:1406 core/core-settings-map.php:1423
+#: core/core-settings-map.php:1440
 msgid "After the content and sidebars columns"
 msgstr ""
 
-#: core/core-settings-map.php:1410
+#: core/core-settings-map.php:1418
 #, fuzzy
 msgid "Related Posts location"
 msgstr "Διαβάστε την τεκμηρίωση"
 
-#: core/core-settings-map.php:1427
+#: core/core-settings-map.php:1435
 #, fuzzy
 msgid "Comments location"
 msgstr "Πλοήγηση σχολίων"
 
-#: core/core-settings-map.php:1463
+#: core/core-settings-map.php:1471
 msgid "Global Post Lists Settings"
 msgstr "Καθολικές ρυθμίσεις λίστας άθρων"
 
-#: core/core-settings-map.php:1464
+#: core/core-settings-map.php:1472
 msgid "Maximum number of posts per page"
 msgstr "Μέγιστος αριθμός άρθρων ανά σελίδα"
 
-#: core/core-settings-map.php:1470
+#: core/core-settings-map.php:1478
 msgid ""
 "This option defines the maximum number of posts or search results displayed "
 "in any list of posts of your website : blog page, archive page, search page. "
@@ -3380,19 +3390,19 @@ msgid ""
 "will automatically add a pagination link block at the bottom of the page."
 msgstr ""
 
-#: core/core-settings-map.php:1480
+#: core/core-settings-map.php:1488
 msgid "Set the excerpt length (in number of words) "
 msgstr "Ρύθμιση του μήκους του αποσπάσματος (σε αριθμό λέξεων)"
 
-#: core/core-settings-map.php:1494
+#: core/core-settings-map.php:1502
 msgid "Thumbnails options"
 msgstr "Επιλογές μικρογραφιών"
 
-#: core/core-settings-map.php:1495
+#: core/core-settings-map.php:1503
 msgid "Display the post thumbnails"
 msgstr "Προβολή των μικρογραφιών του άρθρου"
 
-#: core/core-settings-map.php:1499
+#: core/core-settings-map.php:1507
 msgid ""
 "When this option is checked, the post thumbnails are displayed in all post "
 "lists : blog, archives, author page, search pages, ..."
@@ -3401,13 +3411,13 @@ msgstr ""
 "εμφανίζονται σε όλες τις λίστες των άρθρων: blog, αρχειοθήκες, σελίδες "
 "συντακτών, σελίδες αναζήτησης, ..."
 
-#: core/core-settings-map.php:1499
+#: core/core-settings-map.php:1507
 msgid "Note : thumbnails are always displayed when the grid layout is choosen."
 msgstr ""
 "Σημείωση: οι μικρογραφίες εμφανίζονται πάντα όταν έχει επιλεγεί η διάταξη "
 "πλέγματος."
 
-#: core/core-settings-map.php:1504
+#: core/core-settings-map.php:1512
 #, fuzzy
 msgid ""
 "If no featured image is set for a post, use the last image attached to this "
@@ -3416,135 +3426,135 @@ msgstr ""
 "Αν δεν έχει οριστεί προεπιλεγμένη εικόνα, να χρησιμποιείται η τελευταία "
 "εικόνα που είναι συνημμένη στο άρθρο."
 
-#: core/core-settings-map.php:1514
+#: core/core-settings-map.php:1522
 msgid "Thumbnails options for the alternate thumbnails layout"
 msgstr "Επιλογές για την εναλλακτική διάταξη των μικρογραφιών"
 
-#: core/core-settings-map.php:1521
+#: core/core-settings-map.php:1529
 msgid "Regular"
 msgstr ""
 
-#: core/core-settings-map.php:1528
+#: core/core-settings-map.php:1536
 msgid "Thumbnails position"
 msgstr "Θέση μικρογραφιών"
 
-#: core/core-settings-map.php:1534 core/core-settings-map.php:2243
+#: core/core-settings-map.php:1542 core/core-settings-map.php:2251
 msgid "Right"
 msgstr "Δεξιά"
 
-#: core/core-settings-map.php:1535 core/core-settings-map.php:2242
+#: core/core-settings-map.php:1543 core/core-settings-map.php:2250
 msgid "Left"
 msgstr "Αριστερά"
 
-#: core/core-settings-map.php:1542
+#: core/core-settings-map.php:1550
 msgid "Alternate thumbnail/content"
 msgstr "Εναλλακτική μικρογραφία/περιεχόμενο"
 
-#: core/core-settings-map.php:1551
+#: core/core-settings-map.php:1559
 msgid "Archive titles"
 msgstr "Τίτλοι σελίδων αρχειοθηκών"
 
-#: core/core-settings-map.php:1552
+#: core/core-settings-map.php:1560
 msgid "Category pages titles"
 msgstr "Τίτλοι σελίδων κατηγοριών"
 
-#: core/core-settings-map.php:1561
+#: core/core-settings-map.php:1569
 msgid "Tag pages titles"
 msgstr "Τίτλοι σελίδων ετικετών"
 
-#: core/core-settings-map.php:1570
+#: core/core-settings-map.php:1578
 msgid "Author pages titles"
 msgstr "Τίτλοι σελίδων συντακτών"
 
-#: core/core-settings-map.php:1578 inc/czr-front-ccat.php:4085
+#: core/core-settings-map.php:1586 inc/czr-front-ccat.php:4085
 msgid "Search Results for :"
 msgstr "Αποτελέσματα Αναζήτησης για:"
 
-#: core/core-settings-map.php:1579
+#: core/core-settings-map.php:1587
 msgid "Search results page titles"
 msgstr "Τίτλοι σελίδας των αποτελεσμάτων της αναζήτησης"
 
-#: core/core-settings-map.php:1590
+#: core/core-settings-map.php:1598
 msgid "Post List Design"
 msgstr "Σχεδίαση Λίστας Άθρων"
 
-#: core/core-settings-map.php:1591
+#: core/core-settings-map.php:1599
 msgid "Select a Layout"
 msgstr "Επιλέξτε μια Διάταξη"
 
-#: core/core-settings-map.php:1595
+#: core/core-settings-map.php:1603
 msgid "Alternate thumbnails layout"
 msgstr "Εναλλακτική διάταξης μικρογραφιών"
 
-#: core/core-settings-map.php:1596
+#: core/core-settings-map.php:1604
 msgid "Grid layout"
 msgstr "Διάταξη πλέγματος"
 
-#: core/core-settings-map.php:1598
+#: core/core-settings-map.php:1606
 msgid "Plain full layout"
 msgstr ""
 
-#: core/core-settings-map.php:1602
+#: core/core-settings-map.php:1610
 msgid ""
 "When you select the grid Layout, the post content is limited to the excerpt."
 msgstr ""
 "Όταν επιλέγετε τη διάταξη πλέγματος, το περιεχόμενο των άρθρων περιορίζεται "
 "στο απόσπασμα."
 
-#: core/core-settings-map.php:1607
+#: core/core-settings-map.php:1615
 msgid "Number of columns per row"
 msgstr "Αριθμός στηλών ανά γραμμή"
 
-#: core/core-settings-map.php:1622
+#: core/core-settings-map.php:1630
 msgid "Expand the last sticky post (for home and blog page only)"
 msgstr ""
 "Επέκταση του τελευταίου επισημασμένου άθρου (για αρχική σελίδα και ιστολόγιο "
 "μόνο)"
 
-#: core/core-settings-map.php:1631
+#: core/core-settings-map.php:1639
 msgid "Apply a shadow to each grid items"
 msgstr " Εφαρμογή σκιάς σε κάθε στοιχείο του πλέγματος "
 
-#: core/core-settings-map.php:1640
+#: core/core-settings-map.php:1648
 msgid "Apply a colored bottom border to each grid items"
 msgstr "Εφαρμογή ενός έγχρωμου κάτω περθωρίου σε κάθε στοιχείο του πλέγματος"
 
-#: core/core-settings-map.php:1651
+#: core/core-settings-map.php:1659
 msgid "Max. length for post titles (in words)"
 msgstr "Μέγιστη μήκος για τον τίτλο των άθρων (σε λέξεις)"
 
-#: core/core-settings-map.php:1664
+#: core/core-settings-map.php:1672
 msgid "Display thumbnail placeholder if no images available"
 msgstr ""
 
-#: core/core-settings-map.php:1683 core/core-settings-map.php:1762
+#: core/core-settings-map.php:1691 core/core-settings-map.php:1770
 msgid "Post thumbnail position"
 msgstr "Θέση μικρογραφίας άρθρου"
 
-#: core/core-settings-map.php:1684 core/core-settings-map.php:1763
-#: core/core-settings-map.php:2450
+#: core/core-settings-map.php:1692 core/core-settings-map.php:1771
+#: core/core-settings-map.php:2458
 #, fuzzy
 msgid "Featured Image"
 msgstr "Προτεινόμενη σελίδα"
 
-#: core/core-settings-map.php:1688 core/core-settings-map.php:1767
-#: core/core-settings-map.php:2197
+#: core/core-settings-map.php:1696 core/core-settings-map.php:1775
+#: core/core-settings-map.php:2205
 msgid "Don't display"
 msgstr "Να μην προβάλλεται"
 
-#: core/core-settings-map.php:1689 core/core-settings-map.php:1768
+#: core/core-settings-map.php:1697 core/core-settings-map.php:1776
 msgid "Before the title in full width"
 msgstr "Πριν από τον τίτλο στο πλήρες μήκος"
 
-#: core/core-settings-map.php:1690 core/core-settings-map.php:1769
+#: core/core-settings-map.php:1698 core/core-settings-map.php:1777
 msgid "Before the title boxed"
 msgstr "Πριν από το πλαίσιο του τίτλου"
 
-#: core/core-settings-map.php:1691 core/core-settings-map.php:1770
+#: core/core-settings-map.php:1699 core/core-settings-map.php:1778
 msgid "After the title"
 msgstr "Μετά τον τίτλο"
 
-#: core/core-settings-map.php:1695
+#: core/core-settings-map.php:1703
 msgid ""
 "You can display the featured image (also called the post thumbnail) of your "
 "posts before their content, when they are displayed individually."
@@ -3552,43 +3562,43 @@ msgstr ""
 "Μπορείτε να εμφανίσετε την επιλεγμένη εικόνα (ονομάζεται επίσης μικρογραφία) "
 "των άρθρων σας πριν από το περιεχόμενό τους, όταν αυτά εμφανίζονται χωριστά."
 
-#: core/core-settings-map.php:1704 core/core-settings-map.php:1783
+#: core/core-settings-map.php:1712 core/core-settings-map.php:1791
 msgid "Display featured images in their original dimensions"
 msgstr ""
 
-#: core/core-settings-map.php:1714 core/core-settings-map.php:1793
+#: core/core-settings-map.php:1722 core/core-settings-map.php:1801
 #: inc/czr-init-ccat.php:3009
 msgid "Set the thumbnail's max height in pixels"
 msgstr "Ορισμός του μέγιστου ύψους της μικρογραφίας σε pixels"
 
-#: core/core-settings-map.php:1726 core/core-settings-map.php:1805
+#: core/core-settings-map.php:1734 core/core-settings-map.php:1813
 #, fuzzy
 msgid "Set the thumbnail's max height in pixels for smartphones"
 msgstr "Ορισμός του μέγιστου ύψους της μικρογραφίας σε pixels"
 
-#: core/core-settings-map.php:1736
+#: core/core-settings-map.php:1744
 #, fuzzy
 msgid "Related posts"
 msgstr "Τελευταία άρθρα"
 
-#: core/core-settings-map.php:1737
+#: core/core-settings-map.php:1745
 #, fuzzy
 msgid "Single - Related Posts"
 msgstr "Μεμονωμένα άρθρα"
 
-#: core/core-settings-map.php:1743
+#: core/core-settings-map.php:1751
 msgid "Related by categories"
 msgstr ""
 
-#: core/core-settings-map.php:1744
+#: core/core-settings-map.php:1752
 msgid "Related by tags"
 msgstr ""
 
-#: core/core-settings-map.php:1746
+#: core/core-settings-map.php:1754
 msgid "Display randomized related articles below the post"
 msgstr ""
 
-#: core/core-settings-map.php:1774
+#: core/core-settings-map.php:1782
 msgid ""
 "You can display the featured image (also called the post thumbnail) of your "
 "pages before their content, when they are displayed individually."
@@ -3597,23 +3607,23 @@ msgstr ""
 "του άρθρου) από τις σελίδες σας πριν από το περιεχόμενό τους, όταν αυτές "
 "εμφανίζονται χωριστά."
 
-#: core/core-settings-map.php:1826
+#: core/core-settings-map.php:1834
 msgid "Display Breadcrumb"
 msgstr "Προβολή Breadcrumb"
 
-#: core/core-settings-map.php:1835
+#: core/core-settings-map.php:1843
 msgid "Display the breadcrumb on home page"
 msgstr "Προβολή breadcrumb στην αρχική σελίδα"
 
-#: core/core-settings-map.php:1843
+#: core/core-settings-map.php:1851
 msgid "Display the breadcrumb in pages"
 msgstr "Προβολή breadcrumb στις σελίδες"
 
-#: core/core-settings-map.php:1852
+#: core/core-settings-map.php:1860
 msgid "Display the breadcrumb in single posts"
 msgstr "Προβολή breadcrumb σταμεμονωμένα άθρα"
 
-#: core/core-settings-map.php:1861
+#: core/core-settings-map.php:1869
 msgid ""
 "Display the breadcrumb in posts lists : blog page, archives, search "
 "results..."
@@ -3621,27 +3631,27 @@ msgstr ""
 "Προβολή breadcrumb στις λίστες των άρθρων: σελίδα ιστολογίου, αρχειοθήκη, "
 "αποτελέσματα αναζήτησης..."
 
-#: core/core-settings-map.php:1869
+#: core/core-settings-map.php:1877
 msgid "Use Yoast SEO breadcrumbs"
 msgstr "Χρήση των Yoast SEO breadcrumbs"
 
-#: core/core-settings-map.php:1872
+#: core/core-settings-map.php:1880
 msgid "Jump to the Yoast SEO breadcrumbs %s"
 msgstr "Μετάβαση στα Yoast SEO breadcrumbs %s"
 
-#: core/core-settings-map.php:1875
+#: core/core-settings-map.php:1883
 msgid "customization panel"
 msgstr "πίνακας παραμετροποίησης"
 
-#: core/core-settings-map.php:1876
+#: core/core-settings-map.php:1884
 msgid "Yoast SEO breadcrumbs settings"
 msgstr "Επιλογές για τα Yoast SEO breadcrumbs"
 
-#: core/core-settings-map.php:1895
+#: core/core-settings-map.php:1903
 msgid "Display posts metas"
 msgstr "Προβολή μεταδεδομένων άρθρων"
 
-#: core/core-settings-map.php:1898
+#: core/core-settings-map.php:1906
 msgid ""
 "When this option is checked, the post metas (like taxonomies, date and "
 "author) are displayed below the post titles."
@@ -3650,92 +3660,92 @@ msgstr ""
 "οι ταξινομήσεις, η ημ/νία και ο συντάκτης) θα εμφανίζονται κάτω από τους "
 "τίτλους των άρθρων."
 
-#: core/core-settings-map.php:1905 core/core-settings-map.php:2099
+#: core/core-settings-map.php:1913 core/core-settings-map.php:2107
 msgid "Select the contexts"
 msgstr "Επιλογή των περιεχομένων"
 
-#: core/core-settings-map.php:1906
+#: core/core-settings-map.php:1914
 msgid "Display posts metas on home"
 msgstr "Προβολή μεταστοιχείων των άρθρων στην αρχική σελίδα"
 
-#: core/core-settings-map.php:1915
+#: core/core-settings-map.php:1923
 msgid "Display posts metas for single posts"
 msgstr "Προβολή μεταστοιχείων για μεμονωμένα άρθρα"
 
-#: core/core-settings-map.php:1924
+#: core/core-settings-map.php:1932
 msgid "Display posts metas in post lists (archives, blog page)"
 msgstr "Προβολή μεταστοιχείων στις λίστες άθρων (αρχειοθήκες, σελίδα blog)"
 
-#: core/core-settings-map.php:1934
+#: core/core-settings-map.php:1942
 msgid "Select the metas to display"
 msgstr "Επιλογή μεταστοιχείων για προβολή"
 
-#: core/core-settings-map.php:1935
+#: core/core-settings-map.php:1943
 msgid "Display hierarchical taxonomies (like categories)"
 msgstr "Προβολή ιεραρχικών ταξινομήσεων (όπως οι κατηγορίες)"
 
-#: core/core-settings-map.php:1944
+#: core/core-settings-map.php:1952
 msgid "Display non-hierarchical taxonomies (like tags)"
 msgstr "Προβολή μη ιεραρχικών ταξινομήσεων (όπως οι ετικέτες)"
 
-#: core/core-settings-map.php:1953
+#: core/core-settings-map.php:1961
 msgid "Display the author"
 msgstr "Εμφάνιση του συντάκτη"
 
-#: core/core-settings-map.php:1961
+#: core/core-settings-map.php:1969
 msgid "Display the publication date"
 msgstr "Εμφάνιση της ημερομηνίας δημοσίευσης"
 
-#: core/core-settings-map.php:1971
+#: core/core-settings-map.php:1979
 msgid "Display the update date"
 msgstr "Εμφάνιση της ημερομηνίες ενημέρωσης"
 
-#: core/core-settings-map.php:1990
+#: core/core-settings-map.php:1998
 msgid "Enable Customizr galleries"
 msgstr "Ενεργοποίηση συλλογών του Customizr"
 
-#: core/core-settings-map.php:1992
+#: core/core-settings-map.php:2000
 msgid "Apply Customizr effects to galleries images"
 msgstr "Εφαρμογή των εφέ του Customizr στις συλλογές των εικόνων"
 
-#: core/core-settings-map.php:1999
+#: core/core-settings-map.php:2007
 msgid "Enable Lightbox effect in galleries"
 msgstr "Ενεργοποίηση εφέ Lightbox στις συλλογές"
 
-#: core/core-settings-map.php:2001
+#: core/core-settings-map.php:2009
 msgid "Apply lightbox effects to galleries images"
 msgstr "Εφαρμογή εφέ lightbox στις συλλογές εικόνων"
 
-#: core/core-settings-map.php:2008
+#: core/core-settings-map.php:2016
 msgid "Enable Customizr effects on hover"
 msgstr "Ενεργοποίηση των εφέ του Customizr κατά το πέρασμα του ποντικού"
 
-#: core/core-settings-map.php:2010
+#: core/core-settings-map.php:2018
 msgid "Apply nice on hover expansion effect to the galleries images"
 msgstr ""
 "Εφαρμογή εφέ ομαλής επέκτασης όταν περνάει ο δείκτης του ποντικού πάνω από "
 "τις εικόνες μιας συλλογής"
 
-#: core/core-settings-map.php:2030
+#: core/core-settings-map.php:2038
 #, fuzzy
 msgid "Display the number of comments below the post titles"
 msgstr ""
 "Εμφάνιση του αριθμού των σχολίων σε μια φυσαλίδα δίπλα στον τίτλο του άρθρου"
 
-#: core/core-settings-map.php:2030
+#: core/core-settings-map.php:2038
 msgid "Display the number of comments in a bubble next to the post title"
 msgstr ""
 "Εμφάνιση του αριθμού των σχολίων σε μια φυσαλίδα δίπλα στον τίτλο του άρθρου"
 
-#: core/core-settings-map.php:2038
+#: core/core-settings-map.php:2046
 msgid "Other comments settings"
 msgstr "Άλλες επιλογές σχολιασμού"
 
-#: core/core-settings-map.php:2039
+#: core/core-settings-map.php:2047
 msgid "Enable comments on pages"
 msgstr "Ενεργοποίηση σχολίων στις σελίδες"
 
-#: core/core-settings-map.php:2044
+#: core/core-settings-map.php:2052
 msgid ""
 "If checked, this option will enable comments on pages. You can disable "
 "comments for a single page in the quick edit mode of the page list screen."
@@ -3744,19 +3754,19 @@ msgstr ""
 "σελίδες. Μπορείτε να απενεργοποιήσετε τα σχόλια για μία σελίδα σστη "
 "λειτουργία γρήγορης επεξεργασίας από την οθόνη με τη λίστα των σελίδων."
 
-#: core/core-settings-map.php:2045
+#: core/core-settings-map.php:2053
 msgid "You can also change other comments settings in :"
 msgstr "Μπορείτε επίσης να αλλάξετε κι άλλες ρυθμίσεις για τον σχολιασμό στο:"
 
-#: core/core-settings-map.php:2047
+#: core/core-settings-map.php:2055
 msgid "the discussion settings page."
 msgstr "η σελίδα ρυθμίσεων για τις συζητήσεις. "
 
-#: core/core-settings-map.php:2053
+#: core/core-settings-map.php:2061
 msgid "Enable comments on posts"
 msgstr "Ενεργοποίηση σχολίων στα άρθρα"
 
-#: core/core-settings-map.php:2058
+#: core/core-settings-map.php:2066
 msgid ""
 "If checked, this option enables comments on all types of single posts. You "
 "can disable comments for a single post in quick edit mode from the"
@@ -3765,23 +3775,23 @@ msgstr ""
 "μεμονωμένων άρθρων. Μπορείτε να απενεργοποιήσετε τα σχόλια για μια ένα άρθρο "
 "στη λειτουργία γρήγορης επεξεργασίας από το"
 
-#: core/core-settings-map.php:2060
+#: core/core-settings-map.php:2068
 msgid "post screen"
 msgstr "οθόνη άρθρου"
 
-#: core/core-settings-map.php:2061
+#: core/core-settings-map.php:2069
 msgid "You can also change other comments settings in the"
 msgstr "Μπορείτε επίσης να αλλάξετε κι άλλες ρυθμίσεις για τον σχολιασμό στο"
 
-#: core/core-settings-map.php:2063
+#: core/core-settings-map.php:2071
 msgid "discussion settings page."
 msgstr "σελίδα ρυθμίσεων για τις συζητήσεις."
 
-#: core/core-settings-map.php:2069
+#: core/core-settings-map.php:2077
 msgid "Display the comment list"
 msgstr "Προβολή της λίστας σχολίων"
 
-#: core/core-settings-map.php:2073
+#: core/core-settings-map.php:2081
 msgid ""
 "By default, WordPress displays the past comments, even if comments are "
 "disabled in posts or pages. Unchecking this option allows you to not display "
@@ -3792,11 +3802,11 @@ msgstr ""
 "της επιλογής αυτής της επιλογής σας δίνει τη δυνατότητα να μην εμφανίζεται "
 "αυτό το ιστορικό του σχολιασμού."
 
-#: core/core-settings-map.php:2088
+#: core/core-settings-map.php:2096
 msgid "Display posts navigation"
 msgstr "Προβολή στοιχείων πλοήγησης των άρθρων"
 
-#: core/core-settings-map.php:2091
+#: core/core-settings-map.php:2099
 msgid ""
 "When this option is checked, the posts navigation is displayed below the "
 "posts"
@@ -3804,15 +3814,15 @@ msgstr ""
 "Όταν αυτή η επιλογή είναι ενεργοποιημένη, τα στοιχεία πλοήγησης εμφανίζονται "
 "κάτω από τα άρθρα."
 
-#: core/core-settings-map.php:2100
+#: core/core-settings-map.php:2108
 msgid "Display navigation in pages"
 msgstr "Προβολή στοιχείων πλοήγησης στις σελίδες"
 
-#: core/core-settings-map.php:2109
+#: core/core-settings-map.php:2117
 msgid "Display posts navigation in single posts"
 msgstr "Εμφάνιση στοιχείων πλοήγησης στην προβολή ενός άρθρου"
 
-#: core/core-settings-map.php:2118
+#: core/core-settings-map.php:2126
 msgid ""
 "Display posts navigation in post lists (archives, blog page, categories, "
 "search results ..)"
@@ -3820,62 +3830,62 @@ msgstr ""
 "Προβολή στοιχείων πλοήγησης στις λίστες των άθρων (αρχειοθήκες, σελίδα blog, "
 "κατηγορίες, αποτελέσματα αναζήτησης ..)"
 
-#: core/core-settings-map.php:2141
+#: core/core-settings-map.php:2149
 msgid "Social links in left sidebar"
 msgstr "Σύνδεσμοι κοινωνικών δικτύων στην αριστερή πελυρική στήλη"
 
-#: core/core-settings-map.php:2154
+#: core/core-settings-map.php:2162
 msgid "Social links in right sidebar"
 msgstr "Σύνδεσμοι κοινωνικών δικτύων στη δεξιά πλευρική στήλη"
 
-#: core/core-settings-map.php:2183
+#: core/core-settings-map.php:2191
 #, fuzzy
 msgid "Footer style"
 msgstr "Υποσέλιδο"
 
-#: core/core-settings-map.php:2195
+#: core/core-settings-map.php:2203
 msgid "Horizontal widget area in your footer"
 msgstr ""
 
-#: core/core-settings-map.php:2198
+#: core/core-settings-map.php:2206
 #, fuzzy
 msgid "Display full-width"
 msgstr "Εμφάνιση του πλήρους περιεχομένου"
 
-#: core/core-settings-map.php:2199
+#: core/core-settings-map.php:2207
 #, fuzzy
 msgid "Display boxed"
 msgstr "Προβολή άνω περιθωρίου"
 
-#: core/core-settings-map.php:2207
+#: core/core-settings-map.php:2215
 msgid "Social links in footer"
 msgstr "Σύνδεσμοι κοινωνικών δικτύων στο υποσέλιδο"
 
-#: core/core-settings-map.php:2220
+#: core/core-settings-map.php:2228
 msgid "Stick the footer to the bottom of the page"
 msgstr "Κολλήμα του υποσέλιδου στο κάτω μέρος της σελίδας"
 
-#: core/core-settings-map.php:2225
+#: core/core-settings-map.php:2233
 msgid ""
 "Enabling this option will glue your footer to the bottom of the screen, when "
 "pages are shorter than the viewport's height."
 msgstr ""
 
-#: core/core-settings-map.php:2230
+#: core/core-settings-map.php:2238
 msgid "Display a back to top arrow on scroll"
 msgstr "Προβολή βέλους προς την κορυφή της σελίδας κατά την κύλιση"
 
-#: core/core-settings-map.php:2238
+#: core/core-settings-map.php:2246
 msgid "Back to top arrow position"
 msgstr "Θέση του βέλους επιστροφής στην κορυφή"
 
-#: core/core-settings-map.php:2270
+#: core/core-settings-map.php:2278
 msgid "Add your custom css here and design live! (for advanced users)"
 msgstr ""
 "Προσθήκη παραμετροποιημένου css εδώ και ζωντανή σχεδίαση! (για προχωρημένος "
 "χρήστες)"
 
-#: core/core-settings-map.php:2274
+#: core/core-settings-map.php:2282
 msgid ""
 "Use this field to test small chunks of CSS code. For important CSS "
 "customizations, you'll want to modify the style.css file of a"
@@ -3884,19 +3894,19 @@ msgstr ""
 "σημαντικές CSS παραμετροποιήσεις είναι καλύτερο να τροποποιήσετε το αρχείο "
 "style.css ενός"
 
-#: core/core-settings-map.php:2275
+#: core/core-settings-map.php:2283
 msgid "child theme."
 msgstr "θέμα παιδί."
 
-#: core/core-settings-map.php:2276
+#: core/core-settings-map.php:2284
 msgid "How to create and use a child theme ?"
 msgstr "Πώς να δημιουργήσετε και χρησιμοποιήσετε ένα θέμα παιδί;"
 
-#: core/core-settings-map.php:2293
+#: core/core-settings-map.php:2301
 msgid "Performance : use the minified CSS stylesheets"
 msgstr "Επιδόσεις: χρήση έκδοσης ελαχιστοποιημένου μεγέθους για τα φύλλα στυλ "
 
-#: core/core-settings-map.php:2296
+#: core/core-settings-map.php:2304
 msgid ""
 "Using the minified version of the stylesheets will speed up your webpage "
 "load time."
@@ -3904,11 +3914,11 @@ msgstr ""
 "Η χρήση έκδοσης ελαχιστοποιημένου μεγέθους για τα φύλλα στυλ θα αυξήση την "
 "ταχύτητα και τους χρόνους φόρτωσης του ιστοτόπου σας."
 
-#: core/core-settings-map.php:2300
+#: core/core-settings-map.php:2308
 msgid "Load images on scroll"
 msgstr "Φόρτωση εικόνων κατά την κύλιση"
 
-#: core/core-settings-map.php:2305
+#: core/core-settings-map.php:2313
 msgid ""
 "Check this option to delay the loading of non visible images. Images below "
 "the viewport will be loaded dynamically on scroll. This can boost "
@@ -3919,12 +3929,12 @@ msgstr ""
 "δυναμικά κατά την κύλιση. Αυτό μπορεί να αυξήσει τις επιδόσεις με τη μείωση "
 "του βάρους των μεγάλων ιστοσελίδων με εικόνες."
 
-#: core/core-settings-map.php:2309
+#: core/core-settings-map.php:2317
 #, fuzzy
 msgid "Lazy load the images in sliders"
 msgstr "Φόρτωση εικόνων κατά την κύλιση"
 
-#: core/core-settings-map.php:2314
+#: core/core-settings-map.php:2322
 #, fuzzy
 msgid ""
 "Check this option to delay the loading of non visible images in sliders. "
@@ -3935,26 +3945,26 @@ msgstr ""
 "δυναμικά κατά την κύλιση. Αυτό μπορεί να αυξήσει τις επιδόσεις με τη μείωση "
 "του βάρους των μεγάλων ιστοσελίδων με εικόνες."
 
-#: core/core-settings-map.php:2323
+#: core/core-settings-map.php:2331
 msgid "Defer loading javascript files to avoid render blocking issues"
 msgstr ""
 
-#: core/core-settings-map.php:2331
+#: core/core-settings-map.php:2339
 #, fuzzy
 msgid "Defer loading Font Awesome icons"
 msgstr "Φόρτωση πόρων της γραμματοσειράς Awesome"
 
-#: core/core-settings-map.php:2339
+#: core/core-settings-map.php:2347
 msgid "Preload Google Fonts"
 msgstr ""
 
-#: core/core-settings-map.php:2355
+#: core/core-settings-map.php:2363
 msgid "Display help notices on front-end for logged in users."
 msgstr ""
 "Προβολή ανακοινώσεων βοήθειας στην προβολή ιστοσελίδας για τους "
 "συνδεδεμένους χρήστες."
 
-#: core/core-settings-map.php:2358
+#: core/core-settings-map.php:2366
 #, fuzzy
 msgid ""
 "When this option is enabled, various help notices and some placeholder "
@@ -3966,15 +3976,15 @@ msgstr ""
 "ιστοσελίδας σας. Αυτά θα είναι ορατά μόνο από τους συνδεδεμένους χρήστες με "
 "δυνατότητες διαχείρισης."
 
-#: core/core-settings-map.php:2371
+#: core/core-settings-map.php:2379
 msgid "Load Font Awesome resources"
 msgstr "Φόρτωση πόρων της γραμματοσειράς Awesome"
 
-#: core/core-settings-map.php:2375
+#: core/core-settings-map.php:2383
 msgid "Use with caution"
 msgstr "Χρησιμοποιείστε με προσοχή"
 
-#: core/core-settings-map.php:2376
+#: core/core-settings-map.php:2384
 msgid ""
 "When checked, the Font Awesome icons and CSS will be loaded on front end. "
 "You might want to load the Font Awesome icons with a custom code, or let a "
@@ -3984,26 +3994,26 @@ msgstr ""
 "προβολή της ιστοσελίδας. Μπορεί να θέλετε να φορτώσετε τα εικονίδια Font "
 "Awesome με προσαρμοσμένο κώδικα, ή να αφήσετε ένα plugin το κάνει για εσάς."
 
-#: core/core-settings-map.php:2378
+#: core/core-settings-map.php:2386
 msgid "Check out some example of uses"
 msgstr "Ελέγξτε έξω κάποιο παράδειγμα χρήσεών του"
 
-#: core/core-settings-map.php:2399
+#: core/core-settings-map.php:2407
 msgid "Automatically adapt the font size to the width of the devices"
 msgstr ""
 
-#: core/core-settings-map.php:2402
+#: core/core-settings-map.php:2410
 msgid ""
 "When this option is enabled, your font size will automatically resize to be "
 "better displayed in mobile devices."
 msgstr ""
 
-#: core/core-settings-map.php:2402
+#: core/core-settings-map.php:2410
 msgid ""
 "This option can sometimes reduce too much the headings font-size on mobiles."
 msgstr ""
 
-#: core/core-settings-map.php:2414
+#: core/core-settings-map.php:2422
 msgid ""
 "The Modern style provides a \"material design\" look and feel. It relies on "
 "the flexbox css mode, offering a better support for the most recent mobile "
@@ -4012,109 +4022,109 @@ msgid ""
 "older devices and browsers."
 msgstr ""
 
-#: core/core-settings-map.php:2419
+#: core/core-settings-map.php:2427
 msgid "Set the Modern or Classical design style"
 msgstr ""
 
-#: core/core-settings-map.php:2419
+#: core/core-settings-map.php:2427
 #, fuzzy
 msgid "Select a design style for the theme"
 msgstr "Επιλογή μιας σχεδίασης για τα μεταστοιχεία του άρθρου"
 
-#: core/core-settings-map.php:2423
+#: core/core-settings-map.php:2431
 msgid "Modern"
 msgstr ""
 
-#: core/core-settings-map.php:2424
+#: core/core-settings-map.php:2432
 msgid "Classical"
 msgstr ""
 
-#: core/core-settings-map.php:2428
+#: core/core-settings-map.php:2436
 msgid ""
 "You are using a child theme. This option must be changed from the parent "
 "theme. Activate the parent from %s."
 msgstr ""
 
-#: core/core-settings-map.php:2429
+#: core/core-settings-map.php:2437
 msgid "Appearance > themes"
 msgstr ""
 
-#: core/core-settings-map.php:2431
+#: core/core-settings-map.php:2439
 msgid ""
 "The two styles can use different template files, that's why it is "
 "recommended to change the style option from the parent and test your child "
 "theme in a staging site before production."
 msgstr ""
 
-#: core/core-settings-map.php:2449
+#: core/core-settings-map.php:2457
 #, fuzzy
 msgid "Display the product featured image"
 msgstr "Εμφάνιση της ημερομηνίες ενημέρωσης"
 
-#: core/core-settings-map.php:2473
+#: core/core-settings-map.php:2481
 msgid "Global settings"
 msgstr "Γενικές ρυθμίσεις"
 
-#: core/core-settings-map.php:2474
+#: core/core-settings-map.php:2482
 msgid "Title, Logo, Fonts, Primary color, Social, ..."
 msgstr ""
 
-#: core/core-settings-map.php:2480
+#: core/core-settings-map.php:2488
 msgid "Header"
 msgstr "Κεφαλίδα"
 
-#: core/core-settings-map.php:2481
+#: core/core-settings-map.php:2489
 msgid "Style, Desktops and mobiles layout, Menus, Search, ..."
 msgstr ""
 
-#: core/core-settings-map.php:2487
+#: core/core-settings-map.php:2495
 #, fuzzy
 msgid "Main Content"
 msgstr "Κύριο μενού"
 
-#: core/core-settings-map.php:2488
+#: core/core-settings-map.php:2496
 msgid ""
 "Column layout, Post lists design, Thumbnails, Post Metas, Navigation, ..."
 msgstr ""
 
-#: core/core-settings-map.php:2494
+#: core/core-settings-map.php:2502
 msgid "Sidebars"
 msgstr "Πλευρικές στήλες"
 
-#: core/core-settings-map.php:2500
+#: core/core-settings-map.php:2508
 msgid "Footer"
 msgstr "Υποσέλιδο"
 
-#: core/core-settings-map.php:2501
+#: core/core-settings-map.php:2509
 msgid "Style, Back to top button, Sticky mode, ... "
 msgstr ""
 
-#: core/core-settings-map.php:2507
+#: core/core-settings-map.php:2515
 msgid "Advanced options"
 msgstr "Προχωρημένες επιλογές"
 
-#: core/core-settings-map.php:2508
+#: core/core-settings-map.php:2516
 msgid "Performances, Custom CSS ..."
 msgstr ""
 
-#: core/core-settings-map.php:2579
+#: core/core-settings-map.php:2587
 msgid "Your theme supports %s menu. Select which menu you would like to use."
 msgid_plural ""
 "Your theme supports %s menus. Select which menu appears in each location."
 msgstr[0] "Επιλέξτε μενού για το θέμα σας"
 msgstr[1] "Επιλέξτε μενού για τις τοποθεσίες μενού (%s) του θέματός σας"
 
-#: core/core-settings-map.php:2582 core/core-settings-map.php:2590
+#: core/core-settings-map.php:2590 core/core-settings-map.php:2598
 msgid "You can create new menu and edit your menu's content %s."
 msgstr ""
 "Μπορείτε να δημιουργήσετε νέο μενού και να επεξεργαστείτε το περιεχόμενο του "
 "μενού σας %s."
 
-#: core/core-settings-map.php:2585
+#: core/core-settings-map.php:2593
 msgid "on the Menus screen in the Appearance section"
 msgstr "στην οθόνη των Μενού στην ενότητα Εμφάνιση"
 
-#: core/core-settings-map.php:2600
+#: core/core-settings-map.php:2608
 msgid ""
 "If a menu location has no menu assigned to it, a default page menu will be "
 "used."
@@ -4122,157 +4132,157 @@ msgstr ""
 "Αν μια τοποθεσία μενού δεν της έχει ανατεθεί κάποιο μενού, θα χρησιμοποιηθεί "
 "ένα προεπιλεγμένο μενού στη σελίδα."
 
-#: core/core-settings-map.php:2610
+#: core/core-settings-map.php:2618
 msgid "Site Identity : Logo, Title, Tagline and Site Icon"
 msgstr ""
 
-#: core/core-settings-map.php:2620
+#: core/core-settings-map.php:2628
 #, fuzzy
 msgid "Site Layout"
 msgstr "Επιλέξτε μια Διάταξη"
 
-#: core/core-settings-map.php:2625
+#: core/core-settings-map.php:2633
 msgid "Primary color of the theme"
 msgstr ""
 
-#: core/core-settings-map.php:2627
+#: core/core-settings-map.php:2635
 msgid "Pick a primary color for the theme"
 msgstr ""
 
-#: core/core-settings-map.php:2631
+#: core/core-settings-map.php:2639
 msgid "Font picker and font size"
 msgstr ""
 
-#: core/core-settings-map.php:2644
+#: core/core-settings-map.php:2652
 msgid "Formatting : links, paragraphs ..."
 msgstr ""
 
-#: core/core-settings-map.php:2650
+#: core/core-settings-map.php:2658
 msgid "Image settings"
 msgstr "Ρυθμίσεις εικόνας"
 
-#: core/core-settings-map.php:2661
+#: core/core-settings-map.php:2669
 #, fuzzy
 msgid "Sliders options"
 msgstr "Επιλογές Κύλισης"
 
-#: core/core-settings-map.php:2667
+#: core/core-settings-map.php:2675
 msgid "Authors"
 msgstr "Συντάκτες"
 
-#: core/core-settings-map.php:2673
+#: core/core-settings-map.php:2681
 msgid "Smooth Scroll"
 msgstr "Ομαλή Κύλιση"
 
-#: core/core-settings-map.php:2683
+#: core/core-settings-map.php:2691
 msgid "Header design and layout"
 msgstr "Σχεδιασμός και διαρρύθμιση κεφαλίδας"
 
-#: core/core-settings-map.php:2683
+#: core/core-settings-map.php:2691
 #, fuzzy
 msgid "General design settings"
 msgstr "Ρυθμίσεις εικονιδίων των τίτλων"
 
-#: core/core-settings-map.php:2688
+#: core/core-settings-map.php:2696
 msgid "Design settings for desktops and laptops"
 msgstr ""
 
-#: core/core-settings-map.php:2693
+#: core/core-settings-map.php:2701
 msgid "Design settings for smartphones and tablets in portrait orientation"
 msgstr ""
 
-#: core/core-settings-map.php:2698
+#: core/core-settings-map.php:2706
 msgid "Navigation Menus"
 msgstr "Μενού πλοήγησης"
 
-#: core/core-settings-map.php:2710
+#: core/core-settings-map.php:2718
 #, fuzzy
 msgid "Front Page Content"
 msgstr "Αρχική Σελίδα"
 
-#: core/core-settings-map.php:2723
+#: core/core-settings-map.php:2731
 msgid "Pages &amp; Posts Layout"
 msgstr "Διάταξη Σελίδων &amp; Άρθρων"
 
-#: core/core-settings-map.php:2730
+#: core/core-settings-map.php:2738
 msgid "Post lists : blog, archives, ..."
 msgstr "Λίστες άρθρων: ιστολόγιο, αρχειοθήκη, ..."
 
-#: core/core-settings-map.php:2736
+#: core/core-settings-map.php:2744
 msgid "Single posts"
 msgstr "Μεμονωμένα άρθρα"
 
-#: core/core-settings-map.php:2742
+#: core/core-settings-map.php:2750
 msgid "Single pages"
 msgstr "Ανεξάρτητες σελίδες"
 
-#: core/core-settings-map.php:2748
+#: core/core-settings-map.php:2756
 msgid "Breadcrumb"
 msgstr "Breadcrumb"
 
-#: core/core-settings-map.php:2754
+#: core/core-settings-map.php:2762
 msgid "Post metas (category, tags, custom taxonomies)"
 msgstr "Μεταδεδομένα άρθων (κατηγορία, ετικέτες, ταξινομήσεις χρήστη)"
 
-#: core/core-settings-map.php:2760
+#: core/core-settings-map.php:2768
 msgid "Galleries"
 msgstr "Συλλογές"
 
-#: core/core-settings-map.php:2766
+#: core/core-settings-map.php:2774
 msgid "Comments"
 msgstr "Σχόλια"
 
-#: core/core-settings-map.php:2777
+#: core/core-settings-map.php:2785
 msgid "Post/Page Navigation"
 msgstr "Πλοήγηση σε άρθρα/σελίδες"
 
-#: core/core-settings-map.php:2788
+#: core/core-settings-map.php:2796
 msgid "Socials in Sidebars"
 msgstr "Σύνδεσμοι κοινωνικών δικτύων στις Πλευρικές Στήλες"
 
-#: core/core-settings-map.php:2797
+#: core/core-settings-map.php:2805
 msgid "Footer global settings"
 msgstr "Καθολικές ρυθμίσεις υποσέλιδου"
 
-#: core/core-settings-map.php:2808
+#: core/core-settings-map.php:2816
 msgid "Custom CSS"
 msgstr "Προσαρμοσμένο CSS"
 
-#: core/core-settings-map.php:2813
+#: core/core-settings-map.php:2821
 msgid "Website Performances"
 msgstr "Επιδόσεις ιστοτόπου"
 
-#: core/core-settings-map.php:2819
+#: core/core-settings-map.php:2827
 msgid "Front-end placeholders and help blocks"
 msgstr "Θέσεις κράτησης και μπλοκ βοήθειας στην κεντρική σελίδα"
 
-#: core/core-settings-map.php:2824
+#: core/core-settings-map.php:2832
 msgid "Front-end Icons (Font Awesome)"
 msgstr "Εικονίδια (Font Awesome) προβολής ιστοτόπου"
 
-#: core/core-settings-map.php:2829
+#: core/core-settings-map.php:2837
 #, fuzzy
 msgid "Adaptative font size on mobile devices"
 msgstr "Σημείωση: η ετικέτα είναι κρυμμένη σε κινητές συσκευές."
 
-#: core/core-settings-map.php:2834
+#: core/core-settings-map.php:2842
 msgid "Theme style"
 msgstr ""
 
-#: core/core-settings-map.php:2846 core/czr-admin-ccat.php:396
+#: core/core-settings-map.php:2854 core/czr-admin-ccat.php:396
 msgid "Upgrade to Customizr Pro"
 msgstr "Αναβάθμιση σε Customizr Pro"
 
-#: core/core-settings-map.php:2847
+#: core/core-settings-map.php:2855
 #, fuzzy
 msgid "Discover the features and benefits"
 msgstr "Αφαίρεση αυτών των προεπιλεγμένων σελίδων"
 
-#: core/core-settings-map.php:2849
+#: core/core-settings-map.php:2857
 msgid "Go Pro"
 msgstr "Μετάβαση στην έκδοση Pro"
 
-#: core/core-settings-map.php:2932
+#: core/core-settings-map.php:2940
 msgid ""
 "You need to select a page first. Leave this field empty if you want to use "
 "the page excerpt."
@@ -4955,12 +4965,12 @@ msgstr "Συνέχεια ανάγνωσης <span class=\"meta-nav\">&rarr;</spa
 
 #: core/front/models/content/post-metas/class-model-post_metas.php:65
 #: core/front/models/content/post-metas/class-model-post_metas.php:71
-#: inc/czr-front-ccat.php:6959
+#: inc/czr-front-ccat.php:6961
 msgid "by"
 msgstr "Από"
 
 #: core/front/models/content/post-metas/class-model-post_metas.php:78
-#: inc/czr-front-ccat.php:6531
+#: inc/czr-front-ccat.php:6532
 msgid "Published"
 msgstr "δημοσιευμένο"
 
@@ -4969,37 +4979,37 @@ msgid "Updated"
 msgstr ""
 
 #: core/front/models/content/post-metas/class-model-post_metas.php:97
-#: inc/czr-front-ccat.php:6534
+#: inc/czr-front-ccat.php:6535
 msgid "at dimensions"
 msgstr "στις διαστάσεις"
 
 #: core/front/models/content/post-metas/class-model-post_metas.php:97
-#: inc/czr-front-ccat.php:6534
+#: inc/czr-front-ccat.php:6535
 msgid "Link to full-size image"
 msgstr "Σύνδεσμος προς πλήρες μέγεθος εικόνας"
 
 #: core/front/models/content/post-metas/class-model-post_metas.php:99
-#: inc/czr-front-ccat.php:6535 inc/czr-front-ccat.php:6935
+#: inc/czr-front-ccat.php:6536 inc/czr-front-ccat.php:6937
 msgid "in"
 msgstr "στο"
 
 #: core/front/models/content/post-metas/class-model-post_metas.php:99
-#: inc/czr-front-ccat.php:6535
+#: inc/czr-front-ccat.php:6536
 msgid "Return to "
 msgstr "Επιστροφή στην"
 
-#: core/front/models/content/post-metas/class-model-post_metas.php:147
+#: core/front/models/content/post-metas/class-model-post_metas.php:148
 #, fuzzy
 msgid "Permalink to:&nbsp;"
 msgstr "Μόνιμος σύνδεσμος προς %s"
 
-#: core/front/models/content/post-metas/class-model-post_metas.php:193
-#: inc/czr-front-ccat.php:6865
+#: core/front/models/content/post-metas/class-model-post_metas.php:194
+#: inc/czr-front-ccat.php:6867
 msgid "View all posts by %s"
 msgstr "Δείτε όλα τα άρθρα από %s"
 
-#: core/front/models/content/post-metas/class-model-post_metas.php:245
-#: inc/czr-front-ccat.php:6707
+#: core/front/models/content/post-metas/class-model-post_metas.php:246
+#: inc/czr-front-ccat.php:6708
 msgid "View all posts in %s"
 msgstr "Προβολή όλων των άρθρων στην %s"
 
@@ -5137,7 +5147,7 @@ msgstr ""
 "Customizr."
 
 #: core/front/models/modules/slider/class-model-slider.php:429
-#: inc/czr-front-ccat.php:8686
+#: inc/czr-front-ccat.php:8688
 msgid "Discover how to replace or remove this demo slider."
 msgstr ""
 "Ανακαλύψτε πως να αντικαταστήσετε ή να αφαιρέσετε αυτό το δοκιμαστικό slider."
@@ -5152,7 +5162,7 @@ msgid "Easily create sliders and add them in any posts or pages."
 msgstr ""
 
 #: core/front/models/modules/slider/class-model-slider.php:437
-#: inc/czr-front-ccat.php:8688
+#: inc/czr-front-ccat.php:8690
 msgid "Check the slider doc now &raquo;"
 msgstr "Ελέξτε την τεκμηρίωση του slider τώρα &raquo;"
 
@@ -5167,12 +5177,12 @@ msgid "Customize or remove the posts slider"
 msgstr "Προσαρμόσετε ή αφαιρέσετε %s"
 
 #: core/front/models/modules/slider/class-model-slider_of_posts.php:385
-#: inc/czr-front-ccat.php:9019
+#: inc/czr-front-ccat.php:9021
 msgid "Protected: %s"
 msgstr "Πρoστατευμένο: %s"
 
 #: core/front/models/modules/slider/class-model-slider_of_posts.php:408
-#: inc/czr-front-ccat.php:9044
+#: inc/czr-front-ccat.php:9046
 msgid "There is no excerpt because this is a protected post."
 msgstr "Δεν υπάρχει απόσπασμα διότι το άρθρο είναι προστατευμένο."
 
@@ -5493,101 +5503,101 @@ msgstr ""
 "Αυτή η εγγραφή δημοσιεύτηκε στις %1$s<span class=\"by-author\"> από %2$s</"
 "span>. "
 
-#: inc/czr-front-ccat.php:6597
+#: inc/czr-front-ccat.php:6598
 msgid "This entry was posted in %1$s and tagged %2$s"
 msgstr "Αυτή η εγγραφή δημοσιεύτηκε στις %1$s και επισημάνθημε με ετικέτα %2$s"
 
-#: inc/czr-front-ccat.php:6599
+#: inc/czr-front-ccat.php:6600
 msgid "This entry was posted in %1$s"
 msgstr "Αυτή η εγγραφή δημοσιεύτηκε στο %1$s"
 
-#: inc/czr-front-ccat.php:6601
+#: inc/czr-front-ccat.php:6602
 msgid "This entry was tagged %2$s"
 msgstr "Αυτή η εγγραφή επισημένθηκε με ετικέτα %2$s"
 
-#: inc/czr-front-ccat.php:6610
+#: inc/czr-front-ccat.php:6611
 msgid "This entry was posted on %1$s"
 msgstr "Αυτή η εγγραφή δημοσιεύτηκε στις %1$s"
 
-#: inc/czr-front-ccat.php:6612
+#: inc/czr-front-ccat.php:6613
 msgid "on %1$s"
 msgstr "στις %1$s"
 
-#: inc/czr-front-ccat.php:6614
+#: inc/czr-front-ccat.php:6615
 msgid "and posted on %1$s"
 msgstr "και δημοσιεύτηκε στις %1$s"
 
-#: inc/czr-front-ccat.php:6626
+#: inc/czr-front-ccat.php:6627
 msgid "This entry was posted"
 msgstr "Αυτή η εγγραφή δημοσιεύτηκε"
 
-#: inc/czr-front-ccat.php:6626 inc/czr-front-ccat.php:6628
+#: inc/czr-front-ccat.php:6627 inc/czr-front-ccat.php:6629
 msgid "by %1$s"
 msgstr "από %1$s"
 
-#: inc/czr-front-ccat.php:6642
+#: inc/czr-front-ccat.php:6643
 msgid "(updated today)"
 msgstr "(ενημερωμένο σήμερα)"
 
-#: inc/czr-front-ccat.php:6642
+#: inc/czr-front-ccat.php:6643
 msgid "(updated %s days ago)"
 msgstr "(ενημερωμένο εδώ και %s μέρες)"
 
-#: inc/czr-front-ccat.php:6643
+#: inc/czr-front-ccat.php:6644
 msgid "(updated 1 day ago)"
 msgstr "(ενημερωμένο εδώ και 1 μέρα)"
 
-#: inc/czr-front-ccat.php:6646
+#: inc/czr-front-ccat.php:6647
 msgid "(updated on %1$s)"
 msgstr "(ενημερωμένο στις %1$s) "
 
-#: inc/czr-front-ccat.php:6886
+#: inc/czr-front-ccat.php:6888
 msgid "Open"
 msgstr "Άνοιγμα"
 
-#: inc/czr-front-ccat.php:6936
+#: inc/czr-front-ccat.php:6938
 msgid "tagged"
 msgstr "επισημασμένο με ετικέτα"
 
-#: inc/czr-front-ccat.php:7064 inc/czr-front-ccat.php:7119
+#: inc/czr-front-ccat.php:7066 inc/czr-front-ccat.php:7121
 #: templates/parts/content/singular/navigation/singular_posts_navigation.php:35
 msgid "Post navigation"
 msgstr "Πλοήγηση δημοσιεύσεων"
 
-#: inc/czr-front-ccat.php:7132
+#: inc/czr-front-ccat.php:7134
 msgid "<span class=\"meta-nav\">&larr;</span> Older posts"
 msgstr "<span class=\"meta-nav\">&larr;</span> Προηγούμενα άρθρα"
 
-#: inc/czr-front-ccat.php:7152
+#: inc/czr-front-ccat.php:7154
 msgid "Newer posts <span class=\"meta-nav\">&rarr;</span>"
 msgstr "Επόμενα άρθρα <span class=\"meta-nav\">&rarr;</span>"
 
-#: inc/czr-front-ccat.php:8581
+#: inc/czr-front-ccat.php:8583
 msgid "Customize or remove %s"
 msgstr "Προσαρμόσετε ή αφαιρέσετε %s"
 
-#: inc/czr-front-ccat.php:8582
+#: inc/czr-front-ccat.php:8584
 msgid "the posts slider"
 msgstr "slider άρθρων"
 
-#: inc/czr-front-ccat.php:8582
+#: inc/czr-front-ccat.php:8584
 msgid "this slider"
 msgstr "αυτό το slider"
 
-#: inc/czr-front-ccat.php:8682
+#: inc/czr-front-ccat.php:8684
 msgid "Discover the Customizr WordPress theme &raquo;"
 msgstr "Ανακαλύψτε το WordPress  θέμα Customizr &raquo;"
 
-#: inc/czr-front-ccat.php:9263 templates/parts/footer/footer_credits.php:13
+#: inc/czr-front-ccat.php:9265 templates/parts/footer/footer_credits.php:13
 msgid "Designed with the %s"
 msgstr ""
 
-#: inc/czr-front-ccat.php:9263 templates/parts/footer/footer_credits.php:13
+#: inc/czr-front-ccat.php:9265 templates/parts/footer/footer_credits.php:13
 #, fuzzy
 msgid "Customizr theme"
 msgstr "Customizr"
 
-#: inc/czr-front-ccat.php:9288
+#: inc/czr-front-ccat.php:9290
 msgid "Back to top"
 msgstr "Πίσω στην κορυφή"
 

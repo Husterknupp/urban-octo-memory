@@ -13,9 +13,8 @@ class TC_theme_check_updates {
     protected $strings = null;
     protected $config;
 
-    function __construct ( $args ) {
+    function __construct( $args ) {
         self::$instance =& $this;
-
         //extract properties from args
         list( $this -> theme_name , $this -> theme_prefix , $this -> theme_version ) = $args;
 
@@ -39,10 +38,13 @@ class TC_theme_check_updates {
       // setup the updater
       $edd_updater = new TC_theme_updater( array(
               'remote_api_url'  => TC_THEME_URL,  // Our store URL that is running EDD
+              'theme_slug'     => get_template(),
               'version'   => $this -> theme_version,               // current version number
               'license'   => $_license_key,            // license key (used get_option above to retrieve from DB)
               'item_name' => $this -> theme_name,     // name of this plugin
-              'author'    => 'Press Customizr'  // author of this plugin
+              'author'    => 'Press Customizr', // author of this plugin
+              'beta'      => false, //added april 2020, not used
+              'item_id'   => '' //added april 2020, not used
           )
       );
     }
