@@ -12,7 +12,7 @@
         <div class="colophon__row row flex-row justify-content-between">
             <div class="footer__credits col-12 col-sm-auto">
                 <a href="?page_id=185">Datenschutz </a>- <a href="?page_id=74">Impressum</a> - <a
-                        href="?p=interner-bereich">Veranstaltungs-Plan (jetzt im internen Bereich)</a>
+                        href="interner-bereich">Veranstaltungs-Plan (jetzt im internen Bereich)</a>
             </div>
             <div class="col-12 col-sm-auto">
 				<?php if ( czr_fn_is_registered_or_possible( 'footer_credits' ) )
