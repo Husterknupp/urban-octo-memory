@@ -31,7 +31,7 @@
     /* why is there a desktop, but no mobile customizer option? */
     /*.nav__search, .hamburger-toggler__container { !* gets overwritten by .utils classes *!*/
     .mobile-utils__wrapper.nav__utils {
-        display: none;
+        /*display: none;*/
     }
 	
 	/* show hide back to top / scroll to top button on mobile */
