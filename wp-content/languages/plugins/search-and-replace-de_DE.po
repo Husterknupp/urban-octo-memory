@@ -2,12 +2,12 @@
 # This file is distributed under the same license as the Plugins - Search &amp; Replace - Stable (latest release) package.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2019-08-15 07:27:57+0000\n"
+"PO-Revision-Date: 2020-09-04 07:36:47+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: GlotPress/2.4.0-alpha\n"
+"X-Generator: GlotPress/3.0.0-alpha.2\n"
 "Language: de\n"
 "Project-Id-Version: Plugins - Search &amp; Replace - Stable (latest release)\n"
 
@@ -29,7 +29,7 @@ msgstr "Unterstrich-Suffix \"_\" kann weggelassen werden."
 
 #: inc/templates/replace-domain.php:83
 msgid "E.g new_"
-msgstr "Z. B. neu_"
+msgstr "Z.&nbsp;B. neu_"
 
 #: inc/templates/replace-domain.php:13
 msgid "If you want to migrate your site to another domain, enter the new URL in the field \"Replace with\" and click \"Do Replace Domain/Url\". You can then download a database backup containing the new URL."
@@ -352,6 +352,13 @@ msgstr "Tabelle:"
 #: inc/FileDownloader.php:127
 msgid "View details"
 msgstr "Details anzeigen"
+
+#. translators: %s is the count of selected cells after search in tables.
+#: inc/FileDownloader.php:237
+msgid "%s cell needs to be updated."
+msgid_plural "%s cells need to be updated."
+msgstr[0] "%s Zelle muss aktualisiert werden."
+msgstr[1] "%s Zellen müssen aktualisiert werden."
 
 #. translators: %s is the count of tables.
 #: inc/FileDownloader.php:226
