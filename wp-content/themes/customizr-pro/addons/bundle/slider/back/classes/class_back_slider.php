@@ -380,7 +380,7 @@ if ( ! class_exists( 'TC_back_pro_slider' ) ) :
       //czrSelect2 stylesheet
       wp_enqueue_style(
         'tc-czrSelect2-css',
-        sprintf( CZR_BASE_URL . '/core/czr-base-fmk/assets/css/lib/czrSelect2%1$s.css', $_min_version ),
+        sprintf( CZR_BASE_URL . 'core/czr-base-fmk/assets/css/lib/czrSelect2%1$s.css', $_min_version ),
         CUSTOMIZR_VER,
         array(),
         $media = 'all'
@@ -389,7 +389,7 @@ if ( ! class_exists( 'TC_back_pro_slider' ) ) :
       wp_enqueue_script(
         'tc-czrSelect2-js',
         //dev / debug mode mode?
-        sprintf( CZR_BASE_URL . CZR_ASSETS_PREFIX . '/back/js/lib/czrSelect2%1$s.js', $_min_version ),
+        TC_PRO_BUNDLE_BASE_URL . '/slider/back/assets/czrSelect2.min.js',
         $deps = array('jquery'),
         CUSTOMIZR_VER,
         $in_footer = true

@@ -151,7 +151,7 @@ jQuery(function ($) {
     // }//end of fn
 
     // detect if the browser is IE and call our function for IE versions less than 11
-    if ( $.browser.msie && ( '8.0' === $.browser.version || '9.0' === $.browser.version || '10.0' === $.browser.version ) ) {
+    if ( $.browser && $.browser.msie && ( '8.0' === $.browser.version || '9.0' === $.browser.version || '10.0' === $.browser.version ) ) {
       $('body').addClass('ie');
       //thumbsWithLinks();
     }

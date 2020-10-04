@@ -1,4 +1,4 @@
-# Customizr Pro v2.2.7
+# Customizr Pro v2.3.3
 ![Customizr - Pro](/screenshot.png)
 
 > The pro version of the popular Customizr WordPress theme.
@@ -8,12 +8,35 @@
 Customizr Pro is distributed under the terms of the [GNU GPL v2.0 or later](http://www.gnu.org/licenses/gpl-3.0.en.html)
 
 ## Demo, Documentation, FAQs and Support
-* DEMO : http://demo.presscustomizr.com/
-* DOCUMENTATION : http://docs.presscustomizr.com/article/182-getting-started-with-the-customizr-pro-wordpress-theme
-* FAQs : http://docs.presscustomizr.com/customizr-pro/faq
-* SUPPORT : http://presscustomizr.com/support/
+* DEMO : https://demo.presscustomizr.com/
+* DOCUMENTATION : https://docs.presscustomizr.com/article/182-getting-started-with-the-customizr-pro-wordpress-theme
+* FAQs : https://docs.presscustomizr.com/customizr-pro/faq
+* SUPPORT : https://presscustomizr.com/support/
 
 ## Changelog
+= 2.3.3 September 18, 2020 =
+* fixed : [admin] security issue
+
+= 2.3.2 September 9, 2020
+* fixed : Color picker CSS broken https://github.com/presscustomizr/hueman-pro-addons/issues/214
+* improved : Successfully tested with WP 5.5.1.
+
+= 2.3.1 August 28, 2020 =
+* fixed : [search icon] when displayed on the left in the main header, search field is partially hidden when revealed
+* fixed : [script][admin] loading failed for the czrSelect2.min.js
+
+= 2.3.0 July 21st, 2020 =
+* Customizr has been successfully tested with WP 5.5
+* fixed : [compatibility with WP 5.5] adapt customizer color-picker script with latest version of WP 5.5
+
+= 2.2.9 July 16th 2020 =
+* fixed : [Admin] possible PHP error in admin
+
+= 2.2.8 July 16th 2020 =
+* fixed : [Theme check] adapt to latest additions by theme review team
+* fixed : [magnific popup] should not be loaded when ligthbox option is unchecked
+* improved : [performances] preload Google Fonts by default
+
 = 2.2.7 May 30th 2020 =
 * added : [search form] on desktop new simple default mode for search form in header. Full screen search is optional in Customizing ▸ Header ▸ Design settings for desktops and laptops ▸ Search icon
 * added : [post metas] add a way to hook before and after

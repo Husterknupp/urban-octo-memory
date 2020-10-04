@@ -2,9 +2,9 @@
 # This file is distributed under the same license as the Themes - Customizr-Pro package.
 msgid ""
 msgstr ""
-"Project-Id-Version: * Customizr-Pro v2.2.7\n"
+"Project-Id-Version: * Customizr-Pro v2.3.3\n"
 "Report-Msgid-Bugs-To: https://presscustomizr.com/contact/\n"
-"POT-Creation-Date: 2020-05-30 18:14:28+00:00\n"
+"POT-Creation-Date: 2020-09-18 18:07:18+00:00\n"
 "PO-Revision-Date: 2017-03-31 16:03:30+0000\n"
 "Language: ro\n"
 "MIME-Version: 1.0\n"
@@ -184,7 +184,7 @@ msgid "OK got it. Remind me later."
 msgstr ""
 
 #: addons/activation-key/activation/class_activation_key.php:200
-#: core/czr-admin-ccat.php:403
+#: core/czr-admin-ccat.php:453
 msgid "close"
 msgstr "închide"
 
@@ -261,17 +261,17 @@ msgid "Your activation key is not active for this URL."
 msgstr ""
 
 #: addons/activation-key/activation/class_activation_key.php:496
-#: addons/activation-key/activation/class_activation_key.php:795
+#: addons/activation-key/activation/class_activation_key.php:794
 msgid "This appears to be an invalid activation key for %s."
 msgstr ""
 
 #: addons/activation-key/activation/class_activation_key.php:496
-#: addons/activation-key/activation/class_activation_key.php:795
+#: addons/activation-key/activation/class_activation_key.php:794
 msgid "your product"
 msgstr ""
 
 #: addons/activation-key/activation/class_activation_key.php:501
-#: addons/activation-key/activation/class_activation_key.php:750
+#: addons/activation-key/activation/class_activation_key.php:749
 msgid "Your key has reached its activation limit."
 msgstr ""
 
@@ -304,33 +304,33 @@ msgstr ""
 msgid "An error occurred, please try again."
 msgstr "A apărut o eroare: legături sociale deformate"
 
-#: addons/activation-key/activation/class_activation_key.php:750
+#: addons/activation-key/activation/class_activation_key.php:749
 msgid "Upgrade to unlock new activations."
 msgstr ""
 
-#: addons/activation-key/activation/class_activation_key.php:761
+#: addons/activation-key/activation/class_activation_key.php:760
 msgid ""
 "Key is not activated for this website yet. Enter your key and press "
 "\"Activate Key\"."
 msgstr ""
 
-#: addons/activation-key/activation/class_activation_key.php:763
+#: addons/activation-key/activation/class_activation_key.php:762
 msgid "Key is activated for this website."
 msgstr ""
 
-#: addons/activation-key/activation/class_activation_key.php:796
+#: addons/activation-key/activation/class_activation_key.php:795
 msgid ""
 "This can for example happen if you try to use a Bundle key instead of the "
 "product key."
 msgstr ""
 
-#: addons/activation-key/activation/class_activation_key.php:797
+#: addons/activation-key/activation/class_activation_key.php:796
 msgid ""
 "<a href=\"https://docs.presscustomizr.com/article/11-how-to-activate-your-"
 "product-key\" target=\"_blank\">%1$s</a>"
 msgstr ""
 
-#: addons/activation-key/activation/class_activation_key.php:797
+#: addons/activation-key/activation/class_activation_key.php:796
 msgid "How to activate your product key ?"
 msgstr ""
 
@@ -513,7 +513,7 @@ msgstr "Legătură socială"
 
 #: addons/bundle/footer-customizer/footer-customizer.php:235
 #: addons/bundle/footer-customizer/footer-customizer.php:290
-#: core/czr-admin-ccat.php:2237
+#: core/czr-admin-ccat.php:2221
 msgid "Open link in a new page/tab"
 msgstr "Deschide legătura într-o nouă filă/pagină"
 
@@ -1023,7 +1023,7 @@ msgid "Link post with"
 msgstr "Legătură articol cu"
 
 #: addons/bundle/slider/back/classes/class_back_slider.php:316
-#: core/czr-admin-ccat.php:2210
+#: core/czr-admin-ccat.php:2194
 msgid "Button text (80 char. max length)"
 msgstr "Text buton (lungime maximă 80 de caractere)"
 
@@ -1050,14 +1050,14 @@ msgstr "Află mai multe despre categoriile de articole în WordPress"
 
 #: addons/fpu/back/classes/class_back_fpu.php:51
 #: addons/wfc/back/classes/class_admin_font_customizer.php:587
-#: addons/wfc/back/czr-base-fmk/czr-base-fmk.php:248
-#: core/czr-base-fmk/czr-base-fmk.php:248 core/czr-customize-ccat.php:885
+#: addons/wfc/back/czr-base-fmk/czr-base-fmk.php:266
+#: core/czr-base-fmk/czr-base-fmk.php:266 core/czr-customize-ccat.php:885
 msgid "Settings"
 msgstr "Setări"
 
 #: addons/fpu/back/classes/class_back_fpu.php:52
 #: addons/wfc/back/classes/class_admin_font_customizer.php:588
-#: core/czr-admin-ccat.php:719
+#: core/czr-admin-ccat.php:702
 msgid "System Informations"
 msgstr "Informații sistem"
 
@@ -1121,7 +1121,7 @@ msgstr "Ecran Personalizator"
 #: addons/fpu/front/classes/class_front_fpu.php:415
 #: addons/fpu/front/classes/class_front_fpu.php:658
 #: core/core-settings-map.php:1051 core/core-settings-map.php:1056
-#: core/core-settings-map.php:2388 core/czr-admin-ccat.php:1459
+#: core/core-settings-map.php:2388 core/czr-admin-ccat.php:1440
 msgid "here"
 msgstr "aici"
 
@@ -1144,10 +1144,10 @@ msgstr ""
 
 #: addons/fpu/front/classes/class_front_fpu.php:532
 #: addons/fpu/front/classes/class_front_fpu.php:778
-#: addons/wfc/back/czr-base-fmk/czr-base-fmk.php:242
-#: addons/wfc/back/czr-base-fmk/czr-base-fmk.php:543
-#: core/czr-admin-ccat.php:2448 core/czr-base-fmk/czr-base-fmk.php:242
-#: core/czr-base-fmk/czr-base-fmk.php:543 core/czr-customize-ccat.php:856
+#: addons/wfc/back/czr-base-fmk/czr-base-fmk.php:260
+#: addons/wfc/back/czr-base-fmk/czr-base-fmk.php:561
+#: core/czr-admin-ccat.php:2432 core/czr-base-fmk/czr-base-fmk.php:260
+#: core/czr-base-fmk/czr-base-fmk.php:561 core/czr-customize-ccat.php:856
 #: core/czr-customize-ccat.php:866
 #: core/front/models/modules/common/class-model-breadcrumb.php:624
 #: core/front/models/modules/common/class-model-breadcrumb.php:657
@@ -1698,16 +1698,16 @@ msgid "Are you sure you want to reset all your font settings to default?"
 msgstr ""
 
 #: addons/wfc/back/classes/class_admin_font_customizer.php:516
-#: addons/wfc/back/czr-base-fmk/czr-base-fmk.php:552
+#: addons/wfc/back/czr-base-fmk/czr-base-fmk.php:570
 #: core/core-settings-map.php:1248 core/core-settings-map.php:1260
-#: core/czr-base-fmk/czr-base-fmk.php:552
+#: core/czr-base-fmk/czr-base-fmk.php:570
 msgid "Yes"
 msgstr "Da"
 
 #: addons/wfc/back/classes/class_admin_font_customizer.php:517
-#: addons/wfc/back/czr-base-fmk/czr-base-fmk.php:552
+#: addons/wfc/back/czr-base-fmk/czr-base-fmk.php:570
 #: core/core-settings-map.php:1249 core/core-settings-map.php:1261
-#: core/czr-base-fmk/czr-base-fmk.php:552 inc/czr-front-ccat.php:4084
+#: core/czr-base-fmk/czr-base-fmk.php:570 inc/czr-front-ccat.php:4084
 msgid "No"
 msgstr "Nu"
 
@@ -1776,122 +1776,151 @@ msgid ""
 "theme) different than Customizr with a version less than v3.1.0."
 msgstr ""
 
-#: addons/wfc/back/czr-base-fmk/czr-base-fmk.php:243
-#: core/czr-base-fmk/czr-base-fmk.php:243 core/czr-customize-ccat.php:857
+#: addons/wfc/back/czr-base-fmk/czr-base-fmk.php:209
+#: core/czr-base-fmk/czr-base-fmk.php:209
+msgid "Clear"
+msgstr ""
+
+#: addons/wfc/back/czr-base-fmk/czr-base-fmk.php:210
+#: core/czr-base-fmk/czr-base-fmk.php:210
+msgid "Clear color"
+msgstr ""
+
+#: addons/wfc/back/czr-base-fmk/czr-base-fmk.php:211
+#: addons/wfc/back/czr-base-fmk/czr-base-fmk.php:273
+#: core/czr-base-fmk/czr-base-fmk.php:211
+#: core/czr-base-fmk/czr-base-fmk.php:273
+msgid "Default"
+msgstr "Implicit"
+
+#: addons/wfc/back/czr-base-fmk/czr-base-fmk.php:212
+#: core/czr-base-fmk/czr-base-fmk.php:212
+#, fuzzy
+msgid "Select default color"
+msgstr "Selectează un icon"
+
+#: addons/wfc/back/czr-base-fmk/czr-base-fmk.php:213
+#: core/czr-base-fmk/czr-base-fmk.php:213
+#, fuzzy
+msgid "Select Color"
+msgstr "Selectează un icon social"
+
+#: addons/wfc/back/czr-base-fmk/czr-base-fmk.php:214
+#: core/czr-base-fmk/czr-base-fmk.php:214
+msgid "Color value"
+msgstr ""
+
+#: addons/wfc/back/czr-base-fmk/czr-base-fmk.php:261
+#: core/czr-base-fmk/czr-base-fmk.php:261 core/czr-customize-ccat.php:857
 #: inc/czr-front-ccat.php:776 inc/czr-front-ccat.php:783
 msgid "Close"
 msgstr "Închide"
 
-#: addons/wfc/back/czr-base-fmk/czr-base-fmk.php:244
-#: core/czr-base-fmk/czr-base-fmk.php:244 core/czr-customize-ccat.php:858
+#: addons/wfc/back/czr-base-fmk/czr-base-fmk.php:262
+#: core/czr-base-fmk/czr-base-fmk.php:262 core/czr-customize-ccat.php:858
 msgid "Not set"
 msgstr "Nesetat"
 
-#: addons/wfc/back/czr-base-fmk/czr-base-fmk.php:245
-#: core/czr-base-fmk/czr-base-fmk.php:245 core/czr-customize-ccat.php:862
+#: addons/wfc/back/czr-base-fmk/czr-base-fmk.php:263
+#: core/czr-base-fmk/czr-base-fmk.php:263 core/czr-customize-ccat.php:862
 #: core/czr-modules/social-links/index.php:78
 #: core/czr-modules/social-links/social_links_module.php:80
 msgid "Done !"
 msgstr "Gata!"
 
-#: addons/wfc/back/czr-base-fmk/czr-base-fmk.php:247
-#: core/czr-base-fmk/czr-base-fmk.php:247 core/czr-customize-ccat.php:864
+#: addons/wfc/back/czr-base-fmk/czr-base-fmk.php:265
+#: core/czr-base-fmk/czr-base-fmk.php:265 core/czr-customize-ccat.php:864
 #: core/czr-customize-ccat.php:884
 msgid "Learn more about this in the documentation"
 msgstr "Află mai mult despre acest lucru din documentație"
 
-#: addons/wfc/back/czr-base-fmk/czr-base-fmk.php:249
-#: core/czr-base-fmk/czr-base-fmk.php:249 core/czr-customize-ccat.php:886
+#: addons/wfc/back/czr-base-fmk/czr-base-fmk.php:267
+#: core/czr-base-fmk/czr-base-fmk.php:267 core/czr-customize-ccat.php:886
 msgid "Options for"
 msgstr "Opțiuni pentru"
 
-#: addons/wfc/back/czr-base-fmk/czr-base-fmk.php:252
-#: addons/wfc/back/czr-base-fmk/czr-base-fmk.php:257
-#: core/czr-base-fmk/czr-base-fmk.php:252
-#: core/czr-base-fmk/czr-base-fmk.php:257
+#: addons/wfc/back/czr-base-fmk/czr-base-fmk.php:270
+#: addons/wfc/back/czr-base-fmk/czr-base-fmk.php:275
+#: core/czr-base-fmk/czr-base-fmk.php:270
+#: core/czr-base-fmk/czr-base-fmk.php:275
 msgid "Select Image"
 msgstr "Selectează imagine"
 
-#: addons/wfc/back/czr-base-fmk/czr-base-fmk.php:253
-#: core/czr-base-fmk/czr-base-fmk.php:253
+#: addons/wfc/back/czr-base-fmk/czr-base-fmk.php:271
+#: core/czr-base-fmk/czr-base-fmk.php:271
 msgid "Change Image"
 msgstr "Schimbă imaginea"
 
-#: addons/wfc/back/czr-base-fmk/czr-base-fmk.php:254
-#: addons/wfc/back/czr-base-fmk/czr-base-fmk.php:543
-#: core/czr-base-fmk/czr-base-fmk.php:254
-#: core/czr-base-fmk/czr-base-fmk.php:543 core/czr-customize-ccat.php:1479
+#: addons/wfc/back/czr-base-fmk/czr-base-fmk.php:272
+#: addons/wfc/back/czr-base-fmk/czr-base-fmk.php:561
+#: core/czr-base-fmk/czr-base-fmk.php:272
+#: core/czr-base-fmk/czr-base-fmk.php:561 core/czr-customize-ccat.php:1479
 msgid "Remove"
 msgstr "Înlăturare"
 
-#: addons/wfc/back/czr-base-fmk/czr-base-fmk.php:255
-#: core/czr-base-fmk/czr-base-fmk.php:255
-msgid "Default"
-msgstr "Implicit"
-
-#: addons/wfc/back/czr-base-fmk/czr-base-fmk.php:256
-#: core/czr-base-fmk/czr-base-fmk.php:256
+#: addons/wfc/back/czr-base-fmk/czr-base-fmk.php:274
+#: core/czr-base-fmk/czr-base-fmk.php:274
 msgid "No image selected"
 msgstr "Nicio imagine selectată"
 
-#: addons/wfc/back/czr-base-fmk/czr-base-fmk.php:258
-#: core/czr-base-fmk/czr-base-fmk.php:258
+#: addons/wfc/back/czr-base-fmk/czr-base-fmk.php:276
+#: core/czr-base-fmk/czr-base-fmk.php:276
 msgid "Choose Image"
 msgstr "Alege imagine"
 
-#: addons/wfc/back/czr-base-fmk/czr-base-fmk.php:260
-#: core/czr-base-fmk/czr-base-fmk.php:260
+#: addons/wfc/back/czr-base-fmk/czr-base-fmk.php:278
+#: core/czr-base-fmk/czr-base-fmk.php:278
 #, fuzzy
 msgid "Customizing"
 msgstr "Customizr"
 
-#: addons/wfc/back/czr-base-fmk/czr-base-fmk.php:453
-#: core/czr-base-fmk/czr-base-fmk.php:453
+#: addons/wfc/back/czr-base-fmk/czr-base-fmk.php:471
+#: core/czr-base-fmk/czr-base-fmk.php:471
 msgid "ac_set_ajax_czr_tmpl => Security check failed."
 msgstr ""
 
-#: addons/wfc/back/czr-base-fmk/czr-base-fmk.php:525
-#: core/czr-base-fmk/czr-base-fmk.php:525
+#: addons/wfc/back/czr-base-fmk/czr-base-fmk.php:543
+#: core/czr-base-fmk/czr-base-fmk.php:543
 msgid "Add New"
 msgstr "Adaugă nou"
 
-#: addons/wfc/back/czr-base-fmk/czr-base-fmk.php:530
-#: core/czr-base-fmk/czr-base-fmk.php:530
+#: addons/wfc/back/czr-base-fmk/czr-base-fmk.php:548
+#: core/czr-base-fmk/czr-base-fmk.php:548
 msgid "Cancel"
 msgstr "Anulează"
 
-#: addons/wfc/back/czr-base-fmk/czr-base-fmk.php:530
-#: core/czr-base-fmk/czr-base-fmk.php:530
+#: addons/wfc/back/czr-base-fmk/czr-base-fmk.php:548
+#: core/czr-base-fmk/czr-base-fmk.php:548
 msgid "Add it"
 msgstr "Adaugă-l"
 
-#: addons/wfc/back/czr-base-fmk/czr-base-fmk.php:551
-#: core/czr-base-fmk/czr-base-fmk.php:551
+#: addons/wfc/back/czr-base-fmk/czr-base-fmk.php:569
+#: core/czr-base-fmk/czr-base-fmk.php:569
 msgid "Are you sure you want to remove : <strong>{{ data.title }} ?</strong>"
 msgstr "Sigur vrei să înlături: <strong>{{ data.title }} ?</strong>"
 
-#: addons/wfc/back/czr-base-fmk/czr-base-fmk.php:1667
-#: core/czr-base-fmk/czr-base-fmk.php:1667
+#: addons/wfc/back/czr-base-fmk/czr-base-fmk.php:1685
+#: core/czr-base-fmk/czr-base-fmk.php:1685
 msgid "Set a custom url"
 msgstr ""
 
-#: addons/wfc/back/czr-base-fmk/czr-base-fmk.php:1701
-#: addons/wfc/back/czr-base-fmk/czr-base-fmk.php:1901
-#: core/czr-base-fmk/czr-base-fmk.php:1701
-#: core/czr-base-fmk/czr-base-fmk.php:1901
+#: addons/wfc/back/czr-base-fmk/czr-base-fmk.php:1719
+#: addons/wfc/back/czr-base-fmk/czr-base-fmk.php:1919
+#: core/czr-base-fmk/czr-base-fmk.php:1719
+#: core/czr-base-fmk/czr-base-fmk.php:1919
 msgid "ajax_load_available_items => Security check failed."
 msgstr ""
 
 #. translators: %d: ID of a post
-#: addons/wfc/back/czr-base-fmk/czr-base-fmk.php:1822
-#: addons/wfc/back/czr-base-fmk/czr-base-fmk.php:2031
-#: core/czr-base-fmk/czr-base-fmk.php:1822
-#: core/czr-base-fmk/czr-base-fmk.php:2031
+#: addons/wfc/back/czr-base-fmk/czr-base-fmk.php:1840
+#: addons/wfc/back/czr-base-fmk/czr-base-fmk.php:2049
+#: core/czr-base-fmk/czr-base-fmk.php:1840
+#: core/czr-base-fmk/czr-base-fmk.php:2049
 msgid "#%d (no title)"
 msgstr ""
 
-#: addons/wfc/back/czr-base-fmk/czr-base-fmk.php:1965
-#: core/czr-base-fmk/czr-base-fmk.php:1965
+#: addons/wfc/back/czr-base-fmk/czr-base-fmk.php:1983
+#: core/czr-base-fmk/czr-base-fmk.php:1983
 msgid "No results found."
 msgstr ""
 
@@ -2408,56 +2437,70 @@ msgstr ""
 msgid "a short guide here."
 msgstr ""
 
-#: core/class-plugin-rec.php:22
+#: core/class-plugin-rec.php:27
+msgid "Activate Nimble Builder Now"
+msgstr ""
+
+#: core/class-plugin-rec.php:33
+msgid "Install Nimble Builder Now"
+msgstr ""
+
+#: core/class-plugin-rec.php:46
 #, fuzzy
 msgid "Customizr theme recommends %1$s."
 msgstr "Documentația temei Customizr"
 
-#: core/class-plugin-rec.php:25
+#: core/class-plugin-rec.php:49
 msgid "Nimble Page Builder"
 msgstr ""
 
-#: core/class-plugin-rec.php:30
+#: core/class-plugin-rec.php:54
 msgid ""
 "Developers of the Customizr theme have created Nimble Builder, a free, "
 "powerful yet easy-to-use page builder already active on 50K+ WordPress "
 "websites."
 msgstr ""
 
-#: core/class-plugin-rec.php:31
+#: core/class-plugin-rec.php:55
 msgid ""
 "It allows you to drag and drop mobile-ready sections on <i>really</i> any "
 "page of your site, including home, posts, pages, products, archives, 404, "
 "search pages, ..."
 msgstr ""
 
-#: core/class-plugin-rec.php:33
+#: core/class-plugin-rec.php:57
 msgid ""
 "You can insert simple text zones, but also create %1$s, insert post grids, "
 "column structures, buttons, widget zones, maps, icons, and much more, or use "
 "pre-designed sections with professional %2$s."
 msgstr ""
 
-#: core/class-plugin-rec.php:34
+#: core/class-plugin-rec.php:58
 msgid "video backgrounds"
 msgstr ""
 
-#: core/class-plugin-rec.php:35
+#: core/class-plugin-rec.php:59
 msgid "parallax effect"
 msgstr ""
 
-#: core/class-plugin-rec.php:37
+#: core/class-plugin-rec.php:61
 msgid ""
 "The plugin is lightweight and has been designed to integrate seamlessly with "
 "Customizr and any WordPress theme."
 msgstr ""
 
-#: core/class-plugin-rec.php:44
-msgid "Activate Nimble Builder Now"
+#: core/class-plugin-rec.php:90
+msgid ""
+"Customizr theme recommends the simple and smart %1$s companion ( free 😍 ) to "
+"help you build pages %2$s."
 msgstr ""
 
-#: core/class-plugin-rec.php:50
-msgid "Install Nimble Builder Now"
+#: core/class-plugin-rec.php:93
+msgid "Nimble Builder"
+msgstr ""
+
+#: core/class-plugin-rec.php:96
+msgid "like this"
 msgstr ""
 
 #: core/core-functions.php:1505
@@ -2568,7 +2611,7 @@ msgstr ""
 "element de text de pe situl tău web, atunci când nu este aplicată deja o "
 "mărime de font."
 
-#: core/core-settings-map.php:329 core/init-base.php:1136
+#: core/core-settings-map.php:329 core/init-base.php:1113
 msgid "Create and organize your social links"
 msgstr "Creează-ți și organizează-ți legăturile sociale"
 
@@ -2951,7 +2994,7 @@ msgstr "Notă: eticheta este ascunsă pe dispozitivele mobile."
 msgid "Specific Mobile Menu"
 msgstr ""
 
-#: core/core-settings-map.php:820 core/init-base.php:414
+#: core/core-settings-map.php:820 core/init-base.php:412
 msgid "Main Menu"
 msgstr "Meniu principal"
 
@@ -3209,7 +3252,7 @@ msgstr "Îmtârzierea dintre diapozitive"
 msgid "in ms : 1000ms = 1s"
 msgstr "în milisecunde: 1000ms = 1s"
 
-#: core/core-settings-map.php:1244 core/czr-admin-ccat.php:1650
+#: core/core-settings-map.php:1244 core/czr-admin-ccat.php:1631
 msgid "Apply a dark overlay on your slider's images"
 msgstr ""
 
@@ -3851,7 +3894,8 @@ msgid "Back to top arrow position"
 msgstr "Înapoi la poziția săgeată sus"
 
 #: core/core-settings-map.php:2278
-msgid "Add your custom css here and design live! (for advanced users)"
+#, fuzzy
+msgid "Add your custom css here and design live!(for advanced users)"
 msgstr ""
 "Adaugă aici css-ul tău personalizat și modifică designul pe viu! (pentru "
 "utilizatori avansați)"
@@ -4243,7 +4287,7 @@ msgstr "Notă: eticheta este ascunsă pe dispozitivele mobile."
 msgid "Theme style"
 msgstr ""
 
-#: core/core-settings-map.php:2854 core/czr-admin-ccat.php:396
+#: core/core-settings-map.php:2854
 msgid "Upgrade to Customizr Pro"
 msgstr "Avansează la Customizr Pro"
 
@@ -4264,51 +4308,51 @@ msgstr ""
 "Trebuie mai întâi să selectezi o pagină. Lasă acest câmp gol dacă vrei să "
 "folosești rezumatul paginii."
 
-#: core/czr-admin-ccat.php:380
+#: core/czr-admin-ccat.php:433
 #, fuzzy
 msgid "Good, you've recently upgraded to"
 msgstr "Bine, tocmai ai actualizat la "
 
-#: core/czr-admin-ccat.php:382
+#: core/czr-admin-ccat.php:435
 msgid "version"
 msgstr "versiune"
 
-#: core/czr-admin-ccat.php:391
+#: core/czr-admin-ccat.php:444
 msgid "We'd like to introduce the new features we've been working on."
 msgstr "Ne-ar place să-ți prezentăm noile funcționalități la care lucrăm."
 
-#: core/czr-admin-ccat.php:393
+#: core/czr-admin-ccat.php:446
 msgid "Read the latest release notes"
 msgstr "Citește notele despre ultimele versiuni"
 
-#: core/czr-admin-ccat.php:516
+#: core/czr-admin-ccat.php:518
 msgid "About Customizr"
 msgstr "Despre Customizr"
 
-#: core/czr-admin-ccat.php:548
+#: core/czr-admin-ccat.php:550
 #, fuzzy
 msgid "Thank you for using"
 msgstr "Îți mulțumim pentru că folosești %s!"
 
-#: core/czr-admin-ccat.php:566
+#: core/czr-admin-ccat.php:568
 msgid "The best way to start with %s is to read the %s and visit the %s."
 msgstr ""
 "Cel mai bun mod de a începe cu %s este să citești %s și să vizitezi %s."
 
-#: core/czr-admin-ccat.php:568
+#: core/czr-admin-ccat.php:570
 msgid "documentation"
 msgstr "documentație"
 
-#: core/czr-admin-ccat.php:569
+#: core/czr-admin-ccat.php:571
 msgid "demo website"
 msgstr "situl web demo"
 
-#: core/czr-admin-ccat.php:573
+#: core/czr-admin-ccat.php:575
 #, fuzzy
 msgid "Read the changelog"
 msgstr "verifică jurnalul modificărilor"
 
-#: core/czr-admin-ccat.php:586
+#: core/czr-admin-ccat.php:588
 msgid ""
 "You are using a child theme of Customizr %1$s : always check the %2$s after "
 "upgrading to see if a function or a template has been deprecated."
@@ -4317,11 +4361,11 @@ msgstr ""
 "actualizare pentru a vedea dacă vreun șablon sau funcție au fost declarate "
 "învechite."
 
-#: core/czr-admin-ccat.php:605
+#: core/czr-admin-ccat.php:607
 msgid "Happy user of Customizr?"
 msgstr "Ești un utilizator mulțumit de Customizr?"
 
-#: core/czr-admin-ccat.php:606
+#: core/czr-admin-ccat.php:608
 msgid ""
 "If you are happy with the theme, say it on wordpress.org and give Customizr "
 "a nice review! <br />(We are addicted to your feedbacks...)"
@@ -4329,48 +4373,27 @@ msgstr ""
 "Dacă ești mulțumit de temă, spune-o pe wordpress.org și scrie o evaluare "
 "pozitivă despre Customizer! <br />(suntem dependenți de impresiile tale...)"
 
-#: core/czr-admin-ccat.php:611
+#: core/czr-admin-ccat.php:613
 msgid "Follow us"
 msgstr "Urmărește-ne"
 
-#: core/czr-admin-ccat.php:621
-msgid "Go Customizr Pro"
-msgstr "Treci la Customizr Pro"
-
-#: core/czr-admin-ccat.php:628
-msgid "Easily take your web design one step further"
-msgstr "Fă un pas înainte cu designul tău web"
-
-#: core/czr-admin-ccat.php:630
-msgid ""
-"The Customizr Pro WordPress theme allows anyone to create a beautiful, "
-"professional and mobile friendly website in a few minutes. In the Pro "
-"version, you'll get all features included in the free version plus many "
-"conversion oriented ones, to help you attract and retain more visitors on "
-"your websites."
-msgstr ""
-
-#: core/czr-admin-ccat.php:633
-msgid "Discover Customizr Pro"
-msgstr "Descoperă Customizr Pro"
-
-#: core/czr-admin-ccat.php:644
+#: core/czr-admin-ccat.php:627
 msgid "Go to Dashboard &rarr; Home"
 msgstr "Mergi la panoul de control &rarr; ecranul de start"
 
-#: core/czr-admin-ccat.php:644
+#: core/czr-admin-ccat.php:627
 msgid "Go to Dashboard"
 msgstr "Mergi la panoul de control"
 
-#: core/czr-admin-ccat.php:696
+#: core/czr-admin-ccat.php:679
 msgid "Changelog in version %1$s"
 msgstr "Modificări în versiunea %1$s"
 
-#: core/czr-admin-ccat.php:720
+#: core/czr-admin-ccat.php:703
 msgid "Please include the following informations when posting support requests"
 msgstr "Te rog include următoarele informații când faci o cerere de suport"
 
-#: core/czr-admin-ccat.php:721
+#: core/czr-admin-ccat.php:704
 msgid ""
 "To copy the system infos, click below then press Ctrl + C (PC) or Cmd + C "
 "(Mac)."
@@ -4378,153 +4401,153 @@ msgstr ""
 "Pentru a copia informațiile de sistem, dă un clic mai jos și apoi apasă Ctrl "
 "+ C (PC) sau Cmd + C (Mac)."
 
-#: core/czr-admin-ccat.php:879
+#: core/czr-admin-ccat.php:862
 msgid "We found {count} article that may help:"
 msgstr ""
 
-#: core/czr-admin-ccat.php:880
+#: core/czr-admin-ccat.php:863
 msgid "We found {count} articles that may help:"
 msgstr ""
 
-#: core/czr-admin-ccat.php:881
+#: core/czr-admin-ccat.php:864
 msgid "No results found&hellip;"
 msgstr ""
 
-#: core/czr-admin-ccat.php:882
+#: core/czr-admin-ccat.php:865
 msgid "Please enter a search term."
 msgstr ""
 
-#: core/czr-admin-ccat.php:883
+#: core/czr-admin-ccat.php:866
 msgid "Search must be at least {minLength} characters."
 msgstr ""
 
-#: core/czr-admin-ccat.php:884
+#: core/czr-admin-ccat.php:867
 msgid "There was an error fetching search results."
 msgstr ""
 
-#: core/czr-admin-ccat.php:890
+#: core/czr-admin-ccat.php:873
 #, fuzzy
 msgid "Read the full article"
 msgstr "Citește documentația"
 
-#: core/czr-admin-ccat.php:891
+#: core/czr-admin-ccat.php:874
 #, fuzzy
 msgid "read more"
 msgstr "Citește mai mult &raquo;"
 
-#: core/czr-admin-ccat.php:914
+#: core/czr-admin-ccat.php:897
 msgid "Search the knowledge base"
 msgstr ""
 
-#: core/czr-admin-ccat.php:915
+#: core/czr-admin-ccat.php:898
 msgid "In a few keywords, describe the information you are looking for."
 msgstr ""
 
-#: core/czr-admin-ccat.php:918
+#: core/czr-admin-ccat.php:901
 msgid "Ex. Logo upload"
 msgstr ""
 
-#: core/czr-admin-ccat.php:920
+#: core/czr-admin-ccat.php:903
 msgid ""
 "<u>Search tips</u> : If you get too many results, try to narrow down your "
 "search by prefixing it with \"customizr\" for example. If there are no "
 "results, try different keywords and / or spelling variations"
 msgstr ""
 
-#: core/czr-admin-ccat.php:1172
+#: core/czr-admin-ccat.php:1155
 msgid "Layout Options"
 msgstr "Opțiuni aranjament"
 
-#: core/czr-admin-ccat.php:1185 core/czr-admin-ccat.php:2026
+#: core/czr-admin-ccat.php:1168 core/czr-admin-ccat.php:2009
 msgid "Slider Options"
 msgstr "Opțiuni carusel"
 
-#: core/czr-admin-ccat.php:1197
+#: core/czr-admin-ccat.php:1180
 #, fuzzy
 msgid "Format: link"
 msgstr "Nicio legătură"
 
-#: core/czr-admin-ccat.php:1209
+#: core/czr-admin-ccat.php:1192
 msgid "Format: quote"
 msgstr ""
 
-#: core/czr-admin-ccat.php:1221
+#: core/czr-admin-ccat.php:1204
 msgid "Format: video"
 msgstr ""
 
-#: core/czr-admin-ccat.php:1233
+#: core/czr-admin-ccat.php:1216
 msgid "Format: audio"
 msgstr ""
 
-#: core/czr-admin-ccat.php:1264
+#: core/czr-admin-ccat.php:1245
 #, fuzzy
 msgid "Link title"
 msgstr "Destinație legătură"
 
-#: core/czr-admin-ccat.php:1269
+#: core/czr-admin-ccat.php:1250
 #, fuzzy
 msgid "Enter the title"
 msgstr "După titlu"
 
-#: core/czr-admin-ccat.php:1285
+#: core/czr-admin-ccat.php:1266
 #, fuzzy
 msgid "Link URL"
 msgstr "Legătură"
 
-#: core/czr-admin-ccat.php:1290
+#: core/czr-admin-ccat.php:1271
 #, fuzzy
 msgid "Enter the URL"
 msgstr "Introdu un titlu"
 
-#: core/czr-admin-ccat.php:1317
+#: core/czr-admin-ccat.php:1298
 #, fuzzy
 msgid "Quote text"
 msgstr "Text buton"
 
-#: core/czr-admin-ccat.php:1322
+#: core/czr-admin-ccat.php:1303
 #, fuzzy
 msgid "Enter the text"
 msgstr "După titlu"
 
-#: core/czr-admin-ccat.php:1337
+#: core/czr-admin-ccat.php:1318
 #, fuzzy
 msgid "Quote author"
 msgstr "Autor articol"
 
-#: core/czr-admin-ccat.php:1343
+#: core/czr-admin-ccat.php:1324
 #, fuzzy
 msgid "Enter the author"
 msgstr "Afișează autorul"
 
-#: core/czr-admin-ccat.php:1370
+#: core/czr-admin-ccat.php:1351
 msgid "Audio url"
 msgstr ""
 
-#: core/czr-admin-ccat.php:1374
+#: core/czr-admin-ccat.php:1355
 msgid "Enter the audio url"
 msgstr ""
 
-#: core/czr-admin-ccat.php:1404
+#: core/czr-admin-ccat.php:1385
 msgid "Video url"
 msgstr ""
 
-#: core/czr-admin-ccat.php:1408
+#: core/czr-admin-ccat.php:1389
 msgid "Enter the video url"
 msgstr ""
 
-#: core/czr-admin-ccat.php:1454
+#: core/czr-admin-ccat.php:1435
 msgid "Default %1$s layout is set to : %2$s"
 msgstr "Aranjamentul implicit penturu %1$s este setat la : %2$s"
 
-#: core/czr-admin-ccat.php:1454
+#: core/czr-admin-ccat.php:1435
 msgid "pages"
 msgstr "pagini"
 
-#: core/czr-admin-ccat.php:1454
+#: core/czr-admin-ccat.php:1435
 msgid "posts"
 msgstr "articole"
 
-#: core/czr-admin-ccat.php:1457
+#: core/czr-admin-ccat.php:1438
 msgid ""
 "You can define a specific layout for %1$s by using the pre-defined left and "
 "right sidebars. The default layouts can be defined in the WordPress "
@@ -4534,35 +4557,35 @@ msgstr ""
 "predefinite cu bare laterale. Aranjamentele implicite pot fi definite în "
 "ecranul WordPress de Personalizare %2$s.<br />"
 
-#: core/czr-admin-ccat.php:1458 core/czr-admin-ccat.php:1463
+#: core/czr-admin-ccat.php:1439 core/czr-admin-ccat.php:1444
 msgid "this page"
 msgstr "această pagină"
 
-#: core/czr-admin-ccat.php:1458 core/czr-admin-ccat.php:1463
+#: core/czr-admin-ccat.php:1439 core/czr-admin-ccat.php:1444
 msgid "this post"
 msgstr "acest articol"
 
-#: core/czr-admin-ccat.php:1462
+#: core/czr-admin-ccat.php:1443
 msgid "Select a specific layout for %1$s"
 msgstr "Selectează un aranjament specific pentru %1$s"
 
-#: core/czr-admin-ccat.php:1466
+#: core/czr-admin-ccat.php:1447
 msgid "Default layout %1s"
 msgstr "Aranjament implicit %1s"
 
-#: core/czr-admin-ccat.php:1512
+#: core/czr-admin-ccat.php:1493
 msgid "Add a slider to this post/page"
 msgstr "Adaugă un carusel acestui articol / acestei pagini"
 
-#: core/czr-admin-ccat.php:1591 core/czr-admin-ccat.php:2259
+#: core/czr-admin-ccat.php:1572 core/czr-admin-ccat.php:2243
 msgid "Choose a slider"
 msgstr "Alege un carusel"
 
-#: core/czr-admin-ccat.php:1597 core/czr-admin-ccat.php:2274
+#: core/czr-admin-ccat.php:1578 core/czr-admin-ccat.php:2258
 msgid "&mdash; Select a slider &mdash; "
 msgstr "&mdash; Selectează un carusel &mdash; "
 
-#: core/czr-admin-ccat.php:1620
+#: core/czr-admin-ccat.php:1601
 msgid ""
 "To create a new slider : open the media library, edit your images and add "
 "them to your new slider."
@@ -4570,24 +4593,24 @@ msgstr ""
 "Pentru a creea un nou carusel: deschide biblioteca media, editează imaginile "
 "și adaugă-le noului tău carusel."
 
-#: core/czr-admin-ccat.php:1624
+#: core/czr-admin-ccat.php:1605
 msgid "Delay between each slides in milliseconds (default : 5000 ms)"
 msgstr ""
 "Întârzierea între fiecare diapozitiv în milisecunde (implicit: 5000 ms)"
 
-#: core/czr-admin-ccat.php:1631
+#: core/czr-admin-ccat.php:1612
 msgid "Slider Layout : set the slider in full width"
 msgstr "Aranjament carusel: setează caruselul pe lățime completă"
 
-#: core/czr-admin-ccat.php:1669
+#: core/czr-admin-ccat.php:1650
 msgid "Display navigation dots at the bottom of your slider."
 msgstr ""
 
-#: core/czr-admin-ccat.php:1688 core/czr-admin-ccat.php:2283
+#: core/czr-admin-ccat.php:1669 core/czr-admin-ccat.php:2267
 msgid "Delete this slider"
 msgstr "Șterge acest carusel"
 
-#: core/czr-admin-ccat.php:1693 core/czr-admin-ccat.php:2287
+#: core/czr-admin-ccat.php:1674 core/czr-admin-ccat.php:2271
 msgid ""
 "The slider will be deleted permanently (images, call to actions and link "
 "will be kept)."
@@ -4595,11 +4618,11 @@ msgstr ""
 "Acest carusel va fi șters permanent (imaginile, apelurile la acțiune și "
 "legăturile vor fi păstrate)."
 
-#: core/czr-admin-ccat.php:1696 core/czr-admin-ccat.php:2290
+#: core/czr-admin-ccat.php:1677 core/czr-admin-ccat.php:2274
 msgid "Delete slider"
 msgstr "Ștergere carusel"
 
-#: core/czr-admin-ccat.php:1707 core/czr-customize-ccat.php:961
+#: core/czr-admin-ccat.php:1688 core/czr-customize-ccat.php:961
 msgid ""
 "You haven't create any slider yet. Go to the media library, edit your images "
 "and add them to your sliders."
@@ -4607,31 +4630,31 @@ msgstr ""
 "Încă nu ai creat niciun carusel. Mergi la biblioteca media, editează=ți "
 "imaginile și adaugă-le caruselelor tale."
 
-#: core/czr-admin-ccat.php:2053
+#: core/czr-admin-ccat.php:2037
 msgid "Add to a slider (create one if needed)"
 msgstr "Adaugă la un carusel (creează unul dacă trebuie)"
 
-#: core/czr-admin-ccat.php:2188
+#: core/czr-admin-ccat.php:2172
 msgid "Title text (80 char. max length)"
 msgstr "Text titlu (lungime maximă de 80 caractere)"
 
-#: core/czr-admin-ccat.php:2195
+#: core/czr-admin-ccat.php:2179
 msgid "Description text (below the title, 250 char. max length)"
 msgstr "Text descriere (sub titlu, lungime maximă de 250 de caractere)"
 
-#: core/czr-admin-ccat.php:2202
+#: core/czr-admin-ccat.php:2186
 msgid "Title and text color"
 msgstr "Culoare titlu și text"
 
-#: core/czr-admin-ccat.php:2217
+#: core/czr-admin-ccat.php:2201
 msgid "Choose a linked page or post (among the last 100)."
 msgstr "Alege o legătură la o pagină sau un articol (dintre ultimele 100)"
 
-#: core/czr-admin-ccat.php:2222
+#: core/czr-admin-ccat.php:2206
 msgid "No link"
 msgstr "Nicio legătură"
 
-#: core/czr-admin-ccat.php:2231
+#: core/czr-admin-ccat.php:2215
 msgid ""
 "or a custom link (leave this empty if you already selected a page or post "
 "above)"
@@ -4639,15 +4662,15 @@ msgstr ""
 "sau o legătură personalizată (lasă aici gol dacă deja ai selectat deasupra o "
 "pagină sau un articol)"
 
-#: core/czr-admin-ccat.php:2248
+#: core/czr-admin-ccat.php:2232
 msgid "Link the whole slide"
 msgstr "Pune o legătură pe întreg diapozitivul"
 
-#: core/czr-admin-ccat.php:2280 core/czr-admin-ccat.php:2309
+#: core/czr-admin-ccat.php:2264 core/czr-admin-ccat.php:2293
 msgid "Add a slider"
 msgstr "Adaugă un carusel"
 
-#: core/czr-admin-ccat.php:2307
+#: core/czr-admin-ccat.php:2291
 msgid ""
 "You haven't create any slider yet. Write a slider name and click on the "
 "button to add you first slider."
@@ -4655,7 +4678,7 @@ msgstr ""
 "Încă nu ai creat niciun carusel. Scrie un nume pentur carusel și dă clic pe "
 "buton pentru a adăuga primul tău carusel."
 
-#: core/czr-admin-ccat.php:2433
+#: core/czr-admin-ccat.php:2417
 msgid ""
 "This slider has not slides to show. Go to the media library and start adding "
 "images to it."
@@ -4663,40 +4686,40 @@ msgstr ""
 "Acest carusel nu are diapozitive de arătat. Mergi în biblioteca media și "
 "începe să-i adaugi imagini."
 
-#: core/czr-admin-ccat.php:2443
+#: core/czr-admin-ccat.php:2427
 msgid "Slide Image"
 msgstr "Imagine diapozitiv"
 
-#: core/czr-admin-ccat.php:2444 core/czr-modules/social-links/index.php:121
+#: core/czr-admin-ccat.php:2428 core/czr-modules/social-links/index.php:121
 #: core/czr-modules/social-links/social_links_module.php:123
 msgid "Title"
 msgstr "Titlu"
 
-#: core/czr-admin-ccat.php:2445
+#: core/czr-admin-ccat.php:2429
 msgid "Slide Text"
 msgstr "Text diapozitiv"
 
-#: core/czr-admin-ccat.php:2446
+#: core/czr-admin-ccat.php:2430
 msgid "Button Text"
 msgstr "Text buton"
 
-#: core/czr-admin-ccat.php:2447
+#: core/czr-admin-ccat.php:2431
 msgid "Link"
 msgstr "Legătură"
 
-#: core/czr-admin-ccat.php:2490
+#: core/czr-admin-ccat.php:2474
 msgid "No Image Selected"
 msgstr "Nicio imagine selectată"
 
-#: core/czr-admin-ccat.php:2516
+#: core/czr-admin-ccat.php:2500
 msgid "Edit this slide"
 msgstr "Editează acest diapozitiv"
 
-#: core/czr-admin-ccat.php:2518
+#: core/czr-admin-ccat.php:2502
 msgid "Current slide"
 msgstr "Diapozitiv curent"
 
-#: core/czr-admin-ccat.php:2529
+#: core/czr-admin-ccat.php:2513
 msgid ""
 "To add another slide : navigate to your media library (click on Media), open "
 "the edit screen of an image ( or add a new image ), and add it to your "
@@ -4707,12 +4730,12 @@ msgstr ""
 "nouă), apoi adaug-o caruselului dorit utilizând blocul dedicat de opțiuni de "
 "la baza paginii."
 
-#: core/czr-admin-ccat.php:2530
+#: core/czr-admin-ccat.php:2514
 msgid "For more informations about sliders, check the documentation page :"
 msgstr ""
 "Pentru mai multe informații despre caruseluri, vezi pagina de documentație:"
 
-#: core/czr-admin-ccat.php:2532
+#: core/czr-admin-ccat.php:2516
 msgid "Slider documentation"
 msgstr "Documentație carusel"
 
@@ -5269,22 +5292,22 @@ msgstr ""
 "Multe opțiuni de design și aranjare sunt disponibile din ecranul de "
 "personalizare al WordPress: vezi modificările pe viu!"
 
-#: core/init-base.php:415
+#: core/init-base.php:413
 msgid "Secondary (horizontal) Menu"
 msgstr "Meniu secundar (orizontal)"
 
-#: core/init-base.php:417
+#: core/init-base.php:415
 msgid ""
 "Horizontal Top Bar Menu. (make sure that the topbar is displayed in the "
 "header settings )."
 msgstr ""
 
-#: core/init-base.php:418
+#: core/init-base.php:416
 #, fuzzy
 msgid "Mobile Menu"
 msgstr "Meniu principal"
 
-#: core/init-base.php:1129 inc/czr-init-ccat.php:3156
+#: core/init-base.php:1106 inc/czr-init-ccat.php:3156
 msgid "Social links"
 msgstr "Legături sociale"
 
@@ -6647,6 +6670,9 @@ msgstr ""
 #~ msgstr ""
 #~ "Într-o lume a amăgirii universale, a spune adevărul e un act revoluționar."
 
+#~ msgid "Easily take your web design one step further"
+#~ msgstr "Fă un pas înainte cu designul tău web"
+
 #~ msgid "Check the FAQ"
 #~ msgstr "Verifică întrebările frecvente (FAQ)"
 
@@ -6664,6 +6690,9 @@ msgstr ""
 #~ "Ai bifat <i>\"Forțează aranjamentul global pentru toate articolele și "
 #~ "paginile\"</i>, trebuie să debifezi această opțiune pentru a permite un "
 #~ "aranjament specific pentru acest articol."
+
+#~ msgid "Discover Customizr Pro"
+#~ msgstr "Descoperă Customizr Pro"
 
 #~ msgid "nikeo"
 #~ msgstr "nikeo"

@@ -4,7 +4,7 @@ Donate link: http://www.presscustomizr.com#footer
 Tags: pages, customizer, home, wordpress
 Requires at least: 3.4
 Tested up to: 5.3.2
-Stable tag: 2.1.17
+Stable tag: 2.2.0
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -41,6 +41,10 @@ SUPPORT : http://presscustomizr.com/support-forums/
 
 
 #######################  Changelog ######################
+= 2.2.0 July 21st 2020 =
+* fixed : [JS] check that $.browser exists before using it
+* Successfully tested with WP 5.5
+
 = 2.1.17 February 4th 2020 =
 * fixed : html error => missing space between data-color attribute
 

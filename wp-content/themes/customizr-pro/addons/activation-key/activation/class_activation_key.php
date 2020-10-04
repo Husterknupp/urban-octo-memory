@@ -518,7 +518,7 @@ class TC_activation_key {
       $_html = false;
       $transients = $this -> transients;
 
-      if ( is_object($license_data) && isset($license_data -> error ) && $license_data -> error  == 'no_activations_left' ) {
+      if ( is_object($license_data) && isset($license_data->error ) && $license_data->error  == 'no_activations_left' ) {
         ob_start();
         ?>
           <div class="updated">
@@ -628,7 +628,6 @@ class TC_activation_key {
       else
         echo get_transient( $transients['no-api-answer'] );
     }
-
 
 
     /*******************************************************
