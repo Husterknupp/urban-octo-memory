@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: * Customizr-Pro v2.3.3\n"
 "Report-Msgid-Bugs-To: https://presscustomizr.com/contact/\n"
-"POT-Creation-Date: 2020-09-18 18:07:18+00:00\n"
+"POT-Creation-Date: 2020-10-07 14:16:34+00:00\n"
 "PO-Revision-Date: 2017-06-04 20:40:55+0000\n"
 "Language: id\n"
 "MIME-Version: 1.0\n"
@@ -1011,7 +1011,7 @@ msgid "Display the title"
 msgstr "Tampilkan judul"
 
 #: addons/bundle/slider/back/classes/class_back_slider.php:293
-#: core/core-settings-map.php:1188 inc/czr-init-ccat.php:2948
+#: core/core-settings-map.php:1188 inc/czr-init-ccat.php:2954
 msgid "Display the excerpt"
 msgstr "Munculkan kutipan"
 
@@ -1444,11 +1444,11 @@ msgstr "Bulat, perluas ketika hover"
 msgid "Rounded, no expansion"
 msgstr "Bulat, tidak ada ekspansi"
 
-#: addons/fpu/utils/classes/class_utils_fpu.php:577 inc/czr-init-ccat.php:3037
+#: addons/fpu/utils/classes/class_utils_fpu.php:577 inc/czr-init-ccat.php:3043
 msgid "Squared, expand on hover"
 msgstr "Kotak, perluas ketika hover"
 
-#: addons/fpu/utils/classes/class_utils_fpu.php:578 inc/czr-init-ccat.php:3038
+#: addons/fpu/utils/classes/class_utils_fpu.php:578 inc/czr-init-ccat.php:3044
 msgid "Squared, no expansion"
 msgstr "Kotak, tidak ada ekspansi"
 
@@ -1715,7 +1715,7 @@ msgstr ""
 
 #: addons/wfc/back/classes/class_admin_font_customizer.php:519
 #: addons/wfc/wordpress-font-customizer.php:765 core/core-settings-map.php:517
-#: inc/czr-init-ccat.php:3093
+#: inc/czr-init-ccat.php:3099
 msgid "Custom"
 msgstr "Ragam"
 
@@ -2381,11 +2381,11 @@ msgstr "Blok ini terlihat untuk pengguna admin saja."
 msgid "dismiss notice"
 msgstr "hilangkan pemberitahuan"
 
-#: core/class-fire-plugins_compat.php:380 inc/czr-init-ccat.php:817
+#: core/class-fire-plugins_compat.php:380 inc/czr-init-ccat.php:823
 msgid "Front page slider name"
 msgstr "Nama slider halaman depan"
 
-#: core/class-fire-plugins_compat.php:382 inc/czr-init-ccat.php:819
+#: core/class-fire-plugins_compat.php:382 inc/czr-init-ccat.php:825
 msgid "Posts slider button text"
 msgstr "Teks tombol slider pos"
 
@@ -2393,7 +2393,7 @@ msgstr "Teks tombol slider pos"
 msgid "Custom Page Example"
 msgstr "Contoh Halaman Khusus"
 
-#: core/class-fire-resources_scripts.php:402 inc/czr-init-ccat.php:4262
+#: core/class-fire-resources_scripts.php:402 inc/czr-init-ccat.php:4268
 msgid "Permanently dismiss"
 msgstr ""
 
@@ -2640,7 +2640,7 @@ msgstr ""
 msgid "Animated underline effect on link hover"
 msgstr "Efek pudar saat hover tautan"
 
-#: core/core-settings-map.php:357 inc/czr-init-ccat.php:2248
+#: core/core-settings-map.php:357 inc/czr-init-ccat.php:2254
 msgid "Fade effect on link hover"
 msgstr "Efek pudar saat hover tautan"
 
@@ -2910,12 +2910,12 @@ msgid "Use a full screen search block"
 msgstr ""
 
 #: core/core-settings-map.php:746 core/core-settings-map.php:856
-#: inc/czr-init-ccat.php:2544
+#: inc/czr-init-ccat.php:2550
 msgid "Display the shopping cart in the header"
 msgstr "Tampilkan keranjang belanja di header"
 
 #: core/core-settings-map.php:749 core/core-settings-map.php:859
-#: inc/czr-init-ccat.php:2547
+#: inc/czr-init-ccat.php:2553
 msgid ""
 "WooCommerce: check to display a cart icon showing the number of items in "
 "your cart next to your header's tagline."
@@ -3018,7 +3018,7 @@ msgstr ""
 msgid "Expand submenus on click"
 msgstr "Perluas submenu saat klik"
 
-#: core/core-settings-map.php:845 inc/czr-init-ccat.php:2532
+#: core/core-settings-map.php:845 inc/czr-init-ccat.php:2538
 msgid "Display the tagline in the header"
 msgstr "Munculkan tagline di header"
 
@@ -3088,25 +3088,25 @@ msgstr "buat/ubah menu"
 msgid "Primary (vertical) menu design"
 msgstr "Desain menu sekunder (horizontal)"
 
-#: core/core-settings-map.php:954 inc/czr-init-ccat.php:2707
+#: core/core-settings-map.php:954 inc/czr-init-ccat.php:2713
 msgid "Menu position (for \"main\" menu)"
 msgstr "Posisi menu (untuk menu \"utama\")"
 
 #: core/core-settings-map.php:958 core/core-settings-map.php:972
-#: inc/czr-init-ccat.php:2711 inc/czr-init-ccat.php:2732
+#: inc/czr-init-ccat.php:2717 inc/czr-init-ccat.php:2738
 msgid "Menu on the left"
 msgstr "Menu di kiri"
 
 #: core/core-settings-map.php:959 core/core-settings-map.php:973
-#: inc/czr-init-ccat.php:2713 inc/czr-init-ccat.php:2734
+#: inc/czr-init-ccat.php:2719 inc/czr-init-ccat.php:2740
 msgid "Menu on the right"
 msgstr "Menu di kanan"
 
-#: core/core-settings-map.php:967 inc/czr-init-ccat.php:2727
+#: core/core-settings-map.php:967 inc/czr-init-ccat.php:2733
 msgid "Secondary (horizontal) menu design"
 msgstr "Desain menu sekunder (horizontal)"
 
-#: core/core-settings-map.php:968 inc/czr-init-ccat.php:2728
+#: core/core-settings-map.php:968 inc/czr-init-ccat.php:2734
 msgid "Menu position (for the horizontal menu)"
 msgstr "Posisi menu (untuk menu horizontal)"
 
@@ -3568,7 +3568,7 @@ msgid "Display featured images in their original dimensions"
 msgstr ""
 
 #: core/core-settings-map.php:1722 core/core-settings-map.php:1801
-#: inc/czr-init-ccat.php:3009
+#: inc/czr-init-ccat.php:3015
 msgid "Set the thumbnail's max height in pixels"
 msgstr "Terapkan tinggi maksimal thumbnail dengan piksel"
 
@@ -5276,7 +5276,7 @@ msgstr ""
 msgid "Mobile Menu"
 msgstr "Menu Utama"
 
-#: core/init-base.php:1106 inc/czr-init-ccat.php:3156
+#: core/init-base.php:1106 inc/czr-init-ccat.php:3162
 msgid "Social links"
 msgstr "Tautan sosial"
 
@@ -5580,73 +5580,73 @@ msgstr "Biru hijau"
 msgid "Light blue "
 msgstr "Biru muda"
 
-#: inc/czr-init-ccat.php:1512
+#: inc/czr-init-ccat.php:1518
 #: templates/parts/header/parts/woocommerce_cart.php:7
 msgid "View your shopping cart"
 msgstr "Lihat Keranjang Belanjamu"
 
-#: inc/czr-init-ccat.php:2157
+#: inc/czr-init-ccat.php:2163
 msgid "Sticky Logo Upload (supported formats : .jpg, .png, .gif, svg, svgz)"
 msgstr ""
 "Unggah Logo Sticky (format yang didukung : .jpg, .png, .gif, svg, svgz)"
 
-#: inc/czr-init-ccat.php:2169
+#: inc/czr-init-ccat.php:2175
 msgid ""
 "Use this upload control to specify a different logo on sticky header mode."
 msgstr ""
 "gunakan kontrol upload ini untuk menentukan logo lain pada mode header "
 "sticky."
 
-#: inc/czr-init-ccat.php:2174
+#: inc/czr-init-ccat.php:2180
 msgid "Favicon Upload (supported formats : .ico, .png, .gif)"
 msgstr "Unggah Favicon (format yang didukung : .ico, .png, .gif)"
 
-#: inc/czr-init-ccat.php:2175
+#: inc/czr-init-ccat.php:2181
 msgid "FAVICON"
 msgstr "FAVICON"
 
-#: inc/czr-init-ccat.php:2214
+#: inc/czr-init-ccat.php:2220
 msgid "Choose a predefined skin"
 msgstr "Pilih skin standar"
 
-#: inc/czr-init-ccat.php:2219
+#: inc/czr-init-ccat.php:2225
 msgid "Disabled if the random option is on."
 msgstr "Matikan jika opsi acak dihidupkan."
 
-#: inc/czr-init-ccat.php:2224
+#: inc/czr-init-ccat.php:2230
 msgid "Randomize the skin"
 msgstr "Acak skin"
 
-#: inc/czr-init-ccat.php:2227
+#: inc/czr-init-ccat.php:2233
 msgid "Apply a random color skin on each page load."
 msgstr "Terapkan warna skin acak di setiap muatan halaman."
 
-#: inc/czr-init-ccat.php:2271
+#: inc/czr-init-ccat.php:2277
 msgid "Display an icon next to external links"
 msgstr "Munculkan sebuah icon di sebelah tautan eksternal"
 
-#: inc/czr-init-ccat.php:2274 inc/czr-init-ccat.php:2284
+#: inc/czr-init-ccat.php:2280 inc/czr-init-ccat.php:2290
 msgid ""
 "This will be applied to the links included in post or page content only."
 msgstr "Ini akan di terapkan ke tautan yang ada di pos atau isi halaman saja."
 
-#: inc/czr-init-ccat.php:2281
+#: inc/czr-init-ccat.php:2287
 msgid "Open external links in a new tab"
 msgstr "Buka tautan eksternal di sebuah tab baru"
 
-#: inc/czr-init-ccat.php:2289
+#: inc/czr-init-ccat.php:2295
 msgid "Drop caps"
 msgstr "Drop cap"
 
-#: inc/czr-init-ccat.php:2290
+#: inc/czr-init-ccat.php:2296
 msgid "Enable drop caps"
 msgstr "Hidupkan drop cap"
 
-#: inc/czr-init-ccat.php:2292
+#: inc/czr-init-ccat.php:2298
 msgid "Apply a drop cap to the first paragraph of your post / page content"
 msgstr "Terapkan drop cap di paragraf pertama dari pos / konten halaman anda"
 
-#: inc/czr-init-ccat.php:2300
+#: inc/czr-init-ccat.php:2306
 msgid ""
 "Apply a drop cap when the paragraph includes at least the following number "
 "of words :"
@@ -5654,44 +5654,44 @@ msgstr ""
 "Terapkan drop cap ketika paragraf mengikut sertakan setidaknya jumlah kata "
 "berikut :"
 
-#: inc/czr-init-ccat.php:2301
+#: inc/czr-init-ccat.php:2307
 msgid "(number of words)"
 msgstr "(jumlah kata)"
 
-#: inc/czr-init-ccat.php:2310
+#: inc/czr-init-ccat.php:2316
 msgid "Drop cap style"
 msgstr "Gaya drop cap"
 
-#: inc/czr-init-ccat.php:2314
+#: inc/czr-init-ccat.php:2320
 #, fuzzy
 msgid "Primary theme color with a shadow"
 msgstr "Warna kulit dengan bayangan"
 
-#: inc/czr-init-ccat.php:2315
+#: inc/czr-init-ccat.php:2321
 msgid "Simple black"
 msgstr "Hitam sederhana"
 
-#: inc/czr-init-ccat.php:2320
+#: inc/czr-init-ccat.php:2326
 msgid "Enable drop caps in posts"
 msgstr "Terapkan drop cap di pos"
 
-#: inc/czr-init-ccat.php:2322
+#: inc/czr-init-ccat.php:2328
 msgid "Apply a drop cap to the first paragraph of your single posts content"
 msgstr "Terapkan drop cap di paragraf pertama dari konten pos tunggal anda"
 
-#: inc/czr-init-ccat.php:2328
+#: inc/czr-init-ccat.php:2334
 msgid "Enable drop caps in pages"
 msgstr "Mengaktifkan drop cap di halaman"
 
-#: inc/czr-init-ccat.php:2330
+#: inc/czr-init-ccat.php:2336
 msgid "Apply a drop cap to the first paragraph of your pages"
 msgstr "Terapkan drop cap untuk paragraf pertama dari halaman anda"
 
-#: inc/czr-init-ccat.php:2349
+#: inc/czr-init-ccat.php:2355
 msgid "Display icons next to titles"
 msgstr "Munculkan icon di samping judul"
 
-#: inc/czr-init-ccat.php:2353
+#: inc/czr-init-ccat.php:2359
 msgid ""
 "When this option is checked, a contextual icon is displayed next to the "
 "titles of pages, posts, archives, and WP built-in widgets."
@@ -5699,19 +5699,19 @@ msgstr ""
 "Ketika opsi ini dicentang, icon kontekstual muncul di samping judul dari "
 "laman, pos, arsip, dan widget yang sudah ada di WP."
 
-#: inc/czr-init-ccat.php:2359
+#: inc/czr-init-ccat.php:2365
 msgid "Display a page icon next to the page title"
 msgstr "Munculkan icon halaman di samping judul halaman"
 
-#: inc/czr-init-ccat.php:2368
+#: inc/czr-init-ccat.php:2374
 msgid "Display a post icon next to the single post title"
 msgstr "Munculkan icon pos di sebelah judul pos tunggal"
 
-#: inc/czr-init-ccat.php:2377
+#: inc/czr-init-ccat.php:2383
 msgid "Display an icon next to the archive title"
 msgstr "Munculkan sebuah icon di sebelah judul arsip"
 
-#: inc/czr-init-ccat.php:2380
+#: inc/czr-init-ccat.php:2386
 msgid ""
 "When this option is checked, an archive type icon is displayed in the "
 "heading of every types of archives, on the left of the title. An archive "
@@ -5723,11 +5723,11 @@ msgstr ""
 "menjadi : kategori, tag, penulis, tanggal arsip, taksonomi custom, hasil "
 "pencarian."
 
-#: inc/czr-init-ccat.php:2387
+#: inc/czr-init-ccat.php:2393
 msgid "Display an icon next to each post title in an archive page"
 msgstr "Munculkan sebuah icon di sebelah setiap judul pos di halaman arsip"
 
-#: inc/czr-init-ccat.php:2390
+#: inc/czr-init-ccat.php:2396
 msgid ""
 "When this option is checked, a post type icon is displayed on the left of "
 "each post titles in an archive page. An archive page can be : category, tag, "
@@ -5737,30 +5737,30 @@ msgstr ""
 "setiap judul pos di halaman arsip. Sebuah halaman arsip dapat menjadi : "
 "kategori, tag, penulis, tanggal, arsip, taksonomi custom, hasil pencarian."
 
-#: inc/czr-init-ccat.php:2397
+#: inc/czr-init-ccat.php:2403
 msgid "WP sidebar widgets : display icons next to titles"
 msgstr "WP widget sidebar : munculkan icon di sebelah judul"
 
-#: inc/czr-init-ccat.php:2406
+#: inc/czr-init-ccat.php:2412
 msgid "WP footer widgets : display icons next to titles"
 msgstr "WP widget footer : munculkan icon di sebelah judul"
 
-#: inc/czr-init-ccat.php:2435
+#: inc/czr-init-ccat.php:2441
 msgid "Autoscale images on zoom"
 msgstr "Skala otomatis gambar saat zoom"
 
-#: inc/czr-init-ccat.php:2439
+#: inc/czr-init-ccat.php:2445
 msgid ""
 "If enabled, this option will force images to fit the screen on lightbox zoom."
 msgstr ""
 "Jika diaktifkan, opsi ini akan memaksa gambar untuk sesuai dengan layar pada "
 "zoom lightbox."
 
-#: inc/czr-init-ccat.php:2445
+#: inc/czr-init-ccat.php:2451
 msgid "Sliders : display on loading icon before rendering the slides"
 msgstr "Slider : muncul pada icon muatan sebelum rendering slide"
 
-#: inc/czr-init-ccat.php:2449
+#: inc/czr-init-ccat.php:2455
 msgid ""
 "When checked, this option displays a loading icon when the slides are being "
 "setup."
@@ -5768,20 +5768,20 @@ msgstr ""
 "Ketika dicentang, opsi ini memunculkan icon muatan ketika slide sedang di "
 "atur."
 
-#: inc/czr-init-ccat.php:2459
+#: inc/czr-init-ccat.php:2465
 msgid ""
 "Improve your page speed by loading smaller slider images for mobile devices"
 msgstr ""
 
-#: inc/czr-init-ccat.php:2517
+#: inc/czr-init-ccat.php:2523
 msgid "Social links in header"
 msgstr "Tautan sosial di header"
 
-#: inc/czr-init-ccat.php:2555
+#: inc/czr-init-ccat.php:2561
 msgid "Display menu in a box"
 msgstr "Munculkan menu di sebuah kotak"
 
-#: inc/czr-init-ccat.php:2560
+#: inc/czr-init-ccat.php:2566
 msgid ""
 "If checked, this option wraps the header menu/tagline/social in a light grey "
 "box."
@@ -5789,15 +5789,15 @@ msgstr ""
 "Jika di centang, opsi ini membungkus menu/tagline/sosial header di kotak abu-"
 "abu muda."
 
-#: inc/czr-init-ccat.php:2565
+#: inc/czr-init-ccat.php:2571
 msgid "Sticky header settings"
 msgstr "Pengaturan header lengket"
 
-#: inc/czr-init-ccat.php:2566
+#: inc/czr-init-ccat.php:2572
 msgid "Sticky on scroll"
 msgstr "Lengket ketika gulir"
 
-#: inc/czr-init-ccat.php:2571
+#: inc/czr-init-ccat.php:2577
 msgid ""
 "If checked, this option makes the header stick to the top of the page on "
 "scroll down."
@@ -5805,15 +5805,15 @@ msgstr ""
 "Jika dicentang, opsi ini membuat tongkat header di atas dari halaman ketika "
 "gulir kebawah."
 
-#: inc/czr-init-ccat.php:2576
+#: inc/czr-init-ccat.php:2582
 msgid "Sticky header : display the tagline"
 msgstr "Header lengket : munculkan tagline"
 
-#: inc/czr-init-ccat.php:2584
+#: inc/czr-init-ccat.php:2590
 msgid "Sticky header: display the shopping cart"
 msgstr "Sticky header: tampilkan keranjang belanja"
 
-#: inc/czr-init-ccat.php:2591
+#: inc/czr-init-ccat.php:2597
 msgid ""
 "WooCommerce: if checked, your WooCommerce cart icon will remain visible when "
 "scrolling."
@@ -5821,19 +5821,19 @@ msgstr ""
 "WooCommerce: Jika dipilih, icon keranjang WooCommerce anda akan tetap "
 "terlihat ketika digulir."
 
-#: inc/czr-init-ccat.php:2596
+#: inc/czr-init-ccat.php:2602
 msgid "Sticky header : display the title / logo"
 msgstr "Header lengket : munculkan judul / logo"
 
-#: inc/czr-init-ccat.php:2605
+#: inc/czr-init-ccat.php:2611
 msgid "Sticky header : display the menu"
 msgstr "Header lengket : munculkan menu"
 
-#: inc/czr-init-ccat.php:2610
+#: inc/czr-init-ccat.php:2616
 msgid "Also applied to the secondary menu if any."
 msgstr "Juga terapkan di menu sekunder jika ada."
 
-#: inc/czr-init-ccat.php:2688
+#: inc/czr-init-ccat.php:2694
 msgid ""
 "For mobile devices (responsive), limit the height of the dropdown menu block "
 "to the visible viewport."
@@ -5841,83 +5841,83 @@ msgstr ""
 "Untuk perangkat bergerak (responsif), batasi tinggi dari blok menu dropdown "
 "ke viewport yang terlihat."
 
-#: inc/czr-init-ccat.php:2697
+#: inc/czr-init-ccat.php:2703
 msgid "Display a label next to the menu button."
 msgstr "Munculkan sebuah teks label di tombol menu."
 
-#: inc/czr-init-ccat.php:2701
+#: inc/czr-init-ccat.php:2707
 msgid "Note : the label is hidden on mobile devices."
 msgstr "Catatan : label disembunyikan pada perangkat bergerak."
 
-#: inc/czr-init-ccat.php:2712 inc/czr-init-ccat.php:2733
+#: inc/czr-init-ccat.php:2718 inc/czr-init-ccat.php:2739
 msgid "Menu centered"
 msgstr "Menu telah ditengahkan"
 
-#: inc/czr-init-ccat.php:2718 inc/czr-init-ccat.php:2739
+#: inc/czr-init-ccat.php:2724 inc/czr-init-ccat.php:2745
 msgid "Note : the menu centered position is available only when"
 msgstr "Catatan : posisi menu ditengah tersedia hanya ketika"
 
-#: inc/czr-init-ccat.php:2720 inc/czr-init-ccat.php:2741
+#: inc/czr-init-ccat.php:2726 inc/czr-init-ccat.php:2747
 msgid "the logo is centered"
 msgstr "logo sudah ditengahkan"
 
-#: inc/czr-init-ccat.php:2747
+#: inc/czr-init-ccat.php:2753
 msgid "Choose a mobile devices (responsive) behaviour for the secondary menu."
 msgstr "Pilih tingkah laku perangkat bergerak (responsif) untuk menu sekunder."
 
-#: inc/czr-init-ccat.php:2751
+#: inc/czr-init-ccat.php:2757
 msgid "Move before inside the side menu "
 msgstr "Pindah sebelum di dalam menu samping"
 
-#: inc/czr-init-ccat.php:2752
+#: inc/czr-init-ccat.php:2758
 msgid "Move after inside the side menu "
 msgstr "Pindah setelah di dalam menu samping"
 
-#: inc/czr-init-ccat.php:2753
+#: inc/czr-init-ccat.php:2759
 msgid "Display in the header"
 msgstr "Munculkan di header"
 
-#: inc/czr-init-ccat.php:2754
+#: inc/czr-init-ccat.php:2760
 msgid "Hide"
 msgstr "Sembunyikan"
 
-#: inc/czr-init-ccat.php:2832
+#: inc/czr-init-ccat.php:2838
 msgid "Metas Design"
 msgstr "Desain Meta"
 
-#: inc/czr-init-ccat.php:2833
+#: inc/czr-init-ccat.php:2839
 msgid "Select a design for the post metas"
 msgstr "Pilih sebuah desain untuk meta pos"
 
-#: inc/czr-init-ccat.php:2837
+#: inc/czr-init-ccat.php:2843
 msgid "Buttons and text"
 msgstr "Tombol dan teks"
 
-#: inc/czr-init-ccat.php:2838
+#: inc/czr-init-ccat.php:2844
 msgid "Text only"
 msgstr "Teks saja"
 
-#: inc/czr-init-ccat.php:2845
+#: inc/czr-init-ccat.php:2851
 msgid "Select the last update format"
 msgstr "Pilih format pembaruan terakhir"
 
-#: inc/czr-init-ccat.php:2849
+#: inc/czr-init-ccat.php:2855
 msgid "No. of days since last update"
 msgstr "Jumlah hari sejak pembaruan terakhir"
 
-#: inc/czr-init-ccat.php:2850
+#: inc/czr-init-ccat.php:2856
 msgid "Date of the last update"
 msgstr "Tanggal dari pembaruan terakhir"
 
-#: inc/czr-init-ccat.php:2858
+#: inc/czr-init-ccat.php:2864
 msgid "Recent update notice after post titles"
 msgstr "Pemberitahuan pembaruan terbaru setelah judul pos"
 
-#: inc/czr-init-ccat.php:2859
+#: inc/czr-init-ccat.php:2865
 msgid "Display a recent update notice"
 msgstr "Tampilkan pemberitahuan pembaruan terbaru"
 
-#: inc/czr-init-ccat.php:2863
+#: inc/czr-init-ccat.php:2869
 msgid ""
 "If this option is checked, a customizable recent update notice is displayed "
 "next to the post title."
@@ -5925,14 +5925,14 @@ msgstr ""
 "Jika opsi ini di centang, sebuah pemberitahuan pembaruan terbaru yang dapat "
 "disesuaikan muncul di setelah judul pos."
 
-#: inc/czr-init-ccat.php:2869
+#: inc/czr-init-ccat.php:2875
 msgid ""
 "Display the notice if the last update is less (strictly) than n days old"
 msgstr ""
 "Munculkan pemberitahuan jika pembaruan terakhir kurang (dengan ketat) n hari "
 "lamanya"
 
-#: inc/czr-init-ccat.php:2875
+#: inc/czr-init-ccat.php:2881
 msgid ""
 "Set a maximum interval (in days) during which the last update notice will be "
 "displayed."
@@ -5940,39 +5940,39 @@ msgstr ""
 "Setel interval maksimum (dalam hari) selama pemberitahuan pembaruan terakhir "
 "akan ditampilkan."
 
-#: inc/czr-init-ccat.php:2878
+#: inc/czr-init-ccat.php:2884
 msgid "Recently updated !"
 msgstr "Baru saja diperbarui !"
 
-#: inc/czr-init-ccat.php:2880
+#: inc/czr-init-ccat.php:2886
 msgid "Update notice text"
 msgstr "Teks pemberitahuan pembaruan"
 
-#: inc/czr-init-ccat.php:2889
+#: inc/czr-init-ccat.php:2895
 msgid "Update notice style"
 msgstr "Gaya pemberitahuan pembaruan"
 
-#: inc/czr-init-ccat.php:2893
+#: inc/czr-init-ccat.php:2899
 msgid "Default (grey)"
 msgstr "Bawaan (abu-abu)"
 
-#: inc/czr-init-ccat.php:2894
+#: inc/czr-init-ccat.php:2900
 msgid "Success (green)"
 msgstr "Berhasil (hijau)"
 
-#: inc/czr-init-ccat.php:2895
+#: inc/czr-init-ccat.php:2901
 msgid "Alert (orange)"
 msgstr "Peringatan (oranye)"
 
-#: inc/czr-init-ccat.php:2896
+#: inc/czr-init-ccat.php:2902
 msgid "Important (red)"
 msgstr "Penting (merah)"
 
-#: inc/czr-init-ccat.php:2897
+#: inc/czr-init-ccat.php:2903
 msgid "Info (blue)"
 msgstr "Info (biru)"
 
-#: inc/czr-init-ccat.php:2908
+#: inc/czr-init-ccat.php:2914
 msgid ""
 "If this option is checked, additional date informations about the the last "
 "post update can be displayed (nothing will show up if the post has never "
@@ -5982,102 +5982,102 @@ msgstr ""
 "terakhir dapat dimunculkan (tidak ada yang akan muncul ketika pos tidak "
 "pernah diperbarui)"
 
-#: inc/czr-init-ccat.php:2944
+#: inc/czr-init-ccat.php:2950
 msgid "Select the length of posts in lists (home, search, archives, ...)"
 msgstr "Pilih panjang dari pos dalam daftar (beranda, pencarian, arsip, ...)"
 
-#: inc/czr-init-ccat.php:2949
+#: inc/czr-init-ccat.php:2955
 msgid "Display the full content"
 msgstr "Munculkan konten penuh"
 
-#: inc/czr-init-ccat.php:2957
+#: inc/czr-init-ccat.php:2963
 msgid "Apply the grid layout to Home/Blog"
 msgstr "Terapkan tata letak grid ke Beranda/Blog"
 
-#: inc/czr-init-ccat.php:2965
+#: inc/czr-init-ccat.php:2971
 msgid "Apply the grid layout to Archives (archives, categories, author posts)"
 msgstr "Terapkan tata letak grid pada Arsip (arsip, kategori, penulis pos)"
 
-#: inc/czr-init-ccat.php:2973
+#: inc/czr-init-ccat.php:2979
 msgid "Apply the grid layout to Search results"
 msgstr "Terapkan tata letak grid untuk hasil Pencarian"
 
-#: inc/czr-init-ccat.php:2977
+#: inc/czr-init-ccat.php:2983
 msgid "Unchecked contexts are displayed with the alternate thumbnails layout."
 msgstr ""
 "Konteks yang tidak di centang dimunculkan dengan tata letak thumbnail "
 "alternatif."
 
-#: inc/czr-init-ccat.php:2982
+#: inc/czr-init-ccat.php:2988
 #, fuzzy
 msgid "Display post format icons"
 msgstr "Tampilkan icon format pos di latar belakang"
 
-#: inc/czr-init-ccat.php:2991
+#: inc/czr-init-ccat.php:2997
 msgid "Upload a default thumbnail"
 msgstr "Unggah sebuah thumbnail bawaan"
 
-#: inc/czr-init-ccat.php:3021
+#: inc/czr-init-ccat.php:3027
 msgid "Thumbnails max height for the grid layout"
 msgstr "Maksimal tinggi thumbnail untuk tata letak grid"
 
-#: inc/czr-init-ccat.php:3022
+#: inc/czr-init-ccat.php:3028
 msgid "Set the post grid thumbnail's max height in pixels"
 msgstr "Setel tinggi maksimal thumbnail grid dari pos dalam piksel"
 
-#: inc/czr-init-ccat.php:3039
+#: inc/czr-init-ccat.php:3045
 msgid "Rectangular with no effect"
 msgstr "Persegi panjang dengan tidak ada efek"
 
-#: inc/czr-init-ccat.php:3040
+#: inc/czr-init-ccat.php:3046
 msgid "Rectangular with blur effect on hover"
 msgstr "Persegi panjang dengan efek kabur saat hover"
 
-#: inc/czr-init-ccat.php:3041
+#: inc/czr-init-ccat.php:3047
 msgid "Rectangular with unblur effect on hover"
 msgstr "Persegi panjang dengan efek tidak blur/kabur saat hover"
 
-#: inc/czr-init-ccat.php:3049
+#: inc/czr-init-ccat.php:3055
 msgid "Top"
 msgstr "Puncak"
 
-#: inc/czr-init-ccat.php:3050
+#: inc/czr-init-ccat.php:3056
 msgid "Bottom"
 msgstr "Dasar"
 
-#: inc/czr-init-ccat.php:3075
+#: inc/czr-init-ccat.php:3081
 msgid "Comments bubble shape"
 msgstr "Bentuk gelembung komentar"
 
-#: inc/czr-init-ccat.php:3079
+#: inc/czr-init-ccat.php:3085
 msgid "Small bubbles"
 msgstr "Gelembung kecil"
 
-#: inc/czr-init-ccat.php:3080
+#: inc/czr-init-ccat.php:3086
 msgid "Large bubbles"
 msgstr "Gelembung besar"
 
-#: inc/czr-init-ccat.php:3088 inc/czr-init-ccat.php:3101
+#: inc/czr-init-ccat.php:3094 inc/czr-init-ccat.php:3107
 msgid "Comments bubble color"
 msgstr "Warna gelembung komentar"
 
-#: inc/czr-init-ccat.php:3092
+#: inc/czr-init-ccat.php:3098
 msgid "Skin color"
 msgstr "Warna kulit"
 
-#: inc/czr-init-ccat.php:3157
+#: inc/czr-init-ccat.php:3163
 msgid "Social link title in sidebars"
 msgstr "Judul tautan sosial di sidebar"
 
-#: inc/czr-init-ccat.php:3163
+#: inc/czr-init-ccat.php:3169
 msgid "Will be hidden if empty"
 msgstr "Akan disembunyikan jika kosong"
 
-#: inc/czr-init-ccat.php:3193
+#: inc/czr-init-ccat.php:3199
 msgid "Dynamic sidebar reordering on small devices"
 msgstr "Penataan ulang sidebar dinamis di perangkat kecil"
 
-#: inc/czr-init-ccat.php:3196
+#: inc/czr-init-ccat.php:3202
 msgid ""
 "Activate this option to move the sidebars (if any) after the main content "
 "block, for smartphones or tablets viewport."
@@ -6085,29 +6085,29 @@ msgstr ""
 "Aktifkan opsi ini untuk memindahkan sidebar (jika ada) setelah blok konten "
 "utama, untuk smartphone atau viewport tablet."
 
-#: inc/czr-init-ccat.php:3293
+#: inc/czr-init-ccat.php:3299
 msgid "Titles icons settings"
 msgstr "Pengaturan icon judul"
 
-#: inc/czr-init-ccat.php:3295
+#: inc/czr-init-ccat.php:3301
 msgid "Set up the titles icons options"
 msgstr "Setel opsi judul icon"
 
-#: inc/czr-init-ccat.php:3303
+#: inc/czr-init-ccat.php:3309
 msgid "Responsive settings"
 msgstr "Pengaturan responsif"
 
-#: inc/czr-init-ccat.php:3305
+#: inc/czr-init-ccat.php:3311
 msgid "Various settings for responsive display"
 msgstr "Berbagai pengaturan untuk tampilan responsif"
 
-#: inc/czr-init-ccat.php:4669
+#: inc/czr-init-ccat.php:4675
 msgid ""
 "Quick tip : you can choose between two styles for the Customizr theme. Give "
 "it a try %s"
 msgstr ""
 
-#: inc/czr-init-ccat.php:4672
+#: inc/czr-init-ccat.php:4678
 #, fuzzy
 msgid "in the live customizer."
 msgstr "Loncat ke customizer sekarang"

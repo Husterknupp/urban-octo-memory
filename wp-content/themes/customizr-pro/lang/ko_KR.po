@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: * Customizr-Pro v2.3.3\n"
 "Report-Msgid-Bugs-To: https://presscustomizr.com/contact/\n"
-"POT-Creation-Date: 2020-09-18 18:07:18+00:00\n"
+"POT-Creation-Date: 2020-10-07 14:16:34+00:00\n"
 "PO-Revision-Date: 2015-08-22 17:04+0200\n"
 "Last-Translator: Nicolas <contact@presscustomizr.com>\n"
 "Language-Team: Nicolas G. <contact@presscustomizr.com>\n"
@@ -1008,7 +1008,7 @@ msgid "Display the title"
 msgstr "태그라인 표시"
 
 #: addons/bundle/slider/back/classes/class_back_slider.php:293
-#: core/core-settings-map.php:1188 inc/czr-init-ccat.php:2948
+#: core/core-settings-map.php:1188 inc/czr-init-ccat.php:2954
 msgid "Display the excerpt"
 msgstr ""
 
@@ -1430,11 +1430,11 @@ msgstr ""
 msgid "Rounded, no expansion"
 msgstr ""
 
-#: addons/fpu/utils/classes/class_utils_fpu.php:577 inc/czr-init-ccat.php:3037
+#: addons/fpu/utils/classes/class_utils_fpu.php:577 inc/czr-init-ccat.php:3043
 msgid "Squared, expand on hover"
 msgstr ""
 
-#: addons/fpu/utils/classes/class_utils_fpu.php:578 inc/czr-init-ccat.php:3038
+#: addons/fpu/utils/classes/class_utils_fpu.php:578 inc/czr-init-ccat.php:3044
 msgid "Squared, no expansion"
 msgstr ""
 
@@ -1694,7 +1694,7 @@ msgstr ""
 
 #: addons/wfc/back/classes/class_admin_font_customizer.php:519
 #: addons/wfc/wordpress-font-customizer.php:765 core/core-settings-map.php:517
-#: inc/czr-init-ccat.php:3093
+#: inc/czr-init-ccat.php:3099
 #, fuzzy
 msgid "Custom"
 msgstr "사용자정의 CSS"
@@ -2346,12 +2346,12 @@ msgstr ""
 msgid "dismiss notice"
 msgstr ""
 
-#: core/class-fire-plugins_compat.php:380 inc/czr-init-ccat.php:817
+#: core/class-fire-plugins_compat.php:380 inc/czr-init-ccat.php:823
 #, fuzzy
 msgid "Front page slider name"
 msgstr "Première zone de widgets de page d'accueil"
 
-#: core/class-fire-plugins_compat.php:382 inc/czr-init-ccat.php:819
+#: core/class-fire-plugins_compat.php:382 inc/czr-init-ccat.php:825
 msgid "Posts slider button text"
 msgstr ""
 
@@ -2359,7 +2359,7 @@ msgstr ""
 msgid "Custom Page Example"
 msgstr ""
 
-#: core/class-fire-resources_scripts.php:402 inc/czr-init-ccat.php:4262
+#: core/class-fire-resources_scripts.php:402 inc/czr-init-ccat.php:4268
 msgid "Permanently dismiss"
 msgstr ""
 
@@ -2592,7 +2592,7 @@ msgstr ""
 msgid "Animated underline effect on link hover"
 msgstr "링크오버의 페이트효과"
 
-#: core/core-settings-map.php:357 inc/czr-init-ccat.php:2248
+#: core/core-settings-map.php:357 inc/czr-init-ccat.php:2254
 msgid "Fade effect on link hover"
 msgstr "링크오버의 페이트효과"
 
@@ -2844,13 +2844,13 @@ msgid "Use a full screen search block"
 msgstr ""
 
 #: core/core-settings-map.php:746 core/core-settings-map.php:856
-#: inc/czr-init-ccat.php:2544
+#: inc/czr-init-ccat.php:2550
 #, fuzzy
 msgid "Display the shopping cart in the header"
 msgstr "전체 컨탠츠 보이기"
 
 #: core/core-settings-map.php:749 core/core-settings-map.php:859
-#: inc/czr-init-ccat.php:2547
+#: inc/czr-init-ccat.php:2553
 msgid ""
 "WooCommerce: check to display a cart icon showing the number of items in "
 "your cart next to your header's tagline."
@@ -2950,7 +2950,7 @@ msgstr ""
 msgid "Expand submenus on click"
 msgstr "클릭시 하위메뉴 확장"
 
-#: core/core-settings-map.php:845 inc/czr-init-ccat.php:2532
+#: core/core-settings-map.php:845 inc/czr-init-ccat.php:2538
 #, fuzzy
 msgid "Display the tagline in the header"
 msgstr "태그라인 표시"
@@ -3017,25 +3017,25 @@ msgstr ""
 msgid "Primary (vertical) menu design"
 msgstr ""
 
-#: core/core-settings-map.php:954 inc/czr-init-ccat.php:2707
+#: core/core-settings-map.php:954 inc/czr-init-ccat.php:2713
 msgid "Menu position (for \"main\" menu)"
 msgstr ""
 
 #: core/core-settings-map.php:958 core/core-settings-map.php:972
-#: inc/czr-init-ccat.php:2711 inc/czr-init-ccat.php:2732
+#: inc/czr-init-ccat.php:2717 inc/czr-init-ccat.php:2738
 msgid "Menu on the left"
 msgstr "왼쪽에 위치"
 
 #: core/core-settings-map.php:959 core/core-settings-map.php:973
-#: inc/czr-init-ccat.php:2713 inc/czr-init-ccat.php:2734
+#: inc/czr-init-ccat.php:2719 inc/czr-init-ccat.php:2740
 msgid "Menu on the right"
 msgstr "오른쪽에 위치"
 
-#: core/core-settings-map.php:967 inc/czr-init-ccat.php:2727
+#: core/core-settings-map.php:967 inc/czr-init-ccat.php:2733
 msgid "Secondary (horizontal) menu design"
 msgstr ""
 
-#: core/core-settings-map.php:968 inc/czr-init-ccat.php:2728
+#: core/core-settings-map.php:968 inc/czr-init-ccat.php:2734
 msgid "Menu position (for the horizontal menu)"
 msgstr ""
 
@@ -3482,7 +3482,7 @@ msgid "Display featured images in their original dimensions"
 msgstr ""
 
 #: core/core-settings-map.php:1722 core/core-settings-map.php:1801
-#: inc/czr-init-ccat.php:3009
+#: inc/czr-init-ccat.php:3015
 msgid "Set the thumbnail's max height in pixels"
 msgstr ""
 
@@ -5129,7 +5129,7 @@ msgstr ""
 msgid "Mobile Menu"
 msgstr "메인메뉴"
 
-#: core/init-base.php:1106 inc/czr-init-ccat.php:3156
+#: core/init-base.php:1106 inc/czr-init-ccat.php:3162
 msgid "Social links"
 msgstr "누리소통망 링크"
 
@@ -5433,132 +5433,132 @@ msgstr ""
 msgid "Light blue "
 msgstr "하늘색"
 
-#: inc/czr-init-ccat.php:1512
+#: inc/czr-init-ccat.php:1518
 #: templates/parts/header/parts/woocommerce_cart.php:7
 msgid "View your shopping cart"
 msgstr ""
 
-#: inc/czr-init-ccat.php:2157
+#: inc/czr-init-ccat.php:2163
 #, fuzzy
 msgid "Sticky Logo Upload (supported formats : .jpg, .png, .gif, svg, svgz)"
 msgstr "로고 업로드 (지원 포맷 :  .jpg, .png, .gif, svg, svgz)"
 
-#: inc/czr-init-ccat.php:2169
+#: inc/czr-init-ccat.php:2175
 msgid ""
 "Use this upload control to specify a different logo on sticky header mode."
 msgstr ""
 
-#: inc/czr-init-ccat.php:2174
+#: inc/czr-init-ccat.php:2180
 msgid "Favicon Upload (supported formats : .ico, .png, .gif)"
 msgstr "파비콘 업로드 (지원 포맷 : .ico, .png, .gif)"
 
-#: inc/czr-init-ccat.php:2175
+#: inc/czr-init-ccat.php:2181
 msgid "FAVICON"
 msgstr ""
 
-#: inc/czr-init-ccat.php:2214
+#: inc/czr-init-ccat.php:2220
 msgid "Choose a predefined skin"
 msgstr "사전정의된 스킨 선택"
 
-#: inc/czr-init-ccat.php:2219
+#: inc/czr-init-ccat.php:2225
 msgid "Disabled if the random option is on."
 msgstr ""
 
-#: inc/czr-init-ccat.php:2224
+#: inc/czr-init-ccat.php:2230
 msgid "Randomize the skin"
 msgstr ""
 
-#: inc/czr-init-ccat.php:2227
+#: inc/czr-init-ccat.php:2233
 msgid "Apply a random color skin on each page load."
 msgstr ""
 
-#: inc/czr-init-ccat.php:2271
+#: inc/czr-init-ccat.php:2277
 msgid "Display an icon next to external links"
 msgstr ""
 
-#: inc/czr-init-ccat.php:2274 inc/czr-init-ccat.php:2284
+#: inc/czr-init-ccat.php:2280 inc/czr-init-ccat.php:2290
 msgid ""
 "This will be applied to the links included in post or page content only."
 msgstr ""
 
-#: inc/czr-init-ccat.php:2281
+#: inc/czr-init-ccat.php:2287
 msgid "Open external links in a new tab"
 msgstr ""
 
-#: inc/czr-init-ccat.php:2289
+#: inc/czr-init-ccat.php:2295
 msgid "Drop caps"
 msgstr ""
 
-#: inc/czr-init-ccat.php:2290
+#: inc/czr-init-ccat.php:2296
 msgid "Enable drop caps"
 msgstr ""
 
-#: inc/czr-init-ccat.php:2292
+#: inc/czr-init-ccat.php:2298
 msgid "Apply a drop cap to the first paragraph of your post / page content"
 msgstr ""
 
-#: inc/czr-init-ccat.php:2300
+#: inc/czr-init-ccat.php:2306
 msgid ""
 "Apply a drop cap when the paragraph includes at least the following number "
 "of words :"
 msgstr ""
 
-#: inc/czr-init-ccat.php:2301
+#: inc/czr-init-ccat.php:2307
 msgid "(number of words)"
 msgstr ""
 
-#: inc/czr-init-ccat.php:2310
+#: inc/czr-init-ccat.php:2316
 msgid "Drop cap style"
 msgstr ""
 
-#: inc/czr-init-ccat.php:2314
+#: inc/czr-init-ccat.php:2320
 msgid "Primary theme color with a shadow"
 msgstr ""
 
-#: inc/czr-init-ccat.php:2315
+#: inc/czr-init-ccat.php:2321
 msgid "Simple black"
 msgstr ""
 
-#: inc/czr-init-ccat.php:2320
+#: inc/czr-init-ccat.php:2326
 msgid "Enable drop caps in posts"
 msgstr ""
 
-#: inc/czr-init-ccat.php:2322
+#: inc/czr-init-ccat.php:2328
 msgid "Apply a drop cap to the first paragraph of your single posts content"
 msgstr ""
 
-#: inc/czr-init-ccat.php:2328
+#: inc/czr-init-ccat.php:2334
 #, fuzzy
 msgid "Enable drop caps in pages"
 msgstr "페이지에 댓글 활성화"
 
-#: inc/czr-init-ccat.php:2330
+#: inc/czr-init-ccat.php:2336
 msgid "Apply a drop cap to the first paragraph of your pages"
 msgstr ""
 
-#: inc/czr-init-ccat.php:2349
+#: inc/czr-init-ccat.php:2355
 msgid "Display icons next to titles"
 msgstr ""
 
-#: inc/czr-init-ccat.php:2353
+#: inc/czr-init-ccat.php:2359
 msgid ""
 "When this option is checked, a contextual icon is displayed next to the "
 "titles of pages, posts, archives, and WP built-in widgets."
 msgstr ""
 
-#: inc/czr-init-ccat.php:2359
+#: inc/czr-init-ccat.php:2365
 msgid "Display a page icon next to the page title"
 msgstr ""
 
-#: inc/czr-init-ccat.php:2368
+#: inc/czr-init-ccat.php:2374
 msgid "Display a post icon next to the single post title"
 msgstr ""
 
-#: inc/czr-init-ccat.php:2377
+#: inc/czr-init-ccat.php:2383
 msgid "Display an icon next to the archive title"
 msgstr ""
 
-#: inc/czr-init-ccat.php:2380
+#: inc/czr-init-ccat.php:2386
 msgid ""
 "When this option is checked, an archive type icon is displayed in the "
 "heading of every types of archives, on the left of the title. An archive "
@@ -5566,372 +5566,372 @@ msgid ""
 "results."
 msgstr ""
 
-#: inc/czr-init-ccat.php:2387
+#: inc/czr-init-ccat.php:2393
 msgid "Display an icon next to each post title in an archive page"
 msgstr ""
 
-#: inc/czr-init-ccat.php:2390
+#: inc/czr-init-ccat.php:2396
 msgid ""
 "When this option is checked, a post type icon is displayed on the left of "
 "each post titles in an archive page. An archive page can be : category, tag, "
 "author, date archive, custom taxonomies, search results."
 msgstr ""
 
-#: inc/czr-init-ccat.php:2397
+#: inc/czr-init-ccat.php:2403
 msgid "WP sidebar widgets : display icons next to titles"
 msgstr ""
 
-#: inc/czr-init-ccat.php:2406
+#: inc/czr-init-ccat.php:2412
 msgid "WP footer widgets : display icons next to titles"
 msgstr ""
 
-#: inc/czr-init-ccat.php:2435
+#: inc/czr-init-ccat.php:2441
 msgid "Autoscale images on zoom"
 msgstr ""
 
-#: inc/czr-init-ccat.php:2439
+#: inc/czr-init-ccat.php:2445
 msgid ""
 "If enabled, this option will force images to fit the screen on lightbox zoom."
 msgstr ""
 
-#: inc/czr-init-ccat.php:2445
+#: inc/czr-init-ccat.php:2451
 msgid "Sliders : display on loading icon before rendering the slides"
 msgstr ""
 
-#: inc/czr-init-ccat.php:2449
+#: inc/czr-init-ccat.php:2455
 msgid ""
 "When checked, this option displays a loading icon when the slides are being "
 "setup."
 msgstr ""
 
-#: inc/czr-init-ccat.php:2459
+#: inc/czr-init-ccat.php:2465
 msgid ""
 "Improve your page speed by loading smaller slider images for mobile devices"
 msgstr ""
 
-#: inc/czr-init-ccat.php:2517
+#: inc/czr-init-ccat.php:2523
 msgid "Social links in header"
 msgstr "헤더에 누리소통망링크 넣기"
 
-#: inc/czr-init-ccat.php:2555
+#: inc/czr-init-ccat.php:2561
 msgid "Display menu in a box"
 msgstr "메뉴를 박스안에 표시"
 
-#: inc/czr-init-ccat.php:2560
+#: inc/czr-init-ccat.php:2566
 msgid ""
 "If checked, this option wraps the header menu/tagline/social in a light grey "
 "box."
 msgstr ""
 
-#: inc/czr-init-ccat.php:2565
+#: inc/czr-init-ccat.php:2571
 #, fuzzy
 msgid "Sticky header settings"
 msgstr "고정 헤더 : 태그라인 보이기"
 
-#: inc/czr-init-ccat.php:2566
+#: inc/czr-init-ccat.php:2572
 msgid "Sticky on scroll"
 msgstr "스크롤 고정"
 
-#: inc/czr-init-ccat.php:2571
+#: inc/czr-init-ccat.php:2577
 msgid ""
 "If checked, this option makes the header stick to the top of the page on "
 "scroll down."
 msgstr ""
 "체크할 경우, 여러분들이 위에서 아래로 스크롤을 내리면 로고가 같이 따라옵니다"
 
-#: inc/czr-init-ccat.php:2576
+#: inc/czr-init-ccat.php:2582
 msgid "Sticky header : display the tagline"
 msgstr "고정 헤더 : 태그라인 보이기"
 
-#: inc/czr-init-ccat.php:2584
+#: inc/czr-init-ccat.php:2590
 #, fuzzy
 msgid "Sticky header: display the shopping cart"
 msgstr "고정 헤더 : 메뉴 보이기"
 
-#: inc/czr-init-ccat.php:2591
+#: inc/czr-init-ccat.php:2597
 msgid ""
 "WooCommerce: if checked, your WooCommerce cart icon will remain visible when "
 "scrolling."
 msgstr ""
 
-#: inc/czr-init-ccat.php:2596
+#: inc/czr-init-ccat.php:2602
 msgid "Sticky header : display the title / logo"
 msgstr "고정 헤더 : 타이틀/로고 보이기"
 
-#: inc/czr-init-ccat.php:2605
+#: inc/czr-init-ccat.php:2611
 msgid "Sticky header : display the menu"
 msgstr "고정 헤더 : 메뉴 보이기"
 
-#: inc/czr-init-ccat.php:2610
+#: inc/czr-init-ccat.php:2616
 msgid "Also applied to the secondary menu if any."
 msgstr ""
 
-#: inc/czr-init-ccat.php:2688
+#: inc/czr-init-ccat.php:2694
 msgid ""
 "For mobile devices (responsive), limit the height of the dropdown menu block "
 "to the visible viewport."
 msgstr ""
 
-#: inc/czr-init-ccat.php:2697
+#: inc/czr-init-ccat.php:2703
 msgid "Display a label next to the menu button."
 msgstr ""
 
-#: inc/czr-init-ccat.php:2701
+#: inc/czr-init-ccat.php:2707
 msgid "Note : the label is hidden on mobile devices."
 msgstr ""
 
-#: inc/czr-init-ccat.php:2712 inc/czr-init-ccat.php:2733
+#: inc/czr-init-ccat.php:2718 inc/czr-init-ccat.php:2739
 #, fuzzy
 msgid "Menu centered"
 msgstr "왼쪽에 위치"
 
-#: inc/czr-init-ccat.php:2718 inc/czr-init-ccat.php:2739
+#: inc/czr-init-ccat.php:2724 inc/czr-init-ccat.php:2745
 msgid "Note : the menu centered position is available only when"
 msgstr ""
 
-#: inc/czr-init-ccat.php:2720 inc/czr-init-ccat.php:2741
+#: inc/czr-init-ccat.php:2726 inc/czr-init-ccat.php:2747
 #, fuzzy
 msgid "the logo is centered"
 msgstr "로고 / 타이틀 가운데에 표시"
 
-#: inc/czr-init-ccat.php:2747
+#: inc/czr-init-ccat.php:2753
 msgid "Choose a mobile devices (responsive) behaviour for the secondary menu."
 msgstr ""
 
-#: inc/czr-init-ccat.php:2751
+#: inc/czr-init-ccat.php:2757
 msgid "Move before inside the side menu "
 msgstr ""
 
-#: inc/czr-init-ccat.php:2752
+#: inc/czr-init-ccat.php:2758
 msgid "Move after inside the side menu "
 msgstr ""
 
-#: inc/czr-init-ccat.php:2753
+#: inc/czr-init-ccat.php:2759
 msgid "Display in the header"
 msgstr ""
 
-#: inc/czr-init-ccat.php:2754
+#: inc/czr-init-ccat.php:2760
 msgid "Hide"
 msgstr ""
 
-#: inc/czr-init-ccat.php:2832
+#: inc/czr-init-ccat.php:2838
 msgid "Metas Design"
 msgstr ""
 
-#: inc/czr-init-ccat.php:2833
+#: inc/czr-init-ccat.php:2839
 #, fuzzy
 msgid "Select a design for the post metas"
 msgstr "Customizr의 스킨을 선택해주세요!"
 
-#: inc/czr-init-ccat.php:2837
+#: inc/czr-init-ccat.php:2843
 #, fuzzy
 msgid "Buttons and text"
 msgstr "버튼 텍스트"
 
-#: inc/czr-init-ccat.php:2838
+#: inc/czr-init-ccat.php:2844
 msgid "Text only"
 msgstr ""
 
-#: inc/czr-init-ccat.php:2845
+#: inc/czr-init-ccat.php:2851
 msgid "Select the last update format"
 msgstr ""
 
-#: inc/czr-init-ccat.php:2849
+#: inc/czr-init-ccat.php:2855
 msgid "No. of days since last update"
 msgstr ""
 
-#: inc/czr-init-ccat.php:2850
+#: inc/czr-init-ccat.php:2856
 msgid "Date of the last update"
 msgstr ""
 
-#: inc/czr-init-ccat.php:2858
+#: inc/czr-init-ccat.php:2864
 msgid "Recent update notice after post titles"
 msgstr ""
 
-#: inc/czr-init-ccat.php:2859
+#: inc/czr-init-ccat.php:2865
 msgid "Display a recent update notice"
 msgstr ""
 
-#: inc/czr-init-ccat.php:2863
+#: inc/czr-init-ccat.php:2869
 msgid ""
 "If this option is checked, a customizable recent update notice is displayed "
 "next to the post title."
 msgstr ""
 
-#: inc/czr-init-ccat.php:2869
+#: inc/czr-init-ccat.php:2875
 msgid ""
 "Display the notice if the last update is less (strictly) than n days old"
 msgstr ""
 
-#: inc/czr-init-ccat.php:2875
+#: inc/czr-init-ccat.php:2881
 msgid ""
 "Set a maximum interval (in days) during which the last update notice will be "
 "displayed."
 msgstr ""
 
-#: inc/czr-init-ccat.php:2878
+#: inc/czr-init-ccat.php:2884
 msgid "Recently updated !"
 msgstr ""
 
-#: inc/czr-init-ccat.php:2880
+#: inc/czr-init-ccat.php:2886
 msgid "Update notice text"
 msgstr ""
 
-#: inc/czr-init-ccat.php:2889
+#: inc/czr-init-ccat.php:2895
 msgid "Update notice style"
 msgstr ""
 
-#: inc/czr-init-ccat.php:2893
+#: inc/czr-init-ccat.php:2899
 msgid "Default (grey)"
 msgstr ""
 
-#: inc/czr-init-ccat.php:2894
+#: inc/czr-init-ccat.php:2900
 msgid "Success (green)"
 msgstr ""
 
-#: inc/czr-init-ccat.php:2895
+#: inc/czr-init-ccat.php:2901
 msgid "Alert (orange)"
 msgstr ""
 
-#: inc/czr-init-ccat.php:2896
+#: inc/czr-init-ccat.php:2902
 msgid "Important (red)"
 msgstr ""
 
-#: inc/czr-init-ccat.php:2897
+#: inc/czr-init-ccat.php:2903
 msgid "Info (blue)"
 msgstr ""
 
-#: inc/czr-init-ccat.php:2908
+#: inc/czr-init-ccat.php:2914
 msgid ""
 "If this option is checked, additional date informations about the the last "
 "post update can be displayed (nothing will show up if the post has never "
 "been updated)."
 msgstr ""
 
-#: inc/czr-init-ccat.php:2944
+#: inc/czr-init-ccat.php:2950
 msgid "Select the length of posts in lists (home, search, archives, ...)"
 msgstr "게시글 리스트 옵션 설정"
 
-#: inc/czr-init-ccat.php:2949
+#: inc/czr-init-ccat.php:2955
 msgid "Display the full content"
 msgstr "전체 컨탠츠 보이기"
 
-#: inc/czr-init-ccat.php:2957
+#: inc/czr-init-ccat.php:2963
 msgid "Apply the grid layout to Home/Blog"
 msgstr ""
 
-#: inc/czr-init-ccat.php:2965
+#: inc/czr-init-ccat.php:2971
 msgid "Apply the grid layout to Archives (archives, categories, author posts)"
 msgstr ""
 
-#: inc/czr-init-ccat.php:2973
+#: inc/czr-init-ccat.php:2979
 msgid "Apply the grid layout to Search results"
 msgstr ""
 
-#: inc/czr-init-ccat.php:2977
+#: inc/czr-init-ccat.php:2983
 msgid "Unchecked contexts are displayed with the alternate thumbnails layout."
 msgstr ""
 
-#: inc/czr-init-ccat.php:2982
+#: inc/czr-init-ccat.php:2988
 #, fuzzy
 msgid "Display post format icons"
 msgstr "게시글 섬네일 표시"
 
-#: inc/czr-init-ccat.php:2991
+#: inc/czr-init-ccat.php:2997
 #, fuzzy
 msgid "Upload a default thumbnail"
 msgstr "게시글 섬네일 표시"
 
-#: inc/czr-init-ccat.php:3021
+#: inc/czr-init-ccat.php:3027
 msgid "Thumbnails max height for the grid layout"
 msgstr ""
 
-#: inc/czr-init-ccat.php:3022
+#: inc/czr-init-ccat.php:3028
 #, fuzzy
 msgid "Set the post grid thumbnail's max height in pixels"
 msgstr "슬라이더 높이(단위 : 픽셀)"
 
-#: inc/czr-init-ccat.php:3039
+#: inc/czr-init-ccat.php:3045
 msgid "Rectangular with no effect"
 msgstr ""
 
-#: inc/czr-init-ccat.php:3040
+#: inc/czr-init-ccat.php:3046
 msgid "Rectangular with blur effect on hover"
 msgstr ""
 
-#: inc/czr-init-ccat.php:3041
+#: inc/czr-init-ccat.php:3047
 msgid "Rectangular with unblur effect on hover"
 msgstr ""
 
-#: inc/czr-init-ccat.php:3049
+#: inc/czr-init-ccat.php:3055
 msgid "Top"
 msgstr "위"
 
-#: inc/czr-init-ccat.php:3050
+#: inc/czr-init-ccat.php:3056
 msgid "Bottom"
 msgstr "아래"
 
-#: inc/czr-init-ccat.php:3075
+#: inc/czr-init-ccat.php:3081
 msgid "Comments bubble shape"
 msgstr ""
 
-#: inc/czr-init-ccat.php:3079
+#: inc/czr-init-ccat.php:3085
 msgid "Small bubbles"
 msgstr ""
 
-#: inc/czr-init-ccat.php:3080
+#: inc/czr-init-ccat.php:3086
 msgid "Large bubbles"
 msgstr ""
 
-#: inc/czr-init-ccat.php:3088 inc/czr-init-ccat.php:3101
+#: inc/czr-init-ccat.php:3094 inc/czr-init-ccat.php:3107
 msgid "Comments bubble color"
 msgstr ""
 
-#: inc/czr-init-ccat.php:3092
+#: inc/czr-init-ccat.php:3098
 msgid "Skin color"
 msgstr ""
 
-#: inc/czr-init-ccat.php:3157
+#: inc/czr-init-ccat.php:3163
 msgid "Social link title in sidebars"
 msgstr ""
 
-#: inc/czr-init-ccat.php:3163
+#: inc/czr-init-ccat.php:3169
 msgid "Will be hidden if empty"
 msgstr ""
 
-#: inc/czr-init-ccat.php:3193
+#: inc/czr-init-ccat.php:3199
 msgid "Dynamic sidebar reordering on small devices"
 msgstr ""
 
-#: inc/czr-init-ccat.php:3196
+#: inc/czr-init-ccat.php:3202
 msgid ""
 "Activate this option to move the sidebars (if any) after the main content "
 "block, for smartphones or tablets viewport."
 msgstr ""
 
-#: inc/czr-init-ccat.php:3293
+#: inc/czr-init-ccat.php:3299
 msgid "Titles icons settings"
 msgstr "타이틀 아이콘 설정"
 
-#: inc/czr-init-ccat.php:3295
+#: inc/czr-init-ccat.php:3301
 msgid "Set up the titles icons options"
 msgstr "타이틀 아이콘 옵션 설정"
 
-#: inc/czr-init-ccat.php:3303
+#: inc/czr-init-ccat.php:3309
 msgid "Responsive settings"
 msgstr "응답설정"
 
-#: inc/czr-init-ccat.php:3305
+#: inc/czr-init-ccat.php:3311
 msgid "Various settings for responsive display"
 msgstr "출력되는 다양한 응답 설정"
 
-#: inc/czr-init-ccat.php:4669
+#: inc/czr-init-ccat.php:4675
 msgid ""
 "Quick tip : you can choose between two styles for the Customizr theme. Give "
 "it a try %s"
 msgstr ""
 
-#: inc/czr-init-ccat.php:4672
+#: inc/czr-init-ccat.php:4678
 msgid "in the live customizer."
 msgstr ""
 

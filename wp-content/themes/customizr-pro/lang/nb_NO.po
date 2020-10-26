@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: * Customizr-Pro v2.3.3\n"
 "Report-Msgid-Bugs-To: https://presscustomizr.com/contact/\n"
-"POT-Creation-Date: 2020-09-18 18:07:18+00:00\n"
+"POT-Creation-Date: 2020-10-07 14:16:34+00:00\n"
 "PO-Revision-Date: 2017-12-04 11:43:27+0000\n"
 "Language: nb_NO\n"
 "MIME-Version: 1.0\n"
@@ -1013,7 +1013,7 @@ msgid "Display the title"
 msgstr "Vis tittelen"
 
 #: addons/bundle/slider/back/classes/class_back_slider.php:293
-#: core/core-settings-map.php:1188 inc/czr-init-ccat.php:2948
+#: core/core-settings-map.php:1188 inc/czr-init-ccat.php:2954
 msgid "Display the excerpt"
 msgstr "Vis et utdrag"
 
@@ -1444,11 +1444,11 @@ msgstr "Rund, ekspanderer når markøren holdes over"
 msgid "Rounded, no expansion"
 msgstr "Rund, ingen ekspansjon"
 
-#: addons/fpu/utils/classes/class_utils_fpu.php:577 inc/czr-init-ccat.php:3037
+#: addons/fpu/utils/classes/class_utils_fpu.php:577 inc/czr-init-ccat.php:3043
 msgid "Squared, expand on hover"
 msgstr "Firkantet, ekspander når markøren holdes over"
 
-#: addons/fpu/utils/classes/class_utils_fpu.php:578 inc/czr-init-ccat.php:3038
+#: addons/fpu/utils/classes/class_utils_fpu.php:578 inc/czr-init-ccat.php:3044
 msgid "Squared, no expansion"
 msgstr "Firkantetn, ingen ekspansjon"
 
@@ -1715,7 +1715,7 @@ msgstr ""
 
 #: addons/wfc/back/classes/class_admin_font_customizer.php:519
 #: addons/wfc/wordpress-font-customizer.php:765 core/core-settings-map.php:517
-#: inc/czr-init-ccat.php:3093
+#: inc/czr-init-ccat.php:3099
 msgid "Custom"
 msgstr "Egendefinert"
 
@@ -2380,11 +2380,11 @@ msgstr "Denne blokken er kun synlig for administratorbrukere."
 msgid "dismiss notice"
 msgstr "Avvis melding"
 
-#: core/class-fire-plugins_compat.php:380 inc/czr-init-ccat.php:817
+#: core/class-fire-plugins_compat.php:380 inc/czr-init-ccat.php:823
 msgid "Front page slider name"
 msgstr "Navn på bildekarusellen til forsiden"
 
-#: core/class-fire-plugins_compat.php:382 inc/czr-init-ccat.php:819
+#: core/class-fire-plugins_compat.php:382 inc/czr-init-ccat.php:825
 msgid "Posts slider button text"
 msgstr "Tekst på bildekarusell-knapp for innlegg"
 
@@ -2392,7 +2392,7 @@ msgstr "Tekst på bildekarusell-knapp for innlegg"
 msgid "Custom Page Example"
 msgstr "Egendefinert side-eksempel"
 
-#: core/class-fire-resources_scripts.php:402 inc/czr-init-ccat.php:4262
+#: core/class-fire-resources_scripts.php:402 inc/czr-init-ccat.php:4268
 msgid "Permanently dismiss"
 msgstr "Fjern for godt"
 
@@ -2639,7 +2639,7 @@ msgstr ""
 msgid "Animated underline effect on link hover"
 msgstr "Animert understrek-effekt når holder over lenker"
 
-#: core/core-settings-map.php:357 inc/czr-init-ccat.php:2248
+#: core/core-settings-map.php:357 inc/czr-init-ccat.php:2254
 msgid "Fade effect on link hover"
 msgstr "Uttoningseffekt over lenker"
 
@@ -2908,12 +2908,12 @@ msgid "Use a full screen search block"
 msgstr ""
 
 #: core/core-settings-map.php:746 core/core-settings-map.php:856
-#: inc/czr-init-ccat.php:2544
+#: inc/czr-init-ccat.php:2550
 msgid "Display the shopping cart in the header"
 msgstr "Vis handlekurven i sidehodet"
 
 #: core/core-settings-map.php:749 core/core-settings-map.php:859
-#: inc/czr-init-ccat.php:2547
+#: inc/czr-init-ccat.php:2553
 msgid ""
 "WooCommerce: check to display a cart icon showing the number of items in "
 "your cart next to your header's tagline."
@@ -3020,7 +3020,7 @@ msgstr ""
 msgid "Expand submenus on click"
 msgstr "Ekspander undermenyer ved klikk"
 
-#: core/core-settings-map.php:845 inc/czr-init-ccat.php:2532
+#: core/core-settings-map.php:845 inc/czr-init-ccat.php:2538
 msgid "Display the tagline in the header"
 msgstr "Vis slagordet i sidehodet"
 
@@ -3092,25 +3092,25 @@ msgstr "opprett/rediger menyer"
 msgid "Primary (vertical) menu design"
 msgstr "Sekundær (horisontal)-meny utseende"
 
-#: core/core-settings-map.php:954 inc/czr-init-ccat.php:2707
+#: core/core-settings-map.php:954 inc/czr-init-ccat.php:2713
 msgid "Menu position (for \"main\" menu)"
 msgstr "Menyposisjon (for \"hoved\"-menyen)"
 
 #: core/core-settings-map.php:958 core/core-settings-map.php:972
-#: inc/czr-init-ccat.php:2711 inc/czr-init-ccat.php:2732
+#: inc/czr-init-ccat.php:2717 inc/czr-init-ccat.php:2738
 msgid "Menu on the left"
 msgstr "Meny til venstre"
 
 #: core/core-settings-map.php:959 core/core-settings-map.php:973
-#: inc/czr-init-ccat.php:2713 inc/czr-init-ccat.php:2734
+#: inc/czr-init-ccat.php:2719 inc/czr-init-ccat.php:2740
 msgid "Menu on the right"
 msgstr "Meny til høyre"
 
-#: core/core-settings-map.php:967 inc/czr-init-ccat.php:2727
+#: core/core-settings-map.php:967 inc/czr-init-ccat.php:2733
 msgid "Secondary (horizontal) menu design"
 msgstr "Sekundær (horisontal)-meny utseende"
 
-#: core/core-settings-map.php:968 inc/czr-init-ccat.php:2728
+#: core/core-settings-map.php:968 inc/czr-init-ccat.php:2734
 msgid "Menu position (for the horizontal menu)"
 msgstr "Menyposisjon (for horisontal-menyen)"
 
@@ -3569,7 +3569,7 @@ msgid "Display featured images in their original dimensions"
 msgstr ""
 
 #: core/core-settings-map.php:1722 core/core-settings-map.php:1801
-#: inc/czr-init-ccat.php:3009
+#: inc/czr-init-ccat.php:3015
 msgid "Set the thumbnail's max height in pixels"
 msgstr "Sett miniatyrbildets makshøyde i piksler"
 
@@ -5253,7 +5253,7 @@ msgstr ""
 msgid "Mobile Menu"
 msgstr "Mobilmeny"
 
-#: core/init-base.php:1106 inc/czr-init-ccat.php:3156
+#: core/init-base.php:1106 inc/czr-init-ccat.php:3162
 msgid "Social links"
 msgstr "Sosiale lenker"
 
@@ -5556,76 +5556,76 @@ msgstr "Grønnblå"
 msgid "Light blue "
 msgstr "Lys blå"
 
-#: inc/czr-init-ccat.php:1512
+#: inc/czr-init-ccat.php:1518
 #: templates/parts/header/parts/woocommerce_cart.php:7
 msgid "View your shopping cart"
 msgstr "Se handlevogn"
 
-#: inc/czr-init-ccat.php:2157
+#: inc/czr-init-ccat.php:2163
 msgid "Sticky Logo Upload (supported formats : .jpg, .png, .gif, svg, svgz)"
 msgstr ""
 "Last opp klistrende logo (støttede formater: .jpg, .png, .gif, SVG, SVGZ)"
 
-#: inc/czr-init-ccat.php:2169
+#: inc/czr-init-ccat.php:2175
 msgid ""
 "Use this upload control to specify a different logo on sticky header mode."
 msgstr ""
 "Bruke denne opplastingskontrollen for å spesifisere en annen logo i klistret "
 "sidehode-modus"
 
-#: inc/czr-init-ccat.php:2174
+#: inc/czr-init-ccat.php:2180
 msgid "Favicon Upload (supported formats : .ico, .png, .gif)"
 msgstr "Last opp favorittikon (støttede formater: .ico, .png, .gif)"
 
-#: inc/czr-init-ccat.php:2175
+#: inc/czr-init-ccat.php:2181
 msgid "FAVICON"
 msgstr "FAVORITTIKON"
 
-#: inc/czr-init-ccat.php:2214
+#: inc/czr-init-ccat.php:2220
 msgid "Choose a predefined skin"
 msgstr "Velg et predefinert fargetema"
 
-#: inc/czr-init-ccat.php:2219
+#: inc/czr-init-ccat.php:2225
 msgid "Disabled if the random option is on."
 msgstr "Deaktivert hvis tilfeldig er valgt. "
 
-#: inc/czr-init-ccat.php:2224
+#: inc/czr-init-ccat.php:2230
 msgid "Randomize the skin"
 msgstr "Tilfeldig fargetema"
 
-#: inc/czr-init-ccat.php:2227
+#: inc/czr-init-ccat.php:2233
 msgid "Apply a random color skin on each page load."
 msgstr "Legg til en tilfeldig fargetema på hver sideinnlastning."
 
-#: inc/czr-init-ccat.php:2271
+#: inc/czr-init-ccat.php:2277
 msgid "Display an icon next to external links"
 msgstr "Vis et ikon ved siden av eksterne lenker"
 
-#: inc/czr-init-ccat.php:2274 inc/czr-init-ccat.php:2284
+#: inc/czr-init-ccat.php:2280 inc/czr-init-ccat.php:2290
 msgid ""
 "This will be applied to the links included in post or page content only."
 msgstr ""
 "Dette vil kun påføres på lenker som inkluderes i innlegg eller på sider."
 
-#: inc/czr-init-ccat.php:2281
+#: inc/czr-init-ccat.php:2287
 msgid "Open external links in a new tab"
 msgstr "Åpne eksterne lenker i ny fane"
 
-#: inc/czr-init-ccat.php:2289
+#: inc/czr-init-ccat.php:2295
 msgid "Drop caps"
 msgstr "Fremhevet initial"
 
-#: inc/czr-init-ccat.php:2290
+#: inc/czr-init-ccat.php:2296
 msgid "Enable drop caps"
 msgstr "Aktiver fremhevet initial"
 
-#: inc/czr-init-ccat.php:2292
+#: inc/czr-init-ccat.php:2298
 msgid "Apply a drop cap to the first paragraph of your post / page content"
 msgstr ""
 "Påfør fremhevede initialer til den første avsnittet  av innlegget / "
 "sideinnholdet. "
 
-#: inc/czr-init-ccat.php:2300
+#: inc/czr-init-ccat.php:2306
 msgid ""
 "Apply a drop cap when the paragraph includes at least the following number "
 "of words :"
@@ -5633,45 +5633,45 @@ msgstr ""
 "Påfør fremhevede initialer til det første avsnittet hvis det inneholder "
 "minst så mange ord:"
 
-#: inc/czr-init-ccat.php:2301
+#: inc/czr-init-ccat.php:2307
 msgid "(number of words)"
 msgstr "(antall ord) "
 
-#: inc/czr-init-ccat.php:2310
+#: inc/czr-init-ccat.php:2316
 msgid "Drop cap style"
 msgstr "Dropp fremhevede initialer"
 
-#: inc/czr-init-ccat.php:2314
+#: inc/czr-init-ccat.php:2320
 msgid "Primary theme color with a shadow"
 msgstr "Hovedfarge for temaet med skygge"
 
-#: inc/czr-init-ccat.php:2315
+#: inc/czr-init-ccat.php:2321
 msgid "Simple black"
 msgstr "Enkel sort"
 
-#: inc/czr-init-ccat.php:2320
+#: inc/czr-init-ccat.php:2326
 msgid "Enable drop caps in posts"
 msgstr "Aktiver fremhevet initial i innlegg."
 
-#: inc/czr-init-ccat.php:2322
+#: inc/czr-init-ccat.php:2328
 msgid "Apply a drop cap to the first paragraph of your single posts content"
 msgstr ""
 "Påfør fremhevede initialer til det første avsnittet på sider med "
 "enkeltinnlegg"
 
-#: inc/czr-init-ccat.php:2328
+#: inc/czr-init-ccat.php:2334
 msgid "Enable drop caps in pages"
 msgstr "Aktiver fremhevet initial på sider"
 
-#: inc/czr-init-ccat.php:2330
+#: inc/czr-init-ccat.php:2336
 msgid "Apply a drop cap to the first paragraph of your pages"
 msgstr "Påfør fremhevede initialer til det første avsnittet på sider"
 
-#: inc/czr-init-ccat.php:2349
+#: inc/czr-init-ccat.php:2355
 msgid "Display icons next to titles"
 msgstr "Vis ikoner ved siden av tittler"
 
-#: inc/czr-init-ccat.php:2353
+#: inc/czr-init-ccat.php:2359
 msgid ""
 "When this option is checked, a contextual icon is displayed next to the "
 "titles of pages, posts, archives, and WP built-in widgets."
@@ -5679,19 +5679,19 @@ msgstr ""
 "Når muligheter er valgt, et kontekstuelt ikon vises ved siden av tittelen på "
 "siden, innlegg, arkiv og innebygde WP-skjermelementer"
 
-#: inc/czr-init-ccat.php:2359
+#: inc/czr-init-ccat.php:2365
 msgid "Display a page icon next to the page title"
 msgstr "Vis et sideikon ved siden av sidetittelen"
 
-#: inc/czr-init-ccat.php:2368
+#: inc/czr-init-ccat.php:2374
 msgid "Display a post icon next to the single post title"
 msgstr "Vis et innleggsikon ved siden av tittelen til enkeltinnlegg"
 
-#: inc/czr-init-ccat.php:2377
+#: inc/czr-init-ccat.php:2383
 msgid "Display an icon next to the archive title"
 msgstr "Vis et ikon ved siden av arkivtittelen"
 
-#: inc/czr-init-ccat.php:2380
+#: inc/czr-init-ccat.php:2386
 msgid ""
 "When this option is checked, an archive type icon is displayed in the "
 "heading of every types of archives, on the left of the title. An archive "
@@ -5702,11 +5702,11 @@ msgstr ""
 "typer arkiv på venstresiden av tittelen. En arkivside kan være : kategori, "
 "emne, forfatter, datoarkiv, egendefinerte klassifiseringer og søkeresultater."
 
-#: inc/czr-init-ccat.php:2387
+#: inc/czr-init-ccat.php:2393
 msgid "Display an icon next to each post title in an archive page"
 msgstr "Vis et ikon ved siden av hver innleggstittel på en arkivside"
 
-#: inc/czr-init-ccat.php:2390
+#: inc/czr-init-ccat.php:2396
 msgid ""
 "When this option is checked, a post type icon is displayed on the left of "
 "each post titles in an archive page. An archive page can be : category, tag, "
@@ -5716,68 +5716,68 @@ msgstr ""
 "av hver innleggstittel på en arkivside. En arkivside kan være : kategori, "
 "emne, forfatter, datoarkiv, egendefinerte klassifiseringer og søkeresultater."
 
-#: inc/czr-init-ccat.php:2397
+#: inc/czr-init-ccat.php:2403
 msgid "WP sidebar widgets : display icons next to titles"
 msgstr "WP skjermelement i sideområde : vis ikoner ved siden av titler "
 
-#: inc/czr-init-ccat.php:2406
+#: inc/czr-init-ccat.php:2412
 msgid "WP footer widgets : display icons next to titles"
 msgstr "WP skjermelementer i sidefot : vis ikoner ved siden av titler"
 
-#: inc/czr-init-ccat.php:2435
+#: inc/czr-init-ccat.php:2441
 msgid "Autoscale images on zoom"
 msgstr "Autoskaler bilder ved forstørring"
 
-#: inc/czr-init-ccat.php:2439
+#: inc/czr-init-ccat.php:2445
 msgid ""
 "If enabled, this option will force images to fit the screen on lightbox zoom."
 msgstr ""
 "Hvis aktiver, dette valget vil tvinge bilder til å passe på skjermen i en "
 "lysboks-forstørring."
 
-#: inc/czr-init-ccat.php:2445
+#: inc/czr-init-ccat.php:2451
 msgid "Sliders : display on loading icon before rendering the slides"
 msgstr ""
 "Karuseller : Vis et ikon  når innholdet lastes før visning av bilder i "
 "karusellen"
 
-#: inc/czr-init-ccat.php:2449
+#: inc/czr-init-ccat.php:2455
 msgid ""
 "When checked, this option displays a loading icon when the slides are being "
 "setup."
 msgstr ""
 "Når valgt, vises et ikon for innlasting når bildene i karusellen settes opp. "
 
-#: inc/czr-init-ccat.php:2459
+#: inc/czr-init-ccat.php:2465
 msgid ""
 "Improve your page speed by loading smaller slider images for mobile devices"
 msgstr ""
 "Forbedre sidehastigheten din ved å laste inn mindre karusellbilder for "
 "mobile enheter."
 
-#: inc/czr-init-ccat.php:2517
+#: inc/czr-init-ccat.php:2523
 msgid "Social links in header"
 msgstr "Sosiale lenker i sidehodet"
 
-#: inc/czr-init-ccat.php:2555
+#: inc/czr-init-ccat.php:2561
 msgid "Display menu in a box"
 msgstr "Vis menyen innpakket i en boks"
 
-#: inc/czr-init-ccat.php:2560
+#: inc/czr-init-ccat.php:2566
 msgid ""
 "If checked, this option wraps the header menu/tagline/social in a light grey "
 "box."
 msgstr "Hvis avhuket, pakkes meny/slagord/sosiale lenker i en lysegrå boks."
 
-#: inc/czr-init-ccat.php:2565
+#: inc/czr-init-ccat.php:2571
 msgid "Sticky header settings"
 msgstr "Konfigurer klistrende sidehodet"
 
-#: inc/czr-init-ccat.php:2566
+#: inc/czr-init-ccat.php:2572
 msgid "Sticky on scroll"
 msgstr "Klistrende ved rulling"
 
-#: inc/czr-init-ccat.php:2571
+#: inc/czr-init-ccat.php:2577
 msgid ""
 "If checked, this option makes the header stick to the top of the page on "
 "scroll down."
@@ -5785,15 +5785,15 @@ msgstr ""
 "Hvis valgt, vil sidehodet være klistret til toppen av siden når du ruller "
 "nedover"
 
-#: inc/czr-init-ccat.php:2576
+#: inc/czr-init-ccat.php:2582
 msgid "Sticky header : display the tagline"
 msgstr "Klistret sidehodet : vis slagordet"
 
-#: inc/czr-init-ccat.php:2584
+#: inc/czr-init-ccat.php:2590
 msgid "Sticky header: display the shopping cart"
 msgstr "Klistret sidehode: Vis handlekurv"
 
-#: inc/czr-init-ccat.php:2591
+#: inc/czr-init-ccat.php:2597
 msgid ""
 "WooCommerce: if checked, your WooCommerce cart icon will remain visible when "
 "scrolling."
@@ -5801,19 +5801,19 @@ msgstr ""
 "WooCommerce: Hvis valgt, handlevogn-ikonet for WooCommerce vil forbli synlig "
 "ved scrolling."
 
-#: inc/czr-init-ccat.php:2596
+#: inc/czr-init-ccat.php:2602
 msgid "Sticky header : display the title / logo"
 msgstr "Klistret sidehode : vis tittel / logo"
 
-#: inc/czr-init-ccat.php:2605
+#: inc/czr-init-ccat.php:2611
 msgid "Sticky header : display the menu"
 msgstr "Klistret sidehode : vis menyen"
 
-#: inc/czr-init-ccat.php:2610
+#: inc/czr-init-ccat.php:2616
 msgid "Also applied to the secondary menu if any."
 msgstr "Også gjeldende for sekundærmeny hvis den eksisterer"
 
-#: inc/czr-init-ccat.php:2688
+#: inc/czr-init-ccat.php:2694
 msgid ""
 "For mobile devices (responsive), limit the height of the dropdown menu block "
 "to the visible viewport."
@@ -5821,83 +5821,83 @@ msgstr ""
 "For mobile enheter (responsive), begrens høyden på nedtrekksmeny-blokken til "
 "det synlige skjermområdet."
 
-#: inc/czr-init-ccat.php:2697
+#: inc/czr-init-ccat.php:2703
 msgid "Display a label next to the menu button."
 msgstr "Vis en merkelapp ved siden av menyknappen."
 
-#: inc/czr-init-ccat.php:2701
+#: inc/czr-init-ccat.php:2707
 msgid "Note : the label is hidden on mobile devices."
 msgstr "OBS : merkelappen er skjult på mobile enheter"
 
-#: inc/czr-init-ccat.php:2712 inc/czr-init-ccat.php:2733
+#: inc/czr-init-ccat.php:2718 inc/czr-init-ccat.php:2739
 msgid "Menu centered"
 msgstr "Meny sentrert"
 
-#: inc/czr-init-ccat.php:2718 inc/czr-init-ccat.php:2739
+#: inc/czr-init-ccat.php:2724 inc/czr-init-ccat.php:2745
 msgid "Note : the menu centered position is available only when"
 msgstr "Merk: sentrert meny er kun tilgjengelig når "
 
-#: inc/czr-init-ccat.php:2720 inc/czr-init-ccat.php:2741
+#: inc/czr-init-ccat.php:2726 inc/czr-init-ccat.php:2747
 msgid "the logo is centered"
 msgstr "logoen er sentrert"
 
-#: inc/czr-init-ccat.php:2747
+#: inc/czr-init-ccat.php:2753
 msgid "Choose a mobile devices (responsive) behaviour for the secondary menu."
 msgstr "Velg en responsive oppførsel (mobile enheter) for sekundærmeny."
 
-#: inc/czr-init-ccat.php:2751
+#: inc/czr-init-ccat.php:2757
 msgid "Move before inside the side menu "
 msgstr "Flytt før innsiden av side-meny"
 
-#: inc/czr-init-ccat.php:2752
+#: inc/czr-init-ccat.php:2758
 msgid "Move after inside the side menu "
 msgstr "Flytt etter innsiden av side-meny"
 
-#: inc/czr-init-ccat.php:2753
+#: inc/czr-init-ccat.php:2759
 msgid "Display in the header"
 msgstr "Vis i sidehodet"
 
-#: inc/czr-init-ccat.php:2754
+#: inc/czr-init-ccat.php:2760
 msgid "Hide"
 msgstr "Skjul"
 
-#: inc/czr-init-ccat.php:2832
+#: inc/czr-init-ccat.php:2838
 msgid "Metas Design"
 msgstr "Utseende for metainformasjon"
 
-#: inc/czr-init-ccat.php:2833
+#: inc/czr-init-ccat.php:2839
 msgid "Select a design for the post metas"
 msgstr "Velg et utseende for metainformasjonen til innlegg"
 
-#: inc/czr-init-ccat.php:2837
+#: inc/czr-init-ccat.php:2843
 msgid "Buttons and text"
 msgstr "Knapper og tekst"
 
-#: inc/czr-init-ccat.php:2838
+#: inc/czr-init-ccat.php:2844
 msgid "Text only"
 msgstr "Kun tekst"
 
-#: inc/czr-init-ccat.php:2845
+#: inc/czr-init-ccat.php:2851
 msgid "Select the last update format"
 msgstr "Velg format for \"Sist oppdatert\""
 
-#: inc/czr-init-ccat.php:2849
+#: inc/czr-init-ccat.php:2855
 msgid "No. of days since last update"
 msgstr "Ant. Dager siden siste oppdatering"
 
-#: inc/czr-init-ccat.php:2850
+#: inc/czr-init-ccat.php:2856
 msgid "Date of the last update"
 msgstr "Datoen for siste oppdatering"
 
-#: inc/czr-init-ccat.php:2858
+#: inc/czr-init-ccat.php:2864
 msgid "Recent update notice after post titles"
 msgstr "Nylig oppdatert-notis etter innleggstittel"
 
-#: inc/czr-init-ccat.php:2859
+#: inc/czr-init-ccat.php:2865
 msgid "Display a recent update notice"
 msgstr "Vis en nylig oppdatert-notis"
 
-#: inc/czr-init-ccat.php:2863
+#: inc/czr-init-ccat.php:2869
 msgid ""
 "If this option is checked, a customizable recent update notice is displayed "
 "next to the post title."
@@ -5905,14 +5905,14 @@ msgstr ""
 "Hvis denne muligheten er valgt, en redigerbar nylig oppdatert-notis vises "
 "ved siden av innleggstittelen."
 
-#: inc/czr-init-ccat.php:2869
+#: inc/czr-init-ccat.php:2875
 msgid ""
 "Display the notice if the last update is less (strictly) than n days old"
 msgstr ""
 "Vis en notis hvis den siste oppdateringen er mindre (strengt) en X dager "
 "gammel"
 
-#: inc/czr-init-ccat.php:2875
+#: inc/czr-init-ccat.php:2881
 msgid ""
 "Set a maximum interval (in days) during which the last update notice will be "
 "displayed."
@@ -5920,39 +5920,39 @@ msgstr ""
 "Sett et maksimum-intervall (antall dager) hvor i perioden nylig oppdatert-"
 "notisen skal vises"
 
-#: inc/czr-init-ccat.php:2878
+#: inc/czr-init-ccat.php:2884
 msgid "Recently updated !"
 msgstr "Nylig oppdatert!"
 
-#: inc/czr-init-ccat.php:2880
+#: inc/czr-init-ccat.php:2886
 msgid "Update notice text"
 msgstr "Oppdatert-notis, egendefinert tekst"
 
-#: inc/czr-init-ccat.php:2889
+#: inc/czr-init-ccat.php:2895
 msgid "Update notice style"
 msgstr "Oppdatert-notis, stil"
 
-#: inc/czr-init-ccat.php:2893
+#: inc/czr-init-ccat.php:2899
 msgid "Default (grey)"
 msgstr "Standard (Grå)"
 
-#: inc/czr-init-ccat.php:2894
+#: inc/czr-init-ccat.php:2900
 msgid "Success (green)"
 msgstr "Suksess (Grønn)"
 
-#: inc/czr-init-ccat.php:2895
+#: inc/czr-init-ccat.php:2901
 msgid "Alert (orange)"
 msgstr "Alarm (Orange) "
 
-#: inc/czr-init-ccat.php:2896
+#: inc/czr-init-ccat.php:2902
 msgid "Important (red)"
 msgstr "Viktig (Rød)"
 
-#: inc/czr-init-ccat.php:2897
+#: inc/czr-init-ccat.php:2903
 msgid "Info (blue)"
 msgstr "Info (Blå)"
 
-#: inc/czr-init-ccat.php:2908
+#: inc/czr-init-ccat.php:2914
 msgid ""
 "If this option is checked, additional date informations about the the last "
 "post update can be displayed (nothing will show up if the post has never "
@@ -5962,100 +5962,100 @@ msgstr ""
 "siste innlegg vises. (Ingenting vil vises om innlegget aldri har vært "
 "oppdatert)."
 
-#: inc/czr-init-ccat.php:2944
+#: inc/czr-init-ccat.php:2950
 msgid "Select the length of posts in lists (home, search, archives, ...)"
 msgstr "Velg antall innlegg i lister (Hjem, søk, arkiv, ...) "
 
-#: inc/czr-init-ccat.php:2949
+#: inc/czr-init-ccat.php:2955
 msgid "Display the full content"
 msgstr "Vis fullstendig innhold"
 
-#: inc/czr-init-ccat.php:2957
+#: inc/czr-init-ccat.php:2963
 msgid "Apply the grid layout to Home/Blog"
 msgstr "Påfør rutenett-utseende til forsiden / blogg"
 
-#: inc/czr-init-ccat.php:2965
+#: inc/czr-init-ccat.php:2971
 msgid "Apply the grid layout to Archives (archives, categories, author posts)"
 msgstr ""
 "Påfør rutenett-utseende til arkiver (arkiver, kategorier, forfatterinnlegg)"
 
-#: inc/czr-init-ccat.php:2973
+#: inc/czr-init-ccat.php:2979
 msgid "Apply the grid layout to Search results"
 msgstr "Påfør rutenett-utseende til søkresultater"
 
-#: inc/czr-init-ccat.php:2977
+#: inc/czr-init-ccat.php:2983
 msgid "Unchecked contexts are displayed with the alternate thumbnails layout."
 msgstr "Ikke valgte kontekster vises med vekslende utseende på miniatyrbilder"
 
-#: inc/czr-init-ccat.php:2982
+#: inc/czr-init-ccat.php:2988
 msgid "Display post format icons"
 msgstr "Vis ikon for innleggsformat"
 
-#: inc/czr-init-ccat.php:2991
+#: inc/czr-init-ccat.php:2997
 msgid "Upload a default thumbnail"
 msgstr "Last opp et predefinert miniatyrbilde"
 
-#: inc/czr-init-ccat.php:3021
+#: inc/czr-init-ccat.php:3027
 msgid "Thumbnails max height for the grid layout"
 msgstr "Maks bildehøyde for miniatyrbilder under rutenett-utseende"
 
-#: inc/czr-init-ccat.php:3022
+#: inc/czr-init-ccat.php:3028
 msgid "Set the post grid thumbnail's max height in pixels"
 msgstr "Sett innleggsminiatyrbilder I rutenett sin makshøyde i piksler"
 
-#: inc/czr-init-ccat.php:3039
+#: inc/czr-init-ccat.php:3045
 msgid "Rectangular with no effect"
 msgstr "Rektangulær uten effekt"
 
-#: inc/czr-init-ccat.php:3040
+#: inc/czr-init-ccat.php:3046
 msgid "Rectangular with blur effect on hover"
 msgstr "Rektangulær med uklar-effekt når markøren holdes over"
 
-#: inc/czr-init-ccat.php:3041
+#: inc/czr-init-ccat.php:3047
 msgid "Rectangular with unblur effect on hover"
 msgstr "Rektangulær med klar-effekt når markøren holdes over"
 
-#: inc/czr-init-ccat.php:3049
+#: inc/czr-init-ccat.php:3055
 msgid "Top"
 msgstr "Topp"
 
-#: inc/czr-init-ccat.php:3050
+#: inc/czr-init-ccat.php:3056
 msgid "Bottom"
 msgstr "Bunn"
 
-#: inc/czr-init-ccat.php:3075
+#: inc/czr-init-ccat.php:3081
 msgid "Comments bubble shape"
 msgstr "Bobleformede kommentarer"
 
-#: inc/czr-init-ccat.php:3079
+#: inc/czr-init-ccat.php:3085
 msgid "Small bubbles"
 msgstr "Små bobler"
 
-#: inc/czr-init-ccat.php:3080
+#: inc/czr-init-ccat.php:3086
 msgid "Large bubbles"
 msgstr "Store bobler"
 
-#: inc/czr-init-ccat.php:3088 inc/czr-init-ccat.php:3101
+#: inc/czr-init-ccat.php:3094 inc/czr-init-ccat.php:3107
 msgid "Comments bubble color"
 msgstr "Farge på kommentarbobler"
 
-#: inc/czr-init-ccat.php:3092
+#: inc/czr-init-ccat.php:3098
 msgid "Skin color"
 msgstr "Farge"
 
-#: inc/czr-init-ccat.php:3157
+#: inc/czr-init-ccat.php:3163
 msgid "Social link title in sidebars"
 msgstr "Sosiale lenketitler i sideområder"
 
-#: inc/czr-init-ccat.php:3163
+#: inc/czr-init-ccat.php:3169
 msgid "Will be hidden if empty"
 msgstr "Vil være skjult hvis tom"
 
-#: inc/czr-init-ccat.php:3193
+#: inc/czr-init-ccat.php:3199
 msgid "Dynamic sidebar reordering on small devices"
 msgstr "Dynamisk strukturering av sideområdet på små enheter"
 
-#: inc/czr-init-ccat.php:3196
+#: inc/czr-init-ccat.php:3202
 msgid ""
 "Activate this option to move the sidebars (if any) after the main content "
 "block, for smartphones or tablets viewport."
@@ -6063,30 +6063,30 @@ msgstr ""
 "Aktiver denne muligheten for å flytte sideområdet (hvis noen finnes) etter "
 "blokken fof hovedinnhold, for smarttelefoner eller nettbrett sine skjermer."
 
-#: inc/czr-init-ccat.php:3293
+#: inc/czr-init-ccat.php:3299
 msgid "Titles icons settings"
 msgstr "Innstillinger for tittelikoner"
 
-#: inc/czr-init-ccat.php:3295
+#: inc/czr-init-ccat.php:3301
 msgid "Set up the titles icons options"
 msgstr "Sett opp muligheter for tittelikoner"
 
-#: inc/czr-init-ccat.php:3303
+#: inc/czr-init-ccat.php:3309
 msgid "Responsive settings"
 msgstr "Instillinger for responsivitet"
 
-#: inc/czr-init-ccat.php:3305
+#: inc/czr-init-ccat.php:3311
 msgid "Various settings for responsive display"
 msgstr "Forskjellige innstillinger for responsive visning"
 
-#: inc/czr-init-ccat.php:4669
+#: inc/czr-init-ccat.php:4675
 msgid ""
 "Quick tip : you can choose between two styles for the Customizr theme. Give "
 "it a try %s"
 msgstr ""
 "Raskt tips : du kan velge mellom to stiler av Customizr-temaet. Prøv det %s"
 
-#: inc/czr-init-ccat.php:4672
+#: inc/czr-init-ccat.php:4678
 msgid "in the live customizer."
 msgstr "I nåtids-tilplasseren"
 

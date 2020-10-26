@@ -1,4 +1,4 @@
-# Customizr Pro v2.3.3
+# Customizr Pro v2.3.4
 ![Customizr - Pro](/screenshot.png)
 
 > The pro version of the popular Customizr WordPress theme.
@@ -14,6 +14,9 @@ Customizr Pro is distributed under the terms of the [GNU GPL v2.0 or later](http
 * SUPPORT : https://presscustomizr.com/support/
 
 ## Changelog
+= 2.3.4 October 7th, 2020 =
+* added : [CSS] add current theme version as CSS class to body tag
+
 = 2.3.3 September 18, 2020 =
 * fixed : [admin] security issue
 

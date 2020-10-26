@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: * Customizr-Pro v2.3.3\n"
 "Report-Msgid-Bugs-To: https://presscustomizr.com/contact/\n"
-"POT-Creation-Date: 2020-09-18 18:07:18+00:00\n"
+"POT-Creation-Date: 2020-10-07 14:16:34+00:00\n"
 "PO-Revision-Date: 2017-03-08 21:27:41+0000\n"
 "Language: pt_BR\n"
 "MIME-Version: 1.0\n"
@@ -1014,7 +1014,7 @@ msgid "Display the title"
 msgstr "Exibir o título"
 
 #: addons/bundle/slider/back/classes/class_back_slider.php:293
-#: core/core-settings-map.php:1188 inc/czr-init-ccat.php:2948
+#: core/core-settings-map.php:1188 inc/czr-init-ccat.php:2954
 msgid "Display the excerpt"
 msgstr "Mostrar o resumo"
 
@@ -1445,11 +1445,11 @@ msgstr "Arredondado, expande ao passar o mouse"
 msgid "Rounded, no expansion"
 msgstr "Arredondado, sem expansão"
 
-#: addons/fpu/utils/classes/class_utils_fpu.php:577 inc/czr-init-ccat.php:3037
+#: addons/fpu/utils/classes/class_utils_fpu.php:577 inc/czr-init-ccat.php:3043
 msgid "Squared, expand on hover"
 msgstr "Quadrado, expande ao passar o mouse"
 
-#: addons/fpu/utils/classes/class_utils_fpu.php:578 inc/czr-init-ccat.php:3038
+#: addons/fpu/utils/classes/class_utils_fpu.php:578 inc/czr-init-ccat.php:3044
 msgid "Squared, no expansion"
 msgstr "Quadrado, sem expansão"
 
@@ -1713,7 +1713,7 @@ msgstr ""
 
 #: addons/wfc/back/classes/class_admin_font_customizer.php:519
 #: addons/wfc/wordpress-font-customizer.php:765 core/core-settings-map.php:517
-#: inc/czr-init-ccat.php:3093
+#: inc/czr-init-ccat.php:3099
 msgid "Custom"
 msgstr "Personalizado"
 
@@ -2375,11 +2375,11 @@ msgstr "Este bloco só é visível para administradores. "
 msgid "dismiss notice"
 msgstr "dispensar nota"
 
-#: core/class-fire-plugins_compat.php:380 inc/czr-init-ccat.php:817
+#: core/class-fire-plugins_compat.php:380 inc/czr-init-ccat.php:823
 msgid "Front page slider name"
 msgstr "Nome do slider na página inicial"
 
-#: core/class-fire-plugins_compat.php:382 inc/czr-init-ccat.php:819
+#: core/class-fire-plugins_compat.php:382 inc/czr-init-ccat.php:825
 msgid "Posts slider button text"
 msgstr "Botão de texto do slider de post"
 
@@ -2387,7 +2387,7 @@ msgstr "Botão de texto do slider de post"
 msgid "Custom Page Example"
 msgstr "Exemplo de página personalizada"
 
-#: core/class-fire-resources_scripts.php:402 inc/czr-init-ccat.php:4262
+#: core/class-fire-resources_scripts.php:402 inc/czr-init-ccat.php:4268
 msgid "Permanently dismiss"
 msgstr ""
 
@@ -2636,7 +2636,7 @@ msgstr ""
 msgid "Animated underline effect on link hover"
 msgstr "Habilitar efeitos do Customizr ao passar o mouse"
 
-#: core/core-settings-map.php:357 inc/czr-init-ccat.php:2248
+#: core/core-settings-map.php:357 inc/czr-init-ccat.php:2254
 #, fuzzy
 msgid "Fade effect on link hover"
 msgstr "Habilitar efeitos do Customizr ao passar o mouse"
@@ -2902,12 +2902,12 @@ msgid "Use a full screen search block"
 msgstr ""
 
 #: core/core-settings-map.php:746 core/core-settings-map.php:856
-#: inc/czr-init-ccat.php:2544
+#: inc/czr-init-ccat.php:2550
 msgid "Display the shopping cart in the header"
 msgstr "Exibir o carrinho no cabeçalho"
 
 #: core/core-settings-map.php:749 core/core-settings-map.php:859
-#: inc/czr-init-ccat.php:2547
+#: inc/czr-init-ccat.php:2553
 msgid ""
 "WooCommerce: check to display a cart icon showing the number of items in "
 "your cart next to your header's tagline."
@@ -3010,7 +3010,7 @@ msgstr ""
 msgid "Expand submenus on click"
 msgstr "Expandir submenus ao clicar"
 
-#: core/core-settings-map.php:845 inc/czr-init-ccat.php:2532
+#: core/core-settings-map.php:845 inc/czr-init-ccat.php:2538
 msgid "Display the tagline in the header"
 msgstr "Mostrar o slogan no cabeçalho"
 
@@ -3079,25 +3079,25 @@ msgstr "criar/editar menus"
 msgid "Primary (vertical) menu design"
 msgstr "Design do menu secundário (horizontal)"
 
-#: core/core-settings-map.php:954 inc/czr-init-ccat.php:2707
+#: core/core-settings-map.php:954 inc/czr-init-ccat.php:2713
 msgid "Menu position (for \"main\" menu)"
 msgstr "Posição do menu (para o menu padrão)"
 
 #: core/core-settings-map.php:958 core/core-settings-map.php:972
-#: inc/czr-init-ccat.php:2711 inc/czr-init-ccat.php:2732
+#: inc/czr-init-ccat.php:2717 inc/czr-init-ccat.php:2738
 msgid "Menu on the left"
 msgstr "Menu na esquerda"
 
 #: core/core-settings-map.php:959 core/core-settings-map.php:973
-#: inc/czr-init-ccat.php:2713 inc/czr-init-ccat.php:2734
+#: inc/czr-init-ccat.php:2719 inc/czr-init-ccat.php:2740
 msgid "Menu on the right"
 msgstr "Menu à direita"
 
-#: core/core-settings-map.php:967 inc/czr-init-ccat.php:2727
+#: core/core-settings-map.php:967 inc/czr-init-ccat.php:2733
 msgid "Secondary (horizontal) menu design"
 msgstr "Design do menu secundário (horizontal)"
 
-#: core/core-settings-map.php:968 inc/czr-init-ccat.php:2728
+#: core/core-settings-map.php:968 inc/czr-init-ccat.php:2734
 msgid "Menu position (for the horizontal menu)"
 msgstr "Posição do menu (para o menu horizontal)"
 
@@ -3563,7 +3563,7 @@ msgid "Display featured images in their original dimensions"
 msgstr ""
 
 #: core/core-settings-map.php:1722 core/core-settings-map.php:1801
-#: inc/czr-init-ccat.php:3009
+#: inc/czr-init-ccat.php:3015
 msgid "Set the thumbnail's max height in pixels"
 msgstr "Definir o tamanho máximo das imagens em pixels"
 
@@ -5271,7 +5271,7 @@ msgstr ""
 msgid "Mobile Menu"
 msgstr "Menu principal"
 
-#: core/init-base.php:1106 inc/czr-init-ccat.php:3156
+#: core/init-base.php:1106 inc/czr-init-ccat.php:3162
 msgid "Social links"
 msgstr "Links das Redes Sociais"
 
@@ -5574,74 +5574,74 @@ msgstr "Verde azulado"
 msgid "Light blue "
 msgstr "Azul claro"
 
-#: inc/czr-init-ccat.php:1512
+#: inc/czr-init-ccat.php:1518
 #: templates/parts/header/parts/woocommerce_cart.php:7
 msgid "View your shopping cart"
 msgstr "Veja seu carrinho de compras"
 
-#: inc/czr-init-ccat.php:2157
+#: inc/czr-init-ccat.php:2163
 msgid "Sticky Logo Upload (supported formats : .jpg, .png, .gif, svg, svgz)"
 msgstr "Upload do logo fixo (formatos suportados: .jpg, .png, .gif, svg, svgz)"
 
-#: inc/czr-init-ccat.php:2169
+#: inc/czr-init-ccat.php:2175
 msgid ""
 "Use this upload control to specify a different logo on sticky header mode."
 msgstr ""
 "Use este controle de upload para definir um logo diferente para o modo de "
 "cabeçalho fixo."
 
-#: inc/czr-init-ccat.php:2174
+#: inc/czr-init-ccat.php:2180
 msgid "Favicon Upload (supported formats : .ico, .png, .gif)"
 msgstr "Upload do favicon (formatos suportados: .ico, .png, .gif)"
 
-#: inc/czr-init-ccat.php:2175
+#: inc/czr-init-ccat.php:2181
 msgid "FAVICON"
 msgstr "FAVICON"
 
-#: inc/czr-init-ccat.php:2214
+#: inc/czr-init-ccat.php:2220
 msgid "Choose a predefined skin"
 msgstr "Escolher um estilo predefinido"
 
-#: inc/czr-init-ccat.php:2219
+#: inc/czr-init-ccat.php:2225
 msgid "Disabled if the random option is on."
 msgstr "Desabilitado se a opção aleatória estiver marcada."
 
-#: inc/czr-init-ccat.php:2224
+#: inc/czr-init-ccat.php:2230
 msgid "Randomize the skin"
 msgstr "Deixar o estilo aleatório"
 
-#: inc/czr-init-ccat.php:2227
+#: inc/czr-init-ccat.php:2233
 msgid "Apply a random color skin on each page load."
 msgstr ""
 "Aplicar um estilo de cores aleatoriamente a cada carregamento de página."
 
-#: inc/czr-init-ccat.php:2271
+#: inc/czr-init-ccat.php:2277
 msgid "Display an icon next to external links"
 msgstr "Exibir um ícone perto de links externos"
 
-#: inc/czr-init-ccat.php:2274 inc/czr-init-ccat.php:2284
+#: inc/czr-init-ccat.php:2280 inc/czr-init-ccat.php:2290
 msgid ""
 "This will be applied to the links included in post or page content only."
 msgstr ""
 "Isto será aplicado apenas a links incluídos em posts ou conteúdo de páginas"
 
-#: inc/czr-init-ccat.php:2281
+#: inc/czr-init-ccat.php:2287
 msgid "Open external links in a new tab"
 msgstr "Abrir links externos em uma nova aba"
 
-#: inc/czr-init-ccat.php:2289
+#: inc/czr-init-ccat.php:2295
 msgid "Drop caps"
 msgstr "Drop caps"
 
-#: inc/czr-init-ccat.php:2290
+#: inc/czr-init-ccat.php:2296
 msgid "Enable drop caps"
 msgstr "Habilitar drop caps"
 
-#: inc/czr-init-ccat.php:2292
+#: inc/czr-init-ccat.php:2298
 msgid "Apply a drop cap to the first paragraph of your post / page content"
 msgstr "Aplicar drop cap ao primeiro parágrafo do conteúdo de sua post/página"
 
-#: inc/czr-init-ccat.php:2300
+#: inc/czr-init-ccat.php:2306
 msgid ""
 "Apply a drop cap when the paragraph includes at least the following number "
 "of words :"
@@ -5649,44 +5649,44 @@ msgstr ""
 "Aplicar drop cap quando o parágrafo incrluir pelo menos o seguinte número de "
 "palavras:"
 
-#: inc/czr-init-ccat.php:2301
+#: inc/czr-init-ccat.php:2307
 msgid "(number of words)"
 msgstr "(número de palavras)"
 
-#: inc/czr-init-ccat.php:2310
+#: inc/czr-init-ccat.php:2316
 msgid "Drop cap style"
 msgstr "Estilo drop cap"
 
-#: inc/czr-init-ccat.php:2314
+#: inc/czr-init-ccat.php:2320
 #, fuzzy
 msgid "Primary theme color with a shadow"
 msgstr "Cor do estilo com sombra"
 
-#: inc/czr-init-ccat.php:2315
+#: inc/czr-init-ccat.php:2321
 msgid "Simple black"
 msgstr "Preto"
 
-#: inc/czr-init-ccat.php:2320
+#: inc/czr-init-ccat.php:2326
 msgid "Enable drop caps in posts"
 msgstr "Habilitar drop caps em posts"
 
-#: inc/czr-init-ccat.php:2322
+#: inc/czr-init-ccat.php:2328
 msgid "Apply a drop cap to the first paragraph of your single posts content"
 msgstr "Aplicar drop cap no primeiro parágrafo do conteúdo de posts únicos"
 
-#: inc/czr-init-ccat.php:2328
+#: inc/czr-init-ccat.php:2334
 msgid "Enable drop caps in pages"
 msgstr "Habilitar drop caps em páginas"
 
-#: inc/czr-init-ccat.php:2330
+#: inc/czr-init-ccat.php:2336
 msgid "Apply a drop cap to the first paragraph of your pages"
 msgstr "Aplicar drop cap ao primeiro parágrafo de todas as páginas"
 
-#: inc/czr-init-ccat.php:2349
+#: inc/czr-init-ccat.php:2355
 msgid "Display icons next to titles"
 msgstr "Exibir ícones perto dos títulos"
 
-#: inc/czr-init-ccat.php:2353
+#: inc/czr-init-ccat.php:2359
 #, fuzzy
 msgid ""
 "When this option is checked, a contextual icon is displayed next to the "
@@ -5696,20 +5696,20 @@ msgstr ""
 "as listagens de posts: blog, arquivos, página do autor, páginas de "
 "pesquisa, ..."
 
-#: inc/czr-init-ccat.php:2359
+#: inc/czr-init-ccat.php:2365
 #, fuzzy
 msgid "Display a page icon next to the page title"
 msgstr "Exibir um ícone ao lado do título do arquivo"
 
-#: inc/czr-init-ccat.php:2368
+#: inc/czr-init-ccat.php:2374
 msgid "Display a post icon next to the single post title"
 msgstr "Exibir um ícone de post ao lado do título de um post único"
 
-#: inc/czr-init-ccat.php:2377
+#: inc/czr-init-ccat.php:2383
 msgid "Display an icon next to the archive title"
 msgstr "Exibir um ícone ao lado do título do arquivo"
 
-#: inc/czr-init-ccat.php:2380
+#: inc/czr-init-ccat.php:2386
 msgid ""
 "When this option is checked, an archive type icon is displayed in the "
 "heading of every types of archives, on the left of the title. An archive "
@@ -5717,58 +5717,58 @@ msgid ""
 "results."
 msgstr ""
 
-#: inc/czr-init-ccat.php:2387
+#: inc/czr-init-ccat.php:2393
 msgid "Display an icon next to each post title in an archive page"
 msgstr "Exibir um ícone ao lado de cada título de post numa página de arquivo"
 
-#: inc/czr-init-ccat.php:2390
+#: inc/czr-init-ccat.php:2396
 msgid ""
 "When this option is checked, a post type icon is displayed on the left of "
 "each post titles in an archive page. An archive page can be : category, tag, "
 "author, date archive, custom taxonomies, search results."
 msgstr ""
 
-#: inc/czr-init-ccat.php:2397
+#: inc/czr-init-ccat.php:2403
 msgid "WP sidebar widgets : display icons next to titles"
 msgstr "Widgets das barras laterais do WP: exibir ícones ao lado dos títulos"
 
-#: inc/czr-init-ccat.php:2406
+#: inc/czr-init-ccat.php:2412
 msgid "WP footer widgets : display icons next to titles"
 msgstr "Rodapé do WP: exibir ícones ao lado dos títulos"
 
-#: inc/czr-init-ccat.php:2435
+#: inc/czr-init-ccat.php:2441
 msgid "Autoscale images on zoom"
 msgstr "Redimensionar imagens automaticamente durante o zoom"
 
-#: inc/czr-init-ccat.php:2439
+#: inc/czr-init-ccat.php:2445
 msgid ""
 "If enabled, this option will force images to fit the screen on lightbox zoom."
 msgstr ""
 
-#: inc/czr-init-ccat.php:2445
+#: inc/czr-init-ccat.php:2451
 msgid "Sliders : display on loading icon before rendering the slides"
 msgstr "Sliders: exibir ícone de carregamento antes de renderizar os slides"
 
-#: inc/czr-init-ccat.php:2449
+#: inc/czr-init-ccat.php:2455
 msgid ""
 "When checked, this option displays a loading icon when the slides are being "
 "setup."
 msgstr ""
 
-#: inc/czr-init-ccat.php:2459
+#: inc/czr-init-ccat.php:2465
 msgid ""
 "Improve your page speed by loading smaller slider images for mobile devices"
 msgstr ""
 
-#: inc/czr-init-ccat.php:2517
+#: inc/czr-init-ccat.php:2523
 msgid "Social links in header"
 msgstr "Links de redes sociais no cabeçalho"
 
-#: inc/czr-init-ccat.php:2555
+#: inc/czr-init-ccat.php:2561
 msgid "Display menu in a box"
 msgstr "Mostrar menu numa caixa"
 
-#: inc/czr-init-ccat.php:2560
+#: inc/czr-init-ccat.php:2566
 msgid ""
 "If checked, this option wraps the header menu/tagline/social in a light grey "
 "box."
@@ -5776,15 +5776,15 @@ msgstr ""
 "Se marcada, esta opção envolve o cabeçalho (menu, slogan, redes sociais) em "
 "uma caixa cinza clara."
 
-#: inc/czr-init-ccat.php:2565
+#: inc/czr-init-ccat.php:2571
 msgid "Sticky header settings"
 msgstr "Configurações de cabeçalho fixo"
 
-#: inc/czr-init-ccat.php:2566
+#: inc/czr-init-ccat.php:2572
 msgid "Sticky on scroll"
 msgstr "Fixar ao rolar"
 
-#: inc/czr-init-ccat.php:2571
+#: inc/czr-init-ccat.php:2577
 #, fuzzy
 msgid ""
 "If checked, this option makes the header stick to the top of the page on "
@@ -5793,15 +5793,15 @@ msgstr ""
 "Se marcada, esta opção envolve o cabeçalho (menu, slogan, redes sociais) em "
 "uma caixa cinza clara."
 
-#: inc/czr-init-ccat.php:2576
+#: inc/czr-init-ccat.php:2582
 msgid "Sticky header : display the tagline"
 msgstr "Cabeçalho fixo: exibir o slogan"
 
-#: inc/czr-init-ccat.php:2584
+#: inc/czr-init-ccat.php:2590
 msgid "Sticky header: display the shopping cart"
 msgstr "Cabeçalho fixo: exibir o carrinho"
 
-#: inc/czr-init-ccat.php:2591
+#: inc/czr-init-ccat.php:2597
 msgid ""
 "WooCommerce: if checked, your WooCommerce cart icon will remain visible when "
 "scrolling."
@@ -5809,19 +5809,19 @@ msgstr ""
 "WooCommerce: se marcado, o ícone carrinho do WooCommerce irá permanecer "
 "visível quando rolar a página."
 
-#: inc/czr-init-ccat.php:2596
+#: inc/czr-init-ccat.php:2602
 msgid "Sticky header : display the title / logo"
 msgstr "Cabeçalho fixo: exibir o título / logo"
 
-#: inc/czr-init-ccat.php:2605
+#: inc/czr-init-ccat.php:2611
 msgid "Sticky header : display the menu"
 msgstr "Cabeçalho fixo: exibir o menu"
 
-#: inc/czr-init-ccat.php:2610
+#: inc/czr-init-ccat.php:2616
 msgid "Also applied to the secondary menu if any."
 msgstr "Também aplicado ao menu secundário, se houver."
 
-#: inc/czr-init-ccat.php:2688
+#: inc/czr-init-ccat.php:2694
 msgid ""
 "For mobile devices (responsive), limit the height of the dropdown menu block "
 "to the visible viewport."
@@ -5829,88 +5829,88 @@ msgstr ""
 "Para dispositivos móveis (responsivo), limite a altura do bloco de menu "
 "dropdown à janela visível."
 
-#: inc/czr-init-ccat.php:2697
+#: inc/czr-init-ccat.php:2703
 msgid "Display a label next to the menu button."
 msgstr "Exibir uma etiqueta ao lado do botão de menu."
 
-#: inc/czr-init-ccat.php:2701
+#: inc/czr-init-ccat.php:2707
 msgid "Note : the label is hidden on mobile devices."
 msgstr "Nota: o rótulo está oculto em dispositivos móveis."
 
-#: inc/czr-init-ccat.php:2712 inc/czr-init-ccat.php:2733
+#: inc/czr-init-ccat.php:2718 inc/czr-init-ccat.php:2739
 #, fuzzy
 msgid "Menu centered"
 msgstr "Menu na esquerda"
 
-#: inc/czr-init-ccat.php:2718 inc/czr-init-ccat.php:2739
+#: inc/czr-init-ccat.php:2724 inc/czr-init-ccat.php:2745
 msgid "Note : the menu centered position is available only when"
 msgstr ""
 
-#: inc/czr-init-ccat.php:2720 inc/czr-init-ccat.php:2741
+#: inc/czr-init-ccat.php:2726 inc/czr-init-ccat.php:2747
 #, fuzzy
 msgid "the logo is centered"
 msgstr "Logo/título centralizado"
 
-#: inc/czr-init-ccat.php:2747
+#: inc/czr-init-ccat.php:2753
 msgid "Choose a mobile devices (responsive) behaviour for the secondary menu."
 msgstr ""
 "Escolha o comportamento responsivo (para dispositivos móveis) do menu "
 "secundário."
 
-#: inc/czr-init-ccat.php:2751
+#: inc/czr-init-ccat.php:2757
 msgid "Move before inside the side menu "
 msgstr "Mover antes, dentro do menu lateral"
 
-#: inc/czr-init-ccat.php:2752
+#: inc/czr-init-ccat.php:2758
 msgid "Move after inside the side menu "
 msgstr "Mover depois, dentro do menu lateral"
 
-#: inc/czr-init-ccat.php:2753
+#: inc/czr-init-ccat.php:2759
 msgid "Display in the header"
 msgstr "Exibir no cabeçalho"
 
-#: inc/czr-init-ccat.php:2754
+#: inc/czr-init-ccat.php:2760
 msgid "Hide"
 msgstr "Esconder"
 
-#: inc/czr-init-ccat.php:2832
+#: inc/czr-init-ccat.php:2838
 msgid "Metas Design"
 msgstr "Design das metainformações das publicações "
 
-#: inc/czr-init-ccat.php:2833
+#: inc/czr-init-ccat.php:2839
 msgid "Select a design for the post metas"
 msgstr "Selecionar um design para as metainformações dos posts "
 
-#: inc/czr-init-ccat.php:2837
+#: inc/czr-init-ccat.php:2843
 msgid "Buttons and text"
 msgstr "Botões e texto"
 
-#: inc/czr-init-ccat.php:2838
+#: inc/czr-init-ccat.php:2844
 msgid "Text only"
 msgstr "Somente texto"
 
-#: inc/czr-init-ccat.php:2845
+#: inc/czr-init-ccat.php:2851
 msgid "Select the last update format"
 msgstr "Selecionar o formato da última atualização"
 
-#: inc/czr-init-ccat.php:2849
+#: inc/czr-init-ccat.php:2855
 #, fuzzy
 msgid "No. of days since last update"
 msgstr "Número de dias desde a última atualização"
 
-#: inc/czr-init-ccat.php:2850
+#: inc/czr-init-ccat.php:2856
 msgid "Date of the last update"
 msgstr "Data da última atualização"
 
-#: inc/czr-init-ccat.php:2858
+#: inc/czr-init-ccat.php:2864
 msgid "Recent update notice after post titles"
 msgstr "Nota de atualização recente depois dos títulos dos posts"
 
-#: inc/czr-init-ccat.php:2859
+#: inc/czr-init-ccat.php:2865
 msgid "Display a recent update notice"
 msgstr "Exibir uma nota de atualização recente"
 
-#: inc/czr-init-ccat.php:2863
+#: inc/czr-init-ccat.php:2869
 #, fuzzy
 msgid ""
 "If this option is checked, a customizable recent update notice is displayed "
@@ -5919,183 +5919,183 @@ msgstr ""
 "Quando esta opção está habilitada, as navegações de post são exibidas abaixo "
 "das postagens"
 
-#: inc/czr-init-ccat.php:2869
+#: inc/czr-init-ccat.php:2875
 msgid ""
 "Display the notice if the last update is less (strictly) than n days old"
 msgstr ""
 
-#: inc/czr-init-ccat.php:2875
+#: inc/czr-init-ccat.php:2881
 msgid ""
 "Set a maximum interval (in days) during which the last update notice will be "
 "displayed."
 msgstr ""
 
-#: inc/czr-init-ccat.php:2878
+#: inc/czr-init-ccat.php:2884
 msgid "Recently updated !"
 msgstr "Atualizado recentemente!"
 
-#: inc/czr-init-ccat.php:2880
+#: inc/czr-init-ccat.php:2886
 msgid "Update notice text"
 msgstr "Atualizar texto de notificação"
 
-#: inc/czr-init-ccat.php:2889
+#: inc/czr-init-ccat.php:2895
 msgid "Update notice style"
 msgstr "Atualizar estilo de notificação"
 
-#: inc/czr-init-ccat.php:2893
+#: inc/czr-init-ccat.php:2899
 msgid "Default (grey)"
 msgstr "Padrão (cinza)"
 
-#: inc/czr-init-ccat.php:2894
+#: inc/czr-init-ccat.php:2900
 msgid "Success (green)"
 msgstr "Sucesso (verde)"
 
-#: inc/czr-init-ccat.php:2895
+#: inc/czr-init-ccat.php:2901
 msgid "Alert (orange)"
 msgstr "Alerta (laraja)"
 
-#: inc/czr-init-ccat.php:2896
+#: inc/czr-init-ccat.php:2902
 msgid "Important (red)"
 msgstr "Importante (vermelho)"
 
-#: inc/czr-init-ccat.php:2897
+#: inc/czr-init-ccat.php:2903
 msgid "Info (blue)"
 msgstr "Info (azul)"
 
-#: inc/czr-init-ccat.php:2908
+#: inc/czr-init-ccat.php:2914
 msgid ""
 "If this option is checked, additional date informations about the the last "
 "post update can be displayed (nothing will show up if the post has never "
 "been updated)."
 msgstr ""
 
-#: inc/czr-init-ccat.php:2944
+#: inc/czr-init-ccat.php:2950
 msgid "Select the length of posts in lists (home, search, archives, ...)"
 msgstr ""
 "Selecionar a quantidade máxima de posts nas listagens (página principal, "
 "busca, arquivos, ...)"
 
-#: inc/czr-init-ccat.php:2949
+#: inc/czr-init-ccat.php:2955
 msgid "Display the full content"
 msgstr "Exibir o conteúdo completo"
 
-#: inc/czr-init-ccat.php:2957
+#: inc/czr-init-ccat.php:2963
 msgid "Apply the grid layout to Home/Blog"
 msgstr "Aplicar o layout em grade para a página inicial/blog"
 
-#: inc/czr-init-ccat.php:2965
+#: inc/czr-init-ccat.php:2971
 msgid "Apply the grid layout to Archives (archives, categories, author posts)"
 msgstr "Aplicar o layout em grade aos arquivos (arquivos, categorias, posts)"
 
-#: inc/czr-init-ccat.php:2973
+#: inc/czr-init-ccat.php:2979
 msgid "Apply the grid layout to Search results"
 msgstr "Aplicar o layout em grade aos resultados de busca"
 
-#: inc/czr-init-ccat.php:2977
+#: inc/czr-init-ccat.php:2983
 msgid "Unchecked contexts are displayed with the alternate thumbnails layout."
 msgstr ""
 "Os contextos não marcados são exibidos com o layout alternativo de imagens "
 "(thumbnail)."
 
-#: inc/czr-init-ccat.php:2982
+#: inc/czr-init-ccat.php:2988
 #, fuzzy
 msgid "Display post format icons"
 msgstr "Exibir ícones de formato de postagem em segundo plano"
 
-#: inc/czr-init-ccat.php:2991
+#: inc/czr-init-ccat.php:2997
 msgid "Upload a default thumbnail"
 msgstr "Faça o upload de uma imagem padrão"
 
-#: inc/czr-init-ccat.php:3021
+#: inc/czr-init-ccat.php:3027
 msgid "Thumbnails max height for the grid layout"
 msgstr "Altura máxima das imagens para o layout em grade"
 
-#: inc/czr-init-ccat.php:3022
+#: inc/czr-init-ccat.php:3028
 msgid "Set the post grid thumbnail's max height in pixels"
 msgstr "Definir a altura máxima da imagem destaque das publicações em pixels"
 
-#: inc/czr-init-ccat.php:3039
+#: inc/czr-init-ccat.php:3045
 msgid "Rectangular with no effect"
 msgstr "Retangular sem efeito"
 
-#: inc/czr-init-ccat.php:3040
+#: inc/czr-init-ccat.php:3046
 msgid "Rectangular with blur effect on hover"
 msgstr "Retangular com efeito blur ao passar o mouse"
 
-#: inc/czr-init-ccat.php:3041
+#: inc/czr-init-ccat.php:3047
 msgid "Rectangular with unblur effect on hover"
 msgstr "Retangular com efeito unblur ao passar o mouse"
 
-#: inc/czr-init-ccat.php:3049
+#: inc/czr-init-ccat.php:3055
 msgid "Top"
 msgstr "Topo"
 
-#: inc/czr-init-ccat.php:3050
+#: inc/czr-init-ccat.php:3056
 msgid "Bottom"
 msgstr "Base"
 
-#: inc/czr-init-ccat.php:3075
+#: inc/czr-init-ccat.php:3081
 msgid "Comments bubble shape"
 msgstr "Formato do marcador de comentários"
 
-#: inc/czr-init-ccat.php:3079
+#: inc/czr-init-ccat.php:3085
 msgid "Small bubbles"
 msgstr "Marcado pequeno"
 
-#: inc/czr-init-ccat.php:3080
+#: inc/czr-init-ccat.php:3086
 msgid "Large bubbles"
 msgstr "Marcador grande"
 
-#: inc/czr-init-ccat.php:3088 inc/czr-init-ccat.php:3101
+#: inc/czr-init-ccat.php:3094 inc/czr-init-ccat.php:3107
 msgid "Comments bubble color"
 msgstr "Cor do marcador de comentários"
 
-#: inc/czr-init-ccat.php:3092
+#: inc/czr-init-ccat.php:3098
 msgid "Skin color"
 msgstr "Cor do estilo"
 
-#: inc/czr-init-ccat.php:3157
+#: inc/czr-init-ccat.php:3163
 msgid "Social link title in sidebars"
 msgstr "Links das redes sociais nas barras laterais"
 
-#: inc/czr-init-ccat.php:3163
+#: inc/czr-init-ccat.php:3169
 msgid "Will be hidden if empty"
 msgstr "Será escondido se estiver vazio"
 
-#: inc/czr-init-ccat.php:3193
+#: inc/czr-init-ccat.php:3199
 #, fuzzy
 msgid "Dynamic sidebar reordering on small devices"
 msgstr "Centralizar dinamicamente imagens em qualquer dispositivo"
 
-#: inc/czr-init-ccat.php:3196
+#: inc/czr-init-ccat.php:3202
 msgid ""
 "Activate this option to move the sidebars (if any) after the main content "
 "block, for smartphones or tablets viewport."
 msgstr ""
 
-#: inc/czr-init-ccat.php:3293
+#: inc/czr-init-ccat.php:3299
 msgid "Titles icons settings"
 msgstr "Configuração de ícones nos títulos"
 
-#: inc/czr-init-ccat.php:3295
+#: inc/czr-init-ccat.php:3301
 msgid "Set up the titles icons options"
 msgstr "Definir opções de ícones nos títulos"
 
-#: inc/czr-init-ccat.php:3303
+#: inc/czr-init-ccat.php:3309
 msgid "Responsive settings"
 msgstr "Configurações responsivas"
 
-#: inc/czr-init-ccat.php:3305
+#: inc/czr-init-ccat.php:3311
 msgid "Various settings for responsive display"
 msgstr "Várias configurações para a exibição responsiva"
 
-#: inc/czr-init-ccat.php:4669
+#: inc/czr-init-ccat.php:4675
 msgid ""
 "Quick tip : you can choose between two styles for the Customizr theme. Give "
 "it a try %s"
 msgstr ""
 
-#: inc/czr-init-ccat.php:4672
+#: inc/czr-init-ccat.php:4678
 #, fuzzy
 msgid "in the live customizer."
 msgstr "Ir para a customização agora"

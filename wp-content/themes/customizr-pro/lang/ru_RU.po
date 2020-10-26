@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: * Customizr-Pro v2.3.3\n"
 "Report-Msgid-Bugs-To: https://presscustomizr.com/contact/\n"
-"POT-Creation-Date: 2020-09-18 18:07:18+00:00\n"
+"POT-Creation-Date: 2020-10-07 14:16:34+00:00\n"
 "PO-Revision-Date: 2017-11-18 08:06:16+0000\n"
 "Language: ru\n"
 "MIME-Version: 1.0\n"
@@ -1015,7 +1015,7 @@ msgid "Display the title"
 msgstr "Отображать заголовок"
 
 #: addons/bundle/slider/back/classes/class_back_slider.php:293
-#: core/core-settings-map.php:1188 inc/czr-init-ccat.php:2948
+#: core/core-settings-map.php:1188 inc/czr-init-ccat.php:2954
 msgid "Display the excerpt"
 msgstr "Показать выдержку"
 
@@ -1447,11 +1447,11 @@ msgstr "Круглый, разширяется при наведении"
 msgid "Rounded, no expansion"
 msgstr "Круглый, не расширяется"
 
-#: addons/fpu/utils/classes/class_utils_fpu.php:577 inc/czr-init-ccat.php:3037
+#: addons/fpu/utils/classes/class_utils_fpu.php:577 inc/czr-init-ccat.php:3043
 msgid "Squared, expand on hover"
 msgstr "Квадратный, расширяется при наведении"
 
-#: addons/fpu/utils/classes/class_utils_fpu.php:578 inc/czr-init-ccat.php:3038
+#: addons/fpu/utils/classes/class_utils_fpu.php:578 inc/czr-init-ccat.php:3044
 msgid "Squared, no expansion"
 msgstr "Квадратный, не расширяется"
 
@@ -1718,7 +1718,7 @@ msgstr ""
 
 #: addons/wfc/back/classes/class_admin_font_customizer.php:519
 #: addons/wfc/wordpress-font-customizer.php:765 core/core-settings-map.php:517
-#: inc/czr-init-ccat.php:3093
+#: inc/czr-init-ccat.php:3099
 msgid "Custom"
 msgstr "Пользовательское"
 
@@ -2378,11 +2378,11 @@ msgstr "Этот блок видим только для администрат�
 msgid "dismiss notice"
 msgstr "отклонить уведомление"
 
-#: core/class-fire-plugins_compat.php:380 inc/czr-init-ccat.php:817
+#: core/class-fire-plugins_compat.php:380 inc/czr-init-ccat.php:823
 msgid "Front page slider name"
 msgstr "Название слайдера на главной странице"
 
-#: core/class-fire-plugins_compat.php:382 inc/czr-init-ccat.php:819
+#: core/class-fire-plugins_compat.php:382 inc/czr-init-ccat.php:825
 msgid "Posts slider button text"
 msgstr "Текст кнопки слайдера записей"
 
@@ -2390,7 +2390,7 @@ msgstr "Текст кнопки слайдера записей"
 msgid "Custom Page Example"
 msgstr "Пример настраиваемой страницы"
 
-#: core/class-fire-resources_scripts.php:402 inc/czr-init-ccat.php:4262
+#: core/class-fire-resources_scripts.php:402 inc/czr-init-ccat.php:4268
 msgid "Permanently dismiss"
 msgstr "Всегда отклонять"
 
@@ -2636,7 +2636,7 @@ msgstr ""
 msgid "Animated underline effect on link hover"
 msgstr "Анимированный эффект подчеркивания при наведении на ссылку"
 
-#: core/core-settings-map.php:357 inc/czr-init-ccat.php:2248
+#: core/core-settings-map.php:357 inc/czr-init-ccat.php:2254
 msgid "Fade effect on link hover"
 msgstr "Эффект затухания при наведении на ссылку"
 
@@ -2906,12 +2906,12 @@ msgid "Use a full screen search block"
 msgstr ""
 
 #: core/core-settings-map.php:746 core/core-settings-map.php:856
-#: inc/czr-init-ccat.php:2544
+#: inc/czr-init-ccat.php:2550
 msgid "Display the shopping cart in the header"
 msgstr "Показывать корзину в шапке"
 
 #: core/core-settings-map.php:749 core/core-settings-map.php:859
-#: inc/czr-init-ccat.php:2547
+#: inc/czr-init-ccat.php:2553
 msgid ""
 "WooCommerce: check to display a cart icon showing the number of items in "
 "your cart next to your header's tagline."
@@ -3017,7 +3017,7 @@ msgstr ""
 msgid "Expand submenus on click"
 msgstr "Выпадение подменю по клику"
 
-#: core/core-settings-map.php:845 inc/czr-init-ccat.php:2532
+#: core/core-settings-map.php:845 inc/czr-init-ccat.php:2538
 msgid "Display the tagline in the header"
 msgstr "Показывать девиз в шапке"
 
@@ -3088,25 +3088,25 @@ msgstr "создать/редактировать меню"
 msgid "Primary (vertical) menu design"
 msgstr "Дизайн вторичного (горизонтального) меню"
 
-#: core/core-settings-map.php:954 inc/czr-init-ccat.php:2707
+#: core/core-settings-map.php:954 inc/czr-init-ccat.php:2713
 msgid "Menu position (for \"main\" menu)"
 msgstr "Положение меню (для \"главного\" меню)"
 
 #: core/core-settings-map.php:958 core/core-settings-map.php:972
-#: inc/czr-init-ccat.php:2711 inc/czr-init-ccat.php:2732
+#: inc/czr-init-ccat.php:2717 inc/czr-init-ccat.php:2738
 msgid "Menu on the left"
 msgstr "Меню слева"
 
 #: core/core-settings-map.php:959 core/core-settings-map.php:973
-#: inc/czr-init-ccat.php:2713 inc/czr-init-ccat.php:2734
+#: inc/czr-init-ccat.php:2719 inc/czr-init-ccat.php:2740
 msgid "Menu on the right"
 msgstr "Меню справа"
 
-#: core/core-settings-map.php:967 inc/czr-init-ccat.php:2727
+#: core/core-settings-map.php:967 inc/czr-init-ccat.php:2733
 msgid "Secondary (horizontal) menu design"
 msgstr "Дизайн вторичного (горизонтального) меню"
 
-#: core/core-settings-map.php:968 inc/czr-init-ccat.php:2728
+#: core/core-settings-map.php:968 inc/czr-init-ccat.php:2734
 msgid "Menu position (for the horizontal menu)"
 msgstr "Положение меню (для горизонтальных меню)"
 
@@ -3569,7 +3569,7 @@ msgid "Display featured images in their original dimensions"
 msgstr ""
 
 #: core/core-settings-map.php:1722 core/core-settings-map.php:1801
-#: inc/czr-init-ccat.php:3009
+#: inc/czr-init-ccat.php:3015
 msgid "Set the thumbnail's max height in pixels"
 msgstr "Установить максимальную высоту миниатюры в пикселях"
 
@@ -5264,7 +5264,7 @@ msgstr ""
 msgid "Mobile Menu"
 msgstr "Мобильное Меню"
 
-#: core/init-base.php:1106 inc/czr-init-ccat.php:3156
+#: core/init-base.php:1106 inc/czr-init-ccat.php:3162
 msgid "Social links"
 msgstr "Ссылки соцсетей"
 
@@ -5565,76 +5565,76 @@ msgstr "Зелёно голубой"
 msgid "Light blue "
 msgstr "Светло голубой"
 
-#: inc/czr-init-ccat.php:1512
+#: inc/czr-init-ccat.php:1518
 #: templates/parts/header/parts/woocommerce_cart.php:7
 msgid "View your shopping cart"
 msgstr "Просмотр корзины"
 
-#: inc/czr-init-ccat.php:2157
+#: inc/czr-init-ccat.php:2163
 msgid "Sticky Logo Upload (supported formats : .jpg, .png, .gif, svg, svgz)"
 msgstr ""
 "Загрузить прикреплённый логотип (поддерживаемые форматы:  .jpg, .png, .gif, "
 "svg, svgz)"
 
-#: inc/czr-init-ccat.php:2169
+#: inc/czr-init-ccat.php:2175
 msgid ""
 "Use this upload control to specify a different logo on sticky header mode."
 msgstr ""
 "Используйте этот элемент управления загрузки, чтобы указать другой логотип в "
 "режиме липкого заголовка."
 
-#: inc/czr-init-ccat.php:2174
+#: inc/czr-init-ccat.php:2180
 msgid "Favicon Upload (supported formats : .ico, .png, .gif)"
 msgstr "Загрузка значка ( форматы только:  .ico, .png, .gif)"
 
-#: inc/czr-init-ccat.php:2175
+#: inc/czr-init-ccat.php:2181
 msgid "FAVICON"
 msgstr "ЗНАЧОК САЙТА"
 
-#: inc/czr-init-ccat.php:2214
+#: inc/czr-init-ccat.php:2220
 msgid "Choose a predefined skin"
 msgstr "Выберите предустановленную обложку"
 
-#: inc/czr-init-ccat.php:2219
+#: inc/czr-init-ccat.php:2225
 msgid "Disabled if the random option is on."
 msgstr "Выключено, если выбран случайный вид."
 
-#: inc/czr-init-ccat.php:2224
+#: inc/czr-init-ccat.php:2230
 msgid "Randomize the skin"
 msgstr "Случайная обложка"
 
-#: inc/czr-init-ccat.php:2227
+#: inc/czr-init-ccat.php:2233
 msgid "Apply a random color skin on each page load."
 msgstr "Установить случайный цвет обложки при каждой загрузке страницы."
 
-#: inc/czr-init-ccat.php:2271
+#: inc/czr-init-ccat.php:2277
 msgid "Display an icon next to external links"
 msgstr "Показывать иконку рядом с внешней ссылкой"
 
-#: inc/czr-init-ccat.php:2274 inc/czr-init-ccat.php:2284
+#: inc/czr-init-ccat.php:2280 inc/czr-init-ccat.php:2290
 msgid ""
 "This will be applied to the links included in post or page content only."
 msgstr ""
 "Это будет применяться только к ссылкам, включенным в публикацию или "
 "содержание страницы."
 
-#: inc/czr-init-ccat.php:2281
+#: inc/czr-init-ccat.php:2287
 msgid "Open external links in a new tab"
 msgstr "Открыть ссылки в новой вкладке"
 
-#: inc/czr-init-ccat.php:2289
+#: inc/czr-init-ccat.php:2295
 msgid "Drop caps"
 msgstr "Буквицы"
 
-#: inc/czr-init-ccat.php:2290
+#: inc/czr-init-ccat.php:2296
 msgid "Enable drop caps"
 msgstr "Включить буквицы"
 
-#: inc/czr-init-ccat.php:2292
+#: inc/czr-init-ccat.php:2298
 msgid "Apply a drop cap to the first paragraph of your post / page content"
 msgstr "Применить буквицу к первому параграфу вашей записи / страницы"
 
-#: inc/czr-init-ccat.php:2300
+#: inc/czr-init-ccat.php:2306
 msgid ""
 "Apply a drop cap when the paragraph includes at least the following number "
 "of words :"
@@ -5642,43 +5642,43 @@ msgstr ""
 "Применить буквицу, когда параграф будет включать, по крайней мере, следующее "
 "количество слов:"
 
-#: inc/czr-init-ccat.php:2301
+#: inc/czr-init-ccat.php:2307
 msgid "(number of words)"
 msgstr "(количество слов)"
 
-#: inc/czr-init-ccat.php:2310
+#: inc/czr-init-ccat.php:2316
 msgid "Drop cap style"
 msgstr "Стиль буквицы"
 
-#: inc/czr-init-ccat.php:2314
+#: inc/czr-init-ccat.php:2320
 msgid "Primary theme color with a shadow"
 msgstr "Основной цвет темы с тенью"
 
-#: inc/czr-init-ccat.php:2315
+#: inc/czr-init-ccat.php:2321
 msgid "Simple black"
 msgstr "Простой чёрный"
 
-#: inc/czr-init-ccat.php:2320
+#: inc/czr-init-ccat.php:2326
 msgid "Enable drop caps in posts"
 msgstr "Включить буквицу в записях"
 
-#: inc/czr-init-ccat.php:2322
+#: inc/czr-init-ccat.php:2328
 msgid "Apply a drop cap to the first paragraph of your single posts content"
 msgstr "Применить буквицу к первому параграфу вашей одиночной записи"
 
-#: inc/czr-init-ccat.php:2328
+#: inc/czr-init-ccat.php:2334
 msgid "Enable drop caps in pages"
 msgstr "Включить буквицу на страницах"
 
-#: inc/czr-init-ccat.php:2330
+#: inc/czr-init-ccat.php:2336
 msgid "Apply a drop cap to the first paragraph of your pages"
 msgstr "Применить буквицу к первому параграфу на ваших страницах"
 
-#: inc/czr-init-ccat.php:2349
+#: inc/czr-init-ccat.php:2355
 msgid "Display icons next to titles"
 msgstr "Отобразить значок затем заголовок"
 
-#: inc/czr-init-ccat.php:2353
+#: inc/czr-init-ccat.php:2359
 msgid ""
 "When this option is checked, a contextual icon is displayed next to the "
 "titles of pages, posts, archives, and WP built-in widgets."
@@ -5686,19 +5686,19 @@ msgstr ""
 "Если эта опция включена, то контекстная иконка показывается рядом с "
 "заголовками страниц, записей, архивов, и встроенных WP виджетов."
 
-#: inc/czr-init-ccat.php:2359
+#: inc/czr-init-ccat.php:2365
 msgid "Display a page icon next to the page title"
 msgstr "Показывать иконку страницы рядом с заголовком страницы"
 
-#: inc/czr-init-ccat.php:2368
+#: inc/czr-init-ccat.php:2374
 msgid "Display a post icon next to the single post title"
 msgstr "Показывать иконку записи рядом с заголовком отдельной записи"
 
-#: inc/czr-init-ccat.php:2377
+#: inc/czr-init-ccat.php:2383
 msgid "Display an icon next to the archive title"
 msgstr "Показывать иконку рядом с заголовком архива"
 
-#: inc/czr-init-ccat.php:2380
+#: inc/czr-init-ccat.php:2386
 msgid ""
 "When this option is checked, an archive type icon is displayed in the "
 "heading of every types of archives, on the left of the title. An archive "
@@ -5710,11 +5710,11 @@ msgstr ""
 "категорией, тегом, автора, даты, собственной таксономией, результатами "
 "поиска."
 
-#: inc/czr-init-ccat.php:2387
+#: inc/czr-init-ccat.php:2393
 msgid "Display an icon next to each post title in an archive page"
 msgstr "Показывать иконку рядом с каждым заголовком записи на странице архива"
 
-#: inc/czr-init-ccat.php:2390
+#: inc/czr-init-ccat.php:2396
 msgid ""
 "When this option is checked, a post type icon is displayed on the left of "
 "each post titles in an archive page. An archive page can be : category, tag, "
@@ -5724,30 +5724,30 @@ msgstr ""
 "заголовка записи на странице архива. Страницей архива может быть: категория, "
 "тэг, автор, архив даты, собственные таксономии, результаты поиска."
 
-#: inc/czr-init-ccat.php:2397
+#: inc/czr-init-ccat.php:2403
 msgid "WP sidebar widgets : display icons next to titles"
 msgstr "WP виджеты боковой панели: показывать иконки рядом с заголовками"
 
-#: inc/czr-init-ccat.php:2406
+#: inc/czr-init-ccat.php:2412
 msgid "WP footer widgets : display icons next to titles"
 msgstr "Виджеты подвала WP : отображение значков рядом с названиями"
 
-#: inc/czr-init-ccat.php:2435
+#: inc/czr-init-ccat.php:2441
 msgid "Autoscale images on zoom"
 msgstr "Подгонка размера изображения зумом"
 
-#: inc/czr-init-ccat.php:2439
+#: inc/czr-init-ccat.php:2445
 msgid ""
 "If enabled, this option will force images to fit the screen on lightbox zoom."
 msgstr ""
 "Если эта опция включена, то изображения будут подогнаны по размеру экрана на "
 "лайтбокс зумом. "
 
-#: inc/czr-init-ccat.php:2445
+#: inc/czr-init-ccat.php:2451
 msgid "Sliders : display on loading icon before rendering the slides"
 msgstr "Слайдеры: Показывать иконку загрузки перед появлением слайдов"
 
-#: inc/czr-init-ccat.php:2449
+#: inc/czr-init-ccat.php:2455
 msgid ""
 "When checked, this option displays a loading icon when the slides are being "
 "setup."
@@ -5755,22 +5755,22 @@ msgstr ""
 "Если этот флажок установлен, отображается значок загрузки, когда слайды "
 "находятся в процессе создания."
 
-#: inc/czr-init-ccat.php:2459
+#: inc/czr-init-ccat.php:2465
 msgid ""
 "Improve your page speed by loading smaller slider images for mobile devices"
 msgstr ""
 "Улучшите скорость страницы, загрузив меньшие изображения слайдеров для "
 "мобильных устройств"
 
-#: inc/czr-init-ccat.php:2517
+#: inc/czr-init-ccat.php:2523
 msgid "Social links in header"
 msgstr "Соцсети в шапке"
 
-#: inc/czr-init-ccat.php:2555
+#: inc/czr-init-ccat.php:2561
 msgid "Display menu in a box"
 msgstr "Показывать меню в рамке"
 
-#: inc/czr-init-ccat.php:2560
+#: inc/czr-init-ccat.php:2566
 msgid ""
 "If checked, this option wraps the header menu/tagline/social in a light grey "
 "box."
@@ -5778,15 +5778,15 @@ msgstr ""
 "Если отмечено, эта настройка обрамляет шапку меню/девиз/соцсети свето-серым "
 "цветом."
 
-#: inc/czr-init-ccat.php:2565
+#: inc/czr-init-ccat.php:2571
 msgid "Sticky header settings"
 msgstr "Настройки прикреплённой шапки"
 
-#: inc/czr-init-ccat.php:2566
+#: inc/czr-init-ccat.php:2572
 msgid "Sticky on scroll"
 msgstr "Фиксация при прокручивании"
 
-#: inc/czr-init-ccat.php:2571
+#: inc/czr-init-ccat.php:2577
 msgid ""
 "If checked, this option makes the header stick to the top of the page on "
 "scroll down."
@@ -5794,15 +5794,15 @@ msgstr ""
 "Если отмечено, эта опция делает шапку фиксированной сверху страницы при "
 "прокручивании вниз."
 
-#: inc/czr-init-ccat.php:2576
+#: inc/czr-init-ccat.php:2582
 msgid "Sticky header : display the tagline"
 msgstr "Прикреплённая шапка: показывать девиз"
 
-#: inc/czr-init-ccat.php:2584
+#: inc/czr-init-ccat.php:2590
 msgid "Sticky header: display the shopping cart"
 msgstr "Фиксированная шапка: отображать корзину покупок"
 
-#: inc/czr-init-ccat.php:2591
+#: inc/czr-init-ccat.php:2597
 msgid ""
 "WooCommerce: if checked, your WooCommerce cart icon will remain visible when "
 "scrolling."
@@ -5810,19 +5810,19 @@ msgstr ""
 "WooCommerce: если флажок установлен,  то ваш значок корзины WooCommerce "
 "будет оставаться видимым при прокрутке."
 
-#: inc/czr-init-ccat.php:2596
+#: inc/czr-init-ccat.php:2602
 msgid "Sticky header : display the title / logo"
 msgstr "Прикреплённая шапка: показывать заголовок/логотип"
 
-#: inc/czr-init-ccat.php:2605
+#: inc/czr-init-ccat.php:2611
 msgid "Sticky header : display the menu"
 msgstr "Прикреплённая шапка: показывать меню"
 
-#: inc/czr-init-ccat.php:2610
+#: inc/czr-init-ccat.php:2616
 msgid "Also applied to the secondary menu if any."
 msgstr "Также применяется к вторичному меню, если таковое имеется."
 
-#: inc/czr-init-ccat.php:2688
+#: inc/czr-init-ccat.php:2694
 msgid ""
 "For mobile devices (responsive), limit the height of the dropdown menu block "
 "to the visible viewport."
@@ -5830,84 +5830,84 @@ msgstr ""
 "Для мобильных устройств (responsive), ограничьте высоту раскрывающегося "
 "блока меню видимой областью просмотра."
 
-#: inc/czr-init-ccat.php:2697
+#: inc/czr-init-ccat.php:2703
 msgid "Display a label next to the menu button."
 msgstr "Отображать метку рядом с кнопкой меню."
 
-#: inc/czr-init-ccat.php:2701
+#: inc/czr-init-ccat.php:2707
 msgid "Note : the label is hidden on mobile devices."
 msgstr "Примечание : метка скрыта на мобильных устройствах."
 
-#: inc/czr-init-ccat.php:2712 inc/czr-init-ccat.php:2733
+#: inc/czr-init-ccat.php:2718 inc/czr-init-ccat.php:2739
 msgid "Menu centered"
 msgstr "Меню по центру"
 
-#: inc/czr-init-ccat.php:2718 inc/czr-init-ccat.php:2739
+#: inc/czr-init-ccat.php:2724 inc/czr-init-ccat.php:2745
 msgid "Note : the menu centered position is available only when"
 msgstr "Примечание: центрирование меню доступно только в том случае, если"
 
-#: inc/czr-init-ccat.php:2720 inc/czr-init-ccat.php:2741
+#: inc/czr-init-ccat.php:2726 inc/czr-init-ccat.php:2747
 msgid "the logo is centered"
 msgstr "логотип по центру"
 
-#: inc/czr-init-ccat.php:2747
+#: inc/czr-init-ccat.php:2753
 msgid "Choose a mobile devices (responsive) behaviour for the secondary menu."
 msgstr ""
 "Выберите поведение мобильных устройств (responsive) для вторичного меню."
 
-#: inc/czr-init-ccat.php:2751
+#: inc/czr-init-ccat.php:2757
 msgid "Move before inside the side menu "
 msgstr "Перемещение сначала, потом внутри бокового меню"
 
-#: inc/czr-init-ccat.php:2752
+#: inc/czr-init-ccat.php:2758
 msgid "Move after inside the side menu "
 msgstr "Перемещение после внутри бокового меню"
 
-#: inc/czr-init-ccat.php:2753
+#: inc/czr-init-ccat.php:2759
 msgid "Display in the header"
 msgstr "Отображать в шапке"
 
-#: inc/czr-init-ccat.php:2754
+#: inc/czr-init-ccat.php:2760
 msgid "Hide"
 msgstr "Скрыть"
 
-#: inc/czr-init-ccat.php:2832
+#: inc/czr-init-ccat.php:2838
 msgid "Metas Design"
 msgstr "Дизайн Мета"
 
-#: inc/czr-init-ccat.php:2833
+#: inc/czr-init-ccat.php:2839
 msgid "Select a design for the post metas"
 msgstr "Выберите дизайн для мета записей"
 
-#: inc/czr-init-ccat.php:2837
+#: inc/czr-init-ccat.php:2843
 msgid "Buttons and text"
 msgstr "Кнопки и текст"
 
-#: inc/czr-init-ccat.php:2838
+#: inc/czr-init-ccat.php:2844
 msgid "Text only"
 msgstr "Только текст"
 
-#: inc/czr-init-ccat.php:2845
+#: inc/czr-init-ccat.php:2851
 msgid "Select the last update format"
 msgstr "Выберите формат последнего обновления"
 
-#: inc/czr-init-ccat.php:2849
+#: inc/czr-init-ccat.php:2855
 msgid "No. of days since last update"
 msgstr "Количество дней с момента последнего обновления"
 
-#: inc/czr-init-ccat.php:2850
+#: inc/czr-init-ccat.php:2856
 msgid "Date of the last update"
 msgstr "Дата последнего обновления"
 
-#: inc/czr-init-ccat.php:2858
+#: inc/czr-init-ccat.php:2864
 msgid "Recent update notice after post titles"
 msgstr "Уведомление последнего обновления после заголовка записи"
 
-#: inc/czr-init-ccat.php:2859
+#: inc/czr-init-ccat.php:2865
 msgid "Display a recent update notice"
 msgstr "Показывать последнее уведомление об обновлении"
 
-#: inc/czr-init-ccat.php:2863
+#: inc/czr-init-ccat.php:2869
 msgid ""
 "If this option is checked, a customizable recent update notice is displayed "
 "next to the post title."
@@ -5915,13 +5915,13 @@ msgstr ""
 "Если эта опция отмечена, то показывается редактируемое последнее уведомление "
 "об обновлении  рядом с заголовком записи."
 
-#: inc/czr-init-ccat.php:2869
+#: inc/czr-init-ccat.php:2875
 msgid ""
 "Display the notice if the last update is less (strictly) than n days old"
 msgstr ""
 "Дать знать если последнее обновление было меньше (строго) чем n дней назад"
 
-#: inc/czr-init-ccat.php:2875
+#: inc/czr-init-ccat.php:2881
 msgid ""
 "Set a maximum interval (in days) during which the last update notice will be "
 "displayed."
@@ -5929,39 +5929,39 @@ msgstr ""
 "Установить максимальный интервал (в днях) в течении которого будет "
 "показываться сообщение о последнем обновлении"
 
-#: inc/czr-init-ccat.php:2878
+#: inc/czr-init-ccat.php:2884
 msgid "Recently updated !"
 msgstr "Недавно обновлено !"
 
-#: inc/czr-init-ccat.php:2880
+#: inc/czr-init-ccat.php:2886
 msgid "Update notice text"
 msgstr "Текст сообщения об обновлении"
 
-#: inc/czr-init-ccat.php:2889
+#: inc/czr-init-ccat.php:2895
 msgid "Update notice style"
 msgstr "Стиль сообщения об обновлении"
 
-#: inc/czr-init-ccat.php:2893
+#: inc/czr-init-ccat.php:2899
 msgid "Default (grey)"
 msgstr "По умолчанию (серый)"
 
-#: inc/czr-init-ccat.php:2894
+#: inc/czr-init-ccat.php:2900
 msgid "Success (green)"
 msgstr "Успех (зелёный)"
 
-#: inc/czr-init-ccat.php:2895
+#: inc/czr-init-ccat.php:2901
 msgid "Alert (orange)"
 msgstr "Внимание (оранжевый)"
 
-#: inc/czr-init-ccat.php:2896
+#: inc/czr-init-ccat.php:2902
 msgid "Important (red)"
 msgstr "Важно (красный)"
 
-#: inc/czr-init-ccat.php:2897
+#: inc/czr-init-ccat.php:2903
 msgid "Info (blue)"
 msgstr "Инфо (голубой)"
 
-#: inc/czr-init-ccat.php:2908
+#: inc/czr-init-ccat.php:2914
 msgid ""
 "If this option is checked, additional date informations about the the last "
 "post update can be displayed (nothing will show up if the post has never "
@@ -5971,100 +5971,100 @@ msgstr ""
 "последнем обновлении записи (ничего не отображается, если запись никогда не "
 "обновлялась)."
 
-#: inc/czr-init-ccat.php:2944
+#: inc/czr-init-ccat.php:2950
 msgid "Select the length of posts in lists (home, search, archives, ...)"
 msgstr "Выбрать длину записей в списках (главная, поиск, архивы, ...)"
 
-#: inc/czr-init-ccat.php:2949
+#: inc/czr-init-ccat.php:2955
 msgid "Display the full content"
 msgstr "Показать контент целиком"
 
-#: inc/czr-init-ccat.php:2957
+#: inc/czr-init-ccat.php:2963
 msgid "Apply the grid layout to Home/Blog"
 msgstr "Применить макет сетки для Главная/Блог"
 
-#: inc/czr-init-ccat.php:2965
+#: inc/czr-init-ccat.php:2971
 msgid "Apply the grid layout to Archives (archives, categories, author posts)"
 msgstr "Применить макет сетки для Архивов (архивы, категории, авторов записей)"
 
-#: inc/czr-init-ccat.php:2973
+#: inc/czr-init-ccat.php:2979
 msgid "Apply the grid layout to Search results"
 msgstr "Применить макет сетки к результатам поиска"
 
-#: inc/czr-init-ccat.php:2977
+#: inc/czr-init-ccat.php:2983
 msgid "Unchecked contexts are displayed with the alternate thumbnails layout."
 msgstr "Неотмеченные контексты отображаются с альтернативным макетом миниатюр."
 
-#: inc/czr-init-ccat.php:2982
+#: inc/czr-init-ccat.php:2988
 msgid "Display post format icons"
 msgstr "Показывать иконку формата записи"
 
-#: inc/czr-init-ccat.php:2991
+#: inc/czr-init-ccat.php:2997
 msgid "Upload a default thumbnail"
 msgstr "Загрузить миниатюру по умолчанию"
 
-#: inc/czr-init-ccat.php:3021
+#: inc/czr-init-ccat.php:3027
 msgid "Thumbnails max height for the grid layout"
 msgstr "Макс. высота миниатюр для сетки макета"
 
-#: inc/czr-init-ccat.php:3022
+#: inc/czr-init-ccat.php:3028
 msgid "Set the post grid thumbnail's max height in pixels"
 msgstr "Установить макс. высоту в пикселях миниатюры записи"
 
-#: inc/czr-init-ccat.php:3039
+#: inc/czr-init-ccat.php:3045
 msgid "Rectangular with no effect"
 msgstr "Прямоугольный без эффектов"
 
-#: inc/czr-init-ccat.php:3040
+#: inc/czr-init-ccat.php:3046
 msgid "Rectangular with blur effect on hover"
 msgstr "Прямоугольный с эффектом размытости при наведении"
 
-#: inc/czr-init-ccat.php:3041
+#: inc/czr-init-ccat.php:3047
 msgid "Rectangular with unblur effect on hover"
 msgstr "Прямоугольный с эффектом резкости при наведении"
 
-#: inc/czr-init-ccat.php:3049
+#: inc/czr-init-ccat.php:3055
 msgid "Top"
 msgstr "Сверху"
 
-#: inc/czr-init-ccat.php:3050
+#: inc/czr-init-ccat.php:3056
 msgid "Bottom"
 msgstr "Снизу"
 
-#: inc/czr-init-ccat.php:3075
+#: inc/czr-init-ccat.php:3081
 msgid "Comments bubble shape"
 msgstr "Форма пузырька комментария"
 
-#: inc/czr-init-ccat.php:3079
+#: inc/czr-init-ccat.php:3085
 msgid "Small bubbles"
 msgstr "Маленькие пузырьки"
 
-#: inc/czr-init-ccat.php:3080
+#: inc/czr-init-ccat.php:3086
 msgid "Large bubbles"
 msgstr "Большие пузырьки"
 
-#: inc/czr-init-ccat.php:3088 inc/czr-init-ccat.php:3101
+#: inc/czr-init-ccat.php:3094 inc/czr-init-ccat.php:3107
 msgid "Comments bubble color"
 msgstr "Цвет пузырька комментария"
 
-#: inc/czr-init-ccat.php:3092
+#: inc/czr-init-ccat.php:3098
 msgid "Skin color"
 msgstr "Цвет обложки"
 
-#: inc/czr-init-ccat.php:3157
+#: inc/czr-init-ccat.php:3163
 msgid "Social link title in sidebars"
 msgstr "Заголовок ссылки соцсети в боковых панелях"
 
-#: inc/czr-init-ccat.php:3163
+#: inc/czr-init-ccat.php:3169
 msgid "Will be hidden if empty"
 msgstr "Будет скрываться если пустой"
 
-#: inc/czr-init-ccat.php:3193
+#: inc/czr-init-ccat.php:3199
 msgid "Dynamic sidebar reordering on small devices"
 msgstr ""
 "Динамическая боковая панель переупорядочивающаяся на небольших устройствах"
 
-#: inc/czr-init-ccat.php:3196
+#: inc/czr-init-ccat.php:3202
 msgid ""
 "Activate this option to move the sidebars (if any) after the main content "
 "block, for smartphones or tablets viewport."
@@ -6072,23 +6072,23 @@ msgstr ""
 "Активируйте этот параметр, чтобы переместить боковую панель (если есть) "
 "после основного содержимого блока, для экранов смартфонов или планшетов"
 
-#: inc/czr-init-ccat.php:3293
+#: inc/czr-init-ccat.php:3299
 msgid "Titles icons settings"
 msgstr "Настройки иконок заголовков"
 
-#: inc/czr-init-ccat.php:3295
+#: inc/czr-init-ccat.php:3301
 msgid "Set up the titles icons options"
 msgstr "Установить параметры иконок заголовков"
 
-#: inc/czr-init-ccat.php:3303
+#: inc/czr-init-ccat.php:3309
 msgid "Responsive settings"
 msgstr "Респонсивные настройки"
 
-#: inc/czr-init-ccat.php:3305
+#: inc/czr-init-ccat.php:3311
 msgid "Various settings for responsive display"
 msgstr "Разные респонсивные настройки"
 
-#: inc/czr-init-ccat.php:4669
+#: inc/czr-init-ccat.php:4675
 msgid ""
 "Quick tip : you can choose between two styles for the Customizr theme. Give "
 "it a try %s"
@@ -6096,7 +6096,7 @@ msgstr ""
 "Быстрый совет : вы можете выбрать один из двух стилей для темы Customizr. "
 "Попробуйте %s"
 
-#: inc/czr-init-ccat.php:4672
+#: inc/czr-init-ccat.php:4678
 msgid "in the live customizer."
 msgstr "в \"живую\"."
 
