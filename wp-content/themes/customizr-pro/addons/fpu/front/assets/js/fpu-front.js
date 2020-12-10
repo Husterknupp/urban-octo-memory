@@ -11,7 +11,9 @@ var FPUFront = FPUFront || {
     smartLoad : 0,
     DisableReorderingFour : 0
 };
-jQuery(function ($) {
+// this script is printed at wp_footer, so jQuery should be defined
+if ( window.jQuery ) {
+  jQuery(function ($) {
     //prevents js conflicts
     "use strict";
     //variables declaration
@@ -24,9 +26,9 @@ jQuery(function ($) {
     $('body').addClass(FPUFront.ThemeName);
 
     //adds hover class on hover
-    $(".fpc-widget-front").hover(function () {
+    $(".fpc-widget-front").on('mouseenter', function () {
         $(this).addClass("hover");
-    }, function () {
+    }).on('mouseleave', function () {
         $(this).removeClass("hover");
     });
 
@@ -128,7 +130,7 @@ jQuery(function ($) {
 
     changeFPClass();
 
-    $(window).resize(function () {
+    $(window).on('resize', function () {
         setTimeout(changeFPClass, 200);
     });
 
@@ -155,4 +157,5 @@ jQuery(function ($) {
       $('body').addClass('ie');
       //thumbsWithLinks();
     }
-});
+  });
+}

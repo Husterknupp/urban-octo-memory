@@ -38,7 +38,7 @@ var czrapp = czrapp || {};
                   return;
             }
 
-            $grid_container.bind( 'masonry-init.customizr', function() {
+            $grid_container.on( 'masonry-init.customizr', function() {
                   masonryReady.resolve();
             });
 

@@ -478,7 +478,7 @@ class CZR_post_list_masonry_model_class extends CZR_Model {
                             return;
                       }
 
-                      $grid_container.bind( 'masonry-init.customizr', function() {
+                      $grid_container.on( 'masonry-init.customizr', function() {
                             masonryReady.resolve();
                       });
 

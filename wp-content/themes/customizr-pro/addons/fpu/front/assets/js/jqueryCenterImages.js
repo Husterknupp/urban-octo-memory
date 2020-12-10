@@ -51,7 +51,7 @@
     //if no images or centering is not active, only handle the golden ratio on resize event
     if ( ! $_imgs.length || ! this.options.enableCentering ) {
       //creates a golden ratio fn on resize
-      $(window).bind( 'resize' , {} , function( evt ) { self._maybe_apply_golden_r( evt ); });
+      $(window).on( 'resize' , {} , function( evt ) { self._maybe_apply_golden_r( evt ); });
     } else {
       this._parse_imgs($_imgs);
     }
@@ -105,21 +105,21 @@
   //map custom events if any
   Plugin.prototype._bind_evt = function( $_img ) {
     var self = this,
-        _customEvt = $.isArray(this.options.oncustom) ? this.options.oncustom : this.options.oncustom.split(' ');
+        _customEvt = Array.isArray(this.options.oncustom) ? this.options.oncustom : this.options.oncustom.split(' ');
 
     //WINDOW RESIZE EVENT ACTIONS
     //GOLDEN RATIO (before image centering)
-    $(window).bind( 'resize' , {} , function( evt ) { self._maybe_apply_golden_r( evt ); });
+    $(window).on( 'resize' , {} , function( evt ) { self._maybe_apply_golden_r( evt ); });
 
     //IMG CENTERING FN
     if ( this.options.onresize )
-      $(window).resize(function() {
+      $(window).on('resize', function() {
         self._pre_img_cent( $_img );
       });
 
     //CUSTOM EVENTS ACTIONS
     _customEvt.map( function( evt ) {
-      $_img.bind( evt, {} , function( evt ) {
+      $_img.on( evt, {} , function( evt ) {
         self._pre_img_cent( $_img );
       } );
     } );
@@ -184,7 +184,7 @@
       return true;
 
     //check if option is well formed
-    if ( ! this.options.skipGoldenRatioClasses || ! $.isArray( this.options.skipGoldenRatioClasses )  )
+    if ( ! this.options.skipGoldenRatioClasses || ! Array.isArray( this.options.skipGoldenRatioClasses )  )
       return true;
 
     var _elSels       = $(this.container).attr( 'class' ).split(' '),

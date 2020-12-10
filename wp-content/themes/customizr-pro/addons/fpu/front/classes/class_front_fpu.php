@@ -20,6 +20,8 @@ class TC_front_fpu {
         add_action( 'fp_front_ready'            , array( $this , 'tc_fp_setup_fp_block'), 10 );
         add_action( 'fp_front_ready'            , array( $this , 'tc_fp_on_ready_hook_resources'), 20 );
 
+        add_action( 'wp_footer', array($this, 'tc_maybe_print_front_js'), 100 );
+
     }//end of construct
 
     //hook: template_redirect
@@ -990,16 +992,6 @@ class TC_front_fpu {
           wp_enqueue_script( 'jquery');
         }
 
-        //FPU Front end scripts
-        if ( ! defined( 'CZR_IS_MODERN_STYLE' ) || ! CZR_IS_MODERN_STYLE ) {
-              wp_enqueue_script(
-                'fpu-front-js',
-                sprintf('%1$s/front/assets/js/fpu-front%2$s.js' , TC_FPU_BASE_URL, ( defined('WP_DEBUG') && true === WP_DEBUG ) ? '' : '.min'),
-                array('jquery'),
-                ( defined('WP_DEBUG') && true === WP_DEBUG ) ? TC_fpu::$instance -> plug_version . time() : TC_fpu::$instance -> plug_version,
-                false
-              );
-        }
 
         //enqueue imageCenter.js only if
         //1) not customizr
@@ -1021,25 +1013,13 @@ class TC_front_fpu {
           wp_enqueue_script(
             'tc-center-images',
             sprintf('%1$s/front/assets/js/jqueryCenterImages%2$s.js' , TC_FPU_BASE_URL, ( defined('WP_DEBUG') && true === WP_DEBUG ) ? '' : '.min'),
-            array('jquery', 'fpu-front-js'),
+            array('jquery'),
             ( defined('WP_DEBUG') && true === WP_DEBUG ) ? TC_fpu::$instance -> plug_version . time() : TC_fpu::$instance -> plug_version,
             false
           );
         }
 
-        //localizes
-        wp_localize_script(
-          'fpu-front-js',
-          'FPUFront',
-          apply_filters('tc_fpc_js_front_params' ,
-            array(
-              'Spanvalue'               => $this -> tc_get_layout('span'),
-              'ThemeName'               => str_replace( ' ' , '-', TC_fpu::$theme_name),
-              'imageCentered'           => esc_attr( tc__f( '__get_fpc_option' , 'tc_center_fp_img' ) ),
-              'smartLoad'               => $this -> fpc_is_img_smart_load_enabled()
-            )
-          )
-        );
+
 
         //tc_show_wp_img is transported in postMessage
         $tc_show_featured_pages_img     = TC_fpu::$instance->is_customizing || 0 != esc_attr( tc__f( '__get_fpc_option' , 'tc_show_fp_img' ) );
@@ -1055,5 +1035,36 @@ class TC_front_fpu {
         }
 
         do_action( 'fpu_enqueue_plug_resource_after' );
+    }
+
+    //@wp_footer
+    function tc_maybe_print_front_js() {
+        $fpu_params = apply_filters('tc_fpc_js_front_params' ,
+            array(
+              'Spanvalue'               => $this -> tc_get_layout('span'),
+              'ThemeName'               => str_replace( ' ' , '-', TC_fpu::$theme_name),
+              'imageCentered'           => esc_attr( tc__f( '__get_fpc_option' , 'tc_center_fp_img' ) ),
+              'smartLoad'               => $this -> fpc_is_img_smart_load_enabled()
+            )
+        );
+
+        foreach ( (array) $fpu_params as $key => $value ) {
+            if ( !is_scalar( $value ) ) {
+              continue;
+            }
+            $fpu_params[ $key ] = html_entity_decode( (string) $value, ENT_QUOTES, 'UTF-8' );
+        }
+
+        printf('<script id="fpu-front-localized">%1$s</script>', "var FPUFront = " . wp_json_encode( $fpu_params ) . ';' );
+
+        //FPU Front end scripts
+        if ( !defined( 'CZR_IS_MODERN_STYLE' ) || !CZR_IS_MODERN_STYLE ) {
+            ?>
+            <script id="fpu-front-script">var FPUFront=FPUFront||{Spanvalue:4,ThemeName:"",imageCentered:1,smartLoad:0,DisableReorderingFour:0};window.jQuery&&jQuery(function(a){"use strict";function b(){var a=!1;switch(d){case"6":c.width()<=480&&!f.hasClass("fpc-span12")?(f.removeClass(e).addClass("fpc-span12"),a=!0):c.width()>480&&f.hasClass("fpc-span12")&&(f.removeClass("fpc-span12").addClass(e),a=!0);break;case"3":if(FPUFront.DisableReorderingFour)return;c.width()<=950&&!f.hasClass("fpc-span12")?(f.removeClass(e).addClass("fpc-span12"),a=!0):c.width()>950&&f.hasClass("fpc-span12")&&(f.removeClass("fpc-span12").addClass(e),a=!0);break;default:c.width()<=767&&!f.hasClass("fpc-span12")?(f.removeClass(e).addClass("fpc-span12"),a=!0):c.width()>767&&f.hasClass("fpc-span12")&&(f.removeClass("fpc-span12").addClass(e),a=!0)}a&&f.find("img").trigger("block_resized")}var c=a(".fpc-container"),d=FPUFront.Spanvalue||4,e="fpc-span"+d,f=a("."+e,c);a("body").addClass(FPUFront.ThemeName),a(".fpc-widget-front").on("mouseenter",function(){a(this).addClass("hover")}).on("mouseleave",function(){a(this).removeClass("hover")}),"function"==typeof jQuery.fn.centerImages&&a(".fpc-widget-front .thumb-wrapper").centerImages({enableCentering:1==FPUFront.imageCentered,enableGoldenRatio:!1,disableGRUnder:0,zeroTopAdjust:1,leftAdjust:2,oncustom:["smartload","simple_load","block_resized","fpu-recenter"]});var g=function(b){0!==b.length&&b.map(function(b,c){a(c).load(function(){a(c).trigger("simple_load")}),a(c)[0]&&a(c)[0].complete&&a(c).load()})};FPUFront.smartLoad?a(".fpc-widget-front .fp-thumb-wrapper").find("img:not(.tc-holder-img)").each(function(){a(this).data("czr-smart-loaded")&&g(a(this))}):g(a(".fpc-widget-front .fp-thumb-wrapper").find("img:not(.tc-holder-img)")),1==FPUFront.imageCentered&&setTimeout(function(){g(a(".fpc-widget-front").find("img.tc-holder-img"))},100),b(),a(window).on("resize",function(){setTimeout(b,200)}),a.browser&&a.browser.msie&&("8.0"===a.browser.version||"9.0"===a.browser.version||"10.0"===a.browser.version)&&a("body").addClass("ie")});</script>
+
+            <?php
+        }
+
+
     }
 } //end of class

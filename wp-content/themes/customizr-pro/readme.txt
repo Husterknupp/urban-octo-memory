@@ -1,4 +1,4 @@
-# Customizr Pro v2.3.4
+# Customizr Pro v2.3.13
 ![Customizr - Pro](/screenshot.png)
 
 > The pro version of the popular Customizr WordPress theme.
@@ -14,6 +14,45 @@ Customizr Pro is distributed under the terms of the [GNU GPL v2.0 or later](http
 * SUPPORT : https://presscustomizr.com/support/
 
 ## Changelog
+= 2.3.13 December 2nd, 2020 =
+* fixed : [links] external links icons not displayed
+
+= 2.3.12 December 1st, 2020 =
+* fixed : [menu] javascript error on click on menu item with an anchor link
+
+= 2.3.11 December 1st, 2020 =
+* fixed : [headings] H3 heading size not smaller enough than H2 makes it difficult to distinguish
+* fixed : [WP 5.7] remove jquery-migrate dependencies
+* improved : [Font customizer][performance][JS] remove webfontload library from front js
+* improved : [Font customizer][performance][JS] write front js inline
+* improved : [Font customizer][performance][CSS] write base front CSS inline + load stylesheet for effects only when needed
+* improved : [Font customizer][performance][CSS] loads Google effect images locally
+* improved : [Home Features Pages][performance] print front js inline
+
+= 2.3.10 November 23rd, 2020 =
+* fixed : [Links] => when underline is disabled, hovering/activating a link should display the underline
+
+= 2.3.9 November 19th, 2020 =
+* added : [CSS][links] added a new option to opt-out underline on links. Option located in customizer > Global Settings > Formatting
+
+= 2.3.8 November 17th, 2020 =
+* fixed : [javascript] console warning when resizing in console due to an error in flickity slider script
+
+= 2.3.7 November 17th, 2020 =
+* fixed : [TRT requirement][accessibility] Links within content must be underlined
+* fixed : [WP 5.6][jQuery] adapt to WP jQuery updated version. Prepare removal of jQuery Migrate in future WP 5.7 ( https://make.wordpress.org/core/2020/06/29/updating-jquery-version-shipped-with-wordpress/ )
+
+= 2.3.6 November 4th, 2020 =
+* fixed : [PHP] possible warning => "Deprecated: Invalid characters passed for attempted conversion" when converting hex colors
+* added : support for auto-update
+
+= 2.3.5 November 2nd, 2020 =
+* tested : [WordPress] Customizr v4.3.5 is 100% compatible with WP 5.5.3
+* fixed : [Menu] right clicking a parent menu item breaks sub-menu items auto-collapse
+* fixed : [CSS] add back the "home" CSS class to body tag when user picked option "Don't show any posts or page"
+* fixed : [Infinite scrool] WooCommerce, if infinite scroll is not supported,remove the "load more products" button
+* added : [Infinite scroll] implement a new filters 'czr_infinite_scroll_handle_text' allowing developers to replace the text "Load more..." by a custom one
+
 = 2.3.4 October 7th, 2020 =
 * added : [CSS] add current theme version as CSS class to body tag
 

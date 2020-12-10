@@ -2,9 +2,9 @@
 # This file is distributed under the same license as the Themes - Customizr-Pro package.
 msgid ""
 msgstr ""
-"Project-Id-Version: * Customizr-Pro v2.3.3\n"
+"Project-Id-Version: * Customizr-Pro v2.3.13\n"
 "Report-Msgid-Bugs-To: https://presscustomizr.com/contact/\n"
-"POT-Creation-Date: 2020-10-07 14:16:34+00:00\n"
+"POT-Creation-Date: 2020-12-02 09:30:41+00:00\n"
 "PO-Revision-Date: 2017-02-28 14:59:35+0000\n"
 "Language: uk_UA\n"
 "MIME-Version: 1.0\n"
@@ -14,22 +14,22 @@ msgstr ""
 "%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
 "X-Generator: GlotPress/2.4.0-alpha\n"
 
-#: core/core-settings-map.php:1619
+#: core/core-settings-map.php:1627
 msgid "1"
 msgstr "1"
 
 #: addons/bundle/grid-customizer/tc_grid_customizer.php:249
-#: core/core-settings-map.php:1620
+#: core/core-settings-map.php:1628
 msgid "2"
 msgstr "2"
 
 #: addons/bundle/grid-customizer/tc_grid_customizer.php:250
-#: core/core-settings-map.php:1621
+#: core/core-settings-map.php:1629
 msgid "3"
 msgstr "3"
 
 #: addons/bundle/grid-customizer/tc_grid_customizer.php:251
-#: core/core-settings-map.php:1622
+#: core/core-settings-map.php:1630
 msgid "4"
 msgstr "4"
 
@@ -361,37 +361,37 @@ msgid "Display a block with your contact information in the topbar."
 msgstr "Показувати формат іконки запису на тлі"
 
 #: addons/bundle/contact-info/pc-contact-info.php:191
-#: core/core-settings-map.php:587 core/core-settings-map.php:606
-#: core/core-settings-map.php:707 core/core-settings-map.php:727
-#: core/core-settings-map.php:752 core/core-settings-map.php:889
+#: core/core-settings-map.php:595 core/core-settings-map.php:614
+#: core/core-settings-map.php:715 core/core-settings-map.php:735
+#: core/core-settings-map.php:760 core/core-settings-map.php:897
 #, fuzzy
 msgid "Do not display"
 msgstr "Не відображати"
 
 #: addons/bundle/contact-info/pc-contact-info.php:192
-#: core/core-settings-map.php:588 core/core-settings-map.php:607
+#: core/core-settings-map.php:596 core/core-settings-map.php:615
 msgid "In desktop devices"
 msgstr ""
 
 #: addons/bundle/contact-info/pc-contact-info.php:193
-#: core/core-settings-map.php:589 core/core-settings-map.php:608
+#: core/core-settings-map.php:597 core/core-settings-map.php:616
 msgid "In mobile devices"
 msgstr ""
 
 #: addons/bundle/contact-info/pc-contact-info.php:194
-#: core/core-settings-map.php:590 core/core-settings-map.php:609
+#: core/core-settings-map.php:598 core/core-settings-map.php:617
 msgid "In desktop and mobile devices"
 msgstr ""
 
 #: addons/bundle/contact-info/pc-contact-info.php:197
-#: core/core-settings-map.php:617
+#: core/core-settings-map.php:625
 msgid ""
 "Make sure the topbar is displayed. You can control the visibility of the "
 "topbar in the %s."
 msgstr ""
 
 #: addons/bundle/contact-info/pc-contact-info.php:200
-#: core/core-settings-map.php:620
+#: core/core-settings-map.php:628
 #, fuzzy
 msgid "jump to the topbar option"
 msgstr "Перейти до опцій дизайну блогу"
@@ -581,7 +581,7 @@ msgid "Masonry max number of columns"
 msgstr ""
 
 #: addons/bundle/grid-customizer/tc_grid_customizer.php:253
-#: core/core-settings-map.php:1625
+#: core/core-settings-map.php:1633
 msgid ""
 "Note : columns are limited to 3 for single sidebar layouts and to 2 for "
 "double sidebar layouts."
@@ -695,13 +695,13 @@ msgstr "Ввімкнути галереї Customizr"
 
 #: addons/bundle/grid-customizer/utils/classes/class_utils_gc.php:80
 #: addons/fpu/utils/classes/class_utils_fpu.php:465
-#: core/core-settings-map.php:1308
+#: core/core-settings-map.php:1316
 msgid "Enable"
 msgstr "Увімкнути"
 
 #: addons/bundle/grid-customizer/utils/classes/class_utils_gc.php:81
 #: addons/fpu/utils/classes/class_utils_fpu.php:466
-#: core/core-settings-map.php:1309 core/core-settings-map.php:1750
+#: core/core-settings-map.php:1317 core/core-settings-map.php:1758
 msgid "Disable"
 msgstr "Вимкнути"
 
@@ -811,21 +811,21 @@ msgstr ""
 msgid "Load more"
 msgstr ""
 
-#: addons/bundle/infinite/infinite-scroll/class_infinite.php:801
+#: addons/bundle/infinite/infinite-scroll/class_infinite.php:800
 msgid "Older %s"
 msgstr ""
 
-#: addons/bundle/infinite/infinite-scroll/class_infinite.php:826
+#: addons/bundle/infinite/infinite-scroll/class_infinite.php:825
 #, fuzzy
 msgid "Scroll back to top"
 msgstr "Повернутись вверх"
 
-#: addons/bundle/infinite/infinite-scroll/class_infinite.php:1588
+#: addons/bundle/infinite/infinite-scroll/class_infinite.php:1589
 #, fuzzy
 msgid "Proudly powered by WordPress"
 msgstr "Створено WordPress"
 
-#: addons/bundle/infinite/infinite-scroll/class_infinite.php:1591
+#: addons/bundle/infinite/infinite-scroll/class_infinite.php:1592
 #, fuzzy
 msgid "Theme: %1$s."
 msgstr "Тиждень %1$s"
@@ -957,23 +957,23 @@ msgid "&mdash; Auto-generated slider from your blog posts &mdash;"
 msgstr "&mdash; Автоматичне слайд-шоу з ваших записів &mdash;"
 
 #: addons/bundle/slider/back/classes/class_back_slider.php:235
-#: core/core-settings-map.php:1201
+#: core/core-settings-map.php:1209
 msgid "Call to action button"
 msgstr "Кнопка заклику до дії"
 
 #: addons/bundle/slider/back/classes/class_back_slider.php:236
-#: core/core-settings-map.php:1202
+#: core/core-settings-map.php:1210
 msgid "Entire slide"
 msgstr "Це слайд-шоу"
 
 #: addons/bundle/slider/back/classes/class_back_slider.php:237
-#: core/core-settings-map.php:1203
+#: core/core-settings-map.php:1211
 msgid "Entire slide and call to action button"
 msgstr "Це слайд-шоу та кнопка заклику до дії"
 
 #: addons/bundle/slider/back/classes/class_back_slider.php:241
 #: addons/fpu/utils/classes/class_utils_fpu.php:664
-#: core/core-settings-map.php:1209 core/core-settings-map.php:1327
+#: core/core-settings-map.php:1217 core/core-settings-map.php:1335
 #: core/front/template-tags/template-tags.php:121
 msgid "Read more &raquo;"
 msgstr "Детальніше &raquo;"
@@ -984,17 +984,17 @@ msgid "Slider of posts settings"
 msgstr "Параметри слайд-шоу"
 
 #: addons/bundle/slider/back/classes/class_back_slider.php:258
-#: core/core-settings-map.php:1155
+#: core/core-settings-map.php:1163
 msgid "Number of posts to display"
 msgstr "Кількість повідомлень, що відображаються"
 
 #: addons/bundle/slider/back/classes/class_back_slider.php:265
-#: core/core-settings-map.php:1166
+#: core/core-settings-map.php:1174
 msgid "Include only sticky posts"
 msgstr "Включити тільки закріплені записи"
 
 #: addons/bundle/slider/back/classes/class_back_slider.php:274
-#: core/core-settings-map.php:1171
+#: core/core-settings-map.php:1179
 msgid ""
 "You can choose to display only the sticky posts. If you're not sure how to "
 "set a sticky post, check"
@@ -1003,22 +1003,22 @@ msgstr ""
 "як закріпити запис, перевірте"
 
 #: addons/bundle/slider/back/classes/class_back_slider.php:275
-#: core/core-settings-map.php:1172
+#: core/core-settings-map.php:1180
 msgid "the WordPress documentation."
 msgstr "документація WordPress"
 
 #: addons/bundle/slider/back/classes/class_back_slider.php:281
-#: core/core-settings-map.php:1179
+#: core/core-settings-map.php:1187
 msgid "Display the title"
 msgstr "Відобразити заголовок"
 
 #: addons/bundle/slider/back/classes/class_back_slider.php:293
-#: core/core-settings-map.php:1188 inc/czr-init-ccat.php:2954
+#: core/core-settings-map.php:1196 inc/czr-init-ccat.php:2956
 msgid "Display the excerpt"
 msgstr "Показати витримку"
 
 #: addons/bundle/slider/back/classes/class_back_slider.php:305
-#: core/core-settings-map.php:1197
+#: core/core-settings-map.php:1205
 msgid "Link post with"
 msgstr "Приєднати запис з"
 
@@ -1034,7 +1034,7 @@ msgid "Apply a category filter to your posts slider"
 msgstr "Застосувати категорію фільтра для вашого запису / домашньої сторінки"
 
 #: addons/bundle/slider/utils/classes/class_utils_slider.php:50
-#: core/core-settings-map.php:1040
+#: core/core-settings-map.php:1048
 msgid ""
 "Click inside the above field and pick post categories you want to display. "
 "No filter will be applied if empty."
@@ -1043,14 +1043,14 @@ msgstr ""
 "відобразити. Фільтр не буде застосовуватися, якщо порожньо."
 
 #: addons/bundle/slider/utils/classes/class_utils_slider.php:52
-#: core/core-settings-map.php:1042
+#: core/core-settings-map.php:1050
 msgid "Learn more about post categories in WordPress"
 msgstr "Дізнатися більше про категорії записів WordPress"
 
 #: addons/fpu/back/classes/class_back_fpu.php:51
 #: addons/wfc/back/classes/class_admin_font_customizer.php:587
-#: addons/wfc/back/czr-base-fmk/czr-base-fmk.php:266
-#: core/czr-base-fmk/czr-base-fmk.php:266 core/czr-customize-ccat.php:885
+#: addons/wfc/back/czr-base-fmk/czr-base-fmk.php:274
+#: core/czr-base-fmk/czr-base-fmk.php:274 core/czr-customize-ccat.php:885
 msgid "Settings"
 msgstr "Налаштування"
 
@@ -1103,36 +1103,36 @@ msgstr "Колір заголовку та тексту"
 msgid "Hex Value"
 msgstr ""
 
-#: addons/fpu/front/classes/class_front_fpu.php:273
-#: addons/fpu/front/classes/class_front_fpu.php:356
+#: addons/fpu/front/classes/class_front_fpu.php:275
+#: addons/fpu/front/classes/class_front_fpu.php:358
 #, fuzzy
 msgid "Edit The Featured Pages"
 msgstr "Редагувати ці популярні сторінки"
 
-#: addons/fpu/front/classes/class_front_fpu.php:414
-#: addons/fpu/front/classes/class_front_fpu.php:657
+#: addons/fpu/front/classes/class_front_fpu.php:416
+#: addons/fpu/front/classes/class_front_fpu.php:659
 #: core/front/models/modules/featured-pages/class-model-featured_pages.php:134
 #: core/front/models/modules/featured-pages/class-model-featured_pages.php:145
 #: inc/czr-front-ccat.php:3509
 msgid "Customizer screen"
 msgstr "Панель Customizer"
 
-#: addons/fpu/front/classes/class_front_fpu.php:415
-#: addons/fpu/front/classes/class_front_fpu.php:658
-#: core/core-settings-map.php:1051 core/core-settings-map.php:1056
-#: core/core-settings-map.php:2388 core/czr-admin-ccat.php:1440
+#: addons/fpu/front/classes/class_front_fpu.php:417
+#: addons/fpu/front/classes/class_front_fpu.php:660
+#: core/core-settings-map.php:1059 core/core-settings-map.php:1064
+#: core/core-settings-map.php:2396 core/czr-admin-ccat.php:1440
 msgid "here"
 msgstr "тут"
 
-#: addons/fpu/front/classes/class_front_fpu.php:422
-#: addons/fpu/front/classes/class_front_fpu.php:665
+#: addons/fpu/front/classes/class_front_fpu.php:424
+#: addons/fpu/front/classes/class_front_fpu.php:667
 #: core/front/models/modules/featured-pages/class-model-featured_pages.php:159
 #: inc/czr-front-ccat.php:3517
 msgid "Featured page"
 msgstr "Рекомендована сторінка"
 
-#: addons/fpu/front/classes/class_front_fpu.php:425
-#: addons/fpu/front/classes/class_front_fpu.php:668
+#: addons/fpu/front/classes/class_front_fpu.php:427
+#: addons/fpu/front/classes/class_front_fpu.php:670
 #, fuzzy
 msgid ""
 "Featured page description text : use the page or post excerpt or set your "
@@ -1141,12 +1141,12 @@ msgstr ""
 "Текст опису рекомендованої сторінки: використовуйте витримку сторінки або "
 "створіть Ваш власний текст на екрані Customizr."
 
-#: addons/fpu/front/classes/class_front_fpu.php:532
-#: addons/fpu/front/classes/class_front_fpu.php:778
-#: addons/wfc/back/czr-base-fmk/czr-base-fmk.php:260
-#: addons/wfc/back/czr-base-fmk/czr-base-fmk.php:561
-#: core/czr-admin-ccat.php:2432 core/czr-base-fmk/czr-base-fmk.php:260
-#: core/czr-base-fmk/czr-base-fmk.php:561 core/czr-customize-ccat.php:856
+#: addons/fpu/front/classes/class_front_fpu.php:534
+#: addons/fpu/front/classes/class_front_fpu.php:780
+#: addons/wfc/back/czr-base-fmk/czr-base-fmk.php:268
+#: addons/wfc/back/czr-base-fmk/czr-base-fmk.php:570
+#: core/czr-admin-ccat.php:2432 core/czr-base-fmk/czr-base-fmk.php:268
+#: core/czr-base-fmk/czr-base-fmk.php:570 core/czr-customize-ccat.php:856
 #: core/czr-customize-ccat.php:866
 #: core/front/models/modules/common/class-model-breadcrumb.php:624
 #: core/front/models/modules/common/class-model-breadcrumb.php:657
@@ -1214,42 +1214,42 @@ msgid "Custom location"
 msgstr "Призначте місце меню"
 
 #: addons/fpu/utils/classes/class_utils_fpu.php:310
-#: core/core-settings-map.php:2897
+#: core/core-settings-map.php:2905
 msgid "Home featured page one"
 msgstr "Популярна сторінка один"
 
 #: addons/fpu/utils/classes/class_utils_fpu.php:311
-#: core/core-settings-map.php:2898
+#: core/core-settings-map.php:2906
 msgid "Home featured page two"
 msgstr "Популярна сторінка два"
 
 #: addons/fpu/utils/classes/class_utils_fpu.php:312
-#: core/core-settings-map.php:2899
+#: core/core-settings-map.php:2907
 msgid "Home featured page three"
 msgstr "Популярна сторінка три"
 
 #: addons/fpu/utils/classes/class_utils_fpu.php:315
-#: core/core-settings-map.php:2902
+#: core/core-settings-map.php:2910
 msgid "Featured text one (200 char. max)"
 msgstr "Показаний текст один (200 символів максимум) "
 
 #: addons/fpu/utils/classes/class_utils_fpu.php:316
-#: core/core-settings-map.php:2903
+#: core/core-settings-map.php:2911
 msgid "Featured text two (200 char. max)"
 msgstr "Показаний текст два (200 символів максимум) "
 
 #: addons/fpu/utils/classes/class_utils_fpu.php:317
-#: core/core-settings-map.php:2904
+#: core/core-settings-map.php:2912
 msgid "Featured text three (200 char. max)"
 msgstr "Показаний текст три (200 символів максимум) "
 
 #: addons/fpu/utils/classes/class_utils_fpu.php:336
-#: core/core-settings-map.php:2921
+#: core/core-settings-map.php:2929
 msgid "Custom featured page %1$s"
 msgstr "Користувальницькі популярні сторінки %1$s"
 
 #: addons/fpu/utils/classes/class_utils_fpu.php:353
-#: core/core-settings-map.php:2937
+#: core/core-settings-map.php:2945
 msgid "Featured text %1$s (200 char. max)"
 msgstr "Показаний текст %1$s (200 символів максимум)"
 
@@ -1336,7 +1336,7 @@ msgid "Customize your featured pages"
 msgstr "Користувальницькі популярні сторінки %1$s"
 
 #: addons/fpu/utils/classes/class_utils_fpu.php:461
-#: core/core-settings-map.php:1304
+#: core/core-settings-map.php:1312
 msgid "Display home featured pages area"
 msgstr "Область відображення на головній популярних сторінок"
 
@@ -1433,35 +1433,35 @@ msgid ""
 msgstr ""
 
 #: addons/fpu/utils/classes/class_utils_fpu.php:571
-#: core/core-settings-map.php:1523
+#: core/core-settings-map.php:1531
 msgid "Thumbnails shape"
 msgstr "Форма мініатюри"
 
 #: addons/fpu/utils/classes/class_utils_fpu.php:575
-#: core/core-settings-map.php:1527
+#: core/core-settings-map.php:1535
 msgid "Rounded, expand on hover"
 msgstr "Круглий, розширюється при наведенні"
 
 #: addons/fpu/utils/classes/class_utils_fpu.php:576
-#: core/core-settings-map.php:1528
+#: core/core-settings-map.php:1536
 msgid "Rounded, no expansion"
 msgstr "Круглий, не розширюється"
 
-#: addons/fpu/utils/classes/class_utils_fpu.php:577 inc/czr-init-ccat.php:3043
+#: addons/fpu/utils/classes/class_utils_fpu.php:577 inc/czr-init-ccat.php:3045
 msgid "Squared, expand on hover"
 msgstr "Квадратний, розширюється при наведенні"
 
-#: addons/fpu/utils/classes/class_utils_fpu.php:578 inc/czr-init-ccat.php:3044
+#: addons/fpu/utils/classes/class_utils_fpu.php:578 inc/czr-init-ccat.php:3046
 msgid "Squared, no expansion"
 msgstr "Квадратний, не розширюється"
 
 #: addons/fpu/utils/classes/class_utils_fpu.php:587
-#: core/core-settings-map.php:412
+#: core/core-settings-map.php:420
 msgid "Dynamic thumbnails centering on any devices"
 msgstr "Динамічні мініатюри центруються на будь-яких пристроях"
 
 #: addons/fpu/utils/classes/class_utils_fpu.php:591
-#: core/core-settings-map.php:416
+#: core/core-settings-map.php:424
 msgid ""
 "This option dynamically centers your images on any devices, vertically or "
 "horizontally according to their initial aspect ratio."
@@ -1504,7 +1504,7 @@ msgid "Display buttons"
 msgstr "Відображати автора"
 
 #: addons/fpu/utils/classes/class_utils_fpu.php:666
-#: core/core-settings-map.php:1210 core/core-settings-map.php:1329
+#: core/core-settings-map.php:1218 core/core-settings-map.php:1337
 msgid "Button text"
 msgstr "Текст кнопки"
 
@@ -1698,16 +1698,16 @@ msgid "Are you sure you want to reset all your font settings to default?"
 msgstr ""
 
 #: addons/wfc/back/classes/class_admin_font_customizer.php:516
-#: addons/wfc/back/czr-base-fmk/czr-base-fmk.php:570
-#: core/core-settings-map.php:1248 core/core-settings-map.php:1260
-#: core/czr-base-fmk/czr-base-fmk.php:570
+#: addons/wfc/back/czr-base-fmk/czr-base-fmk.php:579
+#: core/core-settings-map.php:1256 core/core-settings-map.php:1268
+#: core/czr-base-fmk/czr-base-fmk.php:579
 msgid "Yes"
 msgstr "Так"
 
 #: addons/wfc/back/classes/class_admin_font_customizer.php:517
-#: addons/wfc/back/czr-base-fmk/czr-base-fmk.php:570
-#: core/core-settings-map.php:1249 core/core-settings-map.php:1261
-#: core/czr-base-fmk/czr-base-fmk.php:570 inc/czr-front-ccat.php:4084
+#: addons/wfc/back/czr-base-fmk/czr-base-fmk.php:579
+#: core/core-settings-map.php:1257 core/core-settings-map.php:1269
+#: core/czr-base-fmk/czr-base-fmk.php:579 inc/czr-front-ccat.php:4084
 msgid "No"
 msgstr "Ні"
 
@@ -1716,8 +1716,8 @@ msgid "This selector has already been added."
 msgstr ""
 
 #: addons/wfc/back/classes/class_admin_font_customizer.php:519
-#: addons/wfc/wordpress-font-customizer.php:765 core/core-settings-map.php:517
-#: inc/czr-init-ccat.php:3099
+#: addons/wfc/wordpress-font-customizer.php:765 core/core-settings-map.php:525
+#: inc/czr-init-ccat.php:3101
 msgid "Custom"
 msgstr "Користувацький"
 
@@ -1787,9 +1787,9 @@ msgid "Clear color"
 msgstr ""
 
 #: addons/wfc/back/czr-base-fmk/czr-base-fmk.php:211
-#: addons/wfc/back/czr-base-fmk/czr-base-fmk.php:273
+#: addons/wfc/back/czr-base-fmk/czr-base-fmk.php:281
 #: core/czr-base-fmk/czr-base-fmk.php:211
-#: core/czr-base-fmk/czr-base-fmk.php:273
+#: core/czr-base-fmk/czr-base-fmk.php:281
 msgid "Default"
 msgstr "За замовченням "
 
@@ -1810,117 +1810,117 @@ msgstr "Виберіть іконку соціальної мережі"
 msgid "Color value"
 msgstr ""
 
-#: addons/wfc/back/czr-base-fmk/czr-base-fmk.php:261
-#: core/czr-base-fmk/czr-base-fmk.php:261 core/czr-customize-ccat.php:857
+#: addons/wfc/back/czr-base-fmk/czr-base-fmk.php:269
+#: core/czr-base-fmk/czr-base-fmk.php:269 core/czr-customize-ccat.php:857
 #: inc/czr-front-ccat.php:776 inc/czr-front-ccat.php:783
 msgid "Close"
 msgstr "Закрити"
 
-#: addons/wfc/back/czr-base-fmk/czr-base-fmk.php:262
-#: core/czr-base-fmk/czr-base-fmk.php:262 core/czr-customize-ccat.php:858
+#: addons/wfc/back/czr-base-fmk/czr-base-fmk.php:270
+#: core/czr-base-fmk/czr-base-fmk.php:270 core/czr-customize-ccat.php:858
 msgid "Not set"
 msgstr "Не вибрано"
 
-#: addons/wfc/back/czr-base-fmk/czr-base-fmk.php:263
-#: core/czr-base-fmk/czr-base-fmk.php:263 core/czr-customize-ccat.php:862
+#: addons/wfc/back/czr-base-fmk/czr-base-fmk.php:271
+#: core/czr-base-fmk/czr-base-fmk.php:271 core/czr-customize-ccat.php:862
 #: core/czr-modules/social-links/index.php:78
 #: core/czr-modules/social-links/social_links_module.php:80
 msgid "Done !"
 msgstr "Готово!"
 
-#: addons/wfc/back/czr-base-fmk/czr-base-fmk.php:265
-#: core/czr-base-fmk/czr-base-fmk.php:265 core/czr-customize-ccat.php:864
+#: addons/wfc/back/czr-base-fmk/czr-base-fmk.php:273
+#: core/czr-base-fmk/czr-base-fmk.php:273 core/czr-customize-ccat.php:864
 #: core/czr-customize-ccat.php:884
 msgid "Learn more about this in the documentation"
 msgstr "Детальніше про це читайте в документації"
 
-#: addons/wfc/back/czr-base-fmk/czr-base-fmk.php:267
-#: core/czr-base-fmk/czr-base-fmk.php:267 core/czr-customize-ccat.php:886
+#: addons/wfc/back/czr-base-fmk/czr-base-fmk.php:275
+#: core/czr-base-fmk/czr-base-fmk.php:275 core/czr-customize-ccat.php:886
 msgid "Options for"
 msgstr ""
 
-#: addons/wfc/back/czr-base-fmk/czr-base-fmk.php:270
-#: addons/wfc/back/czr-base-fmk/czr-base-fmk.php:275
-#: core/czr-base-fmk/czr-base-fmk.php:270
-#: core/czr-base-fmk/czr-base-fmk.php:275
+#: addons/wfc/back/czr-base-fmk/czr-base-fmk.php:278
+#: addons/wfc/back/czr-base-fmk/czr-base-fmk.php:283
+#: core/czr-base-fmk/czr-base-fmk.php:278
+#: core/czr-base-fmk/czr-base-fmk.php:283
 msgid "Select Image"
 msgstr "Вибрати зображення"
 
-#: addons/wfc/back/czr-base-fmk/czr-base-fmk.php:271
-#: core/czr-base-fmk/czr-base-fmk.php:271
+#: addons/wfc/back/czr-base-fmk/czr-base-fmk.php:279
+#: core/czr-base-fmk/czr-base-fmk.php:279
 msgid "Change Image"
 msgstr "Змінити зображення"
 
-#: addons/wfc/back/czr-base-fmk/czr-base-fmk.php:272
-#: addons/wfc/back/czr-base-fmk/czr-base-fmk.php:561
-#: core/czr-base-fmk/czr-base-fmk.php:272
-#: core/czr-base-fmk/czr-base-fmk.php:561 core/czr-customize-ccat.php:1479
+#: addons/wfc/back/czr-base-fmk/czr-base-fmk.php:280
+#: addons/wfc/back/czr-base-fmk/czr-base-fmk.php:570
+#: core/czr-base-fmk/czr-base-fmk.php:280
+#: core/czr-base-fmk/czr-base-fmk.php:570 core/czr-customize-ccat.php:1479
 msgid "Remove"
 msgstr "Видалити"
 
-#: addons/wfc/back/czr-base-fmk/czr-base-fmk.php:274
-#: core/czr-base-fmk/czr-base-fmk.php:274
+#: addons/wfc/back/czr-base-fmk/czr-base-fmk.php:282
+#: core/czr-base-fmk/czr-base-fmk.php:282
 msgid "No image selected"
 msgstr "Зображення не вибрано"
 
-#: addons/wfc/back/czr-base-fmk/czr-base-fmk.php:276
-#: core/czr-base-fmk/czr-base-fmk.php:276
+#: addons/wfc/back/czr-base-fmk/czr-base-fmk.php:284
+#: core/czr-base-fmk/czr-base-fmk.php:284
 msgid "Choose Image"
 msgstr "Вибрати зображення"
 
-#: addons/wfc/back/czr-base-fmk/czr-base-fmk.php:278
-#: core/czr-base-fmk/czr-base-fmk.php:278
+#: addons/wfc/back/czr-base-fmk/czr-base-fmk.php:286
+#: core/czr-base-fmk/czr-base-fmk.php:286
 #, fuzzy
 msgid "Customizing"
 msgstr "Customizr"
 
-#: addons/wfc/back/czr-base-fmk/czr-base-fmk.php:471
-#: core/czr-base-fmk/czr-base-fmk.php:471
+#: addons/wfc/back/czr-base-fmk/czr-base-fmk.php:480
+#: core/czr-base-fmk/czr-base-fmk.php:480
 msgid "ac_set_ajax_czr_tmpl => Security check failed."
 msgstr ""
 
-#: addons/wfc/back/czr-base-fmk/czr-base-fmk.php:543
-#: core/czr-base-fmk/czr-base-fmk.php:543
+#: addons/wfc/back/czr-base-fmk/czr-base-fmk.php:552
+#: core/czr-base-fmk/czr-base-fmk.php:552
 msgid "Add New"
 msgstr "Додати новий"
 
-#: addons/wfc/back/czr-base-fmk/czr-base-fmk.php:548
-#: core/czr-base-fmk/czr-base-fmk.php:548
+#: addons/wfc/back/czr-base-fmk/czr-base-fmk.php:557
+#: core/czr-base-fmk/czr-base-fmk.php:557
 msgid "Cancel"
 msgstr "Відмінити"
 
-#: addons/wfc/back/czr-base-fmk/czr-base-fmk.php:548
-#: core/czr-base-fmk/czr-base-fmk.php:548
+#: addons/wfc/back/czr-base-fmk/czr-base-fmk.php:557
+#: core/czr-base-fmk/czr-base-fmk.php:557
 msgid "Add it"
 msgstr "Додати"
 
-#: addons/wfc/back/czr-base-fmk/czr-base-fmk.php:569
-#: core/czr-base-fmk/czr-base-fmk.php:569
+#: addons/wfc/back/czr-base-fmk/czr-base-fmk.php:578
+#: core/czr-base-fmk/czr-base-fmk.php:578
 msgid "Are you sure you want to remove : <strong>{{ data.title }} ?</strong>"
 msgstr "Ви впевнені, що бажаєте видалити: <strong>{{ data.title }} ?</strong>"
 
-#: addons/wfc/back/czr-base-fmk/czr-base-fmk.php:1685
-#: core/czr-base-fmk/czr-base-fmk.php:1685
+#: addons/wfc/back/czr-base-fmk/czr-base-fmk.php:1694
+#: core/czr-base-fmk/czr-base-fmk.php:1694
 msgid "Set a custom url"
 msgstr ""
 
-#: addons/wfc/back/czr-base-fmk/czr-base-fmk.php:1719
-#: addons/wfc/back/czr-base-fmk/czr-base-fmk.php:1919
-#: core/czr-base-fmk/czr-base-fmk.php:1719
-#: core/czr-base-fmk/czr-base-fmk.php:1919
+#: addons/wfc/back/czr-base-fmk/czr-base-fmk.php:1728
+#: addons/wfc/back/czr-base-fmk/czr-base-fmk.php:1928
+#: core/czr-base-fmk/czr-base-fmk.php:1728
+#: core/czr-base-fmk/czr-base-fmk.php:1928
 msgid "ajax_load_available_items => Security check failed."
 msgstr ""
 
 #. translators: %d: ID of a post
-#: addons/wfc/back/czr-base-fmk/czr-base-fmk.php:1840
-#: addons/wfc/back/czr-base-fmk/czr-base-fmk.php:2049
-#: core/czr-base-fmk/czr-base-fmk.php:1840
-#: core/czr-base-fmk/czr-base-fmk.php:2049
+#: addons/wfc/back/czr-base-fmk/czr-base-fmk.php:1849
+#: addons/wfc/back/czr-base-fmk/czr-base-fmk.php:2058
+#: core/czr-base-fmk/czr-base-fmk.php:1849
+#: core/czr-base-fmk/czr-base-fmk.php:2058
 msgid "#%d (no title)"
 msgstr ""
 
-#: addons/wfc/back/czr-base-fmk/czr-base-fmk.php:1983
-#: core/czr-base-fmk/czr-base-fmk.php:1983
+#: addons/wfc/back/czr-base-fmk/czr-base-fmk.php:1992
+#: core/czr-base-fmk/czr-base-fmk.php:1992
 msgid "No results found."
 msgstr ""
 
@@ -2325,12 +2325,12 @@ msgstr "%s щоб відобразити основне зображення з�
 msgid "Jump to the customizer now"
 msgstr "Перейти до налаштувань зараз"
 
-#: core/class-fire-placeholders.php:188 core/core-settings-map.php:1704
+#: core/class-fire-placeholders.php:188 core/core-settings-map.php:1712
 msgid "Don't know how to set a featured image to a post? Learn how in the %s."
 msgstr "Не знаєте як встановити головне зображення запису? Дізнайтесь як в %s."
 
 #: core/class-fire-placeholders.php:189 core/class-fire-placeholders.php:208
-#: core/core-settings-map.php:1705 core/core-settings-map.php:1784
+#: core/core-settings-map.php:1713 core/core-settings-map.php:1792
 msgid "WordPress documentation"
 msgstr "Документація documentation"
 
@@ -2340,7 +2340,7 @@ msgid "You can display your page's featured image here if you have set one."
 msgstr ""
 "Ви можете відобразити основне зображення запису тут, якщо ві його обрали."
 
-#: core/class-fire-placeholders.php:207 core/core-settings-map.php:1783
+#: core/class-fire-placeholders.php:207 core/core-settings-map.php:1791
 #, fuzzy
 msgid "Don't know how to set a featured image to a page? Learn how in the %s."
 msgstr "Не знаєте як встановити головне зображення запису? Дізнайтесь як в %s."
@@ -2375,11 +2375,11 @@ msgstr "Цей блок видимий лише для адміністрато�
 msgid "dismiss notice"
 msgstr "закрити повідомлення"
 
-#: core/class-fire-plugins_compat.php:380 inc/czr-init-ccat.php:823
+#: core/class-fire-plugins_compat.php:380 inc/czr-init-ccat.php:827
 msgid "Front page slider name"
 msgstr "Ім'я слайд-шоу на головній сторінці"
 
-#: core/class-fire-plugins_compat.php:382 inc/czr-init-ccat.php:825
+#: core/class-fire-plugins_compat.php:382 inc/czr-init-ccat.php:829
 msgid "Posts slider button text"
 msgstr "Текст кнопки на слайд-шоу запису"
 
@@ -2387,47 +2387,47 @@ msgstr "Текст кнопки на слайд-шоу запису"
 msgid "Custom Page Example"
 msgstr "Приклад інших сторінок"
 
-#: core/class-fire-resources_scripts.php:402 inc/czr-init-ccat.php:4268
+#: core/class-fire-resources_scripts.php:402 inc/czr-init-ccat.php:4270
 msgid "Permanently dismiss"
 msgstr ""
 
-#: core/class-fire-resources_scripts.php:594
+#: core/class-fire-resources_scripts.php:595
 #, fuzzy
 msgid "Welcome in the Customizr theme"
 msgstr "Зміна макету в темі Customizr"
 
-#: core/class-fire-resources_scripts.php:597
+#: core/class-fire-resources_scripts.php:598
 msgid "The theme offers a wide range"
 msgstr ""
 
-#: core/class-fire-resources_scripts.php:599
+#: core/class-fire-resources_scripts.php:600
 #, fuzzy
 msgid "of customization options"
 msgstr "Панель налаштувань"
 
-#: core/class-fire-resources_scripts.php:600
+#: core/class-fire-resources_scripts.php:601
 msgid "to let you create the best possible websites."
 msgstr ""
 
-#: core/class-fire-resources_scripts.php:603
+#: core/class-fire-resources_scripts.php:604
 msgid "If you need inspiration, you can visit our online demos"
 msgstr ""
 
-#: core/class-fire-resources_scripts.php:605
+#: core/class-fire-resources_scripts.php:606
 #, fuzzy
 msgid "Customizr Demo 1"
 msgstr "Налаштувати або видалити %s"
 
-#: core/class-fire-resources_scripts.php:607
+#: core/class-fire-resources_scripts.php:608
 #, fuzzy
 msgid "Customizr Demo 2"
 msgstr "Налаштувати або видалити %s"
 
-#: core/class-fire-resources_scripts.php:610
+#: core/class-fire-resources_scripts.php:611
 msgid "To help you getting started with Customizr, we have published"
 msgstr ""
 
-#: core/class-fire-resources_scripts.php:612
+#: core/class-fire-resources_scripts.php:613
 msgid "a short guide here."
 msgstr ""
 
@@ -2635,15 +2635,19 @@ msgstr ""
 msgid "Animated underline effect on link hover"
 msgstr "Ефект загасання при наведенні на посилання"
 
-#: core/core-settings-map.php:357 inc/czr-init-ccat.php:2254
+#: core/core-settings-map.php:357 inc/czr-init-ccat.php:2258
 msgid "Fade effect on link hover"
 msgstr "Ефект загасання при наведенні на посилання"
 
-#: core/core-settings-map.php:378
+#: core/core-settings-map.php:365
+msgid "Links underlined within content"
+msgstr ""
+
+#: core/core-settings-map.php:386
 msgid "Lightbox effect on images"
 msgstr "Ефект лайтбоксу на зображеннях"
 
-#: core/core-settings-map.php:382
+#: core/core-settings-map.php:390
 msgid ""
 "If enabled, this option activates a popin window whith a zoom effect when an "
 "image is clicked. Note : to enable this effect on the images of your pages "
@@ -2653,18 +2657,18 @@ msgstr ""
 "на зображення. Примітка : щоб ввімкнути цей ефект на зображеннях ваших "
 "сторінок і записів, зображення повинні бути пов'язані з медіа файлами."
 
-#: core/core-settings-map.php:388
+#: core/core-settings-map.php:396
 msgid "High resolution (Retina) support"
 msgstr "Підтримка високої роздільної здатності (Retina)"
 
-#: core/core-settings-map.php:393
+#: core/core-settings-map.php:401
 msgid ""
 "If enabled, your website will include support for high resolution devices."
 msgstr ""
 "Якщо активно, Ваш сайт буде підтримувати пристрої з високою роздільною "
 "здатністю."
 
-#: core/core-settings-map.php:394
+#: core/core-settings-map.php:402
 msgid ""
 "It is strongly recommended to regenerate your media library images in high "
 "definition with this free plugin"
@@ -2672,23 +2676,23 @@ msgstr ""
 "Наполегливо рекомендуємо регенерувати зображення високої чіткості з вашої "
 "медіа бібліотеки за допомогою цього безкоштовного додатка"
 
-#: core/core-settings-map.php:395
+#: core/core-settings-map.php:403
 msgid "regenerate thumbnails"
 msgstr "регенерувати мініатюри"
 
-#: core/core-settings-map.php:397
+#: core/core-settings-map.php:405
 msgid "Open the description page of the Regenerate thumbnails plugin"
 msgstr "Відкрийте сторінку опису додатка Regenerate thumbnails plugin"
 
-#: core/core-settings-map.php:403
+#: core/core-settings-map.php:411
 msgid "Dynamic slider images centering on any devices"
 msgstr "Динамічні слайд-шоу центруються на будь-яких пристроях "
 
-#: core/core-settings-map.php:425
+#: core/core-settings-map.php:433
 msgid "Improve your page speed by loading smaller images for mobile devices"
 msgstr ""
 
-#: core/core-settings-map.php:429
+#: core/core-settings-map.php:437
 msgid ""
 "This feature has been introduced in WordPress v4.4+ (dec-2015), and might "
 "have minor side effects on some of your existing images. Check / uncheck "
@@ -2699,21 +2703,21 @@ msgstr ""
 "вимкніть цю опцію, щоб безпечно переконатися, що ваші зображення "
 "відображаються красиво."
 
-#: core/core-settings-map.php:449
+#: core/core-settings-map.php:457
 msgid "Sliders : use parallax scrolling"
 msgstr "Слайд-шоу : використовувати ефект паралаксу"
 
-#: core/core-settings-map.php:453
+#: core/core-settings-map.php:461
 msgid "If enabled, your slides scroll slower than the page (parallax effect)."
 msgstr ""
 "Якщо ввімкнуто, прокручування слайд-шоу буде повільніше за сторінку (ефект "
 "паралаксу)."
 
-#: core/core-settings-map.php:469
+#: core/core-settings-map.php:477
 msgid "Display an author box after each single post content"
 msgstr "Показувати поле автор після заголовка кожного окремого запису"
 
-#: core/core-settings-map.php:473
+#: core/core-settings-map.php:481
 msgid ""
 "Check this option to display an author info block after each single post "
 "content. Note : the Biographical info field must be filled out in the user "
@@ -2723,194 +2727,194 @@ msgstr ""
 "змісту кожного окремого запису. Примітка : поле Біографічна інформація має "
 "бути заповнено в профілі користувача."
 
-#: core/core-settings-map.php:490
+#: core/core-settings-map.php:498
 msgid "Enable Smooth Scroll"
 msgstr "Ввімкнути плавну прокрутку"
 
-#: core/core-settings-map.php:494
+#: core/core-settings-map.php:502
 msgid "This option enables a smoother page scroll."
 msgstr "Ця опція вмикає плавнішу прокрутку сторінки."
 
-#: core/core-settings-map.php:513
+#: core/core-settings-map.php:521
 #, fuzzy
 msgid "Header style"
 msgstr "Шапка"
 
-#: core/core-settings-map.php:515 core/core-settings-map.php:2193
+#: core/core-settings-map.php:523 core/core-settings-map.php:2201
 msgid "Dark"
 msgstr ""
 
-#: core/core-settings-map.php:516 core/core-settings-map.php:2194
+#: core/core-settings-map.php:524 core/core-settings-map.php:2202
 #, fuzzy
 msgid "Light"
 msgstr "Праворуч"
 
-#: core/core-settings-map.php:526
+#: core/core-settings-map.php:534
 msgid "Header background color"
 msgstr ""
 
-#: core/core-settings-map.php:536
+#: core/core-settings-map.php:544
 msgid "Header foreground color"
 msgstr ""
 
-#: core/core-settings-map.php:546
+#: core/core-settings-map.php:554
 msgid " Highlight contextually active menu items"
 msgstr ""
 
-#: core/core-settings-map.php:554
+#: core/core-settings-map.php:562
 msgid "Apply a transparent background to your header on home."
 msgstr ""
 
-#: core/core-settings-map.php:558
+#: core/core-settings-map.php:566
 msgid ""
 "This option can be used to nicely display your header elements ( site title, "
 "menu ) on top of a slider for example."
 msgstr ""
 
-#: core/core-settings-map.php:563
+#: core/core-settings-map.php:571
 msgid "Header style for home"
 msgstr ""
 
-#: core/core-settings-map.php:565
+#: core/core-settings-map.php:573
 #, fuzzy
 msgid "Light text"
 msgstr "Світло-синій"
 
-#: core/core-settings-map.php:566
+#: core/core-settings-map.php:574
 msgid "Dark text"
 msgstr ""
 
-#: core/core-settings-map.php:575
+#: core/core-settings-map.php:583
 #, fuzzy
 msgid "Remove header borders"
 msgstr "Видалити слайд-шоу з головної сторінки"
 
-#: core/core-settings-map.php:583
+#: core/core-settings-map.php:591
 #, fuzzy
 msgid "Display a topbar"
 msgstr "Показувати верхню межу"
 
-#: core/core-settings-map.php:593
+#: core/core-settings-map.php:601
 msgid ""
 "You can display a content zone above the header, called topbar. The topbar "
 "can be populated with various blocks like a menu, your social links, or your "
 "contact information ( pro )."
 msgstr ""
 
-#: core/core-settings-map.php:601
+#: core/core-settings-map.php:609
 #, fuzzy
 msgid "Social links in the topbar"
 msgstr "Соцмережі в шапці"
 
-#: core/core-settings-map.php:627
+#: core/core-settings-map.php:635
 msgid "Display top border"
 msgstr "Показувати верхню межу"
 
-#: core/core-settings-map.php:631
+#: core/core-settings-map.php:639
 msgid "Uncheck this option to remove the colored top border."
 msgstr "Зніміть цей прапорець, щоб прибрати кольорову верхню межу."
 
-#: core/core-settings-map.php:636
+#: core/core-settings-map.php:644
 #, fuzzy
 msgid "Underline the site title in the header"
 msgstr "Відображати слоган в шапці"
 
-#: core/core-settings-map.php:649
+#: core/core-settings-map.php:657
 msgid "Sticky header : semi-transparent on scroll"
 msgstr "Прикріплена шапка : напівпрозора при прокручуванні"
 
-#: core/core-settings-map.php:659
+#: core/core-settings-map.php:667
 msgid "Set the header z-index"
 msgstr "Встановити z-index шапки"
 
-#: core/core-settings-map.php:667
+#: core/core-settings-map.php:675
 msgid "What is"
 msgstr "Що таке"
 
-#: core/core-settings-map.php:669
+#: core/core-settings-map.php:677
 msgid "the z-index"
 msgstr "z-index"
 
-#: core/core-settings-map.php:686
+#: core/core-settings-map.php:694
 msgid "Choose a layout for the header"
 msgstr "Вибрати макет для шапки"
 
-#: core/core-settings-map.php:690
+#: core/core-settings-map.php:698
 msgid "Logo / title on the left"
 msgstr "Логотип / заголовок ліворуч"
 
-#: core/core-settings-map.php:691
+#: core/core-settings-map.php:699
 msgid "Logo / title on the right"
 msgstr "Логотип / заголовок праворуч"
 
-#: core/core-settings-map.php:692
+#: core/core-settings-map.php:700
 msgid "Logo / title centered"
 msgstr "Логотип / заголовок по центру"
 
-#: core/core-settings-map.php:696
+#: core/core-settings-map.php:704
 msgid "This setting might impact the side on which the menu is revealed."
 msgstr "Цей параметр може мати вплив на сторону, на якій розкривається меню."
 
-#: core/core-settings-map.php:700 core/core-settings-map.php:722
-#: core/core-settings-map.php:746 core/core-settings-map.php:764
-#: core/core-settings-map.php:778
+#: core/core-settings-map.php:708 core/core-settings-map.php:730
+#: core/core-settings-map.php:754 core/core-settings-map.php:772
+#: core/core-settings-map.php:786
 msgid "Desktop devices : %s"
 msgstr ""
 
-#: core/core-settings-map.php:700
+#: core/core-settings-map.php:708
 #, fuzzy
 msgid "set the tagline location"
 msgstr "Встановити параметри іконок заголовків"
 
-#: core/core-settings-map.php:708
+#: core/core-settings-map.php:716
 msgid "In the topbar"
 msgstr ""
 
-#: core/core-settings-map.php:709
+#: core/core-settings-map.php:717
 msgid "Below the logo"
 msgstr ""
 
-#: core/core-settings-map.php:710
+#: core/core-settings-map.php:718
 msgid "Next to the logo"
 msgstr ""
 
-#: core/core-settings-map.php:721
+#: core/core-settings-map.php:729
 #, fuzzy
 msgid "Search Icon"
 msgstr "Пошук"
 
-#: core/core-settings-map.php:722
+#: core/core-settings-map.php:730
 #, fuzzy
 msgid "set the search icon location"
 msgstr "Встановити параметри іконок заголовків"
 
-#: core/core-settings-map.php:728 core/core-settings-map.php:753
+#: core/core-settings-map.php:736 core/core-settings-map.php:761
 #, fuzzy
 msgid "Display in the topbar"
 msgstr "Відобразити щапку"
 
-#: core/core-settings-map.php:729 core/core-settings-map.php:754
+#: core/core-settings-map.php:737 core/core-settings-map.php:762
 #, fuzzy
 msgid "Display in the main header section"
 msgstr "Відобразити щапку"
 
-#: core/core-settings-map.php:732
+#: core/core-settings-map.php:740
 msgid ""
 "If you want to display the search icon in your topbar, make sure the topbar "
 "is displayed by checking \"Display a topbar\" above."
 msgstr ""
 
-#: core/core-settings-map.php:737
+#: core/core-settings-map.php:745
 msgid "Use a full screen search block"
 msgstr ""
 
-#: core/core-settings-map.php:746 core/core-settings-map.php:856
-#: inc/czr-init-ccat.php:2550
+#: core/core-settings-map.php:754 core/core-settings-map.php:864
+#: inc/czr-init-ccat.php:2552
 msgid "Display the shopping cart in the header"
 msgstr "Відображати кошик в шапці."
 
-#: core/core-settings-map.php:749 core/core-settings-map.php:859
-#: inc/czr-init-ccat.php:2553
+#: core/core-settings-map.php:757 core/core-settings-map.php:867
+#: inc/czr-init-ccat.php:2555
 msgid ""
 "WooCommerce: check to display a cart icon showing the number of items in "
 "your cart next to your header's tagline."
@@ -2918,217 +2922,217 @@ msgstr ""
 "WooCommerce: відмітьте, щоб кошик відображав кількість речей в ньому поряд з "
 "слоганом в шапці."
 
-#: core/core-settings-map.php:763 core/core-settings-map.php:867
+#: core/core-settings-map.php:771 core/core-settings-map.php:875
 #, fuzzy
 msgid "Behaviour on scroll"
 msgstr "Фіксація при прокручуванні"
 
-#: core/core-settings-map.php:764
+#: core/core-settings-map.php:772
 msgid "set the header visibility on scroll"
 msgstr ""
 
-#: core/core-settings-map.php:768 core/core-settings-map.php:872
+#: core/core-settings-map.php:776 core/core-settings-map.php:880
 msgid "Not visible when scrolling the page"
 msgstr ""
 
-#: core/core-settings-map.php:769 core/core-settings-map.php:873
+#: core/core-settings-map.php:777 core/core-settings-map.php:881
 msgid "Reveal on scroll up"
 msgstr ""
 
-#: core/core-settings-map.php:770 core/core-settings-map.php:874
+#: core/core-settings-map.php:778 core/core-settings-map.php:882
 msgid "Always visible"
 msgstr ""
 
-#: core/core-settings-map.php:778
+#: core/core-settings-map.php:786
 msgid "select the header block to stick on scroll"
 msgstr ""
 
-#: core/core-settings-map.php:782
+#: core/core-settings-map.php:790
 msgid "Topbar"
 msgstr ""
 
-#: core/core-settings-map.php:783
+#: core/core-settings-map.php:791
 #, fuzzy
 msgid "Main header section"
 msgstr "Налаштування прикріпленої шапки"
 
-#: core/core-settings-map.php:791
+#: core/core-settings-map.php:799
 msgid "Sticky header : shrink title / logo"
 msgstr "Прикріплена шапка : вкоротити заголовок / логотип"
 
-#: core/core-settings-map.php:800
+#: core/core-settings-map.php:808
 msgid ""
 "When your header ( containing the site title or logo ) is gluing to the top "
 "of a page, this option will make the title or logo smaller."
 msgstr ""
 
-#: core/core-settings-map.php:814
+#: core/core-settings-map.php:822
 #, fuzzy
 msgid "Header settings for %s"
 msgstr "Налаштування шапки Customizr."
 
-#: core/core-settings-map.php:814 core/core-settings-map.php:815
-#: core/core-settings-map.php:845 core/core-settings-map.php:856
-#: core/core-settings-map.php:868 core/core-settings-map.php:884
+#: core/core-settings-map.php:822 core/core-settings-map.php:823
+#: core/core-settings-map.php:853 core/core-settings-map.php:864
+#: core/core-settings-map.php:876 core/core-settings-map.php:892
 msgid "Mobile devices"
 msgstr ""
 
-#: core/core-settings-map.php:815
+#: core/core-settings-map.php:823
 #, fuzzy
 msgid "Select the menu(s) to use for mobile devices"
 msgstr "Примітка : мітка недоступна на мобільних пристроях."
 
-#: core/core-settings-map.php:819
+#: core/core-settings-map.php:827
 msgid "Specific Mobile Menu"
 msgstr ""
 
-#: core/core-settings-map.php:820 core/init-base.php:412
+#: core/core-settings-map.php:828 core/init-base.php:412
 msgid "Main Menu"
 msgstr "Головне меню"
 
-#: core/core-settings-map.php:821
+#: core/core-settings-map.php:829
 msgid "Secondary"
 msgstr ""
 
-#: core/core-settings-map.php:822
+#: core/core-settings-map.php:830
 #, fuzzy
 msgid "Topbar Menu"
 msgstr "Головне меню"
 
-#: core/core-settings-map.php:825
+#: core/core-settings-map.php:833
 msgid ""
 "When your visitors are using a smartphone or a tablet, the header becomes a "
 "thin bar on top, where the menu is revealed when clicking on the hamburger "
 "button. This option let you choose which menu will be displayed."
 msgstr ""
 
-#: core/core-settings-map.php:826
+#: core/core-settings-map.php:834
 msgid ""
 "If the selected menu location has no menu assigned, the theme will try to "
 "assign another menu in this order : mobile, main, secondary, topbar."
 msgstr ""
 
-#: core/core-settings-map.php:837 core/core-settings-map.php:945
-#: core/core-settings-map.php:987
+#: core/core-settings-map.php:845 core/core-settings-map.php:953
+#: core/core-settings-map.php:995
 msgid "Expand submenus on click"
 msgstr "Випадання підменю по кліку"
 
-#: core/core-settings-map.php:845 inc/czr-init-ccat.php:2538
+#: core/core-settings-map.php:853 inc/czr-init-ccat.php:2540
 msgid "Display the tagline in the header"
 msgstr "Відображати слоган в шапці"
 
-#: core/core-settings-map.php:868
+#: core/core-settings-map.php:876
 #, fuzzy
 msgid "header menu visibility on scroll"
 msgstr "Завантаження зображень під час прокрутки"
 
-#: core/core-settings-map.php:884
+#: core/core-settings-map.php:892
 #, fuzzy
 msgid "Display a search button in the header"
 msgstr "Відображати слоган в шапці"
 
-#: core/core-settings-map.php:890
+#: core/core-settings-map.php:898
 #, fuzzy
 msgid "Display in the mobile navbar"
 msgstr "Відобразити щапку"
 
-#: core/core-settings-map.php:891
+#: core/core-settings-map.php:899
 #, fuzzy
 msgid "Display in the mobile menu"
 msgstr "Відобразити щапку"
 
-#: core/core-settings-map.php:914
+#: core/core-settings-map.php:922
 msgid "Display a secondary (horizontal) menu in the header."
 msgstr "Відображати додаткове (горизонтальне) меню в шапці."
 
-#: core/core-settings-map.php:918
+#: core/core-settings-map.php:926
 msgid ""
 "An horizontal menu can be displayed in the main header with this option. "
 "Make sure you have assigned a menu to this location in the menu panel."
 msgstr ""
 
-#: core/core-settings-map.php:925
+#: core/core-settings-map.php:933
 msgid "Main menu design"
 msgstr "Стиль головного меню"
 
-#: core/core-settings-map.php:926
+#: core/core-settings-map.php:934
 msgid "Select a design : side menu (vertical) or regular (horizontal)"
 msgstr "Вибрати стиль : бокове меню (вертикальне) або звичайне (горизонтальне)"
 
-#: core/core-settings-map.php:930
+#: core/core-settings-map.php:938
 msgid "Regular (horizontal)"
 msgstr "Звичайне (горизонтальне)"
 
-#: core/core-settings-map.php:931
+#: core/core-settings-map.php:939
 msgid "Side Menu (vertical)"
 msgstr "Бокове меню (вертикальне)"
 
-#: core/core-settings-map.php:934
+#: core/core-settings-map.php:942
 msgid ""
 "Make sure that you have assigned your menus to the relevant locations %s."
 msgstr ""
 
-#: core/core-settings-map.php:937 core/core-settings-map.php:2601
+#: core/core-settings-map.php:945 core/core-settings-map.php:2609
 msgid "in the menu panel"
 msgstr "в панелі меню"
 
-#: core/core-settings-map.php:938 core/core-settings-map.php:2594
-#: core/core-settings-map.php:2602
+#: core/core-settings-map.php:946 core/core-settings-map.php:2602
+#: core/core-settings-map.php:2610
 msgid "create/edit menus"
 msgstr "створити/редагувати меню"
 
-#: core/core-settings-map.php:946
+#: core/core-settings-map.php:954
 #, fuzzy
 msgid "Primary (vertical) menu design"
 msgstr "Стиль додаткового (горизонтального) меню"
 
-#: core/core-settings-map.php:954 inc/czr-init-ccat.php:2713
+#: core/core-settings-map.php:962 inc/czr-init-ccat.php:2715
 msgid "Menu position (for \"main\" menu)"
 msgstr "Позиція меню (для \"головного\" меню)"
 
-#: core/core-settings-map.php:958 core/core-settings-map.php:972
-#: inc/czr-init-ccat.php:2717 inc/czr-init-ccat.php:2738
+#: core/core-settings-map.php:966 core/core-settings-map.php:980
+#: inc/czr-init-ccat.php:2719 inc/czr-init-ccat.php:2740
 msgid "Menu on the left"
 msgstr "Меню ліворуч"
 
-#: core/core-settings-map.php:959 core/core-settings-map.php:973
-#: inc/czr-init-ccat.php:2719 inc/czr-init-ccat.php:2740
+#: core/core-settings-map.php:967 core/core-settings-map.php:981
+#: inc/czr-init-ccat.php:2721 inc/czr-init-ccat.php:2742
 msgid "Menu on the right"
 msgstr "Меню праворуч"
 
-#: core/core-settings-map.php:967 inc/czr-init-ccat.php:2733
+#: core/core-settings-map.php:975 inc/czr-init-ccat.php:2735
 msgid "Secondary (horizontal) menu design"
 msgstr "Стиль додаткового (горизонтального) меню"
 
-#: core/core-settings-map.php:968 inc/czr-init-ccat.php:2734
+#: core/core-settings-map.php:976 inc/czr-init-ccat.php:2736
 msgid "Menu position (for the horizontal menu)"
 msgstr "Позиція меню (для горизонтального меню)"
 
-#: core/core-settings-map.php:983
+#: core/core-settings-map.php:991
 msgid "Select a submenu expansion option"
 msgstr "Вибрати спосіб випадання підменю"
 
-#: core/core-settings-map.php:988
+#: core/core-settings-map.php:996
 msgid "Expand submenus on hover"
 msgstr "Випадання підменю при наведенні"
 
-#: core/core-settings-map.php:995
+#: core/core-settings-map.php:1003
 msgid "Reveal the sub-menus blocks with a fade effect"
 msgstr "Показувати блоки підменю з ефектом загасання"
 
-#: core/core-settings-map.php:1004
+#: core/core-settings-map.php:1012
 msgid "Hover move effect for the sub menu items"
 msgstr "Ефект переміщення при наведенні на елементи підменю"
 
-#: core/core-settings-map.php:1013
+#: core/core-settings-map.php:1021
 msgid "Remove all the menus."
 msgstr "Видалити всі меню."
 
-#: core/core-settings-map.php:1014
+#: core/core-settings-map.php:1022
 msgid "Don't display any menus in the header of your website"
 msgstr "Не відображати жодного меню в шапці сайту."
 
-#: core/core-settings-map.php:1018
+#: core/core-settings-map.php:1026
 msgid ""
 "Use with caution : provide an alternative way to navigate in your website "
 "for your users."
@@ -3136,64 +3140,64 @@ msgstr ""
 "Слід використовувати з обережністю: забезпечте альтернативний спосіб "
 "навігації для свого веб-сайту для користувачів."
 
-#: core/core-settings-map.php:1049
+#: core/core-settings-map.php:1057
 msgid "Set the number of posts to display"
 msgstr "Встановити число записів для показу"
 
-#: core/core-settings-map.php:1054
+#: core/core-settings-map.php:1062
 msgid "Jump to the blog design options"
 msgstr "Перейти до опцій дизайну блогу"
 
-#: core/core-settings-map.php:1067
+#: core/core-settings-map.php:1075
 msgid "Choose content and layout"
 msgstr "Вибрати контент і розташування"
 
-#: core/core-settings-map.php:1075
+#: core/core-settings-map.php:1083
 msgid "Front page displays"
 msgstr "Головна сторінка відображає"
 
-#: core/core-settings-map.php:1080
+#: core/core-settings-map.php:1088
 msgid "Don't show any posts or page"
 msgstr "Не відображати ніякі публікації або сторінки"
 
-#: core/core-settings-map.php:1081
+#: core/core-settings-map.php:1089
 msgid "Your latest posts"
 msgstr "Ваші останні публікації"
 
-#: core/core-settings-map.php:1082
+#: core/core-settings-map.php:1090
 msgid "A static page"
 msgstr "Статична сторінка"
 
-#: core/core-settings-map.php:1088
+#: core/core-settings-map.php:1096
 msgid "Front page"
 msgstr "Головна сторінка"
 
-#: core/core-settings-map.php:1096
+#: core/core-settings-map.php:1104
 msgid "Posts page"
 msgstr "Сторінка Записів"
 
-#: core/core-settings-map.php:1104
+#: core/core-settings-map.php:1112
 #, fuzzy
 msgid "Display navigation in your home page"
 msgstr "Відображати навігацію на домашній сторінці"
 
-#: core/core-settings-map.php:1117
+#: core/core-settings-map.php:1125
 msgid "Apply a category filter to your home / blog posts"
 msgstr "Застосувати категорію фільтра для вашого запису / домашньої сторінки"
 
-#: core/core-settings-map.php:1127
+#: core/core-settings-map.php:1135
 msgid "Set up the front page layout"
 msgstr "налаштування макету головної сторінки"
 
-#: core/core-settings-map.php:1143
+#: core/core-settings-map.php:1151
 msgid "Slider options"
 msgstr "Параметри слайд-шоу"
 
-#: core/core-settings-map.php:1144
+#: core/core-settings-map.php:1152
 msgid "Select front page slider"
 msgstr "Оберіть слайд-шоу для головної сторінки"
 
-#: core/core-settings-map.php:1161
+#: core/core-settings-map.php:1169
 msgid ""
 "Only the posts with a featured image or at least an image inside their "
 "content will qualify for the slider. The number of post slides displayed "
@@ -3203,15 +3207,15 @@ msgstr ""
 "підійдуть до слайд-шоу. Кількість відображених слайдів не буде перевищувати "
 "кількість записів на сайті."
 
-#: core/core-settings-map.php:1183
+#: core/core-settings-map.php:1191
 msgid "The title will be limited to 80 chars max"
 msgstr "Заголовок буде обмежено до 80 символів максимум"
 
-#: core/core-settings-map.php:1192
+#: core/core-settings-map.php:1200
 msgid "The excerpt will be limited to 80 chars max"
 msgstr "Витримка буде обмежена до 80 символів максимум"
 
-#: core/core-settings-map.php:1214
+#: core/core-settings-map.php:1222
 msgid ""
 "The button text will be limited to 80 chars max. Leave this field empty to "
 "hide the button"
@@ -3219,34 +3223,34 @@ msgstr ""
 "Текст кнопки лімітовано до 80 символів. Залишіть це поле порожнім, щоб "
 "сховати кнопку"
 
-#: core/core-settings-map.php:1221
+#: core/core-settings-map.php:1229
 msgid "Full width slider"
 msgstr "Слайд-шоу на всю ширину"
 
-#: core/core-settings-map.php:1225
+#: core/core-settings-map.php:1233
 msgid "When checked, the front page slider occupies the full viewport's width"
 msgstr ""
 "Якщо ввімкнуто, слайд-шоу на головній сторінці займає всю видиму ширину "
 "вікна перегляду"
 
-#: core/core-settings-map.php:1233
+#: core/core-settings-map.php:1241
 msgid "Delay between each slides"
 msgstr "Затримка між кожним слайдом"
 
-#: core/core-settings-map.php:1238
+#: core/core-settings-map.php:1246
 msgid "in ms : 1000ms = 1s"
 msgstr "в мс : 1000мс = 1с"
 
-#: core/core-settings-map.php:1244 core/czr-admin-ccat.php:1631
+#: core/core-settings-map.php:1252 core/czr-admin-ccat.php:1631
 msgid "Apply a dark overlay on your slider's images"
 msgstr ""
 
-#: core/core-settings-map.php:1256
+#: core/core-settings-map.php:1264
 #, fuzzy
 msgid "Display navigation dots"
 msgstr "Відображення навігації на сторінках"
 
-#: core/core-settings-map.php:1264
+#: core/core-settings-map.php:1272
 #, fuzzy
 msgid ""
 "When this option is checked, navigation dots are displayed at the bottom of "
@@ -3254,19 +3258,19 @@ msgid ""
 msgstr ""
 "Коли цей параметр вибрано, повідомлення навігації відображається нижче запису"
 
-#: core/core-settings-map.php:1270
+#: core/core-settings-map.php:1278
 msgid "Set slider's height in pixels"
 msgstr "Встановити висоту слайд-шоу в пікселях"
 
-#: core/core-settings-map.php:1280
+#: core/core-settings-map.php:1288
 msgid "Apply this height to all sliders"
 msgstr "Встановити цю висоту для всіх слайд-шоу"
 
-#: core/core-settings-map.php:1288
+#: core/core-settings-map.php:1296
 msgid "Replace the default image slider's height"
 msgstr "Замінити стандартну висоту зображення слайд-шоу"
 
-#: core/core-settings-map.php:1294
+#: core/core-settings-map.php:1302
 msgid ""
 "If this option is checked, your images will be resized with your custom "
 "height on upload. This is better for your overall loading performance."
@@ -3275,19 +3279,19 @@ msgstr ""
 "відповідно до обраної вами висоти. Це добре для загальних показників "
 "завантаження."
 
-#: core/core-settings-map.php:1295
+#: core/core-settings-map.php:1303
 msgid "You might want to regenerate your thumbnails."
 msgstr "Ви могли б регенерувати ваші мініатюри."
 
-#: core/core-settings-map.php:1303
+#: core/core-settings-map.php:1311
 msgid "Featured pages options"
 msgstr "Налаштування популярних сторінок"
 
-#: core/core-settings-map.php:1318
+#: core/core-settings-map.php:1326
 msgid "Show images"
 msgstr "Показати зображення"
 
-#: core/core-settings-map.php:1321
+#: core/core-settings-map.php:1329
 msgid ""
 "The images are set with the \"featured image\" of each pages (in the page "
 "edit screen). Uncheck the option above to disable the featured page images."
@@ -3296,21 +3300,21 @@ msgstr ""
 "редагування сторінки). Для того щоб прибрати зображення зніміть прапорець "
 "зверху."
 
-#: core/core-settings-map.php:1350
+#: core/core-settings-map.php:1358
 msgid "Choose the global default layout"
 msgstr "Вибрати загальний макет за замовчуванням"
 
-#: core/core-settings-map.php:1354
+#: core/core-settings-map.php:1362
 msgid "Note : the home page layout has to be set in the home page section"
 msgstr ""
 "Увага : схема домашньої сторінки повинна бути встановлена в секції домашньої "
 "сторінки"
 
-#: core/core-settings-map.php:1362
+#: core/core-settings-map.php:1370
 msgid "Force default layout everywhere"
 msgstr "Примусовий макет за замовчуванням скрізь"
 
-#: core/core-settings-map.php:1365
+#: core/core-settings-map.php:1373
 msgid ""
 "This option will override the specific layouts on all posts/pages, including "
 "the front page."
@@ -3318,15 +3322,15 @@ msgstr ""
 "Ця опція перекриє окремі налаштування для всіх записів та сторінок включаючи "
 "головну."
 
-#: core/core-settings-map.php:1373
+#: core/core-settings-map.php:1381
 msgid "Choose the posts default layout"
 msgstr "Вибрати макет записів за замовчуванням"
 
-#: core/core-settings-map.php:1383
+#: core/core-settings-map.php:1391
 msgid "Choose the pages default layout"
 msgstr "Вибрати макет сторінки за замовчуванням"
 
-#: core/core-settings-map.php:1389
+#: core/core-settings-map.php:1397
 msgid ""
 "The above layout options will set your layout globally for your post and "
 "pages. But you can also define the layout for each post and page "
@@ -3336,11 +3340,11 @@ msgstr ""
 "записів. Але ви маєте змогу визначити параметри макету для кожного запису "
 "або сторінки індивідуально. Дізнайтеся про це в %s."
 
-#: core/core-settings-map.php:1390
+#: core/core-settings-map.php:1398
 msgid "Customizr theme documentation"
 msgstr "Документація по темі Customizr"
 
-#: core/core-settings-map.php:1393
+#: core/core-settings-map.php:1401
 msgid ""
 "If you need to change the layout design of the front page, then open the "
 "'Front Page' section above this one."
@@ -3348,44 +3352,44 @@ msgstr ""
 "Якщо вам необхідно змінити параметри макету головної сторінки, відкрийте "
 "розділ \"Головна Сторінка\" віще."
 
-#: core/core-settings-map.php:1400
+#: core/core-settings-map.php:1408
 msgid "Pages & Posts default sections locations"
 msgstr ""
 
-#: core/core-settings-map.php:1401
+#: core/core-settings-map.php:1409
 msgid "Author Infos location"
 msgstr ""
 
-#: core/core-settings-map.php:1405 core/core-settings-map.php:1422
-#: core/core-settings-map.php:1439
+#: core/core-settings-map.php:1413 core/core-settings-map.php:1430
+#: core/core-settings-map.php:1447
 #, fuzzy
 msgid "Right after the post content"
 msgstr "Показувати поле автор після заголовка кожного окремого запису"
 
-#: core/core-settings-map.php:1406 core/core-settings-map.php:1423
-#: core/core-settings-map.php:1440
+#: core/core-settings-map.php:1414 core/core-settings-map.php:1431
+#: core/core-settings-map.php:1448
 msgid "After the content and sidebars columns"
 msgstr ""
 
-#: core/core-settings-map.php:1418
+#: core/core-settings-map.php:1426
 #, fuzzy
 msgid "Related Posts location"
 msgstr "Читати документацію"
 
-#: core/core-settings-map.php:1435
+#: core/core-settings-map.php:1443
 #, fuzzy
 msgid "Comments location"
 msgstr "Навігація по коментарях"
 
-#: core/core-settings-map.php:1471
+#: core/core-settings-map.php:1479
 msgid "Global Post Lists Settings"
 msgstr "Загальні налаштування списків записів"
 
-#: core/core-settings-map.php:1472
+#: core/core-settings-map.php:1480
 msgid "Maximum number of posts per page"
 msgstr "Максимальна кількість записів на сторінці"
 
-#: core/core-settings-map.php:1478
+#: core/core-settings-map.php:1486
 msgid ""
 "This option defines the maximum number of posts or search results displayed "
 "in any list of posts of your website : blog page, archive page, search page. "
@@ -3393,19 +3397,19 @@ msgid ""
 "will automatically add a pagination link block at the bottom of the page."
 msgstr ""
 
-#: core/core-settings-map.php:1488
+#: core/core-settings-map.php:1496
 msgid "Set the excerpt length (in number of words) "
 msgstr "Встановити довжину витримки (кількість слів)"
 
-#: core/core-settings-map.php:1502
+#: core/core-settings-map.php:1510
 msgid "Thumbnails options"
 msgstr "Налаштування мініатюр"
 
-#: core/core-settings-map.php:1503
+#: core/core-settings-map.php:1511
 msgid "Display the post thumbnails"
 msgstr "Відображати мініатюри записів"
 
-#: core/core-settings-map.php:1507
+#: core/core-settings-map.php:1515
 msgid ""
 "When this option is checked, the post thumbnails are displayed in all post "
 "lists : blog, archives, author page, search pages, ..."
@@ -3413,12 +3417,12 @@ msgstr ""
 "Якщо ця опція відзначена, то мініатюри записів показуються у всіх списках "
 "записів: блог, архіви, сторінка автора, сторінка пошуку, ..."
 
-#: core/core-settings-map.php:1507
+#: core/core-settings-map.php:1515
 msgid "Note : thumbnails are always displayed when the grid layout is choosen."
 msgstr ""
 "Примітка : завжди відображаються мініатюри коли вибирається макет сітки"
 
-#: core/core-settings-map.php:1512
+#: core/core-settings-map.php:1520
 #, fuzzy
 msgid ""
 "If no featured image is set for a post, use the last image attached to this "
@@ -3427,132 +3431,132 @@ msgstr ""
 "Якщо мініатюра не обрана, буде використано останнє зображення в даному "
 "запису."
 
-#: core/core-settings-map.php:1522
+#: core/core-settings-map.php:1530
 msgid "Thumbnails options for the alternate thumbnails layout"
 msgstr "Ескізи для макета альтернативних мініатюр"
 
-#: core/core-settings-map.php:1529
+#: core/core-settings-map.php:1537
 msgid "Regular"
 msgstr ""
 
-#: core/core-settings-map.php:1536
+#: core/core-settings-map.php:1544
 msgid "Thumbnails position"
 msgstr "Розташування мініатюри"
 
-#: core/core-settings-map.php:1542 core/core-settings-map.php:2251
+#: core/core-settings-map.php:1550 core/core-settings-map.php:2259
 msgid "Right"
 msgstr "Праворуч"
 
-#: core/core-settings-map.php:1543 core/core-settings-map.php:2250
+#: core/core-settings-map.php:1551 core/core-settings-map.php:2258
 msgid "Left"
 msgstr "Ліворуч"
 
-#: core/core-settings-map.php:1550
+#: core/core-settings-map.php:1558
 msgid "Alternate thumbnail/content"
 msgstr "Альтернативна мініатюра/контент"
 
-#: core/core-settings-map.php:1559
+#: core/core-settings-map.php:1567
 msgid "Archive titles"
 msgstr "Заголовки архіву"
 
-#: core/core-settings-map.php:1560
+#: core/core-settings-map.php:1568
 msgid "Category pages titles"
 msgstr "Заголовки сторінок категорій"
 
-#: core/core-settings-map.php:1569
+#: core/core-settings-map.php:1577
 msgid "Tag pages titles"
 msgstr "Заголовки сторінок тегів"
 
-#: core/core-settings-map.php:1578
+#: core/core-settings-map.php:1586
 msgid "Author pages titles"
 msgstr "Заголовки сторінок автора"
 
-#: core/core-settings-map.php:1586 inc/czr-front-ccat.php:4085
+#: core/core-settings-map.php:1594 inc/czr-front-ccat.php:4085
 msgid "Search Results for :"
 msgstr "Результати пошуку для :"
 
-#: core/core-settings-map.php:1587
+#: core/core-settings-map.php:1595
 msgid "Search results page titles"
 msgstr "Заголовок сторінки результатів пошуку"
 
-#: core/core-settings-map.php:1598
+#: core/core-settings-map.php:1606
 msgid "Post List Design"
 msgstr "Стиль списку записів"
 
-#: core/core-settings-map.php:1599
+#: core/core-settings-map.php:1607
 msgid "Select a Layout"
 msgstr "Оберіть макет"
 
-#: core/core-settings-map.php:1603
+#: core/core-settings-map.php:1611
 msgid "Alternate thumbnails layout"
 msgstr "Альтернативний макет мініатюр"
 
-#: core/core-settings-map.php:1604
+#: core/core-settings-map.php:1612
 msgid "Grid layout"
 msgstr "Макет сітки"
 
-#: core/core-settings-map.php:1606
+#: core/core-settings-map.php:1614
 msgid "Plain full layout"
 msgstr ""
 
-#: core/core-settings-map.php:1610
+#: core/core-settings-map.php:1618
 msgid ""
 "When you select the grid Layout, the post content is limited to the excerpt."
 msgstr "При виборі макету сітки, зміст запису обмежується уривком."
 
-#: core/core-settings-map.php:1615
+#: core/core-settings-map.php:1623
 msgid "Number of columns per row"
 msgstr "Кількість стовпців у рядку"
 
-#: core/core-settings-map.php:1630
+#: core/core-settings-map.php:1638
 msgid "Expand the last sticky post (for home and blog page only)"
 msgstr ""
 "Розгорніть останній прикріплений запис (тільки для головної сторінки блогу)"
 
-#: core/core-settings-map.php:1639
+#: core/core-settings-map.php:1647
 msgid "Apply a shadow to each grid items"
 msgstr "Застосувати тінь для кожного елемента сітки"
 
-#: core/core-settings-map.php:1648
+#: core/core-settings-map.php:1656
 msgid "Apply a colored bottom border to each grid items"
 msgstr "Нанести кольорову нижню межу для кожної сітки елементів"
 
-#: core/core-settings-map.php:1659
+#: core/core-settings-map.php:1667
 msgid "Max. length for post titles (in words)"
 msgstr "Максимальна довжина для заголовка (в словах)"
 
-#: core/core-settings-map.php:1672
+#: core/core-settings-map.php:1680
 msgid "Display thumbnail placeholder if no images available"
 msgstr ""
 
-#: core/core-settings-map.php:1691 core/core-settings-map.php:1770
+#: core/core-settings-map.php:1699 core/core-settings-map.php:1778
 msgid "Post thumbnail position"
 msgstr "Розташування мініатюри запису"
 
-#: core/core-settings-map.php:1692 core/core-settings-map.php:1771
-#: core/core-settings-map.php:2458
+#: core/core-settings-map.php:1700 core/core-settings-map.php:1779
+#: core/core-settings-map.php:2466
 #, fuzzy
 msgid "Featured Image"
 msgstr "Рекомендована сторінка"
 
-#: core/core-settings-map.php:1696 core/core-settings-map.php:1775
-#: core/core-settings-map.php:2205
+#: core/core-settings-map.php:1704 core/core-settings-map.php:1783
+#: core/core-settings-map.php:2213
 msgid "Don't display"
 msgstr "Не відображати"
 
-#: core/core-settings-map.php:1697 core/core-settings-map.php:1776
+#: core/core-settings-map.php:1705 core/core-settings-map.php:1784
 msgid "Before the title in full width"
 msgstr "Перед заголовком, на всю ширину"
 
-#: core/core-settings-map.php:1698 core/core-settings-map.php:1777
+#: core/core-settings-map.php:1706 core/core-settings-map.php:1785
 msgid "Before the title boxed"
 msgstr "Перед згортання заголовка"
 
-#: core/core-settings-map.php:1699 core/core-settings-map.php:1778
+#: core/core-settings-map.php:1707 core/core-settings-map.php:1786
 msgid "After the title"
 msgstr "Після заголовка"
 
-#: core/core-settings-map.php:1703
+#: core/core-settings-map.php:1711
 msgid ""
 "You can display the featured image (also called the post thumbnail) of your "
 "posts before their content, when they are displayed individually."
@@ -3560,43 +3564,43 @@ msgstr ""
 "Ви можете відобразити основне зображення запису (її також називають "
 "мініатюрою запису) до контенту, коли вони відображаються окремо."
 
-#: core/core-settings-map.php:1712 core/core-settings-map.php:1791
+#: core/core-settings-map.php:1720 core/core-settings-map.php:1799
 msgid "Display featured images in their original dimensions"
 msgstr ""
 
-#: core/core-settings-map.php:1722 core/core-settings-map.php:1801
-#: inc/czr-init-ccat.php:3015
+#: core/core-settings-map.php:1730 core/core-settings-map.php:1809
+#: inc/czr-init-ccat.php:3017
 msgid "Set the thumbnail's max height in pixels"
 msgstr "Встановити максимальну висоту мініатюри в пікселях"
 
-#: core/core-settings-map.php:1734 core/core-settings-map.php:1813
+#: core/core-settings-map.php:1742 core/core-settings-map.php:1821
 #, fuzzy
 msgid "Set the thumbnail's max height in pixels for smartphones"
 msgstr "Встановити максимальну висоту мініатюри в пікселях"
 
-#: core/core-settings-map.php:1744
+#: core/core-settings-map.php:1752
 #, fuzzy
 msgid "Related posts"
 msgstr "Ваші останні публікації"
 
-#: core/core-settings-map.php:1745
+#: core/core-settings-map.php:1753
 #, fuzzy
 msgid "Single - Related Posts"
 msgstr "Окремі записи"
 
-#: core/core-settings-map.php:1751
+#: core/core-settings-map.php:1759
 msgid "Related by categories"
 msgstr ""
 
-#: core/core-settings-map.php:1752
+#: core/core-settings-map.php:1760
 msgid "Related by tags"
 msgstr ""
 
-#: core/core-settings-map.php:1754
+#: core/core-settings-map.php:1762
 msgid "Display randomized related articles below the post"
 msgstr ""
 
-#: core/core-settings-map.php:1782
+#: core/core-settings-map.php:1790
 #, fuzzy
 msgid ""
 "You can display the featured image (also called the post thumbnail) of your "
@@ -3605,23 +3609,23 @@ msgstr ""
 "Ви можете відобразити основне зображення запису (її також називають "
 "мініатюрою запису) до контенту, коли вони відображаються окремо."
 
-#: core/core-settings-map.php:1834
+#: core/core-settings-map.php:1842
 msgid "Display Breadcrumb"
 msgstr "Показати навігаційний рядок"
 
-#: core/core-settings-map.php:1843
+#: core/core-settings-map.php:1851
 msgid "Display the breadcrumb on home page"
 msgstr "Показувати навігаційний рядок на головній сторінці"
 
-#: core/core-settings-map.php:1851
+#: core/core-settings-map.php:1859
 msgid "Display the breadcrumb in pages"
 msgstr "Показувати навігаційний рядок на сторінках"
 
-#: core/core-settings-map.php:1860
+#: core/core-settings-map.php:1868
 msgid "Display the breadcrumb in single posts"
 msgstr "Показувати навігаційний рядок в окремих записах"
 
-#: core/core-settings-map.php:1869
+#: core/core-settings-map.php:1877
 msgid ""
 "Display the breadcrumb in posts lists : blog page, archives, search "
 "results..."
@@ -3629,27 +3633,27 @@ msgstr ""
 "Показувати навігаційний рядок в списках записів: сторінка блогу, архіви, "
 "результати пошуку..."
 
-#: core/core-settings-map.php:1877
+#: core/core-settings-map.php:1885
 msgid "Use Yoast SEO breadcrumbs"
 msgstr "Використовувати навігаційну стежку Yoast SEO"
 
-#: core/core-settings-map.php:1880
+#: core/core-settings-map.php:1888
 msgid "Jump to the Yoast SEO breadcrumbs %s"
 msgstr "Перейти да навігаційної стежки  Yoast SEO %s"
 
-#: core/core-settings-map.php:1883
+#: core/core-settings-map.php:1891
 msgid "customization panel"
 msgstr "Панель налаштувань"
 
-#: core/core-settings-map.php:1884
+#: core/core-settings-map.php:1892
 msgid "Yoast SEO breadcrumbs settings"
 msgstr "Налаштування навігаційної стежки Yoast SEO"
 
-#: core/core-settings-map.php:1903
+#: core/core-settings-map.php:1911
 msgid "Display posts metas"
 msgstr "Показувати метаописи записів"
 
-#: core/core-settings-map.php:1906
+#: core/core-settings-map.php:1914
 msgid ""
 "When this option is checked, the post metas (like taxonomies, date and "
 "author) are displayed below the post titles."
@@ -3657,90 +3661,90 @@ msgstr ""
 "Якщо ця опція відзначена, то метаописи записів (такі як таксономії, дата та "
 "автор) показуються під заголовками записів."
 
-#: core/core-settings-map.php:1913 core/core-settings-map.php:2107
+#: core/core-settings-map.php:1921 core/core-settings-map.php:2115
 msgid "Select the contexts"
 msgstr "Вибрати контексти"
 
-#: core/core-settings-map.php:1914
+#: core/core-settings-map.php:1922
 msgid "Display posts metas on home"
 msgstr "Показувати метаописи записів на домашній"
 
-#: core/core-settings-map.php:1923
+#: core/core-settings-map.php:1931
 msgid "Display posts metas for single posts"
 msgstr "Показувати метаописи записів для окремих записів"
 
-#: core/core-settings-map.php:1932
+#: core/core-settings-map.php:1940
 msgid "Display posts metas in post lists (archives, blog page)"
 msgstr ""
 "Показувати метаописи записів у списках записів (архіви, сторінка блогу)"
 
-#: core/core-settings-map.php:1942
+#: core/core-settings-map.php:1950
 msgid "Select the metas to display"
 msgstr "Оберіть метаописи для показу"
 
-#: core/core-settings-map.php:1943
+#: core/core-settings-map.php:1951
 msgid "Display hierarchical taxonomies (like categories)"
 msgstr "Показ ієрархічних класифікацій (наприклад, категорій)"
 
-#: core/core-settings-map.php:1952
+#: core/core-settings-map.php:1960
 msgid "Display non-hierarchical taxonomies (like tags)"
 msgstr "Показ не-ієрархічних класифікацій (наприклад тегів)"
 
-#: core/core-settings-map.php:1961
+#: core/core-settings-map.php:1969
 msgid "Display the author"
 msgstr "Відображати автора"
 
-#: core/core-settings-map.php:1969
+#: core/core-settings-map.php:1977
 msgid "Display the publication date"
 msgstr "Відображати дату публікації"
 
-#: core/core-settings-map.php:1979
+#: core/core-settings-map.php:1987
 msgid "Display the update date"
 msgstr "Відображати дату оновлення"
 
-#: core/core-settings-map.php:1998
+#: core/core-settings-map.php:2006
 msgid "Enable Customizr galleries"
 msgstr "Ввімкнути галереї Customizr"
 
-#: core/core-settings-map.php:2000
+#: core/core-settings-map.php:2008
 msgid "Apply Customizr effects to galleries images"
 msgstr "Застосувати ефекти Customizr до зображень галерей"
 
-#: core/core-settings-map.php:2007
+#: core/core-settings-map.php:2015
 msgid "Enable Lightbox effect in galleries"
 msgstr "Ввімкнути ефект лайтбоксу в галереях"
 
-#: core/core-settings-map.php:2009
+#: core/core-settings-map.php:2017
 msgid "Apply lightbox effects to galleries images"
 msgstr "Застосувати ефекти лайтбоксу до зображень галерей"
 
-#: core/core-settings-map.php:2016
+#: core/core-settings-map.php:2024
 msgid "Enable Customizr effects on hover"
 msgstr "Увімкнути Customizr ефекти при наведенні"
 
-#: core/core-settings-map.php:2018
+#: core/core-settings-map.php:2026
 msgid "Apply nice on hover expansion effect to the galleries images"
 msgstr ""
 "Застосувати гарний ефект розширення при наведенні на зображення галерей"
 
-#: core/core-settings-map.php:2038
+#: core/core-settings-map.php:2046
 #, fuzzy
 msgid "Display the number of comments below the post titles"
 msgstr "Показувати кількість коментарів в бульбашці поруч із заголовком запису"
 
-#: core/core-settings-map.php:2038
+#: core/core-settings-map.php:2046
 msgid "Display the number of comments in a bubble next to the post title"
 msgstr "Показувати кількість коментарів в бульбашці поруч із заголовком запису"
 
-#: core/core-settings-map.php:2046
+#: core/core-settings-map.php:2054
 msgid "Other comments settings"
 msgstr "Інші налаштування коментарів"
 
-#: core/core-settings-map.php:2047
+#: core/core-settings-map.php:2055
 msgid "Enable comments on pages"
 msgstr "Ввімкнути коментарі на сторінках"
 
-#: core/core-settings-map.php:2052
+#: core/core-settings-map.php:2060
 msgid ""
 "If checked, this option will enable comments on pages. You can disable "
 "comments for a single page in the quick edit mode of the page list screen."
@@ -3749,19 +3753,19 @@ msgstr ""
 "можете заборонити коментарі для сторінок в режимі швидкого редагування у "
 "списку сторінок на вкладку Сторінки."
 
-#: core/core-settings-map.php:2053
+#: core/core-settings-map.php:2061
 msgid "You can also change other comments settings in :"
 msgstr "Ви можете також змінити інші параметри коментарів :"
 
-#: core/core-settings-map.php:2055
+#: core/core-settings-map.php:2063
 msgid "the discussion settings page."
 msgstr "сторінці налаштувань обговорення."
 
-#: core/core-settings-map.php:2061
+#: core/core-settings-map.php:2069
 msgid "Enable comments on posts"
 msgstr "Дозволити коментарі до записів"
 
-#: core/core-settings-map.php:2066
+#: core/core-settings-map.php:2074
 msgid ""
 "If checked, this option enables comments on all types of single posts. You "
 "can disable comments for a single post in quick edit mode from the"
@@ -3770,23 +3774,23 @@ msgstr ""
 "поодиноких записів. Ви можете вимкнути коментарі для окремих записів в "
 "режимі швидкого редагування"
 
-#: core/core-settings-map.php:2068
+#: core/core-settings-map.php:2076
 msgid "post screen"
 msgstr "екран запису"
 
-#: core/core-settings-map.php:2069
+#: core/core-settings-map.php:2077
 msgid "You can also change other comments settings in the"
 msgstr "Ви можете також змінити інші налаштування коментарів на"
 
-#: core/core-settings-map.php:2071
+#: core/core-settings-map.php:2079
 msgid "discussion settings page."
 msgstr "сторінці налаштувань дискусій."
 
-#: core/core-settings-map.php:2077
+#: core/core-settings-map.php:2085
 msgid "Display the comment list"
 msgstr "Показати список коментарів"
 
-#: core/core-settings-map.php:2081
+#: core/core-settings-map.php:2089
 msgid ""
 "By default, WordPress displays the past comments, even if comments are "
 "disabled in posts or pages. Unchecking this option allows you to not display "
@@ -3796,26 +3800,26 @@ msgstr ""
 "коментарі вимкнуті у записах або сторінках. Встановивши цей параметр "
 "дозволить Вам не показувати цю історію коментаря."
 
-#: core/core-settings-map.php:2096
+#: core/core-settings-map.php:2104
 msgid "Display posts navigation"
 msgstr "Відображення повідомлення навігації"
 
-#: core/core-settings-map.php:2099
+#: core/core-settings-map.php:2107
 msgid ""
 "When this option is checked, the posts navigation is displayed below the "
 "posts"
 msgstr ""
 "Коли цей параметр вибрано, повідомлення навігації відображається нижче запису"
 
-#: core/core-settings-map.php:2108
+#: core/core-settings-map.php:2116
 msgid "Display navigation in pages"
 msgstr "Відображення навігації на сторінках"
 
-#: core/core-settings-map.php:2117
+#: core/core-settings-map.php:2125
 msgid "Display posts navigation in single posts"
 msgstr "Відображення повідомлення навігації в окремих записах"
 
-#: core/core-settings-map.php:2126
+#: core/core-settings-map.php:2134
 msgid ""
 "Display posts navigation in post lists (archives, blog page, categories, "
 "search results ..)"
@@ -3823,63 +3827,63 @@ msgstr ""
 "Відображення повідомлень навігації в списках записів (архіви, сторінка "
 "блогу, категорії, результати пошуку...)"
 
-#: core/core-settings-map.php:2149
+#: core/core-settings-map.php:2157
 msgid "Social links in left sidebar"
 msgstr "Соцмережі в сайдбарі ліворуч"
 
-#: core/core-settings-map.php:2162
+#: core/core-settings-map.php:2170
 msgid "Social links in right sidebar"
 msgstr "Соцмережі в сайдбарі праворуч"
 
-#: core/core-settings-map.php:2191
+#: core/core-settings-map.php:2199
 #, fuzzy
 msgid "Footer style"
 msgstr "Підвал"
 
-#: core/core-settings-map.php:2203
+#: core/core-settings-map.php:2211
 msgid "Horizontal widget area in your footer"
 msgstr ""
 
-#: core/core-settings-map.php:2206
+#: core/core-settings-map.php:2214
 #, fuzzy
 msgid "Display full-width"
 msgstr "Показати контент цілком"
 
-#: core/core-settings-map.php:2207
+#: core/core-settings-map.php:2215
 #, fuzzy
 msgid "Display boxed"
 msgstr "Показувати верхню межу"
 
-#: core/core-settings-map.php:2215
+#: core/core-settings-map.php:2223
 msgid "Social links in footer"
 msgstr "Соцмережі в підвалі"
 
-#: core/core-settings-map.php:2228
+#: core/core-settings-map.php:2236
 msgid "Stick the footer to the bottom of the page"
 msgstr "Прикріпити підвал до нижньої частини сторінки"
 
-#: core/core-settings-map.php:2233
+#: core/core-settings-map.php:2241
 msgid ""
 "Enabling this option will glue your footer to the bottom of the screen, when "
 "pages are shorter than the viewport's height."
 msgstr ""
 
-#: core/core-settings-map.php:2238
+#: core/core-settings-map.php:2246
 msgid "Display a back to top arrow on scroll"
 msgstr "Показувати стрілку Вгору, при прокручуванні"
 
-#: core/core-settings-map.php:2246
+#: core/core-settings-map.php:2254
 msgid "Back to top arrow position"
 msgstr "Позиція стрілки \"повернутись вверх\""
 
-#: core/core-settings-map.php:2278
+#: core/core-settings-map.php:2286
 #, fuzzy
 msgid "Add your custom css here and design live!(for advanced users)"
 msgstr ""
 "Додайте сюди свої користувацькі css і редагуйте їх наживо! (для просунутих "
 "користувачів)"
 
-#: core/core-settings-map.php:2282
+#: core/core-settings-map.php:2290
 msgid ""
 "Use this field to test small chunks of CSS code. For important CSS "
 "customizations, you'll want to modify the style.css file of a"
@@ -3887,19 +3891,19 @@ msgstr ""
 "Використовуйте це поле, щоб перевірити невеликі шматки коду CSS. Для великих "
 "змін CSS редагуйте файл style.css"
 
-#: core/core-settings-map.php:2283
+#: core/core-settings-map.php:2291
 msgid "child theme."
 msgstr "дочірньої теми."
 
-#: core/core-settings-map.php:2284
+#: core/core-settings-map.php:2292
 msgid "How to create and use a child theme ?"
 msgstr "Як створити і використовувати дочірню тему?"
 
-#: core/core-settings-map.php:2301
+#: core/core-settings-map.php:2309
 msgid "Performance : use the minified CSS stylesheets"
 msgstr "Продуктивність : використовувати зменшену таблицю стилів CSS"
 
-#: core/core-settings-map.php:2304
+#: core/core-settings-map.php:2312
 msgid ""
 "Using the minified version of the stylesheets will speed up your webpage "
 "load time."
@@ -3907,11 +3911,11 @@ msgstr ""
 "Використання зменшеної версії таблиць стилів дозволить прискорити час "
 "завантаження сторінки."
 
-#: core/core-settings-map.php:2308
+#: core/core-settings-map.php:2316
 msgid "Load images on scroll"
 msgstr "Завантаження зображень під час прокрутки"
 
-#: core/core-settings-map.php:2313
+#: core/core-settings-map.php:2321
 msgid ""
 "Check this option to delay the loading of non visible images. Images below "
 "the viewport will be loaded dynamically on scroll. This can boost "
@@ -3922,12 +3926,12 @@ msgstr ""
 "прокручуванні. Це може підвищити швидкість шляхом зменшення розміру довгих "
 "веб-сторінок із зображеннями."
 
-#: core/core-settings-map.php:2317
+#: core/core-settings-map.php:2325
 #, fuzzy
 msgid "Lazy load the images in sliders"
 msgstr "Завантаження зображень під час прокрутки"
 
-#: core/core-settings-map.php:2322
+#: core/core-settings-map.php:2330
 #, fuzzy
 msgid ""
 "Check this option to delay the loading of non visible images in sliders. "
@@ -3938,24 +3942,24 @@ msgstr ""
 "прокручуванні. Це може підвищити швидкість шляхом зменшення розміру довгих "
 "веб-сторінок із зображеннями."
 
-#: core/core-settings-map.php:2331
+#: core/core-settings-map.php:2339
 msgid "Defer loading javascript files to avoid render blocking issues"
 msgstr ""
 
-#: core/core-settings-map.php:2339
+#: core/core-settings-map.php:2347
 #, fuzzy
 msgid "Defer loading Font Awesome icons"
 msgstr "Завантажити ресурси Font Awesome"
 
-#: core/core-settings-map.php:2347
+#: core/core-settings-map.php:2355
 msgid "Preload Google Fonts"
 msgstr ""
 
-#: core/core-settings-map.php:2363
+#: core/core-settings-map.php:2371
 msgid "Display help notices on front-end for logged in users."
 msgstr "Відображати підказки у фронтенді для користувачів, що ввійшли."
 
-#: core/core-settings-map.php:2366
+#: core/core-settings-map.php:2374
 #, fuzzy
 msgid ""
 "When this option is enabled, various help notices and some placeholder "
@@ -3966,15 +3970,15 @@ msgstr ""
 "відображатимуться у фронтенді вашого сайту. Вони видимі лише для "
 "зареєстрованих користувачів з правами адміністратора."
 
-#: core/core-settings-map.php:2379
+#: core/core-settings-map.php:2387
 msgid "Load Font Awesome resources"
 msgstr "Завантажити ресурси Font Awesome"
 
-#: core/core-settings-map.php:2383
+#: core/core-settings-map.php:2391
 msgid "Use with caution"
 msgstr "Використовуйте з обережністю"
 
-#: core/core-settings-map.php:2384
+#: core/core-settings-map.php:2392
 msgid ""
 "When checked, the Font Awesome icons and CSS will be loaded on front end. "
 "You might want to load the Font Awesome icons with a custom code, or let a "
@@ -3984,26 +3988,26 @@ msgstr ""
 "можете завантажити іконки Font Awesome за допомогою спеціального коду, або "
 "нехай додаток це зробить за Вас."
 
-#: core/core-settings-map.php:2386
+#: core/core-settings-map.php:2394
 msgid "Check out some example of uses"
 msgstr "Перегляньте декілька прикладів використання"
 
-#: core/core-settings-map.php:2407
+#: core/core-settings-map.php:2415
 msgid "Automatically adapt the font size to the width of the devices"
 msgstr ""
 
-#: core/core-settings-map.php:2410
+#: core/core-settings-map.php:2418
 msgid ""
 "When this option is enabled, your font size will automatically resize to be "
 "better displayed in mobile devices."
 msgstr ""
 
-#: core/core-settings-map.php:2410
+#: core/core-settings-map.php:2418
 msgid ""
 "This option can sometimes reduce too much the headings font-size on mobiles."
 msgstr ""
 
-#: core/core-settings-map.php:2422
+#: core/core-settings-map.php:2430
 msgid ""
 "The Modern style provides a \"material design\" look and feel. It relies on "
 "the flexbox css mode, offering a better support for the most recent mobile "
@@ -4012,92 +4016,92 @@ msgid ""
 "older devices and browsers."
 msgstr ""
 
-#: core/core-settings-map.php:2427
+#: core/core-settings-map.php:2435
 msgid "Set the Modern or Classical design style"
 msgstr ""
 
-#: core/core-settings-map.php:2427
+#: core/core-settings-map.php:2435
 #, fuzzy
 msgid "Select a design style for the theme"
 msgstr "Виберіть дизайн для метаопису записів"
 
-#: core/core-settings-map.php:2431
+#: core/core-settings-map.php:2439
 msgid "Modern"
 msgstr ""
 
-#: core/core-settings-map.php:2432
+#: core/core-settings-map.php:2440
 msgid "Classical"
 msgstr ""
 
-#: core/core-settings-map.php:2436
+#: core/core-settings-map.php:2444
 msgid ""
 "You are using a child theme. This option must be changed from the parent "
 "theme. Activate the parent from %s."
 msgstr ""
 
-#: core/core-settings-map.php:2437
+#: core/core-settings-map.php:2445
 msgid "Appearance > themes"
 msgstr ""
 
-#: core/core-settings-map.php:2439
+#: core/core-settings-map.php:2447
 msgid ""
 "The two styles can use different template files, that's why it is "
 "recommended to change the style option from the parent and test your child "
 "theme in a staging site before production."
 msgstr ""
 
-#: core/core-settings-map.php:2457
+#: core/core-settings-map.php:2465
 #, fuzzy
 msgid "Display the product featured image"
 msgstr "Відображати дату оновлення"
 
-#: core/core-settings-map.php:2481
+#: core/core-settings-map.php:2489
 msgid "Global settings"
 msgstr "Глобальні налаштування"
 
-#: core/core-settings-map.php:2482
+#: core/core-settings-map.php:2490
 msgid "Title, Logo, Fonts, Primary color, Social, ..."
 msgstr ""
 
-#: core/core-settings-map.php:2488
+#: core/core-settings-map.php:2496
 msgid "Header"
 msgstr "Шапка"
 
-#: core/core-settings-map.php:2489
+#: core/core-settings-map.php:2497
 msgid "Style, Desktops and mobiles layout, Menus, Search, ..."
 msgstr ""
 
-#: core/core-settings-map.php:2495
+#: core/core-settings-map.php:2503
 #, fuzzy
 msgid "Main Content"
 msgstr "Головне меню"
 
-#: core/core-settings-map.php:2496
+#: core/core-settings-map.php:2504
 msgid ""
 "Column layout, Post lists design, Thumbnails, Post Metas, Navigation, ..."
 msgstr ""
 
-#: core/core-settings-map.php:2502
+#: core/core-settings-map.php:2510
 msgid "Sidebars"
 msgstr "Сайдбари"
 
-#: core/core-settings-map.php:2508
+#: core/core-settings-map.php:2516
 msgid "Footer"
 msgstr "Підвал"
 
-#: core/core-settings-map.php:2509
+#: core/core-settings-map.php:2517
 msgid "Style, Back to top button, Sticky mode, ... "
 msgstr ""
 
-#: core/core-settings-map.php:2515
+#: core/core-settings-map.php:2523
 msgid "Advanced options"
 msgstr "Додаткові налаштування"
 
-#: core/core-settings-map.php:2516
+#: core/core-settings-map.php:2524
 msgid "Performances, Custom CSS ..."
 msgstr ""
 
-#: core/core-settings-map.php:2587
+#: core/core-settings-map.php:2595
 msgid "Your theme supports %s menu. Select which menu you would like to use."
 msgid_plural ""
 "Your theme supports %s menus. Select which menu appears in each location."
@@ -4108,15 +4112,15 @@ msgstr[1] ""
 msgstr[2] ""
 "Ваша тема підтримує  %s меню. Оберіть меню, для розміщення на сайті."
 
-#: core/core-settings-map.php:2590 core/core-settings-map.php:2598
+#: core/core-settings-map.php:2598 core/core-settings-map.php:2606
 msgid "You can create new menu and edit your menu's content %s."
 msgstr "Ви можете створити нове меню та відредагувати його наповнення %s."
 
-#: core/core-settings-map.php:2593
+#: core/core-settings-map.php:2601
 msgid "on the Menus screen in the Appearance section"
 msgstr "на екрані Меню в розділі Зовнішній вигляд"
 
-#: core/core-settings-map.php:2608
+#: core/core-settings-map.php:2616
 msgid ""
 "If a menu location has no menu assigned to it, a default page menu will be "
 "used."
@@ -4124,158 +4128,158 @@ msgstr ""
 "Якщо місце розташування меню не має меню, призначеного на нього, буде "
 "використовуватися меню сторінки за замовчуванням."
 
-#: core/core-settings-map.php:2618
+#: core/core-settings-map.php:2626
 msgid "Site Identity : Logo, Title, Tagline and Site Icon"
 msgstr ""
 
-#: core/core-settings-map.php:2628
+#: core/core-settings-map.php:2636
 #, fuzzy
 msgid "Site Layout"
 msgstr "Оберіть макет"
 
-#: core/core-settings-map.php:2633
+#: core/core-settings-map.php:2641
 msgid "Primary color of the theme"
 msgstr ""
 
-#: core/core-settings-map.php:2635
+#: core/core-settings-map.php:2643
 msgid "Pick a primary color for the theme"
 msgstr ""
 
-#: core/core-settings-map.php:2639
+#: core/core-settings-map.php:2647
 msgid "Font picker and font size"
 msgstr ""
 
-#: core/core-settings-map.php:2652
+#: core/core-settings-map.php:2660
 msgid "Formatting : links, paragraphs ..."
 msgstr ""
 
-#: core/core-settings-map.php:2658
+#: core/core-settings-map.php:2666
 msgid "Image settings"
 msgstr "Налаштування зображень"
 
-#: core/core-settings-map.php:2669
+#: core/core-settings-map.php:2677
 #, fuzzy
 msgid "Sliders options"
 msgstr "Параметри слайд-шоу"
 
-#: core/core-settings-map.php:2675
+#: core/core-settings-map.php:2683
 msgid "Authors"
 msgstr "Автори"
 
-#: core/core-settings-map.php:2681
+#: core/core-settings-map.php:2689
 msgid "Smooth Scroll"
 msgstr "Плавна прокрутка"
 
-#: core/core-settings-map.php:2691
+#: core/core-settings-map.php:2699
 msgid "Header design and layout"
 msgstr "Дизайн шапки та макет"
 
-#: core/core-settings-map.php:2691
+#: core/core-settings-map.php:2699
 #, fuzzy
 msgid "General design settings"
 msgstr "Налаштування іконок заголовків"
 
-#: core/core-settings-map.php:2696
+#: core/core-settings-map.php:2704
 msgid "Design settings for desktops and laptops"
 msgstr ""
 
-#: core/core-settings-map.php:2701
+#: core/core-settings-map.php:2709
 msgid "Design settings for smartphones and tablets in portrait orientation"
 msgstr ""
 
-#: core/core-settings-map.php:2706
+#: core/core-settings-map.php:2714
 msgid "Navigation Menus"
 msgstr "Меню навігації"
 
-#: core/core-settings-map.php:2718
+#: core/core-settings-map.php:2726
 #, fuzzy
 msgid "Front Page Content"
 msgstr "Головна сторінка"
 
-#: core/core-settings-map.php:2731
+#: core/core-settings-map.php:2739
 msgid "Pages &amp; Posts Layout"
 msgstr "Сторінки &amp; Вид записів"
 
-#: core/core-settings-map.php:2738
+#: core/core-settings-map.php:2746
 msgid "Post lists : blog, archives, ..."
 msgstr "Списки записів : блог, архіви,..."
 
-#: core/core-settings-map.php:2744
+#: core/core-settings-map.php:2752
 msgid "Single posts"
 msgstr "Окремі записи"
 
-#: core/core-settings-map.php:2750
+#: core/core-settings-map.php:2758
 #, fuzzy
 msgid "Single pages"
 msgstr "Окремі записи"
 
-#: core/core-settings-map.php:2756
+#: core/core-settings-map.php:2764
 msgid "Breadcrumb"
 msgstr "Навігаційний рядок"
 
-#: core/core-settings-map.php:2762
+#: core/core-settings-map.php:2770
 msgid "Post metas (category, tags, custom taxonomies)"
 msgstr "Метаописи записів (категорія,теги, власні таксономії)"
 
-#: core/core-settings-map.php:2768
+#: core/core-settings-map.php:2776
 msgid "Galleries"
 msgstr "Галереї"
 
-#: core/core-settings-map.php:2774
+#: core/core-settings-map.php:2782
 msgid "Comments"
 msgstr "Коментарі"
 
-#: core/core-settings-map.php:2785
+#: core/core-settings-map.php:2793
 msgid "Post/Page Navigation"
 msgstr "Навігація запису/сторінки"
 
-#: core/core-settings-map.php:2796
+#: core/core-settings-map.php:2804
 msgid "Socials in Sidebars"
 msgstr "Соціальні мережі в сайдбарі"
 
-#: core/core-settings-map.php:2805
+#: core/core-settings-map.php:2813
 msgid "Footer global settings"
 msgstr "Загальні налаштування підвалу"
 
-#: core/core-settings-map.php:2816
+#: core/core-settings-map.php:2824
 msgid "Custom CSS"
 msgstr "Користувальницький CSS"
 
-#: core/core-settings-map.php:2821
+#: core/core-settings-map.php:2829
 msgid "Website Performances"
 msgstr "Подання сайту"
 
-#: core/core-settings-map.php:2827
+#: core/core-settings-map.php:2835
 msgid "Front-end placeholders and help blocks"
 msgstr "Наповнювачі фронтенду та допоміжні блоки"
 
-#: core/core-settings-map.php:2832
+#: core/core-settings-map.php:2840
 msgid "Front-end Icons (Font Awesome)"
 msgstr "Іконки фронтенду (Font Awesome)"
 
-#: core/core-settings-map.php:2837
+#: core/core-settings-map.php:2845
 #, fuzzy
 msgid "Adaptative font size on mobile devices"
 msgstr "Примітка : мітка недоступна на мобільних пристроях."
 
-#: core/core-settings-map.php:2842
+#: core/core-settings-map.php:2850
 msgid "Theme style"
 msgstr ""
 
-#: core/core-settings-map.php:2854
+#: core/core-settings-map.php:2862
 msgid "Upgrade to Customizr Pro"
 msgstr "Оновити до Customizr Pro"
 
-#: core/core-settings-map.php:2855
+#: core/core-settings-map.php:2863
 #, fuzzy
 msgid "Discover the features and benefits"
 msgstr "Видалили закріплені сторінки"
 
-#: core/core-settings-map.php:2857
+#: core/core-settings-map.php:2865
 msgid "Go Pro"
 msgstr "Отримати версію Pro"
 
-#: core/core-settings-map.php:2940
+#: core/core-settings-map.php:2948
 msgid ""
 "You need to select a page first. Leave this field empty if you want to use "
 "the page excerpt."
@@ -5282,7 +5286,7 @@ msgstr ""
 msgid "Mobile Menu"
 msgstr "Головне меню"
 
-#: core/init-base.php:1106 inc/czr-init-ccat.php:3162
+#: core/init-base.php:1106 inc/czr-init-ccat.php:3164
 msgid "Social links"
 msgstr "Посилання на соціальні мережі"
 
@@ -5581,77 +5585,77 @@ msgstr "Зелено голубий"
 msgid "Light blue "
 msgstr "Світло-синій"
 
-#: inc/czr-init-ccat.php:1518
+#: inc/czr-init-ccat.php:1522
 #: templates/parts/header/parts/woocommerce_cart.php:7
 msgid "View your shopping cart"
 msgstr "Переглянути ваш кошик"
 
-#: inc/czr-init-ccat.php:2163
+#: inc/czr-init-ccat.php:2167
 msgid "Sticky Logo Upload (supported formats : .jpg, .png, .gif, svg, svgz)"
 msgstr ""
 "Завантажити прикріплений логотип (підтримувані формати : .jpg, .png, .gif, "
 "svg, svgz)"
 
-#: inc/czr-init-ccat.php:2175
+#: inc/czr-init-ccat.php:2179
 msgid ""
 "Use this upload control to specify a different logo on sticky header mode."
 msgstr ""
 "Використовуйте цей елемент керування завантаження, щоб вказати інший логотип "
 "в режимі липкого заголовка."
 
-#: inc/czr-init-ccat.php:2180
+#: inc/czr-init-ccat.php:2184
 msgid "Favicon Upload (supported formats : .ico, .png, .gif)"
 msgstr "Завантаження іконки (тільки наступні формати: .ico, .png, .gif) "
 
-#: inc/czr-init-ccat.php:2181
+#: inc/czr-init-ccat.php:2185
 msgid "FAVICON"
 msgstr "ІКОНКА САЙТА"
 
-#: inc/czr-init-ccat.php:2220
+#: inc/czr-init-ccat.php:2224
 msgid "Choose a predefined skin"
 msgstr "Виберіть встановлену обкладинку"
 
-#: inc/czr-init-ccat.php:2225
+#: inc/czr-init-ccat.php:2229
 msgid "Disabled if the random option is on."
 msgstr "Вимкнуто, якщо випадковий параметр ввімкнутий."
 
-#: inc/czr-init-ccat.php:2230
+#: inc/czr-init-ccat.php:2234
 msgid "Randomize the skin"
 msgstr "Випадкова обкладинка"
 
-#: inc/czr-init-ccat.php:2233
+#: inc/czr-init-ccat.php:2237
 msgid "Apply a random color skin on each page load."
 msgstr ""
 "Встановити випадковий колір обкладинки при кожному завантаженні сторінки."
 
-#: inc/czr-init-ccat.php:2277
+#: inc/czr-init-ccat.php:2281
 msgid "Display an icon next to external links"
 msgstr "Показувати іконку поруч із зовнішньою посиланням"
 
-#: inc/czr-init-ccat.php:2280 inc/czr-init-ccat.php:2290
+#: inc/czr-init-ccat.php:2284 inc/czr-init-ccat.php:2293
 msgid ""
 "This will be applied to the links included in post or page content only."
 msgstr ""
 "Це буде застосовуватися тільки до посилань, включеним в публікацію або вміст "
 "сторінки."
 
-#: inc/czr-init-ccat.php:2287
+#: inc/czr-init-ccat.php:2290
 msgid "Open external links in a new tab"
 msgstr "Відкрити зовнішні посилання у новій вкладці"
 
-#: inc/czr-init-ccat.php:2295
+#: inc/czr-init-ccat.php:2297
 msgid "Drop caps"
 msgstr "Буквиці"
 
-#: inc/czr-init-ccat.php:2296
+#: inc/czr-init-ccat.php:2298
 msgid "Enable drop caps"
 msgstr "Ввімкнути буквиці"
 
-#: inc/czr-init-ccat.php:2298
+#: inc/czr-init-ccat.php:2300
 msgid "Apply a drop cap to the first paragraph of your post / page content"
 msgstr "Застосувати буквицю до першого параграфу вашого запису / сторінки"
 
-#: inc/czr-init-ccat.php:2306
+#: inc/czr-init-ccat.php:2308
 msgid ""
 "Apply a drop cap when the paragraph includes at least the following number "
 "of words :"
@@ -5659,44 +5663,44 @@ msgstr ""
 "Застосувати буквицю, коли параграф буде включати, принаймні, наступну "
 "кількість слів :"
 
-#: inc/czr-init-ccat.php:2307
+#: inc/czr-init-ccat.php:2309
 msgid "(number of words)"
 msgstr "(кількість слів)"
 
-#: inc/czr-init-ccat.php:2316
+#: inc/czr-init-ccat.php:2318
 msgid "Drop cap style"
 msgstr "Стиль буквиці"
 
-#: inc/czr-init-ccat.php:2320
+#: inc/czr-init-ccat.php:2322
 #, fuzzy
 msgid "Primary theme color with a shadow"
 msgstr "Колір обкладинки з тінню"
 
-#: inc/czr-init-ccat.php:2321
+#: inc/czr-init-ccat.php:2323
 msgid "Simple black"
 msgstr "Звичайний чорний"
 
-#: inc/czr-init-ccat.php:2326
+#: inc/czr-init-ccat.php:2328
 msgid "Enable drop caps in posts"
 msgstr "Ввімкнути буквицю в записах"
 
-#: inc/czr-init-ccat.php:2328
+#: inc/czr-init-ccat.php:2330
 msgid "Apply a drop cap to the first paragraph of your single posts content"
 msgstr "Застосувати буквицю до першого параграфу ваших поодиноких записів"
 
-#: inc/czr-init-ccat.php:2334
+#: inc/czr-init-ccat.php:2336
 msgid "Enable drop caps in pages"
 msgstr "Ввімкнути буквицю на сторінках"
 
-#: inc/czr-init-ccat.php:2336
+#: inc/czr-init-ccat.php:2338
 msgid "Apply a drop cap to the first paragraph of your pages"
 msgstr "Застосувати буквицю до першого параграфу на ваших сторінках"
 
-#: inc/czr-init-ccat.php:2355
+#: inc/czr-init-ccat.php:2357
 msgid "Display icons next to titles"
 msgstr "Відобразити іконку, а потім заголовок"
 
-#: inc/czr-init-ccat.php:2359
+#: inc/czr-init-ccat.php:2361
 msgid ""
 "When this option is checked, a contextual icon is displayed next to the "
 "titles of pages, posts, archives, and WP built-in widgets."
@@ -5704,19 +5708,19 @@ msgstr ""
 "Якщо ця опція включена, то контекстна іконка показується поруч із "
 "заголовками сторінок, записів, архівів, і вбудованих WP віджетів."
 
-#: inc/czr-init-ccat.php:2365
+#: inc/czr-init-ccat.php:2367
 msgid "Display a page icon next to the page title"
 msgstr "Показувати іконку сторінки поряд з заголовком сторінки"
 
-#: inc/czr-init-ccat.php:2374
+#: inc/czr-init-ccat.php:2376
 msgid "Display a post icon next to the single post title"
 msgstr "Показувати іконку запису поруч із заголовком окремого запису"
 
-#: inc/czr-init-ccat.php:2383
+#: inc/czr-init-ccat.php:2385
 msgid "Display an icon next to the archive title"
 msgstr "Показувати іконку поруч із заголовком архіву"
 
-#: inc/czr-init-ccat.php:2386
+#: inc/czr-init-ccat.php:2388
 msgid ""
 "When this option is checked, an archive type icon is displayed in the "
 "heading of every types of archives, on the left of the title. An archive "
@@ -5727,11 +5731,11 @@ msgstr ""
 "кожного типу архівів, зліва від заголовка. Сторінка архіву буває: "
 "категорією, тегом, автора, дати, власної таксономією, результатами пошуку."
 
-#: inc/czr-init-ccat.php:2393
+#: inc/czr-init-ccat.php:2395
 msgid "Display an icon next to each post title in an archive page"
 msgstr "Показувати іконку поруч з кожним заголовком запису на сторінці архіву"
 
-#: inc/czr-init-ccat.php:2396
+#: inc/czr-init-ccat.php:2398
 msgid ""
 "When this option is checked, a post type icon is displayed on the left of "
 "each post titles in an archive page. An archive page can be : category, tag, "
@@ -5741,30 +5745,30 @@ msgstr ""
 "заголовка запису на сторінці архіву. Сторінкою архіву може бути: категорія, "
 "тег, автор, архів дати, власні таксономії, результати пошуку."
 
-#: inc/czr-init-ccat.php:2403
+#: inc/czr-init-ccat.php:2405
 msgid "WP sidebar widgets : display icons next to titles"
 msgstr "Віджети сайдбара WP : показувати іконки поруч з заголовками"
 
-#: inc/czr-init-ccat.php:2412
+#: inc/czr-init-ccat.php:2414
 msgid "WP footer widgets : display icons next to titles"
 msgstr "Віджети підвалу WP : відображення іконки поруч з назвами"
 
-#: inc/czr-init-ccat.php:2441
+#: inc/czr-init-ccat.php:2443
 msgid "Autoscale images on zoom"
 msgstr "Автоматичне масштабування зображень зумом"
 
-#: inc/czr-init-ccat.php:2445
+#: inc/czr-init-ccat.php:2447
 msgid ""
 "If enabled, this option will force images to fit the screen on lightbox zoom."
 msgstr ""
 "Якщо ця опція ввімкнута, то зображення будуть підігнані за розміром екрана "
 "лайтбокс зумом."
 
-#: inc/czr-init-ccat.php:2451
+#: inc/czr-init-ccat.php:2453
 msgid "Sliders : display on loading icon before rendering the slides"
 msgstr "Слайд-шоу : показувати іконку завантаження перед появою слайдів"
 
-#: inc/czr-init-ccat.php:2455
+#: inc/czr-init-ccat.php:2457
 msgid ""
 "When checked, this option displays a loading icon when the slides are being "
 "setup."
@@ -5772,20 +5776,20 @@ msgstr ""
 "Якщо ввімкнуто, відображається іконка завантаження, коли слайди знаходяться "
 "в процесі створення."
 
-#: inc/czr-init-ccat.php:2465
+#: inc/czr-init-ccat.php:2467
 msgid ""
 "Improve your page speed by loading smaller slider images for mobile devices"
 msgstr ""
 
-#: inc/czr-init-ccat.php:2523
+#: inc/czr-init-ccat.php:2525
 msgid "Social links in header"
 msgstr "Соцмережі в шапці"
 
-#: inc/czr-init-ccat.php:2561
+#: inc/czr-init-ccat.php:2563
 msgid "Display menu in a box"
 msgstr "Показувати меню в рамці"
 
-#: inc/czr-init-ccat.php:2566
+#: inc/czr-init-ccat.php:2568
 msgid ""
 "If checked, this option wraps the header menu/tagline/social in a light grey "
 "box."
@@ -5793,15 +5797,15 @@ msgstr ""
 "Якщо відмічено, ця настройка обрамляє шапку меню/девіз/соцмережі світло-"
 "сірим кольором."
 
-#: inc/czr-init-ccat.php:2571
+#: inc/czr-init-ccat.php:2573
 msgid "Sticky header settings"
 msgstr "Налаштування прикріпленої шапки"
 
-#: inc/czr-init-ccat.php:2572
+#: inc/czr-init-ccat.php:2574
 msgid "Sticky on scroll"
 msgstr "Фіксація при прокручуванні"
 
-#: inc/czr-init-ccat.php:2577
+#: inc/czr-init-ccat.php:2579
 msgid ""
 "If checked, this option makes the header stick to the top of the page on "
 "scroll down."
@@ -5809,15 +5813,15 @@ msgstr ""
 "Якщо відмічено, ця опція робить хедер зафіксованим зверху сторінки при "
 "прокручуванні вниз."
 
-#: inc/czr-init-ccat.php:2582
+#: inc/czr-init-ccat.php:2584
 msgid "Sticky header : display the tagline"
 msgstr "Прикріплена шапка : показувати девіз"
 
-#: inc/czr-init-ccat.php:2590
+#: inc/czr-init-ccat.php:2592
 msgid "Sticky header: display the shopping cart"
 msgstr "Липка шапка: відображати кошик"
 
-#: inc/czr-init-ccat.php:2597
+#: inc/czr-init-ccat.php:2599
 msgid ""
 "WooCommerce: if checked, your WooCommerce cart icon will remain visible when "
 "scrolling."
@@ -5825,19 +5829,19 @@ msgstr ""
 "WooCommerce: якщо ввімкнуто, іконка вашого кошика WooCommerce залишатиметься "
 "видимою під час прокручування."
 
-#: inc/czr-init-ccat.php:2602
+#: inc/czr-init-ccat.php:2604
 msgid "Sticky header : display the title / logo"
 msgstr "Прикріплена шапка : показувати заголовок / логотип"
 
-#: inc/czr-init-ccat.php:2611
+#: inc/czr-init-ccat.php:2613
 msgid "Sticky header : display the menu"
 msgstr "Прикріплена шапка : показувати меню"
 
-#: inc/czr-init-ccat.php:2616
+#: inc/czr-init-ccat.php:2618
 msgid "Also applied to the secondary menu if any."
 msgstr "Застосовується також до вторинного меню, якщо воно є."
 
-#: inc/czr-init-ccat.php:2694
+#: inc/czr-init-ccat.php:2696
 msgid ""
 "For mobile devices (responsive), limit the height of the dropdown menu block "
 "to the visible viewport."
@@ -5845,86 +5849,86 @@ msgstr ""
 "Для мобільних пристроїв (адаптивне), обмежити висоту випадаючого блоку меню "
 "видимої області перегляду."
 
-#: inc/czr-init-ccat.php:2703
+#: inc/czr-init-ccat.php:2705
 msgid "Display a label next to the menu button."
 msgstr "Відобразити мітку поруч с кнопкою меню."
 
-#: inc/czr-init-ccat.php:2707
+#: inc/czr-init-ccat.php:2709
 msgid "Note : the label is hidden on mobile devices."
 msgstr "Примітка : мітка недоступна на мобільних пристроях."
 
-#: inc/czr-init-ccat.php:2718 inc/czr-init-ccat.php:2739
+#: inc/czr-init-ccat.php:2720 inc/czr-init-ccat.php:2741
 #, fuzzy
 msgid "Menu centered"
 msgstr "Меню ліворуч"
 
-#: inc/czr-init-ccat.php:2724 inc/czr-init-ccat.php:2745
+#: inc/czr-init-ccat.php:2726 inc/czr-init-ccat.php:2747
 msgid "Note : the menu centered position is available only when"
 msgstr ""
 
-#: inc/czr-init-ccat.php:2726 inc/czr-init-ccat.php:2747
+#: inc/czr-init-ccat.php:2728 inc/czr-init-ccat.php:2749
 #, fuzzy
 msgid "the logo is centered"
 msgstr "Логотип / заголовок по центру"
 
-#: inc/czr-init-ccat.php:2753
+#: inc/czr-init-ccat.php:2755
 msgid "Choose a mobile devices (responsive) behaviour for the secondary menu."
 msgstr "Вибрати поведінку додаткового меню для мобільних пристроїв (адаптивне)"
 
-#: inc/czr-init-ccat.php:2757
+#: inc/czr-init-ccat.php:2759
 msgid "Move before inside the side menu "
 msgstr "Переміщення до всередині бокового меню"
 
-#: inc/czr-init-ccat.php:2758
+#: inc/czr-init-ccat.php:2760
 msgid "Move after inside the side menu "
 msgstr "Переміщення після всередині бокового меню"
 
-#: inc/czr-init-ccat.php:2759
+#: inc/czr-init-ccat.php:2761
 msgid "Display in the header"
 msgstr "Відобразити щапку"
 
-#: inc/czr-init-ccat.php:2760
+#: inc/czr-init-ccat.php:2762
 msgid "Hide"
 msgstr "Сховати"
 
-#: inc/czr-init-ccat.php:2838
+#: inc/czr-init-ccat.php:2840
 msgid "Metas Design"
 msgstr "Дизайн метаопису"
 
-#: inc/czr-init-ccat.php:2839
+#: inc/czr-init-ccat.php:2841
 msgid "Select a design for the post metas"
 msgstr "Виберіть дизайн для метаопису записів"
 
-#: inc/czr-init-ccat.php:2843
+#: inc/czr-init-ccat.php:2845
 msgid "Buttons and text"
 msgstr "Кнопки та текст"
 
-#: inc/czr-init-ccat.php:2844
+#: inc/czr-init-ccat.php:2846
 msgid "Text only"
 msgstr "Тільки текст"
 
-#: inc/czr-init-ccat.php:2851
+#: inc/czr-init-ccat.php:2853
 msgid "Select the last update format"
 msgstr "Виберіть формат останнього оновлення"
 
-#: inc/czr-init-ccat.php:2855
+#: inc/czr-init-ccat.php:2857
 #, fuzzy
 msgid "No. of days since last update"
 msgstr "Дата останнього оновлення"
 
-#: inc/czr-init-ccat.php:2856
+#: inc/czr-init-ccat.php:2858
 msgid "Date of the last update"
 msgstr "Дата останнього оновлення"
 
-#: inc/czr-init-ccat.php:2864
+#: inc/czr-init-ccat.php:2866
 msgid "Recent update notice after post titles"
 msgstr "Повідомлення про останнє оновлення після заголовка запису"
 
-#: inc/czr-init-ccat.php:2865
+#: inc/czr-init-ccat.php:2867
 msgid "Display a recent update notice"
 msgstr "Відображати повідомлення про останнє оновлення"
 
-#: inc/czr-init-ccat.php:2869
+#: inc/czr-init-ccat.php:2871
 msgid ""
 "If this option is checked, a customizable recent update notice is displayed "
 "next to the post title."
@@ -5932,14 +5936,14 @@ msgstr ""
 "Якщо ця опція відмічена, то показується повідомлення про останнє оновлення "
 "поруч із заголовком запису."
 
-#: inc/czr-init-ccat.php:2875
+#: inc/czr-init-ccat.php:2877
 msgid ""
 "Display the notice if the last update is less (strictly) than n days old"
 msgstr ""
 "Відображати повідомлення, якщо останнє оновлення буле менше (строго), ніж n "
 "днів тому"
 
-#: inc/czr-init-ccat.php:2881
+#: inc/czr-init-ccat.php:2883
 msgid ""
 "Set a maximum interval (in days) during which the last update notice will be "
 "displayed."
@@ -5947,39 +5951,39 @@ msgstr ""
 "Встановити максимальний інтервал (у днях), протягом якого буде відображатися "
 "повідомлення про останнє оновлення."
 
-#: inc/czr-init-ccat.php:2884
+#: inc/czr-init-ccat.php:2886
 msgid "Recently updated !"
 msgstr "Щойно оновлено !"
 
-#: inc/czr-init-ccat.php:2886
+#: inc/czr-init-ccat.php:2888
 msgid "Update notice text"
 msgstr "Текст повідомлення про оновлення"
 
-#: inc/czr-init-ccat.php:2895
+#: inc/czr-init-ccat.php:2897
 msgid "Update notice style"
 msgstr "Стиль повідомлення про оновлення"
 
-#: inc/czr-init-ccat.php:2899
+#: inc/czr-init-ccat.php:2901
 msgid "Default (grey)"
 msgstr "За замовчуванням (сірий)"
 
-#: inc/czr-init-ccat.php:2900
+#: inc/czr-init-ccat.php:2902
 msgid "Success (green)"
 msgstr "Успіх (зелений)"
 
-#: inc/czr-init-ccat.php:2901
+#: inc/czr-init-ccat.php:2903
 msgid "Alert (orange)"
 msgstr "Увага (помаранчевий)"
 
-#: inc/czr-init-ccat.php:2902
+#: inc/czr-init-ccat.php:2904
 msgid "Important (red)"
 msgstr "Важливо (червоний)"
 
-#: inc/czr-init-ccat.php:2903
+#: inc/czr-init-ccat.php:2905
 msgid "Info (blue)"
 msgstr "Іфно (голубий)"
 
-#: inc/czr-init-ccat.php:2914
+#: inc/czr-init-ccat.php:2916
 msgid ""
 "If this option is checked, additional date informations about the the last "
 "post update can be displayed (nothing will show up if the post has never "
@@ -5989,102 +5993,102 @@ msgstr ""
 "публікації запису (нічого не буде показано якщо запис ніколи не був "
 "оновлений)."
 
-#: inc/czr-init-ccat.php:2950
+#: inc/czr-init-ccat.php:2952
 msgid "Select the length of posts in lists (home, search, archives, ...)"
 msgstr "Вибрати довжину записів у списках (домашня, пошук, архіви, ...)"
 
-#: inc/czr-init-ccat.php:2955
+#: inc/czr-init-ccat.php:2957
 msgid "Display the full content"
 msgstr "Показати контент цілком"
 
-#: inc/czr-init-ccat.php:2963
+#: inc/czr-init-ccat.php:2965
 msgid "Apply the grid layout to Home/Blog"
 msgstr "Застосувати макет сітки для Головна/Блог"
 
-#: inc/czr-init-ccat.php:2971
+#: inc/czr-init-ccat.php:2973
 msgid "Apply the grid layout to Archives (archives, categories, author posts)"
 msgstr ""
 "Застосувати макет сітки для архівів (архіви, категорії, авторів записів)"
 
-#: inc/czr-init-ccat.php:2979
+#: inc/czr-init-ccat.php:2981
 msgid "Apply the grid layout to Search results"
 msgstr "Застосувати макет сітки до результатів пошуку"
 
-#: inc/czr-init-ccat.php:2983
+#: inc/czr-init-ccat.php:2985
 msgid "Unchecked contexts are displayed with the alternate thumbnails layout."
 msgstr ""
 "Непозначені контексти відображаються з альтернативним макетом мініатюр."
 
-#: inc/czr-init-ccat.php:2988
+#: inc/czr-init-ccat.php:2990
 #, fuzzy
 msgid "Display post format icons"
 msgstr "Показувати формат іконки запису на тлі"
 
-#: inc/czr-init-ccat.php:2997
+#: inc/czr-init-ccat.php:2999
 msgid "Upload a default thumbnail"
 msgstr "Завантажити мініатюру за замовчуванням"
 
-#: inc/czr-init-ccat.php:3027
+#: inc/czr-init-ccat.php:3029
 msgid "Thumbnails max height for the grid layout"
 msgstr "Максимальна висота мініатюри для сітки макету"
 
-#: inc/czr-init-ccat.php:3028
+#: inc/czr-init-ccat.php:3030
 msgid "Set the post grid thumbnail's max height in pixels"
 msgstr "Встановити максимальну висоту в пікселях мініатюри запису"
 
-#: inc/czr-init-ccat.php:3045
+#: inc/czr-init-ccat.php:3047
 msgid "Rectangular with no effect"
 msgstr "Прямокутний без ефектів"
 
-#: inc/czr-init-ccat.php:3046
+#: inc/czr-init-ccat.php:3048
 msgid "Rectangular with blur effect on hover"
 msgstr "Прямокутний з ефектом розмитості при наведенні"
 
-#: inc/czr-init-ccat.php:3047
+#: inc/czr-init-ccat.php:3049
 msgid "Rectangular with unblur effect on hover"
 msgstr "Прямокутний з ефектом різкості при наведенні"
 
-#: inc/czr-init-ccat.php:3055
+#: inc/czr-init-ccat.php:3057
 msgid "Top"
 msgstr "Верх"
 
-#: inc/czr-init-ccat.php:3056
+#: inc/czr-init-ccat.php:3058
 msgid "Bottom"
 msgstr "Низ"
 
-#: inc/czr-init-ccat.php:3081
+#: inc/czr-init-ccat.php:3083
 msgid "Comments bubble shape"
 msgstr "Форма бульбашки коментарів"
 
-#: inc/czr-init-ccat.php:3085
+#: inc/czr-init-ccat.php:3087
 msgid "Small bubbles"
 msgstr "Малі бульбашки"
 
-#: inc/czr-init-ccat.php:3086
+#: inc/czr-init-ccat.php:3088
 msgid "Large bubbles"
 msgstr "Великі бульбашки"
 
-#: inc/czr-init-ccat.php:3094 inc/czr-init-ccat.php:3107
+#: inc/czr-init-ccat.php:3096 inc/czr-init-ccat.php:3109
 msgid "Comments bubble color"
 msgstr "Колір бульбашки коментарів"
 
-#: inc/czr-init-ccat.php:3098
+#: inc/czr-init-ccat.php:3100
 msgid "Skin color"
 msgstr "Колір обкладинки"
 
-#: inc/czr-init-ccat.php:3163
+#: inc/czr-init-ccat.php:3165
 msgid "Social link title in sidebars"
 msgstr "Посилання на соціальні мережі в сайдбарі"
 
-#: inc/czr-init-ccat.php:3169
+#: inc/czr-init-ccat.php:3171
 msgid "Will be hidden if empty"
 msgstr "Буде ховатися якщо порожній"
 
-#: inc/czr-init-ccat.php:3199
+#: inc/czr-init-ccat.php:3201
 msgid "Dynamic sidebar reordering on small devices"
 msgstr "Динамічний сайдбар переупорядковується на невеликих пристроях"
 
-#: inc/czr-init-ccat.php:3202
+#: inc/czr-init-ccat.php:3204
 msgid ""
 "Activate this option to move the sidebars (if any) after the main content "
 "block, for smartphones or tablets viewport."
@@ -6092,29 +6096,29 @@ msgstr ""
 "Активуйте цей параметр, щоб перемістити сайдбар (якщо є) після основного "
 "вмісту блоку, для екранів смартфонів або планшетів."
 
-#: inc/czr-init-ccat.php:3299
+#: inc/czr-init-ccat.php:3301
 msgid "Titles icons settings"
 msgstr "Налаштування іконок заголовків"
 
-#: inc/czr-init-ccat.php:3301
+#: inc/czr-init-ccat.php:3303
 msgid "Set up the titles icons options"
 msgstr "Встановити параметри іконок заголовків"
 
-#: inc/czr-init-ccat.php:3309
+#: inc/czr-init-ccat.php:3311
 msgid "Responsive settings"
 msgstr "Адаптивні налаштування"
 
-#: inc/czr-init-ccat.php:3311
+#: inc/czr-init-ccat.php:3313
 msgid "Various settings for responsive display"
 msgstr "Різні налаштування для адаптивного відображення"
 
-#: inc/czr-init-ccat.php:4675
+#: inc/czr-init-ccat.php:4678
 msgid ""
 "Quick tip : you can choose between two styles for the Customizr theme. Give "
 "it a try %s"
 msgstr ""
 
-#: inc/czr-init-ccat.php:4678
+#: inc/czr-init-ccat.php:4681
 #, fuzzy
 msgid "in the live customizer."
 msgstr "Перейти до налаштувань зараз"

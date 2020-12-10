@@ -457,6 +457,10 @@ if ( ! class_exists( 'CZR_init' ) ) :
           $theme_class = $prefix . $ver;
           $_classes[] = get_template_directory() === get_stylesheet_directory() ? $theme_class : $theme_class.'-with-child-theme';
 
+          // Nov 2020 : opt-out for underline on links
+          if ( !(bool)esc_attr( czr_fn_opt( 'tc_link_underline') ) ){
+              $_classes = array_merge( $_classes , array( 'tc-link-not-underlined' ) );
+          }
           return $_classes;
       }
   }//end of class
@@ -2278,7 +2282,6 @@ class CZR_utils_settings_map {
                                     'section'       => 'formatting_sec' ,
                                     'type'          => 'nimblecheck' ,
                                     'notice'    => __( 'This will be applied to the links included in post or page content only.' , 'customizr-pro' ),
-                                    'transport'     => 'postMessage'
                   ),
 
                   'tc_ext_link_target'  =>  array(
@@ -2288,7 +2291,6 @@ class CZR_utils_settings_map {
                                     'section'       => 'formatting_sec' ,
                                     'type'          => 'nimblecheck' ,
                                     'notice'    => __( 'This will be applied to the links included in post or page content only.' , 'customizr-pro' ),
-                                    'transport'     => 'postMessage'
                   ),
                   'tc_enable_dropcap'  =>  array(
                                     'default'       => 0,
@@ -4268,6 +4270,7 @@ if ( ! class_exists( 'CZR_resources' ) ) :
                         'Permanently dismiss' => __('Permanently dismiss', 'customizr-pro')
                     )
                 ),
+                'version' => CUSTOMIZR_VER,
 
                 //FRONT NOTIFICATIONS
                 //ordered by priority
