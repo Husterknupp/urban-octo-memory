@@ -2,9 +2,9 @@
 # This file is distributed under the same license as the Themes - Customizr-Pro package.
 msgid ""
 msgstr ""
-"Project-Id-Version: * Customizr-Pro v2.3.13\n"
+"Project-Id-Version: * Customizr-Pro v2.3.14\n"
 "Report-Msgid-Bugs-To: https://presscustomizr.com/contact/\n"
-"POT-Creation-Date: 2020-12-02 09:30:41+00:00\n"
+"POT-Creation-Date: 2020-12-10 18:02:36+00:00\n"
 "PO-Revision-Date: 2017-12-23 12:29:45+0000\n"
 "Language: de_CH\n"
 "MIME-Version: 1.0\n"

@@ -1,4 +1,4 @@
-# Customizr Pro v2.3.13
+# Customizr Pro v2.3.14
 ![Customizr - Pro](/screenshot.png)
 
 > The pro version of the popular Customizr WordPress theme.
@@ -14,6 +14,11 @@ Customizr Pro is distributed under the terms of the [GNU GPL v2.0 or later](http
 * SUPPORT : https://presscustomizr.com/support/
 
 ## Changelog
+= 2.3.14 December 10th, 2020 =
+* fixed : [WP 5.6][WP 5.7] replaced deprecated shorthands
+* fixed : [WP 5.6][fancybox] Close (x) link not working on pop-up image in galleries
+* fixed : [WP Gallery Block] padding style conflict created by the theme
+
 = 2.3.13 December 2nd, 2020 =
 * fixed : [links] external links icons not displayed
 
