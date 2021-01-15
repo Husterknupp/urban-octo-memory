@@ -2,7 +2,7 @@
 Contributors: justinbusa, RobbyMcCullough, billyyoung, hinampaksh, diegoliv, webmandesign, eugenealegiojo, helgatheviking, ozancanakli, brentjettgmailcom, jproffitt71, brainstormforce, ideaboxcreations, laubsterboy, nikolayyordanov, codente, pross, pedromendonca
 Tags: page builder, beaver builder, landing page, front-end builder, drag and drop editor
 Requires at least: 4.6
-Tested up to: 5.5
+Tested up to: 5.6
 Requires PHP: 5.6
 Stable tag: trunk
 License: GPL2+
@@ -34,10 +34,11 @@ There is a huge colony (_yeah, that's the term for a group of beavers_) of "Beav
 
 = Page Builder Features =
 
-*   Content Modules: HTML, Photo, Text Editor, Audio, Video, & Sidebar.
+*   Content Modules: Photo, Button, Heading, Icon, Text Editor, HTML, Audio, Video, & Sidebar.
+*   Pre-made home, landing, and maintenance page templates.
 *   Full-width, column-based layouts.
-*   Lightweight and semantic markup for maximum performance.
-*   Photo, color, and video row backgrounds.
+*   Lightweight and performant markup.
+*   Photo, color, video and gradient row backgrounds.
 *   Mobile-friendly, responsive layouts.
 *   Add your own CSS classes and IDs.
 *   Use WordPress Widgets and shortcodes.
@@ -48,7 +49,7 @@ There is a huge colony (_yeah, that's the term for a group of beavers_) of "Beav
 
 *   Additional modules: Contact Form, Tabs, Slider, Pricing Table, Map, Blog Posts, Subscribe Form, Social Icons, and many more.
 *   Expert support from our world-class support team.
-*   Beautiful pre-made layout templates.
+*   Dozens of pre-made templates.
 *   Save, export, and reuse full-page layouts, rows, and modules.
 *   Build your own custom modules.
 
