@@ -90,3 +90,8 @@ body {
 .container[role=main] {
     /*display: none;*/ /* breaks content in actual pages? */
 }
+
+/* Page title for Beaver Builder Pages (not sure why the global setting doesn't help) */
+.entry-title {
+	display: none
+}
