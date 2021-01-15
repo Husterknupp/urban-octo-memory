@@ -2275,7 +2275,8 @@ class UpdraftPlus {
 		
 			// We're in over-time - we only reschedule if something useful happened last time (used to be that we waited for it to happen this time - but that meant that temporary errors, e.g. Google 400s on uploads, scuppered it all - we'd do better to have another chance
 			// 'useful_checkin' is < 1.16.35 (Nov 2020). It is only supported here for resumptions that span upgrades. Later it can be removed.
-			$useful_checkin = max($this->jobdata_get('useful_checkin', 0), max($this->jobdata_get('useful_checkins', 0)));
+			$useful_checkin = max($this->jobdata_get('useful_checkin', 0), max((array) $this->jobdata_get('useful_checkins', 0)));
+			
 			$last_resumption = $resumption_no - 1;
 			$fail_on_resume = $this->jobdata_get('fail_on_resume');
 			
@@ -2935,7 +2936,7 @@ class UpdraftPlus {
 		// doing_action() was added in WP 3.9
 		// wp_cron() can be called from the 'init' action
 		
-		if (function_exists('doing_action') && (doing_action('init') || @constant('DOING_CRON')) && (doing_action('updraft_backup_database') || doing_action('updraft_backup'))) {// phpcs:ignore Generic.PHP.NoSilencedErrors.Discouraged
+		if (function_exists('doing_action') && (doing_action('init') || (defined('DOING_CRON') && DOING_CRON)) && (doing_action('updraft_backup_database') || doing_action('updraft_backup'))) {// phpcs:ignore Generic.PHP.NoSilencedErrors.Discouraged
 			$last_scheduled_action_called_at = get_option("updraft_last_scheduled_$semaphore");
 			// 11 minutes - so, we're assuming that they haven't custom-modified their schedules to run scheduled backups more often than that. If they have, they need also to use the filter to over-ride this check.
 			$seconds_ago = time() - $last_scheduled_action_called_at;
@@ -3074,7 +3075,7 @@ class UpdraftPlus {
 			
 			$sched_log_extra = '';
 			
-			if ('manual' != $files_schedule) {
+			if ('manual' != $files_schedule && false !== $files_schedule) {
 				if ($files_schedule == $db_schedule || UpdraftPlus_Options::get_updraft_option('updraft_interval_database', 'xyz') == 'xyz') {
 					$sched_log_extra = 'Combining jobs from identical schedules. ';
 					$backup_database = (true == $backup_files) ? true : false;
@@ -3748,6 +3749,7 @@ class UpdraftPlus {
 	private function save_last_backup($backup_array) {
 		$success = ($this->error_count() == 0) ? 1 : 0;
 		$last_backup = UpdraftPlus_Options::get_updraft_option('updraft_last_backup', array());
+		if (empty($last_backup)) $last_backup = array();
 		if ('incremental' === $this->jobdata_get('job_type')) {
 			$last_backup['incremental_backup_time'] = $this->backup_time; // the incremental_backup_time index is used only for storing time of the incremental job type
 		} else {
@@ -5281,6 +5283,7 @@ class UpdraftPlus {
 			'updraftplus_tmp_googledrive_access_token',
 			'updraftplus_dismissedautobackup',
 			'dismissed_general_notices_until',
+			'dismissed_review_notice',
 			'dismissed_clone_php_notices_until',
 			'dismissed_clone_wc_notices_until',
 			'dismissed_season_notices_until',
@@ -5682,6 +5685,7 @@ class UpdraftPlus {
 	public function is_hosting_backup_limit_reached() {
 		$res = array();
 		$last_backup = UpdraftPlus_Options::get_updraft_option('updraft_last_backup', array());
+		if (empty($last_backup)) $last_backup = array();
 		$current_time = time();
 		if (!empty($last_backup['incremental_backup_time'])) {
 			// $next_day_from_last_backup = strtotime(gmdate('Y-m-d', (int) $last_backup['backup_time'])) + 86400;
