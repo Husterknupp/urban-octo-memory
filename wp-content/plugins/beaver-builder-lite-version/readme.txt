@@ -34,11 +34,10 @@ There is a huge colony (_yeah, that's the term for a group of beavers_) of "Beav
 
 = Page Builder Features =
 
-*   Content Modules: Photo, Button, Heading, Icon, Text Editor, HTML, Audio, Video, & Sidebar.
-*   Pre-made home, landing, and maintenance page templates.
+*   Content Modules: HTML, Photo, Text Editor, Audio, Video, & Sidebar.
 *   Full-width, column-based layouts.
-*   Lightweight and performant markup.
-*   Photo, color, video and gradient row backgrounds.
+*   Lightweight and semantic markup for maximum performance.
+*   Photo, color, and video row backgrounds.
 *   Mobile-friendly, responsive layouts.
 *   Add your own CSS classes and IDs.
 *   Use WordPress Widgets and shortcodes.
@@ -49,7 +48,7 @@ There is a huge colony (_yeah, that's the term for a group of beavers_) of "Beav
 
 *   Additional modules: Contact Form, Tabs, Slider, Pricing Table, Map, Blog Posts, Subscribe Form, Social Icons, and many more.
 *   Expert support from our world-class support team.
-*   Dozens of pre-made templates.
+*   Beautiful pre-made layout templates.
 *   Save, export, and reuse full-page layouts, rows, and modules.
 *   Build your own custom modules.
 
