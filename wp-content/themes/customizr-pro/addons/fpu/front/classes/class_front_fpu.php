@@ -107,6 +107,7 @@ class TC_front_fpu {
 
 
     function tc_fp_setup_fp_block() {
+      add_filter( 'fpc_text', 'do_shortcode' );
       //in czr4 we use a different "template"
       if ( defined( 'CZR_IS_MODERN_STYLE' ) && CZR_IS_MODERN_STYLE ) {
         $this->fp_block = $this -> tc_fp_generate_block_modern();
@@ -114,6 +115,7 @@ class TC_front_fpu {
       else {
         $this->fp_block = $this -> tc_fp_generate_block();
       }
+      remove_filter( 'fpc_text', 'do_shortcode' );
     }
 
 
@@ -865,7 +867,7 @@ class TC_front_fpu {
     */
     private function tc_show_fp() {
         //gets display options
-        $tc_show_featured_pages = 0 != esc_attr( tc__f( '__get_fpc_option' , 'tc_show_fp' ) ) && tc__f('__is_home');
+        $tc_show_featured_pages = true == (bool)esc_attr( tc__f( '__get_fpc_option' , 'tc_show_fp' ) ) && tc__f('__is_home');
 
         //hide featured pages when page>1
         if ( apply_filters( 'tc_fp_hide_featured_pages_when_paged', is_main_query() ) ) {
@@ -1022,7 +1024,7 @@ class TC_front_fpu {
 
 
         //tc_show_wp_img is transported in postMessage
-        $tc_show_featured_pages_img     = TC_fpu::$instance->is_customizing || 0 != esc_attr( tc__f( '__get_fpc_option' , 'tc_show_fp_img' ) );
+        $tc_show_featured_pages_img     = TC_fpu::$instance->is_customizing || true == (bool)esc_attr( tc__f( '__get_fpc_option' , 'tc_show_fp_img' ) );
         if ( apply_filters('tc_fp_holder_js_required', false ) && $tc_show_featured_pages_img ) {
           //holder image
           wp_enqueue_script(

@@ -2,9 +2,9 @@
 # This file is distributed under the same license as the Themes - Customizr-Pro package.
 msgid ""
 msgstr ""
-"Project-Id-Version: * Customizr-Pro v2.3.14\n"
+"Project-Id-Version: * Customizr-Pro v2.4.6\n"
 "Report-Msgid-Bugs-To: https://presscustomizr.com/contact/\n"
-"POT-Creation-Date: 2020-12-10 18:02:36+00:00\n"
+"POT-Creation-Date: 2021-01-22 13:52:32+00:00\n"
 "PO-Revision-Date: 2017-03-12 20:41:16+0000\n"
 "Language: sl_SI\n"
 "MIME-Version: 1.0\n"
@@ -404,7 +404,7 @@ msgstr ""
 msgid "Opening hours"
 msgstr ""
 
-#: addons/bundle/contact-info/pc-contact-info.php:223 core/init-base.php:138
+#: addons/bundle/contact-info/pc-contact-info.php:223 core/init-base.php:142
 msgid "E-mail"
 msgstr "E-pošta"
 
@@ -952,7 +952,7 @@ msgid "The <strong>%1$s</strong> plugin %2$s.%3$s"
 msgstr ""
 
 #: addons/bundle/slider/back/classes/class_back_slider.php:95
-#: core/core-functions.php:1596
+#: core/core-functions.php:1600
 msgid "&mdash; Auto-generated slider from your blog posts &mdash;"
 msgstr "&mdash; Avtomatsko ustvarjen drsnik iz prispevkov bloga &mdash;"
 
@@ -1103,36 +1103,36 @@ msgstr "Barva naslova in besedila"
 msgid "Hex Value"
 msgstr ""
 
-#: addons/fpu/front/classes/class_front_fpu.php:275
-#: addons/fpu/front/classes/class_front_fpu.php:358
+#: addons/fpu/front/classes/class_front_fpu.php:277
+#: addons/fpu/front/classes/class_front_fpu.php:360
 #, fuzzy
 msgid "Edit The Featured Pages"
 msgstr "Uredi predstavitvene strani"
 
-#: addons/fpu/front/classes/class_front_fpu.php:416
-#: addons/fpu/front/classes/class_front_fpu.php:659
-#: core/front/models/modules/featured-pages/class-model-featured_pages.php:134
-#: core/front/models/modules/featured-pages/class-model-featured_pages.php:145
-#: inc/czr-front-ccat.php:3509
+#: addons/fpu/front/classes/class_front_fpu.php:418
+#: addons/fpu/front/classes/class_front_fpu.php:661
+#: core/front/models/modules/featured-pages/class-model-featured_pages.php:136
+#: core/front/models/modules/featured-pages/class-model-featured_pages.php:147
+#: inc/czr-front-ccat.php:3511
 msgid "Customizer screen"
 msgstr "Nastavitveni zaslon"
 
-#: addons/fpu/front/classes/class_front_fpu.php:417
-#: addons/fpu/front/classes/class_front_fpu.php:660
+#: addons/fpu/front/classes/class_front_fpu.php:419
+#: addons/fpu/front/classes/class_front_fpu.php:662
 #: core/core-settings-map.php:1059 core/core-settings-map.php:1064
 #: core/core-settings-map.php:2396 core/czr-admin-ccat.php:1440
 msgid "here"
 msgstr "tukaj"
 
-#: addons/fpu/front/classes/class_front_fpu.php:424
-#: addons/fpu/front/classes/class_front_fpu.php:667
-#: core/front/models/modules/featured-pages/class-model-featured_pages.php:159
-#: inc/czr-front-ccat.php:3517
+#: addons/fpu/front/classes/class_front_fpu.php:426
+#: addons/fpu/front/classes/class_front_fpu.php:669
+#: core/front/models/modules/featured-pages/class-model-featured_pages.php:161
+#: inc/czr-front-ccat.php:3519
 msgid "Featured page"
 msgstr "Predstavitvena stran"
 
-#: addons/fpu/front/classes/class_front_fpu.php:427
-#: addons/fpu/front/classes/class_front_fpu.php:670
+#: addons/fpu/front/classes/class_front_fpu.php:429
+#: addons/fpu/front/classes/class_front_fpu.php:672
 #, fuzzy
 msgid ""
 "Featured page description text : use the page or post excerpt or set your "
@@ -1141,8 +1141,8 @@ msgstr ""
 "Besedilo predstavitvene strani: uporabi izvleček strani ali napiši svoje "
 "besedilo na Customizr zaslonu."
 
-#: addons/fpu/front/classes/class_front_fpu.php:534
-#: addons/fpu/front/classes/class_front_fpu.php:780
+#: addons/fpu/front/classes/class_front_fpu.php:536
+#: addons/fpu/front/classes/class_front_fpu.php:782
 #: addons/wfc/back/czr-base-fmk/czr-base-fmk.php:268
 #: addons/wfc/back/czr-base-fmk/czr-base-fmk.php:570
 #: core/czr-admin-ccat.php:2432 core/czr-base-fmk/czr-base-fmk.php:268
@@ -1156,7 +1156,7 @@ msgstr ""
 #: core/front/template-tags/template-tags.php:163 inc/czr-front-ccat.php:2468
 #: inc/czr-front-ccat.php:2501 inc/czr-front-ccat.php:2516
 #: inc/czr-front-ccat.php:2544 inc/czr-front-ccat.php:3052
-#: inc/czr-front-ccat.php:3600 inc/czr-front-ccat.php:3987
+#: inc/czr-front-ccat.php:3602 inc/czr-front-ccat.php:3987
 #: inc/czr-front-ccat.php:8544
 msgid "Edit"
 msgstr "Uredi"
@@ -2499,19 +2499,19 @@ msgstr ""
 msgid "like this"
 msgstr ""
 
-#: core/core-functions.php:1505
+#: core/core-functions.php:1509
 msgid "Page %s"
 msgstr "Stran %s"
 
-#: core/core-functions.php:1594
+#: core/core-functions.php:1598
 msgid "&mdash; No slider &mdash;"
 msgstr "&mdash; Brez drsnika &mdash;"
 
-#: core/core-functions.php:1595
+#: core/core-functions.php:1599
 msgid "&mdash; Demo Slider &mdash;"
 msgstr "&mdash; Demo drsnik &mdash;"
 
-#: core/core-functions.php:1673
+#: core/core-functions.php:1677
 #, fuzzy
 msgid "Please fill the email input with a valid email address"
 msgstr "Prosim vnesi družbene povezave z veljavnim naslovom (URL)"
@@ -2604,7 +2604,7 @@ msgstr ""
 "Ta možnost nastavi privzeto velikost pisave za katerokoli besedilo na tvoji "
 "strani, če velikost besedila še ni določena."
 
-#: core/core-settings-map.php:329 core/init-base.php:1113
+#: core/core-settings-map.php:329 core/init-base.php:1117
 msgid "Create and organize your social links"
 msgstr "Izdelaj in organiziraj povezave s socialnimi omrežji"
 
@@ -2985,7 +2985,7 @@ msgstr "Opomba: slika je skrita na mobilnih napravah"
 msgid "Specific Mobile Menu"
 msgstr ""
 
-#: core/core-settings-map.php:828 core/init-base.php:412
+#: core/core-settings-map.php:828 core/init-base.php:416
 msgid "Main Menu"
 msgstr "Glavni Meni"
 
@@ -4908,52 +4908,52 @@ msgstr "Letni arhiv: %s"
 msgid "Continue reading <span class=\"meta-nav\">&rarr;</span>"
 msgstr "Preberi več <span class=\"meta-nav\">&rarr;</span>"
 
-#: core/front/models/content/post-metas/class-model-post_metas.php:65
-#: core/front/models/content/post-metas/class-model-post_metas.php:71
+#: core/front/models/content/post-metas/class-model-post_metas.php:63
+#: core/front/models/content/post-metas/class-model-post_metas.php:69
 #: inc/czr-front-ccat.php:6961
 msgid "by"
 msgstr "od"
 
-#: core/front/models/content/post-metas/class-model-post_metas.php:78
+#: core/front/models/content/post-metas/class-model-post_metas.php:76
 #: inc/czr-front-ccat.php:6532
 msgid "Published"
 msgstr "Objavljeno"
 
-#: core/front/models/content/post-metas/class-model-post_metas.php:85
+#: core/front/models/content/post-metas/class-model-post_metas.php:83
 msgid "Updated"
 msgstr ""
 
-#: core/front/models/content/post-metas/class-model-post_metas.php:97
+#: core/front/models/content/post-metas/class-model-post_metas.php:95
 #: inc/czr-front-ccat.php:6535
 msgid "at dimensions"
 msgstr "pri dimenzijah"
 
-#: core/front/models/content/post-metas/class-model-post_metas.php:97
+#: core/front/models/content/post-metas/class-model-post_metas.php:95
 #: inc/czr-front-ccat.php:6535
 msgid "Link to full-size image"
 msgstr "Povezava do večje slike"
 
-#: core/front/models/content/post-metas/class-model-post_metas.php:99
+#: core/front/models/content/post-metas/class-model-post_metas.php:97
 #: inc/czr-front-ccat.php:6536 inc/czr-front-ccat.php:6937
 msgid "in"
 msgstr "v"
 
-#: core/front/models/content/post-metas/class-model-post_metas.php:99
+#: core/front/models/content/post-metas/class-model-post_metas.php:97
 #: inc/czr-front-ccat.php:6536
 msgid "Return to "
 msgstr "Vrni na"
 
-#: core/front/models/content/post-metas/class-model-post_metas.php:148
+#: core/front/models/content/post-metas/class-model-post_metas.php:146
 #, fuzzy
 msgid "Permalink to:&nbsp;"
 msgstr "Trajna povezava do %s"
 
-#: core/front/models/content/post-metas/class-model-post_metas.php:194
+#: core/front/models/content/post-metas/class-model-post_metas.php:192
 #: inc/czr-front-ccat.php:6867
 msgid "View all posts by %s"
 msgstr "Poglej vse prispevke od %s"
 
-#: core/front/models/content/post-metas/class-model-post_metas.php:246
+#: core/front/models/content/post-metas/class-model-post_metas.php:244
 #: inc/czr-front-ccat.php:6708
 msgid "View all posts in %s"
 msgstr "Poglej vse prispevke v %s"
@@ -5074,14 +5074,14 @@ msgstr "F Y"
 msgid "F j, Y"
 msgstr "j. n. Y"
 
-#: core/front/models/modules/featured-pages/class-model-featured_pages.php:135
-#: core/front/models/modules/featured-pages/class-model-featured_pages.php:146
+#: core/front/models/modules/featured-pages/class-model-featured_pages.php:137
+#: core/front/models/modules/featured-pages/class-model-featured_pages.php:148
 #, fuzzy
 msgid "Customize it now"
 msgstr "Nastavitveni zaslon"
 
-#: core/front/models/modules/featured-pages/class-model-featured_pages.php:163
-#: inc/czr-front-ccat.php:3521
+#: core/front/models/modules/featured-pages/class-model-featured_pages.php:165
+#: inc/czr-front-ccat.php:3523
 #, fuzzy
 msgid ""
 "Featured page description text : use the page excerpt or set your own custom "
@@ -5155,104 +5155,104 @@ msgstr "Dodaj k meniju"
 msgid "open the customizer menu section"
 msgstr "odpri nastavitve razdelke menija"
 
-#: core/init-base.php:121
+#: core/init-base.php:125
 msgid "Left Sidebar"
 msgstr "Leva stranska vrstica"
 
-#: core/init-base.php:122 core/init-base.php:126
+#: core/init-base.php:126 core/init-base.php:130
 msgid "Appears on posts, static pages, archives and search pages"
 msgstr ""
 "Prikaže se v prispevkih, statičnih straneh, arhivih in iskalnih straneh"
 
-#: core/init-base.php:125
+#: core/init-base.php:129
 msgid "Right Sidebar"
 msgstr "Desna stranska vrstica"
 
-#: core/init-base.php:134
+#: core/init-base.php:138
 msgid "Subscribe to my rss feed"
 msgstr "Prijavi se na RSS vir"
 
-#: core/init-base.php:141
+#: core/init-base.php:145
 msgid "Follow me on Twitter"
 msgstr "Sledi mi na Twitter"
 
-#: core/init-base.php:144
+#: core/init-base.php:148
 msgid "Follow me on Facebook"
 msgstr "Sledi mi na Facebook"
 
-#: core/init-base.php:147
+#: core/init-base.php:151
 msgid "Follow me on Google+"
 msgstr "Sledi mi na Google+"
 
-#: core/init-base.php:150
+#: core/init-base.php:154
 msgid "Follow me on Instagram"
 msgstr "Sledi mi na Instagram"
 
-#: core/init-base.php:153
+#: core/init-base.php:157
 msgid "Follow me on Tumblr"
 msgstr "Sledi mi na Tumblr"
 
-#: core/init-base.php:156
+#: core/init-base.php:160
 msgid "Follow me on Flickr"
 msgstr "Sledi mi na Flickr"
 
-#: core/init-base.php:159
+#: core/init-base.php:163
 msgid "Follow me on WordPress"
 msgstr "Sledi mi na WordPress"
 
-#: core/init-base.php:162
+#: core/init-base.php:166
 msgid "Follow me on Youtube"
 msgstr "Sledi mi na Youtube"
 
-#: core/init-base.php:165
+#: core/init-base.php:169
 msgid "Pin me on Pinterest"
 msgstr "Špikni me na Pinterest"
 
-#: core/init-base.php:168
+#: core/init-base.php:172
 msgid "Follow me on Github"
 msgstr "Sledi mi na Github"
 
-#: core/init-base.php:171
+#: core/init-base.php:175
 msgid "Follow me on Dribbble"
 msgstr "Sledi mi na Dribbble"
 
-#: core/init-base.php:174
+#: core/init-base.php:178
 msgid "Follow me on LinkedIn"
 msgstr "Sledi mi na LinkedIn"
 
-#: core/init-base.php:177
+#: core/init-base.php:181
 msgid "Follow me on VKontakte"
 msgstr "Sledi mi na VKontakte"
 
-#: core/init-base.php:180
+#: core/init-base.php:184
 msgid "Follow me on Yelp"
 msgstr "Sledi mi na Yelp"
 
-#: core/init-base.php:183
+#: core/init-base.php:187
 msgid "Follow me on Xing"
 msgstr "Sledi mi na Xing"
 
-#: core/init-base.php:186
+#: core/init-base.php:190
 msgid "Contact me on Snapchat"
 msgstr "Kontaktiraj me na Snapchatu"
 
-#: core/init-base.php:193
+#: core/init-base.php:197
 msgid "Google fonts pairs"
 msgstr "Pari Googlovih pisav"
 
-#: core/init-base.php:214
+#: core/init-base.php:218
 msgid "Web safe fonts pairs"
 msgstr "Spletno varni pari pisav"
 
-#: core/init-base.php:223
+#: core/init-base.php:227
 msgid "Single fonts"
 msgstr "Posamezne pisave"
 
-#: core/init-base.php:263
+#: core/init-base.php:267
 msgid "Customizr is a clean responsive theme"
 msgstr "Customizr je čista odzivna tema"
 
-#: core/init-base.php:277
+#: core/init-base.php:281
 msgid ""
 "Many layout and design options are available from the WordPress customizer "
 "screen : see your changes live !"
@@ -5260,22 +5260,22 @@ msgstr ""
 "Različne možnosti postavitve in oblikovanja so na voljo na WordPress "
 "prilagoditvenem zaslonu: poglej svoje spremembe v živo!"
 
-#: core/init-base.php:413
+#: core/init-base.php:417
 msgid "Secondary (horizontal) Menu"
 msgstr "Drugi (vodoraven) meni"
 
-#: core/init-base.php:415
+#: core/init-base.php:419
 msgid ""
 "Horizontal Top Bar Menu. (make sure that the topbar is displayed in the "
 "header settings )."
 msgstr ""
 
-#: core/init-base.php:416
+#: core/init-base.php:420
 #, fuzzy
 msgid "Mobile Menu"
 msgstr "Glavni Meni"
 
-#: core/init-base.php:1106 inc/czr-init-ccat.php:3164
+#: core/init-base.php:1110 inc/czr-init-ccat.php:3164
 msgid "Social links"
 msgstr "Družbene povezave"
 
@@ -5361,22 +5361,22 @@ msgid "Your comment is awaiting moderation."
 msgstr "Vaš komentar čaka na moderiranje."
 
 #: inc/czr-front-ccat.php:3098
-#: templates/parts/content/singular/comments/comment_list.php:66
+#: templates/parts/content/singular/comments/comment_list.php:77
 msgid "Comment navigation"
 msgstr "Krmarjenje po komentarjih"
 
 #: inc/czr-front-ccat.php:3104
-#: templates/parts/content/singular/comments/comment_list.php:72
+#: templates/parts/content/singular/comments/comment_list.php:83
 msgid "<span class=\"meta-nav\">&larr;</span> Older Comments"
 msgstr "<span class=\"meta-nav\">&larr;</span> Starješi Komentarji"
 
 #: inc/czr-front-ccat.php:3112
-#: templates/parts/content/singular/comments/comment_list.php:80
+#: templates/parts/content/singular/comments/comment_list.php:91
 msgid "Newer Comments <span class=\"meta-nav\">&rarr;</span>"
 msgstr "Novejši Komentarji <span class=\"meta-nav\">&rarr;</span>"
 
 #: inc/czr-front-ccat.php:3144
-#: templates/parts/content/singular/comments/comment_list.php:89
+#: templates/parts/content/singular/comments/comment_list.php:100
 msgid "Comments are closed."
 msgstr "Komentarji so izklopljeni."
 
@@ -5388,7 +5388,7 @@ msgstr "Dodaj komentar"
 msgid "Comment(s) on"
 msgstr "Komentar(ji) na"
 
-#: inc/czr-front-ccat.php:3510
+#: inc/czr-front-ccat.php:3512
 msgid "Edit now."
 msgstr "Uredi zdaj."
 

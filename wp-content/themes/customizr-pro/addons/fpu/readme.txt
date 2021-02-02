@@ -4,7 +4,7 @@ Donate link: http://www.presscustomizr.com#footer
 Tags: pages, customizer, home, wordpress
 Requires at least: 3.4
 Tested up to: 5.6
-Stable tag: 2.2.1
+Stable tag: 2.2.3
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -40,6 +40,12 @@ DOCUMENTATION : https://presscustomizr.com/extension/featured-pages-unlimited/
 SUPPORT : https://presscustomizr.com/support-forums/
 
 #######################  Changelog ######################
+= 2.2.3 January 13th 2021 =
+* added : support for shortcode parsing in FP text content
+
+= 2.2.2 January 8th 2021 =
+* fixed : [PHP 8.0] potentially invalid boolean check.
+
 = 2.2.1 November 30th 2020 =
 * fixed : [WP 5.7][jquery-migrate] replaced deprecated jQuery shorthands
 * improved : [performance] print front js inline

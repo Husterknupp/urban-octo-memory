@@ -2,9 +2,9 @@
 # This file is distributed under the same license as the Themes - Customizr-Pro package.
 msgid ""
 msgstr ""
-"Project-Id-Version: * Customizr-Pro v2.3.14\n"
+"Project-Id-Version: * Customizr-Pro v2.4.6\n"
 "Report-Msgid-Bugs-To: https://presscustomizr.com/contact/\n"
-"POT-Creation-Date: 2020-12-10 18:02:36+00:00\n"
+"POT-Creation-Date: 2021-01-22 13:52:32+00:00\n"
 "PO-Revision-Date: 2017-01-19 15:57:52+0000\n"
 "Language: fr_BE\n"
 "MIME-Version: 1.0\n"
@@ -401,7 +401,7 @@ msgstr ""
 msgid "Opening hours"
 msgstr ""
 
-#: addons/bundle/contact-info/pc-contact-info.php:223 core/init-base.php:138
+#: addons/bundle/contact-info/pc-contact-info.php:223 core/init-base.php:142
 msgid "E-mail"
 msgstr "E-mail"
 
@@ -950,7 +950,7 @@ msgid "The <strong>%1$s</strong> plugin %2$s.%3$s"
 msgstr ""
 
 #: addons/bundle/slider/back/classes/class_back_slider.php:95
-#: core/core-functions.php:1596
+#: core/core-functions.php:1600
 msgid "&mdash; Auto-generated slider from your blog posts &mdash;"
 msgstr "&mdash; Le diaporama auto-généré de vos articles de blog &mdash;"
 
@@ -1104,36 +1104,36 @@ msgstr "Couleur du titre et du texte"
 msgid "Hex Value"
 msgstr ""
 
-#: addons/fpu/front/classes/class_front_fpu.php:275
-#: addons/fpu/front/classes/class_front_fpu.php:358
+#: addons/fpu/front/classes/class_front_fpu.php:277
+#: addons/fpu/front/classes/class_front_fpu.php:360
 #, fuzzy
 msgid "Edit The Featured Pages"
 msgstr "Personnalisez ces pages"
 
-#: addons/fpu/front/classes/class_front_fpu.php:416
-#: addons/fpu/front/classes/class_front_fpu.php:659
-#: core/front/models/modules/featured-pages/class-model-featured_pages.php:134
-#: core/front/models/modules/featured-pages/class-model-featured_pages.php:145
-#: inc/czr-front-ccat.php:3509
+#: addons/fpu/front/classes/class_front_fpu.php:418
+#: addons/fpu/front/classes/class_front_fpu.php:661
+#: core/front/models/modules/featured-pages/class-model-featured_pages.php:136
+#: core/front/models/modules/featured-pages/class-model-featured_pages.php:147
+#: inc/czr-front-ccat.php:3511
 msgid "Customizer screen"
 msgstr "Customizer"
 
-#: addons/fpu/front/classes/class_front_fpu.php:417
-#: addons/fpu/front/classes/class_front_fpu.php:660
+#: addons/fpu/front/classes/class_front_fpu.php:419
+#: addons/fpu/front/classes/class_front_fpu.php:662
 #: core/core-settings-map.php:1059 core/core-settings-map.php:1064
 #: core/core-settings-map.php:2396 core/czr-admin-ccat.php:1440
 msgid "here"
 msgstr "ici"
 
-#: addons/fpu/front/classes/class_front_fpu.php:424
-#: addons/fpu/front/classes/class_front_fpu.php:667
-#: core/front/models/modules/featured-pages/class-model-featured_pages.php:159
-#: inc/czr-front-ccat.php:3517
+#: addons/fpu/front/classes/class_front_fpu.php:426
+#: addons/fpu/front/classes/class_front_fpu.php:669
+#: core/front/models/modules/featured-pages/class-model-featured_pages.php:161
+#: inc/czr-front-ccat.php:3519
 msgid "Featured page"
 msgstr "Page à la une"
 
-#: addons/fpu/front/classes/class_front_fpu.php:427
-#: addons/fpu/front/classes/class_front_fpu.php:670
+#: addons/fpu/front/classes/class_front_fpu.php:429
+#: addons/fpu/front/classes/class_front_fpu.php:672
 #, fuzzy
 msgid ""
 "Featured page description text : use the page or post excerpt or set your "
@@ -1142,8 +1142,8 @@ msgstr ""
 "Extrait de la page en une : utilisez l'extrait automatique ou écrivez un "
 "texte personnalisé."
 
-#: addons/fpu/front/classes/class_front_fpu.php:534
-#: addons/fpu/front/classes/class_front_fpu.php:780
+#: addons/fpu/front/classes/class_front_fpu.php:536
+#: addons/fpu/front/classes/class_front_fpu.php:782
 #: addons/wfc/back/czr-base-fmk/czr-base-fmk.php:268
 #: addons/wfc/back/czr-base-fmk/czr-base-fmk.php:570
 #: core/czr-admin-ccat.php:2432 core/czr-base-fmk/czr-base-fmk.php:268
@@ -1157,7 +1157,7 @@ msgstr ""
 #: core/front/template-tags/template-tags.php:163 inc/czr-front-ccat.php:2468
 #: inc/czr-front-ccat.php:2501 inc/czr-front-ccat.php:2516
 #: inc/czr-front-ccat.php:2544 inc/czr-front-ccat.php:3052
-#: inc/czr-front-ccat.php:3600 inc/czr-front-ccat.php:3987
+#: inc/czr-front-ccat.php:3602 inc/czr-front-ccat.php:3987
 #: inc/czr-front-ccat.php:8544
 msgid "Edit"
 msgstr "Modifier"
@@ -2504,19 +2504,19 @@ msgstr ""
 msgid "like this"
 msgstr ""
 
-#: core/core-functions.php:1505
+#: core/core-functions.php:1509
 msgid "Page %s"
 msgstr "Page %s"
 
-#: core/core-functions.php:1594
+#: core/core-functions.php:1598
 msgid "&mdash; No slider &mdash;"
 msgstr "&mdash; Pas de diaporama &mdash;"
 
-#: core/core-functions.php:1595
+#: core/core-functions.php:1599
 msgid "&mdash; Demo Slider &mdash;"
 msgstr "&mdash; Diaporama démo &mdash;"
 
-#: core/core-functions.php:1673
+#: core/core-functions.php:1677
 msgid "Please fill the email input with a valid email address"
 msgstr ""
 
@@ -2609,7 +2609,7 @@ msgstr ""
 "Cette option permet de régler la taille de police par défaut appliquée sur "
 "tout votre site."
 
-#: core/core-settings-map.php:329 core/init-base.php:1113
+#: core/core-settings-map.php:329 core/init-base.php:1117
 #, fuzzy
 msgid "Create and organize your social links"
 msgstr "Réglages des liens vers les réseaux sociaux"
@@ -2994,7 +2994,7 @@ msgstr "Note : le label n'est pas affiché sur les appareils mobiles."
 msgid "Specific Mobile Menu"
 msgstr ""
 
-#: core/core-settings-map.php:828 core/init-base.php:412
+#: core/core-settings-map.php:828 core/init-base.php:416
 msgid "Main Menu"
 msgstr "Menu principal"
 
@@ -4365,7 +4365,7 @@ msgid ""
 "If you are happy with the theme, say it on wordpress.org and give Customizr "
 "a nice review! <br />(We are addicted to your feedbacks...)"
 msgstr ""
-"Project-Id-Version: * Customizr-Pro v2.3.14\n"
+"Project-Id-Version: * Customizr-Pro v2.4.6\n"
 "évaluant le thème!"
 
 #: core/czr-admin-ccat.php:613
@@ -4942,52 +4942,52 @@ msgstr "Archives annuelles:"
 msgid "Continue reading <span class=\"meta-nav\">&rarr;</span>"
 msgstr "Poursuivre la lecture <span class=\"meta-nav\">&rarr;</span>"
 
-#: core/front/models/content/post-metas/class-model-post_metas.php:65
-#: core/front/models/content/post-metas/class-model-post_metas.php:71
+#: core/front/models/content/post-metas/class-model-post_metas.php:63
+#: core/front/models/content/post-metas/class-model-post_metas.php:69
 #: inc/czr-front-ccat.php:6961
 msgid "by"
 msgstr "par"
 
-#: core/front/models/content/post-metas/class-model-post_metas.php:78
+#: core/front/models/content/post-metas/class-model-post_metas.php:76
 #: inc/czr-front-ccat.php:6532
 msgid "Published"
 msgstr "Publié"
 
-#: core/front/models/content/post-metas/class-model-post_metas.php:85
+#: core/front/models/content/post-metas/class-model-post_metas.php:83
 msgid "Updated"
 msgstr ""
 
-#: core/front/models/content/post-metas/class-model-post_metas.php:97
+#: core/front/models/content/post-metas/class-model-post_metas.php:95
 #: inc/czr-front-ccat.php:6535
 msgid "at dimensions"
 msgstr "aux dimensions"
 
-#: core/front/models/content/post-metas/class-model-post_metas.php:97
+#: core/front/models/content/post-metas/class-model-post_metas.php:95
 #: inc/czr-front-ccat.php:6535
 msgid "Link to full-size image"
 msgstr "Lien vers l'image en taille originale"
 
-#: core/front/models/content/post-metas/class-model-post_metas.php:99
+#: core/front/models/content/post-metas/class-model-post_metas.php:97
 #: inc/czr-front-ccat.php:6536 inc/czr-front-ccat.php:6937
 msgid "in"
 msgstr "dans"
 
-#: core/front/models/content/post-metas/class-model-post_metas.php:99
+#: core/front/models/content/post-metas/class-model-post_metas.php:97
 #: inc/czr-front-ccat.php:6536
 msgid "Return to "
 msgstr "Retour sur "
 
-#: core/front/models/content/post-metas/class-model-post_metas.php:148
+#: core/front/models/content/post-metas/class-model-post_metas.php:146
 #, fuzzy
 msgid "Permalink to:&nbsp;"
 msgstr "Lien vers"
 
-#: core/front/models/content/post-metas/class-model-post_metas.php:194
+#: core/front/models/content/post-metas/class-model-post_metas.php:192
 #: inc/czr-front-ccat.php:6867
 msgid "View all posts by %s"
 msgstr "Voir tous les billets de %s"
 
-#: core/front/models/content/post-metas/class-model-post_metas.php:246
+#: core/front/models/content/post-metas/class-model-post_metas.php:244
 #: inc/czr-front-ccat.php:6708
 msgid "View all posts in %s"
 msgstr "Voir tous les billets dans %s"
@@ -5108,14 +5108,14 @@ msgstr "F Y"
 msgid "F j, Y"
 msgstr "j F Y"
 
-#: core/front/models/modules/featured-pages/class-model-featured_pages.php:135
-#: core/front/models/modules/featured-pages/class-model-featured_pages.php:146
+#: core/front/models/modules/featured-pages/class-model-featured_pages.php:137
+#: core/front/models/modules/featured-pages/class-model-featured_pages.php:148
 #, fuzzy
 msgid "Customize it now"
 msgstr "Customizer"
 
-#: core/front/models/modules/featured-pages/class-model-featured_pages.php:163
-#: inc/czr-front-ccat.php:3521
+#: core/front/models/modules/featured-pages/class-model-featured_pages.php:165
+#: inc/czr-front-ccat.php:3523
 #, fuzzy
 msgid ""
 "Featured page description text : use the page excerpt or set your own custom "
@@ -5182,105 +5182,105 @@ msgstr "Ajouter un menu"
 msgid "open the customizer menu section"
 msgstr "ouvrir le customizer"
 
-#: core/init-base.php:121
+#: core/init-base.php:125
 msgid "Left Sidebar"
 msgstr "Barre latérale gauche"
 
-#: core/init-base.php:122 core/init-base.php:126
+#: core/init-base.php:126 core/init-base.php:130
 msgid "Appears on posts, static pages, archives and search pages"
 msgstr ""
 "Affichée dans les billets, les pages statiques, les archives et les pages de "
 "recherche"
 
-#: core/init-base.php:125
+#: core/init-base.php:129
 msgid "Right Sidebar"
 msgstr "Barre latérale droite"
 
-#: core/init-base.php:134
+#: core/init-base.php:138
 msgid "Subscribe to my rss feed"
 msgstr "Abonnez-vous au flux rss"
 
-#: core/init-base.php:141
+#: core/init-base.php:145
 msgid "Follow me on Twitter"
 msgstr "Suivez-moi sur Twitter"
 
-#: core/init-base.php:144
+#: core/init-base.php:148
 msgid "Follow me on Facebook"
 msgstr "Suivez-moi sur Facebook"
 
-#: core/init-base.php:147
+#: core/init-base.php:151
 msgid "Follow me on Google+"
 msgstr "Suivez-moi sur Google+"
 
-#: core/init-base.php:150
+#: core/init-base.php:154
 msgid "Follow me on Instagram"
 msgstr "Suivez-moi sur Instagram"
 
-#: core/init-base.php:153
+#: core/init-base.php:157
 msgid "Follow me on Tumblr"
 msgstr "Suivez-moi sur Tumblr"
 
-#: core/init-base.php:156
+#: core/init-base.php:160
 msgid "Follow me on Flickr"
 msgstr "Suivez-moi sur Flickr"
 
-#: core/init-base.php:159
+#: core/init-base.php:163
 msgid "Follow me on WordPress"
 msgstr "Suivez-moi sur WordPress"
 
-#: core/init-base.php:162
+#: core/init-base.php:166
 msgid "Follow me on Youtube"
 msgstr "Suivez-moi sur Youtube"
 
-#: core/init-base.php:165
+#: core/init-base.php:169
 msgid "Pin me on Pinterest"
 msgstr "Suivez moi sur Pinterest"
 
-#: core/init-base.php:168
+#: core/init-base.php:172
 msgid "Follow me on Github"
 msgstr "Suivez-moi sur Github "
 
-#: core/init-base.php:171
+#: core/init-base.php:175
 msgid "Follow me on Dribbble"
 msgstr "Suivez-moi sur Dribbble "
 
-#: core/init-base.php:174
+#: core/init-base.php:178
 msgid "Follow me on LinkedIn"
 msgstr "Suivez-moi sur LinkedIn"
 
-#: core/init-base.php:177
+#: core/init-base.php:181
 msgid "Follow me on VKontakte"
 msgstr "Suivez moi sur VKontakte"
 
-#: core/init-base.php:180
+#: core/init-base.php:184
 msgid "Follow me on Yelp"
 msgstr "Suivez-moi sur Yelp"
 
-#: core/init-base.php:183
+#: core/init-base.php:187
 msgid "Follow me on Xing"
 msgstr "Suivez-moi sur Xing"
 
-#: core/init-base.php:186
+#: core/init-base.php:190
 msgid "Contact me on Snapchat"
 msgstr "Contactez moi su Snapchat"
 
-#: core/init-base.php:193
+#: core/init-base.php:197
 msgid "Google fonts pairs"
 msgstr "Polices Google"
 
-#: core/init-base.php:214
+#: core/init-base.php:218
 msgid "Web safe fonts pairs"
 msgstr "Polices du web"
 
-#: core/init-base.php:223
+#: core/init-base.php:227
 msgid "Single fonts"
 msgstr "Polices seules"
 
-#: core/init-base.php:263
+#: core/init-base.php:267
 msgid "Customizr is a clean responsive theme"
 msgstr "Customizr est un thème élégant et simple"
 
-#: core/init-base.php:277
+#: core/init-base.php:281
 msgid ""
 "Many layout and design options are available from the WordPress customizer "
 "screen : see your changes live !"
@@ -5288,22 +5288,22 @@ msgstr ""
 "De nombreuses options de design et structures sont disponibles dans l'écran "
 "de customization Wordpress : vos modifications s'affichent en live !"
 
-#: core/init-base.php:413
+#: core/init-base.php:417
 msgid "Secondary (horizontal) Menu"
 msgstr "Second Menu (horizontal)"
 
-#: core/init-base.php:415
+#: core/init-base.php:419
 msgid ""
 "Horizontal Top Bar Menu. (make sure that the topbar is displayed in the "
 "header settings )."
 msgstr ""
 
-#: core/init-base.php:416
+#: core/init-base.php:420
 #, fuzzy
 msgid "Mobile Menu"
 msgstr "Menu principal"
 
-#: core/init-base.php:1106 inc/czr-init-ccat.php:3164
+#: core/init-base.php:1110 inc/czr-init-ccat.php:3164
 msgid "Social links"
 msgstr "Liens sociaux"
 
@@ -5390,22 +5390,22 @@ msgid "Your comment is awaiting moderation."
 msgstr "Votre commentaire est en attente de modération."
 
 #: inc/czr-front-ccat.php:3098
-#: templates/parts/content/singular/comments/comment_list.php:66
+#: templates/parts/content/singular/comments/comment_list.php:77
 msgid "Comment navigation"
 msgstr "Comment navigation"
 
 #: inc/czr-front-ccat.php:3104
-#: templates/parts/content/singular/comments/comment_list.php:72
+#: templates/parts/content/singular/comments/comment_list.php:83
 msgid "<span class=\"meta-nav\">&larr;</span> Older Comments"
 msgstr "<span class=\"meta-nav\">&larr;</span> Billets plus anciens"
 
 #: inc/czr-front-ccat.php:3112
-#: templates/parts/content/singular/comments/comment_list.php:80
+#: templates/parts/content/singular/comments/comment_list.php:91
 msgid "Newer Comments <span class=\"meta-nav\">&rarr;</span>"
 msgstr "Billets plus récents <span class=\"meta-nav\">&rarr;</span>"
 
 #: inc/czr-front-ccat.php:3144
-#: templates/parts/content/singular/comments/comment_list.php:89
+#: templates/parts/content/singular/comments/comment_list.php:100
 msgid "Comments are closed."
 msgstr "Les commentaires sont fermés."
 
@@ -5417,7 +5417,7 @@ msgstr "Laissez un commentaire"
 msgid "Comment(s) on"
 msgstr "Commentaire(s) sur"
 
-#: inc/czr-front-ccat.php:3510
+#: inc/czr-front-ccat.php:3512
 msgid "Edit now."
 msgstr "Modifier maintenant."
 

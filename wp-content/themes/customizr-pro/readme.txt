@@ -1,4 +1,4 @@
-# Customizr Pro v2.3.14
+# Customizr Pro v2.4.6
 ![Customizr - Pro](/screenshot.png)
 
 > The pro version of the popular Customizr WordPress theme.
@@ -14,6 +14,28 @@ Customizr Pro is distributed under the terms of the [GNU GPL v2.0 or later](http
 * SUPPORT : https://presscustomizr.com/support/
 
 ## Changelog
+= 2.4.6 January 22nd, 2021 =
+* fixed : [effect] effect not applied on all expected selectors due to an error in the inline javascript code
+
+= 2.4.5 January 17th, 2021 =
+* fixed : [PHP 8] error Uncaught ValueError: Unknown format specifier “;” in core/czr-customize-ccat.php:966
+
+= 2.4.4 January 13th, 2021 =
+* added : [featured pages] support for shortcodes in fp custom text
+* added : [social links] mastodon icon
+
+= 2.4.3 January 8th, 2021 =
+* fixed : [PHP 8.0] broken value checks on boolean options
+
+= 2.4.1 January 5th, 2021 =
+* fixed : [performance] preload customizr.woff2 font
+* fixed : [performance][php] removed duplicated queries for 'template' option and thumbnail models
+* fixed : [performance] improve loading performance of Font awesome icons to comply with Google lighthouse metrics ( preload warning removed )
+* improved : [performance][footer] replaced font awesome WP icon
+
+= 2.4.0 December 14th, 2020 =
+* fixed : [PHP 8] Fix deprecation notices for optional function parameters declared before required parameter
+
 = 2.3.14 December 10th, 2020 =
 * fixed : [WP 5.6][WP 5.7] replaced deprecated shorthands
 * fixed : [WP 5.6][fancybox] Close (x) link not working on pop-up image in galleries
