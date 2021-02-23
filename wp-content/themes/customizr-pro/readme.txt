@@ -1,4 +1,4 @@
-# Customizr Pro v2.4.6
+# Customizr Pro v2.4.7
 ![Customizr - Pro](/screenshot.png)
 
 > The pro version of the popular Customizr WordPress theme.
@@ -14,6 +14,12 @@ Customizr Pro is distributed under the terms of the [GNU GPL v2.0 or later](http
 * SUPPORT : https://presscustomizr.com/support/
 
 ## Changelog
+= 2.4.7 February 2nd, 2021 =
+* fixed : Conflict with OptimizePress3
+* fixed : [header] top offset issue when user logged in
+* updated : Font Awesome icons to latest version (v5.15.2)
+* added : [social links] added Tiktok icon
+
 = 2.4.6 January 22nd, 2021 =
 * fixed : [effect] effect not applied on all expected selectors due to an error in the inline javascript code
 
