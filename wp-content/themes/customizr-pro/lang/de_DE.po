@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: * Customizr-Pro v2.1.15\n"
 "Report-Msgid-Bugs-To: https://presscustomizr.com/contact/\n"
-"POT-Creation-Date: 2021-02-02 14:49:31+00:00\n"
+"POT-Creation-Date: 2021-03-30 16:21:19+00:00\n"
 "PO-Revision-Date: 2020-05-15 06:53+0200\n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -2498,7 +2498,7 @@ msgstr ""
 "Das Plugin ist leichtgewichtig und wurde entwickelt, um perfekt in Customizr "
 "integriert zu werden."
 
-#: core/class-plugin-rec.php:90
+#: core/class-plugin-rec.php:92
 #, fuzzy
 msgid ""
 "Customizr theme recommends the simple and smart %1$s companion ( free 😍 ) to "
@@ -2507,12 +2507,12 @@ msgstr ""
 "Das Customizr Theme benötigt den Nimble Drag-and-drop Abschnitts-Builder: "
 "%1$s."
 
-#: core/class-plugin-rec.php:93
+#: core/class-plugin-rec.php:95
 #, fuzzy
 msgid "Nimble Builder"
 msgstr "Nimble Page Builder"
 
-#: core/class-plugin-rec.php:96
+#: core/class-plugin-rec.php:98
 msgid "like this"
 msgstr ""
 

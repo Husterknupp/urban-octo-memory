@@ -99,6 +99,10 @@ class TC_front_font_customizer {
     // @wp_footer
     // replaces wp_localize because we don't need to indicate a dependency to any scripts for local data
     function tc_print_local_scripts() {
+         // May 2020 for https://github.com/presscustomizr/wordpress-font-customizer/issues/115
+        if ( (bool)get_option( TC_wfc::$opt_name . '_deactivated' ) )
+            return;
+            
         $wfc_params = array(
             'effectsAndIconsSelectorCandidates' => $this -> get_effect_user_settings_localized_data_js(),
             'wfcOptions' => $this -> get_debug_options()

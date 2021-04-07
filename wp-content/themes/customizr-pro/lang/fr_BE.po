@@ -2,9 +2,9 @@
 # This file is distributed under the same license as the Themes - Customizr-Pro package.
 msgid ""
 msgstr ""
-"Project-Id-Version: * Customizr-Pro v2.4.7\n"
+"Project-Id-Version: * Customizr-Pro v2.4.8\n"
 "Report-Msgid-Bugs-To: https://presscustomizr.com/contact/\n"
-"POT-Creation-Date: 2021-02-02 14:49:31+00:00\n"
+"POT-Creation-Date: 2021-03-30 16:21:19+00:00\n"
 "PO-Revision-Date: 2017-01-19 15:57:52+0000\n"
 "Language: fr_BE\n"
 "MIME-Version: 1.0\n"
@@ -2490,17 +2490,17 @@ msgid ""
 "Customizr and any WordPress theme."
 msgstr ""
 
-#: core/class-plugin-rec.php:90
+#: core/class-plugin-rec.php:92
 msgid ""
 "Customizr theme recommends the simple and smart %1$s companion ( free 😍 ) to "
 "help you build pages %2$s."
 msgstr ""
 
-#: core/class-plugin-rec.php:93
+#: core/class-plugin-rec.php:95
 msgid "Nimble Builder"
 msgstr ""
 
-#: core/class-plugin-rec.php:96
+#: core/class-plugin-rec.php:98
 msgid "like this"
 msgstr ""
 
@@ -4365,7 +4365,7 @@ msgid ""
 "If you are happy with the theme, say it on wordpress.org and give Customizr "
 "a nice review! <br />(We are addicted to your feedbacks...)"
 msgstr ""
-"Project-Id-Version: * Customizr-Pro v2.4.7\n"
+"Project-Id-Version: * Customizr-Pro v2.4.8\n"
 "évaluant le thème!"
 
 #: core/czr-admin-ccat.php:613

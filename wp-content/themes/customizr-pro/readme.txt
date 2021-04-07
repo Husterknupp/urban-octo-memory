@@ -1,4 +1,4 @@
-# Customizr Pro v2.4.7
+# Customizr Pro v2.4.8
 ![Customizr - Pro](/screenshot.png)
 
 > The pro version of the popular Customizr WordPress theme.
@@ -14,6 +14,11 @@ Customizr Pro is distributed under the terms of the [GNU GPL v2.0 or later](http
 * SUPPORT : https://presscustomizr.com/support/
 
 ## Changelog
+= 2.4.8 March 30th, 2021 =
+* fixed : [header] when centered on desktop, the site title stays left aligned
+* fixed : [PHP] error when global font-size left blank. "Unsupported operand types: string / int"
+* successufully tested with WP 5.7
+
 = 2.4.7 February 2nd, 2021 =
 * fixed : Conflict with OptimizePress3
 * fixed : [header] top offset issue when user logged in
