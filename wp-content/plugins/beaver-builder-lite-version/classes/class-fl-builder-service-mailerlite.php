@@ -50,7 +50,7 @@ final class FLBuilderServiceMailerLite extends FLBuilderService {
 		//
 		// return $this->api_instance;
 		require_once FL_BUILDER_DIR . 'includes/vendor/mailerlite/autoload.php';
-		//	$mailerliteClient = new \MailerLiteApi\MailerLite('your-api-key');
+		require FL_BUILDER_DIR . 'includes/vendor/mailerlite/guzzlehttp/psr7/src/functions_include.php';
 
 		$groupsapi = new \MailerLiteApi\MailerLite( $api_key );
 		return $groupsapi;

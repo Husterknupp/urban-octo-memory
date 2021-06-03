@@ -26,11 +26,11 @@ Watch the video below or [try out the demo](https://www.wpbeaverbuilder.com/go/d
 >
 > Along with access to our expert support team, there are many time-saving features in the premium versions which make it a great value for any serious WordPress user. [**Get a license today.**](https://www.wpbeaverbuilder.com/pricing/?utm_medium=bb-lite&utm_source=repo-readme&utm_campaign=repo-support-cta "Beaver Builder Premium Support")
 >
-> You can also reference our [Knowledge Base](https://kb.wpbeaverbuilder.com/ "Beaver Builder Knowledge Base"), or try asking the Beaver Builder community for help in either [Facebook](http://beaver.builders/wp-repo-fb "Beaver Builders on Facebook") or [Slack](https://www.wpbeaverbuilder.com/go/beaver-builders-slack "Beaver Builders on Slack"). Keep in mind, these are all folks just like you who are volunteering their time.
+> You can also reference our [Knowledge Base](https://kb.wpbeaverbuilder.com/ "Beaver Builder Knowledge Base"), or try asking the Beaver Builder community for help in either [Facebook](http://beaver.builders/wp-repo-fb "Beaver Builders on Facebook") or [Slack](http://beaver.builders/wp-repo-slack "Beaver Builders on Slack"). Keep in mind, these are all folks just like you who are volunteering their time.
 
 = Join our Growing Community =
 
-There is a huge colony (_yeah, that's the term for a group of beavers_) of "Beaver Builders" that would love to get to know you! If you have questions, a project to show off, or you would like to meet and network with other Beaver Builder users, you'll feel right at home in the [Beaver Builders Facebook Group](http://beaver.builders/wp-repo-fb "Beaver Builders on Facebook") or the [Beaver Builders Slack Channel](https://www.wpbeaverbuilder.com/go/beaver-builders-slack "Beaver Builders on Slack"). Come on by and say hello.
+There is a huge colony (_yeah, that's the term for a group of beavers_) of "Beaver Builders" that would love to get to know you! If you have questions, a project to show off, or you would like to meet and network with other Beaver Builder users, you'll feel right at home in the [Beaver Builders Facebook Group](http://beaver.builders/wp-repo-fb "Beaver Builders on Facebook") or the [Beaver Builders Slack Channel](http://beaver.builders/wp-repo-slack "Beaver Builders on Slack"). Come on by and say hello.
 
 = Page Builder Features =
 
