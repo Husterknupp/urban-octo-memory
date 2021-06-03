@@ -2,9 +2,9 @@
 # This file is distributed under the same license as the Themes - Customizr-Pro package.
 msgid ""
 msgstr ""
-"Project-Id-Version: * Customizr-Pro v2.4.8\n"
+"Project-Id-Version: * Customizr-Pro v2.4.12\n"
 "Report-Msgid-Bugs-To: https://presscustomizr.com/contact/\n"
-"POT-Creation-Date: 2021-03-30 16:21:19+00:00\n"
+"POT-Creation-Date: 2021-06-01 13:58:17+00:00\n"
 "PO-Revision-Date: 2017-02-28 14:59:35+0000\n"
 "Language: uk_UA\n"
 "MIME-Version: 1.0\n"
@@ -1050,7 +1050,7 @@ msgstr "Дізнатися більше про категорії записів
 #: addons/fpu/back/classes/class_back_fpu.php:51
 #: addons/wfc/back/classes/class_admin_font_customizer.php:587
 #: addons/wfc/back/czr-base-fmk/czr-base-fmk.php:274
-#: core/czr-base-fmk/czr-base-fmk.php:274 core/czr-customize-ccat.php:885
+#: core/czr-base-fmk/czr-base-fmk.php:274 core/czr-customize-ccat.php:893
 msgid "Settings"
 msgstr "Налаштування"
 
@@ -1144,10 +1144,10 @@ msgstr ""
 #: addons/fpu/front/classes/class_front_fpu.php:536
 #: addons/fpu/front/classes/class_front_fpu.php:782
 #: addons/wfc/back/czr-base-fmk/czr-base-fmk.php:268
-#: addons/wfc/back/czr-base-fmk/czr-base-fmk.php:570
+#: addons/wfc/back/czr-base-fmk/czr-base-fmk.php:567
 #: core/czr-admin-ccat.php:2432 core/czr-base-fmk/czr-base-fmk.php:268
-#: core/czr-base-fmk/czr-base-fmk.php:570 core/czr-customize-ccat.php:856
-#: core/czr-customize-ccat.php:866
+#: core/czr-base-fmk/czr-base-fmk.php:567 core/czr-customize-ccat.php:864
+#: core/czr-customize-ccat.php:874
 #: core/front/models/modules/common/class-model-breadcrumb.php:624
 #: core/front/models/modules/common/class-model-breadcrumb.php:657
 #: core/front/models/modules/common/class-model-breadcrumb.php:672
@@ -1698,16 +1698,16 @@ msgid "Are you sure you want to reset all your font settings to default?"
 msgstr ""
 
 #: addons/wfc/back/classes/class_admin_font_customizer.php:516
-#: addons/wfc/back/czr-base-fmk/czr-base-fmk.php:579
+#: addons/wfc/back/czr-base-fmk/czr-base-fmk.php:576
 #: core/core-settings-map.php:1256 core/core-settings-map.php:1268
-#: core/czr-base-fmk/czr-base-fmk.php:579
+#: core/czr-base-fmk/czr-base-fmk.php:576
 msgid "Yes"
 msgstr "Так"
 
 #: addons/wfc/back/classes/class_admin_font_customizer.php:517
-#: addons/wfc/back/czr-base-fmk/czr-base-fmk.php:579
+#: addons/wfc/back/czr-base-fmk/czr-base-fmk.php:576
 #: core/core-settings-map.php:1257 core/core-settings-map.php:1269
-#: core/czr-base-fmk/czr-base-fmk.php:579 inc/czr-front-ccat.php:4084
+#: core/czr-base-fmk/czr-base-fmk.php:576 inc/czr-front-ccat.php:4084
 msgid "No"
 msgstr "Ні"
 
@@ -1811,31 +1811,31 @@ msgid "Color value"
 msgstr ""
 
 #: addons/wfc/back/czr-base-fmk/czr-base-fmk.php:269
-#: core/czr-base-fmk/czr-base-fmk.php:269 core/czr-customize-ccat.php:857
+#: core/czr-base-fmk/czr-base-fmk.php:269 core/czr-customize-ccat.php:865
 #: inc/czr-front-ccat.php:776 inc/czr-front-ccat.php:783
 msgid "Close"
 msgstr "Закрити"
 
 #: addons/wfc/back/czr-base-fmk/czr-base-fmk.php:270
-#: core/czr-base-fmk/czr-base-fmk.php:270 core/czr-customize-ccat.php:858
+#: core/czr-base-fmk/czr-base-fmk.php:270 core/czr-customize-ccat.php:866
 msgid "Not set"
 msgstr "Не вибрано"
 
 #: addons/wfc/back/czr-base-fmk/czr-base-fmk.php:271
-#: core/czr-base-fmk/czr-base-fmk.php:271 core/czr-customize-ccat.php:862
+#: core/czr-base-fmk/czr-base-fmk.php:271 core/czr-customize-ccat.php:870
 #: core/czr-modules/social-links/index.php:78
 #: core/czr-modules/social-links/social_links_module.php:80
 msgid "Done !"
 msgstr "Готово!"
 
 #: addons/wfc/back/czr-base-fmk/czr-base-fmk.php:273
-#: core/czr-base-fmk/czr-base-fmk.php:273 core/czr-customize-ccat.php:864
-#: core/czr-customize-ccat.php:884
+#: core/czr-base-fmk/czr-base-fmk.php:273 core/czr-customize-ccat.php:872
+#: core/czr-customize-ccat.php:892
 msgid "Learn more about this in the documentation"
 msgstr "Детальніше про це читайте в документації"
 
 #: addons/wfc/back/czr-base-fmk/czr-base-fmk.php:275
-#: core/czr-base-fmk/czr-base-fmk.php:275 core/czr-customize-ccat.php:886
+#: core/czr-base-fmk/czr-base-fmk.php:275 core/czr-customize-ccat.php:894
 msgid "Options for"
 msgstr ""
 
@@ -1852,9 +1852,9 @@ msgid "Change Image"
 msgstr "Змінити зображення"
 
 #: addons/wfc/back/czr-base-fmk/czr-base-fmk.php:280
-#: addons/wfc/back/czr-base-fmk/czr-base-fmk.php:570
+#: addons/wfc/back/czr-base-fmk/czr-base-fmk.php:567
 #: core/czr-base-fmk/czr-base-fmk.php:280
-#: core/czr-base-fmk/czr-base-fmk.php:570 core/czr-customize-ccat.php:1479
+#: core/czr-base-fmk/czr-base-fmk.php:567 core/czr-customize-ccat.php:1487
 msgid "Remove"
 msgstr "Видалити"
 
@@ -1874,53 +1874,53 @@ msgstr "Вибрати зображення"
 msgid "Customizing"
 msgstr "Customizr"
 
-#: addons/wfc/back/czr-base-fmk/czr-base-fmk.php:480
-#: core/czr-base-fmk/czr-base-fmk.php:480
+#: addons/wfc/back/czr-base-fmk/czr-base-fmk.php:477
+#: core/czr-base-fmk/czr-base-fmk.php:477
 msgid "ac_set_ajax_czr_tmpl => Security check failed."
 msgstr ""
 
-#: addons/wfc/back/czr-base-fmk/czr-base-fmk.php:552
-#: core/czr-base-fmk/czr-base-fmk.php:552
+#: addons/wfc/back/czr-base-fmk/czr-base-fmk.php:549
+#: core/czr-base-fmk/czr-base-fmk.php:549
 msgid "Add New"
 msgstr "Додати новий"
 
-#: addons/wfc/back/czr-base-fmk/czr-base-fmk.php:557
-#: core/czr-base-fmk/czr-base-fmk.php:557
+#: addons/wfc/back/czr-base-fmk/czr-base-fmk.php:554
+#: core/czr-base-fmk/czr-base-fmk.php:554
 msgid "Cancel"
 msgstr "Відмінити"
 
-#: addons/wfc/back/czr-base-fmk/czr-base-fmk.php:557
-#: core/czr-base-fmk/czr-base-fmk.php:557
+#: addons/wfc/back/czr-base-fmk/czr-base-fmk.php:554
+#: core/czr-base-fmk/czr-base-fmk.php:554
 msgid "Add it"
 msgstr "Додати"
 
-#: addons/wfc/back/czr-base-fmk/czr-base-fmk.php:578
-#: core/czr-base-fmk/czr-base-fmk.php:578
+#: addons/wfc/back/czr-base-fmk/czr-base-fmk.php:575
+#: core/czr-base-fmk/czr-base-fmk.php:575
 msgid "Are you sure you want to remove : <strong>{{ data.title }} ?</strong>"
 msgstr "Ви впевнені, що бажаєте видалити: <strong>{{ data.title }} ?</strong>"
 
-#: addons/wfc/back/czr-base-fmk/czr-base-fmk.php:1694
-#: core/czr-base-fmk/czr-base-fmk.php:1694
+#: addons/wfc/back/czr-base-fmk/czr-base-fmk.php:1691
+#: core/czr-base-fmk/czr-base-fmk.php:1691
 msgid "Set a custom url"
 msgstr ""
 
-#: addons/wfc/back/czr-base-fmk/czr-base-fmk.php:1728
-#: addons/wfc/back/czr-base-fmk/czr-base-fmk.php:1928
-#: core/czr-base-fmk/czr-base-fmk.php:1728
-#: core/czr-base-fmk/czr-base-fmk.php:1928
+#: addons/wfc/back/czr-base-fmk/czr-base-fmk.php:1725
+#: addons/wfc/back/czr-base-fmk/czr-base-fmk.php:1925
+#: core/czr-base-fmk/czr-base-fmk.php:1725
+#: core/czr-base-fmk/czr-base-fmk.php:1925
 msgid "ajax_load_available_items => Security check failed."
 msgstr ""
 
 #. translators: %d: ID of a post
-#: addons/wfc/back/czr-base-fmk/czr-base-fmk.php:1849
-#: addons/wfc/back/czr-base-fmk/czr-base-fmk.php:2058
-#: core/czr-base-fmk/czr-base-fmk.php:1849
-#: core/czr-base-fmk/czr-base-fmk.php:2058
+#: addons/wfc/back/czr-base-fmk/czr-base-fmk.php:1846
+#: addons/wfc/back/czr-base-fmk/czr-base-fmk.php:2055
+#: core/czr-base-fmk/czr-base-fmk.php:1846
+#: core/czr-base-fmk/czr-base-fmk.php:2055
 msgid "#%d (no title)"
 msgstr ""
 
-#: addons/wfc/back/czr-base-fmk/czr-base-fmk.php:1992
-#: core/czr-base-fmk/czr-base-fmk.php:1992
+#: addons/wfc/back/czr-base-fmk/czr-base-fmk.php:1989
+#: core/czr-base-fmk/czr-base-fmk.php:1989
 msgid "No results found."
 msgstr ""
 
@@ -4598,7 +4598,7 @@ msgstr "Слайд-шоу буде видалено (зображення, кн�
 msgid "Delete slider"
 msgstr "Видалити слайд-шоу"
 
-#: core/czr-admin-ccat.php:1688 core/czr-customize-ccat.php:961
+#: core/czr-admin-ccat.php:1688 core/czr-customize-ccat.php:969
 msgid ""
 "You haven't create any slider yet. Go to the media library, edit your images "
 "and add them to your sliders."
@@ -4716,61 +4716,61 @@ msgstr ""
 msgid "Slider documentation"
 msgstr "Документація до слайд-шоу"
 
-#: core/czr-customize-ccat.php:561
+#: core/czr-customize-ccat.php:569
 msgid "More grid design options"
 msgstr "Інші варіанти налаштувань дизайну сітки"
 
-#: core/czr-customize-ccat.php:590
+#: core/czr-customize-ccat.php:598
 msgid "SITE ICON"
 msgstr "SITE ICON"
 
-#: core/czr-customize-ccat.php:603 core/czr-customize-ccat.php:604
+#: core/czr-customize-ccat.php:611 core/czr-customize-ccat.php:612
 msgid "Upgrade WP"
 msgstr "Оновити WP"
 
-#: core/czr-customize-ccat.php:623
+#: core/czr-customize-ccat.php:631
 msgid "This theme requires WordPress 3.4+"
 msgstr "Ця тема вимагає WordPress 3.4+"
 
-#: core/czr-customize-ccat.php:626 core/czr-customize-ccat.php:627
+#: core/czr-customize-ccat.php:634 core/czr-customize-ccat.php:635
 msgid "Upgrade Wordpress Now"
 msgstr "Оновити Wordpress зараз"
 
-#: core/czr-customize-ccat.php:859 core/czr-modules/social-links/index.php:75
+#: core/czr-customize-ccat.php:867 core/czr-modules/social-links/index.php:75
 #: core/czr-modules/social-links/social_links_module.php:77
 msgid "Rss"
 msgstr "Rss"
 
-#: core/czr-customize-ccat.php:860 core/czr-modules/social-links/index.php:76
+#: core/czr-customize-ccat.php:868 core/czr-modules/social-links/index.php:76
 #: core/czr-modules/social-links/social_links_module.php:78
 msgid "Select a social icon"
 msgstr "Виберіть іконку соціальної мережі"
 
-#: core/czr-customize-ccat.php:861 core/czr-modules/social-links/index.php:77
+#: core/czr-customize-ccat.php:869 core/czr-modules/social-links/index.php:77
 #: core/czr-modules/social-links/social_links_module.php:79
 msgid "Follow us on"
 msgstr "Слідкуй за нами в"
 
-#: core/czr-customize-ccat.php:863 core/czr-modules/social-links/index.php:79
+#: core/czr-customize-ccat.php:871 core/czr-modules/social-links/index.php:79
 #: core/czr-modules/social-links/social_links_module.php:81
 msgid "New Social Link created ! Scroll down to edit it."
 msgstr ""
 "Нове посилання на соціальну мережу створений! Прокрути вниз, щоб редагувати "
 "його."
 
-#: core/czr-customize-ccat.php:867
+#: core/czr-customize-ccat.php:875
 msgid "Close Editor"
 msgstr "Закрити редактор"
 
-#: core/czr-customize-ccat.php:869
+#: core/czr-customize-ccat.php:877
 msgid "New Slide created ! Scroll down to edit it."
 msgstr "Нове слайд-шоу створене! Прокрути вниз, щоб редагувати його."
 
-#: core/czr-customize-ccat.php:870
+#: core/czr-customize-ccat.php:878
 msgid "Slide"
 msgstr "Слайд-шоу"
 
-#: core/czr-customize-ccat.php:871
+#: core/czr-customize-ccat.php:879
 msgid ""
 "This option generates a home page slider based on your last posts, starting "
 "from the most recent or the featured (sticky) post(s) if any."
@@ -4778,41 +4778,41 @@ msgstr ""
 "Ця опція генерує слайд-шоу на головній сторінці з ваших останніх записів, "
 "починаючи з нових або закріплених записів якщо вони є."
 
-#: core/czr-customize-ccat.php:873
+#: core/czr-customize-ccat.php:881
 msgid ""
 "The side on which the menu is revealed depends on the choosen header layout."
 msgstr ""
 "Сторона, на якій розкривається меню залежить від обраного макета заголовка."
 
-#: core/czr-customize-ccat.php:874
+#: core/czr-customize-ccat.php:882
 msgid "To change the global header layout, %s"
 msgstr "Щоб змінити розташування шапки, %s"
 
-#: core/czr-customize-ccat.php:877
+#: core/czr-customize-ccat.php:885
 msgid "jump to the Design and Layout section"
 msgstr "перейти до секції Дизайну та Макету"
 
-#: core/czr-customize-ccat.php:878
+#: core/czr-customize-ccat.php:886
 msgid "Change the header layout"
 msgstr "Змінити стиль шапки сайту"
 
-#: core/czr-customize-ccat.php:963
+#: core/czr-customize-ccat.php:971
 msgid "Create a slider"
 msgstr "Створити слайд-шоу"
 
-#: core/czr-customize-ccat.php:964
+#: core/czr-customize-ccat.php:972
 msgid "Need help to create a slider ?"
 msgstr "Потрібна допомога, щоб створити слайд-шоу?"
 
-#: core/czr-customize-ccat.php:966
+#: core/czr-customize-ccat.php:974
 msgid "Check the documentation"
 msgstr "Перевірити документацію"
 
-#: core/czr-customize-ccat.php:1478
+#: core/czr-customize-ccat.php:1486
 msgid "Upload"
 msgstr "Завантажити"
 
-#: core/czr-customize-ccat.php:1552
+#: core/czr-customize-ccat.php:1560
 msgid "Press return or enter to open this panel"
 msgstr "Натисніть enter, щоб відкрити панель"
 

@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: * Customizr-Pro v2.0.21\n"
 "Report-Msgid-Bugs-To: https://presscustomizr.com/contact/\n"
-"POT-Creation-Date: 2021-03-30 16:21:19+00:00\n"
+"POT-Creation-Date: 2021-06-01 13:58:17+00:00\n"
 "PO-Revision-Date: 2019-06-15 17:25+0200\n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -1090,7 +1090,7 @@ msgstr "Plus d’informations sur les catégories d’articles dans WordPress"
 #: addons/fpu/back/classes/class_back_fpu.php:51
 #: addons/wfc/back/classes/class_admin_font_customizer.php:587
 #: addons/wfc/back/czr-base-fmk/czr-base-fmk.php:274
-#: core/czr-base-fmk/czr-base-fmk.php:274 core/czr-customize-ccat.php:885
+#: core/czr-base-fmk/czr-base-fmk.php:274 core/czr-customize-ccat.php:893
 msgid "Settings"
 msgstr "Réglages"
 
@@ -1176,10 +1176,10 @@ msgstr ""
 #: addons/fpu/front/classes/class_front_fpu.php:536
 #: addons/fpu/front/classes/class_front_fpu.php:782
 #: addons/wfc/back/czr-base-fmk/czr-base-fmk.php:268
-#: addons/wfc/back/czr-base-fmk/czr-base-fmk.php:570
+#: addons/wfc/back/czr-base-fmk/czr-base-fmk.php:567
 #: core/czr-admin-ccat.php:2432 core/czr-base-fmk/czr-base-fmk.php:268
-#: core/czr-base-fmk/czr-base-fmk.php:570 core/czr-customize-ccat.php:856
-#: core/czr-customize-ccat.php:866
+#: core/czr-base-fmk/czr-base-fmk.php:567 core/czr-customize-ccat.php:864
+#: core/czr-customize-ccat.php:874
 #: core/front/models/modules/common/class-model-breadcrumb.php:624
 #: core/front/models/modules/common/class-model-breadcrumb.php:657
 #: core/front/models/modules/common/class-model-breadcrumb.php:672
@@ -1716,16 +1716,16 @@ msgstr ""
 "défaut ?"
 
 #: addons/wfc/back/classes/class_admin_font_customizer.php:516
-#: addons/wfc/back/czr-base-fmk/czr-base-fmk.php:579
+#: addons/wfc/back/czr-base-fmk/czr-base-fmk.php:576
 #: core/core-settings-map.php:1256 core/core-settings-map.php:1268
-#: core/czr-base-fmk/czr-base-fmk.php:579
+#: core/czr-base-fmk/czr-base-fmk.php:576
 msgid "Yes"
 msgstr "Oui"
 
 #: addons/wfc/back/classes/class_admin_font_customizer.php:517
-#: addons/wfc/back/czr-base-fmk/czr-base-fmk.php:579
+#: addons/wfc/back/czr-base-fmk/czr-base-fmk.php:576
 #: core/core-settings-map.php:1257 core/core-settings-map.php:1269
-#: core/czr-base-fmk/czr-base-fmk.php:579 inc/czr-front-ccat.php:4084
+#: core/czr-base-fmk/czr-base-fmk.php:576 inc/czr-front-ccat.php:4084
 msgid "No"
 msgstr "Non"
 
@@ -1831,31 +1831,31 @@ msgid "Color value"
 msgstr "Couleur au survol"
 
 #: addons/wfc/back/czr-base-fmk/czr-base-fmk.php:269
-#: core/czr-base-fmk/czr-base-fmk.php:269 core/czr-customize-ccat.php:857
+#: core/czr-base-fmk/czr-base-fmk.php:269 core/czr-customize-ccat.php:865
 #: inc/czr-front-ccat.php:776 inc/czr-front-ccat.php:783
 msgid "Close"
 msgstr "Fermer"
 
 #: addons/wfc/back/czr-base-fmk/czr-base-fmk.php:270
-#: core/czr-base-fmk/czr-base-fmk.php:270 core/czr-customize-ccat.php:858
+#: core/czr-base-fmk/czr-base-fmk.php:270 core/czr-customize-ccat.php:866
 msgid "Not set"
 msgstr "Non défini"
 
 #: addons/wfc/back/czr-base-fmk/czr-base-fmk.php:271
-#: core/czr-base-fmk/czr-base-fmk.php:271 core/czr-customize-ccat.php:862
+#: core/czr-base-fmk/czr-base-fmk.php:271 core/czr-customize-ccat.php:870
 #: core/czr-modules/social-links/index.php:78
 #: core/czr-modules/social-links/social_links_module.php:80
 msgid "Done !"
 msgstr "Fait !"
 
 #: addons/wfc/back/czr-base-fmk/czr-base-fmk.php:273
-#: core/czr-base-fmk/czr-base-fmk.php:273 core/czr-customize-ccat.php:864
-#: core/czr-customize-ccat.php:884
+#: core/czr-base-fmk/czr-base-fmk.php:273 core/czr-customize-ccat.php:872
+#: core/czr-customize-ccat.php:892
 msgid "Learn more about this in the documentation"
 msgstr "En apprendre plus sur cela dans la documentation"
 
 #: addons/wfc/back/czr-base-fmk/czr-base-fmk.php:275
-#: core/czr-base-fmk/czr-base-fmk.php:275 core/czr-customize-ccat.php:886
+#: core/czr-base-fmk/czr-base-fmk.php:275 core/czr-customize-ccat.php:894
 msgid "Options for"
 msgstr "Options pour"
 
@@ -1872,9 +1872,9 @@ msgid "Change Image"
 msgstr "Changer l’image"
 
 #: addons/wfc/back/czr-base-fmk/czr-base-fmk.php:280
-#: addons/wfc/back/czr-base-fmk/czr-base-fmk.php:570
+#: addons/wfc/back/czr-base-fmk/czr-base-fmk.php:567
 #: core/czr-base-fmk/czr-base-fmk.php:280
-#: core/czr-base-fmk/czr-base-fmk.php:570 core/czr-customize-ccat.php:1479
+#: core/czr-base-fmk/czr-base-fmk.php:567 core/czr-customize-ccat.php:1487
 msgid "Remove"
 msgstr "Supprimer"
 
@@ -1893,53 +1893,53 @@ msgstr "Choisir une image"
 msgid "Customizing"
 msgstr "Personnaliser"
 
-#: addons/wfc/back/czr-base-fmk/czr-base-fmk.php:480
-#: core/czr-base-fmk/czr-base-fmk.php:480
+#: addons/wfc/back/czr-base-fmk/czr-base-fmk.php:477
+#: core/czr-base-fmk/czr-base-fmk.php:477
 msgid "ac_set_ajax_czr_tmpl => Security check failed."
 msgstr "ac_set_ajax_czr_tmpl => Le contrôle de sécurité a échoué."
 
-#: addons/wfc/back/czr-base-fmk/czr-base-fmk.php:552
-#: core/czr-base-fmk/czr-base-fmk.php:552
+#: addons/wfc/back/czr-base-fmk/czr-base-fmk.php:549
+#: core/czr-base-fmk/czr-base-fmk.php:549
 msgid "Add New"
 msgstr "Ajouter une nouvelle"
 
-#: addons/wfc/back/czr-base-fmk/czr-base-fmk.php:557
-#: core/czr-base-fmk/czr-base-fmk.php:557
+#: addons/wfc/back/czr-base-fmk/czr-base-fmk.php:554
+#: core/czr-base-fmk/czr-base-fmk.php:554
 msgid "Cancel"
 msgstr "Annuler"
 
-#: addons/wfc/back/czr-base-fmk/czr-base-fmk.php:557
-#: core/czr-base-fmk/czr-base-fmk.php:557
+#: addons/wfc/back/czr-base-fmk/czr-base-fmk.php:554
+#: core/czr-base-fmk/czr-base-fmk.php:554
 msgid "Add it"
 msgstr "L’ajouter"
 
-#: addons/wfc/back/czr-base-fmk/czr-base-fmk.php:578
-#: core/czr-base-fmk/czr-base-fmk.php:578
+#: addons/wfc/back/czr-base-fmk/czr-base-fmk.php:575
+#: core/czr-base-fmk/czr-base-fmk.php:575
 msgid "Are you sure you want to remove : <strong>{{ data.title }} ?</strong>"
 msgstr "Confirmez-vous vouloir supprimer : <strong>{{ data.title }} ?</strong>"
 
-#: addons/wfc/back/czr-base-fmk/czr-base-fmk.php:1694
-#: core/czr-base-fmk/czr-base-fmk.php:1694
+#: addons/wfc/back/czr-base-fmk/czr-base-fmk.php:1691
+#: core/czr-base-fmk/czr-base-fmk.php:1691
 msgid "Set a custom url"
 msgstr "Définir une URL personnalisée"
 
-#: addons/wfc/back/czr-base-fmk/czr-base-fmk.php:1728
-#: addons/wfc/back/czr-base-fmk/czr-base-fmk.php:1928
-#: core/czr-base-fmk/czr-base-fmk.php:1728
-#: core/czr-base-fmk/czr-base-fmk.php:1928
+#: addons/wfc/back/czr-base-fmk/czr-base-fmk.php:1725
+#: addons/wfc/back/czr-base-fmk/czr-base-fmk.php:1925
+#: core/czr-base-fmk/czr-base-fmk.php:1725
+#: core/czr-base-fmk/czr-base-fmk.php:1925
 msgid "ajax_load_available_items => Security check failed."
 msgstr "ajax_load_available_items => Le contrôle de sécurité a échoué."
 
 #. translators: %d: ID of a post
-#: addons/wfc/back/czr-base-fmk/czr-base-fmk.php:1849
-#: addons/wfc/back/czr-base-fmk/czr-base-fmk.php:2058
-#: core/czr-base-fmk/czr-base-fmk.php:1849
-#: core/czr-base-fmk/czr-base-fmk.php:2058
+#: addons/wfc/back/czr-base-fmk/czr-base-fmk.php:1846
+#: addons/wfc/back/czr-base-fmk/czr-base-fmk.php:2055
+#: core/czr-base-fmk/czr-base-fmk.php:1846
+#: core/czr-base-fmk/czr-base-fmk.php:2055
 msgid "#%d (no title)"
 msgstr "#%d (pas de titre)"
 
-#: addons/wfc/back/czr-base-fmk/czr-base-fmk.php:1992
-#: core/czr-base-fmk/czr-base-fmk.php:1992
+#: addons/wfc/back/czr-base-fmk/czr-base-fmk.php:1989
+#: core/czr-base-fmk/czr-base-fmk.php:1989
 msgid "No results found."
 msgstr "Aucun résultat trouvé."
 
@@ -4599,7 +4599,7 @@ msgstr ""
 msgid "Delete slider"
 msgstr "Supprimer ce diaporama"
 
-#: core/czr-admin-ccat.php:1688 core/czr-customize-ccat.php:961
+#: core/czr-admin-ccat.php:1688 core/czr-customize-ccat.php:969
 msgid ""
 "You haven't create any slider yet. Go to the media library, edit your images "
 "and add them to your sliders."
@@ -4717,59 +4717,59 @@ msgstr ""
 msgid "Slider documentation"
 msgstr "Documentation des diaporamas"
 
-#: core/czr-customize-ccat.php:561
+#: core/czr-customize-ccat.php:569
 msgid "More grid design options"
 msgstr "Afficher plus d’options de design"
 
-#: core/czr-customize-ccat.php:590
+#: core/czr-customize-ccat.php:598
 msgid "SITE ICON"
 msgstr "ICÔNE DU SITEs"
 
-#: core/czr-customize-ccat.php:603 core/czr-customize-ccat.php:604
+#: core/czr-customize-ccat.php:611 core/czr-customize-ccat.php:612
 msgid "Upgrade WP"
 msgstr "Mise à jour de WordPress"
 
-#: core/czr-customize-ccat.php:623
+#: core/czr-customize-ccat.php:631
 msgid "This theme requires WordPress 3.4+"
 msgstr "Ce thème nécessite WordPress versions 3.4+"
 
-#: core/czr-customize-ccat.php:626 core/czr-customize-ccat.php:627
+#: core/czr-customize-ccat.php:634 core/czr-customize-ccat.php:635
 msgid "Upgrade Wordpress Now"
 msgstr "Mettre à jour WordPress"
 
-#: core/czr-customize-ccat.php:859 core/czr-modules/social-links/index.php:75
+#: core/czr-customize-ccat.php:867 core/czr-modules/social-links/index.php:75
 #: core/czr-modules/social-links/social_links_module.php:77
 msgid "Rss"
 msgstr "RSS"
 
-#: core/czr-customize-ccat.php:860 core/czr-modules/social-links/index.php:76
+#: core/czr-customize-ccat.php:868 core/czr-modules/social-links/index.php:76
 #: core/czr-modules/social-links/social_links_module.php:78
 msgid "Select a social icon"
 msgstr "Sélectionnez une icône sociale"
 
-#: core/czr-customize-ccat.php:861 core/czr-modules/social-links/index.php:77
+#: core/czr-customize-ccat.php:869 core/czr-modules/social-links/index.php:77
 #: core/czr-modules/social-links/social_links_module.php:79
 msgid "Follow us on"
 msgstr "Suivez-nous sur"
 
-#: core/czr-customize-ccat.php:863 core/czr-modules/social-links/index.php:79
+#: core/czr-customize-ccat.php:871 core/czr-modules/social-links/index.php:79
 #: core/czr-modules/social-links/social_links_module.php:81
 msgid "New Social Link created ! Scroll down to edit it."
 msgstr "Nouveau lien social créé ! Défilez vers le bas pour le modifier."
 
-#: core/czr-customize-ccat.php:867
+#: core/czr-customize-ccat.php:875
 msgid "Close Editor"
 msgstr "Fermer l’éditeur"
 
-#: core/czr-customize-ccat.php:869
+#: core/czr-customize-ccat.php:877
 msgid "New Slide created ! Scroll down to edit it."
 msgstr "Nouvelle diapositive créée ! Défiler vers le bas pour le modifier."
 
-#: core/czr-customize-ccat.php:870
+#: core/czr-customize-ccat.php:878
 msgid "Slide"
 msgstr "Diapositive"
 
-#: core/czr-customize-ccat.php:871
+#: core/czr-customize-ccat.php:879
 msgid ""
 "This option generates a home page slider based on your last posts, starting "
 "from the most recent or the featured (sticky) post(s) if any."
@@ -4777,42 +4777,42 @@ msgstr ""
 "Cette option génère un diaporama de page d’accueil basé sur vos derniers "
 "articles (à partir du plus récent) ou sinon sur les articles (mis en avant)."
 
-#: core/czr-customize-ccat.php:873
+#: core/czr-customize-ccat.php:881
 msgid ""
 "The side on which the menu is revealed depends on the choosen header layout."
 msgstr ""
 "Le côté sur lequel le menu est révélé dépend de la disposition d’en-tête "
 "choisie."
 
-#: core/czr-customize-ccat.php:874
+#: core/czr-customize-ccat.php:882
 msgid "To change the global header layout, %s"
 msgstr "Pour modifier la disposition générale du haut de page, %s"
 
-#: core/czr-customize-ccat.php:877
+#: core/czr-customize-ccat.php:885
 msgid "jump to the Design and Layout section"
 msgstr "aller à la section Design et Disposition"
 
-#: core/czr-customize-ccat.php:878
+#: core/czr-customize-ccat.php:886
 msgid "Change the header layout"
 msgstr "Changer la disposition du haut de page"
 
-#: core/czr-customize-ccat.php:963
+#: core/czr-customize-ccat.php:971
 msgid "Create a slider"
 msgstr "Créer un diaporama"
 
-#: core/czr-customize-ccat.php:964
+#: core/czr-customize-ccat.php:972
 msgid "Need help to create a slider ?"
 msgstr "Besoin d’aide pour créer un diaporama ?"
 
-#: core/czr-customize-ccat.php:966
+#: core/czr-customize-ccat.php:974
 msgid "Check the documentation"
 msgstr "Lire la documentation"
 
-#: core/czr-customize-ccat.php:1478
+#: core/czr-customize-ccat.php:1486
 msgid "Upload"
 msgstr "Charger"
 
-#: core/czr-customize-ccat.php:1552
+#: core/czr-customize-ccat.php:1560
 msgid "Press return or enter to open this panel"
 msgstr "Appuyez sur retour ou entrée pour ouvrir ce panneau"
 

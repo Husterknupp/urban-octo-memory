@@ -2,9 +2,9 @@
 # This file is distributed under the same license as the Themes - Customizr-Pro package.
 msgid ""
 msgstr ""
-"Project-Id-Version: * Customizr-Pro v2.4.8\n"
+"Project-Id-Version: * Customizr-Pro v2.4.12\n"
 "Report-Msgid-Bugs-To: https://presscustomizr.com/contact/\n"
-"POT-Creation-Date: 2021-03-30 16:21:19+00:00\n"
+"POT-Creation-Date: 2021-06-01 13:58:17+00:00\n"
 "PO-Revision-Date: 2017-11-12 08:47:06+0000\n"
 "Language: he_IL\n"
 "MIME-Version: 1.0\n"
@@ -1048,7 +1048,7 @@ msgstr "למדו עוד על קטגוריות בוורדפרס"
 #: addons/fpu/back/classes/class_back_fpu.php:51
 #: addons/wfc/back/classes/class_admin_font_customizer.php:587
 #: addons/wfc/back/czr-base-fmk/czr-base-fmk.php:274
-#: core/czr-base-fmk/czr-base-fmk.php:274 core/czr-customize-ccat.php:885
+#: core/czr-base-fmk/czr-base-fmk.php:274 core/czr-customize-ccat.php:893
 msgid "Settings"
 msgstr "הגדרות"
 
@@ -1142,10 +1142,10 @@ msgstr ""
 #: addons/fpu/front/classes/class_front_fpu.php:536
 #: addons/fpu/front/classes/class_front_fpu.php:782
 #: addons/wfc/back/czr-base-fmk/czr-base-fmk.php:268
-#: addons/wfc/back/czr-base-fmk/czr-base-fmk.php:570
+#: addons/wfc/back/czr-base-fmk/czr-base-fmk.php:567
 #: core/czr-admin-ccat.php:2432 core/czr-base-fmk/czr-base-fmk.php:268
-#: core/czr-base-fmk/czr-base-fmk.php:570 core/czr-customize-ccat.php:856
-#: core/czr-customize-ccat.php:866
+#: core/czr-base-fmk/czr-base-fmk.php:567 core/czr-customize-ccat.php:864
+#: core/czr-customize-ccat.php:874
 #: core/front/models/modules/common/class-model-breadcrumb.php:624
 #: core/front/models/modules/common/class-model-breadcrumb.php:657
 #: core/front/models/modules/common/class-model-breadcrumb.php:672
@@ -1692,16 +1692,16 @@ msgid "Are you sure you want to reset all your font settings to default?"
 msgstr ""
 
 #: addons/wfc/back/classes/class_admin_font_customizer.php:516
-#: addons/wfc/back/czr-base-fmk/czr-base-fmk.php:579
+#: addons/wfc/back/czr-base-fmk/czr-base-fmk.php:576
 #: core/core-settings-map.php:1256 core/core-settings-map.php:1268
-#: core/czr-base-fmk/czr-base-fmk.php:579
+#: core/czr-base-fmk/czr-base-fmk.php:576
 msgid "Yes"
 msgstr "כן"
 
 #: addons/wfc/back/classes/class_admin_font_customizer.php:517
-#: addons/wfc/back/czr-base-fmk/czr-base-fmk.php:579
+#: addons/wfc/back/czr-base-fmk/czr-base-fmk.php:576
 #: core/core-settings-map.php:1257 core/core-settings-map.php:1269
-#: core/czr-base-fmk/czr-base-fmk.php:579 inc/czr-front-ccat.php:4084
+#: core/czr-base-fmk/czr-base-fmk.php:576 inc/czr-front-ccat.php:4084
 msgid "No"
 msgstr "לא"
 
@@ -1806,31 +1806,31 @@ msgid "Color value"
 msgstr ""
 
 #: addons/wfc/back/czr-base-fmk/czr-base-fmk.php:269
-#: core/czr-base-fmk/czr-base-fmk.php:269 core/czr-customize-ccat.php:857
+#: core/czr-base-fmk/czr-base-fmk.php:269 core/czr-customize-ccat.php:865
 #: inc/czr-front-ccat.php:776 inc/czr-front-ccat.php:783
 msgid "Close"
 msgstr "סגירה"
 
 #: addons/wfc/back/czr-base-fmk/czr-base-fmk.php:270
-#: core/czr-base-fmk/czr-base-fmk.php:270 core/czr-customize-ccat.php:858
+#: core/czr-base-fmk/czr-base-fmk.php:270 core/czr-customize-ccat.php:866
 msgid "Not set"
 msgstr "לא הוגדר"
 
 #: addons/wfc/back/czr-base-fmk/czr-base-fmk.php:271
-#: core/czr-base-fmk/czr-base-fmk.php:271 core/czr-customize-ccat.php:862
+#: core/czr-base-fmk/czr-base-fmk.php:271 core/czr-customize-ccat.php:870
 #: core/czr-modules/social-links/index.php:78
 #: core/czr-modules/social-links/social_links_module.php:80
 msgid "Done !"
 msgstr "בוצע!"
 
 #: addons/wfc/back/czr-base-fmk/czr-base-fmk.php:273
-#: core/czr-base-fmk/czr-base-fmk.php:273 core/czr-customize-ccat.php:864
-#: core/czr-customize-ccat.php:884
+#: core/czr-base-fmk/czr-base-fmk.php:273 core/czr-customize-ccat.php:872
+#: core/czr-customize-ccat.php:892
 msgid "Learn more about this in the documentation"
 msgstr "קראו עוד על כך בתיעוד"
 
 #: addons/wfc/back/czr-base-fmk/czr-base-fmk.php:275
-#: core/czr-base-fmk/czr-base-fmk.php:275 core/czr-customize-ccat.php:886
+#: core/czr-base-fmk/czr-base-fmk.php:275 core/czr-customize-ccat.php:894
 msgid "Options for"
 msgstr "אפשרויות עבור"
 
@@ -1847,9 +1847,9 @@ msgid "Change Image"
 msgstr "שינוי תמונה"
 
 #: addons/wfc/back/czr-base-fmk/czr-base-fmk.php:280
-#: addons/wfc/back/czr-base-fmk/czr-base-fmk.php:570
+#: addons/wfc/back/czr-base-fmk/czr-base-fmk.php:567
 #: core/czr-base-fmk/czr-base-fmk.php:280
-#: core/czr-base-fmk/czr-base-fmk.php:570 core/czr-customize-ccat.php:1479
+#: core/czr-base-fmk/czr-base-fmk.php:567 core/czr-customize-ccat.php:1487
 msgid "Remove"
 msgstr "הסרה"
 
@@ -1869,53 +1869,53 @@ msgstr "בחירת תמונה"
 msgid "Customizing"
 msgstr "Customizr"
 
-#: addons/wfc/back/czr-base-fmk/czr-base-fmk.php:480
-#: core/czr-base-fmk/czr-base-fmk.php:480
+#: addons/wfc/back/czr-base-fmk/czr-base-fmk.php:477
+#: core/czr-base-fmk/czr-base-fmk.php:477
 msgid "ac_set_ajax_czr_tmpl => Security check failed."
 msgstr ""
 
-#: addons/wfc/back/czr-base-fmk/czr-base-fmk.php:552
-#: core/czr-base-fmk/czr-base-fmk.php:552
+#: addons/wfc/back/czr-base-fmk/czr-base-fmk.php:549
+#: core/czr-base-fmk/czr-base-fmk.php:549
 msgid "Add New"
 msgstr "הוסף חדש"
 
-#: addons/wfc/back/czr-base-fmk/czr-base-fmk.php:557
-#: core/czr-base-fmk/czr-base-fmk.php:557
+#: addons/wfc/back/czr-base-fmk/czr-base-fmk.php:554
+#: core/czr-base-fmk/czr-base-fmk.php:554
 msgid "Cancel"
 msgstr "ביטול"
 
-#: addons/wfc/back/czr-base-fmk/czr-base-fmk.php:557
-#: core/czr-base-fmk/czr-base-fmk.php:557
+#: addons/wfc/back/czr-base-fmk/czr-base-fmk.php:554
+#: core/czr-base-fmk/czr-base-fmk.php:554
 msgid "Add it"
 msgstr "הוסף"
 
-#: addons/wfc/back/czr-base-fmk/czr-base-fmk.php:578
-#: core/czr-base-fmk/czr-base-fmk.php:578
+#: addons/wfc/back/czr-base-fmk/czr-base-fmk.php:575
+#: core/czr-base-fmk/czr-base-fmk.php:575
 msgid "Are you sure you want to remove : <strong>{{ data.title }} ?</strong>"
 msgstr "האם אתם בטוחים שברצונכם להסיר את : <strong>{{ data.title }} ?</strong>"
 
-#: addons/wfc/back/czr-base-fmk/czr-base-fmk.php:1694
-#: core/czr-base-fmk/czr-base-fmk.php:1694
+#: addons/wfc/back/czr-base-fmk/czr-base-fmk.php:1691
+#: core/czr-base-fmk/czr-base-fmk.php:1691
 msgid "Set a custom url"
 msgstr ""
 
-#: addons/wfc/back/czr-base-fmk/czr-base-fmk.php:1728
-#: addons/wfc/back/czr-base-fmk/czr-base-fmk.php:1928
-#: core/czr-base-fmk/czr-base-fmk.php:1728
-#: core/czr-base-fmk/czr-base-fmk.php:1928
+#: addons/wfc/back/czr-base-fmk/czr-base-fmk.php:1725
+#: addons/wfc/back/czr-base-fmk/czr-base-fmk.php:1925
+#: core/czr-base-fmk/czr-base-fmk.php:1725
+#: core/czr-base-fmk/czr-base-fmk.php:1925
 msgid "ajax_load_available_items => Security check failed."
 msgstr ""
 
 #. translators: %d: ID of a post
-#: addons/wfc/back/czr-base-fmk/czr-base-fmk.php:1849
-#: addons/wfc/back/czr-base-fmk/czr-base-fmk.php:2058
-#: core/czr-base-fmk/czr-base-fmk.php:1849
-#: core/czr-base-fmk/czr-base-fmk.php:2058
+#: addons/wfc/back/czr-base-fmk/czr-base-fmk.php:1846
+#: addons/wfc/back/czr-base-fmk/czr-base-fmk.php:2055
+#: core/czr-base-fmk/czr-base-fmk.php:1846
+#: core/czr-base-fmk/czr-base-fmk.php:2055
 msgid "#%d (no title)"
 msgstr ""
 
-#: addons/wfc/back/czr-base-fmk/czr-base-fmk.php:1992
-#: core/czr-base-fmk/czr-base-fmk.php:1992
+#: addons/wfc/back/czr-base-fmk/czr-base-fmk.php:1989
+#: core/czr-base-fmk/czr-base-fmk.php:1989
 #, fuzzy
 msgid "No results found."
 msgstr "לא נמצאו תוצאות&hellip;"
@@ -4523,7 +4523,7 @@ msgstr "סליידר זה יימחק לצמיתות (תמונות, קריאות 
 msgid "Delete slider"
 msgstr "מחק סליידר"
 
-#: core/czr-admin-ccat.php:1688 core/czr-customize-ccat.php:961
+#: core/czr-admin-ccat.php:1688 core/czr-customize-ccat.php:969
 msgid ""
 "You haven't create any slider yet. Go to the media library, edit your images "
 "and add them to your sliders."
@@ -4635,59 +4635,59 @@ msgstr "למידע נוסף אודות סליידרים, בדקו את עמוד 
 msgid "Slider documentation"
 msgstr "תעוד הסליידר"
 
-#: core/czr-customize-ccat.php:561
+#: core/czr-customize-ccat.php:569
 msgid "More grid design options"
 msgstr "אפשרויות עיצוב רשת נוספות"
 
-#: core/czr-customize-ccat.php:590
+#: core/czr-customize-ccat.php:598
 msgid "SITE ICON"
 msgstr "סמליל האתר"
 
-#: core/czr-customize-ccat.php:603 core/czr-customize-ccat.php:604
+#: core/czr-customize-ccat.php:611 core/czr-customize-ccat.php:612
 msgid "Upgrade WP"
 msgstr "שדרוג WP"
 
-#: core/czr-customize-ccat.php:623
+#: core/czr-customize-ccat.php:631
 msgid "This theme requires WordPress 3.4+"
 msgstr "תבנית זו דורשת גרסת וורדפרס 3.4 ומעלה"
 
-#: core/czr-customize-ccat.php:626 core/czr-customize-ccat.php:627
+#: core/czr-customize-ccat.php:634 core/czr-customize-ccat.php:635
 msgid "Upgrade Wordpress Now"
 msgstr "שדרגו וורדפרס כעת"
 
-#: core/czr-customize-ccat.php:859 core/czr-modules/social-links/index.php:75
+#: core/czr-customize-ccat.php:867 core/czr-modules/social-links/index.php:75
 #: core/czr-modules/social-links/social_links_module.php:77
 msgid "Rss"
 msgstr "RSS"
 
-#: core/czr-customize-ccat.php:860 core/czr-modules/social-links/index.php:76
+#: core/czr-customize-ccat.php:868 core/czr-modules/social-links/index.php:76
 #: core/czr-modules/social-links/social_links_module.php:78
 msgid "Select a social icon"
 msgstr "בחר סמליל רשת חברתית"
 
-#: core/czr-customize-ccat.php:861 core/czr-modules/social-links/index.php:77
+#: core/czr-customize-ccat.php:869 core/czr-modules/social-links/index.php:77
 #: core/czr-modules/social-links/social_links_module.php:79
 msgid "Follow us on"
 msgstr "עקבו אחרינו ב-"
 
-#: core/czr-customize-ccat.php:863 core/czr-modules/social-links/index.php:79
+#: core/czr-customize-ccat.php:871 core/czr-modules/social-links/index.php:79
 #: core/czr-modules/social-links/social_links_module.php:81
 msgid "New Social Link created ! Scroll down to edit it."
 msgstr "קישור רשת חברתית חדש נוצר! יש לגלול מטה כדי לערוך אותו."
 
-#: core/czr-customize-ccat.php:867
+#: core/czr-customize-ccat.php:875
 msgid "Close Editor"
 msgstr "סגירת העורך"
 
-#: core/czr-customize-ccat.php:869
+#: core/czr-customize-ccat.php:877
 msgid "New Slide created ! Scroll down to edit it."
 msgstr "שקופית חדשה נוצרה! יש לגלול מטה כדי לערוך אותה."
 
-#: core/czr-customize-ccat.php:870
+#: core/czr-customize-ccat.php:878
 msgid "Slide"
 msgstr "שקופית"
 
-#: core/czr-customize-ccat.php:871
+#: core/czr-customize-ccat.php:879
 msgid ""
 "This option generates a home page slider based on your last posts, starting "
 "from the most recent or the featured (sticky) post(s) if any."
@@ -4695,40 +4695,40 @@ msgstr ""
 "אפשרות זו מחוללת סליידר ראשי בדף הבית, המבוסס על הפוסטים האחרונים, החל "
 "מהפוסט האחרון או הפוסטים הדביקים (אם ישנם כאלה)."
 
-#: core/czr-customize-ccat.php:873
+#: core/czr-customize-ccat.php:881
 msgid ""
 "The side on which the menu is revealed depends on the choosen header layout."
 msgstr "הצד בו נגלה התפריט תלוי בפריסה הנבחרת של הכותרת העליונה."
 
-#: core/czr-customize-ccat.php:874
+#: core/czr-customize-ccat.php:882
 msgid "To change the global header layout, %s"
 msgstr "לשינוי פריסת הכותרת הכללית, %s"
 
-#: core/czr-customize-ccat.php:877
+#: core/czr-customize-ccat.php:885
 msgid "jump to the Design and Layout section"
 msgstr "עבור לאיזור העיצוב והפריסה"
 
-#: core/czr-customize-ccat.php:878
+#: core/czr-customize-ccat.php:886
 msgid "Change the header layout"
 msgstr "שנה את פריסת הכותרת הראשית"
 
-#: core/czr-customize-ccat.php:963
+#: core/czr-customize-ccat.php:971
 msgid "Create a slider"
 msgstr "יצירת סליידר"
 
-#: core/czr-customize-ccat.php:964
+#: core/czr-customize-ccat.php:972
 msgid "Need help to create a slider ?"
 msgstr "זקוקים לעזרה ביצירת סליידר?"
 
-#: core/czr-customize-ccat.php:966
+#: core/czr-customize-ccat.php:974
 msgid "Check the documentation"
 msgstr "בדקו את התיעוד"
 
-#: core/czr-customize-ccat.php:1478
+#: core/czr-customize-ccat.php:1486
 msgid "Upload"
 msgstr "טעינה"
 
-#: core/czr-customize-ccat.php:1552
+#: core/czr-customize-ccat.php:1560
 msgid "Press return or enter to open this panel"
 msgstr "הקש על RETURN או ENTER כדי לפתוח פאנל זה"
 
