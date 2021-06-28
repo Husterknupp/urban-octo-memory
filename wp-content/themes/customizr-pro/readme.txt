@@ -1,4 +1,4 @@
-# Customizr Pro v2.4.12
+# Customizr Pro v2.4.13
 ![Customizr - Pro](/screenshot.png)
 
 > The pro version of the popular Customizr WordPress theme.

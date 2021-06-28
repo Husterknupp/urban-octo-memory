@@ -2,9 +2,9 @@
 # This file is distributed under the same license as the Themes - Customizr-Pro package.
 msgid ""
 msgstr ""
-"Project-Id-Version: * Customizr-Pro v2.4.12\n"
+"Project-Id-Version: * Customizr-Pro v2.4.13\n"
 "Report-Msgid-Bugs-To: https://presscustomizr.com/contact/\n"
-"POT-Creation-Date: 2021-06-01 13:58:17+00:00\n"
+"POT-Creation-Date: 2021-06-21 14:36:31+00:00\n"
 "PO-Revision-Date: 2017-02-28 22:35:52+0000\n"
 "Language: nl\n"
 "MIME-Version: 1.0\n"
@@ -5306,7 +5306,7 @@ msgstr "Aangeboden door WordPress"
 msgid "The <strong>%1$s</strong> theme requires at least %2$s version %3$s"
 msgstr ""
 
-#: header.php:59 templates/header-no-model.php:33
+#: header.php:52 templates/header-no-model.php:33
 #, fuzzy
 msgid "Skip to content"
 msgstr "Volledige inhoud weergeven"

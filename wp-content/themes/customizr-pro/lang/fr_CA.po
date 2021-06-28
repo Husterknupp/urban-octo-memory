@@ -2,9 +2,9 @@
 # This file is distributed under the same license as the Themes - Customizr-Pro package.
 msgid ""
 msgstr ""
-"Project-Id-Version: * Customizr-Pro v2.4.12\n"
+"Project-Id-Version: * Customizr-Pro v2.4.13\n"
 "Report-Msgid-Bugs-To: https://presscustomizr.com/contact/\n"
-"POT-Creation-Date: 2021-06-01 13:58:17+00:00\n"
+"POT-Creation-Date: 2021-06-21 14:36:31+00:00\n"
 "PO-Revision-Date: 2017-01-19 15:57:50+0000\n"
 "Language: fr_CA\n"
 "MIME-Version: 1.0\n"
@@ -4365,7 +4365,7 @@ msgid ""
 "If you are happy with the theme, say it on wordpress.org and give Customizr "
 "a nice review! <br />(We are addicted to your feedbacks...)"
 msgstr ""
-"Project-Id-Version: * Customizr-Pro v2.4.12\n"
+"Project-Id-Version: * Customizr-Pro v2.4.13\n"
 "évaluant le thème!"
 
 #: core/czr-admin-ccat.php:613
@@ -5320,7 +5320,7 @@ msgstr "Propulsé par WordPress"
 msgid "The <strong>%1$s</strong> theme requires at least %2$s version %3$s"
 msgstr ""
 
-#: header.php:59 templates/header-no-model.php:33
+#: header.php:52 templates/header-no-model.php:33
 #, fuzzy
 msgid "Skip to content"
 msgstr "Afficher le contenu complet"
