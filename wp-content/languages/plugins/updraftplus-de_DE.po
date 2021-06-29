@@ -2,7 +2,7 @@
 # This file is distributed under the same license as the Plugins - UpdraftPlus WordPress Backup Plugin - Stable (latest release) package.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2021-05-25 09:17:44+0000\n"
+"PO-Revision-Date: 2021-06-13 08:23:22+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -11,9 +11,45 @@ msgstr ""
 "Language: de\n"
 "Project-Id-Version: Plugins - UpdraftPlus WordPress Backup Plugin - Stable (latest release)\n"
 
+#: admin.php:1065
+msgid "If you proceed with the restoration then some of the restore options will be lost and you may get unexpected results. See the browser console log for more information."
+msgstr "Wenn du mit der Wiederherstellung fortfährst, werden einige der Wiederherstellungsoptionen verloren gehen und du erhältst möglicherweise unerwartete Ergebnisse. Schau ins Protokoll der Browserkonsole für weitere Informationen."
+
+#: admin.php:1065
+msgid "The number of restore options that will be sent exceeds the configured maximum in your PHP configuration (max_input_vars)."
+msgstr "Die Anzahl an Wiederherstellungsoptionen, die gesendet werden, überschreitet das konfigurierte Maximum in deiner PHP-Konfiguration (max_input_vars)."
+
+#: methods/s3generic.php:139
+msgid "Virtual-host style"
+msgstr "Virtueller-Host-Stil"
+
+#: methods/s3generic.php:138
+msgid "Path style"
+msgstr "Pfad-Stil"
+
 #: methods/s3generic.php:135
 msgid "(Read more)"
 msgstr "(Weiterlesen)"
+
+#: methods/s3generic.php:135
+msgid "Read more about bucket access style"
+msgstr "Mehr über Bucket-Zugriffsstile erfahren"
+
+#: methods/s3generic.php:135
+msgid "Bucket access style"
+msgstr "Bucket-Zugriffsstil"
+
+#: central/translations-updraftplus.php:13
+msgid "Security check. "
+msgstr "Sicherheitsüberprüfung."
+
+#: backup.php:3596
+msgid "two unsuccessful attempts were made to include it, and it will now be omitted from the backup"
+msgstr "es wurden zwei erfolglose Versuche unternommen, ihn einzubinden. Er wird nun von der Sicherung ausgeschlossen"
+
+#: backup.php:3592
+msgid "a second attempt is being made (upon further failure it will be skipped)"
+msgstr "ein zweiter Versuch wird unternommen (bei weiteren Problemen wird er übersprungen)"
 
 #: admin.php:4129
 msgid "(the asterisk character matches zero or more characters)"
@@ -1119,11 +1155,11 @@ msgstr "%s Archive bleiben erhalten"
 
 #: includes/updraftclone/temporary-clone-status.php:376
 msgid "The site data has all been received, and its import has begun."
-msgstr "Die Website-Daten wurden vollständig empfangen und ihr Import hat begonnen."
+msgstr "Die Website-Daten wurden alle empfangen und ihr Import hat begonnen."
 
 #: includes/updraftclone/temporary-clone-status.php:371
 msgid "The sending of the site data has begun. So far %s data archives totalling %s have been received"
-msgstr "Der Versand der Website-Daten hat begonnen. Es wurden %s von insgesamt %s Datenarchive empfangen"
+msgstr "Der Versand der Website-Daten hat begonnen. Bisher wurden %s von insgesamt %s Datenarchiven empfangen"
 
 #: includes/updraftclone/temporary-clone-status.php:367
 msgid "WordPress installed; now awaiting the site data to be sent."
@@ -1137,9 +1173,14 @@ msgstr "Klon bereit"
 msgid "Site data has been deployed"
 msgstr "Seitendaten wurden bereitgestellt"
 
+#: includes/updraftclone/temporary-clone-status.php:84
+#: includes/updraftclone/temporary-clone-status.php:347
+msgid "Deploying site data"
+msgstr "Bereitstellen von Website-Daten"
+
 #: includes/updraftclone/temporary-clone-status.php:75
 msgid "Site data received"
-msgstr "Seitendaten erhalten"
+msgstr "Website-Daten empfangen"
 
 #: includes/updraftclone/temporary-clone-status.php:73
 #: includes/updraftclone/temporary-clone-status.php:344
@@ -1201,7 +1242,7 @@ msgstr "Die Vorbereitung der Klon-Daten wurde abgebrochen."
 
 #: templates/wp-admin/advanced/site-info.php:118
 msgid "log results to console"
-msgstr "Protokollierung der Ergebnisse in der Konsole"
+msgstr "Protokolliere die Ergebnisse in der Konsole"
 
 #: templates/wp-admin/settings/temporary-clone.php:56
 #: templates/wp-admin/settings/temporary-clone.php:76
@@ -1227,6 +1268,10 @@ msgstr "Wenn du möchtest, teste das Upgrade auf eine andere PHP- oder WP-Versio
 #: templates/wp-admin/settings/temporary-clone.php:32
 msgid "Flexible"
 msgstr "Flexibel"
+
+#: templates/wp-admin/settings/temporary-clone.php:31
+msgid "Takes just the time needed to create a backup and send it."
+msgstr "Benötigt nur die Zeit, um eine Sicherung zu erstellen und sie zu senden."
 
 #: templates/wp-admin/settings/temporary-clone.php:31
 msgid "Fast"
